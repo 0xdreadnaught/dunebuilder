@@ -79,6 +79,25 @@ body {
   height: 60px;
 }
 
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.app-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.app-logo:hover {
+  box-shadow: 0 0 12px rgba(232, 196, 106, 0.4);
+  transform: scale(1.08);
+}
+
 .app-title {
   font-size: 23px;
   font-weight: normal;
@@ -323,6 +342,10 @@ body {
   border-top: var(--border-panel);
   margin-top: 2px;
 }
+
+.stats-section-label--health { color: var(--color-health); }
+.stats-section-label--stamina { color: var(--color-stamina); }
+.stats-section-label--energy { color: var(--color-energy); }
 
 .stat-row:nth-child(even) {
   background: var(--color-bg-panel-alt);
@@ -808,4 +831,127 @@ body {
   width: 127px;
   height: calc(5 * 143px + 4 * 9px - 16px);
   object-fit: contain;
+}
+
+/* =============================================
+   ABOUT OVERLAY
+   ============================================= */
+.about-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+.about-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.about-modal {
+  width: min(520px, 90vw);
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-gold-main);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(-6px) scale(0.97);
+  transition: transform 0.22s ease;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 1px rgba(200, 164, 90, 0.3);
+}
+
+.about-overlay.visible .about-modal {
+  transform: translateY(0) scale(1);
+}
+
+.about-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: var(--border-accent);
+}
+
+.about-title {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-main);
+}
+
+.about-body {
+  padding: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-logo {
+  width: calc(100% - 24px);
+  height: auto;
+  display: block;
+  margin: 12px 12px 20px;
+}
+
+.about-app-name {
+  font-size: 26px;
+  font-weight: normal;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-bright);
+  text-shadow: 0 0 18px rgba(232, 196, 106, 0.25);
+  margin-bottom: 6px;
+  padding: 0 36px;
+}
+
+.about-version {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--color-text-primary);
+  margin-bottom: 20px;
+  padding: 0 36px;
+}
+
+.about-description {
+  font-size: 15px;
+  color: var(--color-text-primary);
+  line-height: 1.7;
+  margin-bottom: 0;
+  padding: 0 36px;
+}
+
+.about-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--color-gold-dim);
+  margin: 24px auto;
+}
+
+.about-thanks {
+  text-align: center;
+  padding: 0 36px 32px;
+}
+
+.about-thanks-title {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold-main);
+  font-weight: normal;
+  margin-bottom: 8px;
+}
+
+.about-thanks-names {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  line-height: 1.6;
 }

@@ -11,6 +11,7 @@ function createWindow() {
     width: 1020,
     height: 1025,
     resizable: false,
+    icon: path.join(__dirname, 'dunebuilder_logo_512.png'),
     backgroundColor: '#0d0b08',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
@@ -32,6 +33,8 @@ app.whenReady().then(() => {
   ipcMain.handle('clipboard:write', (_, text) => {
     clipboard.writeText(text);
   });
+
+  ipcMain.handle('app:version', () => app.getVersion());
 
   ipcMain.handle('update:check', () => checkForUpdate());
 

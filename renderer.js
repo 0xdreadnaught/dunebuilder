@@ -222,44 +222,18 @@ function renderDefCalcs(container, equipped) {
   const hasShield = !!equippedItems['holtzman'];
   const hasPack   = !!equippedItems['pack'];
 
-  const heading = document.createElement('div');
-  heading.className = 'stats-section-label';
-  heading.textContent = 'Shield';
-  container.appendChild(heading);
-
-  if (!hasShield || !hasPack) {
-    const p = document.createElement('p');
-    p.className = 'empty-state';
-    p.textContent = (!hasShield && !hasPack) ? 'Equip a shield and power pack'
-                  : !hasShield               ? 'No shield equipped'
-                  :                            'No power pack equipped';
-    container.appendChild(p);
-  } else {
-    if (powerPool !== null && powerDrain !== null) {
-      const endurance = Math.round(powerPool / (powerDrain / 100));
-      container.appendChild(createStatRow('Max Damage Absorbed', endurance.toLocaleString()));
-    }
-
-    if (powerPool !== null && regenPerSec !== null) {
-      const recharge = (powerPool / regenPerSec).toFixed(1);
-      container.appendChild(createStatRow('Full Recharge', `${recharge}s`));
-    }
-  }
-
-  // EHP section
+  // --- EHP section (red — matches Health) ---
   const ehpHeading = document.createElement('div');
-  ehpHeading.className = 'stats-section-label';
-  ehpHeading.textContent = 'EHP';
+  ehpHeading.className = 'stats-section-label stats-section-label--health';
+  ehpHeading.textContent = 'Effective Health Pool (EHP)';
   container.appendChild(ehpHeading);
 
   const maxHealth = lastCharacterPanel?.Health
     ? (parseResource(lastCharacterPanel.Health)?.max ?? null) : null;
 
-  // Armor mitigation: derive from equipped gear Armor Value via Armor / (Armor + 500)
   const totalArmor = equipped['Armor Value'] ?? 0;
   const armorMit = totalArmor > 0 ? (totalArmor / (totalArmor + 500)) * 100 : null;
 
-  // Type mitigations: sum gear stats + pasted build totals
   const DAMAGE_TYPES = [
     ['vs Light Dart',  'Light Dart Mitigation'],
     ['vs Heavy Dart',  'Heavy Dart Mitigation'],
@@ -289,7 +263,6 @@ function renderDefCalcs(container, equipped) {
     noArmor.textContent = 'Equip armor to see EHP';
     container.appendChild(noArmor);
   } else {
-    // Mitigations stack multiplicatively: dmg_taken = (1 - armorMit) * (1 - typeMit)
     const ehpFromMit = (armorPct, typePct) => {
       const armorMul = Math.max(0.001, 1 - armorPct / 100);
       const typeMul  = 1 - typePct / 100;
@@ -312,9 +285,9 @@ function renderDefCalcs(container, equipped) {
     });
   }
 
-  // Stamina / Dash section
+  // --- Stamina / Dash section (green — matches Stamina) ---
   const staminaHeading = document.createElement('div');
-  staminaHeading.className = 'stats-section-label';
+  staminaHeading.className = 'stats-section-label stats-section-label--stamina';
   staminaHeading.textContent = 'Stamina';
   container.appendChild(staminaHeading);
 
@@ -334,6 +307,31 @@ function renderDefCalcs(container, equipped) {
     const rawRounded = Math.round(rawDashes * 10) / 10;
     const effectiveDashes = Math.ceil(rawRounded);
     container.appendChild(createStatRow('Max Dashes', `${effectiveDashes} (${rawRounded.toFixed(1)})`));
+  }
+
+  // --- Shield section (blue — matches Power) ---
+  const heading = document.createElement('div');
+  heading.className = 'stats-section-label stats-section-label--energy';
+  heading.textContent = 'Shield';
+  container.appendChild(heading);
+
+  if (!hasShield || !hasPack) {
+    const p = document.createElement('p');
+    p.className = 'empty-state';
+    p.textContent = (!hasShield && !hasPack) ? 'Equip a shield and power pack'
+                  : !hasShield               ? 'No shield equipped'
+                  :                            'No power pack equipped';
+    container.appendChild(p);
+  } else {
+    if (powerPool !== null && powerDrain !== null) {
+      const endurance = Math.round(powerPool / (powerDrain / 100));
+      container.appendChild(createStatRow('Max Damage Absorbed', endurance.toLocaleString()));
+    }
+
+    if (powerPool !== null && regenPerSec !== null) {
+      const recharge = (powerPool / regenPerSec).toFixed(1);
+      container.appendChild(createStatRow('Full Recharge', `${recharge}s`));
+    }
   }
 }
 
@@ -701,6 +699,32 @@ function clearSlot(slotEl) {
     const filtered = currentPickerItems.filter(i => i.name.toLowerCase().includes(query));
     renderPickerItems(filtered, currentPickerSlotType);
   });
+})();
+
+// =============================================
+// ABOUT
+// =============================================
+
+function openAbout() {
+  const overlay = document.getElementById('about-overlay');
+  requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('visible')));
+}
+
+function closeAbout() {
+  document.getElementById('about-overlay').classList.remove('visible');
+}
+
+document.getElementById('app-logo').addEventListener('click', openAbout);
+document.getElementById('about-close').addEventListener('click', closeAbout);
+document.getElementById('about-overlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeAbout();
+});
+
+(async () => {
+  try {
+    const version = await window.electronAPI.getVersion();
+    document.getElementById('about-version').textContent = `v${version}`;
+  } catch { /* fallback to hardcoded version in HTML */ }
 })();
 
 // =============================================

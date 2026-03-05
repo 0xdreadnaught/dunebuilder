@@ -11,7 +11,10 @@
 <body>
 
   <header class="app-header">
-    <h1 class="app-title">DuneBuilder</h1>
+    <div class="app-brand">
+      <img src="dunebuilder_logo_512.png" alt="DuneBuilder" class="app-logo" id="app-logo" title="About DuneBuilder">
+      <h1 class="app-title">DuneBuilder</h1>
+    </div>
     <div class="header-controls">
       <span id="error-message" class="error-message" role="alert"></span>
       <button id="export-btn" class="btn-primary">Export Build</button>
@@ -78,6 +81,26 @@
       <div class="hotbar-slot"><span class="slot-number">8</span></div>
     </div>
   </footer>
+
+  <div id="about-overlay" class="about-overlay">
+    <div class="about-modal">
+      <div class="about-header">
+        <span class="about-title">About</span>
+        <button id="about-close" class="item-picker-close" aria-label="Close">✕</button>
+      </div>
+      <div class="about-body">
+        <img src="dunebuilder_logo_512.png" alt="DuneBuilder" class="about-logo">
+        <h2 class="about-app-name">DuneBuilder</h2>
+        <p class="about-version" id="about-version">v0.0.2</p>
+        <p class="about-description">Character build viewer &amp; theorycrafting tool for Dune: Awakening.<br>Equip gear, paste stats, and plan your loadout.</p>
+        <div class="about-divider"></div>
+        <div class="about-thanks">
+          <h3 class="about-thanks-title">Special Thanks</h3>
+          <p class="about-thanks-names">Funcom, Dune Tools, MethodGG, Vanguard Bravo</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div id="item-picker-overlay" class="item-picker-overlay">
     <div class="item-picker-modal">

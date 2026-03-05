@@ -1,6 +1,6 @@
 {
   "name": "dunebuilder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Character build viewer for Dune: Awakening",
   "main": "main.js",
   "scripts": {
@@ -22,10 +22,12 @@
       "renderer.js",
       "items_garment_t6.json",
       "items_utility.json",
-      "imgs/**/*"
+      "imgs/**/*",
+      "dunebuilder_logo_512.png"
     ],
     "win": {
-      "target": "portable"
+      "target": "portable",
+      "icon": "dunebuilder_logo_512.png"
     },
     "portable": {
       "artifactName": "DuneBuilder-${version}.exe"
