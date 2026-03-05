@@ -1,0 +1,27 @@
+======================================================================
+FINAL BUILD TOTALS
+======================================================================
+{
+    "Armor Value": "1226",
+    "Dash Stamina Cost": "18.6%",
+    "Light Dart Mitigation": "15.0%",
+    "Heavy Dart Mitigation": "15.0%",
+    "Energy Mitigation": "5.0%",
+    "Blade Mitigation": "-24.5%",
+    "Concussive Mitigation": "22.0%",
+    "Heat Protection": "0",
+    "Maximum Power": "761100",
+    "Power Usage": "-10.0%",
+    "Power Pool": "700"
+}
+
+==================================================
+CHARACTER PANEL
+==================================================
+{
+    "Armor": "1900",
+    "Health": "143/205",
+    "Armor Mitigation": "79%",
+    "Stamina": "206/206",
+    "Energy": "790/790"
+}

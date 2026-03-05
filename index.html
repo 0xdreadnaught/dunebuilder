@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' ">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DuneBuilder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <h1 class="app-title">DuneBuilder</h1>
+    <div class="header-controls">
+      <span id="error-message" class="error-message" role="alert"></span>
+      <button id="export-btn" class="btn-primary">Export Build</button>
+      <button id="paste-btn" class="btn-primary">Paste from Clipboard</button>
+    </div>
+  </header>
+
+  <div id="update-banner" class="update-banner" hidden>
+    <span id="update-text" class="update-banner__text"></span>
+    <button id="update-download" class="update-banner__btn">Download</button>
+    <button id="update-dismiss" class="update-banner__dismiss" aria-label="Dismiss">✕</button>
+  </div>
+
+  <main class="build-layout">
+
+    <section class="panel panel--left" aria-label="Character Panel">
+      <h2 class="panel-title">Character</h2>
+      <div id="character-stats" class="stats-list">
+        <p class="empty-state">Paste a build to see stats</p>
+      </div>
+    </section>
+
+    <section class="panel panel--center" aria-label="Equipment">
+      <div class="armor-layout">
+        <div class="armor-slot slot--helm"><span class="slot-label">Helm</span></div>
+        <div class="armor-slot slot--chest"><span class="slot-label">Chest</span></div>
+        <div class="armor-slot slot--pants"><span class="slot-label">Pants</span></div>
+        <div class="armor-slot slot--gloves"><span class="slot-label">Gloves</span></div>
+        <div class="armor-slot slot--boots"><span class="slot-label">Boots</span></div>
+
+        <div class="armor-slot slot--holtzman"><span class="slot-label">Holtzman Shield</span></div>
+        <div class="armor-slot slot--belt"><span class="slot-label">Suspensor Belt</span></div>
+        <div class="armor-slot slot--null"><span class="slot-label">—</span></div>
+        <div class="armor-slot slot--pack"><span class="slot-label">Power Pack</span></div>
+        <div class="armor-slot slot--null"><span class="slot-label">—</span></div>
+      </div>
+    </section>
+
+    <section class="panel panel--right" aria-label="Calculations">
+      <div class="panel-title">
+        Calculations
+        <div class="calc-toggle">
+          <button class="calc-toggle__btn calc-toggle__btn--def active" id="calc-def-btn">Defense</button>
+          <button class="calc-toggle__btn calc-toggle__btn--off" id="calc-off-btn">Offense</button>
+        </div>
+      </div>
+      <div id="build-stats" class="stats-list">
+        <p class="empty-state">Coming soon</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="hotbar">
+    <div class="hotbar-label">Hotbar</div>
+    <div class="hotbar-slots">
+      <div class="hotbar-slot"><span class="slot-number">1</span></div>
+      <div class="hotbar-slot"><span class="slot-number">2</span></div>
+      <div class="hotbar-slot"><span class="slot-number">3</span></div>
+      <div class="hotbar-slot"><span class="slot-number">4</span></div>
+      <div class="hotbar-slot"><span class="slot-number">5</span></div>
+      <div class="hotbar-slot"><span class="slot-number">6</span></div>
+      <div class="hotbar-slot"><span class="slot-number">7</span></div>
+      <div class="hotbar-slot"><span class="slot-number">8</span></div>
+    </div>
+  </footer>
+
+  <div id="item-picker-overlay" class="item-picker-overlay">
+    <div class="item-picker-modal">
+      <div class="item-picker-header">
+        <span id="item-picker-title" class="item-picker-title">Select Slot</span>
+        <button id="item-picker-close" class="item-picker-close" aria-label="Close">✕</button>
+      </div>
+      <div class="item-picker-search-wrapper">
+        <input id="item-picker-search" class="item-picker-search" type="text" placeholder="Search items…" autocomplete="off" spellcheck="false">
+      </div>
+      <div id="item-picker-list" class="item-picker-list"></div>
+    </div>
+  </div>
+
+  <script defer src="renderer.js"></script>
+</body>
+</html>

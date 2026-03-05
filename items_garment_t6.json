@@ -1,0 +1,2666 @@
+[
+  {
+    "slug": "combat_heavy_unique_reinforced_boots_06",
+    "name": "Bulwark Boots",
+    "description": "This <Unique>Unique</> heavy armor has internal layers of reinforced metal to protect House troops from blades and darts, however the bulk of this armor greatly increases stamina costs.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothheavyuniquereinforcedboots06r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 263,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 4.5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothheavyuniquereinforcedboots06r_d.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_heavy_unique_reinforced_top_06",
+    "name": "Bulwark Chest",
+    "description": "This <Unique>Unique</> heavy armor has internal layers of reinforced metal to protect House troops from blades and darts, however the bulk of this armor greatly increases stamina costs.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothheavyuniquereinforcedtop06r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 525,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 9,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -12,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothheavyuniquereinforcedtop06r_d.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_heavy_unique_reinforced_gloves_06",
+    "name": "Bulwark Gloves",
+    "description": "This <Unique>Unique</> heavy armor has internal layers of reinforced metal to protect House troops from blades and darts, however the bulk of this armor greatly increases stamina costs.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothheavyuniquereinforcedgloves06r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 263,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 4.5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothheavyuniquereinforcedgloves06r_d.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_heavy_unique_reinforced_helmet_06",
+    "name": "Bulwark Helmet",
+    "description": "This <Unique>Unique</> heavy armor has internal layers of reinforced metal to protect House troops from blades and darts, however the bulk of this armor greatly increases stamina costs.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothheavyuniquereinforcedhelmet06r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 350,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -8,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothheavyuniquereinforcedhelmet06r_d.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_heavy_unique_reinforced_bottom_06",
+    "name": "Bulwark Leggings",
+    "description": "This <Unique>Unique</> heavy armor has internal layers of reinforced metal to protect House troops from blades and darts, however the bulk of this armor greatly increases stamina costs.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothheavyuniquereinforcedbottom06r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 350,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -8,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothheavyuniquereinforcedbottom06r_d.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_choam_heavy06_boots",
+    "name": "CHOAM Heavy Boots",
+    "description": "Heavy combat boots made of reinforced plastanium providing maximum protection to <GreatHouse>Great House</> troops.",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothchoamheavybootsmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 225,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/t_ui_iconclothchoamheavybootsmaler_d.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_choam_heavy06_top",
+    "name": "CHOAM Heavy Chestplate",
+    "description": "A heavy combat armor made of reinforced plastanium providing maximum protection to <GreatHouse>Great House</> troops.",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothchoamheavytorsomaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 450,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -12,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/t_ui_iconclothchoamheavytorsomaler_d.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_choam_heavy06_gloves",
+    "name": "CHOAM Heavy Gauntlets",
+    "description": "Heavy combat hand armor made of reinforced plastanium providing maximum protection to <GreatHouse>Great House</> troops.",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothchoamheavyglovesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 225,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/t_ui_iconclothchoamheavyglovesmaler_d.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_choam_heavy06_bottom",
+    "name": "CHOAM Heavy Greaves",
+    "description": "Heavy combat leg armor made of reinforced plastanium providing maximum protection to <GreatHouse>Great House</> troops.",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothchoamheavybottommaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 300,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -8,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 4,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/t_ui_iconclothchoamheavybottommaler_d.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_choam_heavy06_helmet",
+    "name": "CHOAM Heavy Helmet",
+    "description": "A heavy combat helmet made of reinforced plastanium providing maximum protection to <GreatHouse>Great House</> troops.",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothchoamheavyheadmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 300,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -8,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 4,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/t_ui_iconclothchoamheavyheadmaler_d.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_choam_light06_boots",
+    "name": "CHOAM Scout Boots",
+    "description": "Lightly armored boots made of plastanium, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothchoamscoutarmourshoesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 125,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/t_ui_iconclothchoamscoutarmourshoesmaler_d.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_choam_light06_top",
+    "name": "CHOAM Scout Chestplate",
+    "description": "A lightly armored top made of plastanium, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothchoamscoutarmourtopmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 250,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/t_ui_iconclothchoamscoutarmourtopmaler_d.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_choam_light06_gloves",
+    "name": "CHOAM Scout Gloves",
+    "description": "Lightly armored gloves made of plastanium, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothchoamscoutarmourglovesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 125,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/t_ui_iconclothchoamscoutarmourglovesmaler_d.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_choam_light06_helmet",
+    "name": "CHOAM Scout Helmet",
+    "description": "A lightly armored helmet made of plastanium, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothchoamscoutarmourhelmetmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 167,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/t_ui_iconclothchoamscoutarmourhelmetmaler_d.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_choam_light06_bottom",
+    "name": "CHOAM Scout Pants",
+    "description": "Lightly armored leggings made of plastanium, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothchoamscoutarmourbottommaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 167,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/t_ui_iconclothchoamscoutarmourbottommaler_d.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "stillsuit_choam_06_top",
+    "name": "CHOAM Stillsuit Body",
+    "description": "Designed by <Fremen>Fremen</>, this stillsuit uses plastanium-fitted tubings and catchpockets to withstand many expeditions.",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothchoamstillsuit01bodymaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 195,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 500,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/t_ui_iconclothchoamstillsuit01bodymaler_d.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "stillsuit_choam_06_boots",
+    "name": "CHOAM Stillsuit Boots",
+    "description": "These <Fremen>Fremen</> designed stillsuit boots utilize plastanium heel pumps in order to facilitate the distillation process.",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothchoamstillsuit01shoesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 59,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/t_ui_iconclothchoamstillsuit01shoesmaler_d.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "stillsuit_choam_06_gloves",
+    "name": "CHOAM Stillsuit Gloves",
+    "description": "Designed by <Fremen>Fremen</>, these stillsuit gloves utilize plastanium fittings to help withstand many expeditions.",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothchoamstillsuit01glovesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 59,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/t_ui_iconclothchoamstillsuit01glovesmaler_d.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "stillsuit_choam_06_mask",
+    "name": "CHOAM Stillsuit Mask",
+    "description": "A <Fremen>Fremen</> stillsuit mask with plastanium fittings, made to withstand many expeditions.",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothchoamstillsuit01hoodmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 78,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/t_ui_iconclothchoamstillsuit01hoodmaler_d.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_heavy_unique_powerefficient_gloves_06",
+    "name": "Circuit Gauntlets",
+    "description": "A <Unique>Unique</> heavy armor gauntlet that recon squads use to optimize power usage on connected Power Packs.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothheavyuniquepowerefficientgloves06r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 263,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Power Usage",
+        "value": -110,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothheavyuniquepowerefficientgloves06r_d.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "stillsuit_choam_unique_dashed06_top",
+    "name": "Crew Chief’s Stillsuit Garment",
+    "description": "It takes years of hard work to reach the rank of Guild Crew Chief. Most chiefs are well into their later years when they earn their promotion, and the wear and tear of a lifetime spent spice harvesting has taken its toll on their bodies. Investing in one of these <Unique>Unique</> ultralight stillsuits is one way to make getting through a twelve hour shift a bit easier. Even those who are still strong and vigorous will benefit from wearing such a suit, as it significantly reduces the stamina cost of dashing.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored06topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 228,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -14.5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 500,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothstillsuituniquearmored06topr_d.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_light_unique_biomeheat_top_06",
+    "name": "Desert Garb",
+    "description": "This <Unique>Unique</> light chest armor is made with breathable material which allows House forces to better survive harsh desert climates.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquebiomheattop06r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 291,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothlightuniquebiomheattop06r_d.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique05_boots",
+    "name": "Executor's Boots",
+    "description": "This <Unique>Unique</> armor is handed out to the legal representatives of CHOAM, such as lawyers and tax collectors. Unfortunately the bright orange CHOAM logo tends to make them more of a target, despite the reinforcement.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique05bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 263,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothneutatredeserterunique05bootsr_d.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique05_top",
+    "name": "Executor's Chestpiece",
+    "description": "This <Unique>Unique</> armor is handed out to the legal representatives of CHOAM, such as lawyers and tax collectors. Unfortunately the bright orange CHOAM logo tends to make them more of a target, despite the reinforcement.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique05topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 525,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -9,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 12,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothneutatredeserterunique05topr_d.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique05_gloves",
+    "name": "Executor's Gauntlets",
+    "description": "This <Unique>Unique</> armor is handed out to the legal representatives of CHOAM, such as lawyers and tax collectors. Unfortunately the bright orange CHOAM logo tends to make them more of a target, despite the reinforcement.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique05glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 263,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothneutatredeserterunique05glovesr_d.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique05_helmet",
+    "name": "Executor's Helmet",
+    "description": "This <Unique>Unique</> armor is handed out to the legal representatives of CHOAM, such as lawyers and tax collectors. Unfortunately the bright orange CHOAM logo tends to make them more of a target, despite the reinforcement.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique05helmetr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 350,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 8,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothneutatredeserterunique05helmetr_d.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique05_bottom",
+    "name": "Executor's Pants",
+    "description": "This <Unique>Unique</> armor is handed out to the legal representatives of CHOAM, such as lawyers and tax collectors. Unfortunately the bright orange CHOAM logo tends to make them more of a target, despite the reinforcement.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique05bottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 350,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 8,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothneutatredeserterunique05bottomr_d.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_light_unique_climbing_gloves_06",
+    "name": "Hook-claw Gloves",
+    "description": "These <Unique>Unique</> light armor gloves assist House troops in climbing, making it less arduous and stamina draining.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniqueclimbinggloves06r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 146,
+        "type": "number"
+      },
+      {
+        "name": "Climbing Stamina Cost:",
+        "value": -115,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothlightuniqueclimbinggloves06r_d.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_light_unique_reducesuspensor_top_06",
+    "name": "Idaho's Charge",
+    "description": "This jacket was jury-rigged by Duncan Idaho to improve his suspensor power during aerial combat bouts. His famous knee charge relies on suspensors to give him additional range. This <Unique>Unique</> jacket features a series of specially designed capacitors to optimize the flow of energy through battery pack and suspensor belt.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquereducesuspensortop06r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 291,
+        "type": "number"
+      },
+      {
+        "name": "Power Drain",
+        "value": 0.8,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothlightuniquereducesuspensortop06r_d.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "stillsuit_unique_armored_06_boots",
+    "name": "Imperial Stillsuit Boots",
+    "description": "This <Unique>Unique</> stillsuit was designed by the finest tailors CHOAM has access to, and every detail has been considered for the comfort and cut. It is also highly armored, which makes it useful in combat. But regardless, the Imperium has never quite managed to replicate the elegant simplicity of Fremen technology.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored06bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 146,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothstillsuituniquearmored06bootsr_d.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "stillsuit_unique_armored_06_top",
+    "name": "Imperial Stillsuit Garment",
+    "description": "This <Unique>Unique</> stillsuit was designed by the finest tailors CHOAM has access to, and every detail has been considered for the comfort and cut. It is also highly armored, which makes it useful in combat. But regardless, the Imperium has never quite managed to replicate the elegant simplicity of Fremen technology.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored06topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 486,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 500,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothstillsuituniquearmored06topr_d.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "stillsuit_unique_armored_06_gloves",
+    "name": "Imperial Stillsuit Gloves",
+    "description": "This <Unique>Unique</> stillsuit was designed by the finest tailors CHOAM has access to, and every detail has been considered for the comfort and cut. It is also highly armored, which makes it useful in combat. But regardless, the Imperium has never quite managed to replicate the elegant simplicity of Fremen technology.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored06glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 146,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothstillsuituniquearmored06glovesr_d.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "stillsuit_unique_armored_06_mask",
+    "name": "Imperial Stillsuit Mask",
+    "description": "This <Unique>Unique</> stillsuit was designed by the finest tailors CHOAM has access to, and every detail has been considered for the comfort and cut. It is also highly armored, which makes it useful in combat. But regardless, the Imperium has never quite managed to replicate the elegant simplicity of Fremen technology.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored06maskr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 194,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothstillsuituniquearmored06maskr_d.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_light_unique_stamina_bottom_06",
+    "name": "Ix-core Leggings",
+    "description": "These <Unique>Unique</> light leggings are equipped with a compression triggered mechanism which stimulates the leg muscles, reducing the stamina drain of dashing.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquestaminabottom06r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 194,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -10,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothlightuniquestaminabottom06r_d.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "stillsuit_unique_heatmitigation_06_mask",
+    "name": "Pardot's Hood",
+    "description": "This <Unique>Unique</> hood is designed to reduce the harm caused by direct sunlight. The famous planetologist, Pardot Kynes, designed this hood for Fremen workers who were helping with his experiments. It has been soaked in the juice of the creosote bush - inhibiting sweating and reducing heat buildup.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquehighmitigation06maskr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 91,
+        "type": "number"
+      },
+      {
+        "name": "Sun Stroke Rate",
+        "value": -30,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothstillsuituniquehighmitigation06maskr_d.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_neut_smugglerdeserterunique06_boots",
+    "name": "Pincushion Boots",
+    "description": "This <Unique>Unique</> armor set uses an experimental plasmeld layer to absorb dart impacts. In the earliest versions, the darts would stick in the gel-like outer layer, leaving the wearer bristling with darts like a pincushion. Though that flaw has been perfected, the name persists.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutsmugdeserterunique06bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 146,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothneutsmugdeserterunique06bootsr_d.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_neut_smugglerdeserterunique06_top",
+    "name": "Pincushion Chestpiece",
+    "description": "This <Unique>Unique</> armor set uses an experimental plasmeld layer to absorb dart impacts. In the earliest versions, the darts would stick in the gel-like outer layer, leaving the wearer bristling with darts like a pincushion. Though that flaw has been perfected, the name persists.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutsmugdeserterunique06topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 291,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothneutsmugdeserterunique06topr_d.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_neut_smugglerdeserterunique06_gloves",
+    "name": "Pincushion Gauntlets",
+    "description": "This <Unique>Unique</> armor set uses an experimental plasmeld layer to absorb dart impacts. In the earliest versions, the darts would stick in the gel-like outer layer, leaving the wearer bristling with darts like a pincushion. Though that flaw has been perfected, the name persists.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutsmugdeserterunique06glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 146,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothneutsmugdeserterunique06glovesr_d.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_neut_smugglerdeserterunique06_helmet",
+    "name": "Pincushion Helmet",
+    "description": "This <Unique>Unique</> armor set uses an experimental plasmeld layer to absorb dart impacts. In the earliest versions, the darts would stick in the gel-like outer layer, leaving the wearer bristling with darts like a pincushion. Though that flaw has been perfected, the name persists.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutsmugdeserterunique06helmetr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 194,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothneutsmugdeserterunique06helmetr_d.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_neut_smugglerdeserterunique06_bottom",
+    "name": "Pincushion Pants",
+    "description": "This <Unique>Unique</> armor set uses an experimental plasmeld layer to absorb dart impacts. In the earliest versions, the darts would stick in the gel-like outer layer, leaving the wearer bristling with darts like a pincushion. Though that flaw has been perfected, the name persists.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutsmugdeserterunique06bottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 194,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothneutsmugdeserterunique06bottomr_d.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_heavy_unique_powerincrease_top_06",
+    "name": "Power Harness",
+    "description": "This <Unique>Unique</> heavy chest armor comes with additional power reserves to assist House forces in mining and suspensor usage.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothheavyuniquepowerincreasetop06r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 525,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Maximum Power",
+        "value": 50,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -12,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothheavyuniquepowerincreasetop06r_d.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "radiation_suit_t6",
+    "name": "Radiation Suit Mk6",
+    "description": "The radiation suit is a <GreatHouse>Great House</> protection garment that can shield the body from exposure to radiological exposure and allow the wearer to fight or otherwise function in a contaminated area. ",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothsmugradiationsuitfullbodymaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 833,
+        "type": "number"
+      },
+      {
+        "name": "Fire Mitigation:",
+        "value": 30,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 93,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 2.4,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/t_ui_iconclothsmugradiationsuitfullbodymaler_d.webp",
+    "slot": "radsuit"
+  },
+  {
+    "slug": "stillsuit_unique_highcapacity_06_top",
+    "name": "Shaddam's Bladder",
+    "description": "This <Unique>Unique</> stillsuit design was originally an extension to the Imperial stillsuit and was manufactured by sycophant in the case of a visit from the Emperor himself. With extra large thighpads and catchpockets, this stillsuit lets the wearer go for days without needing to use a toilet, something which has become a source of much amusement.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquehighcapacity06topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 228,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 1500,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothstillsuituniquehighcapacity06topr_d.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_light_unique_wormthreat_boots_06",
+    "name": "Tabr Softstep Boots",
+    "description": "Found abandoned throughout the former territories of the Fremen, these <Unique>Unique</> boots are made of a strange type of soft leather. Each step in these boots seems to melt into the sand, reducing the vibrations that attract the worm. Sietch Tabr was one of the Fremen sietches that put up little to no resistance during the pogrom, instead melting away quietly.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquewormthreatboots06r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 146,
+        "type": "number"
+      },
+      {
+        "name": "Worm Threat:",
+        "value": -145,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothlightuniquewormthreatboots06r_d.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "radiation_suit_t6_unique_armored",
+    "name": "Tactical Radiation Suit",
+    "description": "It is difficult enough to keep out leaks and maintain the integrity of a radiation suit under normal circumstances, let alone in the chaos of combat. This <Unique>unique</> suit is reinforced with armor and higher radiation mitigation for those unfortunate souls who find themselves fighting in an irradiated hellscape.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c3/gui/textures/icons/gameplay/clothing/t_ui_iconcharclothingsmugradiationsuitt6uniquearmoredr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 1313,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": -20,
+        "type": "number"
+      },
+      {
+        "name": "Fire Mitigation:",
+        "value": 30,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 93,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 2.4,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconcharclothingsmugradiationsuitt6uniquearmoredr_d.webp",
+    "slot": "radsuit"
+  },
+  {
+    "slug": "combat_hark_medunique02_boots",
+    "name": "The Forge Boots",
+    "description": "Stock armor is made of hardened plasmeld. This <Unique>Unique</> armor set is reinforced during the fabrication process - attaching minor heat dissipating components to every molecule within the plasmeld mass. This delivers increased heat resistance and a hard armor.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothharkmedunique02bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 146,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Fire Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Poison Mitigation:",
+        "value": 4.5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothharkmedunique02bootsr_d.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_hark_medunique02_top",
+    "name": "The Forge Chestpiece",
+    "description": "Stock armor is made of hardened plasmeld. This <Unique>Unique</> armor set is reinforced during the fabrication process - attaching minor heat dissipating components to every molecule within the plasmeld mass. This delivers increased heat resistance and a hard armor.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothharkmedunique02topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 291,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Fire Mitigation:",
+        "value": 15,
+        "type": "number"
+      },
+      {
+        "name": "Poison Mitigation:",
+        "value": 9,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothharkmedunique02topr_d.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_hark_medunique02_gloves",
+    "name": "The Forge Gloves",
+    "description": "Stock armor is made of hardened plasmeld. This <Unique>Unique</> armor set is reinforced during the fabrication process - attaching minor heat dissipating components to every molecule within the plasmeld mass. This delivers increased heat resistance and a hard armor.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothharkmedunique02glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 146,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Fire Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Poison Mitigation:",
+        "value": 4.5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothharkmedunique02glovesr_d.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_hark_medunique02_helmet",
+    "name": "The Forge Helmet",
+    "description": "Stock armor is made of hardened plasmeld. This <Unique>Unique</> armor set is reinforced during the fabrication process - attaching minor heat dissipating components to every molecule within the plasmeld mass. This delivers increased heat resistance and a hard armor.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothharkmedunique02helmetr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 194,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Fire Mitigation:",
+        "value": 10,
+        "type": "number"
+      },
+      {
+        "name": "Poison Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothharkmedunique02helmetr_d.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_hark_medunique02_bottom",
+    "name": "The Forge Pants",
+    "description": "Stock armor is made of hardened plasmeld. This <Unique>Unique</> armor set is reinforced during the fabrication process - attaching minor heat dissipating components to every molecule within the plasmeld mass. This delivers increased heat resistance and a hard armor.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothharkmedunique02bottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 194,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Fire Mitigation:",
+        "value": 10,
+        "type": "number"
+      },
+      {
+        "name": "Poison Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothharkmedunique02bottomr_d.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "stillsuit_unique_efficient_06_boots",
+    "name": "Villari's Stillsuit Boots",
+    "description": "After his ordeal in the Deep Desert, Keif Villari became an overnight hero to the members of the Miner's Guild. Cashing in on his fame, this <Unique>Unique</> stillsuit is branded by CHOAM as 'the stillsuit to wear when you're stuck in the desert for forty days'. Villari receives a small royalty for each stillsuit purchased.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniqueefficient06bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 68,
+        "type": "number"
+      },
+      {
+        "name": "Hydration Capture",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothstillsuituniqueefficient06bootsr_d.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "stillsuit_unique_efficient_06_top",
+    "name": "Villari's Stillsuit Garment",
+    "description": "After his ordeal in the Deep Desert, Keif Villari became an overnight hero to the members of the Miner's Guild. Cashing in on his fame, this <Unique>Unique</> stillsuit is branded by CHOAM as 'the stillsuit to wear when you're stuck in the desert for forty days'. Villari receives a small royalty for each stillsuit purchased.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniqueefficient06topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 228,
+        "type": "number"
+      },
+      {
+        "name": "Hydration Capture",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 500,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothstillsuituniqueefficient06topr_d.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "stillsuit_unique_efficient_06_gloves",
+    "name": "Villari's Stillsuit Gloves",
+    "description": "After his ordeal in the Deep Desert, Keif Villari became an overnight hero to the members of the Miner's Guild. Cashing in on his fame, this <Unique>Unique</> stillsuit is branded by CHOAM as 'the stillsuit to wear when you're stuck in the desert for forty days'. Villari receives a small royalty for each stillsuit purchased.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniqueefficient06glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 68,
+        "type": "number"
+      },
+      {
+        "name": "Hydration Capture",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothstillsuituniqueefficient06glovesr_d.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "stillsuit_unique_efficient_06_mask",
+    "name": "Villari's Stillsuit Mask",
+    "description": "After his ordeal in the Deep Desert, Keif Villari became an overnight hero to the members of the Miner's Guild. Cashing in on his fame, this <Unique>Unique</> stillsuit is branded by CHOAM as 'the stillsuit to wear when you're stuck in the desert for forty days'. Villari receives a small royalty for each stillsuit purchased.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniqueefficient06maskr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 91,
+        "type": "number"
+      },
+      {
+        "name": "Hydration Capture",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothstillsuituniqueefficient06maskr_d.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_light_unique_scanning_helmet_06",
+    "name": "Wayfinder Helm",
+    "description": "The electronics in this <Unique>Unique</> helmet connect to hand-held scanners, boosting their scanning range.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquescanninghelmet06r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 194,
+        "type": "number"
+      },
+      {
+        "name": "Scanner Range:",
+        "value": -85,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothlightuniquescanninghelmet06r_d.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_light_unique_dewreap_gloves_06",
+    "name": "Yueh's Reaper Gloves",
+    "description": "The treatment for these gloves was designed by the traitor, Dr Yueh. Originally he was searching for a way to repel blood from gloves during surgeries, but the applications of his water repellant treatment were wider than he imagined. Treated with a small amount of huf-huf oil, these <Unique>Unique</> gloves repel water and prevent any additional dew from escaping while harvesting.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquedewreapgloves06r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [
+      7,
+      8
+    ],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 146,
+        "type": "number"
+      },
+      {
+        "name": "Dew Reaper Yield",
+        "value": -90,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "img": "imgs/t_ui_iconclothlightuniquedewreapgloves06r_d.webp",
+    "slot": "gloves"
+  }
+]

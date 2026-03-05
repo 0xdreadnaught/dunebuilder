@@ -1,0 +1,38 @@
+{
+  "name": "dunebuilder",
+  "version": "1.0.0",
+  "description": "Character build viewer for Dune: Awakening",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win portable",
+    "build:scan": "electron-builder --win portable && node scripts/vt-scan.js"
+  },
+  "build": {
+    "appId": "com.dunebuilder.app",
+    "productName": "DuneBuilder",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "styles.css",
+      "renderer.js",
+      "items_garment_t6.json",
+      "items_utility.json",
+      "imgs/**/*"
+    ],
+    "win": {
+      "target": "portable"
+    },
+    "portable": {
+      "artifactName": "DuneBuilder-${version}.exe"
+    }
+  },
+  "devDependencies": {
+    "electron": "^34.0.0",
+    "electron-builder": "^25.1.8"
+  }
+}

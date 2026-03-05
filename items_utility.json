@@ -1,0 +1,753 @@
+[
+  {
+    "slug": "powerpack_unique_capacity_06",
+    "img": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "name": "Accelerator Power Pack",
+    "description": "An Imperial Testing Station full of radiation and corpses sits in the Deep Desert. It is said the parts of lost House atomics were used to create other devices. This <Unique>Unique</> power pack is charged by a nuclear accelerator, offering a higher than normal durability for those brave enough to use it.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/powerpack/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": [
+      {
+        "name": "Regen per Second:",
+        "value": 64
+      },
+      {
+        "name": "Power Pool:",
+        "value": 900
+      }
+    ]
+  },
+  {
+    "slug": "holtzmanshieldactivedrain_unique_01",
+    "img": "imgs/t_ui_iconwearchoamshield01r_d.webp",
+    "name": "Adaptive Holtzman Shield",
+    "description": "A <Unique>Unique</> personal shielding device that can be manually toggled on and off to deflect incoming darts and blades at the cost of power from a Power Pack. However, the slow blade penetrates the shield and melee combatants will take advantage of this.\n\nThe shield also prevents objects from exiting, thus it will automatically deactivate when firing darts or throwing objects. It will then automatically reactivate according to its refresh time. While active, the shield generates sounds and vibrations that drive sandworms mad. Usage on open sands is not recommended.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/shields/t_ui_iconwearchoamshield01r_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Shield Refresh Time:",
+        "value": 0.5
+      },
+      {
+        "name": "Power Drain (%):",
+        "value": 100
+      }
+    ]
+  },
+  {
+    "slug": "fullsuspensorbelt_unique_durability",
+    "img": "imgs/t_ui_iconwearchoamsuspensorfullreductionr_d.webp",
+    "name": "Elohim-Class Suspensor Belt",
+    "description": "It is said Baron Harkonnen floats into a room with the grotesque majesty of a glutinous god. He owes much of that awe to his superior suspensor belt. This <Unique>Unique</> model likewise bears the markings and fine materials designating it as a custom creation that belonged to, or was meant for, someone of high nobility.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/suspensor/t_ui_iconwearchoamsuspensorfullreductionr_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Power Drain:",
+        "value": 57
+      }
+    ]
+  },
+  {
+    "slug": "fullsuspensorbelt",
+    "img": "imgs/t_ui_iconwearchoamsuspensorfullreductionr_d.webp",
+    "name": "Full Suspensor Belt",
+    "description": "Removes gravity's influence on the user while active, allowing for extending traversal in any vertical direction. Depletes power from a Power Pack when in use. <OldImperial>Old Imperial</> origin.",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/suspensor/t_ui_iconwearchoamsuspensorfullreductionr_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Power Drain:",
+        "value": 57
+      }
+    ]
+  },
+  {
+    "slug": "handheldtorch",
+    "img": "imgs/t_ui_icontool1hchoamhandheldtorch01r_d.webp",
+    "name": "Glowtube",
+    "description": "Can be used to light up dark places. Often used in caves, or even at night, when it is best to go outside.",
+    "tier": 0,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/tools/t_ui_icontool1hchoamhandheldtorch01r_d.webp",
+    "stats": []
+  },
+  {
+    "slug": "holtzmanshieldactivedrain",
+    "img": "imgs/t_ui_iconwearchoamshield01r_d.webp",
+    "name": "Holtzman Shield Mk2",
+    "description": "An <OldImperial>Old Imperial</> personal shielding device that can be manually toggled on and off to deflect incoming darts and blades at the cost of power from a Power Pack. However, the slow blade penetrates the shield and melee combatants will take advantage of this.\n\nThe shield also prevents objects from exiting, thus it will automatically deactivate when firing darts or throwing objects. It will then automatically reactivate according to its refresh time. While active, the shield generates sounds and vibrations that drive sandworms mad. Usage on open sands is not recommended.",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/shields/t_ui_iconwearchoamshield01r_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Shield Refresh Time:",
+        "value": 0.6
+      },
+      {
+        "name": "Power Drain (%):",
+        "value": 115
+      }
+    ]
+  },
+  {
+    "slug": "holtzmanshieldactivedrain2",
+    "img": "imgs/t_ui_iconwearchoamshield01r_d.webp",
+    "name": "Holtzman Shield Mk3",
+    "description": "An <OldImperial>Old Imperial</> personal shielding device that can be manually toggled on and off to deflect incoming darts and blades at the cost of power from a Power Pack. However, the slow blade penetrates the shield and melee combatants will take advantage of this.\n\nThe shield also prevents objects from exiting, thus it will automatically deactivate when firing darts or throwing objects. It will then automatically reactivate according to its refresh time. While active, the shield generates sounds and vibrations that drive sandworms mad. Usage on open sands is not recommended.",
+    "tier": 3,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/shields/t_ui_iconwearchoamshield01r_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Shield Refresh Time:",
+        "value": 0.6
+      },
+      {
+        "name": "Power Drain (%):",
+        "value": 110
+      }
+    ]
+  },
+  {
+    "slug": "holtzmanshieldactivedrain3",
+    "img": "imgs/t_ui_iconwearchoamshield01r_d.webp",
+    "name": "Holtzman Shield Mk5",
+    "description": "An <OldImperial>Old Imperial</> personal shielding device that can be manually toggled on and off to deflect incoming darts and blades at the cost of power from a Power Pack. However, the slow blade penetrates the shield and melee combatants will take advantage of this.\n\nThe shield also prevents objects from exiting, thus it will automatically deactivate when firing darts or throwing objects. It will then automatically reactivate according to its refresh time. While active, the shield generates sounds and vibrations that drive sandworms mad. Usage on open sands is not recommended.",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/shields/t_ui_iconwearchoamshield01r_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Shield Refresh Time:",
+        "value": 0.6
+      },
+      {
+        "name": "Power Drain (%):",
+        "value": 104
+      }
+    ]
+  },
+  {
+    "slug": "powerpack",
+    "img": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "name": "Improvised Power Pack",
+    "description": "Essential item that allows the user to operate equipment that requires power. When all power is depleted, stop the current activity to allow the battery to recharge.",
+    "tier": 0,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/powerpack/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": [
+      {
+        "name": "Regen per Second:",
+        "value": 8
+      },
+      {
+        "name": "Power Pool:",
+        "value": 100
+      }
+    ]
+  },
+  {
+    "slug": "suspensorbelt",
+    "img": "imgs/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "name": "Leap Suspensor Belt",
+    "description": "Reduces gravity's pull on the user, allowing for extended height and distance when jumping. <OldImperial>Old Imperial</> origin. Depletes power from a power pack on use.",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/suspensor/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Power Drain:",
+        "value": 27
+      }
+    ]
+  },
+  {
+    "slug": "powerpack_unique_regen_01",
+    "img": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "name": "Old Sparky Mk1",
+    "description": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for it's constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration.",
+    "tier": 1,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/powerpack/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": [
+      {
+        "name": "Regen per Second:",
+        "value": 13
+      },
+      {
+        "name": "Power Pool:",
+        "value": 125
+      }
+    ]
+  },
+  {
+    "slug": "powerpack_unique_regen_02",
+    "img": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "name": "Old Sparky Mk2",
+    "description": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for its constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration.",
+    "tier": 2,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/powerpack/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": [
+      {
+        "name": "Regen per Second:",
+        "value": 18
+      },
+      {
+        "name": "Power Pool:",
+        "value": 175
+      }
+    ]
+  },
+  {
+    "slug": "powerpack_unique_regen_03",
+    "img": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "name": "Old Sparky Mk3",
+    "description": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for its constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration.",
+    "tier": 3,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/powerpack/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": [
+      {
+        "name": "Regen per Second:",
+        "value": 27
+      },
+      {
+        "name": "Power Pool:",
+        "value": 250
+      }
+    ]
+  },
+  {
+    "slug": "powerpack_unique_regen_04",
+    "img": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "name": "Old Sparky Mk4",
+    "description": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for its constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration.",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/powerpack/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": [
+      {
+        "name": "Regen per Second:",
+        "value": 36
+      },
+      {
+        "name": "Power Pool:",
+        "value": 350
+      }
+    ]
+  },
+  {
+    "slug": "holtzmanshieldactivedrain_story_paranoid",
+    "img": "imgs/t_ui_iconwearchoamshield01r_d.webp",
+    "name": "Paranoid's Holtzman Shield",
+    "description": "A Special Holtzman Shield with increased durability, obtained from defeating the Paranoid assassination target. ",
+    "tier": 0,
+    "rarity": "Memento",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/shields/t_ui_iconwearchoamshield01r_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Shield Refresh Time:",
+        "value": 0.6
+      },
+      {
+        "name": "Power Drain (%):",
+        "value": 104
+      }
+    ]
+  },
+  {
+    "slug": "t2tsp",
+    "img": "imgs/t_ui_iconwearchoamsuspensorpassivereductionr_d.webp",
+    "name": "Passive Suspensor Belt",
+    "description": "Protects user from taking damage from falling. Automatically kicks on at damaging speeds and will persist as long as the user has power. <OldImperial>Old Imperial</> origin.",
+    "tier": 1,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/suspensor/t_ui_iconwearchoamsuspensorpassivereductionr_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Power Drain:",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "slug": "portablelight",
+    "img": "imgs/t_ui_iconwearchoampersonalglowglober_d.webp",
+    "name": "Personal Light",
+    "description": "A Personal Light for exploration. This model has a toggle feature which allows it to be manually switched on and off.",
+    "tier": 3,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/glowglobes/t_ui_iconwearchoampersonalglowglober_d.webp",
+    "stats": []
+  },
+  {
+    "slug": "partialstabilizationbelt",
+    "img": "imgs/t_ui_iconwearchoamsuspensorpartialstabilizationr_d.webp",
+    "name": "Planar Suspensor Belt",
+    "description": "Stabilizes the user's vertical position and allows them to reposition horizontally. Sluggish repositioning but low power depletion for extended use.",
+    "tier": 3,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/suspensor/t_ui_iconwearchoamsuspensorpartialstabilizationr_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Power Drain:",
+        "value": 27
+      }
+    ]
+  },
+  {
+    "slug": "powerpack5",
+    "img": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "name": "Power Pack Mk1",
+    "description": "Essential item that allows the user to operate equipment that requires power. When all power is depleted, stop the current activity to allow the battery to recharge.",
+    "tier": 1,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/powerpack/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": [
+      {
+        "name": "Regen per Second:",
+        "value": 12
+      },
+      {
+        "name": "Power Pool:",
+        "value": 150
+      }
+    ]
+  },
+  {
+    "slug": "powerpack2",
+    "img": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "name": "Power Pack Mk2",
+    "description": "An improved power pack. This more advanced version has a larger power capacity and regenerates power faster.",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/powerpack/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": [
+      {
+        "name": "Regen per Second:",
+        "value": 16
+      },
+      {
+        "name": "Power Pool:",
+        "value": 200
+      }
+    ]
+  },
+  {
+    "slug": "powerpack6",
+    "img": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "name": "Power Pack Mk3",
+    "description": "Essential item that allows the user to operate equipment that requires power. When all power is depleted, stop the current activity to allow the battery to recharge.",
+    "tier": 3,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/powerpack/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": [
+      {
+        "name": "Regen per Second:",
+        "value": 24
+      },
+      {
+        "name": "Power Pool:",
+        "value": 300
+      }
+    ]
+  },
+  {
+    "slug": "powerpack3",
+    "img": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "name": "Power Pack Mk4",
+    "description": "A power pack with a very large capacity, made for the use of industrial tools and equipment.",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/powerpack/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": [
+      {
+        "name": "Regen per Second:",
+        "value": 32
+      },
+      {
+        "name": "Power Pool:",
+        "value": 400
+      }
+    ]
+  },
+  {
+    "slug": "powerpack7",
+    "img": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "name": "Power Pack Mk5",
+    "description": "Essential item that allows the user to operate equipment that requires power. When all power is depleted, stop the current activity to allow the battery to recharge.",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/powerpack/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": [
+      {
+        "name": "Regen per Second:",
+        "value": 48
+      },
+      {
+        "name": "Power Pool:",
+        "value": 600
+      }
+    ]
+  },
+  {
+    "slug": "powerpack4",
+    "img": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "name": "Power Pack Mk6",
+    "description": "The first generation of power packs were quite unstable and had a unfortunate habit of blowing its user to smithereens. The design has since been improved to ensure this happens quite rarely now.",
+    "tier": 6,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/powerpack/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": [
+      {
+        "name": "Regen per Second:",
+        "value": 64
+      },
+      {
+        "name": "Power Pool:",
+        "value": 800
+      }
+    ]
+  },
+  {
+    "slug": "fullstabilizationbelt",
+    "img": "imgs/t_ui_iconwearchoamsuspensorfullstabilizationr_d.webp",
+    "name": "Responsive Planar Suspensor Belt",
+    "description": "Stabilizes the user's vertical position and allows them to reposition horizontally. Responsive repositioning but high power depletion, generally used for advanced combat maneuvers.",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/suspensor/t_ui_iconwearchoamsuspensorfullstabilizationr_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Power Drain:",
+        "value": 27
+      }
+    ]
+  },
+  {
+    "slug": "fullstabilizationbelt_unique_dmgreduction",
+    "img": "imgs/t_ui_iconwearchoamsuspensorfullstabilizationr_d.webp",
+    "name": "Sentinel Belt",
+    "description": "This {Unique} stabilization suspensor belt enables the wearer to rapidly adjust movements to avoid incoming hits while suspended.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/suspensor/t_ui_iconwearchoamsuspensorfullstabilizationr_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Power Drain:",
+        "value": 57
+      }
+    ]
+  },
+  {
+    "slug": "glidepartialstabilizationbelt",
+    "img": "imgs/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "name": "The Emperor's Wings Mk1",
+    "description": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated.",
+    "tier": 1,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/suspensor/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Power Drain:",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "slug": "glidepartialstabilizationbelt_02",
+    "img": "imgs/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "name": "The Emperor's Wings Mk2",
+    "description": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated.",
+    "tier": 2,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/suspensor/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Power Drain:",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "slug": "glidepartialstabilizationbelt_03",
+    "img": "imgs/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "name": "The Emperor's Wings Mk3",
+    "description": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated.",
+    "tier": 3,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/suspensor/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Power Drain:",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "slug": "glidepartialstabilizationbelt_04",
+    "img": "imgs/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "name": "The Emperor's Wings Mk4",
+    "description": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated.",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/suspensor/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Power Drain:",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "slug": "glidepartialstabilizationbelt_05",
+    "img": "imgs/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "name": "The Emperor's Wings Mk5",
+    "description": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/suspensor/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Power Drain:",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "slug": "glidepartialstabilizationbelt_06",
+    "img": "imgs/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "name": "The Emperor's Wings Mk6",
+    "description": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/suspensor/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "stats": [
+      {
+        "name": "Worm Attraction Intensity:",
+        "value": "Extreme"
+      },
+      {
+        "name": "Power Drain:",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "slug": "vehiclebackuptool",
+    "img": "imgs/t_ui_icontool1hchoambackupkey01r_d.webp",
+    "name": "Vehicle Backup Tool",
+    "description": "Use it to store and restore your Sandbike, Scout Ornithopter, or Treadwheel. Can also be used to recover destroyed vehicles for a cost.",
+    "tier": 1,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/tools/t_ui_icontool1hchoambackupkey01r_d.webp",
+    "stats": []
+  },
+  {
+    "slug": "repairtool",
+    "img": "imgs/t_ui_icontool1hchoamvehicleweldingtoolr_d.webp",
+    "name": "Welding Torch Mk1",
+    "description": "A welding torch with low-quality repair capabilities in terms of durability and longevity. Welding Wire is required for repairs. It can also be used to assemble or disassemble vehicles.",
+    "tier": 1,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/tools/t_ui_icontool1hchoamvehicleweldingtoolr_d.webp",
+    "stats": [
+      {
+        "name": "Range",
+        "value": "Short"
+      },
+      {
+        "name": "Repair Quality",
+        "value": 0.7
+      },
+      {
+        "name": "Repair Speed",
+        "value": 125
+      },
+      {
+        "name": "Detach Speed",
+        "value": 12.5
+      },
+      {
+        "name": "Power Consumption",
+        "value": 17.5
+      }
+    ]
+  },
+  {
+    "slug": "repairtool3",
+    "img": "imgs/t_ui_icontool1hchoamvehicleweldingtoolr_d.webp",
+    "name": "Welding Torch Mk3",
+    "description": "A welding torch with average-quality repair capabilities in terms of durability and longevity. Welding Wire is required for repairs. It can also be used to assemble or disassemble vehicles.",
+    "tier": 3,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/tools/t_ui_icontool1hchoamvehicleweldingtoolr_d.webp",
+    "stats": [
+      {
+        "name": "Range",
+        "value": "Medium"
+      },
+      {
+        "name": "Repair Quality",
+        "value": 0.8
+      },
+      {
+        "name": "Repair Speed",
+        "value": 212.6
+      },
+      {
+        "name": "Detach Speed",
+        "value": 40
+      },
+      {
+        "name": "Power Consumption",
+        "value": 34
+      }
+    ]
+  },
+  {
+    "slug": "repairtool5",
+    "img": "imgs/t_ui_icontool1hchoamvehicleweldingtoolr_d.webp",
+    "name": "Welding Torch Mk5",
+    "description": "A welding torch with high-quality repair capabilities in terms of durability and longevity. Welding Wire is required for repairs. It can also be used to assemble or disassemble vehicles.",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/tools/t_ui_icontool1hchoamvehicleweldingtoolr_d.webp",
+    "stats": [
+      {
+        "name": "Range",
+        "value": "Long"
+      },
+      {
+        "name": "Repair Quality",
+        "value": 0.9
+      },
+      {
+        "name": "Repair Speed",
+        "value": 312.5
+      },
+      {
+        "name": "Detach Speed",
+        "value": 85
+      },
+      {
+        "name": "Power Consumption",
+        "value": 68.8
+      }
+    ]
+  },
+  {
+    "slug": "powerpack_unique_regen_05",
+    "img": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "name": "Young Sparky Mk5",
+    "description": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for its constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/powerpack/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": [
+      {
+        "name": "Regen per Second:",
+        "value": 55
+      },
+      {
+        "name": "Power Pool:",
+        "value": 500
+      }
+    ]
+  },
+  {
+    "slug": "powerpack_unique_regen_06",
+    "img": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "name": "Young Sparky Mk6",
+    "description": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for its constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/powerpack/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": [
+      {
+        "name": "Regen per Second:",
+        "value": 73
+      },
+      {
+        "name": "Power Pool:",
+        "value": 700
+      }
+    ]
+  }
+]
