@@ -423,7 +423,9 @@ const SLOT_ORIGINAL_LABELS = {
 };
 
 const equippedItems = {};
+const equippedGrades = {};
 const ARMOR_SLOTS = new Set(['helm', 'chest', 'gloves', 'pants', 'boots']);
+const GARMENT_SLOTS = new Set(['helm', 'chest', 'gloves', 'pants', 'boots']);
 
 function getSlotClass(slotEl) {
   return [...slotEl.classList].find(c => c.startsWith('slot--'));
@@ -527,13 +529,26 @@ function createItemCard(item, slotType) {
   return card;
 }
 
+function mergeBaseWithScaled(baseStats, scaledOverrides) {
+  return baseStats.map(stat => {
+    if (stat.name in scaledOverrides) {
+      return { ...stat, value: scaledOverrides[stat.name] };
+    }
+    return stat;
+  });
+}
+
 function aggregateEquippedStats() {
   const totals = {};
   const seen = new Set();
-  Object.values(equippedItems).forEach(item => {
+  Object.entries(equippedItems).forEach(([slotType, item]) => {
     if (seen.has(item.slug)) return;
     seen.add(item.slug);
-    (item.stats || []).forEach(stat => {
+    const grade = equippedGrades[slotType] || 0;
+    const stats = (grade > 0 && item.scaledStats?.[grade - 1] && Object.keys(item.scaledStats[grade - 1]).length > 0)
+      ? mergeBaseWithScaled(item.stats, item.scaledStats[grade - 1])
+      : item.stats;
+    (stats || []).forEach(stat => {
       if (typeof stat.value !== 'number') return;
       const key = stat.name.replace(/:$/, '');
       totals[key] = (totals[key] || 0) + stat.value;
@@ -605,7 +620,7 @@ function selectItem(slotType, slug) {
   if (!item || !slotType) return;
 
   if (item.slot === 'radsuit') {
-    ARMOR_SLOTS.forEach(s => { equippedItems[s] = item; });
+    ARMOR_SLOTS.forEach(s => { equippedItems[s] = item; delete equippedGrades[s]; });
     document.querySelector('.armor-layout').classList.add('radsuit-active');
     document.querySelectorAll('.armor-slot').forEach(slotEl => {
       if (getSlotType(slotEl) === 'helm') updateSlotDisplay(slotEl, item);
@@ -613,7 +628,7 @@ function selectItem(slotType, slug) {
   } else {
     // If a rad suit currently occupies this slot, displace it from all 5 slots first
     if (ARMOR_SLOTS.has(slotType) && equippedItems[slotType]?.slot === 'radsuit') {
-      ARMOR_SLOTS.forEach(s => { delete equippedItems[s]; });
+      ARMOR_SLOTS.forEach(s => { delete equippedItems[s]; delete equippedGrades[s]; });
       document.querySelector('.armor-layout').classList.remove('radsuit-active');
       document.querySelectorAll('.armor-slot').forEach(el => {
         const st = getSlotType(el);
@@ -625,6 +640,7 @@ function selectItem(slotType, slug) {
       });
     }
     equippedItems[slotType] = item;
+    if (GARMENT_SLOTS.has(slotType)) equippedGrades[slotType] = 0;
     document.querySelectorAll('.armor-slot').forEach(slotEl => {
       if (getSlotType(slotEl) === slotType) updateSlotDisplay(slotEl, item);
     });
@@ -632,6 +648,91 @@ function selectItem(slotType, slug) {
 
   closeItemPicker();
   refreshPanels();
+}
+
+function createGradeRing(slotType) {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', '0 0 42 42');
+  svg.classList.add('armor-slot__grade');
+
+  // Block clicks anywhere on the ring SVG from opening the item picker
+  svg.addEventListener('click', e => e.stopPropagation());
+
+  const cx = 21, cy = 21, r = 16;
+  const segCount = 5;
+  const gapDeg = 8;
+  const sliceDeg = 360 / segCount;            // 72° per pie slice (hit zone)
+  const segDeg = sliceDeg - gapDeg;            // visible arc is narrower
+
+  for (let i = 0; i < segCount; i++) {
+    const sliceStart = -90 + i * sliceDeg;
+    const arcStart = sliceStart + gapDeg / 2;  // center the gap
+    const arcEnd = arcStart + segDeg;
+
+    // Pie-slice hit zone (invisible, full wedge)
+    const s1 = (sliceStart * Math.PI) / 180;
+    const s2 = ((sliceStart + sliceDeg) * Math.PI) / 180;
+    const hx1 = cx + r * Math.cos(s1), hy1 = cy + r * Math.sin(s1);
+    const hx2 = cx + r * Math.cos(s2), hy2 = cy + r * Math.sin(s2);
+    const hitD = `M ${cx} ${cy} L ${hx1} ${hy1} A ${r} ${r} 0 0 1 ${hx2} ${hy2} Z`;
+
+    const hitzone = document.createElementNS(NS, 'path');
+    hitzone.setAttribute('d', hitD);
+    hitzone.classList.add('grade-hitzone');
+    hitzone.addEventListener('click', e => {
+      e.stopPropagation();
+      const clicked = i + 1;
+      equippedGrades[slotType] = (equippedGrades[slotType] === clicked) ? 0 : clicked;
+      updateGradeSegments(svg, slotType);
+      refreshPanels();
+    });
+
+    // Visible arc segment
+    const a1 = (arcStart * Math.PI) / 180;
+    const a2 = (arcEnd * Math.PI) / 180;
+    const x1 = cx + r * Math.cos(a1), y1 = cy + r * Math.sin(a1);
+    const x2 = cx + r * Math.cos(a2), y2 = cy + r * Math.sin(a2);
+    const d = `M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`;
+
+    const arc = document.createElementNS(NS, 'path');
+    arc.setAttribute('d', d);
+    arc.classList.add('grade-segment');
+    arc.dataset.grade = String(i + 1);
+
+    const grade = equippedGrades[slotType] || 0;
+    if (i + 1 <= grade) arc.classList.add('active');
+
+    // Hit zone first, then arc — so CSS `+` sibling selector works
+    svg.appendChild(hitzone);
+    svg.appendChild(arc);
+  }
+
+  // Grade number in center
+  const text = document.createElementNS(NS, 'text');
+  text.classList.add('grade-number');
+  text.setAttribute('x', String(cx));
+  text.setAttribute('y', String(cy));
+  text.setAttribute('font-size', '13');
+  text.textContent = '';
+  svg.appendChild(text);
+
+  const grade = equippedGrades[slotType] || 0;
+  if (grade > 0) text.textContent = String(grade);
+  svg.classList.toggle('grade--max', grade === 5);
+
+  return svg;
+}
+
+function updateGradeSegments(svg, slotType) {
+  const grade = equippedGrades[slotType] || 0;
+  svg.querySelectorAll('.grade-segment').forEach(seg => {
+    const g = parseInt(seg.dataset.grade, 10);
+    seg.classList.toggle('active', g <= grade);
+  });
+  const text = svg.querySelector('.grade-number');
+  if (text) text.textContent = grade > 0 ? String(grade) : '';
+  svg.classList.toggle('grade--max', grade === 5);
 }
 
 function updateSlotDisplay(slotEl, item) {
@@ -652,6 +753,11 @@ function updateSlotDisplay(slotEl, item) {
 
   slotEl.appendChild(img);
   slotEl.appendChild(clearBtn);
+
+  const slotType = getSlotType(slotEl);
+  if (slotType && GARMENT_SLOTS.has(slotType) && item.slot !== 'radsuit' && item.scaledStats?.length) {
+    slotEl.appendChild(createGradeRing(slotType));
+  }
 }
 
 function clearSlot(slotEl) {
@@ -659,7 +765,7 @@ function clearSlot(slotEl) {
   const item = slotType ? equippedItems[slotType] : null;
 
   if (item?.slot === 'radsuit') {
-    ARMOR_SLOTS.forEach(s => { delete equippedItems[s]; });
+    ARMOR_SLOTS.forEach(s => { delete equippedItems[s]; delete equippedGrades[s]; });
     document.querySelector('.armor-layout').classList.remove('radsuit-active');
     document.querySelectorAll('.armor-slot').forEach(el => {
       const st = getSlotType(el);
@@ -670,7 +776,7 @@ function clearSlot(slotEl) {
       }
     });
   } else {
-    if (slotType) delete equippedItems[slotType];
+    if (slotType) { delete equippedItems[slotType]; delete equippedGrades[slotType]; }
     const slotClass = getSlotClass(slotEl);
     slotEl.classList.remove('has-item');
     slotEl.title = '';

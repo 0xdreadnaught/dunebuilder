@@ -49,11 +49,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 293.1
+      },
+      {
+        "Armor Value:": 330.6
+      },
+      {
+        "Armor Value:": 368.1
+      },
+      {
+        "Armor Value:": 393.3
+      },
+      {
+        "Armor Value:": 443.3
+      }
     ],
     "img": "imgs/t_ui_iconclothheavyuniquereinforcedboots06r_d.webp",
     "slot": "boots"
@@ -108,11 +118,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 585
+      },
+      {
+        "Armor Value:": 660
+      },
+      {
+        "Armor Value:": 734.9
+      },
+      {
+        "Armor Value:": 785
+      },
+      {
+        "Armor Value:": 885
+      }
     ],
     "img": "imgs/t_ui_iconclothheavyuniquereinforcedtop06r_d.webp",
     "slot": "chest"
@@ -167,11 +187,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 293.1
+      },
+      {
+        "Armor Value:": 330.6
+      },
+      {
+        "Armor Value:": 368.1
+      },
+      {
+        "Armor Value:": 393.3
+      },
+      {
+        "Armor Value:": 443.3
+      }
     ],
     "img": "imgs/t_ui_iconclothheavyuniquereinforcedgloves06r_d.webp",
     "slot": "gloves"
@@ -226,11 +256,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 390
+      },
+      {
+        "Armor Value:": 440
+      },
+      {
+        "Armor Value:": 489.9
+      },
+      {
+        "Armor Value:": 523.4
+      },
+      {
+        "Armor Value:": 590
+      }
     ],
     "img": "imgs/t_ui_iconclothheavyuniquereinforcedhelmet06r_d.webp",
     "slot": "helm"
@@ -285,11 +325,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 390
+      },
+      {
+        "Armor Value:": 440
+      },
+      {
+        "Armor Value:": 489.9
+      },
+      {
+        "Armor Value:": 523.4
+      },
+      {
+        "Armor Value:": 590
+      }
     ],
     "img": "imgs/t_ui_iconclothheavyuniquereinforcedbottom06r_d.webp",
     "slot": "pants"
@@ -338,7 +388,6 @@
         "type": "number"
       }
     ],
-    "scaledStats": [],
     "img": "imgs/t_ui_iconclothchoamheavybootsmaler_d.webp",
     "slot": "boots"
   },
@@ -386,7 +435,6 @@
         "type": "number"
       }
     ],
-    "scaledStats": [],
     "img": "imgs/t_ui_iconclothchoamheavytorsomaler_d.webp",
     "slot": "chest"
   },
@@ -434,7 +482,6 @@
         "type": "number"
       }
     ],
-    "scaledStats": [],
     "img": "imgs/t_ui_iconclothchoamheavyglovesmaler_d.webp",
     "slot": "gloves"
   },
@@ -482,7 +529,6 @@
         "type": "number"
       }
     ],
-    "scaledStats": [],
     "img": "imgs/t_ui_iconclothchoamheavybottommaler_d.webp",
     "slot": "pants"
   },
@@ -530,7 +576,6 @@
         "type": "number"
       }
     ],
-    "scaledStats": [],
     "img": "imgs/t_ui_iconclothchoamheavyheadmaler_d.webp",
     "slot": "helm"
   },
@@ -568,7 +613,6 @@
         "type": "number"
       }
     ],
-    "scaledStats": [],
     "img": "imgs/t_ui_iconclothchoamscoutarmourshoesmaler_d.webp",
     "slot": "boots"
   },
@@ -606,7 +650,6 @@
         "type": "number"
       }
     ],
-    "scaledStats": [],
     "img": "imgs/t_ui_iconclothchoamscoutarmourtopmaler_d.webp",
     "slot": "chest"
   },
@@ -644,7 +687,6 @@
         "type": "number"
       }
     ],
-    "scaledStats": [],
     "img": "imgs/t_ui_iconclothchoamscoutarmourglovesmaler_d.webp",
     "slot": "gloves"
   },
@@ -682,7 +724,6 @@
         "type": "number"
       }
     ],
-    "scaledStats": [],
     "img": "imgs/t_ui_iconclothchoamscoutarmourhelmetmaler_d.webp",
     "slot": "helm"
   },
@@ -720,7 +761,6 @@
         "type": "number"
       }
     ],
-    "scaledStats": [],
     "img": "imgs/t_ui_iconclothchoamscoutarmourbottommaler_d.webp",
     "slot": "pants"
   },
@@ -753,7 +793,6 @@
         "type": "number"
       }
     ],
-    "scaledStats": [],
     "img": "imgs/t_ui_iconclothchoamstillsuit01bodymaler_d.webp",
     "slot": "chest"
   },
@@ -781,7 +820,6 @@
         "type": "number"
       }
     ],
-    "scaledStats": [],
     "img": "imgs/t_ui_iconclothchoamstillsuit01shoesmaler_d.webp",
     "slot": "boots"
   },
@@ -809,7 +847,6 @@
         "type": "number"
       }
     ],
-    "scaledStats": [],
     "img": "imgs/t_ui_iconclothchoamstillsuit01glovesmaler_d.webp",
     "slot": "gloves"
   },
@@ -837,7 +874,6 @@
         "type": "number"
       }
     ],
-    "scaledStats": [],
     "img": "imgs/t_ui_iconclothchoamstillsuit01hoodmaler_d.webp",
     "slot": "helm"
   },
@@ -891,11 +927,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 293.1
+      },
+      {
+        "Armor Value:": 330.6
+      },
+      {
+        "Armor Value:": 368.1
+      },
+      {
+        "Armor Value:": 393.3
+      },
+      {
+        "Armor Value:": 443.3
+      }
     ],
     "img": "imgs/t_ui_iconclothheavyuniquepowerefficientgloves06r_d.webp",
     "slot": "gloves"
@@ -935,11 +981,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 254.1
+      },
+      {
+        "Armor Value:": 286.6
+      },
+      {
+        "Armor Value:": 319.1
+      },
+      {
+        "Armor Value:": 340.9
+      },
+      {
+        "Armor Value:": 384.3
+      }
     ],
     "img": "imgs/t_ui_iconclothstillsuituniquearmored06topr_d.webp",
     "slot": "chest"
@@ -979,11 +1035,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 324.3
+      },
+      {
+        "Armor Value:": 365.8
+      },
+      {
+        "Armor Value:": 407.3
+      },
+      {
+        "Armor Value:": 435.1
+      },
+      {
+        "Armor Value:": 490.5
+      }
     ],
     "img": "imgs/t_ui_iconclothlightuniquebiomheattop06r_d.webp",
     "slot": "chest"
@@ -1033,11 +1099,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 293.1
+      },
+      {
+        "Armor Value:": 330.6
+      },
+      {
+        "Armor Value:": 368.1
+      },
+      {
+        "Armor Value:": 393.3
+      },
+      {
+        "Armor Value:": 443.3
+      }
     ],
     "img": "imgs/t_ui_iconclothneutatredeserterunique05bootsr_d.webp",
     "slot": "boots"
@@ -1087,11 +1163,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 585
+      },
+      {
+        "Armor Value:": 660
+      },
+      {
+        "Armor Value:": 734.9
+      },
+      {
+        "Armor Value:": 785
+      },
+      {
+        "Armor Value:": 885
+      }
     ],
     "img": "imgs/t_ui_iconclothneutatredeserterunique05topr_d.webp",
     "slot": "chest"
@@ -1141,11 +1227,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 293.1
+      },
+      {
+        "Armor Value:": 330.6
+      },
+      {
+        "Armor Value:": 368.1
+      },
+      {
+        "Armor Value:": 393.3
+      },
+      {
+        "Armor Value:": 443.3
+      }
     ],
     "img": "imgs/t_ui_iconclothneutatredeserterunique05glovesr_d.webp",
     "slot": "gloves"
@@ -1195,11 +1291,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 390
+      },
+      {
+        "Armor Value:": 440
+      },
+      {
+        "Armor Value:": 489.9
+      },
+      {
+        "Armor Value:": 523.4
+      },
+      {
+        "Armor Value:": 590
+      }
     ],
     "img": "imgs/t_ui_iconclothneutatredeserterunique05helmetr_d.webp",
     "slot": "helm"
@@ -1249,11 +1355,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 390
+      },
+      {
+        "Armor Value:": 440
+      },
+      {
+        "Armor Value:": 489.9
+      },
+      {
+        "Armor Value:": 523.4
+      },
+      {
+        "Armor Value:": 590
+      }
     ],
     "img": "imgs/t_ui_iconclothneutatredeserterunique05bottomr_d.webp",
     "slot": "pants"
@@ -1298,11 +1414,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 162.7
+      },
+      {
+        "Armor Value:": 183.5
+      },
+      {
+        "Armor Value:": 204.4
+      },
+      {
+        "Armor Value:": 218.3
+      },
+      {
+        "Armor Value:": 246.1
+      }
     ],
     "img": "imgs/t_ui_iconclothlightuniqueclimbinggloves06r_d.webp",
     "slot": "gloves"
@@ -1347,11 +1473,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 324.3
+      },
+      {
+        "Armor Value:": 365.8
+      },
+      {
+        "Armor Value:": 407.3
+      },
+      {
+        "Armor Value:": 435.1
+      },
+      {
+        "Armor Value:": 490.5
+      }
     ],
     "img": "imgs/t_ui_iconclothlightuniquereducesuspensortop06r_d.webp",
     "slot": "chest"
@@ -1381,11 +1517,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 162.7
+      },
+      {
+        "Armor Value:": 183.5
+      },
+      {
+        "Armor Value:": 204.4
+      },
+      {
+        "Armor Value:": 218.3
+      },
+      {
+        "Armor Value:": 246.1
+      }
     ],
     "img": "imgs/t_ui_iconclothstillsuituniquearmored06bootsr_d.webp",
     "slot": "boots"
@@ -1420,11 +1566,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 541.5
+      },
+      {
+        "Armor Value:": 611
+      },
+      {
+        "Armor Value:": 680.3
+      },
+      {
+        "Armor Value:": 726.7
+      },
+      {
+        "Armor Value:": 819.3
+      }
     ],
     "img": "imgs/t_ui_iconclothstillsuituniquearmored06topr_d.webp",
     "slot": "chest"
@@ -1454,11 +1610,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 162.7
+      },
+      {
+        "Armor Value:": 183.5
+      },
+      {
+        "Armor Value:": 204.4
+      },
+      {
+        "Armor Value:": 218.3
+      },
+      {
+        "Armor Value:": 246.1
+      }
     ],
     "img": "imgs/t_ui_iconclothstillsuituniquearmored06glovesr_d.webp",
     "slot": "gloves"
@@ -1488,11 +1654,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 216.2
+      },
+      {
+        "Armor Value:": 243.9
+      },
+      {
+        "Armor Value:": 271.6
+      },
+      {
+        "Armor Value:": 290.1
+      },
+      {
+        "Armor Value:": 327
+      }
     ],
     "img": "imgs/t_ui_iconclothstillsuituniquearmored06maskr_d.webp",
     "slot": "helm"
@@ -1532,11 +1708,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 216.2
+      },
+      {
+        "Armor Value:": 243.9
+      },
+      {
+        "Armor Value:": 271.6
+      },
+      {
+        "Armor Value:": 290.1
+      },
+      {
+        "Armor Value:": 327
+      }
     ],
     "img": "imgs/t_ui_iconclothlightuniquestaminabottom06r_d.webp",
     "slot": "pants"
@@ -1571,11 +1757,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 101.4
+      },
+      {
+        "Armor Value:": 114.4
+      },
+      {
+        "Armor Value:": 127.4
+      },
+      {
+        "Armor Value:": 136.1
+      },
+      {
+        "Armor Value:": 153.4
+      }
     ],
     "img": "imgs/t_ui_iconclothstillsuituniquehighmitigation06maskr_d.webp",
     "slot": "helm"
@@ -1630,11 +1826,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 162.7
+      },
+      {
+        "Armor Value:": 183.5
+      },
+      {
+        "Armor Value:": 204.4
+      },
+      {
+        "Armor Value:": 218.3
+      },
+      {
+        "Armor Value:": 246.1
+      }
     ],
     "img": "imgs/t_ui_iconclothneutsmugdeserterunique06bootsr_d.webp",
     "slot": "boots"
@@ -1689,11 +1895,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 324.3
+      },
+      {
+        "Armor Value:": 365.8
+      },
+      {
+        "Armor Value:": 407.3
+      },
+      {
+        "Armor Value:": 435.1
+      },
+      {
+        "Armor Value:": 490.5
+      }
     ],
     "img": "imgs/t_ui_iconclothneutsmugdeserterunique06topr_d.webp",
     "slot": "chest"
@@ -1748,11 +1964,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 162.7
+      },
+      {
+        "Armor Value:": 183.5
+      },
+      {
+        "Armor Value:": 204.4
+      },
+      {
+        "Armor Value:": 218.3
+      },
+      {
+        "Armor Value:": 246.1
+      }
     ],
     "img": "imgs/t_ui_iconclothneutsmugdeserterunique06glovesr_d.webp",
     "slot": "gloves"
@@ -1807,11 +2033,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 216.2
+      },
+      {
+        "Armor Value:": 243.9
+      },
+      {
+        "Armor Value:": 271.6
+      },
+      {
+        "Armor Value:": 290.1
+      },
+      {
+        "Armor Value:": 327
+      }
     ],
     "img": "imgs/t_ui_iconclothneutsmugdeserterunique06helmetr_d.webp",
     "slot": "helm"
@@ -1866,11 +2102,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 216.2
+      },
+      {
+        "Armor Value:": 243.9
+      },
+      {
+        "Armor Value:": 271.6
+      },
+      {
+        "Armor Value:": 290.1
+      },
+      {
+        "Armor Value:": 327
+      }
     ],
     "img": "imgs/t_ui_iconclothneutsmugdeserterunique06bottomr_d.webp",
     "slot": "pants"
@@ -1925,11 +2171,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 585
+      },
+      {
+        "Armor Value:": 660
+      },
+      {
+        "Armor Value:": 734.9
+      },
+      {
+        "Armor Value:": 785
+      },
+      {
+        "Armor Value:": 885
+      }
     ],
     "img": "imgs/t_ui_iconclothheavyuniquepowerincreasetop06r_d.webp",
     "slot": "chest"
@@ -1968,7 +2224,6 @@
         "type": "number"
       }
     ],
-    "scaledStats": [],
     "img": "imgs/t_ui_iconclothsmugradiationsuitfullbodymaler_d.webp",
     "slot": "radsuit"
   },
@@ -2002,11 +2257,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 254.1
+      },
+      {
+        "Armor Value:": 286.6
+      },
+      {
+        "Armor Value:": 319.1
+      },
+      {
+        "Armor Value:": 340.9
+      },
+      {
+        "Armor Value:": 384.3
+      }
     ],
     "img": "imgs/t_ui_iconclothstillsuituniquehighcapacity06topr_d.webp",
     "slot": "chest"
@@ -2051,11 +2316,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 162.7
+      },
+      {
+        "Armor Value:": 183.5
+      },
+      {
+        "Armor Value:": 204.4
+      },
+      {
+        "Armor Value:": 218.3
+      },
+      {
+        "Armor Value:": 246.1
+      }
     ],
     "img": "imgs/t_ui_iconclothlightuniquewormthreatboots06r_d.webp",
     "slot": "boots"
@@ -2100,11 +2375,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 1463.1
+      },
+      {
+        "Armor Value:": 1650.6
+      },
+      {
+        "Armor Value:": 1837.9
+      },
+      {
+        "Armor Value:": 1963.3
+      },
+      {
+        "Armor Value:": 2213.3
+      }
     ],
     "img": "imgs/t_ui_iconcharclothingsmugradiationsuitt6uniquearmoredr_d.webp",
     "slot": "radsuit"
@@ -2159,11 +2444,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 162.7
+      },
+      {
+        "Armor Value:": 183.5
+      },
+      {
+        "Armor Value:": 204.4
+      },
+      {
+        "Armor Value:": 218.3
+      },
+      {
+        "Armor Value:": 246.1
+      }
     ],
     "img": "imgs/t_ui_iconclothharkmedunique02bootsr_d.webp",
     "slot": "boots"
@@ -2218,11 +2513,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 324.3
+      },
+      {
+        "Armor Value:": 365.8
+      },
+      {
+        "Armor Value:": 407.3
+      },
+      {
+        "Armor Value:": 435.1
+      },
+      {
+        "Armor Value:": 490.5
+      }
     ],
     "img": "imgs/t_ui_iconclothharkmedunique02topr_d.webp",
     "slot": "chest"
@@ -2277,11 +2582,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 162.7
+      },
+      {
+        "Armor Value:": 183.5
+      },
+      {
+        "Armor Value:": 204.4
+      },
+      {
+        "Armor Value:": 218.3
+      },
+      {
+        "Armor Value:": 246.1
+      }
     ],
     "img": "imgs/t_ui_iconclothharkmedunique02glovesr_d.webp",
     "slot": "gloves"
@@ -2336,11 +2651,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 216.2
+      },
+      {
+        "Armor Value:": 243.9
+      },
+      {
+        "Armor Value:": 271.6
+      },
+      {
+        "Armor Value:": 290.1
+      },
+      {
+        "Armor Value:": 327
+      }
     ],
     "img": "imgs/t_ui_iconclothharkmedunique02helmetr_d.webp",
     "slot": "helm"
@@ -2395,11 +2720,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 216.2
+      },
+      {
+        "Armor Value:": 243.9
+      },
+      {
+        "Armor Value:": 271.6
+      },
+      {
+        "Armor Value:": 290.1
+      },
+      {
+        "Armor Value:": 327
+      }
     ],
     "img": "imgs/t_ui_iconclothharkmedunique02bottomr_d.webp",
     "slot": "pants"
@@ -2434,11 +2769,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 75.8
+      },
+      {
+        "Armor Value:": 85.5
+      },
+      {
+        "Armor Value:": 95.2
+      },
+      {
+        "Armor Value:": 101.7
+      },
+      {
+        "Armor Value:": 114.6
+      }
     ],
     "img": "imgs/t_ui_iconclothstillsuituniqueefficient06bootsr_d.webp",
     "slot": "boots"
@@ -2478,11 +2823,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 254.1
+      },
+      {
+        "Armor Value:": 286.6
+      },
+      {
+        "Armor Value:": 319.1
+      },
+      {
+        "Armor Value:": 340.9
+      },
+      {
+        "Armor Value:": 384.3
+      }
     ],
     "img": "imgs/t_ui_iconclothstillsuituniqueefficient06topr_d.webp",
     "slot": "chest"
@@ -2517,11 +2872,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 75.8
+      },
+      {
+        "Armor Value:": 85.5
+      },
+      {
+        "Armor Value:": 95.2
+      },
+      {
+        "Armor Value:": 101.7
+      },
+      {
+        "Armor Value:": 114.6
+      }
     ],
     "img": "imgs/t_ui_iconclothstillsuituniqueefficient06glovesr_d.webp",
     "slot": "gloves"
@@ -2556,11 +2921,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 101.4
+      },
+      {
+        "Armor Value:": 114.4
+      },
+      {
+        "Armor Value:": 127.4
+      },
+      {
+        "Armor Value:": 136.1
+      },
+      {
+        "Armor Value:": 153.4
+      }
     ],
     "img": "imgs/t_ui_iconclothstillsuituniqueefficient06maskr_d.webp",
     "slot": "helm"
@@ -2605,11 +2980,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 216.2
+      },
+      {
+        "Armor Value:": 243.9
+      },
+      {
+        "Armor Value:": 271.6
+      },
+      {
+        "Armor Value:": 290.1
+      },
+      {
+        "Armor Value:": 327
+      }
     ],
     "img": "imgs/t_ui_iconclothlightuniquescanninghelmet06r_d.webp",
     "slot": "helm"
@@ -2654,11 +3039,21 @@
       }
     ],
     "scaledStats": [
-      {},
-      {},
-      {},
-      {},
-      {}
+      {
+        "Armor Value:": 162.7
+      },
+      {
+        "Armor Value:": 183.5
+      },
+      {
+        "Armor Value:": 204.4
+      },
+      {
+        "Armor Value:": 218.3
+      },
+      {
+        "Armor Value:": 246.1
+      }
     ],
     "img": "imgs/t_ui_iconclothlightuniquedewreapgloves06r_d.webp",
     "slot": "gloves"

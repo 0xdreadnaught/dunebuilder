@@ -776,7 +776,7 @@ body {
 .armor-slot__clear {
   position: absolute;
   top: -9px;
-  right: -9px;
+  left: -9px;
   width: 21px;
   height: 21px;
   background: var(--color-bg-void);
@@ -800,8 +800,68 @@ body {
 }
 
 .armor-slot__clear:hover {
-  color: var(--color-gold-bright);
-  border-color: var(--color-gold-main);
+  color: #ff4444;
+  border-color: #ff4444;
+}
+
+/* =============================================
+   GRADE RING — 5-segment arc indicator
+   ============================================= */
+.armor-slot__grade {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 42px;
+  height: 42px;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.grade-segment {
+  fill: none;
+  stroke: rgba(200, 164, 90, 0.2);
+  stroke-width: 4;
+  stroke-linecap: butt;
+  pointer-events: none;
+  transition: stroke 0.15s ease, filter 0.15s ease;
+}
+
+.grade-hitzone {
+  fill: transparent;
+  stroke: none;
+  cursor: pointer;
+}
+
+.grade-hitzone:hover + .grade-segment {
+  stroke: rgba(200, 164, 90, 0.5);
+}
+
+.grade-segment.active {
+  stroke: var(--color-gold-bright);
+  filter: drop-shadow(0 0 3px rgba(232, 196, 106, 0.6));
+}
+
+.grade-hitzone:hover + .grade-segment.active {
+  stroke: var(--color-gold-bright);
+}
+
+/* Grade 5 — spice purple */
+.armor-slot__grade.grade--max .grade-segment.active {
+  stroke: var(--color-spice);
+  filter: drop-shadow(0 0 4px rgba(160, 123, 200, 0.7));
+}
+
+.grade-number {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  fill: var(--color-gold-bright);
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+
+.armor-slot__grade.grade--max .grade-number {
+  fill: var(--color-spice);
 }
 
 /* =============================================
