@@ -3,7 +3,7 @@ const path = require('node:path');
 const https = require('node:https');
 
 // --- Update check config ---
-const GITHUB_REPO = 'briandemant/dunebuilder'; // change to your GitHub owner/repo
+const GITHUB_REPO = '0xdreadnaught/dunebuilder';
 const CURRENT_VERSION = require('./package.json').version;
 
 function createWindow() {
@@ -15,7 +15,8 @@ function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
-      nodeIntegration: false
+      nodeIntegration: false,
+      sandbox: true
     }
   });
 
@@ -35,7 +36,11 @@ app.whenReady().then(() => {
   ipcMain.handle('update:check', () => checkForUpdate());
 
   ipcMain.handle('update:open', (_, url) => {
-    shell.openExternal(url);
+    try {
+      const parsed = new URL(url);
+      if (parsed.protocol !== 'https:' || parsed.hostname !== 'github.com') return;
+      shell.openExternal(url);
+    } catch { /* invalid URL, ignore */ }
   });
 
   createWindow();
