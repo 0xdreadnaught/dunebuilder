@@ -8,7 +8,7 @@
  *
  * If no path is given, it finds the portable exe in dist/.
  * Uploads the file, polls for results, then writes a report file
- * next to the exe (e.g. DuneBuilder-1.0.0.exe.vt-report.txt).
+ * next to the exe (e.g. DuneBuilder-0.0.1.exe.vt-report.txt).
  *
  * Free-tier limits: 4 req/min, 500/day — the script rate-limits itself.
  */
