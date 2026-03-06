@@ -1,6 +1,6 @@
 {
   "name": "dunebuilder",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Character build viewer for Dune: Awakening",
   "main": "main.js",
   "scripts": {

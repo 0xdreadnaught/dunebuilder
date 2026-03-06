@@ -6,6 +6,8 @@
 const EXCLUDED_KEYS = new Set(['Power Pool', 'Armor Value', 'Maximum Power']);
 const RESOURCE_KEYS = new Set(['Health', 'Stamina', 'Energy']);
 const LABEL_OVERRIDES = { 'Energy': 'Power' };
+const STAMINA_REGEN_PCT = 0.25; // ~25% of max stamina per second (estimated)
+const STAMINA_REGEN_DELAY = 1.0; // 1.0s delay before regen starts (patch 1.2.10.0)
 
 // =============================================
 // PARSING
@@ -103,7 +105,7 @@ function createStatRow(label, value) {
   return row;
 }
 
-function createResourceBar(label, { current, max }, cssKey) {
+function createResourceBar(label, { current, max }, cssKey, regenPerSec, regenDelay) {
   const wrapper = document.createElement('div');
   wrapper.className = 'resource-bar-wrapper';
 
@@ -142,6 +144,48 @@ function createResourceBar(label, { current, max }, cssKey) {
     });
   });
 
+  // Click to drain + regen
+  let regenAnim = null;
+  let regenTimeout = null;
+  bar.addEventListener('click', e => {
+    if (regenAnim) { cancelAnimationFrame(regenAnim); regenAnim = null; }
+    if (regenTimeout) { clearTimeout(regenTimeout); regenTimeout = null; }
+
+    const rect = bar.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    let cur = pct * max;
+
+    // Disable CSS transition for instant snap
+    fill.style.transition = 'none';
+    fill.style.width = `${(cur / max) * 100}%`;
+    text.textContent = `${Math.round(cur)} / ${Math.round(max)}`;
+
+    if (regenPerSec && cur < max) {
+      const delayMs = (regenDelay || 0) * 1000;
+      function startRegen() {
+        let lastTime = performance.now();
+        function tick(now) {
+          const dt = (now - lastTime) / 1000;
+          lastTime = now;
+          cur = Math.min(max, cur + regenPerSec * dt);
+          fill.style.width = `${(cur / max) * 100}%`;
+          text.textContent = `${Math.round(cur)} / ${Math.round(max)}`;
+          if (cur < max) {
+            regenAnim = requestAnimationFrame(tick);
+          } else {
+            regenAnim = null;
+          }
+        }
+        regenAnim = requestAnimationFrame(tick);
+      }
+      if (delayMs > 0) {
+        regenTimeout = setTimeout(startRegen, delayMs);
+      } else {
+        startRegen();
+      }
+    }
+  });
+
   return wrapper;
 }
 
@@ -154,6 +198,7 @@ function renderCharacterPanel(data, itemStats) {
   container.innerHTML = '';
 
   const powerPool = getEquippedStat('pack', 'power pool');
+  const powerRegen = getEquippedStat('pack', 'regen per second');
 
   if (!data && !itemStats && powerPool === null) {
     container.innerHTML = '<p class="empty-state">Paste a build to see stats</p>';
@@ -167,14 +212,16 @@ function renderCharacterPanel(data, itemStats) {
       if (RESOURCE_KEYS.has(key)) {
         // Replace Energy bar with Power Pool from equipped pack
         if (key === 'Energy' && powerPool !== null) {
-          container.appendChild(createResourceBar('Power', { current: powerPool, max: powerPool }, 'Energy'));
+          container.appendChild(createResourceBar('Power', { current: powerPool, max: powerPool }, 'Energy', powerRegen));
           renderedPowerBar = true;
           continue;
         }
         const resource = parseResource(value);
         if (resource) {
           const displayLabel = LABEL_OVERRIDES[key] || key;
-          container.appendChild(createResourceBar(displayLabel, resource, key));
+          const regen = key === 'Stamina' ? resource.max * STAMINA_REGEN_PCT : null;
+          const delay = key === 'Stamina' ? STAMINA_REGEN_DELAY : 0;
+          container.appendChild(createResourceBar(displayLabel, resource, key, regen, delay));
           continue;
         }
       }
@@ -184,7 +231,7 @@ function renderCharacterPanel(data, itemStats) {
 
   // Show Power Pool bar even without character panel data
   if (!renderedPowerBar && powerPool !== null) {
-    container.appendChild(createResourceBar('Power', { current: powerPool, max: powerPool }, 'Energy'));
+    container.appendChild(createResourceBar('Power', { current: powerPool, max: powerPool }, 'Energy', powerRegen));
   }
 
   // Remove Power Pool from equipment stats since it's shown as a bar
@@ -291,7 +338,7 @@ function renderDefCalcs(container, equipped) {
   staminaHeading.textContent = 'Stamina';
   container.appendChild(staminaHeading);
 
-  const BASE_DASH_COST = 32;
+  const BASE_DASH_COST = 30;
   const maxStamina = lastCharacterPanel?.Stamina
     ? (parseResource(lastCharacterPanel.Stamina)?.max ?? null)
     : null;

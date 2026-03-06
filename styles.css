@@ -396,6 +396,7 @@ body {
   border: var(--border-panel);
   border-radius: var(--radius-sm);
   overflow: hidden;
+  cursor: pointer;
 }
 
 .resource-bar__fill {
