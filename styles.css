@@ -1101,6 +1101,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 11;
+  pointer-events: none;
 }
 
 /* Augment icon tinting by type */
@@ -1133,6 +1135,15 @@ body {
   transform: translate(-50%, -50%) scale(2.2);
   z-index: 10;
 }
+
+/* Scale augment icon up with grade ring on expand */
+.augment-dot__icon {
+  transition: transform 0.15s ease;
+}
+.augment-dot--applied:has(.grade-ring--expanded) > .augment-dot__icon {
+  transform: translate(-50%, -50%) scale(2.2);
+}
+
 
 .augment-dot__grade .grade-segment {
   stroke-width: 3.5;
@@ -1408,4 +1419,74 @@ body {
   font-size: 14px;
   color: var(--color-text-primary);
   letter-spacing: 0.03em;
+}
+
+/* =============================================
+   TOOLTIP PANEL — bottom of right column
+   ============================================= */
+.tooltip-panel {
+  border-top: var(--border-accent);
+  min-height: 180px;
+  max-height: 40%;
+  overflow-y: auto;
+  flex-shrink: 0;
+  padding: var(--spacing-sm) 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold-dim) transparent;
+}
+
+.tooltip-panel::-webkit-scrollbar { width: 4px; }
+.tooltip-panel::-webkit-scrollbar-track { background: transparent; }
+.tooltip-panel::-webkit-scrollbar-thumb { background: var(--color-gold-dim); border-radius: 2px; }
+
+.tooltip-panel__empty {
+  padding: var(--spacing-lg) var(--spacing-md);
+  color: var(--color-spice);
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+  font-family: var(--font-ui);
+}
+
+.tooltip-panel__name-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.tooltip-panel__name {
+  color: var(--color-gold-bright);
+  font-size: 16px;
+}
+
+.tooltip-panel__badge {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+}
+
+.tooltip-panel__badge.rarity--unique {
+  color: var(--color-gold-bright);
+  border: 1px solid var(--color-gold-muted);
+}
+
+.tooltip-panel__badge.rarity--common {
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-gold-dim);
+}
+
+.tooltip-panel__meta {
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  border-top: var(--border-panel);
+  margin-top: 2px;
+  display: flex;
+  gap: var(--spacing-md);
 }

@@ -589,8 +589,7 @@ function aggregateEquippedStats() {
       if (!aug || !aug.slug) return;
       const augData = AUGMENT_DATA.find(a => a.slug === aug.slug);
       if (!augData) return;
-      const grade = aug.grade || 0;
-      if (grade === 0) return;
+      const grade = aug.grade || 1;
 
       // Apply effects
       (augData.effects || []).forEach(eff => {
@@ -810,7 +809,7 @@ function createGradeRing(slotType) {
   text.classList.add('grade-number');
   text.setAttribute('x', String(cx));
   text.setAttribute('y', String(cy));
-  text.setAttribute('font-size', '13');
+  text.setAttribute('font-size', '20');
   text.textContent = '';
   svg.appendChild(text);
 
@@ -932,6 +931,16 @@ function createAppliedAugmentDot(slotType, dotIndex, augment) {
     openAugmentPicker(slotType, dotIndex);
   });
 
+  // Tooltip — show augment info instead of item info
+  dot.addEventListener('mouseenter', e => {
+    e.stopPropagation();
+    showAugmentTooltip(slotType, dotIndex);
+  });
+  dot.addEventListener('mouseleave', e => {
+    e.stopPropagation();
+    clearTooltip();
+  });
+
   return dot;
 }
 
@@ -980,8 +989,8 @@ function createAugmentGradeRing(slotType, dotIndex, augment) {
       const clicked = i + 1;
       const aug = equippedAugments[slotType]?.[dotIndex];
       if (!aug) return;
-      aug.grade = (aug.grade === clicked) ? 0 : clicked;
-      refreshAugmentDots(slotType);
+      aug.grade = (aug.grade === clicked) ? 1 : clicked;
+      refreshAugmentDots(slotType, dotIndex);
       refreshPanels();
     });
 
@@ -1004,7 +1013,7 @@ function createAugmentGradeRing(slotType, dotIndex, augment) {
     svg.appendChild(arc);
   }
 
-  const grade = augment.grade || 0;
+  const grade = augment.grade || 1;
   svg.classList.toggle('grade--max', grade === 5);
 
   attachGradeHover(svg);
@@ -1038,14 +1047,20 @@ function removeAugment(slotType, dotIndex) {
   refreshPanels();
 }
 
-function refreshAugmentDots(slotType) {
+function refreshAugmentDots(slotType, expandDotIndex) {
   document.querySelectorAll('.armor-slot').forEach(slotEl => {
     if (getSlotType(slotEl) !== slotType) return;
     const existing = slotEl.querySelector('.augment-dots');
     if (existing) existing.remove();
     const item = equippedItems[slotType];
     if (item && GARMENT_SLOTS.has(slotType) && item.slot !== 'radsuit' && item.scaledStats?.length && item.rarity === 'Unique') {
-      slotEl.appendChild(createAugmentDots(slotType));
+      const dots = createAugmentDots(slotType);
+      slotEl.appendChild(dots);
+      if (expandDotIndex != null) {
+        const dot = dots.children[expandDotIndex];
+        const gradeRing = dot?.querySelector('.augment-dot__grade');
+        if (gradeRing) gradeRing.classList.add('grade-ring--expanded');
+      }
     }
   });
 }
@@ -1150,7 +1165,7 @@ function selectAugment(slug) {
   if (!equippedAugments[slotType]) {
     equippedAugments[slotType] = [null, null, null];
   }
-  equippedAugments[slotType][dotIndex] = { slug, grade: 0 };
+  equippedAugments[slotType][dotIndex] = { slug, grade: 1 };
 
   closeAugmentPicker();
   refreshAugmentDots(slotType);
@@ -1212,6 +1227,174 @@ function saveAugmentCustomValue() {
   refreshPanels();
 }
 
+// =============================================
+// TOOLTIP PANEL
+// =============================================
+
+function showTooltip(slotType) {
+  const item = equippedItems[slotType];
+  if (!item) return;
+
+  const panel = document.getElementById('tooltip-panel');
+  panel.innerHTML = '';
+
+  // Name + rarity badge
+  const nameRow = document.createElement('div');
+  nameRow.className = 'tooltip-panel__name-row';
+
+  const nameEl = document.createElement('span');
+  nameEl.className = 'tooltip-panel__name';
+  nameEl.textContent = item.name;
+
+  const badge = document.createElement('span');
+  const rarityClass = item.rarity === 'Unique' ? 'rarity--unique' : 'rarity--common';
+  badge.className = `tooltip-panel__badge ${rarityClass}`;
+  badge.textContent = item.rarity;
+
+  nameRow.appendChild(nameEl);
+  nameRow.appendChild(badge);
+  panel.appendChild(nameRow);
+
+  // Stats — apply grade scaling if applicable
+  let stats = item.stats || [];
+  const grade = equippedGrades[slotType] || 0;
+  if (grade > 0 && item.scaledStats?.[grade - 1]) {
+    stats = mergeBaseWithScaled(stats, item.scaledStats[grade - 1]);
+  }
+
+  stats.forEach(stat => {
+    const row = document.createElement('div');
+    row.className = 'stat-row';
+
+    const label = document.createElement('span');
+    label.className = 'stat-label';
+    label.textContent = stat.name.replace(/:$/, '');
+
+    const value = document.createElement('span');
+    value.className = 'stat-value';
+    value.textContent = formatStatValue(stat.name, stat.value);
+
+    row.appendChild(label);
+    row.appendChild(value);
+    panel.appendChild(row);
+  });
+
+  // Meta line — grade + augments
+  const meta = document.createElement('div');
+  meta.className = 'tooltip-panel__meta';
+  const parts = [];
+
+  if (item.scaledStats?.length && grade > 0) {
+    parts.push(`Grade ${grade}`);
+  }
+
+  if (equippedAugments[slotType]) {
+    const applied = equippedAugments[slotType].filter(a => a !== null).length;
+    const unlocked = augmentSlotUnlocks[slotType] || 0;
+    parts.push(`Augments: ${applied}/${unlocked}`);
+  }
+
+  if (parts.length) {
+    meta.textContent = parts.join('  ·  ');
+    panel.appendChild(meta);
+  }
+}
+
+function showAugmentTooltip(slotType, dotIndex) {
+  const equipped = equippedAugments[slotType]?.[dotIndex];
+  if (!equipped) return;
+
+  const augData = AUGMENT_DATA.find(a => a.slug === equipped.slug);
+  if (!augData) return;
+
+  const panel = document.getElementById('tooltip-panel');
+  panel.innerHTML = '';
+
+  // Name row
+  const nameRow = document.createElement('div');
+  nameRow.className = 'tooltip-panel__name-row';
+  const nameEl = document.createElement('span');
+  nameEl.className = 'tooltip-panel__name';
+  nameEl.textContent = augData.name;
+  nameRow.appendChild(nameEl);
+
+  if (augData.type?.length) {
+    const badge = document.createElement('span');
+    badge.className = 'tooltip-panel__badge rarity--unique';
+    badge.textContent = augData.type[0];
+    nameRow.appendChild(badge);
+  }
+  panel.appendChild(nameRow);
+
+  // Effects at current grade
+  const grade = equipped.grade || 0;
+  (augData.effects || []).forEach(eff => {
+    const row = document.createElement('div');
+    row.className = 'stat-row';
+
+    const label = document.createElement('span');
+    label.className = 'stat-label';
+    label.textContent = eff.stat.replace(/:$/, '');
+
+    const value = document.createElement('span');
+    value.className = 'stat-value';
+    value.style.color = 'var(--color-stamina)';
+
+    const gradeIdx = grade > 0 ? grade - 1 : 0;
+    const g = eff.grades?.[gradeIdx];
+    if (g) {
+      const customVal = equipped.customValues?.[eff.stat];
+      if (customVal != null) {
+        value.textContent = `+${customVal}${eff.type === 'percent' ? '%' : ''}`;
+      } else {
+        value.textContent = `+${g[0]}–${g[1]}${eff.type === 'percent' ? '%' : ''}`;
+      }
+    } else {
+      value.textContent = '—';
+      value.style.color = 'var(--color-text-dim)';
+    }
+
+    row.appendChild(label);
+    row.appendChild(value);
+    panel.appendChild(row);
+  });
+
+  // Tradeoffs
+  (augData.tradeoffs || []).forEach(t => {
+    const row = document.createElement('div');
+    row.className = 'stat-row';
+
+    const label = document.createElement('span');
+    label.className = 'stat-label';
+    label.textContent = t.stat.replace(/:$/, '');
+
+    const value = document.createElement('span');
+    value.className = 'stat-value';
+    value.style.color = 'var(--color-health)';
+    value.textContent = `${t.value}%`;
+
+    row.appendChild(label);
+    row.appendChild(value);
+    panel.appendChild(row);
+  });
+
+  // Meta — grade + description
+  const meta = document.createElement('div');
+  meta.className = 'tooltip-panel__meta';
+  const parts = [];
+  if (grade > 0) parts.push(`Grade ${grade}`);
+  if (augData.description) parts.push(augData.description);
+  if (parts.length) {
+    meta.textContent = parts.join('  ·  ');
+    panel.appendChild(meta);
+  }
+}
+
+function clearTooltip() {
+  const panel = document.getElementById('tooltip-panel');
+  panel.innerHTML = '<div class="tooltip-panel__empty">Hover an item to inspect</div>';
+}
+
 function updateSlotDisplay(slotEl, item) {
   slotEl.classList.add('has-item');
   slotEl.title = item.name;
@@ -1241,6 +1424,9 @@ function updateSlotDisplay(slotEl, item) {
       slotEl.appendChild(createAugmentDots(slotType));
     }
   }
+
+  slotEl.addEventListener('mouseenter', () => showTooltip(slotType));
+  slotEl.addEventListener('mouseleave', clearTooltip);
 }
 
 function clearSlot(slotEl) {
@@ -1473,13 +1659,32 @@ pasteBtn.addEventListener('click', async () => {
     if (!result) {
       showError('No valid build data found in clipboard.');
     } else if (result.duneExport) {
+      // First pass: set state (grades, augments) before building visuals
       for (const [slot, data] of Object.entries(result.slots)) {
-        selectItem(slot, data.item);
-        if (data.grade > 0) equippedGrades[slot] = data.grade;
+        const item = GARMENT_ITEMS.find(i => i.slug === data.item);
+        if (!item) continue;
+        equippedItems[slot] = item;
+        if (GARMENT_SLOTS.has(slot)) equippedGrades[slot] = data.grade || 0;
         if (data.augments) {
-          equippedAugments[slot] = data.augments.map(a => a ? { slug: a.slug, grade: a.grade || 0, ...(a.customValues != null ? { customValues: a.customValues } : {}) } : null);
+          equippedAugments[slot] = data.augments.map(a => a ? { slug: a.slug, grade: Math.max(a.grade || 0, 1), ...(a.customValues != null ? { customValues: a.customValues } : {}) } : null);
           const lastNonNull = data.augments.reduce((max, a, i) => a ? i : max, -1);
-          if (lastNonNull >= 0) augmentSlotUnlocks[slot] = Math.max(lastNonNull + 1, augmentSlotUnlocks[slot] || 1);
+          augmentSlotUnlocks[slot] = Math.max(lastNonNull + 1, 1);
+        }
+      }
+      // Second pass: build visuals with correct state already in place
+      for (const [slot, data] of Object.entries(result.slots)) {
+        const item = equippedItems[slot];
+        if (!item) continue;
+        if (item.slot === 'radsuit') {
+          ARMOR_SLOTS.forEach(s => { equippedItems[s] = item; });
+          document.querySelector('.armor-layout').classList.add('radsuit-active');
+          document.querySelectorAll('.armor-slot').forEach(el => {
+            if (getSlotType(el) === 'helm') updateSlotDisplay(el, item);
+          });
+        } else {
+          document.querySelectorAll('.armor-slot').forEach(el => {
+            if (getSlotType(el) === slot) updateSlotDisplay(el, item);
+          });
         }
       }
       if (result.characterPanel) {
