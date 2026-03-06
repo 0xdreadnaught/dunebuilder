@@ -1,0 +1,390 @@
+[
+  {
+    "slug": "aggressive-grip-adjuster",
+    "name": "Aggressive Grip Adjuster",
+    "icon": "imgs/augments/T_UI_IconAugmentModStaminaAtk_D.png",
+    "type": [
+      "Melee"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Attack Stamina Cost:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            7.0,
+            9.0
+          ],
+          [
+            11.0,
+            13.0
+          ],
+          [
+            15.0,
+            17.0
+          ],
+          [
+            18.0,
+            20.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Block Stamina Cost:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "blade-flexi-coating",
+    "name": "Blade Flexi-Coating",
+    "icon": "imgs/augments/T_UI_IconAugmentModStaminaBlk_D.png",
+    "type": [
+      "Melee"
+    ],
+    "description": "An augmentation which reduces the stamina cost to block of any melee weapon.",
+    "effects": [
+      {
+        "stat": "Block Stamina Cost:",
+        "type": "percent",
+        "grades": [
+          [
+            3.0,
+            5.0
+          ],
+          [
+            7.0,
+            9.0
+          ],
+          [
+            11.0,
+            13.0
+          ],
+          [
+            15.0,
+            17.0
+          ],
+          [
+            18.0,
+            20.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": []
+  },
+  {
+    "slug": "blade-grip-adjuster",
+    "name": "Blade Grip Adjuster",
+    "icon": "imgs/augments/T_UI_IconAugmentModStaminaAtk_D.png",
+    "type": [
+      "Melee"
+    ],
+    "description": "An augmentation which reduces the stamina cost to attack of any melee weapon.",
+    "effects": [
+      {
+        "stat": "Attack Stamina Cost:",
+        "type": "percent",
+        "grades": [
+          [
+            3.0,
+            5.0
+          ],
+          [
+            7.0,
+            9.0
+          ],
+          [
+            11.0,
+            13.0
+          ],
+          [
+            15.0,
+            17.0
+          ],
+          [
+            18.0,
+            20.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": []
+  },
+  {
+    "slug": "blade-optimizer",
+    "name": "Blade Optimizer",
+    "icon": "imgs/augments/T_UI_IconAugmentModStaminaAtk_D.png",
+    "type": [
+      "Melee"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Attack Stamina Cost:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            13.0
+          ],
+          [
+            15.0,
+            17.0
+          ],
+          [
+            18.0,
+            20.0
+          ]
+        ]
+      },
+      {
+        "stat": "Block Stamina Cost:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            13.0
+          ],
+          [
+            15.0,
+            17.0
+          ],
+          [
+            18.0,
+            20.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Damage:",
+        "value": -7.0
+      }
+    ]
+  },
+  {
+    "slug": "blade-sharpener",
+    "name": "Blade Sharpener",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Melee"
+    ],
+    "description": "An augmentation which increases the damage output of any melee weapon.",
+    "effects": [
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          [
+            2.0,
+            8.0
+          ],
+          [
+            7.0,
+            15.0
+          ],
+          [
+            14.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": []
+  },
+  {
+    "slug": "defensive-grip-adjuster",
+    "name": "Defensive Grip Adjuster",
+    "icon": "imgs/augments/T_UI_IconAugmentModStaminaBlk_D.png",
+    "type": [
+      "Melee"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Block Stamina Cost:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            7.0,
+            9.0
+          ],
+          [
+            11.0,
+            13.0
+          ],
+          [
+            15.0,
+            17.0
+          ],
+          [
+            18.0,
+            20.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Attack Stamina Cost:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "edge-optimizer",
+    "name": "Edge Optimizer",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Melee"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            7.0,
+            15.0
+          ],
+          [
+            14.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Attack Stamina Cost:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "heavy-blade-adjuster",
+    "name": "Heavy Blade Adjuster",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Melee"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            7.0,
+            15.0
+          ],
+          [
+            14.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Block Stamina Cost:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "lightweight-adjuster",
+    "name": "Lightweight Adjuster",
+    "icon": "imgs/augments/T_UI_IconAugmentModStaminaAtk_D.png",
+    "type": [
+      "Melee"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Attack Stamina Cost:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            13.0
+          ],
+          [
+            15.0,
+            17.0
+          ],
+          [
+            18.0,
+            20.0
+          ]
+        ]
+      },
+      {
+        "stat": "Volume:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            45.0,
+            50.0
+          ],
+          [
+            55.0,
+            60.0
+          ],
+          [
+            65.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Damage:",
+        "value": -5.0
+      }
+    ]
+  }
+]

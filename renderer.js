@@ -64,7 +64,7 @@ function parseClipboardText(text) {
   // Check for DuneBuilder export format first
   const duneExport = extractSection(text, 'DUNEBUILDER EXPORT');
   if (duneExport) {
-    return { duneExport: true, gear: duneExport.gear || {}, characterPanel: duneExport.characterPanel || null, buildTotals: null, skillBonuses: null };
+    return { duneExport: true, slots: duneExport.slots || {}, characterPanel: duneExport.characterPanel || null, buildTotals: null, skillBonuses: null };
   }
 
   const buildTotals    = extractSection(text, 'FINAL BUILD TOTALS');
@@ -383,11 +383,33 @@ function showError(msg) {
 // =============================================
 
 let GARMENT_ITEMS = [];
+let AUGMENT_DATA = [];
 let lastCharacterPanel = null;
 let lastBuildTotals = null;
 let lastSkillBonuses = null;
 let currentPickerItems = [];
 let currentPickerSlotType = null;
+const appSettings = loadSettings();
+
+function loadSettings() {
+  try {
+    const saved = localStorage.getItem('dunebuilder-settings');
+    if (saved) return { showCommons: true, ...JSON.parse(saved) };
+  } catch { /* ignore corrupt data */ }
+  return { showCommons: true };
+}
+
+function saveSettings() {
+  localStorage.setItem('dunebuilder-settings', JSON.stringify(appSettings));
+}
+
+// Augment state: { boots: [{ slug, grade, customValues? }, null, null], ... }
+const equippedAugments = {};
+// How many augment slots are unlocked per armor slot (default 1, max 3)
+const augmentSlotUnlocks = {};
+// Current augment picker context
+let currentAugmentSlotType = null;
+let currentAugmentDotIndex = null;
 
 const SLOT_TYPE_MAP = {
   'slot--helm':     'helm',
@@ -463,12 +485,14 @@ function assignUtilitySlot(slug) {
 
 async function loadGarmentItems() {
   try {
-    const [garmentRes, utilityRes] = await Promise.all([
+    const [garmentRes, utilityRes, augmentRes] = await Promise.all([
       fetch('./items_garment_t6.json'),
       fetch('./items_utility.json'),
+      fetch('./augments_garment.json'),
     ]);
     const garments = await garmentRes.json();
     const utility = await utilityRes.json();
+    AUGMENT_DATA = await augmentRes.json();
 
     const withSlots = utility
       .map(item => {
@@ -541,6 +565,8 @@ function mergeBaseWithScaled(baseStats, scaledOverrides) {
 function aggregateEquippedStats() {
   const totals = {};
   const seen = new Set();
+
+  // Base + grade stats from items
   Object.entries(equippedItems).forEach(([slotType, item]) => {
     if (seen.has(item.slug)) return;
     seen.add(item.slug);
@@ -554,6 +580,53 @@ function aggregateEquippedStats() {
       totals[key] = (totals[key] || 0) + stat.value;
     });
   });
+
+  // Layer augment effects on top
+  const augmentDetails = []; // for rendering in Character Panel
+  Object.entries(equippedAugments).forEach(([slotType, slots]) => {
+    if (!slots) return;
+    slots.forEach((aug, idx) => {
+      if (!aug || !aug.slug) return;
+      const augData = AUGMENT_DATA.find(a => a.slug === aug.slug);
+      if (!augData) return;
+      const grade = aug.grade || 0;
+      if (grade === 0) return;
+
+      // Apply effects
+      (augData.effects || []).forEach(eff => {
+        const gradeData = eff.grades[grade - 1];
+        if (!gradeData) return;
+
+        const key = eff.stat.replace(/:$/, '');
+        const baseVal = totals[key] || 0;
+
+        if (aug.customValues != null) {
+          // Custom value overrides the effect
+          if (eff.type === 'percent') {
+            totals[key] = baseVal * (1 + aug.customValues / 100);
+          } else {
+            totals[key] = (totals[key] || 0) + aug.customValues;
+          }
+        } else {
+          // Use max of range by default
+          const effectVal = gradeData[1];
+          if (eff.type === 'percent') {
+            // Percent augments multiply the base stat
+            totals[key] = baseVal * (1 + effectVal / 100);
+          } else {
+            totals[key] = (totals[key] || 0) + effectVal;
+          }
+        }
+      });
+
+      // Apply tradeoffs (always flat, always active when augment is equipped with grade > 0)
+      (augData.tradeoffs || []).forEach(t => {
+        const key = t.stat.replace(/:$/, '');
+        totals[key] = (totals[key] || 0) + t.value;
+      });
+    });
+  });
+
   return totals;
 }
 
@@ -602,6 +675,9 @@ function openItemPicker(slotEl) {
     if (a.rarity !== b.rarity) return a.rarity === 'Unique' ? -1 : 1;
     return a.name.localeCompare(b.name);
   });
+  if (!appSettings.showCommons) {
+    currentPickerItems = currentPickerItems.filter(i => i.rarity !== 'Common');
+  }
   currentPickerSlotType = slotType;
 
   renderPickerItems(currentPickerItems, slotType);
@@ -620,7 +696,7 @@ function selectItem(slotType, slug) {
   if (!item || !slotType) return;
 
   if (item.slot === 'radsuit') {
-    ARMOR_SLOTS.forEach(s => { equippedItems[s] = item; delete equippedGrades[s]; });
+    ARMOR_SLOTS.forEach(s => { equippedItems[s] = item; delete equippedGrades[s]; delete equippedAugments[s]; delete augmentSlotUnlocks[s]; });
     document.querySelector('.armor-layout').classList.add('radsuit-active');
     document.querySelectorAll('.armor-slot').forEach(slotEl => {
       if (getSlotType(slotEl) === 'helm') updateSlotDisplay(slotEl, item);
@@ -628,7 +704,7 @@ function selectItem(slotType, slug) {
   } else {
     // If a rad suit currently occupies this slot, displace it from all 5 slots first
     if (ARMOR_SLOTS.has(slotType) && equippedItems[slotType]?.slot === 'radsuit') {
-      ARMOR_SLOTS.forEach(s => { delete equippedItems[s]; delete equippedGrades[s]; });
+      ARMOR_SLOTS.forEach(s => { delete equippedItems[s]; delete equippedGrades[s]; delete equippedAugments[s]; delete augmentSlotUnlocks[s]; });
       document.querySelector('.armor-layout').classList.remove('radsuit-active');
       document.querySelectorAll('.armor-slot').forEach(el => {
         const st = getSlotType(el);
@@ -650,6 +726,17 @@ function selectItem(slotType, slug) {
   refreshPanels();
 }
 
+function attachGradeHover(svgEl) {
+  let hoverTimer = null;
+  svgEl.addEventListener('mouseenter', () => {
+    hoverTimer = setTimeout(() => svgEl.classList.add('grade-ring--expanded'), 200);
+  });
+  svgEl.addEventListener('mouseleave', () => {
+    clearTimeout(hoverTimer);
+    svgEl.classList.remove('grade-ring--expanded');
+  });
+}
+
 function createGradeRing(slotType) {
   const NS = 'http://www.w3.org/2000/svg';
   const svg = document.createElementNS(NS, 'svg');
@@ -660,6 +747,15 @@ function createGradeRing(slotType) {
   svg.addEventListener('click', e => e.stopPropagation());
 
   const cx = 21, cy = 21, r = 16;
+
+  // Background circle — visible when expanded for readability
+  const bg = document.createElementNS(NS, 'circle');
+  bg.setAttribute('cx', String(cx));
+  bg.setAttribute('cy', String(cy));
+  bg.setAttribute('r', String(cx));
+  bg.classList.add('grade-bg');
+  svg.appendChild(bg);
+
   const segCount = 5;
   const gapDeg = 8;
   const sliceDeg = 360 / segCount;            // 72° per pie slice (hit zone)
@@ -670,12 +766,13 @@ function createGradeRing(slotType) {
     const arcStart = sliceStart + gapDeg / 2;  // center the gap
     const arcEnd = arcStart + segDeg;
 
-    // Pie-slice hit zone (invisible, full wedge)
+    // Pie-slice hit zone (invisible, full wedge to SVG edge)
+    const hr = cx;  // extend hit zone to full SVG radius
     const s1 = (sliceStart * Math.PI) / 180;
     const s2 = ((sliceStart + sliceDeg) * Math.PI) / 180;
-    const hx1 = cx + r * Math.cos(s1), hy1 = cy + r * Math.sin(s1);
-    const hx2 = cx + r * Math.cos(s2), hy2 = cy + r * Math.sin(s2);
-    const hitD = `M ${cx} ${cy} L ${hx1} ${hy1} A ${r} ${r} 0 0 1 ${hx2} ${hy2} Z`;
+    const hx1 = cx + hr * Math.cos(s1), hy1 = cy + hr * Math.sin(s1);
+    const hx2 = cx + hr * Math.cos(s2), hy2 = cy + hr * Math.sin(s2);
+    const hitD = `M ${cx} ${cy} L ${hx1} ${hy1} A ${hr} ${hr} 0 0 1 ${hx2} ${hy2} Z`;
 
     const hitzone = document.createElementNS(NS, 'path');
     hitzone.setAttribute('d', hitD);
@@ -688,7 +785,7 @@ function createGradeRing(slotType) {
       refreshPanels();
     });
 
-    // Visible arc segment
+    // Visible arc segment (stroked arc along the ring)
     const a1 = (arcStart * Math.PI) / 180;
     const a2 = (arcEnd * Math.PI) / 180;
     const x1 = cx + r * Math.cos(a1), y1 = cy + r * Math.sin(a1);
@@ -721,6 +818,7 @@ function createGradeRing(slotType) {
   if (grade > 0) text.textContent = String(grade);
   svg.classList.toggle('grade--max', grade === 5);
 
+  attachGradeHover(svg);
   return svg;
 }
 
@@ -733,6 +831,385 @@ function updateGradeSegments(svg, slotType) {
   const text = svg.querySelector('.grade-number');
   if (text) text.textContent = grade > 0 ? String(grade) : '';
   svg.classList.toggle('grade--max', grade === 5);
+}
+
+// =============================================
+// AUGMENT DOTS
+// =============================================
+
+function createAugmentDots(slotType) {
+  const container = document.createElement('div');
+  container.className = 'augment-dots';
+  container.dataset.slotType = slotType;
+
+  // Block clicks on dots container from bubbling to the armor slot
+  container.addEventListener('click', e => e.stopPropagation());
+
+  const unlocked = augmentSlotUnlocks[slotType] || 1;
+
+  for (let i = 0; i < 3; i++) {
+    const augment = equippedAugments[slotType]?.[i] || null;
+    const isUnlocked = i < unlocked;
+
+    if (augment) {
+      container.appendChild(createAppliedAugmentDot(slotType, i, augment));
+    } else if (isUnlocked) {
+      container.appendChild(createUnlockedDot(slotType, i));
+    } else {
+      container.appendChild(createLockedDot(slotType, i));
+    }
+  }
+
+  return container;
+}
+
+function createLockedDot(slotType, dotIndex) {
+  const dot = document.createElement('button');
+  dot.className = 'augment-dot augment-dot--locked';
+  dot.title = 'Locked — click to unlock';
+  dot.addEventListener('click', e => {
+    e.stopPropagation();
+    unlockAugmentSlot(slotType, dotIndex);
+  });
+  return dot;
+}
+
+function createUnlockedDot(slotType, dotIndex) {
+  const dot = document.createElement('button');
+  dot.className = 'augment-dot augment-dot--unlocked';
+  dot.title = 'Empty — click to add augment, right-click to lock';
+  dot.addEventListener('click', e => {
+    e.stopPropagation();
+    openAugmentPicker(slotType, dotIndex);
+  });
+  dot.addEventListener('contextmenu', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    relockAugmentSlot(slotType, dotIndex);
+  });
+  return dot;
+}
+
+function createAppliedAugmentDot(slotType, dotIndex, augment) {
+  const dot = document.createElement('div');
+  dot.className = 'augment-dot augment-dot--applied';
+
+  const augData = AUGMENT_DATA.find(a => a.slug === augment.slug);
+  dot.title = augData ? augData.name : augment.slug;
+
+  const icon = document.createElement('img');
+  icon.className = 'augment-dot__icon';
+  if (augData?.type?.length) icon.classList.add(`augment-type--${augData.type[0].toLowerCase()}`);
+  icon.src = augData?.icon || '';
+  icon.alt = augData?.name || '';
+  dot.appendChild(icon);
+
+  // Mini grade ring
+  dot.appendChild(createAugmentGradeRing(slotType, dotIndex, augment));
+
+  // Clear button
+  const clearBtn = document.createElement('button');
+  clearBtn.className = 'augment-dot__clear';
+  clearBtn.textContent = '×';
+  clearBtn.title = 'Remove augment';
+  clearBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    removeAugment(slotType, dotIndex);
+  });
+  dot.appendChild(clearBtn);
+
+  // Right-click for custom value
+  dot.addEventListener('contextmenu', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    openAugmentValuePopup(slotType, dotIndex, e);
+  });
+
+  // Ctrl+click to swap augment (works regardless of grade ring state)
+  dot.addEventListener('click', e => {
+    e.stopPropagation();
+    if (e.ctrlKey) { openAugmentPicker(slotType, dotIndex); return; }
+    openAugmentPicker(slotType, dotIndex);
+  });
+
+  return dot;
+}
+
+function createAugmentGradeRing(slotType, dotIndex, augment) {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', '0 0 22 22');
+  svg.classList.add('augment-dot__grade');
+
+  svg.addEventListener('click', e => e.stopPropagation());
+
+  const cx = 11, cy = 11, r = 8;
+
+  // Background circle — visible when expanded
+  const bg = document.createElementNS(NS, 'circle');
+  bg.setAttribute('cx', String(cx));
+  bg.setAttribute('cy', String(cy));
+  bg.setAttribute('r', String(cx));
+  bg.classList.add('grade-bg');
+  svg.appendChild(bg);
+
+  const segCount = 5;
+  const gapDeg = 10;
+  const sliceDeg = 360 / segCount;
+  const segDeg = sliceDeg - gapDeg;
+
+  for (let i = 0; i < segCount; i++) {
+    const sliceStart = -90 + i * sliceDeg;
+    const arcStart = sliceStart + gapDeg / 2;
+    const arcEnd = arcStart + segDeg;
+
+    // Hit zone (full wedge to SVG edge)
+    const hr = cx;
+    const s1 = (sliceStart * Math.PI) / 180;
+    const s2 = ((sliceStart + sliceDeg) * Math.PI) / 180;
+    const hx1 = cx + hr * Math.cos(s1), hy1 = cy + hr * Math.sin(s1);
+    const hx2 = cx + hr * Math.cos(s2), hy2 = cy + hr * Math.sin(s2);
+    const hitD = `M ${cx} ${cy} L ${hx1} ${hy1} A ${hr} ${hr} 0 0 1 ${hx2} ${hy2} Z`;
+
+    const hitzone = document.createElementNS(NS, 'path');
+    hitzone.setAttribute('d', hitD);
+    hitzone.classList.add('grade-hitzone');
+    hitzone.addEventListener('click', e => {
+      e.stopPropagation();
+      if (e.ctrlKey) { openAugmentPicker(slotType, dotIndex); return; }
+      const clicked = i + 1;
+      const aug = equippedAugments[slotType]?.[dotIndex];
+      if (!aug) return;
+      aug.grade = (aug.grade === clicked) ? 0 : clicked;
+      refreshAugmentDots(slotType);
+      refreshPanels();
+    });
+
+    // Visible arc segment (stroked arc along the ring)
+    const a1 = (arcStart * Math.PI) / 180;
+    const a2 = (arcEnd * Math.PI) / 180;
+    const x1 = cx + r * Math.cos(a1), y1 = cy + r * Math.sin(a1);
+    const x2 = cx + r * Math.cos(a2), y2 = cy + r * Math.sin(a2);
+    const d = `M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`;
+
+    const arc = document.createElementNS(NS, 'path');
+    arc.setAttribute('d', d);
+    arc.classList.add('grade-segment');
+    arc.dataset.grade = String(i + 1);
+
+    const grade = augment.grade || 0;
+    if (i + 1 <= grade) arc.classList.add('active');
+
+    svg.appendChild(hitzone);
+    svg.appendChild(arc);
+  }
+
+  const grade = augment.grade || 0;
+  svg.classList.toggle('grade--max', grade === 5);
+
+  attachGradeHover(svg);
+  return svg;
+}
+
+function unlockAugmentSlot(slotType, dotIndex) {
+  const current = augmentSlotUnlocks[slotType] || 1;
+  if (dotIndex < current) return; // already unlocked
+  augmentSlotUnlocks[slotType] = dotIndex + 1;
+  refreshAugmentDots(slotType);
+}
+
+function relockAugmentSlot(slotType, dotIndex) {
+  const current = augmentSlotUnlocks[slotType] || 1;
+  if (dotIndex + 1 > current) return; // already locked
+  // Relock this slot and any after it; clear augments in relocked positions
+  augmentSlotUnlocks[slotType] = dotIndex;
+  if (equippedAugments[slotType]) {
+    for (let i = dotIndex; i < 3; i++) equippedAugments[slotType][i] = null;
+  }
+  refreshAugmentDots(slotType);
+  refreshPanels();
+}
+
+function removeAugment(slotType, dotIndex) {
+  if (equippedAugments[slotType]) {
+    equippedAugments[slotType][dotIndex] = null;
+  }
+  refreshAugmentDots(slotType);
+  refreshPanels();
+}
+
+function refreshAugmentDots(slotType) {
+  document.querySelectorAll('.armor-slot').forEach(slotEl => {
+    if (getSlotType(slotEl) !== slotType) return;
+    const existing = slotEl.querySelector('.augment-dots');
+    if (existing) existing.remove();
+    const item = equippedItems[slotType];
+    if (item && GARMENT_SLOTS.has(slotType) && item.slot !== 'radsuit' && item.scaledStats?.length && item.rarity === 'Unique') {
+      slotEl.appendChild(createAugmentDots(slotType));
+    }
+  });
+}
+
+// =============================================
+// AUGMENT PICKER
+// =============================================
+
+function openAugmentPicker(slotType, dotIndex) {
+  currentAugmentSlotType = slotType;
+  currentAugmentDotIndex = dotIndex;
+
+  const slotLabel = SLOT_LABEL_MAP[slotType] || slotType;
+  document.getElementById('augment-picker-title').textContent = `Augment — ${slotLabel} Slot ${dotIndex + 1}`;
+  document.getElementById('augment-picker-search').value = '';
+
+  renderAugmentPickerItems(AUGMENT_DATA);
+
+  const overlay = document.getElementById('augment-picker-overlay');
+  requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('visible')));
+}
+
+function closeAugmentPicker() {
+  document.getElementById('augment-picker-overlay').classList.remove('visible');
+  document.getElementById('augment-picker-search').value = '';
+  currentAugmentSlotType = null;
+  currentAugmentDotIndex = null;
+}
+
+function renderAugmentPickerItems(augments) {
+  const list = document.getElementById('augment-picker-list');
+  list.innerHTML = '';
+  if (augments.length === 0) {
+    list.innerHTML = '<p class="empty-state">No augments found.</p>';
+    return;
+  }
+  augments.forEach(aug => {
+    list.appendChild(createAugmentCard(aug));
+  });
+}
+
+function createAugmentCard(aug) {
+  const card = document.createElement('div');
+  card.className = 'augment-card';
+
+  const img = document.createElement('img');
+  img.className = 'augment-card__icon';
+  if (aug.type?.length) img.classList.add(`augment-type--${aug.type[0].toLowerCase()}`);
+  img.src = aug.icon;
+  img.alt = aug.name;
+  img.loading = 'lazy';
+
+  const info = document.createElement('div');
+  info.className = 'augment-card__info';
+
+  const nameEl = document.createElement('div');
+  nameEl.className = 'augment-card__name';
+  nameEl.textContent = aug.name;
+
+  const effectsEl = document.createElement('div');
+  effectsEl.className = 'augment-card__effects';
+
+  (aug.effects || []).forEach(eff => {
+    // Show the range for the best available grade
+    const bestGrade = [...eff.grades].reverse().find(g => g !== null);
+    if (!bestGrade) return;
+    const span = document.createElement('span');
+    span.className = 'augment-card__effect';
+    const statLabel = eff.stat.replace(/:$/, '');
+    const suffix = eff.type === 'percent' ? '%' : '%';
+    span.textContent = `${statLabel}: +${bestGrade[0]}${suffix} – ${bestGrade[1]}${suffix}`;
+    effectsEl.appendChild(span);
+  });
+
+  (aug.tradeoffs || []).forEach(t => {
+    const span = document.createElement('span');
+    span.className = 'augment-card__tradeoff';
+    const statLabel = t.stat.replace(/:$/, '');
+    span.textContent = `${statLabel}: ${t.value}%`;
+    effectsEl.appendChild(span);
+  });
+
+  const descEl = document.createElement('div');
+  descEl.className = 'augment-card__desc';
+  descEl.textContent = aug.description || '';
+
+  info.appendChild(nameEl);
+  info.appendChild(effectsEl);
+  if (aug.description) info.appendChild(descEl);
+  card.appendChild(img);
+  card.appendChild(info);
+
+  card.addEventListener('click', () => selectAugment(aug.slug));
+  return card;
+}
+
+function selectAugment(slug) {
+  const slotType = currentAugmentSlotType;
+  const dotIndex = currentAugmentDotIndex;
+  if (slotType == null || dotIndex == null) return;
+
+  if (!equippedAugments[slotType]) {
+    equippedAugments[slotType] = [null, null, null];
+  }
+  equippedAugments[slotType][dotIndex] = { slug, grade: 0 };
+
+  closeAugmentPicker();
+  refreshAugmentDots(slotType);
+  refreshPanels();
+}
+
+// =============================================
+// AUGMENT CUSTOM VALUE POPUP
+// =============================================
+
+let activeAugmentPopup = { slotType: null, dotIndex: null };
+
+function openAugmentValuePopup(slotType, dotIndex, event) {
+  const aug = equippedAugments[slotType]?.[dotIndex];
+  if (!aug) return;
+
+  activeAugmentPopup = { slotType, dotIndex };
+
+  const popup = document.getElementById('augment-value-popup');
+  const input = document.getElementById('augment-value-input');
+
+  // Pre-fill with current custom value or empty
+  input.value = aug.customValues != null ? aug.customValues : '';
+
+  popup.hidden = false;
+  popup.style.left = `${event.clientX}px`;
+  popup.style.top = `${event.clientY}px`;
+
+  // Keep popup in viewport
+  requestAnimationFrame(() => {
+    const rect = popup.getBoundingClientRect();
+    if (rect.right > window.innerWidth) popup.style.left = `${window.innerWidth - rect.width - 8}px`;
+    if (rect.bottom > window.innerHeight) popup.style.top = `${window.innerHeight - rect.height - 8}px`;
+  });
+
+  input.focus();
+  input.select();
+}
+
+function closeAugmentValuePopup() {
+  document.getElementById('augment-value-popup').hidden = true;
+  activeAugmentPopup = { slotType: null, dotIndex: null };
+}
+
+function saveAugmentCustomValue() {
+  const { slotType, dotIndex } = activeAugmentPopup;
+  const aug = equippedAugments[slotType]?.[dotIndex];
+  if (!aug) { closeAugmentValuePopup(); return; }
+
+  const input = document.getElementById('augment-value-input');
+  const val = parseFloat(input.value);
+  if (isNaN(val) || input.value.trim() === '') {
+    delete aug.customValues;
+  } else {
+    aug.customValues = val;
+  }
+
+  closeAugmentValuePopup();
+  refreshPanels();
 }
 
 function updateSlotDisplay(slotEl, item) {
@@ -757,6 +1234,12 @@ function updateSlotDisplay(slotEl, item) {
   const slotType = getSlotType(slotEl);
   if (slotType && GARMENT_SLOTS.has(slotType) && item.slot !== 'radsuit' && item.scaledStats?.length) {
     slotEl.appendChild(createGradeRing(slotType));
+    // Augment dots only for Unique garments
+    if (item.rarity === 'Unique') {
+      if (!augmentSlotUnlocks[slotType]) augmentSlotUnlocks[slotType] = 1;
+      if (!equippedAugments[slotType]) equippedAugments[slotType] = [null, null, null];
+      slotEl.appendChild(createAugmentDots(slotType));
+    }
   }
 }
 
@@ -765,7 +1248,7 @@ function clearSlot(slotEl) {
   const item = slotType ? equippedItems[slotType] : null;
 
   if (item?.slot === 'radsuit') {
-    ARMOR_SLOTS.forEach(s => { delete equippedItems[s]; delete equippedGrades[s]; });
+    ARMOR_SLOTS.forEach(s => { delete equippedItems[s]; delete equippedGrades[s]; delete equippedAugments[s]; delete augmentSlotUnlocks[s]; });
     document.querySelector('.armor-layout').classList.remove('radsuit-active');
     document.querySelectorAll('.armor-slot').forEach(el => {
       const st = getSlotType(el);
@@ -776,7 +1259,7 @@ function clearSlot(slotEl) {
       }
     });
   } else {
-    if (slotType) { delete equippedItems[slotType]; delete equippedGrades[slotType]; }
+    if (slotType) { delete equippedItems[slotType]; delete equippedGrades[slotType]; delete equippedAugments[slotType]; delete augmentSlotUnlocks[slotType]; }
     const slotClass = getSlotClass(slotEl);
     slotEl.classList.remove('has-item');
     slotEl.title = '';
@@ -804,6 +1287,36 @@ function clearSlot(slotEl) {
     const query = e.target.value.toLowerCase();
     const filtered = currentPickerItems.filter(i => i.name.toLowerCase().includes(query));
     renderPickerItems(filtered, currentPickerSlotType);
+  });
+
+  // Augment picker events
+  document.getElementById('augment-picker-close').addEventListener('click', closeAugmentPicker);
+
+  document.getElementById('augment-picker-overlay').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeAugmentPicker();
+  });
+
+  document.getElementById('augment-picker-search').addEventListener('input', e => {
+    const query = e.target.value.toLowerCase();
+    const filtered = AUGMENT_DATA.filter(a => a.name.toLowerCase().includes(query));
+    renderAugmentPickerItems(filtered);
+  });
+
+  // Augment custom value popup events
+  document.getElementById('augment-value-save').addEventListener('click', saveAugmentCustomValue);
+  document.getElementById('augment-value-cancel').addEventListener('click', closeAugmentValuePopup);
+
+  document.getElementById('augment-value-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') saveAugmentCustomValue();
+    if (e.key === 'Escape') closeAugmentValuePopup();
+  });
+
+  // Close popup on outside click
+  document.addEventListener('mousedown', e => {
+    const popup = document.getElementById('augment-value-popup');
+    if (!popup.hidden && !popup.contains(e.target)) {
+      closeAugmentValuePopup();
+    }
   });
 })();
 
@@ -834,16 +1347,59 @@ document.getElementById('about-overlay').addEventListener('click', e => {
 })();
 
 // =============================================
+// SETTINGS
+// =============================================
+
+function openSettings() {
+  const overlay = document.getElementById('settings-overlay');
+  requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('visible')));
+}
+
+function closeSettings() {
+  document.getElementById('settings-overlay').classList.remove('visible');
+}
+
+document.getElementById('settings-btn').addEventListener('click', openSettings);
+document.getElementById('settings-close').addEventListener('click', closeSettings);
+document.getElementById('settings-overlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeSettings();
+});
+
+document.getElementById('setting-show-commons').checked = appSettings.showCommons;
+document.getElementById('setting-show-commons').addEventListener('change', e => {
+  appSettings.showCommons = e.target.checked;
+  saveSettings();
+});
+
+// =============================================
 // EXPORT
 // =============================================
 
+const EXPORT_SLOT_ORDER = ['helm', 'chest', 'pants', 'gloves', 'boots', 'holtzman', 'belt', 'pack'];
+
 function exportBuild() {
-  const gear = {};
-  for (const [slot, item] of Object.entries(equippedItems)) {
-    gear[slot] = item.slug;
+  const slots = {};
+  for (const slot of EXPORT_SLOT_ORDER) {
+    const item = equippedItems[slot];
+    if (!item) continue;
+    const entry = { item: item.slug };
+    // Grade (only non-zero)
+    if (equippedGrades[slot] > 0) entry.grade = equippedGrades[slot];
+    // Augments (always 3-element array for armor, omit for non-augmentable)
+    if (ARMOR_SLOTS.has(slot)) {
+      const augs = equippedAugments[slot] || [null, null, null];
+      entry.augments = augs.map(a => {
+        if (!a) return null;
+        const aug = { slug: a.slug, grade: a.grade };
+        if (a.customValues != null) aug.customValues = a.customValues;
+        return aug;
+      });
+    }
+    slots[slot] = entry;
   }
 
-  const exportData = { gear };
+  const exportData = { slots };
+
   if (lastCharacterPanel) {
     exportData.characterPanel = {};
     for (const key of RESOURCE_KEYS) {
@@ -895,10 +1451,10 @@ exportBtn.addEventListener('click', async () => {
   try {
     await exportBuild();
     exportBtn.textContent = 'Copied!';
-    setTimeout(() => { exportBtn.textContent = 'Export Build'; }, 1500);
+    setTimeout(() => { exportBtn.textContent = 'Export'; }, 1500);
   } catch (err) {
     showError('Export failed: ' + err.message);
-    exportBtn.textContent = 'Export Build';
+    exportBtn.textContent = 'Export';
   } finally {
     exportBtn.disabled = false;
   }
@@ -917,11 +1473,15 @@ pasteBtn.addEventListener('click', async () => {
     if (!result) {
       showError('No valid build data found in clipboard.');
     } else if (result.duneExport) {
-      // Import gear
-      for (const [slot, slug] of Object.entries(result.gear)) {
-        selectItem(slot, slug);
+      for (const [slot, data] of Object.entries(result.slots)) {
+        selectItem(slot, data.item);
+        if (data.grade > 0) equippedGrades[slot] = data.grade;
+        if (data.augments) {
+          equippedAugments[slot] = data.augments.map(a => a ? { slug: a.slug, grade: a.grade || 0, ...(a.customValues != null ? { customValues: a.customValues } : {}) } : null);
+          const lastNonNull = data.augments.reduce((max, a, i) => a ? i : max, -1);
+          if (lastNonNull >= 0) augmentSlotUnlocks[slot] = Math.max(lastNonNull + 1, augmentSlotUnlocks[slot] || 1);
+        }
       }
-      // Import character panel
       if (result.characterPanel) {
         lastCharacterPanel = result.characterPanel;
       }
@@ -938,7 +1498,7 @@ pasteBtn.addEventListener('click', async () => {
     showError('Clipboard read failed: ' + err.message);
   } finally {
     pasteBtn.disabled = false;
-    pasteBtn.textContent = 'Paste from Clipboard';
+    pasteBtn.textContent = 'Paste Build';
   }
 });
 

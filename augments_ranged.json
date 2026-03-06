@@ -1,0 +1,4270 @@
+[
+  {
+    "slug": "barrel-extender",
+    "name": "Barrel Extender",
+    "icon": "imgs/augments/T_UI_IconAugmentModRange_D.png",
+    "type": [
+      "Ranged"
+    ],
+    "description": "An augmentation which increases the effective range of any ranged weapon.",
+    "effects": [
+      {
+        "stat": "Effective Range:",
+        "type": "percent",
+        "grades": [
+          [
+            2.0,
+            5.0
+          ],
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Maximum Range:",
+        "type": "percent",
+        "grades": [
+          [
+            2.0,
+            5.0
+          ],
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": []
+  },
+  {
+    "slug": "capacity-expander",
+    "name": "Capacity Expander",
+    "icon": "imgs/augments/T_UI_IconAugmentModMagSize_D.png",
+    "type": [
+      "Ranged"
+    ],
+    "description": "An augmentation which increases the ammo capacity of any ranged weapon, but increases overall volume.",
+    "effects": [
+      {
+        "stat": "Clip Size:",
+        "type": "percent",
+        "grades": [
+          [
+            4.0,
+            10.0
+          ],
+          [
+            11.0,
+            20.0
+          ],
+          [
+            22.0,
+            30.0
+          ],
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "type": "percent",
+        "grades": [
+          [
+            2.5,
+            5.0
+          ],
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Volume:",
+        "value": 50.0
+      }
+    ]
+  },
+  {
+    "slug": "disruptive-coating",
+    "name": "Disruptive Coating",
+    "icon": "imgs/augments/T_UI_IconAugmentModShieldDmg_D.png",
+    "type": [
+      "Ranged"
+    ],
+    "description": "An augmentation which increases the shield damage of any ranged weapon.",
+    "effects": [
+      {
+        "stat": "Shield Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            3.0,
+            5.0
+          ],
+          [
+            6.0,
+            9.0
+          ],
+          [
+            10.0,
+            14.0
+          ],
+          [
+            15.0,
+            20.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": []
+  },
+  {
+    "slug": "disruptor-m11-amplifier",
+    "name": "Disruptor M11 Amplifier",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Ranged",
+      "Disruptor M11"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            9.0,
+            15.0
+          ],
+          [
+            18.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Rate of Fire:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "disruptor-m11-heavy-kit",
+    "name": "Disruptor M11 Heavy Kit",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Ranged",
+      "Disruptor M11"
+    ],
+    "description": "An augmentation for the Disruptor M11 which increases damage and reduces overall volume, but reduces accuracy and ammo capacity.",
+    "effects": [
+      {
+        "stat": "Volume:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            35.0,
+            40.0
+          ],
+          [
+            45.0,
+            50.0
+          ],
+          [
+            55.0,
+            60.0
+          ],
+          [
+            65.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            9.0,
+            15.0
+          ],
+          [
+            18.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Accuracy:",
+        "value": 10.0
+      },
+      {
+        "stat": "Clip Size:",
+        "value": -25.0
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "value": 30.0
+      }
+    ]
+  },
+  {
+    "slug": "disruptor-m11-precision-tuning",
+    "name": "Disruptor M11 Precision Tuning",
+    "icon": "imgs/augments/T_UI_IconAugmentModRecoilStability_D.png",
+    "type": [
+      "Ranged",
+      "Disruptor M11"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Accuracy:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Recoil:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            22.0,
+            30.0
+          ],
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      },
+      {
+        "stat": "Clip Size:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            40.0,
+            60.0
+          ],
+          [
+            60.0,
+            80.0
+          ],
+          [
+            80.0,
+            100.0
+          ]
+        ]
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            15.0,
+            25.0
+          ],
+          [
+            20.0,
+            30.0
+          ],
+          [
+            25.0,
+            35.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Damage:",
+        "value": -5.0
+      }
+    ]
+  },
+  {
+    "slug": "disruptor-m11-quickloader",
+    "name": "Disruptor M11 Quickloader",
+    "icon": "imgs/augments/T_UI_IconAugmentModRateOfFire_D.png",
+    "type": [
+      "Ranged",
+      "Disruptor M11"
+    ],
+    "description": "An augmentation for the Disruptor M11 which reduces reload times and increases rate of fire, but reduces damage output and accuracy, and increases overall volume.",
+    "effects": [
+      {
+        "stat": "Rate of Fire:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            12.0,
+            18.0
+          ],
+          [
+            20.0,
+            26.0
+          ],
+          [
+            27.0,
+            34.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Volume:",
+        "value": 50.0
+      },
+      {
+        "stat": "Accuracy:",
+        "value": 10.0
+      },
+      {
+        "stat": "Reload Time:",
+        "value": -6.0
+      },
+      {
+        "stat": "Damage:",
+        "value": -2.5
+      },
+      {
+        "stat": "Shield Damage:",
+        "value": -2.5
+      }
+    ]
+  },
+  {
+    "slug": "disruptor-m11-shield-breaker",
+    "name": "Disruptor M11 Shield Breaker",
+    "icon": "imgs/augments/T_UI_IconAugmentModShieldDmg_D.png",
+    "type": [
+      "Ranged",
+      "Disruptor M11"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Shield Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            3.0,
+            5.0
+          ],
+          [
+            6.0,
+            9.0
+          ],
+          [
+            10.0,
+            14.0
+          ],
+          [
+            15.0,
+            20.0
+          ]
+        ]
+      },
+      {
+        "stat": "Effective Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Maximum Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Rate of Fire:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "disruptor-m11-sprayer",
+    "name": "Disruptor M11 Sprayer",
+    "icon": "imgs/augments/T_UI_IconAugmentModMagSize_D.png",
+    "type": [
+      "Ranged",
+      "Disruptor M11"
+    ],
+    "description": "An augmentation for the Disruptor M11 which increases ammo capacity and rate of fire, but increases reload times and overall volume.",
+    "effects": [
+      {
+        "stat": "Rate of Fire:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            20.0,
+            26.0
+          ],
+          [
+            27.0,
+            34.0
+          ]
+        ]
+      },
+      {
+        "stat": "Clip Size:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            125.0,
+            175.0
+          ],
+          [
+            150.0,
+            200.0
+          ]
+        ]
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            50.0,
+            60.0
+          ],
+          [
+            60.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Volume:",
+        "value": 50.0
+      },
+      {
+        "stat": "Reload Time:",
+        "value": 20.0
+      }
+    ]
+  },
+  {
+    "slug": "drillshot-fk7-amplifier",
+    "name": "Drillshot FK7 Amplifier",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Ranged",
+      "Drillshot FK7"
+    ],
+    "description": "An augmentation for the Drillshot FK7 which increases damage and reduces overall volume, but reduces ammo capacity.",
+    "effects": [
+      {
+        "stat": "Volume:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            35.0,
+            40.0
+          ],
+          [
+            45.0,
+            50.0
+          ],
+          [
+            55.0,
+            60.0
+          ],
+          [
+            65.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            9.0,
+            15.0
+          ],
+          [
+            18.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Clip Size:",
+        "value": -25.0
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "value": 30.0
+      }
+    ]
+  },
+  {
+    "slug": "drillshot-fk7-optimizer",
+    "name": "Drillshot FK7 Optimizer",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Ranged",
+      "Drillshot FK7"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Recoil:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Accuracy:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "drillshot-fk7-quickloader",
+    "name": "Drillshot FK7 Quickloader",
+    "icon": "imgs/augments/T_UI_IconAugmentModReload_D.png",
+    "type": [
+      "Ranged",
+      "Drillshot FK7"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Volume:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            45.0,
+            50.0
+          ],
+          [
+            55.0,
+            60.0
+          ],
+          [
+            65.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Headshot Damage:",
+        "type": "flat",
+        "grades": [
+          null,
+          null,
+          [
+            0.1,
+            0.16
+          ],
+          [
+            0.2,
+            0.31
+          ],
+          [
+            0.34,
+            0.5
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Accuracy:",
+        "value": 10.0
+      },
+      {
+        "stat": "Recoil:",
+        "value": 5.0
+      },
+      {
+        "stat": "Clip Size:",
+        "value": -25.0
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "value": 30.0
+      },
+      {
+        "stat": "Reload Time:",
+        "value": -6.0
+      }
+    ]
+  },
+  {
+    "slug": "drillshot-fk7-sprayer",
+    "name": "Drillshot FK7 Sprayer",
+    "icon": "imgs/augments/T_UI_IconAugmentModRateOfFire_D.png",
+    "type": [
+      "Ranged",
+      "Drillshot FK7"
+    ],
+    "description": "An augmentation for the Drillshot FK7 which increases rate of fire and ammo capacity, but reduces damage output and increases recoil and overall volume.",
+    "effects": [
+      {
+        "stat": "Rate of Fire:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            7.0,
+            11.0
+          ],
+          [
+            12.0,
+            18.0
+          ],
+          [
+            20.0,
+            26.0
+          ],
+          [
+            27.0,
+            34.0
+          ]
+        ]
+      },
+      {
+        "stat": "Clip Size:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            55.0,
+            75.0
+          ],
+          [
+            80.0,
+            100.0
+          ],
+          [
+            105.0,
+            125.0
+          ],
+          [
+            130.0,
+            150.0
+          ]
+        ]
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            10.0,
+            15.0
+          ],
+          [
+            15.0,
+            20.0
+          ],
+          [
+            20.0,
+            25.0
+          ],
+          [
+            25.0,
+            30.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Volume:",
+        "value": 50.0
+      },
+      {
+        "stat": "Damage:",
+        "value": -5.0
+      },
+      {
+        "stat": "Recoil:",
+        "value": 5.0
+      }
+    ]
+  },
+  {
+    "slug": "drillshot-fk7-tactical-adjuster",
+    "name": "Drillshot FK7 Tactical Adjuster",
+    "icon": "imgs/augments/T_UI_IconAugmentModCritDmg_D.png",
+    "type": [
+      "Ranged",
+      "Drillshot FK7"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Headshot Damage:",
+        "type": "flat",
+        "grades": [
+          null,
+          null,
+          [
+            0.1,
+            0.16
+          ],
+          [
+            0.2,
+            0.31
+          ],
+          [
+            0.34,
+            0.5
+          ]
+        ]
+      },
+      {
+        "stat": "Accuracy:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Effective Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Maximum Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Rate of Fire:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "flamethrower-amplifier",
+    "name": "Flamethrower Amplifier",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Ranged",
+      "Flamethrower"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Recoil:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Volume:",
+        "value": 50.0
+      }
+    ]
+  },
+  {
+    "slug": "flamethrower-nozzle-extension",
+    "name": "Flamethrower Nozzle Extension",
+    "icon": "imgs/augments/T_UI_IconAugmentModMagSize_D.png",
+    "type": [
+      "Ranged",
+      "Flamethrower"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Effective Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Maximum Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Clip Size:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            22.0,
+            30.0
+          ],
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Volume:",
+        "value": 50.0
+      },
+      {
+        "stat": "Recoil:",
+        "value": 5.0
+      }
+    ]
+  },
+  {
+    "slug": "flamethrower-quickloader",
+    "name": "Flamethrower Quickloader",
+    "icon": "imgs/augments/T_UI_IconAugmentModReload_D.png",
+    "type": [
+      "Ranged",
+      "Flamethrower"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Volume:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            35.0,
+            40.0
+          ],
+          [
+            45.0,
+            50.0
+          ],
+          [
+            55.0,
+            60.0
+          ],
+          [
+            65.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Recoil:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            11.0,
+            20.0
+          ],
+          [
+            22.0,
+            30.0
+          ],
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Damage:",
+        "value": -5.0
+      },
+      {
+        "stat": "Reload Time:",
+        "value": -4.0
+      }
+    ]
+  },
+  {
+    "slug": "flamethrower-superheater",
+    "name": "Flamethrower Superheater",
+    "icon": "imgs/augments/T_UI_IconAugmentModFireDmgOvertime_D.png",
+    "type": [
+      "Ranged",
+      "Flamethrower"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Rate of Fire:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          null,
+          [
+            27.0,
+            34.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Effective Range:",
+        "value": -10.0
+      },
+      {
+        "stat": "Maximum Range:",
+        "value": -10.0
+      },
+      {
+        "stat": "Fire Damage Over Time:",
+        "value": 300.0
+      }
+    ]
+  },
+  {
+    "slug": "grda-44-amplifier",
+    "name": "GRDA 44 Amplifier",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Ranged",
+      "GRDA 44"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Projectile spread:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Effective Range:",
+        "value": -10.0
+      },
+      {
+        "stat": "Maximum Range:",
+        "value": -10.0
+      }
+    ]
+  },
+  {
+    "slug": "grda-44-expander",
+    "name": "GRDA 44 Expander",
+    "icon": "imgs/augments/T_UI_IconAugmentModRange_D.png",
+    "type": [
+      "Ranged",
+      "GRDA 44"
+    ],
+    "description": "An augmentation for the GRDA 44 which increases ammo capacity and effective range, but increases shot spread and reduces damage output.",
+    "effects": [
+      {
+        "stat": "Effective Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Maximum Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Clip Size:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            55.0,
+            75.0
+          ],
+          [
+            80.0,
+            100.0
+          ],
+          [
+            105.0,
+            125.0
+          ],
+          [
+            130.0,
+            150.0
+          ]
+        ]
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            10.0,
+            15.0
+          ],
+          [
+            15.0,
+            20.0
+          ],
+          [
+            20.0,
+            25.0
+          ],
+          [
+            25.0,
+            30.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Damage:",
+        "value": -5.0
+      },
+      {
+        "stat": "Projectile spread:",
+        "value": -15.0
+      }
+    ]
+  },
+  {
+    "slug": "grda-44-micro-rigidity-coating",
+    "name": "GRDA 44 Micro-Rigidity Coating",
+    "icon": "imgs/augments/T_UI_IconAugmentModAccuracy_D.png",
+    "type": [
+      "Ranged",
+      "GRDA 44"
+    ],
+    "description": "An augmentation for the GRDA 44 which increases effective range and accuracy, and reduces recoil and overall volume, but reduces ammo capacity.",
+    "effects": [
+      {
+        "stat": "Volume:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            45.0,
+            50.0
+          ],
+          [
+            55.0,
+            60.0
+          ],
+          [
+            65.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Accuracy:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Recoil:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            22.0,
+            30.0
+          ],
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      },
+      {
+        "stat": "Effective Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Maximum Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Clip Size:",
+        "value": -25.0
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "value": 30.0
+      }
+    ]
+  },
+  {
+    "slug": "grda-44-optimizer",
+    "name": "GRDA 44 Optimizer",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Ranged",
+      "GRDA 44"
+    ],
+    "description": "An augmentation for the GRDA 44 which increases damage output, reduces shot spread and overall volume, but at the cost of ammo capacity.",
+    "effects": [
+      {
+        "stat": "Volume:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            45.0,
+            50.0
+          ],
+          [
+            55.0,
+            60.0
+          ],
+          [
+            65.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            18.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Projectile spread:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Clip Size:",
+        "value": -25.0
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "value": 30.0
+      }
+    ]
+  },
+  {
+    "slug": "grda-44-sprayer",
+    "name": "GRDA 44 Sprayer",
+    "icon": "imgs/augments/T_UI_IconAugmentModRateOfFire_D.png",
+    "type": [
+      "Ranged",
+      "GRDA 44"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Rate of Fire:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            7.0,
+            11.0
+          ],
+          [
+            12.0,
+            18.0
+          ],
+          [
+            20.0,
+            26.0
+          ],
+          [
+            27.0,
+            34.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Accuracy:",
+        "value": 10.0
+      },
+      {
+        "stat": "Projectile spread:",
+        "value": -15.0
+      },
+      {
+        "stat": "Recoil:",
+        "value": 5.0
+      }
+    ]
+  },
+  {
+    "slug": "grda-44-tactical-amplifier",
+    "name": "GRDA 44 Tactical Amplifier",
+    "icon": "imgs/augments/T_UI_IconAugmentModCritDmg_D.png",
+    "type": [
+      "Ranged",
+      "GRDA 44"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Headshot Damage:",
+        "type": "flat",
+        "grades": [
+          null,
+          [
+            0.06,
+            0.09999997
+          ],
+          [
+            0.1,
+            0.16
+          ],
+          [
+            0.2,
+            0.31
+          ],
+          [
+            0.34,
+            0.5
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Rate of Fire:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "heavy-caliber-upgrade",
+    "name": "Heavy Caliber Upgrade",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Ranged"
+    ],
+    "description": "An augmentation which increases the damage output of any ranged weapon.",
+    "effects": [
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          [
+            2.0,
+            8.0
+          ],
+          [
+            9.0,
+            15.0
+          ],
+          [
+            18.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": []
+  },
+  {
+    "slug": "jabal-spitdart-amplifier",
+    "name": "JABAL Spitdart Amplifier",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Ranged",
+      "JABAL Spitdart"
+    ],
+    "description": "An augmentation for the JABAL Spitdart Rifle which increases damage, but increases recoil.",
+    "effects": [
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            18.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Recoil:",
+        "value": 5.0
+      }
+    ]
+  },
+  {
+    "slug": "jabal-spitdart-disruptive-coating",
+    "name": "JABAL Spitdart Disruptive Coating",
+    "icon": "imgs/augments/T_UI_IconAugmentModShieldDmg_D.png",
+    "type": [
+      "Ranged",
+      "JABAL Spitdart"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Shield Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            3.0,
+            5.0
+          ],
+          [
+            6.0,
+            9.0
+          ],
+          [
+            10.0,
+            14.0
+          ],
+          [
+            15.0,
+            20.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Clip Size:",
+        "value": -25.0
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "value": 30.0
+      }
+    ]
+  },
+  {
+    "slug": "jabal-spitdart-expander",
+    "name": "JABAL Spitdart Expander",
+    "icon": "imgs/augments/T_UI_IconAugmentModMagSize_D.png",
+    "type": [
+      "Ranged",
+      "JABAL Spitdart"
+    ],
+    "description": "An augmentation for JABAL Spitdart Rifles which increases ammo capacity and rate of fire, but reduces effective range, accuracy, and damage output and increases overall volume.",
+    "effects": [
+      {
+        "stat": "Rate of Fire:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            7.0,
+            11.0
+          ],
+          [
+            12.0,
+            18.0
+          ],
+          [
+            20.0,
+            26.0
+          ],
+          [
+            27.0,
+            34.0
+          ]
+        ]
+      },
+      {
+        "stat": "Clip Size:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            137.5,
+            180.0
+          ],
+          [
+            175.0,
+            220.0
+          ],
+          [
+            212.5,
+            260.0
+          ],
+          [
+            250.0,
+            300.0
+          ]
+        ]
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            50.0,
+            60.0
+          ],
+          [
+            55.0,
+            65.0
+          ],
+          [
+            60.0,
+            70.0
+          ],
+          [
+            65.0,
+            75.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Volume:",
+        "value": 50.0
+      },
+      {
+        "stat": "Damage:",
+        "value": -5.0
+      },
+      {
+        "stat": "Accuracy:",
+        "value": 10.0
+      },
+      {
+        "stat": "Effective Range:",
+        "value": -10.0
+      },
+      {
+        "stat": "Maximum Range:",
+        "value": -10.0
+      }
+    ]
+  },
+  {
+    "slug": "jabal-spitdart-range-adjuster",
+    "name": "JABAL Spitdart Range Adjuster",
+    "icon": "imgs/augments/T_UI_IconAugmentModRange_D.png",
+    "type": [
+      "Ranged",
+      "JABAL Spitdart"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Accuracy:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Effective Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Maximum Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Reload Time:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "jabal-spitdart-tactical-enhancer",
+    "name": "JABAL Spitdart Tactical Enhancer",
+    "icon": "imgs/augments/T_UI_IconAugmentModCritDmg_D.png",
+    "type": [
+      "Ranged",
+      "JABAL Spitdart"
+    ],
+    "description": "An augmentation for the JABAL Spitdart Rifle which increases headshot damage, but increases recoil.",
+    "effects": [
+      {
+        "stat": "Headshot Damage:",
+        "type": "flat",
+        "grades": [
+          null,
+          null,
+          [
+            0.1,
+            0.16
+          ],
+          [
+            0.2,
+            0.31
+          ],
+          [
+            0.34,
+            0.5
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Recoil:",
+        "value": 5.0
+      }
+    ]
+  },
+  {
+    "slug": "jabal-spitdart-toxicity-amplifier",
+    "name": "JABAL Spitdart Toxicity Amplifier",
+    "icon": "imgs/augments/T_UI_IconAugmentModPoisonDmg_D.png",
+    "type": [
+      "Ranged",
+      "JABAL Spitdart"
+    ],
+    "description": "",
+    "effects": [],
+    "tradeoffs": [
+      {
+        "stat": "Shield Damage:",
+        "value": -5.0
+      },
+      {
+        "stat": "Poison Damage Over Time:",
+        "value": 100.0
+      }
+    ]
+  },
+  {
+    "slug": "karpov-38-dart-sprayer",
+    "name": "Karpov 38 Dart Sprayer",
+    "icon": "imgs/augments/T_UI_IconAugmentModRateOfFire_D.png",
+    "type": [
+      "Ranged",
+      "Karpov 38"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Rate of Fire:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            7.0,
+            11.0
+          ],
+          [
+            12.0,
+            18.0
+          ],
+          [
+            20.0,
+            26.0
+          ],
+          [
+            27.0,
+            34.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Damage:",
+        "value": -5.0
+      }
+    ]
+  },
+  {
+    "slug": "karpov-38-focuser",
+    "name": "Karpov 38 Focuser",
+    "icon": "imgs/augments/T_UI_IconAugmentModAccuracy_D.png",
+    "type": [
+      "Ranged",
+      "Karpov 38"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Accuracy:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Recoil:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            11.0,
+            20.0
+          ],
+          [
+            22.0,
+            30.0
+          ],
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Damage:",
+        "value": -5.0
+      },
+      {
+        "stat": "Reload Time:",
+        "value": -4.0
+      }
+    ]
+  },
+  {
+    "slug": "karpov-38-heavy-kit",
+    "name": "Karpov 38 Heavy Kit",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Ranged",
+      "Karpov 38"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Volume:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            35.0,
+            40.0
+          ],
+          [
+            45.0,
+            50.0
+          ],
+          [
+            55.0,
+            60.0
+          ],
+          [
+            65.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            9.0,
+            15.0
+          ],
+          [
+            18.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Clip Size:",
+        "value": -25.0
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "value": 30.0
+      }
+    ]
+  },
+  {
+    "slug": "karpov-38-precision-kit",
+    "name": "Karpov 38 Precision Kit",
+    "icon": "imgs/augments/T_UI_IconAugmentModMagSize_D.png",
+    "type": [
+      "Ranged",
+      "Karpov 38"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Headshot Damage:",
+        "type": "flat",
+        "grades": [
+          null,
+          null,
+          [
+            0.1,
+            0.16
+          ],
+          [
+            0.2,
+            0.31
+          ],
+          [
+            0.34,
+            0.5
+          ]
+        ]
+      },
+      {
+        "stat": "Clip Size:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            40.0,
+            60.0
+          ],
+          [
+            60.0,
+            80.0
+          ],
+          [
+            80.0,
+            100.0
+          ]
+        ]
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            15.0,
+            25.0
+          ],
+          [
+            20.0,
+            30.0
+          ],
+          [
+            25.0,
+            35.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Volume:",
+        "value": 50.0
+      },
+      {
+        "stat": "Accuracy:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "karpov-38-pressurizer",
+    "name": "Karpov 38 Pressurizer",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Ranged",
+      "Karpov 38"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Accuracy:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Shield Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            10.0,
+            14.0
+          ],
+          [
+            15.0,
+            20.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Rate of Fire:",
+        "value": 20.0
+      }
+    ]
+  },
+  {
+    "slug": "lasgun-amplifier",
+    "name": "Lasgun Amplifier",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Ranged",
+      "Lasgun"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Volume:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            45.0,
+            50.0
+          ],
+          [
+            55.0,
+            60.0
+          ],
+          [
+            65.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            18.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Effective Range:",
+        "value": -10.0
+      },
+      {
+        "stat": "Maximum Range:",
+        "value": -10.0
+      },
+      {
+        "stat": "Recoil:",
+        "value": 5.0
+      }
+    ]
+  },
+  {
+    "slug": "lasgun-extender",
+    "name": "Lasgun Extender",
+    "icon": "imgs/augments/T_UI_IconAugmentModRange_D.png",
+    "type": [
+      "Ranged",
+      "Lasgun"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Accuracy:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Effective Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            12.0,
+            20.0
+          ],
+          [
+            22.0,
+            30.0
+          ],
+          [
+            34.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      },
+      {
+        "stat": "Maximum Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            12.0,
+            20.0
+          ],
+          [
+            22.0,
+            30.0
+          ],
+          [
+            34.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      },
+      {
+        "stat": "Volume:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            35.0,
+            40.0
+          ],
+          [
+            45.0,
+            50.0
+          ],
+          [
+            55.0,
+            60.0
+          ],
+          [
+            65.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Damage:",
+        "value": -5.0
+      }
+    ]
+  },
+  {
+    "slug": "lasgun-focuser",
+    "name": "Lasgun Focuser",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Ranged",
+      "Lasgun"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Volume:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            35.0,
+            40.0
+          ],
+          [
+            45.0,
+            50.0
+          ],
+          [
+            55.0,
+            60.0
+          ],
+          [
+            65.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            9.0,
+            15.0
+          ],
+          [
+            18.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Recoil:",
+        "value": 5.0
+      },
+      {
+        "stat": "Clip Size:",
+        "value": -25.0
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "value": 30.0
+      }
+    ]
+  },
+  {
+    "slug": "lasgun-harmonizer",
+    "name": "Lasgun Harmonizer",
+    "icon": "imgs/augments/T_UI_IconAugmentModPowerDrain_D.png",
+    "type": [
+      "Ranged",
+      "Lasgun"
+    ],
+    "description": "An augmentation for Lasguns which increases the rate of fire of the beam, reduces recoil, and reduces power drain, however the range of the beam and its damage output are reduced, and overall volume is increased.",
+    "effects": [
+      {
+        "stat": "Rate of Fire:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            20.0,
+            26.0
+          ],
+          [
+            27.0,
+            34.0
+          ]
+        ]
+      },
+      {
+        "stat": "Recoil:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      },
+      {
+        "stat": "Clip Size:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Volume:",
+        "value": 50.0
+      },
+      {
+        "stat": "Damage:",
+        "value": -5.0
+      },
+      {
+        "stat": "Effective Range:",
+        "value": -10.0
+      },
+      {
+        "stat": "Maximum Range:",
+        "value": -10.0
+      }
+    ]
+  },
+  {
+    "slug": "maula-pistol-barrel-extender",
+    "name": "Maula Pistol Barrel Extender",
+    "icon": "imgs/augments/T_UI_IconAugmentModRange_D.png",
+    "type": [
+      "Ranged",
+      "Maula Pistol"
+    ],
+    "description": "An augmentation for Maula Pistols that increases effective range and accuracy and reduces reload times, but reduces overall rate of fire.",
+    "effects": [
+      {
+        "stat": "Accuracy:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Effective Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Maximum Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Rate of Fire:",
+        "value": 10.0
+      },
+      {
+        "stat": "Reload Time:",
+        "value": -6.0
+      }
+    ]
+  },
+  {
+    "slug": "maula-pistol-disruptive-coating",
+    "name": "Maula Pistol Disruptive Coating",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Ranged",
+      "Maula Pistol"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Volume:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            55.0,
+            60.0
+          ],
+          [
+            65.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Shield Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            10.0,
+            14.0
+          ],
+          [
+            15.0,
+            20.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Clip Size:",
+        "value": -25.0
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "value": 30.0
+      }
+    ]
+  },
+  {
+    "slug": "maula-pistol-expander",
+    "name": "Maula Pistol Expander",
+    "icon": "imgs/augments/T_UI_IconAugmentModMagSize_D.png",
+    "type": [
+      "Ranged",
+      "Maula Pistol"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Rate of Fire:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            12.0,
+            18.0
+          ],
+          [
+            20.0,
+            26.0
+          ],
+          [
+            27.0,
+            34.0
+          ]
+        ]
+      },
+      {
+        "stat": "Clip Size:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            30.0,
+            45.0
+          ],
+          [
+            45.0,
+            60.0
+          ],
+          [
+            60.0,
+            75.0
+          ]
+        ]
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            15.0,
+            20.0
+          ],
+          [
+            20.0,
+            25.0
+          ],
+          [
+            25.0,
+            30.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Damage:",
+        "value": -5.0
+      },
+      {
+        "stat": "Accuracy:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "maula-pistol-sprayer",
+    "name": "Maula Pistol Sprayer",
+    "icon": "imgs/augments/T_UI_IconAugmentModRateOfFire_D.png",
+    "type": [
+      "Ranged",
+      "Maula Pistol"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Rate of Fire:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            7.0,
+            11.0
+          ],
+          [
+            12.0,
+            18.0
+          ],
+          [
+            20.0,
+            26.0
+          ],
+          [
+            27.0,
+            34.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Headshot Damage:",
+        "value": -0.15
+      }
+    ]
+  },
+  {
+    "slug": "maula-pistol-tactical-enhancer",
+    "name": "Maula Pistol Tactical Enhancer",
+    "icon": "imgs/augments/T_UI_IconAugmentModAccuracy_D.png",
+    "type": [
+      "Ranged",
+      "Maula Pistol"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Volume:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            35.0,
+            40.0
+          ],
+          [
+            45.0,
+            50.0
+          ],
+          [
+            55.0,
+            60.0
+          ],
+          [
+            65.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Headshot Damage:",
+        "type": "flat",
+        "grades": [
+          null,
+          [
+            0.06,
+            0.09999997
+          ],
+          [
+            0.1,
+            0.16
+          ],
+          [
+            0.2,
+            0.31
+          ],
+          [
+            0.34,
+            0.5
+          ]
+        ]
+      },
+      {
+        "stat": "Accuracy:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Recoil:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            11.0,
+            20.0
+          ],
+          [
+            22.0,
+            30.0
+          ],
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Rate of Fire:",
+        "value": 10.0
+      },
+      {
+        "stat": "Clip Size:",
+        "value": -25.0
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "value": 30.0
+      }
+    ]
+  },
+  {
+    "slug": "missile-launcher-disruptive-coating",
+    "name": "Missile Launcher Disruptive Coating",
+    "icon": "imgs/augments/T_UI_IconAugmentModShieldDmg_D.png",
+    "type": [
+      "Ranged",
+      "Missile Launcher"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Shield Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            6.0,
+            9.0
+          ],
+          [
+            10.0,
+            14.0
+          ],
+          [
+            15.0,
+            20.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Reload Time:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "missile-launcher-fragmenter",
+    "name": "Missile Launcher Fragmenter",
+    "icon": "imgs/augments/T_UI_IconAugmentModSplashRadius_D.png",
+    "type": [
+      "Ranged",
+      "Missile Launcher"
+    ],
+    "description": "An augmentation for Missile Launchers which increases area of effect and reduces reload times, but reduces shield damage.",
+    "effects": [
+      {
+        "stat": "AOE Radius (m):",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            11.0,
+            20.0
+          ],
+          [
+            22.0,
+            30.0
+          ],
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Shield Damage:",
+        "value": -5.0
+      },
+      {
+        "stat": "Reload Time:",
+        "value": -4.0
+      }
+    ]
+  },
+  {
+    "slug": "missile-launcher-heavy-payload",
+    "name": "Missile Launcher Heavy Payload",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "type": [
+      "Ranged",
+      "Missile Launcher"
+    ],
+    "description": "An augmentation for Missile Launchers which increases their damage output, but reduces shield damage and area of effect.",
+    "effects": [
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            18.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Shield Damage:",
+        "value": -5.0
+      },
+      {
+        "stat": "AOE Radius (m):",
+        "value": -15.0
+      }
+    ]
+  },
+  {
+    "slug": "missile-launcher-quickloader",
+    "name": "Missile Launcher Quickloader",
+    "icon": "imgs/augments/T_UI_IconAugmentModReload_D.png",
+    "type": [
+      "Ranged",
+      "Missile Launcher"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Accuracy:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Recoil:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            11.0,
+            20.0
+          ],
+          [
+            22.0,
+            30.0
+          ],
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Damage:",
+        "value": -5.0
+      },
+      {
+        "stat": "Reload Time:",
+        "value": -4.0
+      }
+    ]
+  },
+  {
+    "slug": "precision-barrel-adjuster",
+    "name": "Precision Barrel Adjuster",
+    "icon": "imgs/augments/T_UI_IconAugmentModAccuracy_D.png",
+    "type": [
+      "Ranged"
+    ],
+    "description": "An augmentation which increases the accuracy of any ranged weapon.",
+    "effects": [
+      {
+        "stat": "Accuracy:",
+        "type": "percent",
+        "grades": [
+          [
+            2.0,
+            5.0
+          ],
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": []
+  },
+  {
+    "slug": "pyrocket-quickloader",
+    "name": "Pyrocket Quickloader",
+    "icon": "imgs/augments/T_UI_IconAugmentModReload_D.png",
+    "type": [
+      "Ranged",
+      "Pyrocket"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Volume:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            35.0,
+            40.0
+          ],
+          [
+            45.0,
+            50.0
+          ],
+          [
+            55.0,
+            60.0
+          ],
+          [
+            65.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Clip Size:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            11.0,
+            20.0
+          ],
+          [
+            22.0,
+            30.0
+          ],
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Accuracy:",
+        "value": 10.0
+      },
+      {
+        "stat": "Shield Damage:",
+        "value": -5.0
+      },
+      {
+        "stat": "Reload Time:",
+        "value": -4.0
+      }
+    ]
+  },
+  {
+    "slug": "pyrocket-supercharger",
+    "name": "Pyrocket Supercharger",
+    "icon": "imgs/augments/T_UI_IconAugmentModRateOfFire_D.png",
+    "type": [
+      "Ranged",
+      "Pyrocket"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            18.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Rate of Fire:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            12.0,
+            18.0
+          ],
+          [
+            20.0,
+            26.0
+          ],
+          [
+            27.0,
+            34.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Volume:",
+        "value": 50.0
+      },
+      {
+        "stat": "Reload Time:",
+        "value": 20.0
+      }
+    ]
+  },
+  {
+    "slug": "quick-release-trigger",
+    "name": "Quick-release Trigger",
+    "icon": "imgs/augments/T_UI_IconAugmentModRateOfFire_D.png",
+    "type": [
+      "Ranged"
+    ],
+    "description": "An augmentation which increases the rate of fire of any ranged weapon.",
+    "effects": [
+      {
+        "stat": "Rate of Fire:",
+        "type": "percent",
+        "grades": [
+          [
+            3.0,
+            6.0
+          ],
+          [
+            7.0,
+            11.0
+          ],
+          [
+            12.0,
+            18.0
+          ],
+          [
+            20.0,
+            26.0
+          ],
+          [
+            27.0,
+            34.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": []
+  },
+  {
+    "slug": "quickloader",
+    "name": "Quickloader",
+    "icon": "imgs/augments/T_UI_IconAugmentModReload_D.png",
+    "type": [
+      "Ranged"
+    ],
+    "description": "An augmentation which reduces the reload time of any ranged weapon.",
+    "effects": [],
+    "tradeoffs": [
+      {
+        "stat": "Reload Time:",
+        "value": -2.0
+      }
+    ]
+  },
+  {
+    "slug": "rafiq-snubnose-disruptive-coating",
+    "name": "Rafiq Snubnose Disruptive Coating",
+    "icon": "imgs/augments/T_UI_IconAugmentModShieldDmg_D.png",
+    "type": [
+      "Ranged",
+      "Rafiq Snubnose"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Volume:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            45.0,
+            50.0
+          ],
+          [
+            55.0,
+            60.0
+          ],
+          [
+            65.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            18.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Shield Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            6.0,
+            9.0
+          ],
+          [
+            10.0,
+            14.0
+          ],
+          [
+            15.0,
+            20.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Clip Size:",
+        "value": -50.0
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "value": 60.0
+      },
+      {
+        "stat": "Reload Time:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "rafiq-snubnose-expander",
+    "name": "Rafiq Snubnose Expander",
+    "icon": "imgs/augments/T_UI_IconAugmentModMagSize_D.png",
+    "type": [
+      "Ranged",
+      "Rafiq Snubnose"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Clip Size:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            22.0,
+            40.0
+          ],
+          [
+            44.0,
+            60.0
+          ],
+          [
+            66.0,
+            80.0
+          ],
+          [
+            88.0,
+            100.0
+          ]
+        ]
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            12.0,
+            20.0
+          ],
+          [
+            22.0,
+            30.0
+          ],
+          [
+            32.0,
+            40.0
+          ],
+          [
+            42.0,
+            50.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Volume:",
+        "value": 50.0
+      },
+      {
+        "stat": "Recoil:",
+        "value": 5.0
+      }
+    ]
+  },
+  {
+    "slug": "rafiq-snubnose-heavy-kit",
+    "name": "Rafiq Snubnose Heavy Kit",
+    "icon": "imgs/augments/T_UI_IconAugmentModCritDmg_D.png",
+    "type": [
+      "Ranged",
+      "Rafiq Snubnose"
+    ],
+    "description": "An augmentation for the Rafiq Snubnose heavy pistol which focuses on improving the stopping power of the gun, but makes it harder to handle. This increases the damage and headshot damage of the gun at the cost of reducing the fire rate.",
+    "effects": [
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      },
+      {
+        "stat": "Headshot Damage:",
+        "type": "flat",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            0.2,
+            0.31
+          ],
+          [
+            0.34,
+            0.5
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Rate of Fire:",
+        "value": 20.0
+      }
+    ]
+  },
+  {
+    "slug": "rafiq-snubnose-quickdraw-assembly",
+    "name": "Rafiq Snubnose Quickdraw Assembly",
+    "icon": "imgs/augments/T_UI_IconAugmentModAccuracy_D.png",
+    "type": [
+      "Ranged",
+      "Rafiq Snubnose"
+    ],
+    "description": "An augmentation for the Rafiq Snubnose which reduces recoil and reload time and improves accuracy but reduces overall stopping power.",
+    "effects": [
+      {
+        "stat": "Accuracy:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Recoil:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            22.0,
+            30.0
+          ],
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Damage:",
+        "value": -5.0
+      },
+      {
+        "stat": "Reload Time:",
+        "value": -6.0
+      }
+    ]
+  },
+  {
+    "slug": "rafiq-snubnose-sprayer",
+    "name": "Rafiq Snubnose Sprayer",
+    "icon": "imgs/augments/T_UI_IconAugmentModRateOfFire_D.png",
+    "type": [
+      "Ranged",
+      "Rafiq Snubnose"
+    ],
+    "description": "An augmentation for the Rafiq Snubnose which increases the weapon's fire rate at the cost of shield damage.",
+    "effects": [
+      {
+        "stat": "Rate of Fire:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            7.0,
+            11.0
+          ],
+          [
+            12.0,
+            18.0
+          ],
+          [
+            20.0,
+            26.0
+          ],
+          [
+            27.0,
+            34.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Shield Damage:",
+        "value": -5.0
+      }
+    ]
+  },
+  {
+    "slug": "recoil-adjuster",
+    "name": "Recoil Adjuster",
+    "icon": "imgs/augments/T_UI_IconAugmentModRecoilStability_D.png",
+    "type": [
+      "Ranged"
+    ],
+    "description": "An augmentation which reduces the recoil of any ranged weapon.",
+    "effects": [
+      {
+        "stat": "Recoil:",
+        "type": "percent",
+        "grades": [
+          [
+            5.0,
+            10.0
+          ],
+          [
+            11.0,
+            20.0
+          ],
+          [
+            22.0,
+            30.0
+          ],
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": []
+  },
+  {
+    "slug": "tactical-enhancer",
+    "name": "Tactical Enhancer",
+    "icon": "imgs/augments/T_UI_IconAugmentModCritDmg_D.png",
+    "type": [
+      "Ranged"
+    ],
+    "description": "An augmentation which increases the headshot damage of any ranged weapon.",
+    "effects": [
+      {
+        "stat": "Headshot Damage:",
+        "type": "flat",
+        "grades": [
+          [
+            0.03,
+            0.049999986
+          ],
+          [
+            0.06,
+            0.09999997
+          ],
+          [
+            0.1,
+            0.16
+          ],
+          [
+            0.2,
+            0.31
+          ],
+          [
+            0.34,
+            0.5
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": []
+  },
+  {
+    "slug": "vulcan-gau-92-disruptive-coating",
+    "name": "VULCAN GAU-92 Disruptive Coating",
+    "icon": "imgs/augments/T_UI_IconAugmentModShieldDmg_D.png",
+    "type": [
+      "Ranged",
+      "VULCAN GAU-92"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Shield Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            12.0,
+            18.0
+          ],
+          [
+            20.0,
+            28.0
+          ],
+          [
+            30.0,
+            40.0
+          ]
+        ]
+      },
+      {
+        "stat": "Damage:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            18.0,
+            26.0
+          ],
+          [
+            28.0,
+            44.0
+          ],
+          [
+            48.0,
+            70.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Accuracy:",
+        "value": 10.0
+      },
+      {
+        "stat": "Recoil:",
+        "value": 5.0
+      },
+      {
+        "stat": "Reload Time:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "vulcan-gau-92-expander",
+    "name": "VULCAN GAU-92 Expander",
+    "icon": "imgs/augments/T_UI_IconAugmentModMagSize_D.png",
+    "type": [
+      "Ranged",
+      "VULCAN GAU-92"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Clip Size:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            25.0,
+            75.0
+          ],
+          [
+            62.5,
+            112.5
+          ],
+          [
+            100.0,
+            150.0
+          ],
+          [
+            150.0,
+            200.0
+          ]
+        ]
+      },
+      {
+        "stat": "Power Consumption (per shot):",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            20.0,
+            29.1
+          ],
+          [
+            30.0,
+            40.0
+          ],
+          [
+            40.0,
+            50.0
+          ],
+          [
+            50.0,
+            60.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Volume:",
+        "value": 50.0
+      },
+      {
+        "stat": "Damage:",
+        "value": -5.0
+      },
+      {
+        "stat": "Accuracy:",
+        "value": 10.0
+      },
+      {
+        "stat": "Reload Time:",
+        "value": -4.0
+      }
+    ]
+  },
+  {
+    "slug": "vulcan-gau-92-focuser",
+    "name": "VULCAN GAU-92 Focuser",
+    "icon": "imgs/augments/T_UI_IconAugmentModAccuracy_D.png",
+    "type": [
+      "Ranged",
+      "VULCAN GAU-92"
+    ],
+    "description": "An augmentation for the VULCAN GAU-92 which increases range and accuracy and reduces recoil, however rate of fire is reduced.",
+    "effects": [
+      {
+        "stat": "Effective Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Maximum Range:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            17.0,
+            20.0
+          ],
+          [
+            22.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Accuracy:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            6.0,
+            10.0
+          ],
+          [
+            11.0,
+            15.0
+          ],
+          [
+            16.0,
+            20.0
+          ],
+          [
+            21.0,
+            25.0
+          ]
+        ]
+      },
+      {
+        "stat": "Recoil:",
+        "type": "percent",
+        "grades": [
+          null,
+          [
+            11.0,
+            20.0
+          ],
+          [
+            22.0,
+            30.0
+          ],
+          [
+            33.0,
+            40.0
+          ],
+          [
+            44.0,
+            50.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Rate of Fire:",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "slug": "vulcan-gau-92-sprayer",
+    "name": "VULCAN GAU-92 Sprayer",
+    "icon": "imgs/augments/T_UI_IconAugmentModRateOfFire_D.png",
+    "type": [
+      "Ranged",
+      "VULCAN GAU-92"
+    ],
+    "description": "",
+    "effects": [
+      {
+        "stat": "Rate of Fire:",
+        "type": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            20.0,
+            26.0
+          ],
+          [
+            27.0,
+            34.0
+          ]
+        ]
+      }
+    ],
+    "tradeoffs": [
+      {
+        "stat": "Accuracy:",
+        "value": 10.0
+      },
+      {
+        "stat": "Effective Range:",
+        "value": -10.0
+      },
+      {
+        "stat": "Maximum Range:",
+        "value": -10.0
+      }
+    ]
+  }
+]

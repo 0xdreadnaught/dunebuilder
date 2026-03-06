@@ -1,0 +1,200 @@
+[
+  {
+    "slug": "garment-reinforcement",
+    "name": "Garment Reinforcement",
+    "icon": "imgs/augments/T_UI_IconAugmentModBaseArmor_D.png",
+    "type": ["Garment"],
+    "description": "Increases armor value.",
+    "effects": [
+      { "stat": "Armor Value:", "type": "percent", "grades": [[2, 4], [5, 8], [9, 12], [13, 16], [17, 20]] }
+    ],
+    "tradeoffs": []
+  },
+  {
+    "slug": "blade-warding-weave",
+    "name": "Blade-warding Weave",
+    "icon": "imgs/augments/T_UI_IconAugmentModMeleeMit_D.png",
+    "type": ["Garment"],
+    "description": "Reduces blade damage taken, but increases dart damage taken.",
+    "effects": [
+      { "stat": "Blade Mitigation:", "type": "flat", "grades": [null, null, [1.75, 2.25], [2.5, 3.1], [3.25, 4]] }
+    ],
+    "tradeoffs": [
+      { "stat": "Dart Mitigation:", "value": -1 }
+    ]
+  },
+  {
+    "slug": "woven-reinforcement",
+    "name": "Woven Reinforcement",
+    "icon": "imgs/augments/T_UI_IconAugmentModMeleeMit_D.png",
+    "type": ["Garment"],
+    "description": "Reduces blade damage taken, but increases poison and fire damage taken.",
+    "effects": [
+      { "stat": "Blade Mitigation:", "type": "flat", "grades": [null, null, [1.75, 2.25], [2.5, 3.1], [3.25, 4]] }
+    ],
+    "tradeoffs": [
+      { "stat": "Fire Mitigation:", "value": -0.5 },
+      { "stat": "Poison Mitigation:", "value": -0.5 }
+    ]
+  },
+  {
+    "slug": "concussive-dampening",
+    "name": "Concussive Dampening",
+    "icon": "imgs/augments/T_UI_IconAugmentModPhysMit_D.png",
+    "type": ["Garment"],
+    "description": "Reduces concussive damage taken, but increases energy damage taken.",
+    "effects": [
+      { "stat": "Concussive Mitigation:", "type": "flat", "grades": [null, null, [1.75, 2.25], [2.5, 3.1], [3.25, 4]] }
+    ],
+    "tradeoffs": [
+      { "stat": "Energy Mitigation:", "value": -1 }
+    ]
+  },
+  {
+    "slug": "concussive-redirection",
+    "name": "Concussive Redirection",
+    "icon": "imgs/augments/T_UI_IconAugmentModPhysMit_D.png",
+    "type": ["Garment"],
+    "description": "Reduces concussive damage taken, but increases dart damage taken.",
+    "effects": [
+      { "stat": "Concussive Mitigation:", "type": "flat", "grades": [null, null, [1.75, 2.25], [2.5, 3.1], [3.25, 4]] }
+    ],
+    "tradeoffs": [
+      { "stat": "Dart Mitigation:", "value": -1 }
+    ]
+  },
+  {
+    "slug": "dart-proof-latticing",
+    "name": "Dart-proof Latticing",
+    "icon": "imgs/augments/T_UI_IconAugmentModDartMit_D.png",
+    "type": ["Garment"],
+    "description": "Reduces dart damage taken, but increases overall volume.",
+    "effects": [
+      { "stat": "Light Dart Mitigation:", "type": "flat", "grades": [null, null, [2.2, 3], [3.25, 4.2], [4.25, 5.5]] },
+      { "stat": "Heavy Dart Mitigation:", "type": "flat", "grades": [null, null, [2.2, 3], [3.25, 4.2], [4.25, 5.5]] }
+    ],
+    "tradeoffs": [
+      { "stat": "Volume:", "value": 50 }
+    ]
+  },
+  {
+    "slug": "penetrative-reinforcement",
+    "name": "Penetrative Reinforcement",
+    "icon": "imgs/augments/T_UI_IconAugmentModDartMit_D.png",
+    "type": ["Garment"],
+    "description": "Reduces dart damage taken, but increases blade damage taken.",
+    "effects": [
+      { "stat": "Light Dart Mitigation:", "type": "flat", "grades": [null, [1.25, 2], [2.2, 3], [3.25, 4.2], [4.25, 5.5]] },
+      { "stat": "Heavy Dart Mitigation:", "type": "flat", "grades": [null, [1.25, 2], [2.2, 3], [3.25, 4.2], [4.25, 5.5]] }
+    ],
+    "tradeoffs": [
+      { "stat": "Blade Mitigation:", "value": -1 }
+    ]
+  },
+  {
+    "slug": "energy-dispersing-padding",
+    "name": "Energy Dispersing Padding",
+    "icon": "imgs/augments/T_UI_IconAugmentModEnergyMit_D.png",
+    "type": ["Garment"],
+    "description": "Reduces energy damage taken, but increases concussive damage taken.",
+    "effects": [
+      { "stat": "Energy Mitigation:", "type": "flat", "grades": [null, [1.3, 2.02], [2.2, 3.11], [3.25, 4.25], [4.3, 5.5]] }
+    ],
+    "tradeoffs": [
+      { "stat": "Concussive Mitigation:", "value": -1 }
+    ]
+  },
+  {
+    "slug": "energy-resistant-weave",
+    "name": "Energy Resistant Weave",
+    "icon": "imgs/augments/T_UI_IconAugmentModEnergyMit_D.png",
+    "type": ["Garment"],
+    "description": "Reduces energy damage taken, but increases poison damage taken.",
+    "effects": [
+      { "stat": "Energy Mitigation:", "type": "flat", "grades": [null, null, [2.2, 3.11], [3.25, 4.25], [4.3, 5.5]] }
+    ],
+    "tradeoffs": [
+      { "stat": "Poison Mitigation:", "value": -1 }
+    ]
+  },
+  {
+    "slug": "curative-infused-padding",
+    "name": "Curative-infused Padding",
+    "icon": "imgs/augments/T_UI_IconAugmentModPoisonMit_D.png",
+    "type": ["Garment"],
+    "description": "Reduces poison damage taken, but increases fire damage taken.",
+    "effects": [
+      { "stat": "Poison Mitigation:", "type": "flat", "grades": [null, [1, 1.5], [1.75, 2.25], [2.5, 3.1], [3.25, 4]] }
+    ],
+    "tradeoffs": [
+      { "stat": "Fire Mitigation:", "value": -1 }
+    ]
+  },
+  {
+    "slug": "detoxifying-fabrics",
+    "name": "Detoxifying Fabrics",
+    "icon": "imgs/augments/T_UI_IconAugmentModPoisonMit_D.png",
+    "type": ["Garment"],
+    "description": "Reduces poison damage taken, but increases energy damage taken.",
+    "effects": [
+      { "stat": "Poison Mitigation:", "type": "flat", "grades": [null, null, [1.75, 2.25], [2.5, 3.1], [3.25, 4]] }
+    ],
+    "tradeoffs": [
+      { "stat": "Energy Mitigation:", "value": -1 }
+    ]
+  },
+  {
+    "slug": "flame-resistant-fabrics",
+    "name": "Flame-resistant Fabrics",
+    "icon": "imgs/augments/T_UI_IconAugmentModFireMit_D.png",
+    "type": ["Garment"],
+    "description": "Reduces fire damage taken, but increases poison damage taken.",
+    "effects": [
+      { "stat": "Fire Mitigation:", "type": "flat", "grades": [null, null, [1, 1.38], [1.5, 2], [2.25, 3]] }
+    ],
+    "tradeoffs": [
+      { "stat": "Poison Mitigation:", "value": -1 }
+    ]
+  },
+  {
+    "slug": "desert-tested-weave",
+    "name": "Desert-tested Weave",
+    "icon": "imgs/augments/T_UI_IconAugmentModHeatProtection_D.png",
+    "type": ["Garment"],
+    "description": "Increases heat protection, but increases overall volume.",
+    "effects": [
+      { "stat": "Heat Protection:", "type": "flat", "grades": [null, [30, 40], [50, 60], [70, 80], [90, 100]] }
+    ],
+    "tradeoffs": [
+      { "stat": "Volume:", "value": 50 }
+    ]
+  },
+  {
+    "slug": "radiation-absorbing-fabrics",
+    "name": "Radiation Absorbing Fabrics",
+    "icon": "imgs/augments/T_UI_IconAugmentModRadiationMit_D.png",
+    "type": ["Garment"],
+    "description": "Reduces radiation build up and fire damage taken, but increases blade and dart damage taken.",
+    "effects": [
+      { "stat": "Fire Mitigation:", "type": "flat", "grades": [null, [0.6, 0.88], [1, 1.38], [1.5, 2], [2, 2.75]] },
+      { "stat": "Radiation Mitigation:", "type": "flat", "grades": [null, [2, 2.9], [3, 3.9], [4, 4.9], [5, 6]] }
+    ],
+    "tradeoffs": [
+      { "stat": "Blade Mitigation:", "value": -1 },
+      { "stat": "Dart Mitigation:", "value": -1 }
+    ]
+  },
+  {
+    "slug": "radiation-shielded-latticing",
+    "name": "Radiation Shielded Latticing",
+    "icon": "imgs/augments/T_UI_IconAugmentModRadiationMit_D.png",
+    "type": ["Garment"],
+    "description": "Reduces radiation build up, but increases overall volume.",
+    "effects": [
+      { "stat": "Radiation Mitigation:", "type": "flat", "grades": [null, null, [3, 3.9], [4, 4.9], [5, 6]] }
+    ],
+    "tradeoffs": [
+      { "stat": "Volume:", "value": 50 }
+    ]
+  }
+]

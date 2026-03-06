@@ -72,7 +72,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--spacing-sm) var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
   border-bottom: 1px solid var(--color-gold-main);
   background: linear-gradient(180deg, #1a1510 0%, var(--color-bg-void) 100%);
   flex-shrink: 0;
@@ -815,6 +815,13 @@ body {
   height: 42px;
   z-index: 2;
   pointer-events: auto;
+  transition: transform 0.15s ease;
+  transform-origin: top right;
+}
+
+.armor-slot__grade.grade-ring--expanded {
+  transform: scale(2.2);
+  z-index: 10;
 }
 
 .grade-segment {
@@ -862,6 +869,18 @@ body {
 
 .armor-slot__grade.grade--max .grade-number {
   fill: var(--color-spice);
+}
+
+/* Background circle — visible only when expanded */
+.grade-bg {
+  fill: var(--color-bg-void);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+
+.grade-ring--expanded .grade-bg {
+  opacity: 1;
 }
 
 /* =============================================
@@ -1014,4 +1033,379 @@ body {
   font-size: 14px;
   color: var(--color-text-primary);
   line-height: 1.6;
+}
+
+/* =============================================
+   AUGMENT DOTS — 3 dots bottom-left of armor slots
+   ============================================= */
+.augment-dots {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  display: flex;
+  gap: 4px;
+  z-index: 2;
+}
+
+.augment-dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  background: #111;
+  border: 2px solid var(--color-gold-dim);
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
+}
+
+.augment-dot--locked {
+  background: #333;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.augment-dot--locked:hover {
+  opacity: 0.7;
+  border-color: var(--color-gold-muted);
+}
+
+.augment-dot--unlocked {
+  background: #111;
+  opacity: 1;
+}
+
+.augment-dot--unlocked:hover {
+  border-color: var(--color-gold-main);
+  box-shadow: 0 0 4px rgba(200, 164, 90, 0.3);
+}
+
+/* Applied augment — dot becomes an icon */
+.augment-dot--applied {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  opacity: 1;
+  position: relative;
+}
+
+.augment-dot__icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Augment icon tinting by type */
+.augment-dot__icon.augment-type--garment {
+  filter: brightness(0.7) sepia(1) saturate(3) hue-rotate(130deg);
+}
+
+.augment-dot__icon.augment-type--ranged {
+  filter: brightness(0.85) sepia(1) saturate(3) hue-rotate(10deg);
+}
+
+.augment-dot__icon.augment-type--melee {
+  filter: brightness(0.7) sepia(1) saturate(4) hue-rotate(-10deg);
+}
+
+/* Augment mini grade ring — centered on the dot */
+.augment-dot__grade {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 34px;
+  height: 34px;
+  z-index: 3;
+  pointer-events: auto;
+  transition: transform 0.15s ease;
+}
+
+.augment-dot__grade.grade-ring--expanded {
+  transform: translate(-50%, -50%) scale(2.2);
+  z-index: 10;
+}
+
+.augment-dot__grade .grade-segment {
+  stroke-width: 3.5;
+}
+
+/* Grade 5 — spice purple for augment rings */
+.augment-dot__grade.grade--max .grade-segment.active {
+  stroke: var(--color-spice);
+  filter: drop-shadow(0 0 4px rgba(160, 123, 200, 0.7));
+}
+
+/* Clear button on applied augment */
+.augment-dot__clear {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: 14px;
+  height: 14px;
+  background: var(--color-bg-void);
+  border: 1px solid var(--color-gold-dim);
+  border-radius: 50%;
+  color: var(--color-text-secondary);
+  font-size: 10px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s;
+  z-index: 4;
+}
+
+.augment-dot--applied:hover .augment-dot__clear {
+  opacity: 1;
+}
+
+.augment-dot__clear:hover {
+  color: #ff4444;
+  border-color: #ff4444;
+}
+
+/* =============================================
+   AUGMENT PICKER — card styles
+   ============================================= */
+.augment-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  cursor: pointer;
+  border-left: 3px solid var(--color-gold-dim);
+  transition: background 0.12s ease;
+}
+
+.augment-card:hover {
+  background: rgba(200, 164, 90, 0.06);
+  border-left-color: var(--color-gold-muted);
+}
+
+.augment-card__icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-sm);
+  border: var(--border-panel);
+}
+
+.augment-card__icon.augment-type--garment {
+  filter: brightness(0.7) sepia(1) saturate(3) hue-rotate(130deg);
+}
+
+.augment-card__icon.augment-type--ranged {
+  filter: brightness(0.85) sepia(1) saturate(3) hue-rotate(10deg);
+}
+
+.augment-card__icon.augment-type--melee {
+  filter: brightness(0.7) sepia(1) saturate(4) hue-rotate(-10deg);
+}
+
+.augment-card__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.augment-card__name {
+  color: var(--color-text-value);
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.augment-card__effects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px var(--spacing-sm);
+}
+
+.augment-card__effect {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-stamina);
+  white-space: nowrap;
+}
+
+.augment-card__tradeoff {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-health);
+  white-space: nowrap;
+}
+
+.augment-card__desc {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-top: 3px;
+  font-style: italic;
+}
+
+/* =============================================
+   AUGMENT VALUE POPUP — right-click custom value
+   ============================================= */
+.augment-value-popup {
+  position: fixed;
+  z-index: 200;
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-gold-main);
+  border-radius: 4px;
+  padding: var(--spacing-sm);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  min-width: 160px;
+}
+
+.augment-value-popup[hidden] {
+  display: none;
+}
+
+.augment-value-popup__label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold-muted);
+  margin-bottom: 6px;
+}
+
+.augment-value-popup__input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border: var(--border-panel);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-value);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  padding: 4px 8px;
+  outline: none;
+  margin-bottom: 8px;
+}
+
+.augment-value-popup__input:focus {
+  border-color: var(--color-gold-muted);
+}
+
+.augment-value-popup__actions {
+  display: flex;
+  gap: 6px;
+}
+
+.augment-value-popup__actions .btn-primary {
+  font-size: 11px;
+  padding: 3px 10px;
+  flex: 1;
+}
+
+/* =============================================
+   SETTINGS ICON BUTTON
+   ============================================= */
+.btn-icon {
+  background: none;
+  border: none;
+  color: var(--color-gold-main);
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px 6px;
+  line-height: 1;
+  transition: color 0.15s, text-shadow 0.15s;
+}
+
+.btn-icon:hover {
+  color: var(--color-gold-bright);
+  text-shadow: 0 0 10px rgba(232, 196, 106, 0.4);
+}
+
+/* =============================================
+   SETTINGS OVERLAY
+   ============================================= */
+.settings-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+.settings-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.settings-modal {
+  width: min(360px, 90vw);
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-gold-main);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(-6px) scale(0.97);
+  transition: transform 0.22s ease;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 1px rgba(200, 164, 90, 0.3);
+}
+
+.settings-overlay.visible .settings-modal {
+  transform: translateY(0) scale(1);
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: var(--border-accent);
+}
+
+.settings-title {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-main);
+}
+
+.settings-body {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.settings-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  padding: var(--spacing-xs) 0;
+}
+
+.settings-toggle input[type="checkbox"] {
+  accent-color: var(--color-gold-main);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.settings-toggle__label {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  letter-spacing: 0.03em;
 }

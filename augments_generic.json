@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "protective-coating",
+    "name": "Protective Coating",
+    "icon": "imgs/augments/T_UI_IconAugmentModNoDeathDurabilityDmg_D.png",
+    "type": [
+      "Generic"
+    ],
+    "description": "An augmentation which removes the durability loss incurred when suffering defeat.",
+    "effects": [],
+    "tradeoffs": [
+      {
+        "stat": "Durability Loss on Defeat:",
+        "value": 0.0
+      }
+    ]
+  }
+]

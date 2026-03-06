@@ -17,8 +17,9 @@
     </div>
     <div class="header-controls">
       <span id="error-message" class="error-message" role="alert"></span>
-      <button id="export-btn" class="btn-primary">Export Build</button>
-      <button id="paste-btn" class="btn-primary">Paste from Clipboard</button>
+      <button id="export-btn" class="btn-primary">Export</button>
+      <button id="paste-btn" class="btn-primary">Paste Build</button>
+      <button id="settings-btn" class="btn-icon" aria-label="Settings" title="Settings">⚙</button>
     </div>
   </header>
 
@@ -112,6 +113,43 @@
         <input id="item-picker-search" class="item-picker-search" type="text" placeholder="Search items…" autocomplete="off" spellcheck="false">
       </div>
       <div id="item-picker-list" class="item-picker-list"></div>
+    </div>
+  </div>
+
+  <div id="augment-picker-overlay" class="item-picker-overlay">
+    <div class="item-picker-modal augment-picker-modal">
+      <div class="item-picker-header">
+        <span id="augment-picker-title" class="item-picker-title">Select Augment</span>
+        <button id="augment-picker-close" class="item-picker-close" aria-label="Close">✕</button>
+      </div>
+      <div class="item-picker-search-wrapper">
+        <input id="augment-picker-search" class="item-picker-search" type="text" placeholder="Search augments…" autocomplete="off" spellcheck="false">
+      </div>
+      <div id="augment-picker-list" class="item-picker-list"></div>
+    </div>
+  </div>
+
+  <div id="augment-value-popup" class="augment-value-popup" hidden>
+    <label class="augment-value-popup__label">Custom Value</label>
+    <input id="augment-value-input" class="augment-value-popup__input" type="number" step="0.1">
+    <div class="augment-value-popup__actions">
+      <button id="augment-value-save" class="btn-primary">Save</button>
+      <button id="augment-value-cancel" class="btn-primary">Cancel</button>
+    </div>
+  </div>
+
+  <div id="settings-overlay" class="settings-overlay">
+    <div class="settings-modal">
+      <div class="settings-header">
+        <span class="settings-title">Settings</span>
+        <button id="settings-close" class="item-picker-close" aria-label="Close">✕</button>
+      </div>
+      <div class="settings-body">
+        <label class="settings-toggle">
+          <input type="checkbox" id="setting-show-commons" checked>
+          <span class="settings-toggle__label">Show T6 Commons</span>
+        </label>
+      </div>
     </div>
   </div>
 
