@@ -12,7 +12,11 @@
 
 - Paste character stats directly from clipboard
 - Equip gear across 8 armor slots with item browser
-- Defense calculations (EHP, Stamina, Shield)
+- T1-T6 garment items with per-tier filtering
+- Grade scaling and augment socketing for T6 uniques
+- Defense and offense calculations (EHP, Stamina, Shield)
+- Interactive resource bars with regen simulation
+- Formula tooltips for all calculations (toggle in settings)
 - Export and import builds for sharing
 - Auto-update check on launch
 
@@ -33,7 +37,7 @@ Grab the latest portable `.exe` from the [Releases](../../releases) page.
 **Prerequisites:** Node.js 18+ and npm
 
 ```bash
-git clone https://github.com/your-username/dunebuilder.git
+git clone https://github.com/0xdreadnaught/dunebuilder.git
 cd dunebuilder
 npm install
 npm start
