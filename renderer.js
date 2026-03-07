@@ -462,9 +462,9 @@ const appSettings = loadSettings();
 function loadSettings() {
   try {
     const saved = localStorage.getItem('dunebuilder-settings');
-    if (saved) return { showCommons: false, showFormulas: false, ...JSON.parse(saved) };
+    if (saved) return { showCommons: false, showFormulas: false, showT1: false, showT2: false, showT3: false, showT4: false, showT5: false, ...JSON.parse(saved) };
   } catch { /* ignore corrupt data */ }
-  return { showCommons: false, showFormulas: false };
+  return { showCommons: false, showFormulas: false, showT1: false, showT2: false, showT3: false, showT4: false, showT5: false };
 }
 
 function saveSettings() {
@@ -553,12 +553,22 @@ function assignUtilitySlot(slug) {
 
 async function loadGarmentItems() {
   try {
-    const [garmentRes, utilityRes, augmentRes] = await Promise.all([
+    const [t6Res, t5Res, t4Res, t3Res, t2Res, t1Res, utilityRes, augmentRes] = await Promise.all([
       fetch('./items_garment_t6.json'),
+      fetch('./items_garment_t5.json'),
+      fetch('./items_garment_t4.json'),
+      fetch('./items_garment_t3.json'),
+      fetch('./items_garment_t2.json'),
+      fetch('./items_garment_t1.json'),
       fetch('./items_utility.json'),
       fetch('./augments_garment.json'),
     ]);
-    const garments = await garmentRes.json();
+    const t6 = await t6Res.json();
+    const t5 = await t5Res.json();
+    const t4 = await t4Res.json();
+    const t3 = await t3Res.json();
+    const t2 = await t2Res.json();
+    const t1 = await t1Res.json();
     const utility = await utilityRes.json();
     AUGMENT_DATA = await augmentRes.json();
 
@@ -569,7 +579,7 @@ async function loadGarmentItems() {
       })
       .filter(Boolean);
 
-    GARMENT_ITEMS = [...garments, ...withSlots];
+    GARMENT_ITEMS = [...t6, ...t5, ...t4, ...t3, ...t2, ...t1, ...withSlots];
   } catch (e) {
     console.error('Failed to load items:', e);
   }
@@ -594,7 +604,7 @@ function createItemCard(item, slotType) {
 
   const nameEl = document.createElement('span');
   nameEl.className = 'item-card__name';
-  nameEl.textContent = item.name;
+  nameEl.textContent = item.tier != null ? `${item.name} (T${item.tier})` : item.name;
 
   const badge = document.createElement('span');
   badge.className = `item-card__badge ${rarityClass}`;
@@ -739,12 +749,24 @@ function openItemPicker(slotEl) {
     ? GARMENT_ITEMS.filter(i => i.slot === slotType || (slotType === 'chest' && i.slot === 'radsuit'))
     : [];
   currentPickerItems = [...items].sort((a, b) => {
+    const tierA = a.tier ?? 0;
+    const tierB = b.tier ?? 0;
+    if (tierA !== tierB) return tierB - tierA;
     if (a.rarity !== b.rarity) return a.rarity === 'Unique' ? -1 : 1;
     return a.name.localeCompare(b.name);
   });
   if (!appSettings.showCommons) {
     currentPickerItems = currentPickerItems.filter(i => i.rarity !== 'Common');
   }
+  currentPickerItems = currentPickerItems.filter(i => {
+    const tier = i.tier;
+    if (tier === 1 && !appSettings.showT1) return false;
+    if (tier === 2 && !appSettings.showT2) return false;
+    if (tier === 3 && !appSettings.showT3) return false;
+    if (tier === 4 && !appSettings.showT4) return false;
+    if (tier === 5 && !appSettings.showT5) return false;
+    return true;
+  });
   currentPickerSlotType = slotType;
 
   renderPickerItems(currentPickerItems, slotType);
@@ -1655,6 +1677,16 @@ document.getElementById('setting-show-formulas').addEventListener('change', e =>
   appSettings.showFormulas = e.target.checked;
   saveSettings();
 });
+
+for (const tier of [1, 2, 3, 4, 5]) {
+  const key = `showT${tier}`;
+  const el = document.getElementById(`setting-show-t${tier}`);
+  el.checked = appSettings[key];
+  el.addEventListener('change', e => {
+    appSettings[key] = e.target.checked;
+    saveSettings();
+  });
+}
 
 // =============================================
 // EXPORT

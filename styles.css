@@ -726,13 +726,13 @@ body {
 }
 
 .item-card__badge.rarity--unique {
-  color: var(--color-gold-bright);
-  border: 1px solid var(--color-gold-muted);
+  color: var(--color-spice);
+  border: 1px solid var(--color-spice);
 }
 
 .item-card__badge.rarity--common {
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-gold-dim);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .item-card__stats {
@@ -743,8 +743,8 @@ body {
 
 .item-card__stat {
   font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--color-spice);
+  font-size: 14.3px;
+  color: #ffffff;
   white-space: nowrap;
 }
 
@@ -1352,7 +1352,7 @@ body {
 }
 
 .settings-modal {
-  width: min(360px, 90vw);
+  width: min(480px, 90vw);
   background: var(--color-bg-panel);
   border: 1px solid var(--color-gold-main);
   border-radius: 4px;
@@ -1386,8 +1386,41 @@ body {
 .settings-body {
   padding: var(--spacing-md);
   display: flex;
+  flex-direction: row;
+  gap: 0;
+}
+
+.settings-col {
+  display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
+  flex: 1;
+}
+
+.settings-col__heading {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold-muted);
+  margin-bottom: var(--spacing-xs);
+}
+
+.settings-divider {
+  width: 2px;
+  margin: 0 var(--spacing-md);
+  border-radius: 1px;
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      var(--color-spice) 15%,
+      var(--color-gold-muted) 35%,
+      var(--color-spice) 50%,
+      var(--color-gold-muted) 65%,
+      var(--color-spice) 85%,
+      transparent 100%
+    );
+  opacity: 0.5;
 }
 
 .settings-toggle {

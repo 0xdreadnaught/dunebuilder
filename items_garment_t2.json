@@ -1,0 +1,2342 @@
+[
+  {
+    "slug": "stillsuit_choam_unique_dashed02_top",
+    "name": "Desert Dasher Garment",
+    "description": "",
+    "tier": 2,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored02topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 73,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -14.5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 3.6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_choam_unique_dashed02_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_heavy_unique_powerefficient_gloves_02",
+    "name": "Iri's Gauntlets",
+    "description": "",
+    "tier": 2,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothheavyuniquepowerefficientgloves02r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 84,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Power Usage",
+        "value": -110,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 930,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 465,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 465,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 465,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 465,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 465,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 465,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 465,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 465,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 465,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 465,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 465,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 465,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_powerefficient_gloves_02.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_choam_heavy02_boots",
+    "name": "Kirab Heavy Boots",
+    "description": "",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothkirabheavyshoesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 50,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 6.7,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 260,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 130,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 130,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 130,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 130,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 130,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 130,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 130,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 130,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 130,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 130,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 130,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 130,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_heavy02_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_choam_heavy02_gloves",
+    "name": "Kirab Heavy Gauntlet",
+    "description": "",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothkirabheavyglovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 50,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 6.7,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 210,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 105,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_heavy02_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_choam_heavy02_helmet",
+    "name": "Kirab Heavy Headwrap",
+    "description": "",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothkirabheavyhelmetr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 67,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -8,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 6.7,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 300,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 150,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 150,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 150,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 150,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 150,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 150,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 150,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 150,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 150,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 150,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 150,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 150,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_heavy02_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_choam_heavy02_top",
+    "name": "Kirab Heavy Jerkin",
+    "description": "",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothkirabheavybodyr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 100,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -12,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 6.7,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 195,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 195,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 195,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 195,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 195,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 195,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 195,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 195,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 195,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 195,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 195,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 195,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_heavy02_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_choam_heavy02_bottom",
+    "name": "Kirab Heavy Pants",
+    "description": "",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothkirabheavybottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 67,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -8,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 6.7,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 350,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 175,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 175,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 175,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 175,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 175,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 175,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 175,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 175,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 175,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 175,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 175,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 175,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_heavy02_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_choam_light02_boots",
+    "name": "Kirab Scout Boots",
+    "description": "",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothkirablightshoesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 28,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.2,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 6.7,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 170,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 85,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 85,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 85,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 85,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 85,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 85,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 85,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 85,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 85,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 85,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 85,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 85,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_light02_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_choam_light02_gloves",
+    "name": "Kirab Scout Gloves",
+    "description": "",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothkirablightglovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 28,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.2,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 6.7,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 140,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 70,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 70,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 70,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 70,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 70,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 70,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 70,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 70,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 70,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 70,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 70,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 70,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_light02_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_choam_light02_helmet",
+    "name": "Kirab Scout Helmet",
+    "description": "",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothkirablighthelmetr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 37,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.2,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 6.7,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 200,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 100,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 100,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 100,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 100,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 100,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 100,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 100,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 100,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 100,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 100,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 100,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 100,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_light02_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique01_boots",
+    "name": "Oathbreaker Boots",
+    "description": "",
+    "tier": 2,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique01bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 84,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 780,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 390,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_atreidesdeserterunique01_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique01_top",
+    "name": "Oathbreaker Chestpiece",
+    "description": "",
+    "tier": 2,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique01topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 169,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -9,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 500,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_atreidesdeserterunique01_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique01_gloves",
+    "name": "Oathbreaker Gauntlets",
+    "description": "",
+    "tier": 2,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique01glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 84,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 650,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 325,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 325,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 325,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 325,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 325,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 325,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 325,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 325,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 325,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 325,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 325,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 325,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_atreidesdeserterunique01_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique01_helmet",
+    "name": "Oathbreaker Headwrap",
+    "description": "",
+    "tier": 2,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique01helmetr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 113,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 780,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 390,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 390,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_atreidesdeserterunique01_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique01_bottom",
+    "name": "Oathbreaker Pants",
+    "description": "",
+    "tier": 2,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique01bottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 113,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 800,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 400,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 400,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 400,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 400,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 400,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 400,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 400,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 400,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 400,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 400,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 400,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 400,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_atreidesdeserterunique01_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "stillsuit_choam_02_top",
+    "name": "Kirab Stillsuit Body",
+    "description": "",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothnatistillsuit01bodymaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 43,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 6.7,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 548,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 548,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 548,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 548,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 548,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 548,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 548,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 548,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 548,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 548,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 548,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 548,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 548,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_choam_02_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "stillsuit_choam_02_boots",
+    "name": "Kirab Stillsuit Boots",
+    "description": "",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothnatistillsuit01shoesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 13,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 6.7,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 213,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_choam_02_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "stillsuit_choam_02_gloves",
+    "name": "Kirab Stillsuit Gloves",
+    "description": "",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothnatistillsuit01glovesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 13,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 6.7,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 224,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 224,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 224,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 224,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 224,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 224,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 224,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 224,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 224,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 224,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 224,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 224,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 224,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_choam_02_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "stillsuit_choam_02_mask",
+    "name": "Kirab Stillsuit Mask",
+    "description": "",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothnatistillsuit01hoodmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 17,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 6.7,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 288,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 288,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 288,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 288,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 288,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 288,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 288,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 288,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 288,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 288,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 288,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 288,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 288,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_choam_02_mask.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "stillsuit_unique_armored_02_boots",
+    "name": "Menol's Stillsuit Boots",
+    "description": "",
+    "tier": 2,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored02bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 47,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 348,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 348,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 348,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 348,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 348,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 348,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 348,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 348,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 348,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 348,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 348,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 348,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 348,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_armored_02_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "stillsuit_unique_armored_02_top",
+    "name": "Menol's Stillsuit Garment",
+    "description": "",
+    "tier": 2,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored02topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 156,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 817,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 817,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 817,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 817,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 817,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 817,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 817,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 817,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 817,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 817,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 817,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 817,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 817,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_armored_02_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "stillsuit_unique_armored_02_gloves",
+    "name": "Menol's Stillsuit Gloves",
+    "description": "",
+    "tier": 2,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored02glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 47,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 327,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 327,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 327,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 327,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 327,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 327,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 327,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 327,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 327,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 327,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 327,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 327,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 327,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_armored_02_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "stillsuit_unique_armored_02_mask",
+    "name": "Menol's Stillsuit Mask",
+    "description": "",
+    "tier": 2,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored02maskr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 62,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 443,
+        "type": "number"
+      },
+      {
+        "name": "Traj Axxari",
+        "value": 443,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 443,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 443,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 443,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 443,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 443,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 443,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 443,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 443,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 443,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 443,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 443,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_armored_02_mask.webp",
+    "slot": "helm"
+  }
+]

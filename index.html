@@ -94,7 +94,7 @@
       <div class="about-body">
         <img src="dunebuilder_logo_512.png" alt="DuneBuilder" class="about-logo">
         <h2 class="about-app-name">DuneBuilder</h2>
-        <p class="about-version" id="about-version">v0.0.7</p>
+        <p class="about-version" id="about-version">v0.1.0</p>
         <p class="about-description">Character build viewer &amp; theorycrafting tool for Dune: Awakening.<br>Equip gear, paste stats, and plan your loadout.</p>
         <div class="about-divider"></div>
         <div class="about-thanks">
@@ -147,14 +147,41 @@
         <button id="settings-close" class="item-picker-close" aria-label="Close">✕</button>
       </div>
       <div class="settings-body">
-        <label class="settings-toggle">
-          <input type="checkbox" id="setting-show-commons">
-          <span class="settings-toggle__label">Show T6 Commons</span>
-        </label>
-        <label class="settings-toggle">
-          <input type="checkbox" id="setting-show-formulas">
-          <span class="settings-toggle__label">Show Formulas</span>
-        </label>
+        <div class="settings-col settings-col--gear">
+          <span class="settings-col__heading">Gear</span>
+          <label class="settings-toggle">
+            <input type="checkbox" id="setting-show-commons">
+            <span class="settings-toggle__label">Show T6 Commons</span>
+          </label>
+          <label class="settings-toggle">
+            <input type="checkbox" id="setting-show-t5">
+            <span class="settings-toggle__label">Show Tier 5</span>
+          </label>
+          <label class="settings-toggle">
+            <input type="checkbox" id="setting-show-t4">
+            <span class="settings-toggle__label">Show Tier 4</span>
+          </label>
+          <label class="settings-toggle">
+            <input type="checkbox" id="setting-show-t3">
+            <span class="settings-toggle__label">Show Tier 3</span>
+          </label>
+          <label class="settings-toggle">
+            <input type="checkbox" id="setting-show-t2">
+            <span class="settings-toggle__label">Show Tier 2</span>
+          </label>
+          <label class="settings-toggle">
+            <input type="checkbox" id="setting-show-t1">
+            <span class="settings-toggle__label">Show Tier 1</span>
+          </label>
+        </div>
+        <div class="settings-divider"></div>
+        <div class="settings-col settings-col--display">
+          <span class="settings-col__heading">Display</span>
+          <label class="settings-toggle">
+            <input type="checkbox" id="setting-show-formulas">
+            <span class="settings-toggle__label">Show Formulas</span>
+          </label>
+        </div>
       </div>
     </div>
   </div>

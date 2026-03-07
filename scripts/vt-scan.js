@@ -16,18 +16,32 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const https = require('node:https');
+const crypto = require('node:crypto');
 
-const API_KEY = process.env.VT_API_KEY;
+const keyFile = path.join(__dirname, '..', 'vt.key');
+let API_KEY = process.env.VT_API_KEY;
+if (!API_KEY && fs.existsSync(keyFile)) {
+  API_KEY = fs.readFileSync(keyFile, 'utf-8').trim();
+}
 if (!API_KEY) {
-  console.error('Error: Set VT_API_KEY environment variable with your VirusTotal API key.');
+  console.error('Error: No API key found. Either:');
+  console.error('  1. Create a vt.key file in the project root with your key');
+  console.error('  2. Set VT_API_KEY environment variable');
   console.error('Get a free key at: https://www.virustotal.com/gui/my-apikey');
   process.exit(1);
 }
 
 function findExe(dir) {
   if (!fs.existsSync(dir)) return null;
-  const files = fs.readdirSync(dir);
-  return files.find(f => f.endsWith('.exe') && f.startsWith('DuneBuilder'));
+  const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf-8'));
+  const expected = `DuneBuilder-${pkg.version}.exe`;
+  if (fs.existsSync(path.join(dir, expected))) return expected;
+  // Fallback: pick the newest DuneBuilder exe
+  const files = fs.readdirSync(dir)
+    .filter(f => f.endsWith('.exe') && f.startsWith('DuneBuilder'))
+    .sort()
+    .reverse();
+  return files[0] || null;
 }
 
 function request(method, urlPath, headers, body) {
@@ -198,13 +212,14 @@ async function main() {
   }
   console.log(`Upload complete. Analysis ID: ${analysisId}`);
 
-  // Extract file hash for permalink (id format: "analysisId" but we need sha256)
-  const sha256 = analysisId.split('-')[1] || analysisId;
-  const permalink = `https://www.virustotal.com/gui/file/${sha256}`;
-
   // Poll for results
   console.log('Waiting for scan results...');
   const analysis = await pollAnalysis(analysisId);
+
+  // Compute SHA256 locally for a working permalink
+  const fileBuffer = fs.readFileSync(exePath);
+  const sha256 = crypto.createHash('sha256').update(fileBuffer).digest('hex');
+  const permalink = `https://www.virustotal.com/gui/file/${sha256}`;
 
   // Write report
   const report = formatReport(analysis, exePath, permalink);

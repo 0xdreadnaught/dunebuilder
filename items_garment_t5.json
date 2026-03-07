@@ -1,0 +1,2202 @@
+[
+  {
+    "slug": "combat_neut_atreidesdeserterunique04_boots",
+    "name": "Acheronian Boots",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique04bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_atreidesdeserterunique04_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique04_top",
+    "name": "Acheronian Chestplate",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique04topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 425,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -9,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 12,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_atreidesdeserterunique04_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique04_gloves",
+    "name": "Acheronian Gauntlets",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique04glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_atreidesdeserterunique04_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique04_helmet",
+    "name": "Acheronian Helmet",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique04helmetr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 283,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 8,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_atreidesdeserterunique04_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique04_bottom",
+    "name": "Acheronian Pants",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique04bottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 283,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 8,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_atreidesdeserterunique04_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_light_unique_dewreap_gloves_05",
+    "name": "Advanced Reaper Gloves",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquedewreapgloves05r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Dew Reaper Yield",
+        "value": -90,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_dewreap_gloves_05.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_light_unique_reducesuspensor_top_05",
+    "name": "Advanced Suspensor Jacket",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquereducesuspensortop05r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 236,
+        "type": "number"
+      },
+      {
+        "name": "Power Drain",
+        "value": 0.8,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_reducesuspensor_top_05.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "stillsuit_unique_efficient_05_boots",
+    "name": "Batigh Stillsuit Boots",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniqueefficient05bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 55,
+        "type": "number"
+      },
+      {
+        "name": "Hydration Capture",
+        "value": 2,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_efficient_05_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "stillsuit_unique_efficient_05_top",
+    "name": "Batigh Stillsuit Garment",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniqueefficient05topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 184,
+        "type": "number"
+      },
+      {
+        "name": "Hydration Capture",
+        "value": 2,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 500,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_efficient_05_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "stillsuit_unique_efficient_05_gloves",
+    "name": "Batigh Stillsuit Gloves",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniqueefficient05glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 55,
+        "type": "number"
+      },
+      {
+        "name": "Hydration Capture",
+        "value": 2,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_efficient_05_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "stillsuit_unique_efficient_05_mask",
+    "name": "Batigh Stillsuit Mask",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniqueefficient05maskr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 74,
+        "type": "number"
+      },
+      {
+        "name": "Hydration Capture",
+        "value": 2,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_efficient_05_mask.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_heavy_unique_swordmaster_boots",
+    "name": "Boots of Ginaz",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothswordmastershoesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Swordmaster Ability Cooldowns:",
+        "value": -101,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_swordmaster_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_light_unique_benegeserit_boots",
+    "name": "Boots of the Sisterhood",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothbenegshoesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Bene Gesserit Ability Cooldowns:",
+        "value": -101,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_benegeserit_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_neut_smugglerdeserterunique05_boots",
+    "name": "Chosen Boots",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutsmugdeserterunique05bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_smugglerdeserterunique05_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_neut_smugglerdeserterunique05_top",
+    "name": "Chosen Chestplate",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutsmugdeserterunique05topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 236,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_smugglerdeserterunique05_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_neut_smugglerdeserterunique05_gloves",
+    "name": "Chosen Gauntlets",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutsmugdeserterunique05glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_smugglerdeserterunique05_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_neut_smugglerdeserterunique05_helmet",
+    "name": "Chosen Helmet",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutsmugdeserterunique05helmetr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 157,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_smugglerdeserterunique05_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_neut_smugglerdeserterunique05_bottom",
+    "name": "Chosen Pants",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutsmugdeserterunique05bottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 157,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_smugglerdeserterunique05_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "stillsuit_choam_unique_dashed05_top",
+    "name": "Dune Dancer Stillsuit Garment",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored05topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 184,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -14.5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 3.3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_choam_unique_dashed05_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_heavy_unique_swordmaster_gloves",
+    "name": "Gauntlets of Ginaz",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothswordmasterglovesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Swordmaster Ability Cooldowns:",
+        "value": -101,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_swordmaster_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_light_unique_mentat_gloves",
+    "name": "Gauntlets of the Mentat",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothmentatglovesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Mentat Ability Cooldowns:",
+        "value": -101,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_mentat_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_light_unique_benegeserit_gloves",
+    "name": "Gloves of the Sisterhood",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothbenegglovesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Bene Gesserit Ability Cooldowns:",
+        "value": -101,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_benegeserit_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_heavy_unique_swordmaster_helmet",
+    "name": "Helm of Ginaz",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothswordmasterheadmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 157,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Swordmaster Ability Cooldowns:",
+        "value": -101,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_swordmaster_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_light_unique_mentat_helmet",
+    "name": "Helm of the Mentat",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothmentatheadmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 157,
+        "type": "number"
+      },
+      {
+        "name": "Mentat Ability Cooldowns:",
+        "value": -101,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_mentat_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_heavy_unique_reinforced_boots_05",
+    "name": "Mendek's Boots",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothheavyuniquereinforcedboots05r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 4.5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_reinforced_boots_05.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_heavy_unique_reinforced_top_05",
+    "name": "Mendek's Chestplate",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothheavyuniquereinforcedtop05r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 425,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 9,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -12,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_reinforced_top_05.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_heavy_unique_reinforced_gloves_05",
+    "name": "Mendek's Gauntlets",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothheavyuniquereinforcedgloves05r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 4.5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_reinforced_gloves_05.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_heavy_unique_reinforced_helmet_05",
+    "name": "Mendek's Helmet",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothheavyuniquereinforcedhelmet05r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 283,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -8,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_reinforced_helmet_05.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_heavy_unique_reinforced_bottom_05",
+    "name": "Mendek's Pants",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothheavyuniquereinforcedbottom05r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 283,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -8,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_reinforced_bottom_05.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_choam_heavy04_shoes",
+    "name": "Mercenary Heavy Boots",
+    "description": "",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothmercheavybootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 175,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvE Area)",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvP Area)",
+        "value": 5.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_heavy04_shoes.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_choam_heavy04_top",
+    "name": "Mercenary Heavy Chestplate",
+    "description": "",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothmercheavybodyr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 350,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -12,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvE Area)",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvP Area)",
+        "value": 5.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_heavy04_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_choam_heavy04_gloves",
+    "name": "Mercenary Heavy Gloves",
+    "description": "",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothmercheavyglovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 175,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvE Area)",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvP Area)",
+        "value": 5.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_heavy04_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_choam_heavy04_helmet",
+    "name": "Mercenary Heavy Helmet",
+    "description": "",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothmercheavyhelmetr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 233,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -8,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvE Area)",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvP Area)",
+        "value": 5.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_heavy04_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_choam_heavy04_bottom",
+    "name": "Mercenary Heavy Pants",
+    "description": "",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothmercheavybottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 233,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -8,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvE Area)",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvP Area)",
+        "value": 5.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_heavy04_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_heavy_unique_powerefficient_gloves_05",
+    "name": "Station Gauntlets",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothheavyuniquepowerefficientgloves05r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Power Usage",
+        "value": -110,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_powerefficient_gloves_05.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_heavy_unique_trooper_boots",
+    "name": "Trooper Heavy Armor Tactical Boots",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothtroopershoesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Trooper Ability Cooldowns:",
+        "value": -101,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_trooper_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_heavy_unique_trooper_top",
+    "name": "Trooper Heavy Armor Tactical Coat",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothtroopertopmalet3r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 425,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Trooper Ability Cooldowns:",
+        "value": -102,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -12,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_trooper_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_heavy_unique_trooper_gloves",
+    "name": "Trooper Heavy Armor Tactical Gauntlets",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothtrooperglovesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 213,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Trooper Ability Cooldowns:",
+        "value": -101,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_trooper_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_heavy_unique_trooper_helmet",
+    "name": "Trooper Heavy Armor Tactical Helmet",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothtrooperheadmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 283,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Trooper Ability Cooldowns:",
+        "value": -101,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -8,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 4,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_trooper_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_heavy_unique_trooper_bottom",
+    "name": "Trooper Heavy Armor Tactical Pants",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothtrooperbottommaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 283,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Trooper Ability Cooldowns:",
+        "value": -102,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -8,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 4,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_trooper_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "stillsuit_choam_05_top",
+    "name": "Mercenary Stillsuit Body",
+    "description": "",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothmercstillsuitbodyr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 152,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvE Area)",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvP Area)",
+        "value": 5.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_choam_05_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "stillsuit_choam_05_boots",
+    "name": "Mercenary Stillsuit Boots",
+    "description": "",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothmercstillsuitshoesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 46,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvE Area)",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvP Area)",
+        "value": 5.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_choam_05_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "stillsuit_choam_05_gloves",
+    "name": "Mercenary Stillsuit Gloves",
+    "description": "",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothmercstillsuitglovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 46,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvE Area)",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvP Area)",
+        "value": 5.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_choam_05_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "stillsuit_choam_05_mask",
+    "name": "Mercenary Stillsuit Mask",
+    "description": "",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothmercstillsuithelmetr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 61,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvE Area)",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvP Area)",
+        "value": 5.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_choam_05_mask.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "stillsuit_unique_armored_05_boots",
+    "name": "Saturnine Stillsuit Boots",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored05bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_armored_05_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "stillsuit_unique_armored_05_top",
+    "name": "Saturnine Stillsuit Garment",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored05topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 393,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 500,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_armored_05_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "stillsuit_unique_armored_05_gloves",
+    "name": "Saturnine Stillsuit Gloves",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored05glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_armored_05_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "stillsuit_unique_armored_05_mask",
+    "name": "Saturnine Stillsuit Mask",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored05maskr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 157,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_armored_05_mask.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "stillsuit_unique_heatmitigation_05_mask",
+    "name": "Shaded Hood",
+    "description": "",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquehighmitigation05maskr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 74,
+        "type": "number"
+      },
+      {
+        "name": "Sun Stroke Rate",
+        "value": -25,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_heatmitigation_05_mask.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "radiation_suit_t5",
+    "name": "Radiation Suit Mk5",
+    "description": "",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothsmugradiationsuitfullbodymaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 648,
+        "type": "number"
+      },
+      {
+        "name": "Fire Mitigation:",
+        "value": 30,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 92,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 2.4,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvE Area)",
+        "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck (PvP Area)",
+        "value": 5.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/radiation_suit_t5.webp",
+    "slot": "radsuit"
+  }
+]

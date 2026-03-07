@@ -1,0 +1,1842 @@
+[
+  {
+    "slug": "combat_light_unique_stamina_bottom_04",
+    "name": "Compression-Stim Leggings",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquestaminabottom04r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -10,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 3.3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_stamina_bottom_04.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_choam_heavy01_boots",
+    "name": "Duneman Heavy Boots",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothsandfliesheavybootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 113,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.3,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 750,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_heavy01_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_choam_heavy01_gloves",
+    "name": "Duneman Heavy Gloves",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothsandfliesheavyglovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 113,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.3,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 600,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_heavy01_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_choam_heavy01_top",
+    "name": "Duneman Heavy Jacket",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothsandfliesheavybodyr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 225,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -12,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_heavy01_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_choam_heavy01_helmet",
+    "name": "Duneman Heavy Mask",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothsandfliesheavyheadr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 150,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -8,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.3,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 850,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 850,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 850,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 850,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 850,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 850,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 850,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 850,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 850,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 850,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 850,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 850,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_heavy01_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_choam_heavy01_bottom",
+    "name": "Duneman Heavy Pants",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothsandfliesheavybottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 150,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -8,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_heavy01_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_choam_scout03_boots",
+    "name": "Duneman Scout Boots",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothsandfliesrusherbootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 62,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.3,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 600,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_scout03_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_choam_scout03_gloves",
+    "name": "Duneman Scout Gloves",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothsandfliesrusherglovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 62,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.3,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 500,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_scout03_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_choam_scout03_helmet",
+    "name": "Duneman Scout Helmet",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothsandfliesrusherheadr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 83,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.3,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 750,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_scout03_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_choam_scout03_top",
+    "name": "Duneman Scout Jacket",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothsandfliesrusherbodyr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 125,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.3,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 950,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 950,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 950,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 950,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 950,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 950,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 950,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 950,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 950,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 950,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 950,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 950,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_scout03_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_choam_scout03_bottom",
+    "name": "Duneman Scout Pants",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothsandfliesrusherbottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 83,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.3,
+        "type": "number"
+      },
+      {
+        "name": "Ormuna Laaks",
+        "value": 800,
+        "type": "number"
+      },
+      {
+        "name": "Zoe",
+        "value": 800,
+        "type": "number"
+      },
+      {
+        "name": "Myr Charki",
+        "value": 800,
+        "type": "number"
+      },
+      {
+        "name": "Tyg Rolsum",
+        "value": 800,
+        "type": "number"
+      },
+      {
+        "name": "Soha Sirrendrin",
+        "value": 800,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 800,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Vehicle Vendor",
+        "value": 800,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 800,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Weapons Vendor",
+        "value": 800,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 800,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Armor Vendor",
+        "value": 800,
+        "type": "number"
+      },
+      {
+        "name": "Landsraad Tools Vendor",
+        "value": 800,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_scout03_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_light_unique_wormthreat_boots_04",
+    "name": "Idaho Softstep Boots",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquewormthreatboots04r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 104,
+        "type": "number"
+      },
+      {
+        "name": "Worm Threat:",
+        "value": -145,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_wormthreat_boots_04.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_light_unique_dewreap_gloves_04",
+    "name": "Improved Reaper Gloves",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquedewreapgloves04r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 104,
+        "type": "number"
+      },
+      {
+        "name": "Dew Reaper Yield",
+        "value": -90,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.5,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_dewreap_gloves_04.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_light_unique_reducesuspensor_top_04",
+    "name": "Improved Suspensor Jacket",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquereducesuspensortop04r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 208,
+        "type": "number"
+      },
+      {
+        "name": "Power Drain",
+        "value": 0.8,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 3.3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_reducesuspensor_top_04.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_heavy_unique_powerefficient_gloves_04",
+    "name": "Power Gauntlets",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothheavyuniquepowerefficientgloves04r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 188,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Power Usage",
+        "value": -110,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_powerefficient_gloves_04.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique03_boots",
+    "name": "Sentinel Boots",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique03bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 188,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_atreidesdeserterunique03_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique03_gloves",
+    "name": "Sentinel Gauntlets",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique03glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 188,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 6,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_atreidesdeserterunique03_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique03_helmet",
+    "name": "Sentinel Helmet",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique03helmetr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 250,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 8,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_atreidesdeserterunique03_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique03_top",
+    "name": "Sentinel Jacket",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique03topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 375,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -9,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 12,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_atreidesdeserterunique03_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_neut_atreidesdeserterunique03_bottom",
+    "name": "Sentinel Pants",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutatredeserterunique03bottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 250,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 8,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_atreidesdeserterunique03_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "stillsuit_unique_efficient_04_boots",
+    "name": "Maraqeb Stillsuit Boots",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniqueefficient04bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 49,
+        "type": "number"
+      },
+      {
+        "name": "Hydration Capture",
+        "value": 1,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_efficient_04_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "stillsuit_unique_efficient_04_top",
+    "name": "Maraqeb Stillsuit Garment",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniqueefficient04topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 163,
+        "type": "number"
+      },
+      {
+        "name": "Hydration Capture",
+        "value": 1,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.9,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 500,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_efficient_04_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "stillsuit_unique_efficient_04_gloves",
+    "name": "Maraqeb Stillsuit Gloves",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniqueefficient04glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 49,
+        "type": "number"
+      },
+      {
+        "name": "Hydration Capture",
+        "value": 1,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_efficient_04_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "stillsuit_unique_efficient_04_mask",
+    "name": "Maraqeb Stillsuit Mask",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniqueefficient04maskr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 65,
+        "type": "number"
+      },
+      {
+        "name": "Hydration Capture",
+        "value": 1,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_efficient_04_mask.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "stillsuit_choam_04_top",
+    "name": "Native Stillsuit Body",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothsmugarrakeenstillsuitbodymaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 98,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.9,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_choam_04_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "stillsuit_choam_04_boots",
+    "name": "Native Stillsuit Boots",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothsmugarrakeenstillsuitshoesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 29,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_choam_04_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "stillsuit_choam_04_gloves",
+    "name": "Native Stillsuit Gloves",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothsmugarrakeenstillsuitglovesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 29,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_choam_04_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "stillsuit_choam_04_mask",
+    "name": "Native Stillsuit Mask",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothsmugarrakeenstillsuithelmetmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 39,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_choam_04_mask.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "stillsuit_choam_unique_dashed04_top",
+    "name": "Sand Strider Stillsuit Garment",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored04topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 163,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -14.5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.9,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 3.3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_choam_unique_dashed04_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "stillsuit_unique_heatmitigation_04_mask",
+    "name": "Shadow Hood",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquehighmitigation04maskr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 65,
+        "type": "number"
+      },
+      {
+        "name": "Sun Stroke Rate",
+        "value": -20,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.9,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 3.3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_heatmitigation_04_mask.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "stillsuit_unique_armored_04_boots",
+    "name": "Shadrath's Stillsuit Boots",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored04bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 104,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_armored_04_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "stillsuit_unique_armored_04_top",
+    "name": "Shadrath's Stillsuit Garment",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored04topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 347,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.9,
+        "type": "number"
+      },
+      {
+        "name": "Catchpocket Size:",
+        "value": 500,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_armored_04_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "stillsuit_unique_armored_04_gloves",
+    "name": "Shadrath's Stillsuit Gloves",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored04glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 104,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_armored_04_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "stillsuit_unique_armored_04_mask",
+    "name": "Shadrath's Stillsuit Mask",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/stillsuits/t_ui_iconclothstillsuituniquearmored04maskr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.9,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_armored_04_mask.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "radiation_suit",
+    "name": "Radiation Suit Mk4",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothsmugradiationsuitfullbodymaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 278,
+        "type": "number"
+      },
+      {
+        "name": "Fire Mitigation:",
+        "value": 30,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 90,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 2.4,
+        "type": "number"
+      },
+      {
+        "name": "Fallen Shipwreck",
+        "value": 5.3,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/radiation_suit.webp",
+    "slot": "radsuit"
+  }
+]
