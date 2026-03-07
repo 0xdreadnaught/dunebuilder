@@ -11,9 +11,9 @@
   --color-gold-muted:     #8a6e3a;
   --color-gold-dim:       #4a3c22;
 
-  --color-health:         #8b2020;
-  --color-stamina:        #2a6b3a;
-  --color-energy:         #1e4a8a;
+  --color-health:         #cc4444;
+  --color-stamina:        #45b060;
+  --color-energy:         #4488cc;
 
   --color-text-primary:   #d4b87a;
   --color-text-secondary: #8a7550;
@@ -261,7 +261,7 @@ body {
   font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-gold-muted);
+  color: var(--color-spice);
   padding: var(--spacing-sm) var(--spacing-md);
   border-bottom: var(--border-panel);
   flex-shrink: 0;
@@ -337,7 +337,7 @@ body {
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-gold-dim);
+  color: var(--color-spice);
   padding: 9px var(--spacing-md) 5px;
   border-top: var(--border-panel);
   margin-top: 2px;
@@ -356,7 +356,7 @@ body {
 }
 
 .stat-label {
-  color: var(--color-text-secondary);
+  color: var(--color-text-value);
   font-size: 14px;
   letter-spacing: 0.03em;
   flex: 1;
@@ -501,25 +501,14 @@ body {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+  justify-content: center;
   height: calc(var(--hotbar-slot-size) + var(--spacing-sm) * 2);
-}
-
-.hotbar-label {
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-gold-main);
-  writing-mode: horizontal-tb;
-  flex-shrink: 0;
 }
 
 .hotbar-slots {
   display: flex;
   gap: var(--spacing-sm);
   align-items: center;
-  flex: 1;
-  justify-content: center;
 }
 
 .hotbar-slot {
@@ -1490,4 +1479,25 @@ body {
   margin-top: 2px;
   display: flex;
   gap: var(--spacing-md);
+}
+
+.tooltip-panel__formula {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  border-radius: var(--radius-sm);
+  margin: var(--spacing-xs) var(--spacing-sm);
+  line-height: 1.6;
+}
+
+.tooltip-panel__formula--generic {
+  color: var(--color-spice);
+  background: rgba(160, 123, 200, 0.1);
+  border-left: 2px solid var(--color-spice);
+}
+
+.tooltip-panel__formula--computed {
+  color: var(--color-text-value);
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 2px solid var(--color-gold-main);
 }

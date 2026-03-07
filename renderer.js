@@ -88,7 +88,7 @@ function parseClipboardText(text) {
 // DOM FACTORIES
 // =============================================
 
-function createStatRow(label, value) {
+function createStatRow(label, value, formula) {
   const row = document.createElement('div');
   row.className = 'stat-row';
 
@@ -102,6 +102,16 @@ function createStatRow(label, value) {
 
   row.appendChild(labelEl);
   row.appendChild(valueEl);
+
+  if (formula) {
+    row.addEventListener('mouseenter', () => {
+      if (appSettings.showFormulas) showFormulaTooltip(label, value, formula);
+    });
+    row.addEventListener('mouseleave', () => {
+      if (appSettings.showFormulas) clearTooltip();
+    });
+  }
+
   return row;
 }
 
@@ -299,7 +309,8 @@ function renderDefCalcs(container, equipped) {
     container.appendChild(noData);
   } else if (!hasHealth) {
     container.appendChild(createStatRow('Armor Mitigation',
-      `${Math.round(armorMit * 10) / 10}%`));
+      `${Math.round(armorMit * 10) / 10}%`,
+      `Armor / (Armor + 500)\n${totalArmor} / (${totalArmor} + 500) = ${(armorMit / 100).toFixed(4)}`));
     const noHp = document.createElement('p');
     noHp.className = 'empty-state';
     noHp.textContent = 'Paste a build to see EHP (need Health)';
@@ -317,9 +328,11 @@ function renderDefCalcs(container, equipped) {
     };
 
     container.appendChild(createStatRow('Armor Mitigation',
-      `${Math.round(armorMit * 10) / 10}%`));
+      `${Math.round(armorMit * 10) / 10}%`,
+      `Armor / (Armor + 500)\n${totalArmor} / (${totalArmor} + 500) = ${(armorMit / 100).toFixed(4)}`));
     container.appendChild(createStatRow('vs Physical',
-      ehpFromMit(armorMit, 0).toLocaleString()));
+      ehpFromMit(armorMit, 0).toLocaleString(),
+      `Health / (DMG - ArmorMit%)\n${maxHealth} / (1 - ${(armorMit / 100).toFixed(4)}) = ${ehpFromMit(armorMit, 0)}`));
 
     DAMAGE_TYPES.forEach(([label, key]) => {
       const gearMit  = equipped[key] ?? 0;
@@ -327,8 +340,11 @@ function renderDefCalcs(container, equipped) {
         ? (parseFloat(String(lastBuildTotals[key])) || 0) : 0;
       const totalMit = gearMit + pasteMit;
       if (totalMit === 0) return;
+      const armorMul = Math.max(0.001, 1 - armorMit / 100);
+      const typeMul  = 1 - totalMit / 100;
       container.appendChild(createStatRow(label,
-        ehpFromMit(armorMit, totalMit).toLocaleString()));
+        ehpFromMit(armorMit, totalMit).toLocaleString(),
+        `Health / ((DMG - ArmorMit%) × (DMG - TypeMit%))\n${maxHealth} / (${armorMul.toFixed(4)} × ${typeMul.toFixed(4)}) = ${ehpFromMit(armorMit, totalMit)}`));
     });
   }
 
@@ -347,13 +363,16 @@ function renderDefCalcs(container, equipped) {
   const gearDashMod  = equipped['Dash Stamina Cost'] ?? 0;
   const effectiveCost = Math.max(1, BASE_DASH_COST * (1 + (skillDashMod + gearDashMod) / 100));
 
-  container.appendChild(createStatRow('Dash Cost', `${Math.round(effectiveCost)}`));
+  const totalDashMod = skillDashMod + gearDashMod;
+  container.appendChild(createStatRow('Dash Cost', `${Math.round(effectiveCost)}`,
+    `BaseCost × (1 + ModTotal%)\n${BASE_DASH_COST} × (1 + ${totalDashMod}%) = ${Math.round(effectiveCost)}`));
 
   if (maxStamina !== null) {
     const rawDashes = maxStamina / effectiveCost;
     const rawRounded = Math.round(rawDashes * 10) / 10;
     const effectiveDashes = Math.ceil(rawRounded);
-    container.appendChild(createStatRow('Max Dashes', `${effectiveDashes} (${rawRounded.toFixed(1)})`));
+    container.appendChild(createStatRow('Max Dashes', `${effectiveDashes} (${rawRounded.toFixed(1)})`,
+      `MaxStamina / DashCost\n${maxStamina} / ${Math.round(effectiveCost)} = ${rawRounded.toFixed(1)}`));
   }
 
   // --- Shield section (blue — matches Power) ---
@@ -372,12 +391,14 @@ function renderDefCalcs(container, equipped) {
   } else {
     if (powerPool !== null && powerDrain !== null) {
       const endurance = Math.round(powerPool / (powerDrain / 100));
-      container.appendChild(createStatRow('Max Damage Absorbed', endurance.toLocaleString()));
+      container.appendChild(createStatRow('Max Damage Absorbed', endurance.toLocaleString(),
+        `PowerPool / (PowerDrain%)\n${powerPool} / ${(powerDrain / 100).toFixed(4)} = ${endurance}`));
     }
 
     if (powerPool !== null && regenPerSec !== null) {
       const recharge = (powerPool / regenPerSec).toFixed(1);
-      container.appendChild(createStatRow('Full Recharge', `${recharge}s`));
+      container.appendChild(createStatRow('Full Recharge', `${recharge}s`,
+        `PowerPool / RegenPerSec\n${powerPool} / ${regenPerSec} = ${recharge}s`));
     }
   }
 }
@@ -441,9 +462,9 @@ const appSettings = loadSettings();
 function loadSettings() {
   try {
     const saved = localStorage.getItem('dunebuilder-settings');
-    if (saved) return { showCommons: true, ...JSON.parse(saved) };
+    if (saved) return { showCommons: false, showFormulas: false, ...JSON.parse(saved) };
   } catch { /* ignore corrupt data */ }
-  return { showCommons: true };
+  return { showCommons: false, showFormulas: false };
 }
 
 function saveSettings() {
@@ -985,7 +1006,7 @@ function createAppliedAugmentDot(slotType, dotIndex, augment) {
   });
   dot.addEventListener('mouseleave', e => {
     e.stopPropagation();
-    clearTooltip();
+    showTooltip(slotType);
   });
 
   return dot;
@@ -1437,6 +1458,31 @@ function showAugmentTooltip(slotType, dotIndex) {
   }
 }
 
+function showFormulaTooltip(label, value, formula) {
+  const panel = document.getElementById('tooltip-panel');
+  panel.innerHTML = '';
+
+  const nameEl = document.createElement('div');
+  nameEl.className = 'tooltip-panel__name';
+  nameEl.textContent = label;
+  panel.appendChild(nameEl);
+
+  // Split formula on \n — first line is generic formula, second is with values
+  const lines = formula.split('\n');
+
+  const genericEl = document.createElement('div');
+  genericEl.className = 'tooltip-panel__formula tooltip-panel__formula--generic';
+  genericEl.textContent = lines[0];
+  panel.appendChild(genericEl);
+
+  if (lines[1]) {
+    const computedEl = document.createElement('div');
+    computedEl.className = 'tooltip-panel__formula tooltip-panel__formula--computed';
+    computedEl.textContent = lines[1];
+    panel.appendChild(computedEl);
+  }
+}
+
 function clearTooltip() {
   const panel = document.getElementById('tooltip-panel');
   panel.innerHTML = '<div class="tooltip-panel__empty">Hover an item to inspect</div>';
@@ -1601,6 +1647,12 @@ document.getElementById('settings-overlay').addEventListener('click', e => {
 document.getElementById('setting-show-commons').checked = appSettings.showCommons;
 document.getElementById('setting-show-commons').addEventListener('change', e => {
   appSettings.showCommons = e.target.checked;
+  saveSettings();
+});
+
+document.getElementById('setting-show-formulas').checked = appSettings.showFormulas;
+document.getElementById('setting-show-formulas').addEventListener('change', e => {
+  appSettings.showFormulas = e.target.checked;
   saveSettings();
 });
 

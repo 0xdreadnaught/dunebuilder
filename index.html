@@ -73,7 +73,6 @@
   </main>
 
   <footer class="hotbar">
-    <div class="hotbar-label">Hotbar</div>
     <div class="hotbar-slots">
       <div class="hotbar-slot"><span class="slot-number">1</span></div>
       <div class="hotbar-slot"><span class="slot-number">2</span></div>
@@ -95,7 +94,7 @@
       <div class="about-body">
         <img src="dunebuilder_logo_512.png" alt="DuneBuilder" class="about-logo">
         <h2 class="about-app-name">DuneBuilder</h2>
-        <p class="about-version" id="about-version">v0.0.6</p>
+        <p class="about-version" id="about-version">v0.0.7</p>
         <p class="about-description">Character build viewer &amp; theorycrafting tool for Dune: Awakening.<br>Equip gear, paste stats, and plan your loadout.</p>
         <div class="about-divider"></div>
         <div class="about-thanks">
@@ -149,8 +148,12 @@
       </div>
       <div class="settings-body">
         <label class="settings-toggle">
-          <input type="checkbox" id="setting-show-commons" checked>
+          <input type="checkbox" id="setting-show-commons">
           <span class="settings-toggle__label">Show T6 Commons</span>
+        </label>
+        <label class="settings-toggle">
+          <input type="checkbox" id="setting-show-formulas">
+          <span class="settings-toggle__label">Show Formulas</span>
         </label>
       </div>
     </div>
