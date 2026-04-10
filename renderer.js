@@ -2278,6 +2278,21 @@ pasteBtn.addEventListener('click', async () => {
     document.getElementById('update-dismiss').addEventListener('click', () => {
       banner.hidden = true;
     });
+
+    // What's New toggle
+    const notesPanel = document.getElementById('update-notes');
+    const notesToggle = document.getElementById('update-notes-toggle');
+    if (update.notes) {
+      notesPanel.textContent = update.notes;
+      notesToggle.addEventListener('click', () => {
+        const showing = !notesPanel.hidden;
+        notesPanel.hidden = showing;
+        notesToggle.textContent = showing ? "What's New" : 'Hide Notes';
+      });
+    } else {
+      notesToggle.hidden = true;
+    }
+
     banner.hidden = false;
   } catch { /* silent fail — update check is non-critical */ }
 })();

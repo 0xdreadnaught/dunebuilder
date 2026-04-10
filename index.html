@@ -24,9 +24,13 @@
   </header>
 
   <div id="update-banner" class="update-banner" hidden>
-    <span id="update-text" class="update-banner__text"></span>
-    <button id="update-download" class="update-banner__btn">Download</button>
-    <button id="update-dismiss" class="update-banner__dismiss" aria-label="Dismiss">✕</button>
+    <div class="update-banner__row">
+      <span id="update-text" class="update-banner__text"></span>
+      <button id="update-notes-toggle" class="update-banner__btn">What's New</button>
+      <button id="update-download" class="update-banner__btn update-banner__btn--download">Download</button>
+      <button id="update-dismiss" class="update-banner__dismiss" aria-label="Dismiss">✕</button>
+    </div>
+    <div id="update-notes" class="update-banner__notes" hidden></div>
   </div>
 
   <main class="build-layout">
