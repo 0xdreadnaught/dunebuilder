@@ -1,0 +1,1402 @@
+[
+  {
+    "slug": "uniquesmg1",
+    "name": "Abulurd's Rapture",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquesmg1r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 37.2,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 28,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 52,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 286.2,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 197.4,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 0.6,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/uniquesmg1.webp"
+  },
+  {
+    "slug": "uniquedirk_02",
+    "name": "Denira's Gift",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquedirk_02r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Hit",
+        "value": 69.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 417.4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 208.7,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 9.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "melee",
+    "img": "imgs/weapons/uniquedirk_02.webp"
+  },
+  {
+    "slug": "uniquescattergun3",
+    "name": "Eviscerator",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquescattergun3r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 326.4,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 36,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 48,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 487.2,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 256.5,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 1.1,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 2.2,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/uniquescattergun3.webp"
+  },
+  {
+    "slug": "lmg_unique_rapidfire_04",
+    "name": "Experimental Vulcan GAU-94",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlmg_unique_rapidfire_04r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 16,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 100,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 313.7,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 197.5,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 0.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/lmg_unique_rapidfire_04.webp"
+  },
+  {
+    "slug": "uniquescattergun_fire_04",
+    "name": "Firestorm",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquescattergun_fire_04r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 270,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 42,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 36,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 346.2,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 256.3,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 2.4,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/uniquescattergun_fire_04.webp"
+  },
+  {
+    "slug": "shotgun_unique_explosive_04",
+    "name": "House Burst Drillshot",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnshotgun_unique_explosive_04r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 69.5,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 79,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 44.3,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.3,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 2.2,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/shotgun_unique_explosive_04.webp"
+  },
+  {
+    "slug": "dirk_0",
+    "name": "House Dirk",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeharkdagger01r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Hit",
+        "value": 28.5,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 170.9,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 85.5,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 9.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "melee",
+    "img": "imgs/weapons/dirk_0.webp"
+  },
+  {
+    "slug": "atresmg4",
+    "name": "House Disruptor M11",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hatresmg01_t4r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 14.7,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 20,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 36,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 147,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 103.8,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 0.3,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/atresmg4.webp"
+  },
+  {
+    "slug": "heavypistol_unique_bleed_04",
+    "name": "House Disruptor Pistol",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnheavypistol_unique_bleed_04r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 272.4,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 190,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 292.9,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 198.5,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 7.2,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/heavypistol_unique_bleed_04.webp"
+  },
+  {
+    "slug": "smugshot3",
+    "name": "House Drillshot FK7",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hsmugshotgun01_t4r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 63,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 2,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 96.9,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 33.2,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.3,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 3.2,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/smugshot3.webp"
+  },
+  {
+    "slug": "scattergun_prototype1",
+    "name": "House GRDA 44",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hchoamscattergun01_t4r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 154.8,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 42,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 36,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 206.4,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 134.4,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 2.1,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 2.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/scattergun_prototype1.webp"
+  },
+  {
+    "slug": "smugdmr4",
+    "name": "House JABAL Spitdart",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hsmugrifle01_t4r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 89.9,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 95,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 116.8,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 62.6,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.1,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 9.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/smugdmr4.webp"
+  },
+  {
+    "slug": "harkar5",
+    "name": "House Karpov 38",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hharkrifle01_t4r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 27.5,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 18,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 20,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 152.8,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 103.8,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 0.1,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/harkar5.webp"
+  },
+  {
+    "slug": "kindjal_2",
+    "name": "House Kindjal",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeatredagger01r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Hit",
+        "value": 28.5,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 170.9,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 85.5,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 9.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "melee",
+    "img": "imgs/weapons/kindjal_2.webp"
+  },
+  {
+    "slug": "choamsda5",
+    "name": "House Maula Pistol",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hchoammaula01_t4r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 25.9,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 14,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 18,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 148,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 108,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.8,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 1.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/choamsda5.webp"
+  },
+  {
+    "slug": "harkheavypistol3",
+    "name": "House Rafiq Snubnose",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hharkpistol01_t4r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 83.2,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 68,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 7,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 97.9,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 73.3,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 3.4,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/harkheavypistol3.webp"
+  },
+  {
+    "slug": "rapier",
+    "name": "House Rapier",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeatrerapier01r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Hit",
+        "value": 28.5,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 170.9,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 85.5,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 9.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "melee",
+    "img": "imgs/weapons/rapier.webp"
+  },
+  {
+    "slug": "choamsword_1",
+    "name": "House Sword",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleechoamsword01r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Hit",
+        "value": 31.3,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 188,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 94,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 9.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "melee",
+    "img": "imgs/weapons/choamsword_1.webp"
+  },
+  {
+    "slug": "atrelmg3",
+    "name": "House Vulcan GAU-92",
+    "description": "",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hatrelmg01_t4r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 8.7,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 140,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 170.6,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 114.5,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 0.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/atrelmg3.webp"
+  },
+  {
+    "slug": "smg_unique_largemag_04",
+    "name": "Ironwatch Special",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnsmg_unique_largemag_04r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 25.9,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 21,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 48,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 259,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 197.3,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 0.3,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/smg_unique_largemag_04.webp"
+  },
+  {
+    "slug": "longrifle_unique_poison_04",
+    "name": "Long Shot",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlongrifle_unique_poison_04r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 209.3,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 95,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 2,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 271.8,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 118.2,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.1,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 9.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/longrifle_unique_poison_04.webp"
+  },
+  {
+    "slug": "uniquear2",
+    "name": "Pipecleaner",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquear2r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 54.7,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 19,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 45,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 280.5,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 177.4,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 1.4,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/uniquear2.webp"
+  },
+  {
+    "slug": "uniquerapier",
+    "name": "Poison Mist",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquerapierr_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Hit",
+        "value": 69.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 417.4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 208.7,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 9.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "melee",
+    "img": "imgs/weapons/uniquerapier.webp"
+  },
+  {
+    "slug": "kindjal_unique_blood_04",
+    "name": "Shadrath's Drinker",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleekindjal_unique_blood_04r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Hit",
+        "value": 69.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 417.4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 208.7,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 9.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "melee",
+    "img": "imgs/weapons/kindjal_unique_blood_04.webp"
+  },
+  {
+    "slug": "uniquesda_doubleshot_04",
+    "name": "Shadrath's Edge",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquesda_doubleshot_04r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 48.2,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 10,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 24,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 209.6,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 147.3,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 1.3,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/uniquesda_doubleshot_04.webp"
+  },
+  {
+    "slug": "kindjal_unique_stamina_04",
+    "name": "Spark-Knife",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleekindjal_unique_stamina_04r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Hit",
+        "value": 69.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 417.4,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 208.7,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 9.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "melee",
+    "img": "imgs/weapons/kindjal_unique_stamina_04.webp"
+  },
+  {
+    "slug": "uniquesword_03",
+    "name": "Spark-sword",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquesword_03r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Hit",
+        "value": 76.5,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 459.1,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 229.6,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 9.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "melee",
+    "img": "imgs/weapons/uniquesword_03.webp"
+  },
+  {
+    "slug": "uniquear_burst_04",
+    "name": "Stammershot",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquear_burst_04r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 31.5,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 10,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 30,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 101.6,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 85.9,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/uniquear_burst_04.webp"
+  },
+  {
+    "slug": "unique_sword_bleedyblocky_4",
+    "name": "Sword of Seven Sorrows",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c2/gui/textures/icons/gameplay/weapons/player/t_ui_iconmtxwpnmeleeswordartdecor_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Hit",
+        "value": 76.5,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 459.1,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 229.6,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 9.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 4,
+        "type": "number"
+      }
+    ],
+    "weaponType": "melee",
+    "img": "imgs/weapons/unique_sword_bleedyblocky_4.webp"
+  },
+  {
+    "slug": "uniquesda4",
+    "name": "Way of the Fighter",
+    "description": "",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpniconuniquesda4r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 42.1,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 15,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 24,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 255.2,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 197.1,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 3.1,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/uniquesda4.webp"
+  }
+]

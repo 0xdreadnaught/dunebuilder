@@ -37,7 +37,7 @@
   --border-accent: 1px solid var(--color-gold-muted);
 
   --radius-sm: 2px;
-  --hotbar-slot-size: 97px;
+  --hotbar-slot-size: 116px;
 }
 
 /* =============================================
@@ -537,6 +537,99 @@ body {
   position: absolute;
   top: 3px;
   left: 5px;
+  z-index: 1;
+}
+
+.hotbar-slot.has-item {
+  border-color: var(--color-gold-main);
+}
+
+.hotbar-slot--active {
+  border-color: #b060d0 !important;
+  box-shadow:
+    0 0 6px 1px rgba(176, 96, 208, 0.4),
+    inset 0 0 6px 1px rgba(176, 96, 208, 0.25);
+}
+
+.hotbar-slot__icon {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hotbar-slot__clear {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--color-gold-main);
+  border: 1px solid var(--color-spice);
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.hotbar-slot:hover .hotbar-slot__clear {
+  display: flex;
+}
+
+/* Weapon type filter buttons in picker header */
+.weapon-type-filters {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+  margin-right: 12px;
+}
+
+.weapon-type-btn {
+  padding: 2px 10px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-spice);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-spice);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.weapon-type-btn.active {
+  opacity: 1;
+  background: rgba(200, 164, 90, 0.15);
+  color: var(--color-gold-main);
+  border-color: var(--color-gold-main);
+}
+
+.weapon-type-btn:hover {
+  opacity: 1;
+}
+
+/* Grade ring + augment dots on hotbar slots */
+.hotbar-slot .armor-slot__grade {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 34px;
+  height: 34px;
+}
+
+.hotbar-slot .augment-dots {
+  position: absolute;
+  bottom: 2px;
+  left: 4px;
+  flex-direction: row;
+  gap: 2px;
 }
 
 /* =============================================
@@ -1386,8 +1479,21 @@ body {
 .settings-body {
   padding: var(--spacing-md);
   display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.settings-columns {
+  display: flex;
   flex-direction: row;
   gap: 0;
+}
+
+.settings-footer {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid var(--color-spice);
+  padding-top: var(--spacing-md);
 }
 
 .settings-col {

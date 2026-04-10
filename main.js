@@ -9,7 +9,7 @@ const CURRENT_VERSION = require('./package.json').version;
 function createWindow() {
   const win = new BrowserWindow({
     width: 1020,
-    height: 1025,
+    height: 1050,
     resizable: false,
     icon: path.join(__dirname, 'dunebuilder_logo_512.png'),
     backgroundColor: '#0d0b08',

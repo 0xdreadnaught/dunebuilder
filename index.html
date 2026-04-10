@@ -74,14 +74,14 @@
 
   <footer class="hotbar">
     <div class="hotbar-slots">
-      <div class="hotbar-slot"><span class="slot-number">1</span></div>
-      <div class="hotbar-slot"><span class="slot-number">2</span></div>
-      <div class="hotbar-slot"><span class="slot-number">3</span></div>
-      <div class="hotbar-slot"><span class="slot-number">4</span></div>
-      <div class="hotbar-slot"><span class="slot-number">5</span></div>
-      <div class="hotbar-slot"><span class="slot-number">6</span></div>
-      <div class="hotbar-slot"><span class="slot-number">7</span></div>
-      <div class="hotbar-slot"><span class="slot-number">8</span></div>
+      <div class="hotbar-slot" data-hotbar="0"><span class="slot-number">1</span></div>
+      <div class="hotbar-slot" data-hotbar="1"><span class="slot-number">2</span></div>
+      <div class="hotbar-slot" data-hotbar="2"><span class="slot-number">3</span></div>
+      <div class="hotbar-slot" data-hotbar="3"><span class="slot-number">4</span></div>
+      <div class="hotbar-slot" data-hotbar="4"><span class="slot-number">5</span></div>
+      <div class="hotbar-slot" data-hotbar="5"><span class="slot-number">6</span></div>
+      <div class="hotbar-slot" data-hotbar="6"><span class="slot-number">7</span></div>
+      <div class="hotbar-slot" data-hotbar="7"><span class="slot-number">8</span></div>
     </div>
   </footer>
 
@@ -147,39 +147,71 @@
         <button id="settings-close" class="item-picker-close" aria-label="Close">✕</button>
       </div>
       <div class="settings-body">
-        <div class="settings-col settings-col--gear">
-          <span class="settings-col__heading">Gear</span>
-          <label class="settings-toggle">
-            <input type="checkbox" id="setting-show-commons">
-            <span class="settings-toggle__label">Show T6 Commons</span>
-          </label>
-          <label class="settings-toggle">
-            <input type="checkbox" id="setting-show-t5">
-            <span class="settings-toggle__label">Show Tier 5</span>
-          </label>
-          <label class="settings-toggle">
-            <input type="checkbox" id="setting-show-t4">
-            <span class="settings-toggle__label">Show Tier 4</span>
-          </label>
-          <label class="settings-toggle">
-            <input type="checkbox" id="setting-show-t3">
-            <span class="settings-toggle__label">Show Tier 3</span>
-          </label>
-          <label class="settings-toggle">
-            <input type="checkbox" id="setting-show-t2">
-            <span class="settings-toggle__label">Show Tier 2</span>
-          </label>
-          <label class="settings-toggle">
-            <input type="checkbox" id="setting-show-t1">
-            <span class="settings-toggle__label">Show Tier 1</span>
-          </label>
+        <div class="settings-columns">
+          <div class="settings-col">
+            <span class="settings-col__heading">Armor</span>
+            <label class="settings-toggle">
+              <input type="checkbox" id="setting-show-commons">
+              <span class="settings-toggle__label">Show T6 Commons</span>
+            </label>
+            <label class="settings-toggle">
+              <input type="checkbox" id="setting-show-t5">
+              <span class="settings-toggle__label">Show Tier 5</span>
+            </label>
+            <label class="settings-toggle">
+              <input type="checkbox" id="setting-show-t4">
+              <span class="settings-toggle__label">Show Tier 4</span>
+            </label>
+            <label class="settings-toggle">
+              <input type="checkbox" id="setting-show-t3">
+              <span class="settings-toggle__label">Show Tier 3</span>
+            </label>
+            <label class="settings-toggle">
+              <input type="checkbox" id="setting-show-t2">
+              <span class="settings-toggle__label">Show Tier 2</span>
+            </label>
+            <label class="settings-toggle">
+              <input type="checkbox" id="setting-show-t1">
+              <span class="settings-toggle__label">Show Tier 1</span>
+            </label>
+          </div>
+          <div class="settings-divider"></div>
+          <div class="settings-col">
+            <span class="settings-col__heading">Weapons</span>
+            <label class="settings-toggle">
+              <input type="checkbox" id="setting-show-weapon-commons">
+              <span class="settings-toggle__label">Show T6 Commons</span>
+            </label>
+            <label class="settings-toggle">
+              <input type="checkbox" id="setting-show-weapon-t5">
+              <span class="settings-toggle__label">Show Tier 5</span>
+            </label>
+            <label class="settings-toggle">
+              <input type="checkbox" id="setting-show-weapon-t4">
+              <span class="settings-toggle__label">Show Tier 4</span>
+            </label>
+            <label class="settings-toggle">
+              <input type="checkbox" id="setting-show-weapon-t3">
+              <span class="settings-toggle__label">Show Tier 3</span>
+            </label>
+            <label class="settings-toggle">
+              <input type="checkbox" id="setting-show-weapon-t2">
+              <span class="settings-toggle__label">Show Tier 2</span>
+            </label>
+            <label class="settings-toggle">
+              <input type="checkbox" id="setting-show-weapon-t1">
+              <span class="settings-toggle__label">Show Tier 1</span>
+            </label>
+          </div>
         </div>
-        <div class="settings-divider"></div>
-        <div class="settings-col settings-col--display">
-          <span class="settings-col__heading">Display</span>
+        <div class="settings-footer">
           <label class="settings-toggle">
             <input type="checkbox" id="setting-show-formulas">
             <span class="settings-toggle__label">Show Formulas</span>
+          </label>
+          <label class="settings-toggle">
+            <input type="checkbox" id="setting-persist-weapon-filter">
+            <span class="settings-toggle__label">Persist Weapon Type Filter</span>
           </label>
         </div>
       </div>

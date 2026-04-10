@@ -66,7 +66,7 @@ function parseClipboardText(text) {
   // Check for DuneBuilder export format first
   const duneExport = extractSection(text, 'DUNEBUILDER EXPORT');
   if (duneExport) {
-    return { duneExport: true, slots: duneExport.slots || {}, characterPanel: duneExport.characterPanel || null, buildTotals: null, skillBonuses: null };
+    return { duneExport: true, slots: duneExport.slots || {}, hotbar: duneExport.hotbar || null, characterPanel: duneExport.characterPanel || null, buildTotals: null, skillBonuses: null };
   }
 
   const buildTotals    = extractSection(text, 'FINAL BUILD TOTALS');
@@ -451,7 +451,9 @@ function showError(msg) {
 // =============================================
 
 let GARMENT_ITEMS = [];
+let WEAPON_ITEMS = [];
 let AUGMENT_DATA = [];
+let WEAPON_AUGMENT_DATA = [];
 let lastCharacterPanel = null;
 let lastBuildTotals = null;
 let lastSkillBonuses = null;
@@ -462,9 +464,9 @@ const appSettings = loadSettings();
 function loadSettings() {
   try {
     const saved = localStorage.getItem('dunebuilder-settings');
-    if (saved) return { showCommons: false, showFormulas: false, showT1: false, showT2: false, showT3: false, showT4: false, showT5: false, ...JSON.parse(saved) };
+    if (saved) return { showCommons: false, showFormulas: false, showT1: false, showT2: false, showT3: false, showT4: false, showT5: false, showWeaponCommons: false, showWeaponT1: false, showWeaponT2: false, showWeaponT3: false, showWeaponT4: false, showWeaponT5: false, persistWeaponTypeFilter: false, ...JSON.parse(saved) };
   } catch { /* ignore corrupt data */ }
-  return { showCommons: false, showFormulas: false, showT1: false, showT2: false, showT3: false, showT4: false, showT5: false };
+  return { showCommons: false, showFormulas: false, showT1: false, showT2: false, showT3: false, showT4: false, showT5: false, showWeaponCommons: false, showWeaponT1: false, showWeaponT2: false, showWeaponT3: false, showWeaponT4: false, showWeaponT5: false, persistWeaponTypeFilter: false };
 }
 
 function saveSettings() {
@@ -499,6 +501,8 @@ const SLOT_LABEL_MAP = {
   holtzman: 'Holtzman Shield',
   belt:     'Suspensor Belt',
   pack:     'Power Pack',
+  hotbar0: 'Hotbar 1', hotbar1: 'Hotbar 2', hotbar2: 'Hotbar 3', hotbar3: 'Hotbar 4',
+  hotbar4: 'Hotbar 5', hotbar5: 'Hotbar 6', hotbar6: 'Hotbar 7', hotbar7: 'Hotbar 8',
 };
 
 const SLOT_ORIGINAL_LABELS = {
@@ -517,6 +521,11 @@ const equippedGrades = {};
 const ARMOR_SLOTS = new Set(['helm', 'chest', 'gloves', 'pants', 'boots']);
 const GARMENT_SLOTS = new Set(['helm', 'chest', 'gloves', 'pants', 'boots']);
 
+// Hotbar: keys are 'hotbar0' through 'hotbar7' in equippedItems/equippedGrades/etc.
+const HOTBAR_SLOTS = new Set(['hotbar0','hotbar1','hotbar2','hotbar3','hotbar4','hotbar5','hotbar6','hotbar7']);
+let activeHotbarIndex = null; // 0-7 or null
+let weaponTypeFilter = { melee: true, ranged: true }; // for hotbar picker
+
 function getSlotClass(slotEl) {
   return [...slotEl.classList].find(c => c.startsWith('slot--'));
 }
@@ -526,21 +535,20 @@ function getSlotType(slotEl) {
   return cls ? (SLOT_TYPE_MAP[cls] ?? null) : null;
 }
 
+const FLAT_STATS = new Set([
+  'armor value', 'heat protection', 'max stack', 'volume',
+  'power pool', 'regen per second', 'power drain', 'shield refresh time',
+  // Weapon stats
+  'damage per shot', 'shield damage per shot', 'clip size', 'dps',
+  'effective dps', 'damage per hit', 'attack speed',
+  'heavy attack damage (shielded)', 'heavy attack damage (unshielded)',
+  'shield damage per hit', 'power consumption',
+]);
+
 function formatStatValue(name, value) {
   if (typeof value !== 'number') return String(value);
-  const n = name.toLowerCase();
-  if (
-    n.includes('armor value') ||
-    n.includes('heat protection') ||
-    n.includes('max stack') ||
-    n.includes('volume') ||
-    n.includes('power pool') ||
-    n.includes('regen per second') ||
-    n.includes('power drain') ||
-    n.includes('shield refresh time')
-  ) {
-    return String(value);
-  }
+  const n = name.toLowerCase().replace(/:$/, '');
+  if (FLAT_STATS.has(n)) return String(value);
   return `${value}%`;
 }
 
@@ -553,7 +561,9 @@ function assignUtilitySlot(slug) {
 
 async function loadGarmentItems() {
   try {
-    const [t6Res, t5Res, t4Res, t3Res, t2Res, t1Res, utilityRes, augmentRes] = await Promise.all([
+    const [t6Res, t5Res, t4Res, t3Res, t2Res, t1Res, utilityRes, augmentRes,
+           wt6Res, wt5Res, wt4Res, wt3Res, wt2Res, wt1Res,
+           augMeleeRes, augRangedRes] = await Promise.all([
       fetch('./items_garment_t6.json'),
       fetch('./items_garment_t5.json'),
       fetch('./items_garment_t4.json'),
@@ -562,6 +572,14 @@ async function loadGarmentItems() {
       fetch('./items_garment_t1.json'),
       fetch('./items_utility.json'),
       fetch('./augments_garment.json'),
+      fetch('./items_weapon_t6.json'),
+      fetch('./items_weapon_t5.json'),
+      fetch('./items_weapon_t4.json'),
+      fetch('./items_weapon_t3.json'),
+      fetch('./items_weapon_t2.json'),
+      fetch('./items_weapon_t1.json'),
+      fetch('./augments_melee.json'),
+      fetch('./augments_ranged.json'),
     ]);
     const t6 = await t6Res.json();
     const t5 = await t5Res.json();
@@ -571,6 +589,16 @@ async function loadGarmentItems() {
     const t1 = await t1Res.json();
     const utility = await utilityRes.json();
     AUGMENT_DATA = await augmentRes.json();
+    const wt6 = await wt6Res.json();
+    const wt5 = await wt5Res.json();
+    const wt4 = await wt4Res.json();
+    const wt3 = await wt3Res.json();
+    const wt2 = await wt2Res.json();
+    const wt1 = await wt1Res.json();
+    WEAPON_ITEMS = [...wt6, ...wt5, ...wt4, ...wt3, ...wt2, ...wt1];
+    const augMelee = await augMeleeRes.json();
+    const augRanged = await augRangedRes.json();
+    WEAPON_AUGMENT_DATA = [...augMelee, ...augRanged];
 
     const withSlots = utility
       .map(item => {
@@ -642,66 +670,69 @@ function mergeBaseWithScaled(baseStats, scaledOverrides) {
 
 function aggregateEquippedStats() {
   const totals = {};
-  const seen = new Set();
+  const seenArmor = new Set(); // only dedupe armor slots (radsuit fills all 5)
 
-  // Base + grade stats from items
   Object.entries(equippedItems).forEach(([slotType, item]) => {
-    if (seen.has(item.slug)) return;
-    seen.add(item.slug);
+    if (ARMOR_SLOTS.has(slotType)) {
+      if (seenArmor.has(item.slug)) return;
+      seenArmor.add(item.slug);
+    }
     const grade = equippedGrades[slotType] || 0;
     const stats = (grade > 0 && item.scaledStats?.[grade - 1] && Object.keys(item.scaledStats[grade - 1]).length > 0)
       ? mergeBaseWithScaled(item.stats, item.scaledStats[grade - 1])
       : item.stats;
+
+    // Build per-item stat map so augments can modify it before summing
+    const itemStats = {};
     (stats || []).forEach(stat => {
       if (typeof stat.value !== 'number') return;
       const key = stat.name.replace(/:$/, '');
-      totals[key] = (totals[key] || 0) + stat.value;
+      itemStats[key] = (itemStats[key] || 0) + stat.value;
     });
-  });
 
-  // Layer augment effects on top
-  const augmentDetails = []; // for rendering in Character Panel
-  Object.entries(equippedAugments).forEach(([slotType, slots]) => {
-    if (!slots) return;
-    slots.forEach((aug, idx) => {
-      if (!aug || !aug.slug) return;
-      const augData = AUGMENT_DATA.find(a => a.slug === aug.slug);
-      if (!augData) return;
-      const grade = aug.grade || 1;
+    // Apply augment effects to this item's stats only
+    const augSlots = equippedAugments[slotType];
+    if (augSlots) {
+      augSlots.forEach(aug => {
+        if (!aug || !aug.slug) return;
+        const augData = findAugmentData(aug.slug, slotType);
+        if (!augData) return;
+        const augGrade = aug.grade || 1;
 
-      // Apply effects
-      (augData.effects || []).forEach(eff => {
-        const gradeData = eff.grades[grade - 1];
-        if (!gradeData) return;
+        (augData.effects || []).forEach(eff => {
+          const gradeData = eff.grades[augGrade - 1];
+          if (!gradeData) return;
+          const key = eff.stat.replace(/:$/, '');
+          const baseVal = itemStats[key] || 0;
 
-        const key = eff.stat.replace(/:$/, '');
-        const baseVal = totals[key] || 0;
-
-        if (aug.customValues != null) {
-          // Custom value overrides the effect
-          if (eff.type === 'percent') {
-            totals[key] = baseVal * (1 + aug.customValues / 100);
+          if (aug.customValues != null) {
+            if (eff.type === 'percent') {
+              itemStats[key] = baseVal * (1 + aug.customValues / 100);
+            } else {
+              itemStats[key] = baseVal + aug.customValues;
+            }
           } else {
-            totals[key] = (totals[key] || 0) + aug.customValues;
+            const effectVal = gradeData[1];
+            if (eff.type === 'percent') {
+              itemStats[key] = baseVal * (1 + effectVal / 100);
+            } else {
+              itemStats[key] = baseVal + effectVal;
+            }
           }
-        } else {
-          // Use max of range by default
-          const effectVal = gradeData[1];
-          if (eff.type === 'percent') {
-            // Percent augments multiply the base stat
-            totals[key] = baseVal * (1 + effectVal / 100);
-          } else {
-            totals[key] = (totals[key] || 0) + effectVal;
-          }
-        }
-      });
+        });
 
-      // Apply tradeoffs (always flat, always active when augment is equipped with grade > 0)
-      (augData.tradeoffs || []).forEach(t => {
-        const key = t.stat.replace(/:$/, '');
-        totals[key] = (totals[key] || 0) + t.value;
+        // Tradeoffs apply to the item too
+        (augData.tradeoffs || []).forEach(t => {
+          const key = t.stat.replace(/:$/, '');
+          itemStats[key] = (itemStats[key] || 0) + t.value;
+        });
       });
-    });
+    }
+
+    // Sum this item's (augmented) stats into global totals
+    for (const [key, value] of Object.entries(itemStats)) {
+      totals[key] = (totals[key] || 0) + value;
+    }
   });
 
   return totals;
@@ -778,9 +809,13 @@ function openItemPicker(slotEl) {
 function closeItemPicker() {
   document.getElementById('item-picker-overlay').classList.remove('visible');
   document.getElementById('item-picker-search').value = '';
+  removeWeaponTypeFilters();
 }
 
 function selectItem(slotType, slug) {
+  // Route hotbar selections to weapon handler
+  if (HOTBAR_SLOTS.has(slotType)) { selectHotbarItem(slotType, slug); return; }
+
   const item = GARMENT_ITEMS.find(i => i.slug === slug);
   if (!item || !slotType) return;
 
@@ -979,11 +1014,18 @@ function createUnlockedDot(slotType, dotIndex) {
   return dot;
 }
 
+function findAugmentData(slug, slotType) {
+  if (HOTBAR_SLOTS.has(slotType)) {
+    return WEAPON_AUGMENT_DATA.find(a => a.slug === slug) || AUGMENT_DATA.find(a => a.slug === slug);
+  }
+  return AUGMENT_DATA.find(a => a.slug === slug);
+}
+
 function createAppliedAugmentDot(slotType, dotIndex, augment) {
   const dot = document.createElement('div');
   dot.className = 'augment-dot augment-dot--applied';
 
-  const augData = AUGMENT_DATA.find(a => a.slug === augment.slug);
+  const augData = findAugmentData(augment.slug, slotType);
   dot.title = augData ? augData.name : augment.slug;
 
   const icon = document.createElement('img');
@@ -1138,12 +1180,18 @@ function removeAugment(slotType, dotIndex) {
 }
 
 function refreshAugmentDots(slotType, expandDotIndex) {
-  document.querySelectorAll('.armor-slot').forEach(slotEl => {
-    if (getSlotType(slotEl) !== slotType) return;
+  // Find the right DOM element(s) for this slotType
+  const elements = HOTBAR_SLOTS.has(slotType)
+    ? [document.querySelector(`.hotbar-slot[data-hotbar="${slotType.replace('hotbar', '')}"]`)]
+    : [...document.querySelectorAll('.armor-slot')].filter(el => getSlotType(el) === slotType);
+
+  elements.forEach(slotEl => {
+    if (!slotEl) return;
     const existing = slotEl.querySelector('.augment-dots');
     if (existing) existing.remove();
     const item = equippedItems[slotType];
-    if (item && GARMENT_SLOTS.has(slotType) && item.slot !== 'radsuit' && item.scaledStats?.length && item.rarity === 'Unique') {
+    const isGradeable = GARMENT_SLOTS.has(slotType) || HOTBAR_SLOTS.has(slotType);
+    if (item && isGradeable && item.slot !== 'radsuit' && item.scaledStats?.length && item.rarity === 'Unique') {
       const dots = createAugmentDots(slotType);
       slotEl.appendChild(dots);
       if (expandDotIndex != null) {
@@ -1159,6 +1207,27 @@ function refreshAugmentDots(slotType, expandDotIndex) {
 // AUGMENT PICKER
 // =============================================
 
+function getAvailableAugments(slotType, dotIndex) {
+  let source;
+  if (HOTBAR_SLOTS.has(slotType)) {
+    // Filter weapon augments by the equipped weapon's type (melee/ranged)
+    const item = equippedItems[slotType];
+    const wType = item?.weaponType;
+    source = wType
+      ? WEAPON_AUGMENT_DATA.filter(a => {
+          const types = (a.type || []).map(t => t.toLowerCase());
+          return types.includes(wType);
+        })
+      : WEAPON_AUGMENT_DATA;
+  } else {
+    source = AUGMENT_DATA;
+  }
+  // Hide augments already equipped on this item (other dots)
+  const equipped = equippedAugments[slotType] || [];
+  const equippedSlugs = new Set(equipped.filter((a, i) => a && i !== dotIndex).map(a => a.slug));
+  return source.filter(a => !equippedSlugs.has(a.slug));
+}
+
 function openAugmentPicker(slotType, dotIndex) {
   currentAugmentSlotType = slotType;
   currentAugmentDotIndex = dotIndex;
@@ -1167,7 +1236,7 @@ function openAugmentPicker(slotType, dotIndex) {
   document.getElementById('augment-picker-title').textContent = `Augment — ${slotLabel} Slot ${dotIndex + 1}`;
   document.getElementById('augment-picker-search').value = '';
 
-  renderAugmentPickerItems(AUGMENT_DATA);
+  renderAugmentPickerItems(getAvailableAugments(slotType, dotIndex));
 
   const overlay = document.getElementById('augment-picker-overlay');
   requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('visible')));
@@ -1255,6 +1324,7 @@ function selectAugment(slug) {
   if (!equippedAugments[slotType]) {
     equippedAugments[slotType] = [null, null, null];
   }
+
   equippedAugments[slotType][dotIndex] = { slug, grade: 1 };
 
   closeAugmentPicker();
@@ -1394,7 +1464,7 @@ function showAugmentTooltip(slotType, dotIndex) {
   const equipped = equippedAugments[slotType]?.[dotIndex];
   if (!equipped) return;
 
-  const augData = AUGMENT_DATA.find(a => a.slug === equipped.slug);
+  const augData = findAugmentData(equipped.slug, slotType);
   if (!augData) return;
 
   const panel = document.getElementById('tooltip-panel');
@@ -1570,12 +1640,261 @@ function clearSlot(slotEl) {
   refreshPanels();
 }
 
+// =============================================
+// HOTBAR — WEAPON SLOTS
+// =============================================
+
+function getHotbarSlotType(el) {
+  const idx = el.dataset.hotbar;
+  return idx != null ? `hotbar${idx}` : null;
+}
+
+function selectHotbarSlot(index) {
+  // Only select if slot has an item
+  if (!equippedItems[`hotbar${index}`]) return;
+  activeHotbarIndex = index;
+  updateHotbarSelection();
+}
+
+function updateHotbarSelection() {
+  document.querySelectorAll('.hotbar-slot').forEach(el => {
+    const idx = parseInt(el.dataset.hotbar, 10);
+    el.classList.toggle('hotbar-slot--active', idx === activeHotbarIndex);
+  });
+}
+
+function autoSelectFirstHotbarWeapon() {
+  for (let i = 0; i < 8; i++) {
+    if (equippedItems[`hotbar${i}`]) {
+      activeHotbarIndex = i;
+      updateHotbarSelection();
+      return;
+    }
+  }
+  activeHotbarIndex = null;
+  updateHotbarSelection();
+}
+
+function cycleHotbar(direction) {
+  // Collect occupied indices
+  const occupied = [];
+  for (let i = 0; i < 8; i++) {
+    if (equippedItems[`hotbar${i}`]) occupied.push(i);
+  }
+  if (occupied.length === 0) return;
+
+  if (activeHotbarIndex == null) {
+    activeHotbarIndex = direction > 0 ? occupied[0] : occupied[occupied.length - 1];
+  } else {
+    const currentPos = occupied.indexOf(activeHotbarIndex);
+    if (currentPos === -1) {
+      activeHotbarIndex = direction > 0 ? occupied[0] : occupied[occupied.length - 1];
+    } else {
+      const nextPos = currentPos + direction;
+      if (nextPos < 0 || nextPos >= occupied.length) return; // no wrap
+      activeHotbarIndex = occupied[nextPos];
+    }
+  }
+  updateHotbarSelection();
+}
+
+function getActiveHotbarSlotType() {
+  return activeHotbarIndex != null ? `hotbar${activeHotbarIndex}` : null;
+}
+
+function getFilteredWeaponItems() {
+  let items = [...WEAPON_ITEMS].sort((a, b) => {
+    const tierA = a.tier ?? 0;
+    const tierB = b.tier ?? 0;
+    if (tierA !== tierB) return tierB - tierA;
+    if (a.rarity !== b.rarity) return a.rarity === 'Unique' ? -1 : 1;
+    return a.name.localeCompare(b.name);
+  });
+  if (!appSettings.showWeaponCommons) {
+    items = items.filter(i => i.rarity !== 'Common');
+  }
+  items = items.filter(i => {
+    const tier = i.tier;
+    if (tier === 1 && !appSettings.showWeaponT1) return false;
+    if (tier === 2 && !appSettings.showWeaponT2) return false;
+    if (tier === 3 && !appSettings.showWeaponT3) return false;
+    if (tier === 4 && !appSettings.showWeaponT4) return false;
+    if (tier === 5 && !appSettings.showWeaponT5) return false;
+    return true;
+  });
+  // Apply weapon type filter
+  if (!weaponTypeFilter.melee || !weaponTypeFilter.ranged) {
+    items = items.filter(i => {
+      if (i.weaponType === 'melee' && !weaponTypeFilter.melee) return false;
+      if (i.weaponType === 'ranged' && !weaponTypeFilter.ranged) return false;
+      return true;
+    });
+  }
+  return items;
+}
+
+function refilterHotbarPicker() {
+  currentPickerItems = getFilteredWeaponItems();
+  const query = document.getElementById('item-picker-search').value.toLowerCase();
+  const filtered = query ? currentPickerItems.filter(i => i.name.toLowerCase().includes(query)) : currentPickerItems;
+  renderPickerItems(filtered, currentPickerSlotType);
+}
+
+function createWeaponTypeFilters() {
+  // Remove any existing filter bar
+  const existing = document.getElementById('weapon-type-filters');
+  if (existing) existing.remove();
+
+  const bar = document.createElement('div');
+  bar.id = 'weapon-type-filters';
+  bar.className = 'weapon-type-filters';
+
+  const createBtn = (type, label) => {
+    const btn = document.createElement('button');
+    btn.className = 'weapon-type-btn';
+    btn.textContent = label;
+    btn.classList.toggle('active', weaponTypeFilter[type]);
+    btn.addEventListener('click', () => {
+      weaponTypeFilter[type] = !weaponTypeFilter[type];
+      btn.classList.toggle('active', weaponTypeFilter[type]);
+      refilterHotbarPicker();
+    });
+    return btn;
+  };
+
+  bar.appendChild(createBtn('melee', 'Melee'));
+  bar.appendChild(createBtn('ranged', 'Ranged'));
+
+  // Insert after the title, before the close button
+  const header = document.querySelector('.item-picker-header');
+  const closeBtn = document.getElementById('item-picker-close');
+  header.insertBefore(bar, closeBtn);
+}
+
+function removeWeaponTypeFilters() {
+  const existing = document.getElementById('weapon-type-filters');
+  if (existing) existing.remove();
+}
+
+function openHotbarPicker(slotEl) {
+  const slotType = getHotbarSlotType(slotEl);
+  if (!slotType) return;
+
+  // Reset filters unless persistence is on
+  if (!appSettings.persistWeaponTypeFilter) {
+    weaponTypeFilter.melee = true;
+    weaponTypeFilter.ranged = true;
+  }
+
+  const idx = parseInt(slotEl.dataset.hotbar, 10);
+  document.getElementById('item-picker-title').textContent = `Hotbar Slot ${idx + 1}`;
+  document.getElementById('item-picker-search').value = '';
+
+  currentPickerItems = getFilteredWeaponItems();
+  currentPickerSlotType = slotType;
+
+  createWeaponTypeFilters();
+  renderPickerItems(currentPickerItems, slotType);
+
+  const overlay = document.getElementById('item-picker-overlay');
+  requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('visible')));
+}
+
+function selectHotbarItem(slotType, slug) {
+  const item = WEAPON_ITEMS.find(i => i.slug === slug);
+  if (!item || !slotType) return;
+
+  equippedItems[slotType] = item;
+  equippedGrades[slotType] = 0;
+
+  const idx = parseInt(slotType.replace('hotbar', ''), 10);
+  const slotEl = document.querySelector(`.hotbar-slot[data-hotbar="${idx}"]`);
+  if (slotEl) updateHotbarSlotDisplay(slotEl, item, slotType);
+
+  // Auto-select this slot if nothing is active
+  if (activeHotbarIndex == null) {
+    activeHotbarIndex = idx;
+    updateHotbarSelection();
+  }
+
+  closeItemPicker();
+  refreshPanels();
+}
+
+function updateHotbarSlotDisplay(slotEl, item, slotType) {
+  slotEl.classList.add('has-item');
+  slotEl.title = item.name;
+  // Preserve the slot number
+  const idx = parseInt(slotEl.dataset.hotbar, 10);
+  slotEl.innerHTML = '';
+
+  const numEl = document.createElement('span');
+  numEl.className = 'slot-number';
+  numEl.textContent = String(idx + 1);
+  slotEl.appendChild(numEl);
+
+  const img = document.createElement('img');
+  img.className = 'hotbar-slot__icon';
+  img.src = item.img;
+  img.alt = item.name;
+  slotEl.appendChild(img);
+
+  const clearBtn = document.createElement('button');
+  clearBtn.className = 'hotbar-slot__clear';
+  clearBtn.textContent = '×';
+  clearBtn.title = 'Remove';
+  clearBtn.addEventListener('click', e => { e.stopPropagation(); clearHotbarSlot(slotEl); });
+  slotEl.appendChild(clearBtn);
+
+  // Grade ring for Unique weapons with scaledStats
+  if (item.scaledStats?.length) {
+    slotEl.appendChild(createGradeRing(slotType));
+    if (item.rarity === 'Unique') {
+      if (!augmentSlotUnlocks[slotType]) augmentSlotUnlocks[slotType] = 1;
+      if (!equippedAugments[slotType]) equippedAugments[slotType] = [null, null, null];
+      slotEl.appendChild(createAugmentDots(slotType));
+    }
+  }
+
+  slotEl.addEventListener('mouseenter', () => showTooltip(slotType));
+  slotEl.addEventListener('mouseleave', clearTooltip);
+}
+
+function clearHotbarSlot(slotEl) {
+  const slotType = getHotbarSlotType(slotEl);
+  if (slotType) {
+    delete equippedItems[slotType];
+    delete equippedGrades[slotType];
+    delete equippedAugments[slotType];
+    delete augmentSlotUnlocks[slotType];
+  }
+  const idx = parseInt(slotEl.dataset.hotbar, 10);
+  slotEl.classList.remove('has-item');
+  slotEl.title = '';
+  slotEl.innerHTML = '';
+  const numEl = document.createElement('span');
+  numEl.className = 'slot-number';
+  numEl.textContent = String(idx + 1);
+  slotEl.appendChild(numEl);
+
+  // If we cleared the active slot, auto-select the next available
+  if (activeHotbarIndex === idx) {
+    autoSelectFirstHotbarWeapon();
+  }
+  refreshPanels();
+}
+
 (async () => {
   await loadGarmentItems();
 
   document.querySelectorAll('.armor-slot').forEach(slotEl => {
     if (slotEl.classList.contains('slot--null')) return;
     slotEl.addEventListener('click', () => openItemPicker(slotEl));
+  });
+
+  // Hotbar slot click → weapon picker
+  document.querySelectorAll('.hotbar-slot').forEach(slotEl => {
+    slotEl.addEventListener('click', () => openHotbarPicker(slotEl));
   });
 
   document.getElementById('item-picker-close').addEventListener('click', closeItemPicker);
@@ -1599,7 +1918,8 @@ function clearSlot(slotEl) {
 
   document.getElementById('augment-picker-search').addEventListener('input', e => {
     const query = e.target.value.toLowerCase();
-    const filtered = AUGMENT_DATA.filter(a => a.name.toLowerCase().includes(query));
+    const available = getAvailableAugments(currentAugmentSlotType, currentAugmentDotIndex);
+    const filtered = available.filter(a => a.name.toLowerCase().includes(query));
     renderAugmentPickerItems(filtered);
   });
 
@@ -1619,6 +1939,19 @@ function clearSlot(slotEl) {
       closeAugmentValuePopup();
     }
   });
+
+  // Hotbar selection: keys 1-8
+  document.addEventListener('keydown', e => {
+    // Skip if an input/textarea is focused
+    const tag = document.activeElement?.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+    const num = parseInt(e.key, 10);
+    if (num >= 1 && num <= 8) {
+      selectHotbarSlot(num - 1);
+    }
+  });
+
+  // Hotbar selection: mouse wheel cycles occupied slots
 })();
 
 // =============================================
@@ -1688,11 +2021,35 @@ for (const tier of [1, 2, 3, 4, 5]) {
   });
 }
 
+// Weapon settings
+document.getElementById('setting-show-weapon-commons').checked = appSettings.showWeaponCommons;
+document.getElementById('setting-show-weapon-commons').addEventListener('change', e => {
+  appSettings.showWeaponCommons = e.target.checked;
+  saveSettings();
+});
+
+for (const tier of [1, 2, 3, 4, 5]) {
+  const key = `showWeaponT${tier}`;
+  const el = document.getElementById(`setting-show-weapon-t${tier}`);
+  el.checked = appSettings[key];
+  el.addEventListener('change', e => {
+    appSettings[key] = e.target.checked;
+    saveSettings();
+  });
+}
+
+document.getElementById('setting-persist-weapon-filter').checked = appSettings.persistWeaponTypeFilter;
+document.getElementById('setting-persist-weapon-filter').addEventListener('change', e => {
+  appSettings.persistWeaponTypeFilter = e.target.checked;
+  saveSettings();
+});
+
 // =============================================
 // EXPORT
 // =============================================
 
 const EXPORT_SLOT_ORDER = ['helm', 'chest', 'pants', 'gloves', 'boots', 'holtzman', 'belt', 'pack'];
+const EXPORT_HOTBAR_ORDER = ['hotbar0','hotbar1','hotbar2','hotbar3','hotbar4','hotbar5','hotbar6','hotbar7'];
 
 function exportBuild() {
   const slots = {};
@@ -1715,7 +2072,25 @@ function exportBuild() {
     slots[slot] = entry;
   }
 
+  // Hotbar (weapons)
+  const hotbar = {};
+  for (const slot of EXPORT_HOTBAR_ORDER) {
+    const item = equippedItems[slot];
+    if (!item) continue;
+    const entry = { item: item.slug };
+    if (equippedGrades[slot] > 0) entry.grade = equippedGrades[slot];
+    const augs = equippedAugments[slot] || [null, null, null];
+    entry.augments = augs.map(a => {
+      if (!a) return null;
+      const aug = { slug: a.slug, grade: a.grade };
+      if (a.customValues != null) aug.customValues = a.customValues;
+      return aug;
+    });
+    hotbar[slot] = entry;
+  }
+
   const exportData = { slots };
+  if (Object.keys(hotbar).length > 0) exportData.hotbar = hotbar;
 
   if (lastCharacterPanel) {
     exportData.characterPanel = {};
@@ -1758,7 +2133,7 @@ document.getElementById('calc-off-btn').addEventListener('click', () => {
 const exportBtn = document.getElementById('export-btn');
 
 exportBtn.addEventListener('click', async () => {
-  const hasGear = Object.keys(equippedItems).length > 0;
+  const hasGear = Object.keys(equippedItems).some(k => equippedItems[k] != null);
   if (!hasGear && !lastCharacterPanel) {
     showError('Nothing to export — equip gear or paste a build first.');
     return;
@@ -1790,6 +2165,36 @@ pasteBtn.addEventListener('click', async () => {
     if (!result) {
       showError('No valid build data found in clipboard.');
     } else if (result.duneExport) {
+      // Clear all existing state before importing
+      for (const key of Object.keys(equippedItems)) delete equippedItems[key];
+      for (const key of Object.keys(equippedGrades)) delete equippedGrades[key];
+      for (const key of Object.keys(equippedAugments)) delete equippedAugments[key];
+      for (const key of Object.keys(augmentSlotUnlocks)) delete augmentSlotUnlocks[key];
+      activeHotbarIndex = null;
+
+      // Reset all armor slot visuals
+      document.querySelector('.armor-layout').classList.remove('radsuit-active');
+      document.querySelectorAll('.armor-slot').forEach(el => {
+        const st = getSlotType(el);
+        if (st) {
+          el.classList.remove('has-item');
+          el.title = '';
+          el.innerHTML = `<span class="slot-label">${SLOT_ORIGINAL_LABELS[getSlotClass(el)] || ''}</span>`;
+        }
+      });
+
+      // Reset all hotbar slot visuals
+      document.querySelectorAll('.hotbar-slot').forEach(el => {
+        const idx = parseInt(el.dataset.hotbar, 10);
+        el.classList.remove('has-item', 'hotbar-slot--active');
+        el.title = '';
+        el.innerHTML = '';
+        const numEl = document.createElement('span');
+        numEl.className = 'slot-number';
+        numEl.textContent = String(idx + 1);
+        el.appendChild(numEl);
+      });
+
       // First pass: set state (grades, augments) before building visuals
       for (const [slot, data] of Object.entries(result.slots)) {
         const item = GARMENT_ITEMS.find(i => i.slug === data.item);
@@ -1817,6 +2222,24 @@ pasteBtn.addEventListener('click', async () => {
             if (getSlotType(el) === slot) updateSlotDisplay(el, item);
           });
         }
+      }
+      // Restore hotbar (weapons)
+      if (result.hotbar) {
+        for (const [slot, data] of Object.entries(result.hotbar)) {
+          const item = WEAPON_ITEMS.find(i => i.slug === data.item);
+          if (!item) continue;
+          equippedItems[slot] = item;
+          equippedGrades[slot] = data.grade || 0;
+          if (data.augments) {
+            equippedAugments[slot] = data.augments.map(a => a ? { slug: a.slug, grade: Math.max(a.grade || 0, 1), ...(a.customValues != null ? { customValues: a.customValues } : {}) } : null);
+            const lastNonNull = data.augments.reduce((max, a, i) => a ? i : max, -1);
+            augmentSlotUnlocks[slot] = Math.max(lastNonNull + 1, 1);
+          }
+          const idx = slot.replace('hotbar', '');
+          const slotEl = document.querySelector(`.hotbar-slot[data-hotbar="${idx}"]`);
+          if (slotEl) updateHotbarSlotDisplay(slotEl, item, slot);
+        }
+        autoSelectFirstHotbarWeapon();
       }
       if (result.characterPanel) {
         lastCharacterPanel = result.characterPanel;

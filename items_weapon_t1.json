@@ -1,0 +1,284 @@
+[
+  {
+    "slug": "uniquear_burst_01",
+    "name": "Aren's Vengeance",
+    "description": "",
+    "tier": 1,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquear_burst_01r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 30,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 25.2,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 21.3,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 0.7,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/uniquear_burst_01.webp"
+  },
+  {
+    "slug": "kindjal_unique_blood_01",
+    "name": "Kaleff's Drinker",
+    "description": "",
+    "tier": 1,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleekindjal_unique_blood_01r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Hit",
+        "value": 10.9,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 65.2,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 32.6,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "melee",
+    "img": "imgs/weapons/kindjal_unique_blood_01.webp"
+  },
+  {
+    "slug": "harkar2",
+    "name": "Karpov 38",
+    "description": "",
+    "tier": 1,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hharkrifle01_t1r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 7.6,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 20,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 42.2,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 28.7,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 0.1,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/harkar2.webp"
+  },
+  {
+    "slug": "kindjal",
+    "name": "Kindjal",
+    "description": "",
+    "tier": 1,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeatredagger01r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Hit",
+        "value": 7.2,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 43.1,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 21.5,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "melee",
+    "img": "imgs/weapons/kindjal.webp"
+  },
+  {
+    "slug": "choamsda2",
+    "name": "Maula Pistol",
+    "description": "",
+    "tier": 1,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hchoammaula01_t1r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 7.2,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 18,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 41.1,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 30,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 1.6,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 1.8,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/choamsda2.webp"
+  },
+  {
+    "slug": "uniquesda1",
+    "name": "Way of the Fallen",
+    "description": "",
+    "tier": 1,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpniconuniquesda1r_d.webp?v=1775732394066",
+    "stats": [
+      {
+        "name": "Damage Per Shot",
+        "value": 10.4,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 24,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 63,
+        "type": "number"
+      },
+      {
+        "name": "Effective DPS",
+        "value": 48.7,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.9,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 3.1,
+        "type": "number"
+      }
+    ],
+    "weaponType": "ranged",
+    "img": "imgs/weapons/uniquesda1.webp"
+  }
+]
