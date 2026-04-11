@@ -540,7 +540,8 @@ const FLAT_STATS = new Set([
   'power pool', 'regen per second', 'power drain', 'shield refresh time',
   // Weapon stats
   'damage per shot', 'shield damage per shot', 'clip size', 'dps',
-  'effective dps', 'damage per hit', 'attack speed',
+  'reload time', 'rate of fire', 'effective range',
+  'damage per hit', 'attack speed',
   'heavy attack damage (shielded)', 'heavy attack damage (unshielded)',
   'shield damage per hit', 'power consumption',
 ]);
@@ -704,27 +705,22 @@ function aggregateEquippedStats() {
           if (!gradeData) return;
           const key = eff.stat.replace(/:$/, '');
           const baseVal = itemStats[key] || 0;
+          const customVal = aug.customValues?.[eff.stat];
 
-          if (aug.customValues != null) {
-            if (eff.type === 'percent') {
-              itemStats[key] = baseVal * (1 + aug.customValues / 100);
-            } else {
-              itemStats[key] = baseVal + aug.customValues;
-            }
+          const effectVal = customVal != null ? customVal : gradeData[1];
+          if (eff.type === 'percent') {
+            itemStats[key] = baseVal * (1 + effectVal / 100);
           } else {
-            const effectVal = gradeData[1];
-            if (eff.type === 'percent') {
-              itemStats[key] = baseVal * (1 + effectVal / 100);
-            } else {
-              itemStats[key] = baseVal + effectVal;
-            }
+            itemStats[key] = baseVal + effectVal;
           }
         });
 
         // Tradeoffs apply to the item too
         (augData.tradeoffs || []).forEach(t => {
-          const key = t.stat.replace(/:$/, '');
-          itemStats[key] = (itemStats[key] || 0) + t.value;
+          const keys = expandStatKey(t.stat.replace(/:$/, ''));
+          keys.forEach(key => {
+            itemStats[key] = (itemStats[key] || 0) + t.value;
+          });
         });
       });
     }
@@ -1014,6 +1010,12 @@ function createUnlockedDot(slotType, dotIndex) {
   return dot;
 }
 
+// Expand compound tradeoff stat names to their specific variants
+function expandStatKey(key) {
+  if (key === 'Dart Mitigation') return ['Light Dart Mitigation', 'Heavy Dart Mitigation'];
+  return [key];
+}
+
 function findAugmentData(slug, slotType) {
   if (HOTBAR_SLOTS.has(slotType)) {
     return WEAPON_AUGMENT_DATA.find(a => a.slug === slug) || AUGMENT_DATA.find(a => a.slug === slug);
@@ -1210,13 +1212,17 @@ function refreshAugmentDots(slotType, expandDotIndex) {
 function getAvailableAugments(slotType, dotIndex) {
   let source;
   if (HOTBAR_SLOTS.has(slotType)) {
-    // Filter weapon augments by the equipped weapon's type (melee/ranged)
     const item = equippedItems[slotType];
     const wType = item?.weaponType;
+    const wFamily = item?.weaponFamily;
     source = wType
       ? WEAPON_AUGMENT_DATA.filter(a => {
           const types = (a.type || []).map(t => t.toLowerCase());
-          return types.includes(wType);
+          // Generic ranged/melee augments
+          if (types.length === 1 && types.includes(wType)) return true;
+          // Weapon-family-specific augments
+          if (wFamily && types.includes(wFamily.toLowerCase())) return true;
+          return false;
         })
       : WEAPON_AUGMENT_DATA;
   } else {
@@ -1342,27 +1348,67 @@ function openAugmentValuePopup(slotType, dotIndex, event) {
   const aug = equippedAugments[slotType]?.[dotIndex];
   if (!aug) return;
 
+  const augData = findAugmentData(aug.slug, slotType);
+  if (!augData) return;
+
   activeAugmentPopup = { slotType, dotIndex };
 
   const popup = document.getElementById('augment-value-popup');
-  const input = document.getElementById('augment-value-input');
+  const fieldsContainer = document.getElementById('augment-value-fields');
+  fieldsContainer.innerHTML = '';
 
-  // Pre-fill with current custom value or empty
-  input.value = aug.customValues != null ? aug.customValues : '';
+  const grade = aug.grade || 1;
+  const gradeIdx = grade > 0 ? grade - 1 : 0;
+  const customValues = aug.customValues || {};
+
+  (augData.effects || []).forEach(eff => {
+    const g = eff.grades?.[gradeIdx];
+    if (!g) return; // stat not available at this grade
+
+    const row = document.createElement('div');
+    row.className = 'augment-value-popup__field';
+
+    const label = document.createElement('label');
+    label.className = 'augment-value-popup__stat';
+    const min = g[0], max = g[1];
+    const suffix = eff.type === 'percent' ? '%' : '';
+    label.textContent = `${eff.stat.replace(/:$/, '')} (${min}${suffix} – ${max}${suffix})`;
+
+    const input = document.createElement('input');
+    input.className = 'augment-value-popup__input';
+    input.type = 'number';
+    input.step = '0.1';
+    input.placeholder = `${min} – ${max}`;
+    input.dataset.stat = eff.stat;
+    input.dataset.min = String(Math.min(min, max));
+    input.dataset.max = String(Math.max(min, max));
+
+    if (customValues[eff.stat] != null) {
+      input.value = customValues[eff.stat];
+    }
+
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') saveAugmentCustomValue();
+      if (e.key === 'Escape') closeAugmentValuePopup();
+    });
+
+    row.appendChild(label);
+    row.appendChild(input);
+    fieldsContainer.appendChild(row);
+  });
 
   popup.hidden = false;
   popup.style.left = `${event.clientX}px`;
   popup.style.top = `${event.clientY}px`;
 
-  // Keep popup in viewport
   requestAnimationFrame(() => {
     const rect = popup.getBoundingClientRect();
     if (rect.right > window.innerWidth) popup.style.left = `${window.innerWidth - rect.width - 8}px`;
     if (rect.bottom > window.innerHeight) popup.style.top = `${window.innerHeight - rect.height - 8}px`;
   });
 
-  input.focus();
-  input.select();
+  const firstInput = fieldsContainer.querySelector('input');
+  if (firstInput) { firstInput.focus(); firstInput.select(); }
 }
 
 function closeAugmentValuePopup() {
@@ -1375,13 +1421,23 @@ function saveAugmentCustomValue() {
   const aug = equippedAugments[slotType]?.[dotIndex];
   if (!aug) { closeAugmentValuePopup(); return; }
 
-  const input = document.getElementById('augment-value-input');
-  const val = parseFloat(input.value);
-  if (isNaN(val) || input.value.trim() === '') {
-    delete aug.customValues;
-  } else {
-    aug.customValues = val;
-  }
+  const inputs = document.querySelectorAll('#augment-value-fields input');
+  const customValues = {};
+  let hasAny = false;
+
+  inputs.forEach(input => {
+    const stat = input.dataset.stat;
+    const val = parseFloat(input.value);
+    if (!isNaN(val) && input.value.trim() !== '') {
+      const min = parseFloat(input.dataset.min);
+      const max = parseFloat(input.dataset.max);
+      customValues[stat] = Math.min(Math.max(val, min), max);
+      hasAny = true;
+    }
+  });
+
+  aug.customValues = hasAny ? customValues : undefined;
+  if (!hasAny) delete aug.customValues;
 
   closeAugmentValuePopup();
   refreshPanels();
@@ -1395,7 +1451,9 @@ function showTooltip(slotType) {
   const item = equippedItems[slotType];
   if (!item) return;
 
+  document.getElementById('build-stats').hidden = true;
   const panel = document.getElementById('tooltip-panel');
+  panel.style.flex = '1 1 0';
   panel.innerHTML = '';
 
   // Name + rarity badge
@@ -1422,6 +1480,43 @@ function showTooltip(slotType) {
     stats = mergeBaseWithScaled(stats, item.scaledStats[grade - 1]);
   }
 
+  // Compute augment contributions per stat for this item
+  const augEffects = {}; // key -> { min, max, hasCustom }
+  const augSlotsForCalc = equippedAugments[slotType] || [];
+  augSlotsForCalc.forEach(aug => {
+    if (!aug) return;
+    const augData = findAugmentData(aug.slug, slotType);
+    if (!augData) return;
+    const augGrade = aug.grade || 1;
+    const gradeIdx = augGrade > 0 ? augGrade - 1 : 0;
+
+    (augData.effects || []).forEach(eff => {
+      const g = eff.grades?.[gradeIdx];
+      if (!g) return;
+      const key = eff.stat.replace(/:$/, '');
+      const customVal = aug.customValues?.[eff.stat];
+      if (!augEffects[key]) augEffects[key] = { min: 0, max: 0, hasCustom: true, type: eff.type };
+      if (customVal != null) {
+        augEffects[key].min += customVal;
+        augEffects[key].max += customVal;
+      } else {
+        augEffects[key].min += g[0];
+        augEffects[key].max += g[1];
+        augEffects[key].hasCustom = false;
+      }
+    });
+
+    // Tradeoffs are flat subtraction — expand compound keys
+    (augData.tradeoffs || []).forEach(t => {
+      const keys = expandStatKey(t.stat.replace(/:$/, ''));
+      keys.forEach(key => {
+        if (!augEffects[key]) augEffects[key] = { min: 0, max: 0, hasCustom: true, type: 'flat' };
+        augEffects[key].min += t.value;
+        augEffects[key].max += t.value;
+      });
+    });
+  });
+
   stats.forEach(stat => {
     const row = document.createElement('div');
     row.className = 'stat-row';
@@ -1432,7 +1527,29 @@ function showTooltip(slotType) {
 
     const value = document.createElement('span');
     value.className = 'stat-value';
-    value.textContent = formatStatValue(stat.name, stat.value);
+
+    const key = stat.name.replace(/:$/, '');
+    const augEff = augEffects[key];
+    const baseText = formatStatValue(stat.name, stat.value);
+
+    if (augEff) {
+      const applyAug = (base, augVal) => {
+        if (augEff.type === 'percent') return Math.round(base * (1 + augVal / 100) * 10) / 10;
+        return Math.round((base + augVal) * 10) / 10;
+      };
+      const finalMin = applyAug(stat.value, augEff.min);
+      const finalMax = applyAug(stat.value, augEff.max);
+      const isWorse = finalMax < stat.value;
+      const color = isWorse ? 'var(--color-health)' : 'var(--color-stamina)';
+
+      if (augEff.hasCustom || finalMin === finalMax) {
+        value.innerHTML = `${baseText} <span style="color:${color}">(${formatStatValue(stat.name, finalMin)})</span>`;
+      } else {
+        value.innerHTML = `${baseText} <span style="color:${color}">(${formatStatValue(stat.name, finalMin)}–${formatStatValue(stat.name, finalMax)})</span>`;
+      }
+    } else {
+      value.textContent = baseText;
+    }
 
     row.appendChild(label);
     row.appendChild(value);
@@ -1458,6 +1575,73 @@ function showTooltip(slotType) {
     meta.textContent = parts.join('  ·  ');
     panel.appendChild(meta);
   }
+
+  // Augment stat breakdown
+  const augSlots = equippedAugments[slotType];
+  if (augSlots) {
+    const appliedAugs = augSlots.filter(a => a !== null);
+    if (appliedAugs.length > 0) {
+      const augSection = document.createElement('div');
+      augSection.className = 'tooltip-panel__aug-section';
+
+      appliedAugs.forEach(aug => {
+        const augData = findAugmentData(aug.slug, slotType);
+        if (!augData) return;
+
+        const augHeader = document.createElement('div');
+        augHeader.className = 'tooltip-panel__aug-name';
+        augHeader.textContent = augData.name;
+        augSection.appendChild(augHeader);
+
+        const augGrade = aug.grade || 1;
+        const gradeIdx = augGrade > 0 ? augGrade - 1 : 0;
+
+        (augData.effects || []).forEach(eff => {
+          const g = eff.grades?.[gradeIdx];
+          if (!g) return;
+          const row = document.createElement('div');
+          row.className = 'stat-row';
+
+          const label = document.createElement('span');
+          label.className = 'stat-label';
+          label.textContent = eff.stat.replace(/:$/, '');
+
+          const value = document.createElement('span');
+          value.className = 'stat-value';
+          value.style.color = 'var(--color-stamina)';
+
+          const customVal = aug.customValues?.[eff.stat];
+          const suffix = eff.type === 'percent' ? '%' : '';
+          if (customVal != null) {
+            value.textContent = `+${customVal}${suffix}`;
+          } else {
+            value.textContent = `+${g[0]}–${g[1]}${suffix}`;
+          }
+
+          row.appendChild(label);
+          row.appendChild(value);
+          augSection.appendChild(row);
+        });
+
+        (augData.tradeoffs || []).forEach(t => {
+          const row = document.createElement('div');
+          row.className = 'stat-row';
+          const label = document.createElement('span');
+          label.className = 'stat-label';
+          label.textContent = t.stat.replace(/:$/, '');
+          const value = document.createElement('span');
+          value.className = 'stat-value';
+          value.style.color = 'var(--color-health)';
+          value.textContent = `${t.value}%`;
+          row.appendChild(label);
+          row.appendChild(value);
+          augSection.appendChild(row);
+        });
+      });
+
+      panel.appendChild(augSection);
+    }
+  }
 }
 
 function showAugmentTooltip(slotType, dotIndex) {
@@ -1467,7 +1651,9 @@ function showAugmentTooltip(slotType, dotIndex) {
   const augData = findAugmentData(equipped.slug, slotType);
   if (!augData) return;
 
+  document.getElementById('build-stats').hidden = true;
   const panel = document.getElementById('tooltip-panel');
+  panel.style.flex = '1 1 0';
   panel.innerHTML = '';
 
   // Name row
@@ -1576,7 +1762,9 @@ function showFormulaTooltip(label, value, formula) {
 }
 
 function clearTooltip() {
+  document.getElementById('build-stats').hidden = false;
   const panel = document.getElementById('tooltip-panel');
+  panel.style.flex = '';
   panel.innerHTML = '<div class="tooltip-panel__empty">Hover an item to inspect</div>';
 }
 
@@ -1926,11 +2114,6 @@ function clearHotbarSlot(slotEl) {
   // Augment custom value popup events
   document.getElementById('augment-value-save').addEventListener('click', saveAugmentCustomValue);
   document.getElementById('augment-value-cancel').addEventListener('click', closeAugmentValuePopup);
-
-  document.getElementById('augment-value-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') saveAugmentCustomValue();
-    if (e.key === 'Escape') closeAugmentValuePopup();
-  });
 
   // Close popup on outside click
   document.addEventListener('mousedown', e => {

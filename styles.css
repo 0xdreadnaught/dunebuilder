@@ -1404,6 +1404,17 @@ body {
   margin-bottom: 6px;
 }
 
+.augment-value-popup__field {
+  margin-bottom: 8px;
+}
+
+.augment-value-popup__stat {
+  display: block;
+  font-size: 10px;
+  color: var(--color-gold-main);
+  margin-bottom: 3px;
+}
+
 .augment-value-popup__input {
   width: 100%;
   background: rgba(0, 0, 0, 0.4);
@@ -1414,7 +1425,7 @@ body {
   font-size: 14px;
   padding: 4px 8px;
   outline: none;
-  margin-bottom: 8px;
+  box-sizing: border-box;
 }
 
 .augment-value-popup__input:focus {
@@ -1584,8 +1595,6 @@ body {
    ============================================= */
 .tooltip-panel {
   border-top: var(--border-accent);
-  min-height: 180px;
-  max-height: 40%;
   overflow-y: auto;
   flex-shrink: 0;
   padding: var(--spacing-sm) 0;
@@ -1647,6 +1656,25 @@ body {
   margin-top: 2px;
   display: flex;
   gap: var(--spacing-md);
+}
+
+.tooltip-panel__aug-section {
+  border-top: var(--border-panel);
+  margin-top: 2px;
+  padding: var(--spacing-xs) 0;
+}
+
+.tooltip-panel__aug-name {
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold-main);
+}
+
+.tooltip-panel__aug-section .stat-row {
+  padding-left: calc(var(--spacing-md) + 8px);
 }
 
 .tooltip-panel__formula {

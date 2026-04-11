@@ -5,8 +5,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnsmg_unique_largemag_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnsmg_unique_largemag_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 42.8,
@@ -23,13 +33,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 600,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 428,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 326.1,
+        "name": "Effective Range",
+        "value": 10,
         "type": "number"
       },
       {
@@ -49,34 +69,30 @@
       {
         "Damage Per Shot": 45.8,
         "Shield Damage Per Shot": 27,
-        "DPS": 458,
-        "Effective DPS": 348.9
+        "DPS": 458
       },
       {
         "Damage Per Shot": 53.6,
         "Shield Damage Per Shot": 29,
-        "DPS": 536.4,
-        "Effective DPS": 408.7
+        "DPS": 536.4
       },
       {
         "Damage Per Shot": 64.8,
         "Shield Damage Per Shot": 31,
-        "DPS": 648.3,
-        "Effective DPS": 493.9
+        "DPS": 648.3
       },
       {
         "Damage Per Shot": 80.5,
         "Shield Damage Per Shot": 33,
-        "DPS": 804.9,
-        "Effective DPS": 613.2
+        "DPS": 804.9
       },
       {
         "Damage Per Shot": 102.4,
         "Shield Damage Per Shot": 35,
-        "DPS": 1024.1,
-        "Effective DPS": 780.3
+        "DPS": 1024.1
       }
-    ]
+    ],
+    "weaponFamily": "Disruptor M11"
   },
   {
     "slug": "shotgun_unique_largemag_06",
@@ -84,8 +100,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hsmugshotgun01_t6r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hsmugshotgun01_t6r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 154.5,
@@ -97,13 +123,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 72,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 186.1,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 97.8,
+        "name": "Effective Range",
+        "value": 68,
         "type": "number"
       },
       {
@@ -122,30 +158,26 @@
     "scaledStats": [
       {
         "Damage Per Shot": 165.3,
-        "DPS": 199.1,
-        "Effective DPS": 104.7
+        "DPS": 199.1
       },
       {
         "Damage Per Shot": 193.6,
-        "DPS": 233.2,
-        "Effective DPS": 122.6
+        "DPS": 233.2
       },
       {
         "Damage Per Shot": 234,
-        "DPS": 281.9,
-        "Effective DPS": 148.1
+        "DPS": 281.9
       },
       {
         "Damage Per Shot": 290.5,
-        "DPS": 350,
-        "Effective DPS": 183.9
+        "DPS": 350
       },
       {
         "Damage Per Shot": 369.7,
-        "DPS": 445.3,
-        "Effective DPS": 234
+        "DPS": 445.3
       }
-    ]
+    ],
+    "weaponFamily": "Drillshot FK7"
   },
   {
     "slug": "lmg_unique_rapidfire_06",
@@ -153,8 +185,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlmg_unique_rapidfire_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlmg_unique_rapidfire_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 26.4,
@@ -171,13 +213,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 1176,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 517.6,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 325.9,
+        "name": "Effective Range",
+        "value": 54,
         "type": "number"
       },
       {
@@ -197,34 +249,30 @@
       {
         "Damage Per Shot": 28.3,
         "Shield Damage Per Shot": 11.9,
-        "DPS": 553.8,
-        "Effective DPS": 348.7
+        "DPS": 553.8
       },
       {
         "Damage Per Shot": 33.1,
         "Shield Damage Per Shot": 12.8,
-        "DPS": 648.7,
-        "Effective DPS": 408.4
+        "DPS": 648.7
       },
       {
         "Damage Per Shot": 40,
         "Shield Damage Per Shot": 13.6,
-        "DPS": 784,
-        "Effective DPS": 493.6
+        "DPS": 784
       },
       {
         "Damage Per Shot": 49.6,
         "Shield Damage Per Shot": 14.5,
-        "DPS": 973.4,
-        "Effective DPS": 612.9
+        "DPS": 973.4
       },
       {
         "Damage Per Shot": 63.2,
         "Shield Damage Per Shot": 15.4,
-        "DPS": 1238.5,
-        "Effective DPS": 779.8
+        "DPS": 1238.5
       }
-    ]
+    ],
+    "weaponFamily": "VULCAN GAU-92"
   },
   {
     "slug": "choamlg2",
@@ -232,8 +280,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnchoamlg2r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnchoamlg2r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Energy",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 84.7,
@@ -245,13 +303,28 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 5,
+        "type": "number"
+      },
+      {
         "name": "Power Consumption",
         "value": 21,
         "type": "number"
       },
       {
+        "name": "Rate of Fire",
+        "value": 600,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 847,
+        "type": "number"
+      },
+      {
+        "name": "Effective Range",
+        "value": 80,
         "type": "number"
       },
       {
@@ -271,34 +344,30 @@
       {
         "Damage Per Shot": 90.6,
         "Shield Damage Per Shot": 1.1,
-        "DPS": 906.3,
-        "Ultra Rare Container": 1.6
+        "DPS": 906.3
       },
       {
         "Damage Per Shot": 106.2,
         "Shield Damage Per Shot": 1.2,
-        "DPS": 1061.5,
-        "Ultra Rare Container": 1.6
+        "DPS": 1061.5
       },
       {
         "Damage Per Shot": 128.3,
         "Shield Damage Per Shot": 1.2,
-        "DPS": 1283,
-        "Ultra Rare Container": 1.6
+        "DPS": 1283
       },
       {
         "Damage Per Shot": 159.3,
         "Shield Damage Per Shot": 1.3,
-        "DPS": 1592.8,
-        "Ultra Rare Container": 1.6
+        "DPS": 1592.8
       },
       {
         "Damage Per Shot": 202.7,
         "Shield Damage Per Shot": 1.4,
-        "DPS": 2026.6,
-        "Ultra Rare Container": 1.6
+        "DPS": 2026.6
       }
-    ]
+    ],
+    "weaponFamily": "Lasgun"
   },
   {
     "slug": "uniquedualblades_6",
@@ -306,8 +375,13 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c3/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeharkdualdagger01_sandf01r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c3/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeharkdualdagger01_sandf01r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 137.2,
@@ -385,8 +459,13 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquedirk_04r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquedirk_04r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 138.5,
@@ -464,8 +543,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlongrifle_unique_poison_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlongrifle_unique_poison_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 346.1,
@@ -482,13 +571,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 77,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 449.5,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 195.5,
+        "name": "Effective Range",
+        "value": 75,
         "type": "number"
       },
       {
@@ -508,34 +607,30 @@
       {
         "Damage Per Shot": 370.3,
         "Shield Damage Per Shot": 130.7,
-        "DPS": 481,
-        "Effective DPS": 209.2
+        "DPS": 481
       },
       {
         "Damage Per Shot": 433.8,
         "Shield Damage Per Shot": 140.4,
-        "DPS": 563.4,
-        "Effective DPS": 245
+        "DPS": 563.4
       },
       {
         "Damage Per Shot": 524.2,
         "Shield Damage Per Shot": 150,
-        "DPS": 680.9,
-        "Effective DPS": 296.1
+        "DPS": 680.9
       },
       {
         "Damage Per Shot": 650.8,
         "Shield Damage Per Shot": 159.7,
-        "DPS": 845.3,
-        "Effective DPS": 367.6
+        "DPS": 845.3
       },
       {
         "Damage Per Shot": 828.1,
         "Shield Damage Per Shot": 169.4,
-        "DPS": 1075.5,
-        "Effective DPS": 467.8
+        "DPS": 1075.5
       }
-    ]
+    ],
+    "weaponFamily": "JABAL Spitdart"
   },
   {
     "slug": "uniquear6_electric",
@@ -543,8 +638,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquear_burst_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquear_burst_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Energy",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 179.4,
@@ -556,13 +661,28 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.7,
+        "type": "number"
+      },
+      {
         "name": "Power Consumption",
         "value": 40,
         "type": "number"
       },
       {
+        "name": "Rate of Fire",
+        "value": 193,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 578.7,
+        "type": "number"
+      },
+      {
+        "name": "Effective Range",
+        "value": 50,
         "type": "number"
       },
       {
@@ -604,7 +724,8 @@
         "Shield Damage Per Shot": 140,
         "DPS": 1384.7
       }
-    ]
+    ],
+    "weaponFamily": "Karpov 38"
   },
   {
     "slug": "kindjal_unique_blood_06",
@@ -612,8 +733,13 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleekindjal_unique_blood_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleekindjal_unique_blood_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 138.5,
@@ -691,8 +817,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnflamethrower_prototype_2r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnflamethrower_prototype_2r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Fire",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 40.8,
@@ -709,13 +845,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 230,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 156.9,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 131.6,
+        "name": "Effective Range",
+        "value": 8,
         "type": "number"
       },
       {
@@ -735,34 +881,30 @@
       {
         "Damage Per Shot": 43.7,
         "Shield Damage Per Shot": 6.5,
-        "DPS": 167.9,
-        "Effective DPS": 140.8
+        "DPS": 167.9
       },
       {
         "Damage Per Shot": 51.1,
         "Shield Damage Per Shot": 7,
-        "DPS": 196.6,
-        "Effective DPS": 164.9
+        "DPS": 196.6
       },
       {
         "Damage Per Shot": 61.8,
         "Shield Damage Per Shot": 7.4,
-        "DPS": 237.7,
-        "Effective DPS": 199.3
+        "DPS": 237.7
       },
       {
         "Damage Per Shot": 76.7,
         "Shield Damage Per Shot": 7.9,
-        "DPS": 295.1,
-        "Effective DPS": 247.5
+        "DPS": 295.1
       },
       {
         "Damage Per Shot": 97.6,
         "Shield Damage Per Shot": 8.4,
-        "DPS": 375.4,
-        "Effective DPS": 314.9
+        "DPS": 375.4
       }
-    ]
+    ],
+    "weaponFamily": "Flamethrower"
   },
   {
     "slug": "uniquerapier_03",
@@ -770,8 +912,13 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquerapier_03r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquerapier_03r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 138.5,
@@ -815,36 +962,31 @@
         "Damage Per Hit": 148.2,
         "Heavy Attack Damage (Shielded)": 889.3,
         "Heavy Attack Damage (Unshielded)": 444.7,
-        "Shield Damage Per Hit": 15.8,
-        "Ultra Rare Container": 6.3
+        "Shield Damage Per Hit": 15.8
       },
       {
         "Damage Per Hit": 173.6,
         "Heavy Attack Damage (Shielded)": 1041.6,
         "Heavy Attack Damage (Unshielded)": 520.9,
-        "Shield Damage Per Hit": 17,
-        "Ultra Rare Container": 6.3
+        "Shield Damage Per Hit": 17
       },
       {
         "Damage Per Hit": 209.8,
         "Heavy Attack Damage (Shielded)": 1258.9,
         "Heavy Attack Damage (Unshielded)": 629.5,
-        "Shield Damage Per Hit": 18.1,
-        "Ultra Rare Container": 6.3
+        "Shield Damage Per Hit": 18.1
       },
       {
         "Damage Per Hit": 260.5,
         "Heavy Attack Damage (Shielded)": 1562.9,
         "Heavy Attack Damage (Unshielded)": 781.5,
-        "Shield Damage Per Hit": 19.3,
-        "Ultra Rare Container": 6.3
+        "Shield Damage Per Hit": 19.3
       },
       {
         "Damage Per Hit": 331.4,
         "Heavy Attack Damage (Shielded)": 1988.6,
         "Heavy Attack Damage (Unshielded)": 994.4,
-        "Shield Damage Per Hit": 20.5,
-        "Ultra Rare Container": 6.3
+        "Shield Damage Per Hit": 20.5
       }
     ]
   },
@@ -854,8 +996,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquear_burst_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquear_burst_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 52.2,
@@ -872,13 +1024,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.7,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 193,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 168.4,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 142.4,
+        "name": "Effective Range",
+        "value": 50,
         "type": "number"
       },
       {
@@ -898,34 +1060,30 @@
       {
         "Damage Per Shot": 55.9,
         "Shield Damage Per Shot": 17.3,
-        "DPS": 180.2,
-        "Effective DPS": 152.4
+        "DPS": 180.2
       },
       {
         "Damage Per Shot": 65.4,
         "Shield Damage Per Shot": 18.6,
-        "DPS": 211.1,
-        "Effective DPS": 178.5
+        "DPS": 211.1
       },
       {
         "Damage Per Shot": 79.1,
         "Shield Damage Per Shot": 19.8,
-        "DPS": 255.1,
-        "Effective DPS": 215.7
+        "DPS": 255.1
       },
       {
         "Damage Per Shot": 98.2,
         "Shield Damage Per Shot": 21.1,
-        "DPS": 316.7,
-        "Effective DPS": 267.8
+        "DPS": 316.7
       },
       {
         "Damage Per Shot": 124.9,
         "Shield Damage Per Shot": 22.4,
-        "DPS": 402.9,
-        "Effective DPS": 340.7
+        "DPS": 402.9
       }
-    ]
+    ],
+    "weaponFamily": "Karpov 38"
   },
   {
     "slug": "shotgun_unique_blood_06",
@@ -933,8 +1091,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnshotgun_unique_blood_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnshotgun_unique_blood_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 154.5,
@@ -946,13 +1114,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 72,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 186.1,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 66.3,
+        "name": "Effective Range",
+        "value": 66,
         "type": "number"
       },
       {
@@ -971,30 +1149,26 @@
     "scaledStats": [
       {
         "Damage Per Shot": 165.3,
-        "DPS": 199.1,
-        "Effective DPS": 70.9
+        "DPS": 199.1
       },
       {
         "Damage Per Shot": 193.6,
-        "DPS": 233.2,
-        "Effective DPS": 83.1
+        "DPS": 233.2
       },
       {
         "Damage Per Shot": 234,
-        "DPS": 281.9,
-        "Effective DPS": 100.4
+        "DPS": 281.9
       },
       {
         "Damage Per Shot": 290.5,
-        "DPS": 350,
-        "Effective DPS": 124.7
+        "DPS": 350
       },
       {
         "Damage Per Shot": 369.7,
-        "DPS": 445.3,
-        "Effective DPS": 158.6
+        "DPS": 445.3
       }
-    ]
+    ],
+    "weaponFamily": "Drillshot FK7"
   },
   {
     "slug": "uniquescattergun5",
@@ -1002,8 +1176,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquescattergun5r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquescattergun5r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 538.8,
@@ -1020,13 +1204,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2.4,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 89,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 804.2,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 423.4,
+        "name": "Effective Range",
+        "value": 8,
         "type": "number"
       },
       {
@@ -1046,34 +1240,30 @@
       {
         "Damage Per Shot": 576.5,
         "Shield Damage Per Shot": 51.8,
-        "DPS": 860.5,
-        "Effective DPS": 453
+        "DPS": 860.5
       },
       {
         "Damage Per Shot": 675.3,
         "Shield Damage Per Shot": 55.7,
-        "DPS": 1007.9,
-        "Effective DPS": 530.6
+        "DPS": 1007.9
       },
       {
         "Damage Per Shot": 816.1,
         "Shield Damage Per Shot": 59.5,
-        "DPS": 1218.1,
-        "Effective DPS": 641.3
+        "DPS": 1218.1
       },
       {
         "Damage Per Shot": 1013.2,
         "Shield Damage Per Shot": 63.4,
-        "DPS": 1512.3,
-        "Effective DPS": 796.2
+        "DPS": 1512.3
       },
       {
         "Damage Per Shot": 1289.2,
         "Shield Damage Per Shot": 67.2,
-        "DPS": 1924.2,
-        "Effective DPS": 1013.1
+        "DPS": 1924.2
       }
-    ]
+    ],
+    "weaponFamily": "GRDA 44"
   },
   {
     "slug": "lmg_unique_power_06",
@@ -1081,8 +1271,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlmg_unique_power_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlmg_unique_power_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Energy",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 113.4,
@@ -1094,13 +1294,28 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 3.5,
+        "type": "number"
+      },
+      {
         "name": "Power Consumption",
         "value": 40,
         "type": "number"
       },
       {
+        "name": "Rate of Fire",
+        "value": 315,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 596.8,
+        "type": "number"
+      },
+      {
+        "name": "Effective Range",
+        "value": 57,
         "type": "number"
       },
       {
@@ -1142,7 +1357,8 @@
         "Shield Damage Per Shot": 56,
         "DPS": 1428
       }
-    ]
+    ],
+    "weaponFamily": "VULCAN GAU-92"
   },
   {
     "slug": "fireballer_3",
@@ -1150,8 +1366,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnchoamfireballer01_t5r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnchoamfireballer01_t5r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Fire",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 142,
@@ -1168,13 +1394,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 68,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 161.4,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 64.2,
+        "name": "Effective Range",
+        "value": 50,
         "type": "number"
       },
       {
@@ -1194,34 +1430,30 @@
       {
         "Damage Per Shot": 151.9,
         "Shield Damage Per Shot": 153.4,
-        "DPS": 172.7,
-        "Effective DPS": 68.7
+        "DPS": 172.7
       },
       {
         "Damage Per Shot": 178,
         "Shield Damage Per Shot": 164.7,
-        "DPS": 202.3,
-        "Effective DPS": 80.5
+        "DPS": 202.3
       },
       {
         "Damage Per Shot": 215.1,
         "Shield Damage Per Shot": 176.1,
-        "DPS": 244.5,
-        "Effective DPS": 97.2
+        "DPS": 244.5
       },
       {
         "Damage Per Shot": 267,
         "Shield Damage Per Shot": 187.4,
-        "DPS": 303.5,
-        "Effective DPS": 120.7
+        "DPS": 303.5
       },
       {
         "Damage Per Shot": 339.8,
         "Shield Damage Per Shot": 198.8,
-        "DPS": 386.2,
-        "Effective DPS": 153.6
+        "DPS": 386.2
       }
-    ]
+    ],
+    "weaponFamily": "Pyrocket"
   },
   {
     "slug": "shotgun_unique_explosive_06",
@@ -1229,8 +1461,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnshotgun_unique_explosive_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnshotgun_unique_explosive_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 115,
@@ -1242,13 +1484,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2.8,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 68,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 130.7,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 73.4,
+        "name": "Effective Range",
+        "value": 54,
         "type": "number"
       },
       {
@@ -1267,30 +1519,26 @@
     "scaledStats": [
       {
         "Damage Per Shot": 123,
-        "DPS": 139.8,
-        "Effective DPS": 78.5
+        "DPS": 139.8
       },
       {
         "Damage Per Shot": 144.1,
-        "DPS": 163.8,
-        "Effective DPS": 92
+        "DPS": 163.8
       },
       {
         "Damage Per Shot": 174.2,
-        "DPS": 198,
-        "Effective DPS": 111.2
+        "DPS": 198
       },
       {
         "Damage Per Shot": 216.3,
-        "DPS": 245.8,
-        "Effective DPS": 138
+        "DPS": 245.8
       },
       {
         "Damage Per Shot": 275.2,
-        "DPS": 312.7,
-        "Effective DPS": 175.6
+        "DPS": 312.7
       }
-    ]
+    ],
+    "weaponFamily": "Drillshot FK7"
   },
   {
     "slug": "dirk_3",
@@ -1298,8 +1546,13 @@
     "description": "",
     "tier": 6,
     "rarity": "Rare",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeharkdagger01r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeharkdagger01r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 115.4,
@@ -1345,8 +1598,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Rare",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hatresmg01_t6r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hatresmg01_t6r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 38.5,
@@ -1363,13 +1626,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 600,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 385,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 271.8,
+        "name": "Effective Range",
+        "value": 10,
         "type": "number"
       },
       {
@@ -1392,8 +1665,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnheavypistol_unique_bleed_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnheavypistol_unique_bleed_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 450.4,
@@ -1410,13 +1693,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.8,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 64,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 484.3,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 328.2,
+        "name": "Effective Range",
+        "value": 30,
         "type": "number"
       },
       {
@@ -1436,34 +1729,30 @@
       {
         "Damage Per Shot": 481.9,
         "Shield Damage Per Shot": 392,
-        "DPS": 518.2,
-        "Effective DPS": 351.2
+        "DPS": 518.2
       },
       {
         "Damage Per Shot": 564.5,
         "Shield Damage Per Shot": 421.1,
-        "DPS": 607,
-        "Effective DPS": 411.3
+        "DPS": 607
       },
       {
         "Damage Per Shot": 682.2,
         "Shield Damage Per Shot": 450.1,
-        "DPS": 733.6,
-        "Effective DPS": 497.1
+        "DPS": 733.6
       },
       {
         "Damage Per Shot": 847,
         "Shield Damage Per Shot": 479.2,
-        "DPS": 910.7,
-        "Effective DPS": 617.2
+        "DPS": 910.7
       },
       {
         "Damage Per Shot": 1077.7,
         "Shield Damage Per Shot": 508.2,
-        "DPS": 1158.8,
-        "Effective DPS": 785.3
+        "DPS": 1158.8
       }
-    ]
+    ],
+    "weaponFamily": "Rafiq Snubnose"
   },
   {
     "slug": "smugshot5",
@@ -1471,8 +1760,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Rare",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hsmugshotgun01_t6r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hsmugshotgun01_t6r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 165.1,
@@ -1484,13 +1783,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 92,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 254,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 86.9,
+        "name": "Effective Range",
+        "value": 66,
         "type": "number"
       },
       {
@@ -1513,8 +1822,13 @@
     "description": "",
     "tier": 6,
     "rarity": "Rare",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c3/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeharkdualdaggerr_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c3/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeharkdualdaggerr_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 115.4,
@@ -1560,8 +1874,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Rare",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hchoamscattergun01_t6r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hchoamscattergun01_t6r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 406.2,
@@ -1578,13 +1902,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2.4,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 80,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 541.6,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 352.7,
+        "name": "Effective Range",
+        "value": 8,
         "type": "number"
       },
       {
@@ -1607,8 +1941,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Rare",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hsmugrifle01_t6r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hsmugrifle01_t6r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 235.6,
@@ -1625,13 +1969,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 77,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 306,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 164,
+        "name": "Effective Range",
+        "value": 75,
         "type": "number"
       },
       {
@@ -1654,8 +2008,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Rare",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hharkrifle01_t6r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hharkrifle01_t6r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 72,
@@ -1672,13 +2036,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.7,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 333,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 400,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 271.7,
+        "name": "Effective Range",
+        "value": 48,
         "type": "number"
       },
       {
@@ -1701,8 +2075,13 @@
     "description": "",
     "tier": 6,
     "rarity": "Rare",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeatredagger01r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeatredagger01r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 115.4,
@@ -1748,8 +2127,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Rare",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hchoammaula01_t6r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hchoammaula01_t6r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 68,
@@ -1766,13 +2155,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 342,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 388.6,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 283.6,
+        "name": "Effective Range",
+        "value": 39,
         "type": "number"
       },
       {
@@ -1795,8 +2194,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Rare",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hfremrocketlauncher01r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hfremrocketlauncher01r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Concussive",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 827.4,
@@ -1813,13 +2222,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 3.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 84,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 1165.4,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 196.5,
+        "name": "Effective Range",
+        "value": 150,
         "type": "number"
       },
       {
@@ -1842,8 +2261,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Rare",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hharkpistol01_t6r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hharkpistol01_t6r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 218.2,
@@ -1860,13 +2289,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 70,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 256.7,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 192.1,
+        "name": "Effective Range",
+        "value": 63,
         "type": "number"
       },
       {
@@ -1889,8 +2328,13 @@
     "description": "",
     "tier": 6,
     "rarity": "Rare",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeatrerapier01r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeatrerapier01r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 115.4,
@@ -1936,8 +2380,13 @@
     "description": "",
     "tier": 6,
     "rarity": "Rare",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleechoamsword01r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleechoamsword01r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 127,
@@ -1983,8 +2432,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlongrifle_unique_largemag_06r2_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlongrifle_unique_largemag_06r2_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 358.5,
@@ -2001,13 +2460,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.8,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 120,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 717,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 325.9,
+        "name": "Effective Range",
+        "value": 68,
         "type": "number"
       },
       {
@@ -2027,34 +2496,30 @@
       {
         "Damage Per Shot": 383.6,
         "Shield Damage Per Shot": 90.7,
-        "DPS": 767.2,
-        "Effective DPS": 348.7
+        "DPS": 767.2
       },
       {
         "Damage Per Shot": 449.3,
         "Shield Damage Per Shot": 97.4,
-        "DPS": 898.6,
-        "Effective DPS": 408.4
+        "DPS": 898.6
       },
       {
         "Damage Per Shot": 543,
         "Shield Damage Per Shot": 104.2,
-        "DPS": 1086,
-        "Effective DPS": 493.6
+        "DPS": 1086
       },
       {
         "Damage Per Shot": 674.2,
         "Shield Damage Per Shot": 110.9,
-        "DPS": 1348.3,
-        "Effective DPS": 612.9
+        "DPS": 1348.3
       },
       {
         "Damage Per Shot": 857.8,
         "Shield Damage Per Shot": 117.6,
-        "DPS": 1715.6,
-        "Effective DPS": 779.8
+        "DPS": 1715.6
       }
-    ]
+    ],
+    "weaponFamily": "JABAL Spitdart"
   },
   {
     "slug": "atrelmg5",
@@ -2062,8 +2527,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Rare",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hatrelmg01_t6r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hatrelmg01_t6r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 24.8,
@@ -2080,13 +2555,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 3.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 1176,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 486.3,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 326.3,
+        "name": "Effective Range",
+        "value": 58,
         "type": "number"
       },
       {
@@ -2109,8 +2594,13 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleekindjal_unique_stamina_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleekindjal_unique_stamina_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 138.5,
@@ -2154,36 +2644,31 @@
         "Damage Per Hit": 148.2,
         "Heavy Attack Damage (Shielded)": 889.3,
         "Heavy Attack Damage (Unshielded)": 444.7,
-        "Shield Damage Per Hit": 15.8,
-        "Ultra Rare Container": 11.8
+        "Shield Damage Per Hit": 15.8
       },
       {
         "Damage Per Hit": 173.6,
         "Heavy Attack Damage (Shielded)": 1041.6,
         "Heavy Attack Damage (Unshielded)": 520.9,
-        "Shield Damage Per Hit": 17,
-        "Ultra Rare Container": 11.8
+        "Shield Damage Per Hit": 17
       },
       {
         "Damage Per Hit": 209.8,
         "Heavy Attack Damage (Shielded)": 1258.9,
         "Heavy Attack Damage (Unshielded)": 629.5,
-        "Shield Damage Per Hit": 18.1,
-        "Ultra Rare Container": 11.8
+        "Shield Damage Per Hit": 18.1
       },
       {
         "Damage Per Hit": 260.5,
         "Heavy Attack Damage (Shielded)": 1562.9,
         "Heavy Attack Damage (Unshielded)": 781.5,
-        "Shield Damage Per Hit": 19.3,
-        "Ultra Rare Container": 11.8
+        "Shield Damage Per Hit": 19.3
       },
       {
         "Damage Per Hit": 331.4,
         "Heavy Attack Damage (Shielded)": 1988.6,
         "Heavy Attack Damage (Unshielded)": 994.4,
-        "Shield Damage Per Hit": 20.5,
-        "Ultra Rare Container": 11.8
+        "Shield Damage Per Hit": 20.5
       }
     ]
   },
@@ -2193,8 +2678,13 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquesword_05r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquesword_05r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 152.4,
@@ -2238,36 +2728,31 @@
         "Damage Per Hit": 163,
         "Heavy Attack Damage (Shielded)": 978.2,
         "Heavy Attack Damage (Unshielded)": 489.1,
-        "Shield Damage Per Hit": 15.8,
-        "Ultra Rare Container": 6.3
+        "Shield Damage Per Hit": 15.8
       },
       {
         "Damage Per Hit": 191,
         "Heavy Attack Damage (Shielded)": 1145.8,
         "Heavy Attack Damage (Unshielded)": 572.9,
-        "Shield Damage Per Hit": 17,
-        "Ultra Rare Container": 6.3
+        "Shield Damage Per Hit": 17
       },
       {
         "Damage Per Hit": 230.8,
         "Heavy Attack Damage (Shielded)": 1384.7,
         "Heavy Attack Damage (Unshielded)": 692.4,
-        "Shield Damage Per Hit": 18.1,
-        "Ultra Rare Container": 6.3
+        "Shield Damage Per Hit": 18.1
       },
       {
         "Damage Per Hit": 286.5,
         "Heavy Attack Damage (Shielded)": 1719.2,
         "Heavy Attack Damage (Unshielded)": 859.6,
-        "Shield Damage Per Hit": 19.3,
-        "Ultra Rare Container": 6.3
+        "Shield Damage Per Hit": 19.3
       },
       {
         "Damage Per Hit": 364.6,
         "Heavy Attack Damage (Shielded)": 2187.4,
         "Heavy Attack Damage (Unshielded)": 1093.7,
-        "Shield Damage Per Hit": 20.5,
-        "Ultra Rare Container": 6.3
+        "Shield Damage Per Hit": 20.5
       }
     ]
   },
@@ -2277,8 +2762,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquear4r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquear4r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 90.4,
@@ -2295,13 +2790,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.7,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 307,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 463.6,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 293.2,
+        "name": "Effective Range",
+        "value": 52,
         "type": "number"
       },
       {
@@ -2321,34 +2826,30 @@
       {
         "Damage Per Shot": 96.7,
         "Shield Damage Per Shot": 32.6,
-        "DPS": 496.1,
-        "Effective DPS": 313.7
+        "DPS": 496.1
       },
       {
         "Damage Per Shot": 113.3,
         "Shield Damage Per Shot": 35,
-        "DPS": 581,
-        "Effective DPS": 367.5
+        "DPS": 581
       },
       {
         "Damage Per Shot": 136.9,
         "Shield Damage Per Shot": 37.5,
-        "DPS": 702.2,
-        "Effective DPS": 444.1
+        "DPS": 702.2
       },
       {
         "Damage Per Shot": 170,
         "Shield Damage Per Shot": 39.9,
-        "DPS": 871.8,
-        "Effective DPS": 551.4
+        "DPS": 871.8
       },
       {
         "Damage Per Shot": 216.3,
         "Shield Damage Per Shot": 42.3,
-        "DPS": 1109.3,
-        "Effective DPS": 701.5
+        "DPS": 1109.3
       }
-    ]
+    ],
+    "weaponFamily": "Karpov 38"
   },
   {
     "slug": "uniquesmg3",
@@ -2356,8 +2857,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquesmg3r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquesmg3r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 61.4,
@@ -2374,13 +2885,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 461,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 472.3,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 325.8,
+        "name": "Effective Range",
+        "value": 10,
         "type": "number"
       },
       {
@@ -2400,34 +2921,30 @@
       {
         "Damage Per Shot": 65.7,
         "Shield Damage Per Shot": 36.7,
-        "DPS": 505.4,
-        "Effective DPS": 348.6
+        "DPS": 505.4
       },
       {
         "Damage Per Shot": 77,
         "Shield Damage Per Shot": 39.4,
-        "DPS": 591.9,
-        "Effective DPS": 408.3
+        "DPS": 591.9
       },
       {
         "Damage Per Shot": 93,
         "Shield Damage Per Shot": 42.2,
-        "DPS": 715.4,
-        "Effective DPS": 493.5
+        "DPS": 715.4
       },
       {
         "Damage Per Shot": 115.5,
         "Shield Damage Per Shot": 44.9,
-        "DPS": 888.2,
-        "Effective DPS": 612.7
+        "DPS": 888.2
       },
       {
         "Damage Per Shot": 146.9,
         "Shield Damage Per Shot": 47.6,
-        "DPS": 1130.1,
-        "Effective DPS": 779.5
+        "DPS": 1130.1
       }
-    ]
+    ],
+    "weaponFamily": "Disruptor M11"
   },
   {
     "slug": "heavypistol_unique_headshot_06",
@@ -2435,8 +2952,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnheavypistol_unique_headshot_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnheavypistol_unique_headshot_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 404.1,
@@ -2453,13 +2980,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2.8,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 83,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 561.2,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 244.4,
+        "name": "Effective Range",
+        "value": 65,
         "type": "number"
       },
       {
@@ -2479,34 +3016,30 @@
       {
         "Damage Per Shot": 432.4,
         "Shield Damage Per Shot": 106.9,
-        "DPS": 600.5,
-        "Effective DPS": 261.5
+        "DPS": 600.5
       },
       {
         "Damage Per Shot": 506.5,
         "Shield Damage Per Shot": 114.8,
-        "DPS": 703.4,
-        "Effective DPS": 306.3
+        "DPS": 703.4
       },
       {
         "Damage Per Shot": 612.1,
         "Shield Damage Per Shot": 122.8,
-        "DPS": 850,
-        "Effective DPS": 370.2
+        "DPS": 850
       },
       {
         "Damage Per Shot": 759.9,
         "Shield Damage Per Shot": 130.7,
-        "DPS": 1055.3,
-        "Effective DPS": 459.6
+        "DPS": 1055.3
       },
       {
         "Damage Per Shot": 966.9,
         "Shield Damage Per Shot": 138.6,
-        "DPS": 1342.8,
-        "Effective DPS": 584.8
+        "DPS": 1342.8
       }
-    ]
+    ],
+    "weaponFamily": "Rafiq Snubnose"
   },
   {
     "slug": "uniquescattergun_fire_06",
@@ -2514,8 +3047,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquescattergun_fire_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquescattergun_fire_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 446.4,
@@ -2532,13 +3075,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.6,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 76,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 572.3,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 423.8,
+        "name": "Effective Range",
+        "value": 8,
         "type": "number"
       },
       {
@@ -2558,34 +3111,30 @@
       {
         "Damage Per Shot": 477.6,
         "Shield Damage Per Shot": 58.3,
-        "DPS": 612.4,
-        "Effective DPS": 453.5
+        "DPS": 612.4
       },
       {
         "Damage Per Shot": 559.5,
         "Shield Damage Per Shot": 62.6,
-        "DPS": 717.3,
-        "Effective DPS": 531.1
+        "DPS": 717.3
       },
       {
         "Damage Per Shot": 676.2,
         "Shield Damage Per Shot": 67,
-        "DPS": 866.9,
-        "Effective DPS": 641.9
+        "DPS": 866.9
       },
       {
         "Damage Per Shot": 839.5,
         "Shield Damage Per Shot": 71.3,
-        "DPS": 1076.2,
-        "Effective DPS": 797
+        "DPS": 1076.2
       },
       {
         "Damage Per Shot": 1068.1,
         "Shield Damage Per Shot": 75.6,
-        "DPS": 1369.3,
-        "Effective DPS": 1014
+        "DPS": 1369.3
       }
-    ]
+    ],
+    "weaponFamily": "GRDA 44"
   },
   {
     "slug": "uniquesda_doubleshot_06",
@@ -2593,8 +3142,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquesda_doubleshot_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquesda_doubleshot_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 79.6,
@@ -2611,13 +3170,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 260,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 346.1,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 243.3,
+        "name": "Effective Range",
+        "value": 40,
         "type": "number"
       },
       {
@@ -2637,34 +3206,30 @@
       {
         "Damage Per Shot": 85.2,
         "Shield Damage Per Shot": 17.3,
-        "DPS": 370.3,
-        "Effective DPS": 260.3
+        "DPS": 370.3
       },
       {
         "Damage Per Shot": 99.8,
         "Shield Damage Per Shot": 18.6,
-        "DPS": 433.8,
-        "Effective DPS": 304.9
+        "DPS": 433.8
       },
       {
         "Damage Per Shot": 120.6,
         "Shield Damage Per Shot": 19.8,
-        "DPS": 524.2,
-        "Effective DPS": 368.5
+        "DPS": 524.2
       },
       {
         "Damage Per Shot": 149.7,
         "Shield Damage Per Shot": 21.1,
-        "DPS": 650.8,
-        "Effective DPS": 457.5
+        "DPS": 650.8
       },
       {
         "Damage Per Shot": 190.5,
         "Shield Damage Per Shot": 22.4,
-        "DPS": 828.1,
-        "Effective DPS": 582.1
+        "DPS": 828.1
       }
-    ]
+    ],
+    "weaponFamily": "Maula Pistol"
   },
   {
     "slug": "unique_sword_bleedyblocky_6",
@@ -2672,8 +3237,13 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquesword_03r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquesword_03r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 152.4,
@@ -2751,8 +3321,13 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquerapier_power_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquerapier_power_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 138.5,
@@ -2830,8 +3405,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnrocketlauncher_unique_homing_06r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnrocketlauncher_unique_homing_06r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Concussive",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 919.3,
@@ -2848,13 +3433,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 3.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 84,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 1294.8,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 218.4,
+        "name": "Effective Range",
+        "value": 150,
         "type": "number"
       },
       {
@@ -2874,39 +3469,30 @@
       {
         "Damage Per Shot": 983.6,
         "Shield Damage Per Shot": 324,
-        "DPS": 1385.4,
-        "Effective DPS": 233.7,
-        "Ultra Rare Container": 13.5
+        "DPS": 1385.4
       },
       {
         "Damage Per Shot": 1152.2,
         "Shield Damage Per Shot": 348,
-        "DPS": 1622.8,
-        "Effective DPS": 273.7,
-        "Ultra Rare Container": 13.5
+        "DPS": 1622.8
       },
       {
         "Damage Per Shot": 1392.5,
         "Shield Damage Per Shot": 372,
-        "DPS": 1961.2,
-        "Effective DPS": 330.8,
-        "Ultra Rare Container": 13.5
+        "DPS": 1961.2
       },
       {
         "Damage Per Shot": 1728.7,
         "Shield Damage Per Shot": 396,
-        "DPS": 2434.9,
-        "Effective DPS": 410.7,
-        "Ultra Rare Container": 13.5
+        "DPS": 2434.9
       },
       {
         "Damage Per Shot": 2199.6,
         "Shield Damage Per Shot": 420,
-        "DPS": 3098.1,
-        "Effective DPS": 522.6,
-        "Ultra Rare Container": 13.5
+        "DPS": 3098.1
       }
-    ]
+    ],
+    "weaponFamily": "Missile Launcher"
   },
   {
     "slug": "uniqueflamethrower_02",
@@ -2914,8 +3500,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniqueflamethrower_02r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniqueflamethrower_02r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Fire",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 40.7,
@@ -2932,13 +3528,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 230,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 156.5,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 134.9,
+        "name": "Effective Range",
+        "value": 15,
         "type": "number"
       },
       {
@@ -2958,34 +3564,30 @@
       {
         "Damage Per Shot": 43.5,
         "Shield Damage Per Shot": 6.5,
-        "DPS": 167.5,
-        "Effective DPS": 144.3
+        "DPS": 167.5
       },
       {
         "Damage Per Shot": 51,
         "Shield Damage Per Shot": 7,
-        "DPS": 196.1,
-        "Effective DPS": 169.1
+        "DPS": 196.1
       },
       {
         "Damage Per Shot": 61.6,
         "Shield Damage Per Shot": 7.4,
-        "DPS": 237.1,
-        "Effective DPS": 204.3
+        "DPS": 237.1
       },
       {
         "Damage Per Shot": 76.5,
         "Shield Damage Per Shot": 7.9,
-        "DPS": 294.3,
-        "Effective DPS": 253.7
+        "DPS": 294.3
       },
       {
         "Damage Per Shot": 97.4,
         "Shield Damage Per Shot": 8.4,
-        "DPS": 374.5,
-        "Effective DPS": 322.8
+        "DPS": 374.5
       }
-    ]
+    ],
+    "weaponFamily": "Flamethrower"
   },
   {
     "slug": "uniquesda6",
@@ -2993,8 +3595,18 @@
     "description": "",
     "tier": 6,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpniconuniquesda6r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpniconuniquesda6r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 69.6,
@@ -3011,13 +3623,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 363,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 421.8,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 325.8,
+        "name": "Effective Range",
+        "value": 38,
         "type": "number"
       },
       {
@@ -3037,33 +3659,29 @@
       {
         "Damage Per Shot": 74.5,
         "Shield Damage Per Shot": 25.9,
-        "DPS": 451.3,
-        "Effective DPS": 348.6
+        "DPS": 451.3
       },
       {
         "Damage Per Shot": 87.2,
         "Shield Damage Per Shot": 27.8,
-        "DPS": 528.6,
-        "Effective DPS": 408.3
+        "DPS": 528.6
       },
       {
         "Damage Per Shot": 105.4,
         "Shield Damage Per Shot": 29.8,
-        "DPS": 638.9,
-        "Effective DPS": 493.5
+        "DPS": 638.9
       },
       {
         "Damage Per Shot": 130.9,
         "Shield Damage Per Shot": 31.7,
-        "DPS": 793.2,
-        "Effective DPS": 612.7
+        "DPS": 793.2
       },
       {
         "Damage Per Shot": 166.5,
         "Shield Damage Per Shot": 33.6,
-        "DPS": 1009.2,
-        "Effective DPS": 779.5
+        "DPS": 1009.2
       }
-    ]
+    ],
+    "weaponFamily": "Maula Pistol"
   }
 ]

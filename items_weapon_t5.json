@@ -5,8 +5,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnshotgun_unique_explosive_05r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnshotgun_unique_explosive_05r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 87.1,
@@ -18,13 +28,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2.8,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 68,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 99,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 55.6,
+        "name": "Effective Range",
+        "value": 54,
         "type": "number"
       },
       {
@@ -47,8 +67,13 @@
     "description": "",
     "tier": 5,
     "rarity": "Common",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeharkdagger01r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeharkdagger01r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 54.3,
@@ -94,8 +119,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Common",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hatresmg01_t5r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hatresmg01_t5r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 24.4,
@@ -112,13 +147,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 600,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 244,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 172.2,
+        "name": "Effective Range",
+        "value": 10,
         "type": "number"
       },
       {
@@ -141,8 +186,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnheavypistol_unique_bleed_05r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnheavypistol_unique_bleed_05r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 341,
@@ -159,13 +214,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.8,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 64,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 366.7,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 248.5,
+        "name": "Effective Range",
+        "value": 30,
         "type": "number"
       },
       {
@@ -188,8 +253,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Common",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hsmugshotgun01_t5r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hsmugshotgun01_t5r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 104.8,
@@ -201,13 +276,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 92,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 161.2,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 55.2,
+        "name": "Effective Range",
+        "value": 66,
         "type": "number"
       },
       {
@@ -230,8 +315,13 @@
     "description": "",
     "tier": 5,
     "rarity": "Common",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c3/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeharkdualdaggerr_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c3/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeharkdualdaggerr_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 54.3,
@@ -277,8 +367,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Common",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hchoamscattergun01_t5r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hchoamscattergun01_t5r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 257.4,
@@ -295,13 +395,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2.4,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 80,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 343.2,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 223.5,
+        "name": "Effective Range",
+        "value": 8,
         "type": "number"
       },
       {
@@ -324,8 +434,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Common",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hsmugrifle01_t5r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hsmugrifle01_t5r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 149.5,
@@ -342,13 +462,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 77,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 194.2,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 104.1,
+        "name": "Effective Range",
+        "value": 75,
         "type": "number"
       },
       {
@@ -371,8 +501,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Common",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hharkrifle01_t5r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hharkrifle01_t5r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 45.7,
@@ -389,13 +529,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.7,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 333,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 253.9,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 172.5,
+        "name": "Effective Range",
+        "value": 48,
         "type": "number"
       },
       {
@@ -418,8 +568,13 @@
     "description": "",
     "tier": 5,
     "rarity": "Common",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeatredagger01r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeatredagger01r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 54.3,
@@ -465,8 +620,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Common",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hchoammaula01_t5r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hchoammaula01_t5r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 43.1,
@@ -483,13 +648,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 342,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 246.3,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 179.7,
+        "name": "Effective Range",
+        "value": 39,
         "type": "number"
       },
       {
@@ -512,8 +687,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Common",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hfremrocketlauncher01r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hfremrocketlauncher01r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Concussive",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 766.1,
@@ -530,13 +715,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 3.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 84,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 1079,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 182,
+        "name": "Effective Range",
+        "value": 150,
         "type": "number"
       },
       {
@@ -559,8 +754,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Common",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hharkpistol01_t5r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hharkpistol01_t5r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 138.4,
@@ -577,13 +782,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 70,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 162.8,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 121.9,
+        "name": "Effective Range",
+        "value": 63,
         "type": "number"
       },
       {
@@ -606,8 +821,13 @@
     "description": "",
     "tier": 5,
     "rarity": "Common",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeatrerapier01r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeatrerapier01r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 54.3,
@@ -653,8 +873,13 @@
     "description": "",
     "tier": 5,
     "rarity": "Common",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleechoamsword01r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleechoamsword01r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 59.7,
@@ -700,8 +925,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Common",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hatrelmg01_t5r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hatrelmg01_t5r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 14.4,
@@ -718,13 +953,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 3.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 1176,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 282.4,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 189.5,
+        "name": "Effective Range",
+        "value": 58,
         "type": "number"
       },
       {
@@ -747,8 +992,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnchoamlg1r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnchoamlg1r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Energy",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 64.2,
@@ -760,13 +1015,28 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 5,
+        "type": "number"
+      },
+      {
         "name": "Power Consumption",
         "value": 21,
         "type": "number"
       },
       {
+        "name": "Rate of Fire",
+        "value": 600,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 642,
+        "type": "number"
+      },
+      {
+        "name": "Effective Range",
+        "value": 80,
         "type": "number"
       },
       {
@@ -789,8 +1059,13 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquesword_02r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquesword_02r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 110.2,
@@ -836,8 +1111,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnheavypistol_unique_headshot_05r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnheavypistol_unique_headshot_05r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 306,
@@ -854,13 +1139,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2.8,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 83,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 425,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 185.1,
+        "name": "Effective Range",
+        "value": 65,
         "type": "number"
       },
       {
@@ -883,8 +1178,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnchoamfireballer01_t5r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnchoamfireballer01_t5r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Fire",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 108,
@@ -901,13 +1206,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 68,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 122.7,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 48.8,
+        "name": "Effective Range",
+        "value": 50,
         "type": "number"
       },
       {
@@ -930,8 +1245,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlmg_unique_rapidfire_05r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlmg_unique_rapidfire_05r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 20,
@@ -948,13 +1273,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 1176,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 392.2,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 246.9,
+        "name": "Effective Range",
+        "value": 54,
         "type": "number"
       },
       {
@@ -977,8 +1312,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlongrifle_unique_largemag_05r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlongrifle_unique_largemag_05r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 271.5,
@@ -995,13 +1340,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.8,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 120,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 543,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 246.8,
+        "name": "Effective Range",
+        "value": 68,
         "type": "number"
       },
       {
@@ -1024,8 +1379,13 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleekindjal_unique_stamina_05r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleekindjal_unique_stamina_05r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 100.1,
@@ -1071,8 +1431,13 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquesword_04r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquesword_04r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 110.2,
@@ -1118,8 +1483,13 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquerapier_02r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquerapier_02r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 100.1,
@@ -1165,8 +1535,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquear_burst_05r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquear_burst_05r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 39.5,
@@ -1183,13 +1563,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.7,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 193,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 127.4,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 107.7,
+        "name": "Effective Range",
+        "value": 50,
         "type": "number"
       },
       {
@@ -1212,8 +1602,13 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquedirk_03r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquedirk_03r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 100.1,
@@ -1259,8 +1654,13 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleekindjal_unique_blood_05r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleekindjal_unique_blood_05r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
       {
         "name": "Damage Per Hit",
         "value": 100.1,
@@ -1306,8 +1706,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquesmg2r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquesmg2r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 46.4,
@@ -1324,13 +1734,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 461,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 356.9,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 246.2,
+        "name": "Effective Range",
+        "value": 10,
         "type": "number"
       },
       {
@@ -1353,8 +1773,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnsmg_unique_largemag_05r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnsmg_unique_largemag_05r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 32.4,
@@ -1371,13 +1801,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 600,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 324,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 246.9,
+        "name": "Effective Range",
+        "value": 10,
         "type": "number"
       },
       {
@@ -1400,8 +1840,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnflamethrower_prototyper_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnflamethrower_prototyper_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Fire",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 25,
@@ -1418,13 +1868,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 230,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 96.2,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 80.6,
+        "name": "Effective Range",
+        "value": 8,
         "type": "number"
       },
       {
@@ -1447,8 +1907,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquear3r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquear3r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 68.5,
@@ -1465,13 +1935,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.7,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 307,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 351.3,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 222.2,
+        "name": "Effective Range",
+        "value": 52,
         "type": "number"
       },
       {
@@ -1494,8 +1974,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniqueflamethrowerr_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniqueflamethrowerr_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Fire",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 25.8,
@@ -1512,13 +2002,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 230,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 99.2,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 85.5,
+        "name": "Effective Range",
+        "value": 15,
         "type": "number"
       },
       {
@@ -1541,8 +2041,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquescattergun_fire_05r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquescattergun_fire_05r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 337.8,
@@ -1559,13 +2069,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.6,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 76,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 433.1,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 320.7,
+        "name": "Effective Range",
+        "value": 8,
         "type": "number"
       },
       {
@@ -1588,8 +2108,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquescattergun4r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquescattergun4r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 408,
@@ -1606,13 +2136,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2.4,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 89,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 609,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 320.6,
+        "name": "Effective Range",
+        "value": 8,
         "type": "number"
       },
       {
@@ -1635,8 +2175,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquesda_doubleshot_05r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquesda_doubleshot_05r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 60.2,
@@ -1653,13 +2203,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 260,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 261.7,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 184,
+        "name": "Effective Range",
+        "value": 40,
         "type": "number"
       },
       {
@@ -1682,8 +2242,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlongrifle_unique_poison_05r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlongrifle_unique_poison_05r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 262.1,
@@ -1700,13 +2270,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 2,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 77,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 340.4,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 148.1,
+        "name": "Effective Range",
+        "value": 75,
         "type": "number"
       },
       {
@@ -1729,8 +2309,18 @@
     "description": "",
     "tier": 5,
     "rarity": "Unique",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpniconuniquesda5r_d.webp?v=1775732394066",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpniconuniquesda5r_d.webp?v=1775935124890",
     "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
       {
         "name": "Damage Per Shot",
         "value": 52.7,
@@ -1747,13 +2337,23 @@
         "type": "number"
       },
       {
+        "name": "Reload Time",
+        "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 363,
+        "type": "number"
+      },
+      {
         "name": "DPS",
         "value": 319.4,
         "type": "number"
       },
       {
-        "name": "Effective DPS",
-        "value": 246.7,
+        "name": "Effective Range",
+        "value": 38,
         "type": "number"
       },
       {
