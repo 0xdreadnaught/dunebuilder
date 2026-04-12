@@ -3,34 +3,28 @@
   <br>
   <strong>DuneBuilder</strong>
   <br>
-  Character build viewer for Dune: Awakening
+ A Character build tool for Dune: Awakening in the spirit of Path of Building.
 </p>
 
-![DuneBuilder Screenshot](builder.png)
+<img width="1060" height="1094" alt="image" src="https://github.com/user-attachments/assets/8f2df1f5-b691-477d-89c7-449431779e8a" /> 
+</br></br>
+<img width="1057" height="1097" alt="image" src="https://github.com/user-attachments/assets/b00852c1-dfcd-412b-bce1-d98e7ebca2c8" /> 
+</br></br>
+<img width="1058" height="1097" alt="image" src="https://github.com/user-attachments/assets/f86adf74-53cb-41d2-8e71-1e12826e25a4" />
 
-## Features
 
-- Paste character stats directly from clipboard
-- Equip gear across 8 armor slots with item browser
-- T1-T6 garment items with per-tier filtering
-- Grade scaling and augment socketing for T6 uniques
-- Defense and offense calculations (EHP, Stamina, Shield)
-- Interactive resource bars with regen simulation
-- Formula tooltips for all calculations (toggle in settings)
-- Export and import builds for sharing
-- Auto-update check on launch
+## Usage Notes:
+
+Right click to specify stat values for ranged augment stats. 
+There's a small x in the top left to remove them, ironing out a better solution. 
+If you find bugs please report them. The calculations are done through extensive guess work based on available posts and manual testing. 
+Most things are hidden by default, check settings.
+
 
 ## Download
 
 Grab the latest portable `.exe` from the [Releases](../../releases) page.
 
-## Usage
-
-1. Copy your character stats from Dune: Awakening
-2. Paste into DuneBuilder (Ctrl+V or the paste button)
-3. Click armor slots to browse and equip gear
-4. View calculated totals in the right panel
-5. Export your build to share with others
 
 ## Build from Source
 
