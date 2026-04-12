@@ -675,6 +675,8 @@ function aggregateEquippedStats() {
   const seenArmor = new Set(); // only dedupe armor slots (radsuit fills all 5)
 
   Object.entries(equippedItems).forEach(([slotType, item]) => {
+    // Hotbar weapon stats don't feed into the character/defense panel
+    if (HOTBAR_SLOTS.has(slotType)) return;
     if (ARMOR_SLOTS.has(slotType)) {
       if (seenArmor.has(item.slug)) return;
       seenArmor.add(item.slug);
@@ -754,10 +756,10 @@ function formatAggregatedStats(totals) {
   return result;
 }
 
-function refreshPanels() {
+function refreshPanels(skipResourceBars) {
   const equipped = aggregateEquippedStats();
   const itemStats = Object.keys(equipped).length > 0 ? formatAggregatedStats(equipped) : null;
-  renderCharacterPanel(lastCharacterPanel, itemStats);
+  if (!skipResourceBars) renderCharacterPanel(lastCharacterPanel, itemStats);
   renderCalculations();
 }
 
@@ -913,7 +915,7 @@ function createGradeRing(slotType) {
       const clicked = i + 1;
       equippedGrades[slotType] = (equippedGrades[slotType] === clicked) ? 0 : clicked;
       updateGradeSegments(svg, slotType);
-      refreshPanels();
+      refreshPanels(HOTBAR_SLOTS.has(slotType));
     });
 
     // Visible arc segment (stroked arc along the ring)
@@ -1138,7 +1140,7 @@ function createAugmentGradeRing(slotType, dotIndex, augment) {
       if (!aug) return;
       aug.grade = (aug.grade === clicked) ? 1 : clicked;
       refreshAugmentDots(slotType, dotIndex);
-      refreshPanels();
+      refreshPanels(HOTBAR_SLOTS.has(slotType));
     });
 
     // Visible arc segment (stroked arc along the ring)
@@ -1183,7 +1185,7 @@ function relockAugmentSlot(slotType, dotIndex) {
     for (let i = dotIndex; i < 3; i++) equippedAugments[slotType][i] = null;
   }
   refreshAugmentDots(slotType);
-  refreshPanels();
+  refreshPanels(HOTBAR_SLOTS.has(slotType));
 }
 
 function removeAugment(slotType, dotIndex) {
@@ -1191,7 +1193,7 @@ function removeAugment(slotType, dotIndex) {
     equippedAugments[slotType][dotIndex] = null;
   }
   refreshAugmentDots(slotType);
-  refreshPanels();
+  refreshPanels(HOTBAR_SLOTS.has(slotType));
 }
 
 function refreshAugmentDots(slotType, expandDotIndex) {
@@ -1348,7 +1350,7 @@ function selectAugment(slug) {
 
   closeAugmentPicker();
   refreshAugmentDots(slotType);
-  refreshPanels();
+  refreshPanels(HOTBAR_SLOTS.has(slotType));
 }
 
 // =============================================
@@ -1452,8 +1454,9 @@ function saveAugmentCustomValue() {
   aug.customValues = hasAny ? customValues : undefined;
   if (!hasAny) delete aug.customValues;
 
+  const isHotbar = HOTBAR_SLOTS.has(activeAugmentPopup.slotType);
   closeAugmentValuePopup();
-  refreshPanels();
+  refreshPanels(isHotbar);
 }
 
 // =============================================
@@ -1463,6 +1466,7 @@ function saveAugmentCustomValue() {
 function showTooltip(slotType) {
   const item = equippedItems[slotType];
   if (!item) return;
+  if (tooltipClearTimer) { clearTimeout(tooltipClearTimer); tooltipClearTimer = null; }
 
   document.getElementById('build-stats').hidden = true;
   const panel = document.getElementById('tooltip-panel');
@@ -1670,6 +1674,7 @@ function showAugmentTooltip(slotType, dotIndex) {
 
   const augData = findAugmentData(equipped.slug, slotType);
   if (!augData) return;
+  if (tooltipClearTimer) { clearTimeout(tooltipClearTimer); tooltipClearTimer = null; }
 
   document.getElementById('build-stats').hidden = true;
   const panel = document.getElementById('tooltip-panel');
@@ -1785,11 +1790,15 @@ function showFormulaTooltip(label, value, formula) {
   }
 }
 
+let tooltipClearTimer = null;
+
 function clearTooltip() {
-  document.getElementById('build-stats').hidden = false;
-  const panel = document.getElementById('tooltip-panel');
-  panel.style.flex = '';
-  panel.innerHTML = '<div class="tooltip-panel__empty">Hover an item to inspect</div>';
+  tooltipClearTimer = setTimeout(() => {
+    document.getElementById('build-stats').hidden = false;
+    const panel = document.getElementById('tooltip-panel');
+    panel.style.flex = '';
+    panel.innerHTML = '<div class="tooltip-panel__empty">Hover an item to inspect</div>';
+  }, 100);
 }
 
 function updateSlotDisplay(slotEl, item) {
@@ -1977,9 +1986,10 @@ function createWeaponTypeFilters() {
   bar.appendChild(createBtn('melee', 'Melee'));
   bar.appendChild(createBtn('ranged', 'Ranged'));
 
-  // Insert after the title, before the close button
-  const header = document.querySelector('.item-picker-header');
-  const closeBtn = document.getElementById('item-picker-close');
+  // Insert into the item picker header specifically
+  const overlay = document.getElementById('item-picker-overlay');
+  const header = overlay.querySelector('.item-picker-header');
+  const closeBtn = overlay.querySelector('.item-picker-close');
   header.insertBefore(bar, closeBtn);
 }
 
@@ -2030,7 +2040,6 @@ function selectHotbarItem(slotType, slug) {
   }
 
   closeItemPicker();
-  refreshPanels();
 }
 
 function updateHotbarSlotDisplay(slotEl, item, slotType) {
@@ -2093,7 +2102,6 @@ function clearHotbarSlot(slotEl) {
   if (activeHotbarIndex === idx) {
     autoSelectFirstHotbarWeapon();
   }
-  refreshPanels();
 }
 
 (async () => {
@@ -2106,7 +2114,11 @@ function clearHotbarSlot(slotEl) {
 
   // Hotbar slot click → weapon picker
   document.querySelectorAll('.hotbar-slot').forEach(slotEl => {
-    slotEl.addEventListener('click', () => openHotbarPicker(slotEl));
+    slotEl.addEventListener('click', e => {
+      // Don't open picker if clicking clear button, grade ring, or augment dots
+      if (e.target.closest('.hotbar-slot__clear, .armor-slot__grade, .augment-dots')) return;
+      openHotbarPicker(slotEl);
+    });
   });
 
   document.getElementById('item-picker-close').addEventListener('click', closeItemPicker);
@@ -2308,15 +2320,267 @@ function exportBuild() {
     }
   }
 
-  const json = JSON.stringify(exportData, null, 2);
+  return exportData;
+}
+
+function exportToClipboard() {
+  const data = exportBuild();
+  const json = JSON.stringify(data, null, 2);
   const output = [
     '======================================================================',
     'DUNEBUILDER EXPORT',
     '======================================================================',
     json,
   ].join('\n');
-
   return window.electronAPI.writeClipboard(output);
+}
+
+// =============================================
+// APPLY BUILD DATA
+// =============================================
+
+function applyBuildData(data) {
+  // Clear all existing state
+  for (const key of Object.keys(equippedItems)) delete equippedItems[key];
+  for (const key of Object.keys(equippedGrades)) delete equippedGrades[key];
+  for (const key of Object.keys(equippedAugments)) delete equippedAugments[key];
+  for (const key of Object.keys(augmentSlotUnlocks)) delete augmentSlotUnlocks[key];
+  activeHotbarIndex = null;
+
+  // Reset all armor slot visuals
+  document.querySelector('.armor-layout').classList.remove('radsuit-active');
+  document.querySelectorAll('.armor-slot').forEach(el => {
+    const st = getSlotType(el);
+    if (st) {
+      el.classList.remove('has-item');
+      el.title = '';
+      el.innerHTML = `<span class="slot-label">${SLOT_ORIGINAL_LABELS[getSlotClass(el)] || ''}</span>`;
+    }
+  });
+
+  // Reset all hotbar slot visuals
+  document.querySelectorAll('.hotbar-slot').forEach(el => {
+    const idx = parseInt(el.dataset.hotbar, 10);
+    el.classList.remove('has-item', 'hotbar-slot--active');
+    el.title = '';
+    el.innerHTML = '';
+    const numEl = document.createElement('span');
+    numEl.className = 'slot-number';
+    numEl.textContent = String(idx + 1);
+    el.appendChild(numEl);
+  });
+
+  // Armor slots — first pass: set state
+  const slots = data.slots || {};
+  for (const [slot, slotData] of Object.entries(slots)) {
+    const item = GARMENT_ITEMS.find(i => i.slug === slotData.item);
+    if (!item) continue;
+    equippedItems[slot] = item;
+    if (GARMENT_SLOTS.has(slot)) equippedGrades[slot] = slotData.grade || 0;
+    if (slotData.augments) {
+      equippedAugments[slot] = slotData.augments.map(a => a ? { slug: a.slug, grade: Math.max(a.grade || 0, 1), ...(a.customValues != null ? { customValues: a.customValues } : {}) } : null);
+      const lastNonNull = slotData.augments.reduce((max, a, i) => a ? i : max, -1);
+      augmentSlotUnlocks[slot] = Math.max(lastNonNull + 1, 1);
+    }
+  }
+
+  // Armor slots — second pass: build visuals
+  for (const [slot, slotData] of Object.entries(slots)) {
+    const item = equippedItems[slot];
+    if (!item) continue;
+    if (item.slot === 'radsuit') {
+      ARMOR_SLOTS.forEach(s => { equippedItems[s] = item; });
+      document.querySelector('.armor-layout').classList.add('radsuit-active');
+      document.querySelectorAll('.armor-slot').forEach(el => {
+        if (getSlotType(el) === 'helm') updateSlotDisplay(el, item);
+      });
+    } else {
+      document.querySelectorAll('.armor-slot').forEach(el => {
+        if (getSlotType(el) === slot) updateSlotDisplay(el, item);
+      });
+    }
+  }
+
+  // Hotbar (weapons)
+  if (data.hotbar) {
+    for (const [slot, slotData] of Object.entries(data.hotbar)) {
+      const item = WEAPON_ITEMS.find(i => i.slug === slotData.item);
+      if (!item) continue;
+      equippedItems[slot] = item;
+      equippedGrades[slot] = slotData.grade || 0;
+      if (slotData.augments) {
+        equippedAugments[slot] = slotData.augments.map(a => a ? { slug: a.slug, grade: Math.max(a.grade || 0, 1), ...(a.customValues != null ? { customValues: a.customValues } : {}) } : null);
+        const lastNonNull = slotData.augments.reduce((max, a, i) => a ? i : max, -1);
+        augmentSlotUnlocks[slot] = Math.max(lastNonNull + 1, 1);
+      }
+      const idx = slot.replace('hotbar', '');
+      const slotEl = document.querySelector(`.hotbar-slot[data-hotbar="${idx}"]`);
+      if (slotEl) updateHotbarSlotDisplay(slotEl, item, slot);
+    }
+    autoSelectFirstHotbarWeapon();
+  }
+
+  if (data.characterPanel) {
+    lastCharacterPanel = data.characterPanel;
+  }
+
+  refreshPanels();
+  triggerRevealAnimation();
+}
+
+// =============================================
+// SAVE / LOAD
+// =============================================
+
+let currentBuildPath = null;
+
+function getBuildJson() {
+  return JSON.stringify(exportBuild(), null, 2);
+}
+
+function showSavingOverlay() {
+  document.getElementById('saving-overlay').classList.add('visible');
+}
+
+function hideSavingOverlay() {
+  document.getElementById('saving-overlay').classList.remove('visible');
+}
+
+async function saveBuild() {
+  const data = getBuildJson();
+  if (!currentBuildPath) {
+    return saveBuildAs();
+  }
+  showSavingOverlay();
+  const minDelay = new Promise(r => setTimeout(r, 500));
+  const ok = await window.electronAPI.saveBuildFile(currentBuildPath, data);
+  await minDelay;
+  hideSavingOverlay();
+  if (ok) {
+    showSaveConfirmation('Saved');
+  } else {
+    showError('Save failed.');
+  }
+}
+
+async function saveBuildAs() {
+  const defaultName = currentBuildPath
+    ? currentBuildPath.split(/[/\\]/).pop()
+    : 'build.dbf';
+  const filepath = await window.electronAPI.saveDialog(defaultName);
+  if (!filepath) return;
+  showSavingOverlay();
+  const minDelay = new Promise(r => setTimeout(r, 500));
+  const data = getBuildJson();
+  const ok = await window.electronAPI.saveBuildFile(filepath, data);
+  await minDelay;
+  hideSavingOverlay();
+  if (ok) {
+    currentBuildPath = filepath;
+    showSaveConfirmation('Saved');
+  } else {
+    showError('Save failed.');
+  }
+}
+
+function showSaveConfirmation(text) {
+  const btn = document.getElementById('save-btn');
+  btn.textContent = text;
+  setTimeout(() => { btn.textContent = 'Save'; }, 1500);
+}
+
+async function openLoadModal() {
+  const builds = await window.electronAPI.listBuilds();
+  const list = document.getElementById('load-list');
+  list.innerHTML = '';
+
+  // New build option at the top
+  const newItem = document.createElement('div');
+  newItem.className = 'load-item load-item--new';
+  const newName = document.createElement('span');
+  newName.className = 'load-item__name';
+  newName.textContent = '+ New Build';
+  newItem.appendChild(newName);
+  newItem.addEventListener('click', () => {
+    applyBuildData({ slots: {}, hotbar: null });
+    currentBuildPath = null;
+    lastCharacterPanel = null;
+    lastBuildTotals = null;
+    lastSkillBonuses = null;
+    refreshPanels();
+    closeLoadModal();
+  });
+  list.appendChild(newItem);
+
+  if (builds.length === 0) {
+    // Just the new build option, nothing else needed
+  } else {
+    builds.forEach(b => {
+      const item = document.createElement('div');
+      item.className = 'load-item';
+
+      const name = document.createElement('span');
+      name.className = 'load-item__name';
+      name.textContent = b.name;
+
+      const date = document.createElement('span');
+      date.className = 'load-item__date';
+      date.textContent = new Date(b.modified).toLocaleDateString();
+
+      const del = document.createElement('button');
+      del.className = 'load-item__delete';
+      del.textContent = '✕';
+      del.title = 'Delete build';
+      del.addEventListener('click', async e => {
+        e.stopPropagation();
+        if (!confirm(`Delete "${b.name}"?`)) return;
+        const ok = await window.electronAPI.deleteBuildFile(b.path);
+        if (ok) {
+          if (currentBuildPath === b.path) currentBuildPath = null;
+          openLoadModal(); // refresh list
+        }
+      });
+
+      item.appendChild(name);
+      item.appendChild(date);
+      item.appendChild(del);
+      item.addEventListener('click', () => loadBuildFromFile(b.path));
+      list.appendChild(item);
+    });
+  }
+
+  const overlay = document.getElementById('load-overlay');
+  requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('visible')));
+}
+
+function closeLoadModal() {
+  document.getElementById('load-overlay').classList.remove('visible');
+}
+
+async function loadBuildFromFile(filepath) {
+  const text = await window.electronAPI.loadBuildFile(filepath);
+  if (!text) {
+    showError('Failed to read build file.');
+    closeLoadModal();
+    return;
+  }
+
+  try {
+    const data = JSON.parse(text);
+    applyBuildData(data);
+    currentBuildPath = filepath;
+    closeLoadModal();
+  } catch {
+    showError('Invalid build file.');
+    closeLoadModal();
+  }
+}
+
+async function loadBuildBrowse() {
+  const filepath = await window.electronAPI.loadDialog();
+  if (!filepath) return;
+  closeLoadModal();
+  await loadBuildFromFile(filepath);
 }
 
 // =============================================
@@ -2348,7 +2612,7 @@ exportBtn.addEventListener('click', async () => {
   exportBtn.disabled = true;
   exportBtn.textContent = 'Exporting…';
   try {
-    await exportBuild();
+    await exportToClipboard();
     exportBtn.textContent = 'Copied!';
     setTimeout(() => { exportBtn.textContent = 'Export'; }, 1500);
   } catch (err) {
@@ -2358,6 +2622,16 @@ exportBtn.addEventListener('click', async () => {
     exportBtn.disabled = false;
   }
 });
+
+// Save / Load buttons
+document.getElementById('save-btn').addEventListener('click', saveBuild);
+document.getElementById('save-dropdown').addEventListener('click', saveBuildAs);
+document.getElementById('load-btn').addEventListener('click', openLoadModal);
+document.getElementById('load-close').addEventListener('click', closeLoadModal);
+document.getElementById('load-overlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeLoadModal();
+});
+document.getElementById('load-browse').addEventListener('click', loadBuildBrowse);
 
 const pasteBtn = document.getElementById('paste-btn');
 
@@ -2372,82 +2646,7 @@ pasteBtn.addEventListener('click', async () => {
     if (!result) {
       showError('No valid build data found in clipboard.');
     } else if (result.duneExport) {
-      // Clear all existing state before importing
-      for (const key of Object.keys(equippedItems)) delete equippedItems[key];
-      for (const key of Object.keys(equippedGrades)) delete equippedGrades[key];
-      for (const key of Object.keys(equippedAugments)) delete equippedAugments[key];
-      for (const key of Object.keys(augmentSlotUnlocks)) delete augmentSlotUnlocks[key];
-      activeHotbarIndex = null;
-
-      // Reset all armor slot visuals
-      document.querySelector('.armor-layout').classList.remove('radsuit-active');
-      document.querySelectorAll('.armor-slot').forEach(el => {
-        const st = getSlotType(el);
-        if (st) {
-          el.classList.remove('has-item');
-          el.title = '';
-          el.innerHTML = `<span class="slot-label">${SLOT_ORIGINAL_LABELS[getSlotClass(el)] || ''}</span>`;
-        }
-      });
-
-      // Reset all hotbar slot visuals
-      document.querySelectorAll('.hotbar-slot').forEach(el => {
-        const idx = parseInt(el.dataset.hotbar, 10);
-        el.classList.remove('has-item', 'hotbar-slot--active');
-        el.title = '';
-        el.innerHTML = '';
-        const numEl = document.createElement('span');
-        numEl.className = 'slot-number';
-        numEl.textContent = String(idx + 1);
-        el.appendChild(numEl);
-      });
-
-      // First pass: set state (grades, augments) before building visuals
-      for (const [slot, data] of Object.entries(result.slots)) {
-        const item = GARMENT_ITEMS.find(i => i.slug === data.item);
-        if (!item) continue;
-        equippedItems[slot] = item;
-        if (GARMENT_SLOTS.has(slot)) equippedGrades[slot] = data.grade || 0;
-        if (data.augments) {
-          equippedAugments[slot] = data.augments.map(a => a ? { slug: a.slug, grade: Math.max(a.grade || 0, 1), ...(a.customValues != null ? { customValues: a.customValues } : {}) } : null);
-          const lastNonNull = data.augments.reduce((max, a, i) => a ? i : max, -1);
-          augmentSlotUnlocks[slot] = Math.max(lastNonNull + 1, 1);
-        }
-      }
-      // Second pass: build visuals with correct state already in place
-      for (const [slot, data] of Object.entries(result.slots)) {
-        const item = equippedItems[slot];
-        if (!item) continue;
-        if (item.slot === 'radsuit') {
-          ARMOR_SLOTS.forEach(s => { equippedItems[s] = item; });
-          document.querySelector('.armor-layout').classList.add('radsuit-active');
-          document.querySelectorAll('.armor-slot').forEach(el => {
-            if (getSlotType(el) === 'helm') updateSlotDisplay(el, item);
-          });
-        } else {
-          document.querySelectorAll('.armor-slot').forEach(el => {
-            if (getSlotType(el) === slot) updateSlotDisplay(el, item);
-          });
-        }
-      }
-      // Restore hotbar (weapons)
-      if (result.hotbar) {
-        for (const [slot, data] of Object.entries(result.hotbar)) {
-          const item = WEAPON_ITEMS.find(i => i.slug === data.item);
-          if (!item) continue;
-          equippedItems[slot] = item;
-          equippedGrades[slot] = data.grade || 0;
-          if (data.augments) {
-            equippedAugments[slot] = data.augments.map(a => a ? { slug: a.slug, grade: Math.max(a.grade || 0, 1), ...(a.customValues != null ? { customValues: a.customValues } : {}) } : null);
-            const lastNonNull = data.augments.reduce((max, a, i) => a ? i : max, -1);
-            augmentSlotUnlocks[slot] = Math.max(lastNonNull + 1, 1);
-          }
-          const idx = slot.replace('hotbar', '');
-          const slotEl = document.querySelector(`.hotbar-slot[data-hotbar="${idx}"]`);
-          if (slotEl) updateHotbarSlotDisplay(slotEl, item, slot);
-        }
-        autoSelectFirstHotbarWeapon();
-      }
+      applyBuildData(result);
       if (result.characterPanel) {
         lastCharacterPanel = result.characterPanel;
       }

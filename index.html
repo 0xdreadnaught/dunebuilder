@@ -17,6 +17,11 @@
     </div>
     <div class="header-controls">
       <span id="error-message" class="error-message" role="alert"></span>
+      <button id="load-btn" class="btn-primary">Load</button>
+      <div class="save-group">
+        <button id="save-btn" class="btn-primary">Save</button>
+        <button id="save-dropdown" class="btn-primary save-dropdown" aria-label="Save options">▾</button>
+      </div>
       <button id="export-btn" class="btn-primary">Export</button>
       <button id="paste-btn" class="btn-primary">Paste Build</button>
       <button id="settings-btn" class="btn-icon" aria-label="Settings" title="Settings">⚙</button>
@@ -105,6 +110,23 @@
           <h3 class="about-thanks-title">Special Thanks</h3>
           <p class="about-thanks-names">Funcom, Dune Tools, MethodGG, Vanguard Bravo</p>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="saving-overlay" class="saving-overlay">
+    <div class="saving-modal">Saving...</div>
+  </div>
+
+  <div id="load-overlay" class="item-picker-overlay">
+    <div class="item-picker-modal load-modal">
+      <div class="item-picker-header">
+        <span class="item-picker-title">Load Build</span>
+        <button id="load-close" class="item-picker-close" aria-label="Close">✕</button>
+      </div>
+      <div id="load-list" class="load-list"></div>
+      <div class="load-footer">
+        <button id="load-browse" class="btn-primary">Browse...</button>
       </div>
     </div>
   </div>

@@ -248,6 +248,125 @@ body {
   transform: none;
 }
 
+/* Save button group */
+.save-group {
+  display: flex;
+  gap: 0;
+}
+
+.save-group .btn-primary:first-child {
+  border-right: none;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+.save-dropdown {
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0 !important;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+  font-size: 10px !important;
+}
+
+/* Load builds modal */
+.load-modal {
+  max-width: 400px;
+}
+
+.load-list {
+  max-height: 350px;
+  overflow-y: auto;
+  padding: var(--spacing-sm) 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold-dim) transparent;
+}
+
+.load-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px var(--spacing-md);
+  cursor: pointer;
+  transition: background 0.15s ease;
+  border-bottom: 1px solid rgba(200, 164, 90, 0.08);
+}
+
+.load-item:hover {
+  background: rgba(200, 164, 90, 0.1);
+}
+
+.load-item__name {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-primary);
+}
+
+.load-item__date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.load-item--new {
+  border-bottom: 1px solid rgba(200, 164, 90, 0.2);
+}
+
+.load-item--new .load-item__name {
+  color: var(--color-gold-main);
+}
+
+.load-item__delete {
+  background: none;
+  border: none;
+  color: var(--color-spice);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 6px;
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s;
+}
+
+.load-item:hover .load-item__delete {
+  opacity: 1;
+}
+
+.load-item__delete:hover {
+  color: var(--color-health);
+}
+
+.load-footer {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-top: var(--border-panel);
+  display: flex;
+  justify-content: center;
+}
+
+/* Saving overlay */
+.saving-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.saving-overlay.visible {
+  display: flex;
+}
+
+.saving-modal {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-gold-main);
+  border-radius: 4px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-family: var(--font-primary);
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold-main);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
 /* =============================================
    MAIN LAYOUT — Three-column grid
    ============================================= */

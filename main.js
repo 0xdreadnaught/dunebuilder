@@ -1,5 +1,6 @@
-const { app, BrowserWindow, ipcMain, clipboard, Menu, shell } = require('electron');
+const { app, BrowserWindow, ipcMain, clipboard, Menu, shell, dialog } = require('electron');
 const path = require('node:path');
+const fs = require('node:fs');
 const https = require('node:https');
 
 // --- Update check config ---
@@ -44,6 +45,67 @@ app.whenReady().then(() => {
       if (parsed.protocol !== 'https:' || parsed.hostname !== 'github.com') return;
       shell.openExternal(url);
     } catch { /* invalid URL, ignore */ }
+  });
+
+  // --- Builds directory ---
+  const buildsDir = path.join(app.getPath('appData'), 'DuneBuilder', 'builds');
+  fs.mkdirSync(buildsDir, { recursive: true });
+
+  ipcMain.handle('builds:dir', () => buildsDir);
+
+  ipcMain.handle('builds:list', () => {
+    try {
+      const files = fs.readdirSync(buildsDir).filter(f => f.endsWith('.dbf'));
+      return files.map(f => {
+        const filepath = path.join(buildsDir, f);
+        const stat = fs.statSync(filepath);
+        return { name: f.replace(/\.dbf$/, ''), path: filepath, modified: stat.mtimeMs };
+      }).sort((a, b) => b.modified - a.modified);
+    } catch { return []; }
+  });
+
+  ipcMain.handle('builds:load', (_, filepath) => {
+    try {
+      return fs.readFileSync(filepath, 'utf-8');
+    } catch { return null; }
+  });
+
+  ipcMain.handle('builds:delete', async (_, filepath) => {
+    try {
+      await fs.promises.unlink(filepath);
+      return true;
+    } catch { return false; }
+  });
+
+  ipcMain.handle('builds:save', async (_, filepath, data) => {
+    try {
+      await fs.promises.mkdir(path.dirname(filepath), { recursive: true });
+      await fs.promises.writeFile(filepath, data, 'utf-8');
+      return true;
+    } catch { return false; }
+  });
+
+  ipcMain.handle('builds:saveDialog', async (_, defaultName) => {
+    const win = BrowserWindow.getFocusedWindow();
+    const { canceled, filePath } = await dialog.showSaveDialog(win, {
+      title: 'Save Build',
+      defaultPath: path.join(buildsDir, defaultName || 'build.dbf'),
+      filters: [{ name: 'DuneBuilder Files', extensions: ['dbf'] }],
+    });
+    if (canceled || !filePath) return null;
+    return filePath.endsWith('.dbf') ? filePath : filePath + '.dbf';
+  });
+
+  ipcMain.handle('builds:loadDialog', async () => {
+    const win = BrowserWindow.getFocusedWindow();
+    const { canceled, filePaths } = await dialog.showOpenDialog(win, {
+      title: 'Load Build',
+      defaultPath: buildsDir,
+      filters: [{ name: 'DuneBuilder Files', extensions: ['dbf'] }],
+      properties: ['openFile'],
+    });
+    if (canceled || !filePaths?.length) return null;
+    return filePaths[0];
   });
 
   createWindow();
