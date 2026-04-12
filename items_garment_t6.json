@@ -46,6 +46,11 @@
         "name": "Energy Mitigation:",
         "value": 3.8,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -114,6 +119,11 @@
       {
         "name": "Energy Mitigation:",
         "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -184,6 +194,11 @@
         "name": "Energy Mitigation:",
         "value": 3.8,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -252,6 +267,11 @@
       {
         "name": "Energy Mitigation:",
         "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -322,6 +342,11 @@
         "name": "Energy Mitigation:",
         "value": 5,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -386,6 +411,11 @@
         "name": "Concussive Mitigation:",
         "value": 3,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "img": "imgs/t_ui_iconclothchoamheavybootsmaler_d.webp",
@@ -432,6 +462,11 @@
       {
         "name": "Concussive Mitigation:",
         "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -480,6 +515,11 @@
         "name": "Concussive Mitigation:",
         "value": 3,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "img": "imgs/t_ui_iconclothchoamheavyglovesmaler_d.webp",
@@ -526,6 +566,11 @@
       {
         "name": "Concussive Mitigation:",
         "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -574,6 +619,11 @@
         "name": "Concussive Mitigation:",
         "value": 4,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "img": "imgs/t_ui_iconclothchoamheavyheadmaler_d.webp",
@@ -610,6 +660,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.7,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -648,6 +703,11 @@
         "name": "Heat Protection:",
         "value": 0.7,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "img": "imgs/t_ui_iconclothchoamscoutarmourtopmaler_d.webp",
@@ -684,6 +744,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.7,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -722,6 +787,11 @@
         "name": "Heat Protection:",
         "value": 0.7,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "img": "imgs/t_ui_iconclothchoamscoutarmourhelmetmaler_d.webp",
@@ -759,6 +829,11 @@
         "name": "Heat Protection:",
         "value": 0.7,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "img": "imgs/t_ui_iconclothchoamscoutarmourbottommaler_d.webp",
@@ -791,6 +866,11 @@
         "name": "Catchpocket Size:",
         "value": 500,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
+        "type": "number"
       }
     ],
     "img": "imgs/t_ui_iconclothchoamstillsuit01bodymaler_d.webp",
@@ -817,6 +897,11 @@
       {
         "name": "Heat Protection:",
         "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -845,6 +930,11 @@
         "name": "Heat Protection:",
         "value": 1.5,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "img": "imgs/t_ui_iconclothchoamstillsuit01glovesmaler_d.webp",
@@ -871,6 +961,11 @@
       {
         "name": "Heat Protection:",
         "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -923,6 +1018,11 @@
       {
         "name": "Concussive Mitigation:",
         "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -978,6 +1078,11 @@
         "name": "Catchpocket Size:",
         "value": 500,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -1031,6 +1136,11 @@
       {
         "name": "Heat Protection:",
         "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -1096,6 +1206,11 @@
         "name": "Concussive Mitigation:",
         "value": 6,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -1159,6 +1274,11 @@
       {
         "name": "Concussive Mitigation:",
         "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -1224,6 +1344,11 @@
         "name": "Concussive Mitigation:",
         "value": 6,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -1287,6 +1412,11 @@
       {
         "name": "Concussive Mitigation:",
         "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1352,6 +1482,11 @@
         "name": "Concussive Mitigation:",
         "value": 8,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -1410,6 +1545,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.7,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1470,6 +1610,11 @@
         "name": "Heat Protection:",
         "value": 0.7,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -1513,6 +1658,11 @@
       {
         "name": "Heat Protection:",
         "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1563,6 +1713,11 @@
         "name": "Catchpocket Size:",
         "value": 500,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -1607,6 +1762,11 @@
         "name": "Heat Protection:",
         "value": 1.5,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -1650,6 +1810,11 @@
       {
         "name": "Heat Protection:",
         "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1705,6 +1870,11 @@
         "name": "Heat Protection:",
         "value": 0.7,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -1753,6 +1923,11 @@
       {
         "name": "Heat Protection:",
         "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1823,6 +1998,11 @@
         "name": "Heat Protection:",
         "value": 0.7,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -1891,6 +2071,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.7,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -1961,6 +2146,11 @@
         "name": "Heat Protection:",
         "value": 0.7,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -2029,6 +2219,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.7,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -2099,6 +2294,11 @@
         "name": "Heat Protection:",
         "value": 0.7,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -2168,6 +2368,11 @@
         "name": "Concussive Mitigation:",
         "value": 6,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -2222,6 +2427,11 @@
         "name": "Heat Protection:",
         "value": 2.4,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 6,
+        "type": "number"
       }
     ],
     "img": "imgs/t_ui_iconclothsmugradiationsuitfullbodymaler_d.webp",
@@ -2253,6 +2463,11 @@
       {
         "name": "Catchpocket Size:",
         "value": 1500,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
         "type": "number"
       }
     ],
@@ -2313,6 +2528,11 @@
         "name": "Heat Protection:",
         "value": 0.7,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -2371,6 +2591,11 @@
       {
         "name": "Heat Protection:",
         "value": 2.4,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 6,
         "type": "number"
       }
     ],
@@ -2441,6 +2666,11 @@
         "name": "Heat Protection:",
         "value": 0.7,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -2509,6 +2739,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.7,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -2579,6 +2814,11 @@
         "name": "Heat Protection:",
         "value": 0.7,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -2647,6 +2887,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.7,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -2717,6 +2962,11 @@
         "name": "Heat Protection:",
         "value": 0.7,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -2765,6 +3015,11 @@
       {
         "name": "Heat Protection:",
         "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -2820,6 +3075,11 @@
         "name": "Catchpocket Size:",
         "value": 500,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -2869,6 +3129,11 @@
         "name": "Heat Protection:",
         "value": 1.5,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -2917,6 +3182,11 @@
       {
         "name": "Heat Protection:",
         "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -2977,6 +3247,11 @@
         "name": "Heat Protection:",
         "value": 0.7,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [
@@ -3035,6 +3310,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.7,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],

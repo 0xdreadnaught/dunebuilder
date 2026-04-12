@@ -56,6 +56,11 @@
         "name": "Stability",
         "value": 2.2,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -107,6 +112,11 @@
       {
         "name": "Block Stamina Cost",
         "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -175,6 +185,11 @@
         "name": "Stability",
         "value": 0.3,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -242,6 +257,11 @@
         "name": "Stability",
         "value": 7.2,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -304,6 +324,11 @@
         "name": "Stability",
         "value": 3.2,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -355,6 +380,11 @@
       {
         "name": "Block Stamina Cost",
         "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -423,6 +453,11 @@
         "name": "Stability",
         "value": 2.8,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -489,6 +524,11 @@
       {
         "name": "Stability",
         "value": 9.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -557,6 +597,11 @@
         "name": "Stability",
         "value": 0.1,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -608,6 +653,11 @@
       {
         "name": "Block Stamina Cost",
         "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -676,6 +726,11 @@
         "name": "Stability",
         "value": 1.8,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -742,6 +797,11 @@
       {
         "name": "Stability",
         "value": 2.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 5,
         "type": "number"
       }
     ],
@@ -810,6 +870,11 @@
         "name": "Stability",
         "value": 3.4,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -862,6 +927,11 @@
         "name": "Block Stamina Cost",
         "value": 7.8,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "weaponType": "melee",
@@ -913,6 +983,11 @@
       {
         "name": "Block Stamina Cost",
         "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -981,6 +1056,11 @@
         "name": "Stability",
         "value": 0.8,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 5,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -1048,6 +1128,11 @@
         "name": "Stability",
         "value": 0.3,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 5,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -1099,6 +1184,11 @@
       {
         "name": "Block Stamina Cost",
         "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1167,6 +1257,11 @@
         "name": "Stability",
         "value": 5.2,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -1233,6 +1328,11 @@
       {
         "name": "Stability",
         "value": 2.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 5,
         "type": "number"
       }
     ],
@@ -1301,6 +1401,11 @@
         "name": "Stability",
         "value": 0.8,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 5,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -1368,6 +1473,11 @@
         "name": "Stability",
         "value": 9.3,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -1419,6 +1529,11 @@
       {
         "name": "Block Stamina Cost",
         "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1472,6 +1587,11 @@
         "name": "Block Stamina Cost",
         "value": 7.8,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "weaponType": "melee",
@@ -1523,6 +1643,11 @@
       {
         "name": "Block Stamina Cost",
         "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1591,6 +1716,11 @@
         "name": "Stability",
         "value": 0.7,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -1643,6 +1773,11 @@
         "name": "Block Stamina Cost",
         "value": 7.8,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "weaponType": "melee",
@@ -1694,6 +1829,11 @@
       {
         "name": "Block Stamina Cost",
         "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1762,6 +1902,11 @@
         "name": "Stability",
         "value": 0.6,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -1828,6 +1973,11 @@
       {
         "name": "Stability",
         "value": 0.3,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -1896,6 +2046,11 @@
         "name": "Stability",
         "value": 0.1,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 5,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -1962,6 +2117,11 @@
       {
         "name": "Stability",
         "value": 1.4,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -2030,6 +2190,11 @@
         "name": "Stability",
         "value": 0.1,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 5,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -2096,6 +2261,11 @@
       {
         "name": "Stability",
         "value": 2.4,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -2164,6 +2334,11 @@
         "name": "Stability",
         "value": 2.2,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -2230,6 +2405,11 @@
       {
         "name": "Stability",
         "value": 1.3,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -2298,6 +2478,11 @@
         "name": "Stability",
         "value": 9.8,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "weaponType": "ranged",
@@ -2364,6 +2549,11 @@
       {
         "name": "Stability",
         "value": 3.1,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],

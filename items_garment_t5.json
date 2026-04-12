@@ -38,6 +38,11 @@
         "name": "Concussive Mitigation:",
         "value": 6,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -82,6 +87,11 @@
       {
         "name": "Concussive Mitigation:",
         "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -128,6 +138,11 @@
         "name": "Concussive Mitigation:",
         "value": 6,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -172,6 +187,11 @@
       {
         "name": "Concussive Mitigation:",
         "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -218,6 +238,11 @@
         "name": "Concussive Mitigation:",
         "value": 8,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -257,6 +282,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -298,6 +328,11 @@
         "name": "Heat Protection:",
         "value": 0.6,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -327,6 +362,11 @@
       {
         "name": "Heat Protection:",
         "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -363,6 +403,11 @@
         "name": "Catchpocket Size:",
         "value": 500,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -393,6 +438,11 @@
         "name": "Heat Protection:",
         "value": 1.2,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -422,6 +472,11 @@
       {
         "name": "Heat Protection:",
         "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -463,6 +518,11 @@
         "name": "Heat Protection:",
         "value": 0.6,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -502,6 +562,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -553,6 +618,11 @@
         "name": "Heat Protection:",
         "value": 0.6,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -602,6 +672,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -653,6 +728,11 @@
         "name": "Heat Protection:",
         "value": 0.6,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -702,6 +782,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -753,6 +838,11 @@
         "name": "Heat Protection:",
         "value": 0.6,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -792,6 +882,11 @@
       {
         "name": "Fallen Shipwreck",
         "value": 3.3,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
         "type": "number"
       }
     ],
@@ -833,6 +928,11 @@
         "name": "Heat Protection:",
         "value": 0.6,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -872,6 +972,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -913,6 +1018,11 @@
         "name": "Heat Protection:",
         "value": 0.6,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -953,6 +1063,11 @@
         "name": "Heat Protection:",
         "value": 0.6,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -992,6 +1107,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1043,6 +1163,11 @@
         "name": "Energy Mitigation:",
         "value": 3.8,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1092,6 +1217,11 @@
       {
         "name": "Energy Mitigation:",
         "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -1143,6 +1273,11 @@
         "name": "Energy Mitigation:",
         "value": 3.8,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1193,6 +1328,11 @@
         "name": "Energy Mitigation:",
         "value": 5,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1242,6 +1382,11 @@
       {
         "name": "Energy Mitigation:",
         "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -1303,6 +1448,11 @@
         "name": "Fallen Shipwreck (PvP Area)",
         "value": 5.9,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1362,6 +1512,11 @@
       {
         "name": "Fallen Shipwreck (PvP Area)",
         "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -1423,6 +1578,11 @@
         "name": "Fallen Shipwreck (PvP Area)",
         "value": 5.9,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1482,6 +1642,11 @@
       {
         "name": "Fallen Shipwreck (PvP Area)",
         "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1543,6 +1708,11 @@
         "name": "Fallen Shipwreck (PvP Area)",
         "value": 5.9,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1592,6 +1762,11 @@
       {
         "name": "Concussive Mitigation:",
         "value": 3,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1643,6 +1818,11 @@
         "name": "Concussive Mitigation:",
         "value": 3,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1692,6 +1872,11 @@
       {
         "name": "Concussive Mitigation:",
         "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -1743,6 +1928,11 @@
         "name": "Concussive Mitigation:",
         "value": 3,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1792,6 +1982,11 @@
       {
         "name": "Concussive Mitigation:",
         "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1843,6 +2038,11 @@
         "name": "Concussive Mitigation:",
         "value": 4,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1888,6 +2088,11 @@
         "name": "Fallen Shipwreck (PvP Area)",
         "value": 5.9,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1927,6 +2132,11 @@
       {
         "name": "Fallen Shipwreck (PvP Area)",
         "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1968,6 +2178,11 @@
         "name": "Fallen Shipwreck (PvP Area)",
         "value": 5.9,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -2008,6 +2223,11 @@
         "name": "Fallen Shipwreck (PvP Area)",
         "value": 5.9,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -2032,6 +2252,11 @@
       {
         "name": "Heat Protection:",
         "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -2063,6 +2288,11 @@
         "name": "Catchpocket Size:",
         "value": 500,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -2088,6 +2318,11 @@
         "name": "Heat Protection:",
         "value": 1.2,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -2112,6 +2347,11 @@
       {
         "name": "Heat Protection:",
         "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -2142,6 +2382,11 @@
       {
         "name": "Heat Protection:",
         "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -2192,6 +2437,11 @@
       {
         "name": "Fallen Shipwreck (PvP Area)",
         "value": 5.9,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 6,
         "type": "number"
       }
     ],

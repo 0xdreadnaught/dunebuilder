@@ -540,10 +540,11 @@ const FLAT_STATS = new Set([
   'power pool', 'regen per second', 'power drain', 'shield refresh time',
   // Weapon stats
   'damage per shot', 'shield damage per shot', 'clip size', 'dps',
-  'reload time', 'rate of fire', 'effective range',
+  'reload time', 'rate of fire', 'effective range', 'maximum range',
   'damage per hit', 'attack speed',
   'heavy attack damage (shielded)', 'heavy attack damage (unshielded)',
-  'shield damage per hit', 'power consumption',
+  'shield damage per hit', 'power consumption', 'power consumption (per shot)',
+  'recoil', 'projectile spread', 'volume',
 ]);
 
 function formatStatValue(name, value) {
@@ -703,23 +704,33 @@ function aggregateEquippedStats() {
         (augData.effects || []).forEach(eff => {
           const gradeData = eff.grades[augGrade - 1];
           if (!gradeData) return;
-          const key = eff.stat.replace(/:$/, '');
-          const baseVal = itemStats[key] || 0;
+          const keys = expandStatKey(eff.stat.replace(/:$/, ''));
           const customVal = aug.customValues?.[eff.stat];
-
           const effectVal = customVal != null ? customVal : gradeData[1];
-          if (eff.type === 'percent') {
-            itemStats[key] = baseVal * (1 + effectVal / 100);
-          } else {
-            itemStats[key] = baseVal + effectVal;
-          }
+
+          keys.forEach(key => {
+            const baseVal = itemStats[key] || 0;
+            if (baseVal === 0) return; // Don't apply to stats the item doesn't have
+            if (eff.type === 'percent') {
+              itemStats[key] = baseVal * (1 + effectVal / 100);
+            } else {
+              itemStats[key] = baseVal + effectVal;
+            }
+          });
         });
 
-        // Tradeoffs apply to the item too
+        // Tradeoffs apply to the item
+        const PERCENT_TRADEOFFS = new Set(['Volume', 'Rate of Fire', 'Reload Time', 'Recoil', 'Power Consumption (per shot)']);
         (augData.tradeoffs || []).forEach(t => {
           const keys = expandStatKey(t.stat.replace(/:$/, ''));
+          const isPercent = PERCENT_TRADEOFFS.has(t.stat.replace(/:$/, ''));
           keys.forEach(key => {
-            itemStats[key] = (itemStats[key] || 0) + t.value;
+            const baseVal = itemStats[key] || 0;
+            if (isPercent) {
+              itemStats[key] = baseVal * (1 + t.value / 100);
+            } else {
+              itemStats[key] = baseVal + t.value;
+            }
           });
         });
       });
@@ -1010,9 +1021,11 @@ function createUnlockedDot(slotType, dotIndex) {
   return dot;
 }
 
-// Expand compound tradeoff stat names to their specific variants
+// Expand augment stat names to match item stat names
 function expandStatKey(key) {
   if (key === 'Dart Mitigation') return ['Light Dart Mitigation', 'Heavy Dart Mitigation'];
+  if (key === 'Damage') return ['Damage Per Shot', 'Damage Per Hit'];
+  if (key === 'Shield Damage') return ['Shield Damage Per Shot', 'Shield Damage Per Hit'];
   return [key];
 }
 
@@ -1493,24 +1506,28 @@ function showTooltip(slotType) {
     (augData.effects || []).forEach(eff => {
       const g = eff.grades?.[gradeIdx];
       if (!g) return;
-      const key = eff.stat.replace(/:$/, '');
+      const keys = expandStatKey(eff.stat.replace(/:$/, ''));
       const customVal = aug.customValues?.[eff.stat];
-      if (!augEffects[key]) augEffects[key] = { min: 0, max: 0, hasCustom: true, type: eff.type };
-      if (customVal != null) {
-        augEffects[key].min += customVal;
-        augEffects[key].max += customVal;
-      } else {
-        augEffects[key].min += g[0];
-        augEffects[key].max += g[1];
-        augEffects[key].hasCustom = false;
-      }
+      keys.forEach(key => {
+        if (!augEffects[key]) augEffects[key] = { min: 0, max: 0, hasCustom: true, type: eff.type };
+        if (customVal != null) {
+          augEffects[key].min += customVal;
+          augEffects[key].max += customVal;
+        } else {
+          augEffects[key].min += g[0];
+          augEffects[key].max += g[1];
+          augEffects[key].hasCustom = false;
+        }
+      });
     });
 
-    // Tradeoffs are flat subtraction — expand compound keys
+    // Tradeoffs — expand compound keys
+    const PERCENT_TRADEOFFS = new Set(['Volume', 'Rate of Fire', 'Reload Time', 'Recoil', 'Power Consumption (per shot)']);
     (augData.tradeoffs || []).forEach(t => {
       const keys = expandStatKey(t.stat.replace(/:$/, ''));
+      const isPercent = PERCENT_TRADEOFFS.has(t.stat.replace(/:$/, ''));
       keys.forEach(key => {
-        if (!augEffects[key]) augEffects[key] = { min: 0, max: 0, hasCustom: true, type: 'flat' };
+        if (!augEffects[key]) augEffects[key] = { min: 0, max: 0, hasCustom: true, type: isPercent ? 'percent' : 'flat' };
         augEffects[key].min += t.value;
         augEffects[key].max += t.value;
       });
@@ -1612,10 +1629,13 @@ function showTooltip(slotType) {
 
           const customVal = aug.customValues?.[eff.stat];
           const suffix = eff.type === 'percent' ? '%' : '';
+          const fmtAugVal = v => (v >= 0 ? `+${v}` : `${v}`);
           if (customVal != null) {
-            value.textContent = `+${customVal}${suffix}`;
+            value.textContent = `${fmtAugVal(customVal)}${suffix}`;
+          } else if (g[0] === g[1]) {
+            value.textContent = `${fmtAugVal(g[0])}${suffix}`;
           } else {
-            value.textContent = `+${g[0]}–${g[1]}${suffix}`;
+            value.textContent = `${fmtAugVal(g[0])}${suffix} to ${fmtAugVal(g[1])}${suffix}`;
           }
 
           row.appendChild(label);
@@ -1690,10 +1710,14 @@ function showAugmentTooltip(slotType, dotIndex) {
     const g = eff.grades?.[gradeIdx];
     if (g) {
       const customVal = equipped.customValues?.[eff.stat];
+      const suffix = eff.type === 'percent' ? '%' : '';
+      const fmtAugVal = v => (v >= 0 ? `+${v}` : `${v}`);
       if (customVal != null) {
-        value.textContent = `+${customVal}${eff.type === 'percent' ? '%' : ''}`;
+        value.textContent = `${fmtAugVal(customVal)}${suffix}`;
+      } else if (g[0] === g[1]) {
+        value.textContent = `${fmtAugVal(g[0])}${suffix}`;
       } else {
-        value.textContent = `+${g[0]}–${g[1]}${eff.type === 'percent' ? '%' : ''}`;
+        value.textContent = `${fmtAugVal(g[0])}${suffix} to ${fmtAugVal(g[1])}${suffix}`;
       }
     } else {
       value.textContent = '—';

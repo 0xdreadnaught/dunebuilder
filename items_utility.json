@@ -15,6 +15,11 @@
       {
         "name": "Power Pool:",
         "value": 900
+      },
+      {
+        "name": "Volume",
+        "value": 0.1,
+        "type": "number"
       }
     ]
   },
@@ -38,6 +43,11 @@
       {
         "name": "Power Drain (%):",
         "value": 100
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -57,6 +67,11 @@
       {
         "name": "Power Drain:",
         "value": 57
+      },
+      {
+        "name": "Volume",
+        "value": 0.4,
+        "type": "number"
       }
     ]
   },
@@ -76,6 +91,11 @@
       {
         "name": "Power Drain:",
         "value": 57
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -87,7 +107,13 @@
     "tier": 0,
     "rarity": "Common",
     "iconPath": "/images/dune/gui/textures/icons/gameplay/tools/t_ui_icontool1hchoamhandheldtorch01r_d.webp",
-    "stats": []
+    "stats": [
+      {
+        "name": "Volume",
+        "value": 0.1,
+        "type": "number"
+      }
+    ]
   },
   {
     "slug": "holtzmanshieldactivedrain",
@@ -109,6 +135,11 @@
       {
         "name": "Power Drain (%):",
         "value": 115
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -132,6 +163,11 @@
       {
         "name": "Power Drain (%):",
         "value": 110
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -155,6 +191,11 @@
       {
         "name": "Power Drain (%):",
         "value": 104
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -174,6 +215,11 @@
       {
         "name": "Power Pool:",
         "value": 100
+      },
+      {
+        "name": "Volume",
+        "value": 0.1,
+        "type": "number"
       }
     ]
   },
@@ -193,6 +239,11 @@
       {
         "name": "Power Drain:",
         "value": 27
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -212,6 +263,11 @@
       {
         "name": "Power Pool:",
         "value": 125
+      },
+      {
+        "name": "Volume",
+        "value": 0.1,
+        "type": "number"
       }
     ]
   },
@@ -231,6 +287,11 @@
       {
         "name": "Power Pool:",
         "value": 175
+      },
+      {
+        "name": "Volume",
+        "value": 0.1,
+        "type": "number"
       }
     ]
   },
@@ -250,6 +311,11 @@
       {
         "name": "Power Pool:",
         "value": 250
+      },
+      {
+        "name": "Volume",
+        "value": 0.1,
+        "type": "number"
       }
     ]
   },
@@ -269,6 +335,11 @@
       {
         "name": "Power Pool:",
         "value": 350
+      },
+      {
+        "name": "Volume",
+        "value": 0.1,
+        "type": "number"
       }
     ]
   },
@@ -292,6 +363,11 @@
       {
         "name": "Power Drain (%):",
         "value": 104
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -311,6 +387,11 @@
       {
         "name": "Power Drain:",
         "value": 14
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -322,7 +403,13 @@
     "tier": 3,
     "rarity": "Common",
     "iconPath": "/images/dune/gui/textures/icons/gameplay/wearables/glowglobes/t_ui_iconwearchoampersonalglowglober_d.webp",
-    "stats": []
+    "stats": [
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
+      }
+    ]
   },
   {
     "slug": "partialstabilizationbelt",
@@ -340,6 +427,11 @@
       {
         "name": "Power Drain:",
         "value": 27
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -359,6 +451,11 @@
       {
         "name": "Power Pool:",
         "value": 150
+      },
+      {
+        "name": "Volume",
+        "value": 0.1,
+        "type": "number"
       }
     ]
   },
@@ -378,6 +475,11 @@
       {
         "name": "Power Pool:",
         "value": 200
+      },
+      {
+        "name": "Volume",
+        "value": 0.1,
+        "type": "number"
       }
     ]
   },
@@ -397,6 +499,11 @@
       {
         "name": "Power Pool:",
         "value": 300
+      },
+      {
+        "name": "Volume",
+        "value": 0.1,
+        "type": "number"
       }
     ]
   },
@@ -416,6 +523,11 @@
       {
         "name": "Power Pool:",
         "value": 400
+      },
+      {
+        "name": "Volume",
+        "value": 0.1,
+        "type": "number"
       }
     ]
   },
@@ -435,6 +547,11 @@
       {
         "name": "Power Pool:",
         "value": 600
+      },
+      {
+        "name": "Volume",
+        "value": 0.1,
+        "type": "number"
       }
     ]
   },
@@ -454,6 +571,11 @@
       {
         "name": "Power Pool:",
         "value": 800
+      },
+      {
+        "name": "Volume",
+        "value": 0.1,
+        "type": "number"
       }
     ]
   },
@@ -473,6 +595,11 @@
       {
         "name": "Power Drain:",
         "value": 27
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -492,6 +619,11 @@
       {
         "name": "Power Drain:",
         "value": 57
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -511,6 +643,11 @@
       {
         "name": "Power Drain:",
         "value": 14
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -530,6 +667,11 @@
       {
         "name": "Power Drain:",
         "value": 14
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -549,6 +691,11 @@
       {
         "name": "Power Drain:",
         "value": 14
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -568,6 +715,11 @@
       {
         "name": "Power Drain:",
         "value": 14
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -587,6 +739,11 @@
       {
         "name": "Power Drain:",
         "value": 14
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -606,6 +763,11 @@
       {
         "name": "Power Drain:",
         "value": 14
+      },
+      {
+        "name": "Volume",
+        "value": 0.2,
+        "type": "number"
       }
     ]
   },
@@ -617,7 +779,13 @@
     "tier": 1,
     "rarity": "Common",
     "iconPath": "/images/dune/gui/textures/icons/gameplay/tools/t_ui_icontool1hchoambackupkey01r_d.webp",
-    "stats": []
+    "stats": [
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ]
   },
   {
     "slug": "repairtool",
@@ -647,6 +815,11 @@
       {
         "name": "Power Consumption",
         "value": 17.5
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ]
   },
@@ -678,6 +851,11 @@
       {
         "name": "Power Consumption",
         "value": 34
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ]
   },
@@ -709,6 +887,11 @@
       {
         "name": "Power Consumption",
         "value": 68.8
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ]
   },
@@ -728,6 +911,11 @@
       {
         "name": "Power Pool:",
         "value": 500
+      },
+      {
+        "name": "Volume",
+        "value": 0.1,
+        "type": "number"
       }
     ]
   },
@@ -747,6 +935,11 @@
       {
         "name": "Power Pool:",
         "value": 700
+      },
+      {
+        "name": "Volume",
+        "value": 0.1,
+        "type": "number"
       }
     ]
   }

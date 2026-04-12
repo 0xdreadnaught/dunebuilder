@@ -103,6 +103,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 590,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -218,6 +223,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 477,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -327,6 +337,11 @@
       {
         "name": "Landsraad Tools Vendor",
         "value": 912,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -438,6 +453,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 698,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -548,6 +568,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 805,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -652,6 +677,11 @@
       {
         "name": "Landsraad Tools Vendor",
         "value": 740,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -758,6 +788,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 607,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -863,6 +898,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 858,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -908,6 +948,11 @@
         "name": "Concussive Mitigation:",
         "value": 12,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -952,6 +997,11 @@
       {
         "name": "Concussive Mitigation:",
         "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -1043,6 +1093,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 683,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1072,6 +1127,11 @@
       {
         "name": "Catchpocket Size:",
         "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
         "type": "number"
       }
     ],
@@ -1163,6 +1223,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 565,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1252,6 +1317,11 @@
       {
         "name": "Landsraad Tools Vendor",
         "value": 807,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1362,6 +1432,11 @@
       {
         "name": "Landsraad Tools Vendor",
         "value": 950,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1478,6 +1553,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 285,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1592,6 +1672,11 @@
       {
         "name": "Landsraad Tools Vendor",
         "value": 215,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1708,6 +1793,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 325,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1822,6 +1912,11 @@
       {
         "name": "Landsraad Tools Vendor",
         "value": 420,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -1938,6 +2033,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 385,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1972,6 +2072,11 @@
       {
         "name": "Fallen Shipwreck",
         "value": 6.9,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
         "type": "number"
       }
     ],
@@ -2068,6 +2173,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 753,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -2162,6 +2272,11 @@
       {
         "name": "Landsraad Tools Vendor",
         "value": 586,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -2258,6 +2373,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 881,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -2297,6 +2417,11 @@
       {
         "name": "Fallen Shipwreck",
         "value": 3.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
         "type": "number"
       }
     ],

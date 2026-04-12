@@ -33,6 +33,11 @@
         "name": "Fallen Shipwreck",
         "value": 3.3,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -142,6 +147,11 @@
       {
         "name": "Landsraad Tools Vendor",
         "value": 750,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -253,6 +263,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 600,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -302,6 +317,11 @@
       {
         "name": "Fallen Shipwreck",
         "value": 5.3,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -413,6 +433,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 850,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -462,6 +487,11 @@
       {
         "name": "Fallen Shipwreck",
         "value": 5.3,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -563,6 +593,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 600,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -662,6 +697,11 @@
       {
         "name": "Landsraad Tools Vendor",
         "value": 500,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -763,6 +803,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 750,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -862,6 +907,11 @@
       {
         "name": "Landsraad Tools Vendor",
         "value": 950,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -963,6 +1013,11 @@
         "name": "Landsraad Tools Vendor",
         "value": 800,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1003,6 +1058,11 @@
         "name": "Heat Protection:",
         "value": 0.5,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1042,6 +1102,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1087,6 +1152,11 @@
       {
         "name": "Fallen Shipwreck",
         "value": 3.3,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
         "type": "number"
       }
     ],
@@ -1138,6 +1208,11 @@
         "name": "Concussive Mitigation:",
         "value": 3,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1182,6 +1257,11 @@
       {
         "name": "Concussive Mitigation:",
         "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1228,6 +1308,11 @@
         "name": "Concussive Mitigation:",
         "value": 6,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1272,6 +1357,11 @@
       {
         "name": "Concussive Mitigation:",
         "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1318,6 +1408,11 @@
         "name": "Concussive Mitigation:",
         "value": 12,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1363,6 +1458,11 @@
         "name": "Concussive Mitigation:",
         "value": 8,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1392,6 +1492,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.9,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1428,6 +1533,11 @@
         "name": "Catchpocket Size:",
         "value": 500,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1458,6 +1568,11 @@
         "name": "Heat Protection:",
         "value": 0.9,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1487,6 +1602,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.9,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1523,6 +1643,11 @@
         "name": "Fallen Shipwreck",
         "value": 5.3,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1552,6 +1677,11 @@
       {
         "name": "Fallen Shipwreck",
         "value": 5.3,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1583,6 +1713,11 @@
         "name": "Fallen Shipwreck",
         "value": 5.3,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1612,6 +1747,11 @@
       {
         "name": "Fallen Shipwreck",
         "value": 5.3,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1653,6 +1793,11 @@
         "name": "Fallen Shipwreck",
         "value": 3.3,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1688,6 +1833,11 @@
         "name": "Fallen Shipwreck",
         "value": 3.3,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1712,6 +1862,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.9,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1743,6 +1898,11 @@
         "name": "Catchpocket Size:",
         "value": 500,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 4,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1768,6 +1928,11 @@
         "name": "Heat Protection:",
         "value": 0.9,
         "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
       }
     ],
     "scaledStats": [],
@@ -1792,6 +1957,11 @@
       {
         "name": "Heat Protection:",
         "value": 0.9,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
         "type": "number"
       }
     ],
@@ -1832,6 +2002,11 @@
       {
         "name": "Fallen Shipwreck",
         "value": 5.3,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 6,
         "type": "number"
       }
     ],
