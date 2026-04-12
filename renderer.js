@@ -1576,10 +1576,11 @@ function showTooltip(slotType) {
       const isWorse = lowerBetter ? finalMin > stat.value : finalMax < stat.value;
       const color = isWorse ? 'var(--color-health)' : 'var(--color-stamina)';
 
-      if (augEff.hasCustom || finalMin === finalMax) {
-        value.innerHTML = `${baseText} <span style="color:${color}">(${formatStatValue(stat.name, finalMin)})</span>`;
-      } else {
+      const isRange = !augEff.hasCustom && augEff.min !== augEff.max;
+      if (isRange) {
         value.innerHTML = `${baseText} <span style="color:${color}">(${formatStatValue(stat.name, finalMin)}–${formatStatValue(stat.name, finalMax)})</span>`;
+      } else {
+        value.innerHTML = `${baseText} <span style="color:${color}">(${formatStatValue(stat.name, finalMin)})</span>`;
       }
     } else {
       value.textContent = baseText;
