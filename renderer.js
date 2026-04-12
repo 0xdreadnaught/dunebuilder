@@ -1312,7 +1312,12 @@ function createAugmentCard(aug) {
     span.className = 'augment-card__effect';
     const statLabel = eff.stat.replace(/:$/, '');
     const suffix = eff.type === 'percent' ? '%' : '%';
-    span.textContent = `${statLabel}: +${bestGrade[0]}${suffix} – ${bestGrade[1]}${suffix}`;
+    const fmtVal = v => (v >= 0 ? `+${v}` : `${v}`);
+    if (bestGrade[0] === bestGrade[1]) {
+      span.textContent = `${statLabel}: ${fmtVal(bestGrade[0])}${suffix}`;
+    } else {
+      span.textContent = `${statLabel}: ${fmtVal(bestGrade[0])}${suffix} to ${fmtVal(bestGrade[1])}${suffix}`;
+    }
     effectsEl.appendChild(span);
   });
 

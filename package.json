@@ -1,6 +1,6 @@
 {
   "name": "dunebuilder",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Character build viewer for Dune: Awakening",
   "main": "main.js",
   "scripts": {
@@ -42,7 +42,10 @@
     ],
     "win": {
       "target": "portable",
-      "icon": "dunebuilder_logo_512.png"
+      "icon": "dunebuilder_logo_512.png",
+      "signtoolOptions": {
+        "certificateSubjectName": "dreadnaught"
+      }
     },
     "portable": {
       "artifactName": "DuneBuilder-${version}.exe"
