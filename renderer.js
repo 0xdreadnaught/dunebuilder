@@ -464,9 +464,9 @@ const appSettings = loadSettings();
 function loadSettings() {
   try {
     const saved = localStorage.getItem('dunebuilder-settings');
-    if (saved) return { showCommons: false, showFormulas: false, showT1: false, showT2: false, showT3: false, showT4: false, showT5: false, showWeaponCommons: false, showWeaponT1: false, showWeaponT2: false, showWeaponT3: false, showWeaponT4: false, showWeaponT5: false, persistWeaponTypeFilter: false, ...JSON.parse(saved) };
+    if (saved) return { showCommons: false, showFormulas: false, showT0: false, showT1: false, showT2: false, showT3: false, showT4: false, showT5: false, showWeaponCommons: false, showWeaponT1: false, showWeaponT2: false, showWeaponT3: false, showWeaponT4: false, showWeaponT5: false, persistWeaponTypeFilter: false, ...JSON.parse(saved) };
   } catch { /* ignore corrupt data */ }
-  return { showCommons: false, showFormulas: false, showT1: false, showT2: false, showT3: false, showT4: false, showT5: false, showWeaponCommons: false, showWeaponT1: false, showWeaponT2: false, showWeaponT3: false, showWeaponT4: false, showWeaponT5: false, persistWeaponTypeFilter: false };
+  return { showCommons: false, showFormulas: false, showT0: false, showT1: false, showT2: false, showT3: false, showT4: false, showT5: false, showWeaponCommons: false, showWeaponT1: false, showWeaponT2: false, showWeaponT3: false, showWeaponT4: false, showWeaponT5: false, persistWeaponTypeFilter: false };
 }
 
 function saveSettings() {
@@ -800,6 +800,7 @@ function openItemPicker(slotEl) {
   }
   currentPickerItems = currentPickerItems.filter(i => {
     const tier = i.tier;
+    if (tier === 0 && !appSettings.showT0) return false;
     if (tier === 1 && !appSettings.showT1) return false;
     if (tier === 2 && !appSettings.showT2) return false;
     if (tier === 3 && !appSettings.showT3) return false;
@@ -1560,7 +1561,14 @@ function showTooltip(slotType) {
       };
       const finalMin = applyAug(stat.value, augEff.min);
       const finalMax = applyAug(stat.value, augEff.max);
-      const isWorse = finalMax < stat.value;
+      const LOWER_IS_BETTER = new Set([
+        'Attack Stamina Cost', 'Block Stamina Cost', 'Dash Stamina Cost',
+        'Climbing Stamina Cost', 'Recoil', 'Projectile spread', 'Volume',
+        'Reload Time', 'Power Consumption', 'Power Consumption (per shot)',
+        'Accuracy', 'Power Drain', 'Sun Stroke Rate',
+      ]);
+      const lowerBetter = LOWER_IS_BETTER.has(key);
+      const isWorse = lowerBetter ? finalMin > stat.value : finalMax < stat.value;
       const color = isWorse ? 'var(--color-health)' : 'var(--color-stamina)';
 
       if (augEff.hasCustom || finalMin === finalMax) {
@@ -2230,7 +2238,7 @@ document.getElementById('setting-show-formulas').addEventListener('change', e =>
   saveSettings();
 });
 
-for (const tier of [1, 2, 3, 4, 5]) {
+for (const tier of [0, 1, 2, 3, 4, 5]) {
   const key = `showT${tier}`;
   const el = document.getElementById(`setting-show-t${tier}`);
   el.checked = appSettings[key];
