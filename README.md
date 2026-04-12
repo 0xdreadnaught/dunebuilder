@@ -16,9 +16,23 @@
 ## Usage Notes:
 
 Right click to specify stat values for ranged augment stats. 
+
 There's a small x in the top left to remove them, ironing out a better solution. 
+
 If you find bugs please report them. The calculations are done through extensive guess work based on available posts and manual testing. 
+
 Most things are hidden by default, check settings.
+
+Files are in `%APPDATA%\dunebuilder`.
+
+
+## To-Do:
+
+Offensive calcs. I need to aggregate a ton of enemy data first. The plan is for some settings to set what mob tier you're attacking for better effective damange calcs. 
+
+If I can work out the AI, there will be some defensive simulation to show how your character handles certain scenarios. 
+
+Consumable use is also planned because why not?
 
 
 ## Download
