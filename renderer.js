@@ -8,6 +8,8 @@ const RESOURCE_KEYS = new Set(['Health', 'Stamina', 'Energy']);
 const LABEL_OVERRIDES = { 'Energy': 'Power' };
 const STAMINA_REGEN_PCT = 0.25; // ~25% of max stamina per second (estimated)
 const STAMINA_REGEN_DELAY = 1.0; // 1.0s delay before regen starts (patch 1.2.10.0)
+const BASE_STATS = { Health: 150, Stamina: 100, Energy: 0 }; // Power=0 until power pack equipped
+const baseCharacterStats = { Health: 150, Stamina: 100, Energy: 0 };
 
 // =============================================
 // PARSING
@@ -154,6 +156,13 @@ function createResourceBar(label, { current, max }, cssKey, regenPerSec, regenDe
     });
   });
 
+  // Right-click to edit base value
+  wrapper.addEventListener('contextmenu', e => {
+    e.preventDefault();
+    const dataKey = (cssKey === 'Energy' || label === 'Power') ? 'Energy' : (cssKey || label);
+    openResourceValuePopup(label, dataKey, e);
+  });
+
   // Click to drain + regen
   let regenAnim = null;
   let regenTimeout = null;
@@ -210,12 +219,9 @@ function renderCharacterPanel(data, itemStats) {
   const powerPool = getEquippedStat('pack', 'power pool');
   const powerRegen = getEquippedStat('pack', 'regen per second');
 
-  if (!data && !itemStats && powerPool === null) {
-    container.innerHTML = '<p class="empty-state">Paste a build to see stats</p>';
-    return;
-  }
-
   let renderedPowerBar = false;
+  let renderedHealth = false;
+  let renderedStamina = false;
 
   if (data) {
     for (const [key, value] of Object.entries(data)) {
@@ -232,6 +238,8 @@ function renderCharacterPanel(data, itemStats) {
           const regen = key === 'Stamina' ? resource.max * STAMINA_REGEN_PCT : null;
           const delay = key === 'Stamina' ? STAMINA_REGEN_DELAY : 0;
           container.appendChild(createResourceBar(displayLabel, resource, key, regen, delay));
+          if (key === 'Health') renderedHealth = true;
+          if (key === 'Stamina') renderedStamina = true;
           continue;
         }
       }
@@ -239,9 +247,23 @@ function renderCharacterPanel(data, itemStats) {
     }
   }
 
-  // Show Power Pool bar even without character panel data
-  if (!renderedPowerBar && powerPool !== null) {
-    container.appendChild(createResourceBar('Power', { current: powerPool, max: powerPool }, 'Energy', powerRegen));
+  // Show base resource bars if not provided by paste data
+  if (!renderedHealth && baseCharacterStats.Health > 0) {
+    const max = baseCharacterStats.Health;
+    container.appendChild(createResourceBar('Health', { current: max, max }, 'Health'));
+    renderedHealth = true;
+  }
+  if (!renderedStamina && baseCharacterStats.Stamina > 0) {
+    const max = baseCharacterStats.Stamina;
+    const regen = max * STAMINA_REGEN_PCT;
+    container.appendChild(createResourceBar('Stamina', { current: max, max }, 'Stamina', regen, STAMINA_REGEN_DELAY));
+    renderedStamina = true;
+  }
+
+  // Show Power Pool bar — 0/0 if no pack equipped
+  if (!renderedPowerBar) {
+    const pp = powerPool || baseCharacterStats.Energy || 0;
+    container.appendChild(createResourceBar('Power', { current: pp, max: pp }, 'Energy', powerRegen));
   }
 
   // Remove Power Pool from equipment stats since it's shown as a bar
@@ -1437,6 +1459,51 @@ function closeAugmentValuePopup() {
   activeAugmentPopup = { slotType: null, dotIndex: null };
 }
 
+// =============================================
+// RESOURCE VALUE POPUP
+// =============================================
+
+let activeResourceKey = null;
+
+function openResourceValuePopup(label, dataKey, event) {
+  activeResourceKey = dataKey;
+  const popup = document.getElementById('resource-value-popup');
+  const input = document.getElementById('resource-value-input');
+  const labelEl = document.getElementById('resource-value-label');
+
+  labelEl.textContent = `Base ${label}`;
+  input.value = baseCharacterStats[dataKey] || '';
+
+  popup.hidden = false;
+  popup.style.left = `${event.clientX}px`;
+  popup.style.top = `${event.clientY}px`;
+
+  requestAnimationFrame(() => {
+    const rect = popup.getBoundingClientRect();
+    if (rect.right > window.innerWidth) popup.style.left = `${window.innerWidth - rect.width - 8}px`;
+    if (rect.bottom > window.innerHeight) popup.style.top = `${window.innerHeight - rect.height - 8}px`;
+  });
+
+  input.focus();
+  input.select();
+}
+
+function closeResourceValuePopup() {
+  document.getElementById('resource-value-popup').hidden = true;
+  activeResourceKey = null;
+}
+
+function saveResourceValue() {
+  if (!activeResourceKey) { closeResourceValuePopup(); return; }
+  const input = document.getElementById('resource-value-input');
+  const val = parseFloat(input.value);
+  if (!isNaN(val) && val >= 0) {
+    baseCharacterStats[activeResourceKey] = val;
+  }
+  closeResourceValuePopup();
+  refreshPanels();
+}
+
 function saveAugmentCustomValue() {
   const { slotType, dotIndex } = activeAugmentPopup;
   const aug = equippedAugments[slotType]?.[dotIndex];
@@ -2165,11 +2232,23 @@ function clearHotbarSlot(slotEl) {
   document.getElementById('augment-value-save').addEventListener('click', saveAugmentCustomValue);
   document.getElementById('augment-value-cancel').addEventListener('click', closeAugmentValuePopup);
 
-  // Close popup on outside click
+  // Resource value popup events
+  document.getElementById('resource-value-save').addEventListener('click', saveResourceValue);
+  document.getElementById('resource-value-cancel').addEventListener('click', closeResourceValuePopup);
+  document.getElementById('resource-value-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') saveResourceValue();
+    if (e.key === 'Escape') closeResourceValuePopup();
+  });
+
+  // Close popups on outside click
   document.addEventListener('mousedown', e => {
-    const popup = document.getElementById('augment-value-popup');
-    if (!popup.hidden && !popup.contains(e.target)) {
+    const augPopup = document.getElementById('augment-value-popup');
+    if (!augPopup.hidden && !augPopup.contains(e.target)) {
       closeAugmentValuePopup();
+    }
+    const resPopup = document.getElementById('resource-value-popup');
+    if (!resPopup.hidden && !resPopup.contains(e.target)) {
+      closeResourceValuePopup();
     }
   });
 
@@ -2184,7 +2263,8 @@ function clearHotbarSlot(slotEl) {
     }
   });
 
-  // Hotbar selection: mouse wheel cycles occupied slots
+  // Initial render of character panel with base stats
+  refreshPanels();
 })();
 
 // =============================================
@@ -2324,6 +2404,7 @@ function exportBuild() {
 
   const exportData = { slots };
   if (Object.keys(hotbar).length > 0) exportData.hotbar = hotbar;
+  exportData.baseStats = { ...baseCharacterStats };
 
   if (lastCharacterPanel) {
     exportData.characterPanel = {};
@@ -2354,6 +2435,15 @@ function exportToClipboard() {
 // =============================================
 
 function applyBuildData(data) {
+  // Restore base stats if saved, otherwise reset to defaults
+  if (data.baseStats) {
+    Object.assign(baseCharacterStats, data.baseStats);
+  } else {
+    baseCharacterStats.Health = BASE_STATS.Health;
+    baseCharacterStats.Stamina = BASE_STATS.Stamina;
+    baseCharacterStats.Energy = BASE_STATS.Energy;
+  }
+
   // Clear all existing state
   for (const key of Object.keys(equippedItems)) delete equippedItems[key];
   for (const key of Object.keys(equippedGrades)) delete equippedGrades[key];
