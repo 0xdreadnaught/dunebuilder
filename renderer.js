@@ -1847,7 +1847,9 @@ function showAugmentTooltip(slotType, dotIndex) {
 }
 
 function showFormulaTooltip(label, value, formula) {
+  if (tooltipClearTimer) { clearTimeout(tooltipClearTimer); tooltipClearTimer = null; }
   const panel = document.getElementById('tooltip-panel');
+  panel.style.flex = '';
   panel.innerHTML = '';
 
   const nameEl = document.createElement('div');
