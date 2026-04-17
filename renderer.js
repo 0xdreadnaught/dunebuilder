@@ -1325,9 +1325,15 @@ function createAugmentCard(aug) {
 
   (aug.tradeoffs || []).forEach(t => {
     const span = document.createElement('span');
-    span.className = 'augment-card__tradeoff';
-    const statLabel = t.stat.replace(/:$/, '');
-    span.textContent = `${statLabel}: ${t.value}%`;
+    const statKey = t.stat.replace(/:$/, '');
+    const LOWER_BETTER_T = new Set([
+      'Reload Time', 'Recoil', 'Volume', 'Power Consumption (per shot)',
+      'Accuracy', 'Projectile spread',
+    ]);
+    const isBuff = LOWER_BETTER_T.has(statKey) ? t.value < 0 : t.value > 0;
+    span.className = isBuff ? 'augment-card__effect' : 'augment-card__tradeoff';
+    const fmtVal = v => (v >= 0 ? `+${v}` : `${v}`);
+    span.textContent = `${statKey}: ${fmtVal(t.value)}%`;
     effectsEl.appendChild(span);
   });
 
@@ -1716,8 +1722,15 @@ function showTooltip(slotType) {
           label.textContent = t.stat.replace(/:$/, '');
           const value = document.createElement('span');
           value.className = 'stat-value';
-          value.style.color = 'var(--color-health)';
-          value.textContent = `${t.value}%`;
+          const LOWER_BETTER_TRADEOFF = new Set([
+            'Reload Time', 'Recoil', 'Volume', 'Power Consumption (per shot)',
+            'Accuracy', 'Projectile spread',
+          ]);
+          const statKey = t.stat.replace(/:$/, '');
+          const isBuff = LOWER_BETTER_TRADEOFF.has(statKey) ? t.value < 0 : t.value > 0;
+          value.style.color = isBuff ? 'var(--color-stamina)' : 'var(--color-health)';
+          const fmtVal = v => (v >= 0 ? `+${v}` : `${v}`);
+          value.textContent = `${fmtVal(t.value)}%`;
           row.appendChild(label);
           row.appendChild(value);
           augSection.appendChild(row);

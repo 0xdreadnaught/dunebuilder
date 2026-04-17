@@ -420,7 +420,7 @@
       },
       {
         "stat": "Reload Time:",
-        "value": 6.0
+        "value": -6.0
       },
       {
         "stat": "Damage:",
@@ -782,7 +782,7 @@
       },
       {
         "stat": "Reload Time:",
-        "value": 6.0
+        "value": -6.0
       }
     ]
   },
@@ -1197,7 +1197,7 @@
       },
       {
         "stat": "Reload Time:",
-        "value": 4.0
+        "value": -4.0
       }
     ]
   },
@@ -1237,7 +1237,7 @@
       },
       {
         "stat": "Fire Damage Over Time:",
-        "value": -300.0
+        "value": 300.0
       }
     ]
   },
@@ -2071,7 +2071,7 @@
       },
       {
         "stat": "Poison Damage Over Time:",
-        "value": -100.0
+        "value": 100.0
       }
     ]
   },
@@ -2180,7 +2180,7 @@
       },
       {
         "stat": "Reload Time:",
-        "value": 4.0
+        "value": -4.0
       }
     ]
   },
@@ -2827,7 +2827,7 @@
       },
       {
         "stat": "Reload Time:",
-        "value": 6.0
+        "value": -6.0
       }
     ]
   },
@@ -3224,7 +3224,7 @@
       },
       {
         "stat": "Reload Time:",
-        "value": 4.0
+        "value": -4.0
       }
     ]
   },
@@ -3334,7 +3334,7 @@
       },
       {
         "stat": "Reload Time:",
-        "value": 4.0
+        "value": -4.0
       }
     ]
   },
@@ -3467,7 +3467,7 @@
       },
       {
         "stat": "Reload Time:",
-        "value": 4.0
+        "value": -4.0
       }
     ]
   },
@@ -3583,7 +3583,7 @@
     "tradeoffs": [
       {
         "stat": "Reload Time:",
-        "value": 2.0
+        "value": -2.0
       }
     ]
   },
@@ -3851,7 +3851,7 @@
       },
       {
         "stat": "Reload Time:",
-        "value": 6.0
+        "value": -6.0
       }
     ]
   },
@@ -4110,7 +4110,7 @@
       },
       {
         "stat": "Reload Time:",
-        "value": 4.0
+        "value": -4.0
       }
     ]
   },
