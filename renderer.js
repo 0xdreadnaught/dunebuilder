@@ -308,10 +308,11 @@ function renderDefCalcs(container, equipped) {
   container.appendChild(ehpHeading);
 
   const maxHealth = lastCharacterPanel?.Health
-    ? (parseResource(lastCharacterPanel.Health)?.max ?? null) : null;
+    ? (parseResource(lastCharacterPanel.Health)?.max ?? null)
+    : (baseCharacterStats.Health > 0 ? baseCharacterStats.Health : null);
 
   const totalArmor = equipped['Armor Value'] ?? 0;
-  const armorMit = totalArmor > 0 ? (totalArmor / (totalArmor + 500)) * 100 : null;
+  const armorMit = (totalArmor / (totalArmor + 500)) * 100;
 
   const DAMAGE_TYPES = [
     ['vs Light Dart',  'Light Dart Mitigation'],
@@ -321,35 +322,14 @@ function renderDefCalcs(container, equipped) {
     ['vs Concussive',  'Concussive Mitigation'],
   ];
 
-  const hasArmor  = armorMit !== null;
-  const hasHealth = maxHealth !== null;
-
-  if (!hasArmor && !hasHealth) {
-    const noData = document.createElement('p');
-    noData.className = 'empty-state';
-    noData.textContent = 'Equip gear or paste a build to see EHP';
-    container.appendChild(noData);
-  } else if (!hasHealth) {
-    container.appendChild(createStatRow('Armor Mitigation',
-      `${Math.round(armorMit * 10) / 10}%`,
-      `Armor / (Armor + 500)\n${totalArmor} / (${totalArmor} + 500) = ${(armorMit / 100).toFixed(4)}`));
-    const noHp = document.createElement('p');
-    noHp.className = 'empty-state';
-    noHp.textContent = 'Paste a build to see EHP (need Health)';
-    container.appendChild(noHp);
-  } else if (!hasArmor) {
-    const noArmor = document.createElement('p');
-    noArmor.className = 'empty-state';
-    noArmor.textContent = 'Equip armor to see EHP';
-    container.appendChild(noArmor);
-  } else {
+  if (maxHealth !== null) {
     const ehpFromMit = (armorPct, typePct) => {
       const armorMul = Math.max(0.001, 1 - armorPct / 100);
       const typeMul  = 1 - typePct / 100;
       return Math.round(maxHealth / (armorMul * typeMul));
     };
 
-    container.appendChild(createStatRow('Armor Mitigation',
+    container.appendChild(createStatRow('Damage Reduction',
       `${Math.round(armorMit * 10) / 10}%`,
       `Armor / (Armor + 500)\n${totalArmor} / (${totalArmor} + 500) = ${(armorMit / 100).toFixed(4)}`));
     container.appendChild(createStatRow('vs Physical',
@@ -379,7 +359,7 @@ function renderDefCalcs(container, equipped) {
   const BASE_DASH_COST = 30;
   const maxStamina = lastCharacterPanel?.Stamina
     ? (parseResource(lastCharacterPanel.Stamina)?.max ?? null)
-    : null;
+    : (baseCharacterStats.Stamina > 0 ? baseCharacterStats.Stamina : null);
   const skillDashRaw = lastSkillBonuses?.['Dash Stamina Cost'];
   const skillDashMod = skillDashRaw != null ? (parseFloat(String(skillDashRaw)) || 0) : 0;
   const gearDashMod  = equipped['Dash Stamina Cost'] ?? 0;
