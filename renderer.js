@@ -1,5 +1,10 @@
 'use strict';
 
+// Compact layout flag: set by main.js via ?compact=1 when display is short.
+if (new URLSearchParams(location.search).get('compact') === '1') {
+  document.documentElement.classList.add('compact-layout');
+}
+
 // =============================================
 // CONSTANTS
 // =============================================
@@ -714,8 +719,8 @@ function aggregateEquippedStats() {
 
           keys.forEach(key => {
             const baseVal = itemStats[key] || 0;
-            if (baseVal === 0) return; // Don't apply to stats the item doesn't have
             if (eff.type === 'percent') {
+              if (baseVal === 0) return; // Percent of nothing is nothing
               itemStats[key] = baseVal * (1 + effectVal / 100);
             } else {
               itemStats[key] = baseVal + effectVal;
@@ -731,6 +736,7 @@ function aggregateEquippedStats() {
           keys.forEach(key => {
             const baseVal = itemStats[key] || 0;
             if (isPercent) {
+              if (baseVal === 0) return; // Percent of nothing is nothing
               itemStats[key] = baseVal * (1 + t.value / 100);
             } else {
               itemStats[key] = baseVal + t.value;

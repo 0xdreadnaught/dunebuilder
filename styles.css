@@ -596,7 +596,7 @@ body {
   padding: var(--spacing-md);
   align-content: center;
   justify-content: center;
-  overflow-y: auto;
+  overflow: hidden;
   min-height: 0;
 }
 
@@ -1141,6 +1141,45 @@ body {
   width: 127px;
   height: calc(5 * 143px + 4 * 9px - 16px);
   object-fit: contain;
+}
+
+/* =============================================
+   COMPACT LAYOUT — for displays under 1080p
+   Switches armor grid from 2×5 to 3×4 so the
+   center column fits in shorter viewports.
+   ============================================= */
+.compact-layout .armor-layout {
+  grid-template-columns: repeat(3, 143px);
+  grid-template-rows: repeat(4, 143px);
+  grid-auto-flow: row;
+  grid-template-areas:
+    "helm   boots     pack"
+    "chest  holtzman  null2"
+    "pants  belt      .    "
+    "gloves null1     .    ";
+}
+
+.compact-layout .slot--helm     { grid-area: helm; }
+.compact-layout .slot--chest    { grid-area: chest; }
+.compact-layout .slot--pants    { grid-area: pants; }
+.compact-layout .slot--gloves   { grid-area: gloves; }
+.compact-layout .slot--boots    { grid-area: boots; }
+.compact-layout .slot--holtzman { grid-area: holtzman; }
+.compact-layout .slot--belt     { grid-area: belt; }
+.compact-layout .slot--pack     { grid-area: pack; }
+.compact-layout .slot--null:first-of-type { grid-area: null1; }
+.compact-layout .slot--null:last-of-type  { grid-area: null2; }
+
+/* Radsuit override for compact: helm icon stretches 4 rows instead of 5.
+   In compact, accessories already land in cols 2/3 via grid-area. */
+.compact-layout .armor-layout.radsuit-active .slot--holtzman,
+.compact-layout .armor-layout.radsuit-active .slot--belt,
+.compact-layout .armor-layout.radsuit-active .slot--pack,
+.compact-layout .armor-layout.radsuit-active .slot--null {
+  grid-column: auto;
+}
+.compact-layout .armor-layout.radsuit-active .slot--helm .armor-slot__icon {
+  height: calc(4 * 143px + 3 * 9px - 16px);
 }
 
 /* =============================================

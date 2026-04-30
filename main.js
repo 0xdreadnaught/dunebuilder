@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, clipboard, Menu, shell, dialog } = require('electron');
+const { app, BrowserWindow, ipcMain, clipboard, Menu, shell, dialog, screen } = require('electron');
 const path = require('node:path');
 const fs = require('node:fs');
 const https = require('node:https');
@@ -8,9 +8,12 @@ const GITHUB_REPO = '0xdreadnaught/dunebuilder';
 const CURRENT_VERSION = require('./package.json').version;
 
 function createWindow() {
+  const { workAreaSize } = screen.getPrimaryDisplay();
+  const useCompact = workAreaSize.height < 1080;
+
   const win = new BrowserWindow({
-    width: 1020,
-    height: 1050,
+    width: useCompact ? 1180 : 1020,
+    height: useCompact ? Math.min(860, workAreaSize.height - 80) : 1050,
     resizable: false,
     icon: path.join(__dirname, 'dunebuilder_logo_512.png'),
     backgroundColor: '#0d0b08',
@@ -23,7 +26,7 @@ function createWindow() {
   });
 
   Menu.setApplicationMenu(null);
-  win.loadFile('index.html');
+  win.loadFile('index.html', useCompact ? { search: 'compact=1' } : {});
 }
 
 app.whenReady().then(() => {
