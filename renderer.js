@@ -2825,28 +2825,32 @@ const engineIniState = {
 };
 
 function parseEngineIni(text) {
-  const lines = (text || '').split(/\r?\n/);
+  const raw = text || '';
+  // Detect whether the file uses CRLF; we'll preserve that on write.
+  const usesCRLF = /\r\n/.test(raw);
+  const lines = raw.split(/\r?\n/);
   const sections = [{ name: null, lines: [] }];
   for (const line of lines) {
     const m = line.match(/^\s*\[([^\]]+)\]\s*$/);
     if (m) sections.push({ name: m[1], lines: [] });
     else sections[sections.length - 1].lines.push(line);
   }
+  // Stash line-ending preference on the first section so the serializer can read it back.
+  sections._eol = usesCRLF ? '\r\n' : '\n';
   return sections;
 }
 
 function serializeEngineIni(sections) {
+  const eol = sections._eol || '\r\n'; // default to CRLF on Windows
   const out = [];
-  sections.forEach((sec, idx) => {
+  sections.forEach((sec) => {
     if (sec.name !== null) {
-      // Ensure a blank line before section headers if previous output didn't end with one
       if (out.length && out[out.length - 1].trim() !== '') out.push('');
       out.push(`[${sec.name}]`);
     }
     for (const line of sec.lines) out.push(line);
   });
-  // Always end with a newline
-  return out.join('\n').replace(/\n*$/, '\n');
+  return out.join(eol).replace(/(\r?\n)*$/, eol);
 }
 
 function parseSystemSettingsEntries(sectionLines) {
@@ -2903,18 +2907,26 @@ async function refreshEngineIniFromDisk() {
 
 function buildEngineIniText() {
   const sections = engineIniState.parsedSections.map(s => ({ name: s.name, lines: [...s.lines] }));
+  // Preserve the original eol preference detected at parse time
+  sections._eol = engineIniState.parsedSections._eol;
+
   const managedName = ENGINE_CVAR_CATALOG.managedSection;
-  let managed = sections.find(
+  const managedIdx = sections.findIndex(
     s => s.name && s.name.toLowerCase() === managedName.toLowerCase()
   );
-  if (!managed) {
-    managed = { name: managedName, lines: [] };
-    sections.push(managed);
-  }
-  // Replace section content with current included list (catalog entries first, then unknowns preserved)
   const lines = engineIniState.included.map(c => `${c.name}=${c.value}`);
-  if (lines.length) lines.push('');
-  managed.lines = lines;
+
+  if (lines.length === 0) {
+    // No managed cvars: don't emit an empty section. Drop it if it existed.
+    if (managedIdx !== -1) sections.splice(managedIdx, 1);
+  } else {
+    lines.push('');
+    if (managedIdx === -1) {
+      sections.push({ name: managedName, lines });
+    } else {
+      sections[managedIdx].lines = lines;
+    }
+  }
   return serializeEngineIni(sections);
 }
 
