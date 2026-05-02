@@ -14,4 +14,10 @@ contextBridge.exposeInMainWorld('electronAPI', {
   saveBuildFile: (filepath, data) => ipcRenderer.invoke('builds:save', filepath, data),
   saveDialog: (defaultName) => ipcRenderer.invoke('builds:saveDialog', defaultName),
   loadDialog: () => ipcRenderer.invoke('builds:loadDialog'),
+  // Engine.ini
+  engineIni: {
+    read:   ()     => ipcRenderer.invoke('engineIni:read'),
+    write:  (text) => ipcRenderer.invoke('engineIni:write', text),
+    reveal: ()     => ipcRenderer.invoke('engineIni:reveal'),
+  },
 });

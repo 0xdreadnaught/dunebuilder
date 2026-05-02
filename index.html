@@ -251,8 +251,58 @@
             <input type="checkbox" id="setting-persist-weapon-filter">
             <span class="settings-toggle__label">Persist Weapon Type Filter</span>
           </label>
+          <button id="open-engine-ini-btn" class="settings-action-btn">Engine.ini Reference…</button>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Engine.ini reference modal -->
+  <div id="engine-ini-overlay" class="engine-ini-overlay">
+    <div class="engine-ini-modal">
+      <div class="engine-ini-header">
+        <div class="engine-ini-title-group">
+          <span class="engine-ini-title">Engine.ini Reference</span>
+          <span id="engine-ini-subtitle" class="engine-ini-subtitle"></span>
+        </div>
+        <button id="engine-ini-close" class="modal-close" aria-label="Close">×</button>
+      </div>
+      <div id="engine-ini-empty" class="engine-ini-empty" hidden>
+        <p>Engine.ini not found at the expected location.</p>
+        <p class="engine-ini-empty__hint">Launch Dune at least once to generate the file, then re-open this panel.</p>
+      </div>
+      <div id="engine-ini-filters" class="engine-ini-filters"></div>
+      <div id="engine-ini-body" class="engine-ini-body">
+        <div class="engine-ini-col engine-ini-col--available">
+          <div class="engine-ini-col-header">
+            <span class="engine-ini-col-title">Available</span>
+            <span id="engine-ini-available-count" class="engine-ini-col-count"></span>
+          </div>
+          <div class="engine-ini-col-toolbar">
+            <input type="text" id="engine-ini-search-available" class="engine-ini-search" placeholder="Search name or description…">
+          </div>
+          <div id="engine-ini-available-list" class="engine-ini-col-list"></div>
+        </div>
+        <div class="engine-ini-col engine-ini-col--included">
+          <div class="engine-ini-col-header">
+            <span class="engine-ini-col-title">In Engine.ini</span>
+            <span id="engine-ini-included-count" class="engine-ini-col-count"></span>
+          </div>
+          <div class="engine-ini-col-toolbar">
+            <input type="text" id="engine-ini-search-included" class="engine-ini-search" placeholder="Filter included…">
+          </div>
+          <div id="engine-ini-included-list" class="engine-ini-col-list"></div>
+        </div>
+      </div>
+      <div class="engine-ini-footer">
+        <span id="engine-ini-status" class="engine-ini-status">drag between columns · Apply writes Engine.ini</span>
+        <div class="engine-ini-footer-actions">
+          <button id="engine-ini-revert" class="engine-ini-btn">Revert</button>
+          <button id="engine-ini-reveal" class="engine-ini-btn">Open in Explorer</button>
+          <button id="engine-ini-apply" class="engine-ini-btn engine-ini-btn--primary">Apply</button>
+        </div>
+      </div>
+      <div id="engine-ini-tooltip" class="engine-ini-tooltip" hidden></div>
     </div>
   </div>
 

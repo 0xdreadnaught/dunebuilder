@@ -111,6 +111,39 @@ app.whenReady().then(() => {
     return filePaths[0];
   });
 
+  // --- Engine.ini (Dune Awakening) ---
+  const localAppData = process.env.LOCALAPPDATA
+    || path.join(require('node:os').homedir(), 'AppData', 'Local');
+  const engineIniPath = path.join(
+    localAppData, 'DuneSandbox', 'Saved', 'Config', 'WindowsClient', 'Engine.ini'
+  );
+
+  ipcMain.handle('engineIni:read', () => {
+    try {
+      const text = fs.readFileSync(engineIniPath, 'utf-8');
+      return { path: engineIniPath, exists: true, text };
+    } catch (err) {
+      return { path: engineIniPath, exists: false, text: null };
+    }
+  });
+
+  ipcMain.handle('engineIni:write', async (_, text) => {
+    try {
+      await fs.promises.mkdir(path.dirname(engineIniPath), { recursive: true });
+      await fs.promises.writeFile(engineIniPath, text, 'utf-8');
+      return { success: true };
+    } catch (err) {
+      return { success: false, error: err.message };
+    }
+  });
+
+  ipcMain.handle('engineIni:reveal', () => {
+    try {
+      shell.showItemInFolder(engineIniPath);
+      return true;
+    } catch { return false; }
+  });
+
   createWindow();
 
   app.on('activate', () => {
