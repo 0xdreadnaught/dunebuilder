@@ -24,6 +24,8 @@
       </div>
       <button id="export-btn" class="btn-primary">Export</button>
       <button id="paste-btn" class="btn-primary">Paste Build</button>
+      <button id="open-engine-ini-btn" class="btn-icon" aria-label="Engine.ini Reference" title="Engine.ini Reference"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8V5M11 5H17M6 12H3M3 9V15M21 11V19M9 12H9.01M12 12H12.01M15 12H15.01M6 8V16H8L10 19H18V10L16 8H6Z"/></svg></button>
+      <button id="open-qr-builder-btn" class="btn-icon" aria-label="QR Code Builder" title="QR Code Builder"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8,21H4a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H8a1,1,0,0,0,0-2Zm14-6a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H16a1,1,0,0,0,0,2h4a3,3,0,0,0,3-3V16A1,1,0,0,0,22,15ZM20,1H16a1,1,0,0,0,0,2h4a1,1,0,0,1,1,1V8a1,1,0,0,0,2,0V4A3,3,0,0,0,20,1ZM2,9A1,1,0,0,0,3,8V4A1,1,0,0,1,4,3H8A1,1,0,0,0,8,1H4A3,3,0,0,0,1,4V8A1,1,0,0,0,2,9Zm8-4H6A1,1,0,0,0,5,6v4a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V6A1,1,0,0,0,10,5ZM9,9H7V7H9Zm5,2h4a1,1,0,0,0,1-1V6a1,1,0,0,0-1-1H14a1,1,0,0,0-1,1v4A1,1,0,0,0,14,11Zm1-4h2V9H15Zm-5,6H6a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V14A1,1,0,0,0,10,13ZM9,17H7V15H9Zm5-1h.01a1,1,0,0,0,0-2H14a1,1,0,0,0,0,2Zm4-3a1,1,0,0,0-1,1v3a1,1,0,0,0,2,0V14A1,1,0,0,0,18,13Zm-4,4h.01a1,1,0,0,0,0-2H14a1,1,0,0,0,0,2Z"/></svg></button>
       <button id="settings-btn" class="btn-icon" aria-label="Settings" title="Settings">⚙</button>
     </div>
   </header>
@@ -251,7 +253,6 @@
             <input type="checkbox" id="setting-persist-weapon-filter">
             <span class="settings-toggle__label">Persist Weapon Type Filter</span>
           </label>
-          <button id="open-engine-ini-btn" class="settings-action-btn">Engine.ini Reference…</button>
         </div>
       </div>
     </div>
@@ -306,6 +307,60 @@
     </div>
   </div>
 
+  <!-- QR Code Builder modal -->
+  <div id="qr-builder-overlay" class="qr-builder-overlay">
+    <div class="qr-builder-modal">
+      <div class="qr-builder-header">
+        <span class="qr-builder-title">QR Code Builder</span>
+        <button id="qr-builder-close" class="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="qr-builder-controls">
+        <label class="qr-ctl">
+          <span class="qr-ctl__label">URL</span>
+          <input type="text" id="qr-url-input" class="qr-url-input" placeholder="https://discord.gg/3sfZ7vpeXa" maxlength="32" spellcheck="false" autocomplete="off">
+        </label>
+        <label class="qr-ctl qr-ctl--qz">
+          <span class="qr-ctl__label">Border tiles: <span id="qr-qz-label">2</span></span>
+          <input type="range" id="qr-qz-input" min="0" max="4" value="2">
+        </label>
+        <label class="qr-ctl">
+          <span class="qr-ctl__label">Row 0 =</span>
+          <select id="qr-direction" class="qr-direction">
+            <option value="bottom" selected>bottom row</option>
+            <option value="top">top row</option>
+          </select>
+        </label>
+        <button id="qr-generate-btn" class="engine-ini-btn engine-ini-btn--primary">Generate</button>
+        <span id="qr-status" class="qr-status"></span>
+      </div>
+      <div class="qr-builder-body">
+        <div class="qr-canvas-wrap">
+          <canvas id="qr-canvas"></canvas>
+          <p class="qr-canvas-hint">Click a row to jump to it</p>
+        </div>
+        <div class="qr-panel">
+          <div class="qr-nav">
+            <button id="qr-prev-btn" class="engine-ini-btn">&larr; prev</button>
+            <span id="qr-row-label" class="qr-row-label">&mdash;</span>
+            <button id="qr-next-btn" class="engine-ini-btn">next &rarr;</button>
+          </div>
+          <div id="qr-runs" class="qr-runs"></div>
+          <div id="qr-row-tally" class="qr-row-tally"></div>
+          <div id="qr-grand-totals" class="qr-grand-totals"></div>
+          <div id="qr-progress" class="qr-progress"></div>
+          <div class="qr-info-box">
+            <strong>Build order:</strong> Row 0 is the row you place first &mdash; pick which end that is with the &ldquo;Row 0 =&rdquo; control above; each &ldquo;next&rdquo; moves one row toward the far end.<br>
+            <strong>Reading a row:</strong> the runs read left &rarr; right matching the code shown above (col 0 = left edge).<br>
+            <strong>Progress bar:</strong> the grid spotlights the row you're on; the strip below tracks your spot &mdash; rows you've passed are gold, the current row is purple, rows ahead are empty &mdash; click any square to jump to that row.<br>
+            <span class="qr-legend"><span class="qr-run qr-run--dark">N</span> = N dark tiles in a row &nbsp;<span class="qr-run qr-run--light">N</span> = N light tiles</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script defer src="qr-encode.js"></script>
+  <script defer src="qr-builder.js"></script>
   <script defer src="renderer.js"></script>
 </body>
 </html>

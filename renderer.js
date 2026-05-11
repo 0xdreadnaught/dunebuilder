@@ -325,6 +325,7 @@ function renderDefCalcs(container, equipped) {
     ['vs Energy',      'Energy Mitigation'],
     ['vs Blade',       'Blade Mitigation'],
     ['vs Concussive',  'Concussive Mitigation'],
+    ['vs Fire',        'Fire Mitigation'],
   ];
 
   if (maxHealth !== null) {
@@ -346,13 +347,32 @@ function renderDefCalcs(container, equipped) {
       const pasteMit = lastBuildTotals?.[key] != null
         ? (parseFloat(String(lastBuildTotals[key])) || 0) : 0;
       const totalMit = gearMit + pasteMit;
-      if (totalMit === 0) return;
       const armorMul = Math.max(0.001, 1 - armorMit / 100);
       const typeMul  = 1 - totalMit / 100;
       container.appendChild(createStatRow(label,
         ehpFromMit(armorMit, totalMit).toLocaleString(),
         `Health / ((DMG - ArmorMit%) × (DMG - TypeMit%))\n${maxHealth} / (${armorMul.toFixed(4)} × ${typeMul.toFixed(4)}) = ${ehpFromMit(armorMit, totalMit)}`));
     });
+
+    // Radiation: not HP damage — a 150,000-rad poisoning meter that fills at a flat rate per zone level,
+    // linearly slowed by Radiation Mitigation. Headline shows the range: worst zone (L3) → lightest (L1).
+    const RAD_CAPACITY = 150000;
+    const RAD_RATES = [['L1', 1500], ['L2', 3000], ['L3', 15000]];
+    const radMit = (equipped['Radiation Mitigation'] ?? 0)
+      + (lastBuildTotals?.['Radiation Mitigation'] != null ? (parseFloat(String(lastBuildTotals['Radiation Mitigation'])) || 0) : 0);
+    const radMul = 1 - radMit / 100;
+    const fmtRadTime = secs => {
+      if (!isFinite(secs) || secs <= 0) return '∞';
+      const total = Math.round(secs), m = Math.floor(total / 60), s = total % 60;
+      return m > 0 ? (s > 0 ? `${m}m${s}s` : `${m}m`) : `${s}s`;
+    };
+    const radSurvival = base => radMul <= 0 ? Infinity : RAD_CAPACITY / (base * radMul);
+    container.appendChild(createStatRow('vs Radiation',
+      `${fmtRadTime(radSurvival(15000))} - ${fmtRadTime(radSurvival(1500))}`,
+      `${RAD_CAPACITY.toLocaleString()} rad capacity / (zone rate × (1 - RadMit%))\n` +
+      `RadMit ${radMit}% → ${Math.round(radMul * 100)}% of base fill rate\n` +
+      RAD_RATES.map(([lvl, base]) => `${lvl} (${base}/s): ${fmtRadTime(radSurvival(base))}`).join('  ·  ') +
+      `\nshown: L3 (worst zone) - L1 (lightest)`));
   }
 
   // --- Stamina / Dash section (green — matches Stamina) ---
@@ -691,7 +711,9 @@ function aggregateEquippedStats() {
       if (seenArmor.has(item.slug)) return;
       seenArmor.add(item.slug);
     }
-    const grade = equippedGrades[slotType] || 0;
+    // A rad suit occupies all 5 armor slots; its grade and augments live on the 'helm' key.
+    const stateSlot = item.slot === 'radsuit' ? 'helm' : slotType;
+    const grade = equippedGrades[stateSlot] || 0;
     const stats = (grade > 0 && item.scaledStats?.[grade - 1] && Object.keys(item.scaledStats[grade - 1]).length > 0)
       ? mergeBaseWithScaled(item.stats, item.scaledStats[grade - 1])
       : item.stats;
@@ -705,7 +727,7 @@ function aggregateEquippedStats() {
     });
 
     // Apply augment effects to this item's stats only
-    const augSlots = equippedAugments[slotType];
+    const augSlots = equippedAugments[stateSlot];
     if (augSlots) {
       augSlots.forEach(aug => {
         if (!aug || !aug.slug) return;
@@ -1220,7 +1242,7 @@ function refreshAugmentDots(slotType, expandDotIndex) {
     if (existing) existing.remove();
     const item = equippedItems[slotType];
     const isGradeable = GARMENT_SLOTS.has(slotType) || HOTBAR_SLOTS.has(slotType);
-    if (item && isGradeable && item.slot !== 'radsuit' && item.scaledStats?.length && item.rarity === 'Unique') {
+    if (item && isGradeable && item.scaledStats?.length && item.rarity === 'Unique' && (item.slot !== 'radsuit' || slotType === 'helm')) {
       const dots = createAugmentDots(slotType);
       slotEl.appendChild(dots);
       if (expandDotIndex != null) {
@@ -1906,7 +1928,8 @@ function updateSlotDisplay(slotEl, item) {
   slotEl.appendChild(clearBtn);
 
   const slotType = getSlotType(slotEl);
-  if (slotType && GARMENT_SLOTS.has(slotType) && item.slot !== 'radsuit' && item.scaledStats?.length) {
+  // A rad suit is rendered on the 'helm' position; its grade ring / augment dots live there.
+  if (slotType && GARMENT_SLOTS.has(slotType) && item.scaledStats?.length) {
     slotEl.appendChild(createGradeRing(slotType));
     // Augment dots only for Unique garments
     if (item.rarity === 'Unique') {
