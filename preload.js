@@ -12,7 +12,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
   downloadUpdate:     ()   => ipcRenderer.invoke('update:download'),
   installUpdate:      ()   => ipcRenderer.invoke('update:install'),
   // Builds
-  getBuildsDir: () => ipcRenderer.invoke('builds:dir'),
   listBuilds: () => ipcRenderer.invoke('builds:list'),
   loadBuildFile: (filepath) => ipcRenderer.invoke('builds:load', filepath),
   deleteBuildFile: (filepath) => ipcRenderer.invoke('builds:delete', filepath),

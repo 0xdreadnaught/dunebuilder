@@ -45,8 +45,6 @@ app.whenReady().then(() => {
   const buildsDir = path.join(app.getPath('appData'), 'DuneBuilder', 'builds');
   fs.mkdirSync(buildsDir, { recursive: true });
 
-  ipcMain.handle('builds:dir', () => buildsDir);
-
   ipcMain.handle('builds:list', () => {
     try {
       const files = fs.readdirSync(buildsDir).filter(f => f.endsWith('.dbf'));

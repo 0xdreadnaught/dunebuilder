@@ -579,6 +579,23 @@ const FLAT_STATS = new Set([
   'recoil', 'projectile spread', 'volume',
 ]);
 
+// Stats where a lower numeric value is better (used in tooltip coloring).
+// LOWER_IS_BETTER is the superset; tradeoff call sites use the subset (weapon-centric stats only).
+const LOWER_IS_BETTER = new Set([
+  'Attack Stamina Cost', 'Block Stamina Cost', 'Dash Stamina Cost',
+  'Climbing Stamina Cost', 'Recoil', 'Projectile spread', 'Volume',
+  'Reload Time', 'Power Consumption', 'Power Consumption (per shot)',
+  'Accuracy', 'Power Drain', 'Sun Stroke Rate',
+]);
+// Subset used for weapon tradeoff coloring (augment cards and augment tooltip).
+const LOWER_BETTER_TRADEOFF_STATS = new Set([
+  'Reload Time', 'Recoil', 'Volume', 'Power Consumption (per shot)',
+  'Accuracy', 'Projectile spread',
+]);
+
+// Stats whose tradeoff values are percentage-based (not flat).
+const PERCENT_TRADEOFFS = new Set(['Volume', 'Rate of Fire', 'Reload Time', 'Recoil', 'Power Consumption (per shot)']);
+
 function formatStatValue(name, value) {
   if (typeof value !== 'number') return String(value);
   const n = name.toLowerCase().replace(/:$/, '');
@@ -763,7 +780,6 @@ function aggregateEquippedStats() {
         });
 
         // Tradeoffs apply to the item
-        const PERCENT_TRADEOFFS = new Set(['Volume', 'Rate of Fire', 'Reload Time', 'Recoil', 'Power Consumption (per shot)']);
         (augData.tradeoffs || []).forEach(t => {
           const keys = expandStatKey(t.stat.replace(/:$/, ''));
           const isPercent = PERCENT_TRADEOFFS.has(t.stat.replace(/:$/, ''));
@@ -1116,10 +1132,9 @@ function createAppliedAugmentDot(slotType, dotIndex, augment) {
     openAugmentValuePopup(slotType, dotIndex, e);
   });
 
-  // Ctrl+click to swap augment (works regardless of grade ring state)
+  // Click (any modifier) to swap augment
   dot.addEventListener('click', e => {
     e.stopPropagation();
-    if (e.ctrlKey) { openAugmentPicker(slotType, dotIndex); return; }
     openAugmentPicker(slotType, dotIndex);
   });
 
@@ -1353,7 +1368,7 @@ function createAugmentCard(aug) {
     const span = document.createElement('span');
     span.className = 'augment-card__effect';
     const statLabel = eff.stat.replace(/:$/, '');
-    const suffix = eff.type === 'percent' ? '%' : '%';
+    const suffix = '%';  // NOTE: flat effects arguably shouldn't carry '%' — leaving as-is (changing it alters card text; out of scope here)
     const fmtVal = v => (v >= 0 ? `+${v}` : `${v}`);
     if (bestGrade[0] === bestGrade[1]) {
       span.textContent = `${statLabel}: ${fmtVal(bestGrade[0])}${suffix}`;
@@ -1366,11 +1381,7 @@ function createAugmentCard(aug) {
   (aug.tradeoffs || []).forEach(t => {
     const span = document.createElement('span');
     const statKey = t.stat.replace(/:$/, '');
-    const LOWER_BETTER_T = new Set([
-      'Reload Time', 'Recoil', 'Volume', 'Power Consumption (per shot)',
-      'Accuracy', 'Projectile spread',
-    ]);
-    const isBuff = LOWER_BETTER_T.has(statKey) ? t.value < 0 : t.value > 0;
+    const isBuff = LOWER_BETTER_TRADEOFF_STATS.has(statKey) ? t.value < 0 : t.value > 0;
     span.className = isBuff ? 'augment-card__effect' : 'augment-card__tradeoff';
     const fmtVal = v => (v >= 0 ? `+${v}` : `${v}`);
     span.textContent = `${statKey}: ${fmtVal(t.value)}%`;
@@ -1625,7 +1636,6 @@ function showTooltip(slotType) {
     });
 
     // Tradeoffs — expand compound keys
-    const PERCENT_TRADEOFFS = new Set(['Volume', 'Rate of Fire', 'Reload Time', 'Recoil', 'Power Consumption (per shot)']);
     (augData.tradeoffs || []).forEach(t => {
       const keys = expandStatKey(t.stat.replace(/:$/, ''));
       const isPercent = PERCENT_TRADEOFFS.has(t.stat.replace(/:$/, ''));
@@ -1659,12 +1669,6 @@ function showTooltip(slotType) {
       };
       const finalMin = applyAug(stat.value, augEff.min);
       const finalMax = applyAug(stat.value, augEff.max);
-      const LOWER_IS_BETTER = new Set([
-        'Attack Stamina Cost', 'Block Stamina Cost', 'Dash Stamina Cost',
-        'Climbing Stamina Cost', 'Recoil', 'Projectile spread', 'Volume',
-        'Reload Time', 'Power Consumption', 'Power Consumption (per shot)',
-        'Accuracy', 'Power Drain', 'Sun Stroke Rate',
-      ]);
       const lowerBetter = LOWER_IS_BETTER.has(key);
       const isWorse = lowerBetter ? finalMin > stat.value : finalMax < stat.value;
       const color = isWorse ? 'var(--color-health)' : 'var(--color-stamina)';
@@ -1762,12 +1766,8 @@ function showTooltip(slotType) {
           label.textContent = t.stat.replace(/:$/, '');
           const value = document.createElement('span');
           value.className = 'stat-value';
-          const LOWER_BETTER_TRADEOFF = new Set([
-            'Reload Time', 'Recoil', 'Volume', 'Power Consumption (per shot)',
-            'Accuracy', 'Projectile spread',
-          ]);
           const statKey = t.stat.replace(/:$/, '');
-          const isBuff = LOWER_BETTER_TRADEOFF.has(statKey) ? t.value < 0 : t.value > 0;
+          const isBuff = LOWER_BETTER_TRADEOFF_STATS.has(statKey) ? t.value < 0 : t.value > 0;
           value.style.color = isBuff ? 'var(--color-stamina)' : 'var(--color-health)';
           const fmtVal = v => (v >= 0 ? `+${v}` : `${v}`);
           value.textContent = `${fmtVal(t.value)}%`;
