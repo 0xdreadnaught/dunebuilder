@@ -1,11 +1,7 @@
 const { app, BrowserWindow, ipcMain, clipboard, Menu, shell, dialog, screen } = require('electron');
 const path = require('node:path');
 const fs = require('node:fs');
-const https = require('node:https');
-
-// --- Update check config ---
-const GITHUB_REPO = '0xdreadnaught/dunebuilder';
-const CURRENT_VERSION = require('./package.json').version;
+const { autoUpdater } = require('electron-updater');
 
 function createWindow() {
   const { workAreaSize } = screen.getPrimaryDisplay();
@@ -27,6 +23,8 @@ function createWindow() {
 
   Menu.setApplicationMenu(null);
   win.loadFile('index.html', useCompact ? { search: 'compact=1' } : {});
+
+  if (app.isPackaged) setupAutoUpdater(win);
 }
 
 app.whenReady().then(() => {
@@ -40,15 +38,8 @@ app.whenReady().then(() => {
 
   ipcMain.handle('app:version', () => app.getVersion());
 
-  ipcMain.handle('update:check', () => checkForUpdate());
-
-  ipcMain.handle('update:open', (_, url) => {
-    try {
-      const parsed = new URL(url);
-      if (parsed.protocol !== 'https:' || parsed.hostname !== 'github.com') return;
-      shell.openExternal(url);
-    } catch { /* invalid URL, ignore */ }
-  });
+  ipcMain.handle('update:download', () => autoUpdater.downloadUpdate());
+  ipcMain.handle('update:install', () => { autoUpdater.quitAndInstall(); });
 
   // --- Builds directory ---
   const buildsDir = path.join(app.getPath('appData'), 'DuneBuilder', 'builds');
@@ -155,44 +146,28 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
 
-function checkForUpdate() {
-  return new Promise((resolve) => {
-    const opts = {
-      hostname: 'api.github.com',
-      path: `/repos/${GITHUB_REPO}/releases/latest`,
-      headers: { 'User-Agent': `DuneBuilder/${CURRENT_VERSION}` },
-    };
-    https.get(opts, res => {
-      const chunks = [];
-      res.on('data', c => chunks.push(c));
-      res.on('end', () => {
-        try {
-          const data = JSON.parse(Buffer.concat(chunks).toString());
-          const latest = (data.tag_name || '').replace(/^v/, '');
-          if (!latest) return resolve(null);
-          if (compareVersions(latest, CURRENT_VERSION) > 0) {
-            resolve({
-              version: latest,
-              url: data.html_url,
-              notes: data.body || '',
-            });
-          } else {
-            resolve(null);
-          }
-        } catch {
-          resolve(null);
-        }
-      });
-    }).on('error', () => resolve(null));
-  });
-}
+function setupAutoUpdater(win) {
+  autoUpdater.autoDownload = false;
+  autoUpdater.autoInstallOnAppQuit = false;
 
-function compareVersions(a, b) {
-  const pa = a.split('.').map(Number);
-  const pb = b.split('.').map(Number);
-  for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
-    const diff = (pa[i] || 0) - (pb[i] || 0);
-    if (diff !== 0) return diff;
-  }
-  return 0;
+  const send = (channel, payload) => {
+    if (!win.isDestroyed()) win.webContents.send(channel, payload);
+  };
+
+  autoUpdater.on('update-available', info => {
+    const notes = Array.isArray(info.releaseNotes)
+      ? info.releaseNotes.map(n => n.note).filter(Boolean).join('\n\n')
+      : (typeof info.releaseNotes === 'string' ? info.releaseNotes : '');
+    send('update:available', { version: info.version, notes });
+  });
+  autoUpdater.on('download-progress', p => send('update:progress', p.percent));
+  autoUpdater.on('update-downloaded', info => send('update:downloaded', { version: info.version }));
+  autoUpdater.on('error', err => {
+    console.error('[updater]', (err && err.message) || err);
+    send('update:error', (err && err.message) || 'update check failed');
+  });
+
+  win.webContents.once('did-finish-load', () => {
+    autoUpdater.checkForUpdates().catch(() => { /* non-critical — silent */ });
+  });
 }

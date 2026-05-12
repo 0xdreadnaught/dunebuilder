@@ -1,14 +1,14 @@
 'use strict';
 
 /**
- * VirusTotal scan script for DuneBuilder portable exe.
+ * VirusTotal scan script for the DuneBuilder installer.
  *
  * Usage:
  *   VT_API_KEY=<your-key> node scripts/vt-scan.js [path-to-exe]
  *
- * If no path is given, it finds the portable exe in dist/.
+ * If no path is given, it finds the installer in dist/ (build.nsis.artifactName).
  * Uploads the file, polls for results, then writes a report file
- * next to the exe (e.g. DuneBuilder-0.0.1.exe.vt-report.txt).
+ * next to the exe (e.g. DuneBuilder-Setup.exe.vt-report.txt).
  *
  * Free-tier limits: 4 req/min, 500/day — the script rate-limits itself.
  */
@@ -34,9 +34,9 @@ if (!API_KEY) {
 function findExe(dir) {
   if (!fs.existsSync(dir)) return null;
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf-8'));
-  const expected = `DuneBuilder-${pkg.version}.exe`;
+  const expected = pkg.build?.nsis?.artifactName || 'DuneBuilder-Setup.exe';
   if (fs.existsSync(path.join(dir, expected))) return expected;
-  // Fallback: pick the newest DuneBuilder exe
+  // Fallback: pick the newest DuneBuilder exe in dist/ (the win-unpacked/ subdir isn't read)
   const files = fs.readdirSync(dir)
     .filter(f => f.endsWith('.exe') && f.startsWith('DuneBuilder'))
     .sort()
@@ -86,7 +86,7 @@ async function uploadFile(filePath) {
 
   console.log(`Uploading ${fileName} (${(fileData.length / 1024 / 1024).toFixed(1)} MB)...`);
 
-  // Files > 32MB need the upload URL endpoint; portable exes are typically > 32MB
+  // Files > 32MB need the upload URL endpoint; the installer is typically > 32MB
   let uploadUrl = 'https://www.virustotal.com/api/v3/files';
   if (fileData.length > 32 * 1024 * 1024) {
     console.log('File > 32MB, requesting large-file upload URL...');

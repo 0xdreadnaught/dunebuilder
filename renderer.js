@@ -2799,39 +2799,84 @@ pasteBtn.addEventListener('click', async () => {
 });
 
 // =============================================
-// UPDATE CHECK
+// UPDATE NOTIFICATIONS  (driven by electron-updater events from main)
 // =============================================
 
-(async () => {
-  try {
-    const update = await window.electronAPI.checkForUpdate();
-    if (!update) return;
+(() => {
+  const banner       = document.getElementById('update-banner');
+  if (!banner) return;
+  const textEl       = document.getElementById('update-text');
+  const notesBtn     = document.getElementById('update-notes-toggle');
+  const notesPanel   = document.getElementById('update-notes');
+  const downloadBtn  = document.getElementById('update-download');
+  const dismissBtn   = document.getElementById('update-dismiss');
+  const progressEl   = document.getElementById('update-progress');
+  const progressFill = document.getElementById('update-progress-fill');
 
-    const banner = document.getElementById('update-banner');
-    document.getElementById('update-text').textContent = `v${update.version} available`;
-    document.getElementById('update-download').addEventListener('click', () => {
-      window.electronAPI.openExternal(update.url);
-    });
-    document.getElementById('update-dismiss').addEventListener('click', () => {
-      banner.hidden = true;
-    });
+  let dismissed = false;
+  const show = () => { if (!dismissed) banner.hidden = false; };
 
-    // What's New toggle
-    const notesPanel = document.getElementById('update-notes');
-    const notesToggle = document.getElementById('update-notes-toggle');
-    if (update.notes) {
-      notesPanel.textContent = update.notes;
-      notesToggle.addEventListener('click', () => {
+  function setNotes(notes) {
+    if (notes) {
+      notesPanel.textContent = notes;
+      notesBtn.hidden = false;
+      notesBtn.onclick = () => {
         const showing = !notesPanel.hidden;
         notesPanel.hidden = showing;
-        notesToggle.textContent = showing ? "What's New" : 'Hide Notes';
-      });
+        notesBtn.textContent = showing ? "What's New" : 'Hide Notes';
+      };
     } else {
-      notesToggle.hidden = true;
+      notesBtn.hidden = true;
     }
+  }
 
-    banner.hidden = false;
-  } catch { /* silent fail — update check is non-critical */ }
+  dismissBtn.addEventListener('click', () => { dismissed = true; banner.hidden = true; });
+
+  window.electronAPI.onUpdateAvailable(({ version, notes }) => {
+    textEl.textContent = `v${version} available`;
+    setNotes(notes);
+    progressFill.style.width = '0%';
+    progressEl.hidden = true;
+    downloadBtn.hidden = false;
+    downloadBtn.disabled = false;
+    downloadBtn.textContent = 'Download';
+    downloadBtn.onclick = () => {
+      downloadBtn.disabled = true;
+      downloadBtn.textContent = 'Downloading…';
+      progressFill.style.width = '0%';
+      progressEl.hidden = false;
+      window.electronAPI.downloadUpdate();
+    };
+    show();
+  });
+
+  window.electronAPI.onDownloadProgress(pct => {
+    const p = Math.max(0, Math.min(100, Number(pct) || 0));
+    progressEl.hidden = false;
+    progressFill.style.width = `${p}%`;
+    downloadBtn.textContent = `Downloading… ${Math.round(p)}%`;
+  });
+
+  window.electronAPI.onUpdateDownloaded(({ version }) => {
+    textEl.textContent = `v${version} ready`;
+    progressEl.hidden = true;
+    downloadBtn.hidden = false;
+    downloadBtn.disabled = false;
+    downloadBtn.textContent = 'Restart to update';
+    downloadBtn.onclick = () => window.electronAPI.installUpdate();
+    show();
+  });
+
+  window.electronAPI.onUpdateError(msg => {
+    // Update failures are non-critical. If we're not already mid-flow, stay quiet. If we are
+    // mid-download, re-enable the Download button so the user can retry.
+    console.warn('[update]', msg);
+    if (!banner.hidden && !downloadBtn.hidden && downloadBtn.textContent !== 'Restart to update') {
+      downloadBtn.disabled = false;
+      downloadBtn.textContent = 'Download';
+      progressEl.hidden = true;
+    }
+  });
 })();
 
 // =============================================

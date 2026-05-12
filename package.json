@@ -1,12 +1,12 @@
 {
   "name": "dunebuilder",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Character build viewer for Dune: Awakening",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --win portable",
-    "build:scan": "electron-builder --win portable && node scripts/vt-scan.js"
+    "build": "electron-builder --win nsis",
+    "build:scan": "electron-builder --win nsis && node scripts/vt-scan.js"
   },
   "build": {
     "appId": "com.dunebuilder.app",
@@ -43,16 +43,31 @@
       "imgs/**/*",
       "dunebuilder_logo_512.png"
     ],
+    "publish": {
+      "provider": "github",
+      "owner": "0xdreadnaught",
+      "repo": "dunebuilder"
+    },
     "win": {
-      "target": "portable",
+      "target": "nsis",
       "icon": "dunebuilder_logo_512.png",
       "signtoolOptions": {
-        "certificateSubjectName": "dreadnaught"
+        "certificateSubjectName": "dreadnaught",
+        "publisherName": "dreadnaught"
       }
     },
-    "portable": {
-      "artifactName": "DuneBuilder.exe"
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": false,
+      "artifactName": "DuneBuilder-Setup.exe"
     }
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.3"
   },
   "devDependencies": {
     "electron": "^34.0.0",

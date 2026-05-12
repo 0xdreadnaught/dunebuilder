@@ -169,6 +169,20 @@ body {
 .update-banner__notes[hidden] {
   display: none;
 }
+.update-banner__progress {
+  height: 4px;
+  background: rgba(30, 74, 138, 0.25);
+  overflow: hidden;
+}
+.update-banner__progress[hidden] {
+  display: none;
+}
+.update-banner__progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #6aa4e8;
+  transition: width 0.2s ease;
+}
 
 .update-banner[hidden] {
   display: none;
