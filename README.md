@@ -3,14 +3,25 @@
   <br>
   <strong>DuneBuilder</strong>
   <br>
- A Character build tool for Dune: Awakening in the spirit of Path of Building.
+ A PoB inspired tool for Dune: Awakening.
 </p>
 
-<img width="1060" height="1094" alt="image" src="https://github.com/user-attachments/assets/8f2df1f5-b691-477d-89c7-449431779e8a" /> 
+
+### Theorycrafting
+<img width="1060" height="1098" alt="image" src="https://github.com/user-attachments/assets/703d1d22-140c-4d99-98f9-f01d08732e93" />
+<img width="1060" height="1098" alt="image" src="https://github.com/user-attachments/assets/cc30b71e-ae72-425d-aed3-d922121fdb43" />
 </br></br>
-<img width="1057" height="1097" alt="image" src="https://github.com/user-attachments/assets/b00852c1-dfcd-412b-bce1-d98e7ebca2c8" /> 
+
+### QR Helper
+[32char limit]
+<img width="1060" height="1098" alt="image" src="https://github.com/user-attachments/assets/41bbbabf-8ce5-4cb6-958b-6e0d33951272" />
+<img width="1481" height="1162" alt="image" src="https://github.com/user-attachments/assets/0044488a-9f9c-4ba5-8f38-b856d780ac64" />
 </br></br>
-<img width="1058" height="1097" alt="image" src="https://github.com/user-attachments/assets/f86adf74-53cb-41d2-8e71-1e12826e25a4" />
+
+### Engine.ini Editor
+[drag & drop]
+<img width="1060" height="1098" alt="image" src="https://github.com/user-attachments/assets/b2f43b23-7948-4e57-8c65-c1a70d8fccea" />
+
 
 
 ## Usage Notes:
@@ -28,11 +39,7 @@ Files are in `%APPDATA%\dunebuilder`.
 
 ## To-Do:
 
-Offensive calcs. I need to aggregate a ton of enemy data first. The plan is for some settings to set what mob tier you're attacking for better effective damange calcs. 
-
-If I can work out the AI, there will be some defensive simulation to show how your character handles certain scenarios. 
-
-Consumable use is also planned because why not?
+There are a handful of things planned but they need some more planning.
 
 
 ## Download
