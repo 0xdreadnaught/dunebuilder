@@ -821,18 +821,45 @@ function refreshPanels(skipResourceBars) {
   renderCalculations(equipped);
 }
 
+// Persistent "no results" message for a picker list. Lives as a child of the
+// list container; shown only when no card in the list is visible.
+function getPickerEmptyState(list, text) {
+  let el = list.querySelector(':scope > .empty-state');
+  if (!el) {
+    el = document.createElement('p');
+    el.className = 'empty-state';
+    list.appendChild(el);
+  }
+  el.textContent = text;
+  return el;
+}
+
+// Show/hide picker cards by substring match against card.dataset.search.
+// Skips the persistent .empty-state element; shows it only when nothing matches.
+// Cards use display:flex, so toggle inline display rather than the [hidden] attr.
+function filterPickerList(list, query, emptyText) {
+  const q = (query || '').toLowerCase();
+  let anyVisible = false;
+  for (const card of list.children) {
+    if (card.classList.contains('empty-state')) continue;
+    const match = (card.dataset.search || '').includes(q);
+    card.style.display = match ? '' : 'none';
+    if (match) anyVisible = true;
+  }
+  getPickerEmptyState(list, emptyText).hidden = anyVisible;
+}
+
 function renderPickerItems(items, slotType) {
   const list = document.getElementById('item-picker-list');
   list.innerHTML = '';
-  if (items.length === 0) {
-    list.innerHTML = '<p class="empty-state">No items found.</p>';
-    return;
-  }
   items.forEach(item => {
     const card = createItemCard(item, slotType);
+    card.dataset.search = item.name.toLowerCase();
     if (equippedItems[slotType]?.slug === item.slug) card.classList.add('item-card--equipped');
     list.appendChild(card);
   });
+  // Empty search on open: message shown only when there are no cards.
+  getPickerEmptyState(list, 'No items found.').hidden = items.length > 0;
 }
 
 function openItemPicker(slotEl) {
@@ -1293,13 +1320,12 @@ function closeAugmentPicker() {
 function renderAugmentPickerItems(augments) {
   const list = document.getElementById('augment-picker-list');
   list.innerHTML = '';
-  if (augments.length === 0) {
-    list.innerHTML = '<p class="empty-state">No augments found.</p>';
-    return;
-  }
   augments.forEach(aug => {
-    list.appendChild(createAugmentCard(aug));
+    const card = createAugmentCard(aug);
+    card.dataset.search = aug.name.toLowerCase();
+    list.appendChild(card);
   });
+  getPickerEmptyState(list, 'No augments found.').hidden = augments.length > 0;
 }
 
 function createAugmentCard(aug) {
@@ -2032,10 +2058,12 @@ function getFilteredWeaponItems() {
 }
 
 function refilterHotbarPicker() {
+  // A type-filter toggle changes which items are candidates, so rebuild the
+  // card list for the new candidate set, then re-apply the current search text.
   currentPickerItems = getFilteredWeaponItems();
-  const query = document.getElementById('item-picker-search').value.toLowerCase();
-  const filtered = query ? currentPickerItems.filter(i => i.name.toLowerCase().includes(query)) : currentPickerItems;
-  renderPickerItems(filtered, currentPickerSlotType);
+  renderPickerItems(currentPickerItems, currentPickerSlotType);
+  const list = document.getElementById('item-picker-list');
+  filterPickerList(list, document.getElementById('item-picker-search').value, 'No items found.');
 }
 
 function createWeaponTypeFilters() {
@@ -2209,9 +2237,7 @@ function clearHotbarSlot(slotEl) {
   });
 
   document.getElementById('item-picker-search').addEventListener('input', e => {
-    const query = e.target.value.toLowerCase();
-    const filtered = currentPickerItems.filter(i => i.name.toLowerCase().includes(query));
-    renderPickerItems(filtered, currentPickerSlotType);
+    filterPickerList(document.getElementById('item-picker-list'), e.target.value, 'No items found.');
   });
 
   // Augment picker events
@@ -2222,10 +2248,7 @@ function clearHotbarSlot(slotEl) {
   });
 
   document.getElementById('augment-picker-search').addEventListener('input', e => {
-    const query = e.target.value.toLowerCase();
-    const available = getAvailableAugments(currentAugmentSlotType, currentAugmentDotIndex);
-    const filtered = available.filter(a => a.name.toLowerCase().includes(query));
-    renderAugmentPickerItems(filtered);
+    filterPickerList(document.getElementById('augment-picker-list'), e.target.value, 'No augments found.');
   });
 
   // Augment custom value popup events
