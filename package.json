@@ -22,6 +22,7 @@
       "renderer.js",
       "qr-encode.js",
       "qr-builder.js",
+      "engine-ini.js",
       "data/**/*.json",
       "!data/augments_generic.json",
       "imgs/**/*",
