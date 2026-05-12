@@ -482,6 +482,10 @@ let WEAPON_ITEMS = [];
 let AUGMENT_DATA = [];
 let WEAPON_AUGMENT_DATA = [];
 let ENGINE_CVAR_CATALOG = null;
+let GARMENT_BY_SLUG = new Map();
+let WEAPON_BY_SLUG = new Map();
+let AUGMENT_BY_SLUG = new Map();
+let WEAPON_AUGMENT_BY_SLUG = new Map();
 let lastCharacterPanel = null;
 let lastBuildTotals = null;
 let lastSkillBonuses = null;
@@ -640,6 +644,11 @@ async function loadGarmentItems() {
       .filter(Boolean);
 
     GARMENT_ITEMS = [...t6, ...t5, ...t4, ...t3, ...t2, ...t1, ...withSlots];
+    const indexBySlug = (arr) => { const m = new Map(); for (const x of arr) if (!m.has(x.slug)) m.set(x.slug, x); return m; };
+    GARMENT_BY_SLUG = indexBySlug(GARMENT_ITEMS);
+    WEAPON_BY_SLUG = indexBySlug(WEAPON_ITEMS);
+    AUGMENT_BY_SLUG = indexBySlug(AUGMENT_DATA);
+    WEAPON_AUGMENT_BY_SLUG = indexBySlug(WEAPON_AUGMENT_DATA);
   } catch (e) {
     console.error('Failed to load items:', e);
   }
@@ -859,7 +868,7 @@ function selectItem(slotType, slug) {
   // Route hotbar selections to weapon handler
   if (HOTBAR_SLOTS.has(slotType)) { selectHotbarItem(slotType, slug); return; }
 
-  const item = GARMENT_ITEMS.find(i => i.slug === slug);
+  const item = GARMENT_BY_SLUG.get(slug);
   if (!item || !slotType) return;
 
   if (item.slot === 'radsuit') {
@@ -1067,9 +1076,9 @@ function expandStatKey(key) {
 
 function findAugmentData(slug, slotType) {
   if (HOTBAR_SLOTS.has(slotType)) {
-    return WEAPON_AUGMENT_DATA.find(a => a.slug === slug) || AUGMENT_DATA.find(a => a.slug === slug);
+    return WEAPON_AUGMENT_BY_SLUG.get(slug) || AUGMENT_BY_SLUG.get(slug) || null;
   }
-  return AUGMENT_DATA.find(a => a.slug === slug);
+  return AUGMENT_BY_SLUG.get(slug) || null;
 }
 
 function createAppliedAugmentDot(slotType, dotIndex, augment) {
@@ -2131,7 +2140,7 @@ function openHotbarPicker(slotEl) {
 }
 
 function selectHotbarItem(slotType, slug) {
-  const item = WEAPON_ITEMS.find(i => i.slug === slug);
+  const item = WEAPON_BY_SLUG.get(slug);
   if (!item || !slotType) return;
 
   equippedItems[slotType] = item;
@@ -2504,7 +2513,7 @@ function applyBuildData(data) {
   // Armor slots — first pass: set state
   const slots = data.slots || {};
   for (const [slot, slotData] of Object.entries(slots)) {
-    const item = GARMENT_ITEMS.find(i => i.slug === slotData.item);
+    const item = GARMENT_BY_SLUG.get(slotData.item);
     if (!item) continue;
     equippedItems[slot] = item;
     if (GARMENT_SLOTS.has(slot)) equippedGrades[slot] = slotData.grade || 0;
@@ -2535,7 +2544,7 @@ function applyBuildData(data) {
   // Hotbar (weapons)
   if (data.hotbar) {
     for (const [slot, slotData] of Object.entries(data.hotbar)) {
-      const item = WEAPON_ITEMS.find(i => i.slug === slotData.item);
+      const item = WEAPON_BY_SLUG.get(slotData.item);
       if (!item) continue;
       equippedItems[slot] = item;
       equippedGrades[slot] = slotData.grade || 0;
