@@ -1948,8 +1948,6 @@ function updateSlotDisplay(slotEl, item) {
     }
   }
 
-  slotEl.addEventListener('mouseenter', () => showTooltip(slotType));
-  slotEl.addEventListener('mouseleave', clearTooltip);
 }
 
 function clearSlot(slotEl) {
@@ -2194,8 +2192,6 @@ function updateHotbarSlotDisplay(slotEl, item, slotType) {
     }
   }
 
-  slotEl.addEventListener('mouseenter', () => showTooltip(slotType));
-  slotEl.addEventListener('mouseleave', clearTooltip);
 }
 
 function clearHotbarSlot(slotEl) {
@@ -2227,6 +2223,9 @@ function clearHotbarSlot(slotEl) {
   document.querySelectorAll('.armor-slot').forEach(slotEl => {
     if (slotEl.classList.contains('slot--null')) return;
     slotEl.addEventListener('click', () => openItemPicker(slotEl));
+    const armorSlotType = getSlotType(slotEl);
+    slotEl.addEventListener('mouseenter', () => showTooltip(armorSlotType));
+    slotEl.addEventListener('mouseleave', clearTooltip);
   });
 
   // Hotbar slot click → weapon picker
@@ -2236,6 +2235,9 @@ function clearHotbarSlot(slotEl) {
       if (e.target.closest('.hotbar-slot__clear, .armor-slot__grade, .augment-dots')) return;
       openHotbarPicker(slotEl);
     });
+    const hotbarSlotType = getHotbarSlotType(slotEl);
+    slotEl.addEventListener('mouseenter', () => showTooltip(hotbarSlotType));
+    slotEl.addEventListener('mouseleave', clearTooltip);
   });
 
   document.getElementById('item-picker-close').addEventListener('click', closeItemPicker);
