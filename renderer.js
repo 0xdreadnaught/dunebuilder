@@ -929,16 +929,26 @@ function attachGradeHover(svgEl) {
   });
 }
 
-function createGradeRing(slotType) {
+// Builds a circular "grade ring" SVG. Used for both the corner ring on a graded
+// armor/weapon slot and the mini ring inside an applied augment dot — the only
+// differences are captured by the options object.
+function createGradeRing(opts) {
+  const {
+    viewBox, svgClass, cx, cy, r,
+    segCount = 5, gapDeg,
+    currentGrade,           // grade rendered as filled (number)
+    onPick,                 // (grade /* 1..segCount */, event, svg) => void
+    hasText = false,        // append the center grade-number <text>
+    textFontSize,           // font-size for the center text (when hasText)
+  } = opts;
+
   const NS = 'http://www.w3.org/2000/svg';
   const svg = document.createElementNS(NS, 'svg');
-  svg.setAttribute('viewBox', '0 0 42 42');
-  svg.classList.add('armor-slot__grade');
+  svg.setAttribute('viewBox', viewBox);
+  svg.classList.add(svgClass);
 
   // Block clicks anywhere on the ring SVG from opening the item picker
   svg.addEventListener('click', e => e.stopPropagation());
-
-  const cx = 21, cy = 21, r = 16;
 
   // Background circle — visible when expanded for readability
   const bg = document.createElementNS(NS, 'circle');
@@ -948,9 +958,7 @@ function createGradeRing(slotType) {
   bg.classList.add('grade-bg');
   svg.appendChild(bg);
 
-  const segCount = 5;
-  const gapDeg = 8;
-  const sliceDeg = 360 / segCount;            // 72° per pie slice (hit zone)
+  const sliceDeg = 360 / segCount;            // pie slice (hit zone) per segment
   const segDeg = sliceDeg - gapDeg;            // visible arc is narrower
 
   for (let i = 0; i < segCount; i++) {
@@ -971,10 +979,7 @@ function createGradeRing(slotType) {
     hitzone.classList.add('grade-hitzone');
     hitzone.addEventListener('click', e => {
       e.stopPropagation();
-      const clicked = i + 1;
-      equippedGrades[slotType] = (equippedGrades[slotType] === clicked) ? 0 : clicked;
-      updateGradeSegments(svg, slotType);
-      refreshPanels(HOTBAR_SLOTS.has(slotType));
+      onPick(i + 1, e, svg);
     });
 
     // Visible arc segment (stroked arc along the ring)
@@ -989,29 +994,48 @@ function createGradeRing(slotType) {
     arc.classList.add('grade-segment');
     arc.dataset.grade = String(i + 1);
 
-    const grade = equippedGrades[slotType] || 0;
-    if (i + 1 <= grade) arc.classList.add('active');
+    if (i + 1 <= currentGrade) arc.classList.add('active');
 
     // Hit zone first, then arc — so CSS `+` sibling selector works
     svg.appendChild(hitzone);
     svg.appendChild(arc);
   }
 
-  // Grade number in center
-  const text = document.createElementNS(NS, 'text');
-  text.classList.add('grade-number');
-  text.setAttribute('x', String(cx));
-  text.setAttribute('y', String(cy));
-  text.setAttribute('font-size', '20');
-  text.textContent = '';
-  svg.appendChild(text);
+  if (hasText) {
+    // Grade number in center
+    const text = document.createElementNS(NS, 'text');
+    text.classList.add('grade-number');
+    text.setAttribute('x', String(cx));
+    text.setAttribute('y', String(cy));
+    text.setAttribute('font-size', String(textFontSize));
+    text.textContent = '';
+    svg.appendChild(text);
 
-  const grade = equippedGrades[slotType] || 0;
-  if (grade > 0) text.textContent = String(grade);
-  svg.classList.toggle('grade--max', grade === 5);
+    if (currentGrade > 0) text.textContent = String(currentGrade);
+  }
+
+  svg.classList.toggle('grade--max', currentGrade === 5);
 
   attachGradeHover(svg);
   return svg;
+}
+
+// Corner grade ring for a graded armor/weapon slot.
+function createSlotGradeRing(slotType) {
+  return createGradeRing({
+    viewBox: '0 0 42 42',
+    svgClass: 'armor-slot__grade',
+    cx: 21, cy: 21, r: 16,
+    gapDeg: 8,
+    currentGrade: equippedGrades[slotType] || 0,
+    hasText: true,
+    textFontSize: 20,
+    onPick: (clicked, e, svg) => {
+      equippedGrades[slotType] = (equippedGrades[slotType] === clicked) ? 0 : clicked;
+      updateGradeSegments(svg, slotType);
+      refreshPanels(HOTBAR_SLOTS.has(slotType));
+    },
+  });
 }
 
 function updateGradeSegments(svg, slotType) {
@@ -1112,7 +1136,21 @@ function createAppliedAugmentDot(slotType, dotIndex, augment) {
   dot.appendChild(icon);
 
   // Mini grade ring
-  dot.appendChild(createAugmentGradeRing(slotType, dotIndex, augment));
+  dot.appendChild(createGradeRing({
+    viewBox: '0 0 22 22',
+    svgClass: 'augment-dot__grade',
+    cx: 11, cy: 11, r: 8,
+    gapDeg: 10,
+    currentGrade: augment.grade || 0,
+    onPick: (clicked, e) => {
+      if (e.ctrlKey) { openAugmentPicker(slotType, dotIndex); return; }
+      const aug = equippedAugments[slotType]?.[dotIndex];
+      if (!aug) return;
+      aug.grade = (aug.grade === clicked) ? 1 : clicked;
+      refreshAugmentDots(slotType, dotIndex);
+      refreshPanels(HOTBAR_SLOTS.has(slotType));
+    },
+  }));
 
   // Clear button
   const clearBtn = document.createElement('button');
@@ -1149,82 +1187,6 @@ function createAppliedAugmentDot(slotType, dotIndex, augment) {
   });
 
   return dot;
-}
-
-function createAugmentGradeRing(slotType, dotIndex, augment) {
-  const NS = 'http://www.w3.org/2000/svg';
-  const svg = document.createElementNS(NS, 'svg');
-  svg.setAttribute('viewBox', '0 0 22 22');
-  svg.classList.add('augment-dot__grade');
-
-  svg.addEventListener('click', e => e.stopPropagation());
-
-  const cx = 11, cy = 11, r = 8;
-
-  // Background circle — visible when expanded
-  const bg = document.createElementNS(NS, 'circle');
-  bg.setAttribute('cx', String(cx));
-  bg.setAttribute('cy', String(cy));
-  bg.setAttribute('r', String(cx));
-  bg.classList.add('grade-bg');
-  svg.appendChild(bg);
-
-  const segCount = 5;
-  const gapDeg = 10;
-  const sliceDeg = 360 / segCount;
-  const segDeg = sliceDeg - gapDeg;
-
-  for (let i = 0; i < segCount; i++) {
-    const sliceStart = -90 + i * sliceDeg;
-    const arcStart = sliceStart + gapDeg / 2;
-    const arcEnd = arcStart + segDeg;
-
-    // Hit zone (full wedge to SVG edge)
-    const hr = cx;
-    const s1 = (sliceStart * Math.PI) / 180;
-    const s2 = ((sliceStart + sliceDeg) * Math.PI) / 180;
-    const hx1 = cx + hr * Math.cos(s1), hy1 = cy + hr * Math.sin(s1);
-    const hx2 = cx + hr * Math.cos(s2), hy2 = cy + hr * Math.sin(s2);
-    const hitD = `M ${cx} ${cy} L ${hx1} ${hy1} A ${hr} ${hr} 0 0 1 ${hx2} ${hy2} Z`;
-
-    const hitzone = document.createElementNS(NS, 'path');
-    hitzone.setAttribute('d', hitD);
-    hitzone.classList.add('grade-hitzone');
-    hitzone.addEventListener('click', e => {
-      e.stopPropagation();
-      if (e.ctrlKey) { openAugmentPicker(slotType, dotIndex); return; }
-      const clicked = i + 1;
-      const aug = equippedAugments[slotType]?.[dotIndex];
-      if (!aug) return;
-      aug.grade = (aug.grade === clicked) ? 1 : clicked;
-      refreshAugmentDots(slotType, dotIndex);
-      refreshPanels(HOTBAR_SLOTS.has(slotType));
-    });
-
-    // Visible arc segment (stroked arc along the ring)
-    const a1 = (arcStart * Math.PI) / 180;
-    const a2 = (arcEnd * Math.PI) / 180;
-    const x1 = cx + r * Math.cos(a1), y1 = cy + r * Math.sin(a1);
-    const x2 = cx + r * Math.cos(a2), y2 = cy + r * Math.sin(a2);
-    const d = `M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`;
-
-    const arc = document.createElementNS(NS, 'path');
-    arc.setAttribute('d', d);
-    arc.classList.add('grade-segment');
-    arc.dataset.grade = String(i + 1);
-
-    const grade = augment.grade || 0;
-    if (i + 1 <= grade) arc.classList.add('active');
-
-    svg.appendChild(hitzone);
-    svg.appendChild(arc);
-  }
-
-  const grade = augment.grade || 1;
-  svg.classList.toggle('grade--max', grade === 5);
-
-  attachGradeHover(svg);
-  return svg;
 }
 
 function unlockAugmentSlot(slotType, dotIndex) {
@@ -1939,7 +1901,7 @@ function updateSlotDisplay(slotEl, item) {
   const slotType = getSlotType(slotEl);
   // A rad suit is rendered on the 'helm' position; its grade ring / augment dots live there.
   if (slotType && GARMENT_SLOTS.has(slotType) && item.scaledStats?.length) {
-    slotEl.appendChild(createGradeRing(slotType));
+    slotEl.appendChild(createSlotGradeRing(slotType));
     // Augment dots only for Unique garments
     if (item.rarity === 'Unique') {
       if (!augmentSlotUnlocks[slotType]) augmentSlotUnlocks[slotType] = 1;
@@ -2184,7 +2146,7 @@ function updateHotbarSlotDisplay(slotEl, item, slotType) {
 
   // Grade ring for Unique weapons with scaledStats
   if (item.scaledStats?.length) {
-    slotEl.appendChild(createGradeRing(slotType));
+    slotEl.appendChild(createSlotGradeRing(slotType));
     if (item.rarity === 'Unique') {
       if (!augmentSlotUnlocks[slotType]) augmentSlotUnlocks[slotType] = 1;
       if (!equippedAugments[slotType]) equippedAugments[slotType] = [null, null, null];
