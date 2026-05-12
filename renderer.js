@@ -430,11 +430,11 @@ function renderDefCalcs(container, equipped) {
   }
 }
 
-function renderCalculations() {
+function renderCalculations(equipped) {
   const container = document.getElementById('build-stats');
   container.innerHTML = '';
 
-  const equipped = aggregateEquippedStats();
+  if (equipped === undefined) equipped = aggregateEquippedStats();
 
   if (calcMode === 'def') {
     renderDefCalcs(container, equipped);
@@ -802,7 +802,7 @@ function refreshPanels(skipResourceBars) {
   const equipped = aggregateEquippedStats();
   const itemStats = Object.keys(equipped).length > 0 ? formatAggregatedStats(equipped) : null;
   if (!skipResourceBars) renderCharacterPanel(lastCharacterPanel, itemStats);
-  renderCalculations();
+  renderCalculations(equipped);
 }
 
 function renderPickerItems(items, slotType) {
