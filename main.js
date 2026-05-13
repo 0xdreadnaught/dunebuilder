@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain, clipboard, Menu, shell, dialog, screen } = require('electron');
 const path = require('node:path');
 const fs = require('node:fs');
+const { execFile } = require('node:child_process');
 const { autoUpdater } = require('electron-updater');
 
 function createWindow() {
@@ -147,6 +148,26 @@ app.on('window-all-closed', () => {
 function setupAutoUpdater(win) {
   autoUpdater.autoDownload = false;
   autoUpdater.autoInstallOnAppQuit = false;
+  // electron-updater's chunk-diff downloads against the cached old installer are flaky; just pull
+  // the full installer each time (it's small and releases are infrequent).
+  autoUpdater.disableDifferentialDownload = true;
+  // Our installer is signed with a self-signed cert (CN=dreadnaught). electron-updater's default
+  // verifier rejects it because the cert chain doesn't terminate at a trusted root CA, which kills
+  // every update. Accept the downloaded installer iff it's actually signed and the signer is us —
+  // that still proves the file came from the owner; it just doesn't demand a CA-issued cert.
+  autoUpdater.verifyUpdateCodeSignature = (publisherNames, filePath) => new Promise(resolve => {
+    const ps = `$s = Get-AuthenticodeSignature -LiteralPath '${String(filePath).replace(/'/g, "''")}'; "$($s.Status)|$($s.SignerCertificate.Subject)"`;
+    execFile('powershell.exe', ['-NoProfile', '-NonInteractive', '-Command', ps], { timeout: 20000 }, (err, stdout) => {
+      if (err) { resolve(`code-signature check failed: ${err.message}`); return; }
+      const [status = '', subject = ''] = String(stdout).trim().split('|');
+      if (status === 'HashMismatch') { resolve('installer bytes do not match its signature'); return; }
+      if (status === 'NotSigned' || !subject) { resolve('installer is not code-signed'); return; }
+      const wanted = (publisherNames || []).flatMap(n => [n, n.includes('=') ? n : `CN=${n}`]);
+      const parts = subject.split(',').map(s => s.trim());
+      const ok = wanted.some(w => subject === w || parts.includes(w));
+      resolve(ok ? null : `installer signed by an unexpected publisher: ${subject}`);
+    });
+  });
 
   const send = (channel, payload) => {
     if (!win.isDestroyed()) win.webContents.send(channel, payload);

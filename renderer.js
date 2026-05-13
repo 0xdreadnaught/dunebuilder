@@ -2837,6 +2837,7 @@ pasteBtn.addEventListener('click', async () => {
     downloadBtn.disabled = false;
     downloadBtn.textContent = 'Download';
     downloadBtn.onclick = () => {
+      textEl.textContent = `v${version} available`;   // reset if we're retrying after an error
       downloadBtn.disabled = true;
       downloadBtn.textContent = 'Downloading…';
       progressFill.style.width = '0%';
@@ -2864,13 +2865,15 @@ pasteBtn.addEventListener('click', async () => {
   });
 
   window.electronAPI.onUpdateError(msg => {
-    // Update failures are non-critical. If we're not already mid-flow, stay quiet. If we are
-    // mid-download, re-enable the Download button so the user can retry.
+    // A failed background *check* (no internet, GitHub down) stays silent. But if a banner is up
+    // and a download was attempted, surface it so the user isn't left at a silent dead end.
     console.warn('[update]', msg);
     if (!banner.hidden && !downloadBtn.hidden && downloadBtn.textContent !== 'Restart to update') {
-      downloadBtn.disabled = false;
-      downloadBtn.textContent = 'Download';
+      textEl.textContent = "Update download failed — retry, or grab it from the Releases page";
       progressEl.hidden = true;
+      progressFill.style.width = '0%';
+      downloadBtn.disabled = false;
+      downloadBtn.textContent = 'Retry';   // onclick is still the download handler
     }
   });
 })();
