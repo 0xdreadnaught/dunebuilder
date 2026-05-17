@@ -14,7 +14,6 @@ const LABEL_OVERRIDES = { 'Energy': 'Power' };
 const STAMINA_REGEN_PCT = 0.25; // ~25% of max stamina per second (estimated)
 const STAMINA_REGEN_DELAY = 1.0; // 1.0s delay before regen starts (patch 1.2.10.0)
 const BASE_STATS = { Health: 150, Stamina: 100, Energy: 0 }; // Power=0 until power pack equipped
-const baseCharacterStats = { Health: 150, Stamina: 100, Energy: 0 };
 
 // =============================================
 // PARSING
@@ -161,13 +160,6 @@ function createResourceBar(label, { current, max }, cssKey, regenPerSec, regenDe
     });
   });
 
-  // Right-click to edit base value
-  wrapper.addEventListener('contextmenu', e => {
-    e.preventDefault();
-    const dataKey = (cssKey === 'Energy' || label === 'Power') ? 'Energy' : (cssKey || label);
-    openResourceValuePopup(label, dataKey, e);
-  });
-
   // Click to drain + regen
   let regenAnim = null;
   let regenTimeout = null;
@@ -253,13 +245,13 @@ function renderCharacterPanel(data, itemStats) {
   }
 
   // Show base resource bars if not provided by paste data
-  if (!renderedHealth && baseCharacterStats.Health > 0) {
-    const max = baseCharacterStats.Health;
+  if (!renderedHealth && BASE_STATS.Health > 0) {
+    const max = BASE_STATS.Health;
     container.appendChild(createResourceBar('Health', { current: max, max }, 'Health'));
     renderedHealth = true;
   }
-  if (!renderedStamina && baseCharacterStats.Stamina > 0) {
-    const max = baseCharacterStats.Stamina;
+  if (!renderedStamina && BASE_STATS.Stamina > 0) {
+    const max = BASE_STATS.Stamina;
     const regen = max * STAMINA_REGEN_PCT;
     container.appendChild(createResourceBar('Stamina', { current: max, max }, 'Stamina', regen, STAMINA_REGEN_DELAY));
     renderedStamina = true;
@@ -267,7 +259,7 @@ function renderCharacterPanel(data, itemStats) {
 
   // Show Power Pool bar — 0/0 if no pack equipped
   if (!renderedPowerBar) {
-    const pp = powerPool || baseCharacterStats.Energy || 0;
+    const pp = powerPool || BASE_STATS.Energy || 0;
     container.appendChild(createResourceBar('Power', { current: pp, max: pp }, 'Energy', powerRegen));
   }
 
@@ -314,7 +306,7 @@ function renderDefCalcs(container, equipped) {
 
   const maxHealth = lastCharacterPanel?.Health
     ? (parseResource(lastCharacterPanel.Health)?.max ?? null)
-    : (baseCharacterStats.Health > 0 ? baseCharacterStats.Health : null);
+    : (BASE_STATS.Health > 0 ? BASE_STATS.Health : null);
 
   const totalArmor = equipped['Armor Value'] ?? 0;
   const armorMit = (totalArmor / (totalArmor + 500)) * 100;
@@ -384,7 +376,7 @@ function renderDefCalcs(container, equipped) {
   const BASE_DASH_COST = 30;
   const maxStamina = lastCharacterPanel?.Stamina
     ? (parseResource(lastCharacterPanel.Stamina)?.max ?? null)
-    : (baseCharacterStats.Stamina > 0 ? baseCharacterStats.Stamina : null);
+    : (BASE_STATS.Stamina > 0 ? BASE_STATS.Stamina : null);
   const skillDashRaw = lastSkillBonuses?.['Dash Stamina Cost'];
   const skillDashMod = skillDashRaw != null ? (parseFloat(String(skillDashRaw)) || 0) : 0;
   const gearDashMod  = equipped['Dash Stamina Cost'] ?? 0;
@@ -587,7 +579,7 @@ const LOWER_IS_BETTER = new Set([
   'Attack Stamina Cost', 'Block Stamina Cost', 'Dash Stamina Cost',
   'Climbing Stamina Cost', 'Recoil', 'Projectile spread', 'Volume',
   'Reload Time', 'Power Consumption', 'Power Consumption (per shot)',
-  'Accuracy', 'Power Drain', 'Sun Stroke Rate',
+  'Power Drain', 'Sun Stroke Rate',
 ]);
 // Subset used for weapon tradeoff coloring (augment cards and augment tooltip).
 const LOWER_BETTER_TRADEOFF_STATS = new Set([
@@ -596,12 +588,14 @@ const LOWER_BETTER_TRADEOFF_STATS = new Set([
 ]);
 
 // Stats whose tradeoff values are percentage-based (not flat).
-const PERCENT_TRADEOFFS = new Set(['Volume', 'Rate of Fire', 'Reload Time', 'Recoil', 'Power Consumption (per shot)']);
+const PERCENT_TRADEOFFS = new Set(['Volume', 'Rate of Fire', 'Reload Time', 'Recoil', 'Power Consumption (per shot)', 'Accuracy']);
 
 function formatStatValue(name, value) {
   if (typeof value !== 'number') return String(value);
   const n = name.toLowerCase().replace(/:$/, '');
   if (FLAT_STATS.has(n)) return String(value);
+  // Accuracy is stored on Funcom's 0–1 scale; show it as a human-readable percent.
+  if (n === 'accuracy') return `${Math.round(value * 1000) / 10}%`;
   return `${value}%`;
 }
 
@@ -764,9 +758,13 @@ function aggregateEquippedStats() {
         (augData.effects || []).forEach(eff => {
           const gradeData = eff.grades[augGrade - 1];
           if (!gradeData) return;
-          const keys = expandStatKey(eff.stat.replace(/:$/, ''));
+          const statKey = eff.stat.replace(/:$/, '');
+          const keys = expandStatKey(statKey);
           const customVal = aug.customValues?.[eff.stat];
-          const effectVal = customVal != null ? customVal : gradeData[1];
+          const rawVal = customVal != null ? customVal : gradeData[1];
+          // Funcom displays Accuracy with an inverted sign: an in-game "-40%" is actually a +40%
+          // gain to the accuracy stat. The data files match the game's display, so flip here.
+          const effectVal = statKey === 'Accuracy' ? -rawVal : rawVal;
 
           keys.forEach(key => {
             const baseVal = itemStats[key] || 0;
@@ -781,15 +779,17 @@ function aggregateEquippedStats() {
 
         // Tradeoffs apply to the item
         (augData.tradeoffs || []).forEach(t => {
-          const keys = expandStatKey(t.stat.replace(/:$/, ''));
-          const isPercent = PERCENT_TRADEOFFS.has(t.stat.replace(/:$/, ''));
+          const statKey = t.stat.replace(/:$/, '');
+          const keys = expandStatKey(statKey);
+          const isPercent = PERCENT_TRADEOFFS.has(statKey);
+          const tradeoffVal = statKey === 'Accuracy' ? -t.value : t.value;
           keys.forEach(key => {
             const baseVal = itemStats[key] || 0;
             if (isPercent) {
               if (baseVal === 0) return; // Percent of nothing is nothing
-              itemStats[key] = baseVal * (1 + t.value / 100);
+              itemStats[key] = baseVal * (1 + tradeoffVal / 100);
             } else {
-              itemStats[key] = baseVal + t.value;
+              itemStats[key] = baseVal + tradeoffVal;
             }
           });
         });
@@ -808,7 +808,8 @@ function aggregateEquippedStats() {
 function formatAggregatedStats(totals) {
   const result = {};
   for (const [key, value] of Object.entries(totals)) {
-    const rounded = Math.round(value * 10) / 10;
+    const precision = key === 'Accuracy' ? 1000 : 10;
+    const rounded = Math.round(value * precision) / precision;
     result[key] = formatStatValue(key, rounded);
   }
   return result;
@@ -1484,51 +1485,6 @@ function closeAugmentValuePopup() {
   activeAugmentPopup = { slotType: null, dotIndex: null };
 }
 
-// =============================================
-// RESOURCE VALUE POPUP
-// =============================================
-
-let activeResourceKey = null;
-
-function openResourceValuePopup(label, dataKey, event) {
-  activeResourceKey = dataKey;
-  const popup = document.getElementById('resource-value-popup');
-  const input = document.getElementById('resource-value-input');
-  const labelEl = document.getElementById('resource-value-label');
-
-  labelEl.textContent = `Base ${label}`;
-  input.value = baseCharacterStats[dataKey] || '';
-
-  popup.hidden = false;
-  popup.style.left = `${event.clientX}px`;
-  popup.style.top = `${event.clientY}px`;
-
-  requestAnimationFrame(() => {
-    const rect = popup.getBoundingClientRect();
-    if (rect.right > window.innerWidth) popup.style.left = `${window.innerWidth - rect.width - 8}px`;
-    if (rect.bottom > window.innerHeight) popup.style.top = `${window.innerHeight - rect.height - 8}px`;
-  });
-
-  input.focus();
-  input.select();
-}
-
-function closeResourceValuePopup() {
-  document.getElementById('resource-value-popup').hidden = true;
-  activeResourceKey = null;
-}
-
-function saveResourceValue() {
-  if (!activeResourceKey) { closeResourceValuePopup(); return; }
-  const input = document.getElementById('resource-value-input');
-  const val = parseFloat(input.value);
-  if (!isNaN(val) && val >= 0) {
-    baseCharacterStats[activeResourceKey] = val;
-  }
-  closeResourceValuePopup();
-  refreshPanels();
-}
-
 function saveAugmentCustomValue() {
   const { slotType, dotIndex } = activeAugmentPopup;
   const aug = equippedAugments[slotType]?.[dotIndex];
@@ -1608,16 +1564,19 @@ function showTooltip(slotType) {
     (augData.effects || []).forEach(eff => {
       const g = eff.grades?.[gradeIdx];
       if (!g) return;
-      const keys = expandStatKey(eff.stat.replace(/:$/, ''));
+      const statKey = eff.stat.replace(/:$/, '');
+      const keys = expandStatKey(statKey);
       const customVal = aug.customValues?.[eff.stat];
+      // Accuracy is displayed with inverted sign in-game; flip here so the math works.
+      const sign = statKey === 'Accuracy' ? -1 : 1;
       keys.forEach(key => {
         if (!augEffects[key]) augEffects[key] = { min: 0, max: 0, hasCustom: true, type: eff.type };
         if (customVal != null) {
-          augEffects[key].min += customVal;
-          augEffects[key].max += customVal;
+          augEffects[key].min += sign * customVal;
+          augEffects[key].max += sign * customVal;
         } else {
-          augEffects[key].min += g[0];
-          augEffects[key].max += g[1];
+          augEffects[key].min += sign * g[0];
+          augEffects[key].max += sign * g[1];
           augEffects[key].hasCustom = false;
         }
       });
@@ -1625,12 +1584,14 @@ function showTooltip(slotType) {
 
     // Tradeoffs — expand compound keys
     (augData.tradeoffs || []).forEach(t => {
-      const keys = expandStatKey(t.stat.replace(/:$/, ''));
-      const isPercent = PERCENT_TRADEOFFS.has(t.stat.replace(/:$/, ''));
+      const statKey = t.stat.replace(/:$/, '');
+      const keys = expandStatKey(statKey);
+      const isPercent = PERCENT_TRADEOFFS.has(statKey);
+      const tradeoffVal = statKey === 'Accuracy' ? -t.value : t.value;
       keys.forEach(key => {
         if (!augEffects[key]) augEffects[key] = { min: 0, max: 0, hasCustom: true, type: isPercent ? 'percent' : 'flat' };
-        augEffects[key].min += t.value;
-        augEffects[key].max += t.value;
+        augEffects[key].min += tradeoffVal;
+        augEffects[key].max += tradeoffVal;
       });
     });
   });
@@ -1651,9 +1612,11 @@ function showTooltip(slotType) {
     const baseText = formatStatValue(stat.name, stat.value);
 
     if (augEff) {
+      // Accuracy is on a 0–1 scale, so it needs more precision than the default 1-decimal rounding.
+      const precision = key === 'Accuracy' ? 1000 : 10;
       const applyAug = (base, augVal) => {
-        if (augEff.type === 'percent') return Math.round(base * (1 + augVal / 100) * 10) / 10;
-        return Math.round((base + augVal) * 10) / 10;
+        if (augEff.type === 'percent') return Math.round(base * (1 + augVal / 100) * precision) / precision;
+        return Math.round((base + augVal) * precision) / precision;
       };
       const finalMin = applyAug(stat.value, augEff.min);
       const finalMax = applyAug(stat.value, augEff.max);
@@ -2255,23 +2218,11 @@ function clearHotbarSlot(slotEl) {
   document.getElementById('augment-value-save').addEventListener('click', saveAugmentCustomValue);
   document.getElementById('augment-value-cancel').addEventListener('click', closeAugmentValuePopup);
 
-  // Resource value popup events
-  document.getElementById('resource-value-save').addEventListener('click', saveResourceValue);
-  document.getElementById('resource-value-cancel').addEventListener('click', closeResourceValuePopup);
-  document.getElementById('resource-value-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') saveResourceValue();
-    if (e.key === 'Escape') closeResourceValuePopup();
-  });
-
-  // Close popups on outside click
+  // Close augment popup on outside click
   document.addEventListener('mousedown', e => {
     const augPopup = document.getElementById('augment-value-popup');
     if (!augPopup.hidden && !augPopup.contains(e.target)) {
       closeAugmentValuePopup();
-    }
-    const resPopup = document.getElementById('resource-value-popup');
-    if (!resPopup.hidden && !resPopup.contains(e.target)) {
-      closeResourceValuePopup();
     }
   });
 
@@ -2427,7 +2378,6 @@ function exportBuild() {
 
   const exportData = { slots };
   if (Object.keys(hotbar).length > 0) exportData.hotbar = hotbar;
-  exportData.baseStats = { ...baseCharacterStats };
 
   if (lastCharacterPanel) {
     exportData.characterPanel = {};
@@ -2458,15 +2408,6 @@ function exportToClipboard() {
 // =============================================
 
 function applyBuildData(data) {
-  // Restore base stats if saved, otherwise reset to defaults
-  if (data.baseStats) {
-    Object.assign(baseCharacterStats, data.baseStats);
-  } else {
-    baseCharacterStats.Health = BASE_STATS.Health;
-    baseCharacterStats.Stamina = BASE_STATS.Stamina;
-    baseCharacterStats.Energy = BASE_STATS.Energy;
-  }
-
   // Clear all existing state
   for (const key of Object.keys(equippedItems)) delete equippedItems[key];
   for (const key of Object.keys(equippedGrades)) delete equippedGrades[key];
