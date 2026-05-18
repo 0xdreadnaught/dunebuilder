@@ -1,0 +1,4430 @@
+[
+  {
+    "id": "combattrack",
+    "name": "Combat",
+    "description": "Improves combat effectiveness through increased damage output and survivability. Passively grants bonus damage and damage mitigation as you level up.",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/pathbanner/t_ui_iconspecialization_path_combat_d.webp",
+    "bannerPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/pathbanner/t_ui_iconspecialization_banner_combat_d.webp",
+    "maxLevel": 100,
+    "passiveAttributes": [
+      {
+        "key": "DamageBonus_SpecTrack",
+        "name": "Damage",
+        "values": [
+          0,
+          0.01,
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.1,
+          0.11,
+          0.12,
+          0.13,
+          0.14,
+          0.15,
+          0.16,
+          0.17,
+          0.18,
+          0.19,
+          0.2,
+          0.21,
+          0.22,
+          0.23,
+          0.24,
+          0.25,
+          0.26,
+          0.27,
+          0.28,
+          0.29,
+          0.3,
+          0.31,
+          0.32,
+          0.33,
+          0.34,
+          0.35,
+          0.36,
+          0.37,
+          0.38,
+          0.39,
+          0.4,
+          0.41,
+          0.42,
+          0.43,
+          0.44,
+          0.45,
+          0.46,
+          0.47,
+          0.48,
+          0.49,
+          0.5,
+          0.51,
+          0.52,
+          0.53,
+          0.54,
+          0.55,
+          0.56,
+          0.57,
+          0.58,
+          0.59,
+          0.6,
+          0.61,
+          0.62,
+          0.63,
+          0.64,
+          0.65,
+          0.66,
+          0.67,
+          0.68,
+          0.69,
+          0.7,
+          0.71,
+          0.72,
+          0.73,
+          0.74,
+          0.75,
+          0.76,
+          0.77,
+          0.78,
+          0.79,
+          0.8,
+          0.81,
+          0.82,
+          0.83,
+          0.84,
+          0.85,
+          0.86,
+          0.87,
+          0.88,
+          0.89,
+          0.9,
+          0.91,
+          0.92,
+          0.93,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98,
+          0.99,
+          1
+        ]
+      },
+      {
+        "key": "TotalDamageMitigation_SpecTrack",
+        "name": "Damage Mitigation",
+        "values": [
+          0,
+          0.005,
+          0.01,
+          0.015,
+          0.02,
+          0.025,
+          0.03,
+          0.035,
+          0.04,
+          0.045,
+          0.05,
+          0.055,
+          0.06,
+          0.065,
+          0.07,
+          0.075,
+          0.08,
+          0.085,
+          0.09,
+          0.095,
+          0.1,
+          0.105,
+          0.11,
+          0.115,
+          0.12,
+          0.125,
+          0.13,
+          0.135,
+          0.14,
+          0.145,
+          0.15,
+          0.155,
+          0.16,
+          0.165,
+          0.17,
+          0.175,
+          0.18,
+          0.185,
+          0.19,
+          0.195,
+          0.2,
+          0.205,
+          0.21,
+          0.215,
+          0.22,
+          0.225,
+          0.23,
+          0.235,
+          0.24,
+          0.245,
+          0.25,
+          0.255,
+          0.26,
+          0.265,
+          0.27,
+          0.275,
+          0.28,
+          0.285,
+          0.29,
+          0.295,
+          0.3,
+          0.305,
+          0.31,
+          0.315,
+          0.32,
+          0.325,
+          0.33,
+          0.335,
+          0.34,
+          0.345,
+          0.35,
+          0.355,
+          0.36,
+          0.365,
+          0.37,
+          0.375,
+          0.38,
+          0.385,
+          0.39,
+          0.395,
+          0.4,
+          0.405,
+          0.41,
+          0.415,
+          0.42,
+          0.425,
+          0.43,
+          0.435,
+          0.44,
+          0.445,
+          0.45,
+          0.455,
+          0.46,
+          0.465,
+          0.47,
+          0.475,
+          0.48,
+          0.485,
+          0.49,
+          0.495,
+          0.5
+        ]
+      }
+    ],
+    "keystones": [
+      {
+        "id": "Combat_CombatKeystone_SkillPoint1",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 1,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints3_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 3,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_MaxStamina2",
+        "name": "Max Stamina Increase",
+        "description": "Increased maximum stamina.",
+        "level": 2,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combamaxstamina_d.webp",
+        "effects": [
+          {
+            "name": "Max Stamina",
+            "value": 5,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint4",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 4,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_MaxHealth6",
+        "name": "Max Health Increase",
+        "description": "Increased maximum health.",
+        "level": 6,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combamaxhealth_d.webp",
+        "effects": [
+          {
+            "name": "Max Health",
+            "value": 15,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint8",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 8,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints3_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 3,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint11",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 11,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint14",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 14,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_MaxStamina16",
+        "name": "Max Stamina Increase",
+        "description": "Increased maximum stamina.",
+        "level": 16,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combamaxstamina_d.webp",
+        "effects": [
+          {
+            "name": "Max Stamina",
+            "value": 20,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint18",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 18,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints3_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 3,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint21",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 21,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint24",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 24,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_MaxHealth26",
+        "name": "Max Health Increase",
+        "description": "Increased maximum health.",
+        "level": 26,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combamaxhealth_d.webp",
+        "effects": [
+          {
+            "name": "Max Health",
+            "value": 5,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint28",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 28,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints3_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 3,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint31",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 31,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint34",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 34,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_MaxStamina36",
+        "name": "Max Stamina Increase",
+        "description": "Increased maximum stamina.",
+        "level": 36,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combamaxstamina_d.webp",
+        "effects": [
+          {
+            "name": "Max Stamina",
+            "value": 5,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint38",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 38,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints3_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 3,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint41",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 41,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint44",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 44,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint48",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 48,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints3_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 3,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint51",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 51,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint54",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 54,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_MaxHealth56",
+        "name": "Max Health Increase",
+        "description": "Increased maximum health.",
+        "level": 56,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combamaxhealth_d.webp",
+        "effects": [
+          {
+            "name": "Max Health",
+            "value": 5,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint58",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 58,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints3_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 3,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint61",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 61,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint64",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 64,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_MaxStamina66",
+        "name": "Max Stamina Increase",
+        "description": "Increased maximum stamina.",
+        "level": 66,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combamaxstamina_d.webp",
+        "effects": [
+          {
+            "name": "Max Stamina",
+            "value": 5,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint68",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 68,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints3_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 3,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint71",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 71,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint74",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 74,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_Hat",
+        "name": "Combatant's Helm Variant",
+        "description": "Headgear for those who practice one of the oldest professions. Those who live by the weapon often die by the weapon, but they will never be lacking in work in the time that they have.\n\nUsed to customize helmets.",
+        "level": 75,
+        "keystoneType": "ItemCustomization",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/rewarditems/t_ui_iconspecialization_reward_combamalehelmet01_d.webp",
+        "effects": []
+      },
+      {
+        "id": "Combat_CombatKeystone_MaxHealth77",
+        "name": "Max Health Increase",
+        "description": "Increased maximum health.",
+        "level": 77,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combamaxhealth_d.webp",
+        "effects": [
+          {
+            "name": "Max Health",
+            "value": 25,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint79",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 79,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints3_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 3,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint82",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 82,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint85",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 85,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint89",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 89,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints3_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 3,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_MaxHealth91",
+        "name": "Max Health Increase",
+        "description": "Increased maximum health.",
+        "level": 91,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combamaxhealth_d.webp",
+        "effects": [
+          {
+            "name": "Max Health",
+            "value": 5,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint93",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 93,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_MaxStamina95",
+        "name": "Max Stamina Increase",
+        "description": "Increased maximum stamina.",
+        "level": 95,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combamaxstamina_d.webp",
+        "effects": [
+          {
+            "name": "Max Stamina",
+            "value": 20,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint97",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 97,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints1_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Combat_CombatKeystone_SkillPoint100",
+        "name": "Skill Points",
+        "description": "Gain an additional skill point.",
+        "level": 100,
+        "keystoneType": "SkillPoints",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_combaskillpoints5_d.webp",
+        "effects": [
+          {
+            "name": "Skill Points",
+            "value": 5,
+            "format": "+{v:0}"
+          }
+        ]
+      }
+    ],
+    "xpPerLevel": [
+      0,
+      100,
+      105,
+      110,
+      116,
+      122,
+      128,
+      135,
+      142,
+      149,
+      157,
+      164,
+      171,
+      178,
+      186,
+      194,
+      202,
+      211,
+      220,
+      229,
+      239,
+      246,
+      253,
+      260,
+      268,
+      276,
+      284,
+      292,
+      301,
+      310,
+      319,
+      326,
+      334,
+      342,
+      350,
+      358,
+      366,
+      375,
+      384,
+      393,
+      402,
+      410,
+      418,
+      426,
+      434,
+      442,
+      450,
+      459,
+      468,
+      477,
+      486,
+      494,
+      502,
+      510,
+      518,
+      526,
+      534,
+      543,
+      552,
+      561,
+      570,
+      575,
+      580,
+      585,
+      590,
+      595,
+      600,
+      606,
+      612,
+      618,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624
+    ]
+  },
+  {
+    "id": "craftingtrack",
+    "name": "Crafting",
+    "description": "Improves crafting outcomes and material efficiency. Passively increases crafted item durability. Unlocks bonuses to recycling yields, refining output, and crafting quality.",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/pathbanner/t_ui_iconspecialization_path_crafting_d.webp",
+    "bannerPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/pathbanner/t_ui_iconspecialization_banner_crafting_d.webp",
+    "maxLevel": 100,
+    "passiveAttributes": [
+      {
+        "key": "CraftingItemMaxDurabilityMultiplier",
+        "name": "Crafted Item Durability",
+        "values": [
+          1,
+          1.01,
+          1.02,
+          1.03,
+          1.04,
+          1.05,
+          1.06,
+          1.07,
+          1.08,
+          1.09,
+          1.1,
+          1.11,
+          1.12,
+          1.13,
+          1.14,
+          1.15,
+          1.16,
+          1.17,
+          1.1800001,
+          1.19,
+          1.2,
+          1.21,
+          1.22,
+          1.23,
+          1.24,
+          1.25,
+          1.26,
+          1.27,
+          1.28,
+          1.29,
+          1.3,
+          1.31,
+          1.3199999,
+          1.33,
+          1.34,
+          1.35,
+          1.36,
+          1.37,
+          1.38,
+          1.39,
+          1.4,
+          1.41,
+          1.42,
+          1.4300001,
+          1.44,
+          1.45,
+          1.46,
+          1.47,
+          1.48,
+          1.49,
+          1.5,
+          1.51,
+          1.52,
+          1.53,
+          1.54,
+          1.55,
+          1.56,
+          1.5699999,
+          1.5799999,
+          1.5899999,
+          1.6,
+          1.61,
+          1.62,
+          1.63,
+          1.64,
+          1.65,
+          1.6600001,
+          1.6700001,
+          1.6800001,
+          1.69,
+          1.7,
+          1.71,
+          1.72,
+          1.73,
+          1.74,
+          1.75,
+          1.76,
+          1.77,
+          1.78,
+          1.79,
+          1.8,
+          1.81,
+          1.8199999,
+          1.8299999,
+          1.8399999,
+          1.85,
+          1.86,
+          1.87,
+          1.88,
+          1.89,
+          1.9,
+          1.9100001,
+          1.9200001,
+          1.9300001,
+          1.94,
+          1.95,
+          1.96,
+          1.97,
+          1.98,
+          1.99,
+          2
+        ]
+      }
+    ],
+    "keystones": [
+      {
+        "id": "Crafting_CraftingKeystone_RangedWeaponAugmentSlots1",
+        "name": "Ranged Augmentation Limit",
+        "description": "Allows additional augments to be slotted onto ranged weapons.",
+        "level": 1,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_augmentslotsranged_d.webp",
+        "effects": [
+          {
+            "name": "Ranged Augmentation Limit",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_MeleeWeaponAugmentSlots3",
+        "name": "Melee Augmentation Limit",
+        "description": "Allows additional augments to be slotted onto melee weapons.",
+        "level": 3,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_augmentslotsmelee_d.webp",
+        "effects": [
+          {
+            "name": "Melee Augmentation Limit",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_MaxDurabilityLossReduction5",
+        "name": "Repair Master",
+        "description": "Reduces the maximum durability cost of each repair on all types of items.",
+        "level": 5,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_repairmaxdurability_d.webp",
+        "effects": [
+          {
+            "name": "Max Durability Loss",
+            "value": -0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_ConsumableBatchCrafting8",
+        "name": "Consumable Batch Crafting",
+        "description": "When crafting consumable objects such as healkits, ammo, and spice consumables, there is a chance to produce twice as many.",
+        "level": 8,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_crafting_consumablebatchcraftingbonus_d.webp",
+        "effects": [
+          {
+            "name": "Batch Crafting Chance",
+            "value": 0.25,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_ArmoirAugmentSlots10",
+        "name": "Garment Augmentation Limit",
+        "description": "Allows additional augments to be slotted onto armors.",
+        "level": 10,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_augmentslotsarmor_d.webp",
+        "effects": [
+          {
+            "name": "Garment Augmentation Limit",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_RefiningYield12",
+        "name": "Superior Spice Yield",
+        "description": "A chance to get extra resources from refining orders in the Spice Refineries.",
+        "level": 12,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_crafting_spicerefiningyields_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Spice Refining)",
+            "value": 0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_RecyclingYield14",
+        "name": "Recycling Yield",
+        "description": "Recycling yields more resources.",
+        "level": 14,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_crafting_recycleyield_d.webp",
+        "effects": [
+          {
+            "name": "Recycling Yield",
+            "value": 0.3333,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_RecyclingJackpot16",
+        "name": "Recycling Jackpot",
+        "description": "When recycling, you may obtain rare additional items.",
+        "level": 16,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_recyclejackpot_d.webp",
+        "effects": [
+          {
+            "name": "Recycle Jackpot Chance",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_CraftingSpeedIncrease18",
+        "name": "Efficient Machinery",
+        "description": "Increases the speed of all crafting and refining.",
+        "level": 18,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_crafting_craftingrefiningspeed_d.webp",
+        "effects": []
+      },
+      {
+        "id": "Crafting_CraftingKeystone_CraftingJackpot20",
+        "name": "Augment Fabrication Mastery",
+        "description": "Increases the chance for better stats when crafting augments.",
+        "level": 20,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_craftingjackpot_d.webp",
+        "effects": [
+          {
+            "name": "Improved Augment Chance",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_RefiningYield22",
+        "name": "Superior Chemical Yield",
+        "description": "A chance to get extra resources from refining orders in the Chemical Refineries.",
+        "level": 22,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_crafting_chemicalrefiningyields_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Chemical Refining)",
+            "value": 0.3,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_AugmentCraftingCostDecrease25",
+        "name": "Augment Cost Reduction",
+        "description": "Decreases the crafting cost for augments.",
+        "level": 25,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_recipedecreaseupgradeitems_d.webp",
+        "effects": [
+          {
+            "name": "Augment Fabrication Cost",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_MaxDurabilityLossReduction28",
+        "name": "Repair Master",
+        "description": "Reduces the maximum durability cost of each repair on all types of items.",
+        "level": 28,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_repairmaxdurability_d.webp",
+        "effects": [
+          {
+            "name": "Max Durability Loss",
+            "value": -0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_MeleeWeaponAugmentSlots32",
+        "name": "Melee Augmentation Limit",
+        "description": "Allows additional augments to be slotted onto melee weapons.",
+        "level": 30,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_augmentslotsmelee_d.webp",
+        "effects": [
+          {
+            "name": "Melee Augmentation Limit",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_RangedWeaponAugmentSlots33",
+        "name": "Ranged Augmentation Limit",
+        "description": "Allows additional augments to be slotted onto ranged weapons.",
+        "level": 31,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_augmentslotsranged_d.webp",
+        "effects": [
+          {
+            "name": "Ranged Augmentation Limit",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_CraftingJackpot33",
+        "name": "Augment Fabrication Mastery",
+        "description": "Increases the chance for better stats when crafting augments.",
+        "level": 33,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_craftingjackpot_d.webp",
+        "effects": [
+          {
+            "name": "Improved Augment Chance",
+            "value": 0.025,
+            "format": "+{v:0.#}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_RecyclingJackpot35",
+        "name": "Recycling Jackpot",
+        "description": "When recycling, you may obtain rare additional items.",
+        "level": 35,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_recyclejackpot_d.webp",
+        "effects": [
+          {
+            "name": "Recycle Jackpot Chance",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_CraftingSpeedIncrease38",
+        "name": "Efficient Machinery",
+        "description": "Increases the speed of all crafting and refining.",
+        "level": 38,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_crafting_craftingrefiningspeed_d.webp",
+        "effects": []
+      },
+      {
+        "id": "Crafting_CraftingKeystone_RecyclingYield40",
+        "name": "Recycling Yield",
+        "description": "Recycling yields more resources.",
+        "level": 40,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_crafting_recycleyield_d.webp",
+        "effects": [
+          {
+            "name": "Recycling Yield",
+            "value": 0.3333,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_ArmoirAugmentSlots42",
+        "name": "Garment Augmentation Limit",
+        "description": "Allows additional augments to be slotted onto armors.",
+        "level": 42,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_augmentslotsarmor_d.webp",
+        "effects": [
+          {
+            "name": "Garment Augmentation Limit",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_RefiningYield45",
+        "name": "Superior Spice Yield",
+        "description": "A chance to get extra resources from refining orders in the Spice Refineries.",
+        "level": 45,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_crafting_spicerefiningyields_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Spice Refining)",
+            "value": 0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_MaxDurabilityLossReduction48",
+        "name": "Repair Master",
+        "description": "Reduces the maximum durability cost of each repair on all types of items.",
+        "level": 48,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_repairmaxdurability_d.webp",
+        "effects": [
+          {
+            "name": "Max Durability Loss",
+            "value": -0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_FragmentUpgrade52",
+        "name": "Pattern Upgrading",
+        "description": "Unlocks a recipe in the Advanced Survival Fabricator which combines lower quality Schematic Patterns to create higher quality patterns.",
+        "level": 52,
+        "keystoneType": "Recipe",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_upgradingfragmentsability_d.webp",
+        "effects": []
+      },
+      {
+        "id": "Crafting_CraftingKeystone_CraftingJackpot55",
+        "name": "Augment Fabrication Mastery",
+        "description": "Increases the chance for better stats when crafting augments.",
+        "level": 55,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_craftingjackpot_d.webp",
+        "effects": [
+          {
+            "name": "Improved Augment Chance",
+            "value": 0.025,
+            "format": "+{v:0.#}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_AugmentCraftingCostDecrease59",
+        "name": "Augment Cost Reduction",
+        "description": "Decreases the crafting cost for augments.",
+        "level": 59,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_recipedecreaseupgradeitems_d.webp",
+        "effects": [
+          {
+            "name": "Augment Fabrication Cost",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_SchematicsOnRecycling61",
+        "name": "Waste Not, Want Not",
+        "description": "When recycling a unique item, you have a chance to recover the schematic used to fabricate that item.",
+        "level": 61,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_schematicswhenrecycle_d.webp",
+        "effects": [
+          {
+            "name": "Schematic Recovery Chance",
+            "value": 0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_RefiningYield63",
+        "name": "Superior Ore Yield",
+        "description": "A chance to get extra resources from refining orders in the Ore Refineries.",
+        "level": 63,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_crafting_refiningyields_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Ore Refining)",
+            "value": 0.3,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_MaxDurabilityLossReduction66",
+        "name": "Repair Master",
+        "description": "Reduces the maximum durability cost of each repair on all types of items.",
+        "level": 66,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_repairmaxdurability_d.webp",
+        "effects": [
+          {
+            "name": "Max Durability Loss",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_RecyclingJackpot69",
+        "name": "Recycling Jackpot",
+        "description": "When recycling, you may obtain rare additional items.",
+        "level": 69,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_recyclejackpot_d.webp",
+        "effects": [
+          {
+            "name": "Recycle Jackpot Chance",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_CraftingSpeedIncrease72",
+        "name": "Efficient Machinery",
+        "description": "Increases the speed of all crafting and refining.",
+        "level": 72,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_crafting_craftingrefiningspeed_d.webp",
+        "effects": []
+      },
+      {
+        "id": "Crafting_CraftingKeystone_Hat75",
+        "name": "Crafter’s Helm Variant",
+        "description": "Headgear commemorating those who craft, create, and build. Such artisans shape the world around them by the sheer force of their artifice. \n\nUsed to customize helmets.",
+        "level": 75,
+        "keystoneType": "ItemCustomization",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/rewarditems/t_ui_iconspecialization_reward_crafting_malehelmet01_d.webp",
+        "effects": []
+      },
+      {
+        "id": "Crafting_CraftingKeystone_CraftingJackpot78",
+        "name": "Augment Fabrication Mastery",
+        "description": "Increases the chance for better stats when crafting augments.",
+        "level": 78,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_craftingjackpot_d.webp",
+        "effects": [
+          {
+            "name": "Improved Augment Chance",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_RecyclingYield80",
+        "name": "Recycling Yield",
+        "description": "Recycling yields more resources.",
+        "level": 80,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_crafting_recycleyield_d.webp",
+        "effects": [
+          {
+            "name": "Recycling Yield",
+            "value": 0.3333,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_MaxDurabilityLossReduction83",
+        "name": "Repair Master",
+        "description": "Reduces the maximum durability cost of each repair on all types of items.",
+        "level": 83,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_repairmaxdurability_d.webp",
+        "effects": [
+          {
+            "name": "Max Durability Loss",
+            "value": -0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_RefiningYield85",
+        "name": "Superior Spice Yield",
+        "description": "A chance to get extra resources from refining orders in the Spice Refineries.",
+        "level": 85,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_crafting_spicerefiningyields_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Spice Refining)",
+            "value": 0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_RangedWeaponAugmentSlots87",
+        "name": "Ranged Augmentation Limit",
+        "description": "Allows additional augments to be slotted onto ranged weapons.",
+        "level": 87,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_augmentslotsranged_d.webp",
+        "effects": [
+          {
+            "name": "Ranged Augmentation Limit",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_MeleeWeaponAugmentSlots88",
+        "name": "Melee Augmentation Limit",
+        "description": "Allows additional augments to be slotted onto melee weapons.",
+        "level": 88,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_augmentslotsmelee_d.webp",
+        "effects": [
+          {
+            "name": "Melee Augmentation Limit",
+            "value": 1,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_AugmentCraftingCostDecrease90",
+        "name": "Augment Cost Reduction",
+        "description": "Decreases the crafting cost for augments.",
+        "level": 90,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_recipedecreaseupgradeitems_d.webp",
+        "effects": [
+          {
+            "name": "Augment Fabrication Cost",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_CraftingSpeedIncrease93",
+        "name": "Efficient Machinery",
+        "description": "Increases the speed of all crafting and refining.",
+        "level": 93,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_crafting_craftingrefiningspeed_d.webp",
+        "effects": []
+      },
+      {
+        "id": "Crafting_CraftingKeystone_CraftingJackpot96",
+        "name": "Augment Fabrication Mastery",
+        "description": "Increases the chance for better stats when crafting augments.",
+        "level": 96,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_craftingjackpot_d.webp",
+        "effects": [
+          {
+            "name": "Improved Augment Chance",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Crafting_CraftingKeystone_GhostData100",
+        "name": "Ghost Data",
+        "description": "Chance to gain twice as many permits when learning a schematic.",
+        "level": 100,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_crafting_ghostdataability_d.webp",
+        "effects": [
+          {
+            "name": "Schematic Doubling Chance",
+            "value": 0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      }
+    ],
+    "xpPerLevel": [
+      0,
+      100,
+      105,
+      110,
+      116,
+      122,
+      128,
+      135,
+      142,
+      149,
+      157,
+      164,
+      171,
+      178,
+      186,
+      194,
+      202,
+      211,
+      220,
+      229,
+      239,
+      246,
+      253,
+      260,
+      268,
+      276,
+      284,
+      292,
+      301,
+      310,
+      319,
+      326,
+      334,
+      342,
+      350,
+      358,
+      366,
+      375,
+      384,
+      393,
+      402,
+      410,
+      418,
+      426,
+      434,
+      442,
+      450,
+      459,
+      468,
+      477,
+      486,
+      494,
+      502,
+      510,
+      518,
+      526,
+      534,
+      543,
+      552,
+      561,
+      570,
+      575,
+      580,
+      585,
+      590,
+      595,
+      600,
+      606,
+      612,
+      618,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624
+    ]
+  },
+  {
+    "id": "explorationtrack",
+    "name": "Exploration",
+    "description": "Enhances traversal and discovery capabilities. Passively increases inventory capacity. Unlocks bonuses to vehicle performance, scanning range, and reduced sandworm threat.",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/pathbanner/t_ui_iconspecialization_path_exploration_d.webp",
+    "bannerPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/pathbanner/t_ui_iconspecialization_banner_exploration_d.webp",
+    "maxLevel": 100,
+    "passiveAttributes": [
+      {
+        "key": "BackpackVolumeCapacityMultiplier",
+        "name": "Backpack Volume Capacity",
+        "values": [
+          1,
+          1.01,
+          1.02,
+          1.03,
+          1.04,
+          1.05,
+          1.06,
+          1.07,
+          1.08,
+          1.09,
+          1.1,
+          1.11,
+          1.12,
+          1.13,
+          1.14,
+          1.15,
+          1.16,
+          1.17,
+          1.1800001,
+          1.19,
+          1.2,
+          1.21,
+          1.22,
+          1.23,
+          1.24,
+          1.25,
+          1.26,
+          1.27,
+          1.28,
+          1.29,
+          1.3,
+          1.31,
+          1.3199999,
+          1.33,
+          1.34,
+          1.35,
+          1.36,
+          1.37,
+          1.38,
+          1.39,
+          1.4,
+          1.41,
+          1.42,
+          1.4300001,
+          1.44,
+          1.45,
+          1.46,
+          1.47,
+          1.48,
+          1.49,
+          1.5,
+          1.51,
+          1.52,
+          1.53,
+          1.54,
+          1.55,
+          1.56,
+          1.5699999,
+          1.5799999,
+          1.5899999,
+          1.6,
+          1.61,
+          1.62,
+          1.63,
+          1.64,
+          1.65,
+          1.6600001,
+          1.6700001,
+          1.6800001,
+          1.69,
+          1.7,
+          1.71,
+          1.72,
+          1.73,
+          1.74,
+          1.75,
+          1.76,
+          1.77,
+          1.78,
+          1.79,
+          1.8,
+          1.81,
+          1.8199999,
+          1.8299999,
+          1.8399999,
+          1.85,
+          1.86,
+          1.87,
+          1.88,
+          1.89,
+          1.9,
+          1.9100001,
+          1.9200001,
+          1.9300001,
+          1.94,
+          1.95,
+          1.96,
+          1.97,
+          1.98,
+          1.99,
+          2
+        ]
+      }
+    ],
+    "keystones": [
+      {
+        "id": "Exploration_ExplorationKeystone_PlayerInventorySlots1",
+        "name": "Pack Mule",
+        "description": "Increases inventory size by 1 row.",
+        "level": 1,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_exploration_playerinventoryslots_d.webp",
+        "effects": [
+          {
+            "name": "Inventory Slot Capacity",
+            "value": 5,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleBoostHeatReduction3",
+        "name": "Vehicle Boost Heat Reduction",
+        "description": "Reduced heat buildup when using vehicle boosts.",
+        "level": 3,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_vehicleboostheatreduction_d.webp",
+        "effects": [
+          {
+            "name": "Boost Heat Generation",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleFuelEfficiency6",
+        "name": "Superior Fuel Efficiency",
+        "description": "Reduced fuel consumption when piloting vehicles.",
+        "level": 6,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_vehiclefuelefficiency_d.webp",
+        "effects": [
+          {
+            "name": "Vehicle Fuel Efficiency",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleSandstormDamageReduction8",
+        "name": "Rider in the Storm",
+        "description": "Reduced vehicle damage taken from sandstorms.",
+        "level": 8,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_sandstormdamagereduction_d.webp",
+        "effects": [
+          {
+            "name": "Vehicle Sandstorm Damage",
+            "value": -0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_CrashedShipBonusLoot10",
+        "name": "Treasure Hunter",
+        "description": "Increases the amount of loot gained from crashed ships and buried treasures.",
+        "level": 10,
+        "keystoneType": "PlayerTag",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_exploration_buriedtreasurebonus_d.webp",
+        "effects": []
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_SurveyTimeDecrease13",
+        "name": "Efficient Surveyor",
+        "description": "Time required to successfully survey with the survey probe is reduced.",
+        "level": 13,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_surveyingtimedecrease_d.webp",
+        "effects": [
+          {
+            "name": "Survey Time",
+            "value": -0.5,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleBoostHeatReduction15",
+        "name": "Vehicle Boost Heat Reduction",
+        "description": "Reduced heat buildup when using vehicle boosts.",
+        "level": 15,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_vehicleboostheatreduction_d.webp",
+        "effects": [
+          {
+            "name": "Boost Heat Generation",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_ScanningRange17",
+        "name": "Superior Scanning Range",
+        "description": "Increased range with scanners.",
+        "level": 17,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_scanningrange_d.webp",
+        "effects": [
+          {
+            "name": "Scanning Range",
+            "value": 0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleRecoveryCostReduction18",
+        "name": "Vehicle Recovery Cost Reduction",
+        "description": "Reduces the cost of Vehicle Recovery.",
+        "level": 18,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_reducecostvehiclerecovery_d.webp",
+        "effects": [
+          {
+            "name": "Vehicle Recovery Cost",
+            "value": -0.25,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleSpeedBonus20",
+        "name": "Vehicle Speed Bonus",
+        "description": "Increased maximum travel speed when piloting vehicles.",
+        "level": 20,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_vehiclespeedbonus_d.webp",
+        "effects": [
+          {
+            "name": "Vehicle Speed",
+            "value": 0.14999998,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleHeatDiddipation23",
+        "name": "Superior Heat Dissipation",
+        "description": "Vehicles dissipate heat more rapidly.",
+        "level": 23,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_fastervehicleheat_d.webp",
+        "effects": [
+          {
+            "name": "Heat Dissipation Rate",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_PlayerInventorySlots25",
+        "name": "Pack Mule",
+        "description": "Increases inventory size by 1 row.",
+        "level": 25,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_exploration_playerinventoryslots_d.webp",
+        "effects": [
+          {
+            "name": "Inventory Slot Capacity",
+            "value": 5,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_SuspensorDrainReduction28",
+        "name": "Suspensor Powerdrain Reduction",
+        "description": "Reduced power drain from suspensor belts.",
+        "level": 28,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_exploration_suspensorpowerdrain_d.webp",
+        "effects": [
+          {
+            "name": "Suspensor Power Drain",
+            "value": -0.100000024,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleBoostHeatReduction30",
+        "name": "Vehicle Boost Heat Reduction",
+        "description": "Reduced heat buildup when using vehicle boosts.",
+        "level": 30,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_vehicleboostheatreduction_d.webp",
+        "effects": [
+          {
+            "name": "Boost Heat Generation",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleDamageResistance33",
+        "name": "Expert Maneuvering",
+        "description": "Your piloting skill enables you to reduce the damage taken when piloting a vehicle.",
+        "level": 33,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_exploration_vehicledamageresistance_d.webp",
+        "effects": [
+          {
+            "name": "Vehicle Damage Resistance",
+            "value": 0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleFuelEfficiency35",
+        "name": "Superior Fuel Efficiency",
+        "description": "Reduced fuel consumption when piloting vehicles.",
+        "level": 35,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_vehiclefuelefficiency_d.webp",
+        "effects": [
+          {
+            "name": "Vehicle Fuel Efficiency",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_FogOfWarRadius38",
+        "name": "Revealing the Fog",
+        "description": "Reveal a larger area of the fog of war when traversing across the map.",
+        "level": 38,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_fogwarrevealradius_d.webp",
+        "effects": [
+          {
+            "name": "Fog of War Radius",
+            "value": 0.5,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_LootPoolAlterations40",
+        "name": "Hidden Caches",
+        "description": "Increases amount of loot in loot containers.",
+        "level": 40,
+        "keystoneType": "PlayerTag",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_exploration_lootpoolalterations_d.webp",
+        "effects": []
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_ClimbingStaminaBonus42",
+        "name": "Wall Crawler",
+        "description": "Reduced stamina drain when climbing.",
+        "level": 42,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_climbingstamina_d.webp",
+        "effects": [
+          {
+            "name": "Climbing Stamina Cost",
+            "value": -0.2,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleSandstormDamageReduction45",
+        "name": "Rider in the Storm",
+        "description": "Reduced vehicle damage taken from sandstorms.",
+        "level": 45,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_sandstormdamagereduction_d.webp",
+        "effects": [
+          {
+            "name": "Vehicle Sandstorm Damage",
+            "value": -0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleHeatDiddipation48",
+        "name": "Superior Heat Dissipation",
+        "description": "Vehicles dissipate heat more rapidly.",
+        "level": 48,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_fastervehicleheat_d.webp",
+        "effects": [
+          {
+            "name": "Heat Dissipation Rate",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_PlayerInventorySlots50",
+        "name": "Pack Mule",
+        "description": "Increases inventory size by 1 row.",
+        "level": 50,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_exploration_playerinventoryslots_d.webp",
+        "effects": [
+          {
+            "name": "Inventory Slot Capacity",
+            "value": 5,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleRecoveryCostReduction52",
+        "name": "Vehicle Recovery Cost Reduction",
+        "description": "Reduces the cost of Vehicle Recovery.",
+        "level": 52,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_reducecostvehiclerecovery_d.webp",
+        "effects": [
+          {
+            "name": "Vehicle Recovery Cost",
+            "value": -0.25,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleFuelEfficiency55",
+        "name": "Superior Fuel Efficiency",
+        "description": "Reduced fuel consumption when piloting vehicles.",
+        "level": 55,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_vehiclefuelefficiency_d.webp",
+        "effects": [
+          {
+            "name": "Vehicle Fuel Efficiency",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleBoostHeatReduction59",
+        "name": "Vehicle Boost Heat Reduction",
+        "description": "Reduced heat buildup when using vehicle boosts.",
+        "level": 59,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_vehicleboostheatreduction_d.webp",
+        "effects": [
+          {
+            "name": "Boost Heat Generation",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleHeatDiddipation62",
+        "name": "Superior Heat Dissipation",
+        "description": "Vehicles dissipate heat more rapidly.",
+        "level": 62,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_fastervehicleheat_d.webp",
+        "effects": [
+          {
+            "name": "Heat Dissipation Rate",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleFuelEfficiency65",
+        "name": "Superior Fuel Efficiency",
+        "description": "Reduced fuel consumption when piloting vehicles.",
+        "level": 65,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_vehiclefuelefficiency_d.webp",
+        "effects": [
+          {
+            "name": "Vehicle Fuel Efficiency",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleHeatDiddipation68",
+        "name": "Superior Heat Dissipation",
+        "description": "Vehicles dissipate heat more rapidly.",
+        "level": 68,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_fastervehicleheat_d.webp",
+        "effects": [
+          {
+            "name": "Heat Dissipation Rate",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_ScanningRange71",
+        "name": "Superior Scanning Range",
+        "description": "Increased range with scanners.",
+        "level": 71,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_scanningrange_d.webp",
+        "effects": [
+          {
+            "name": "Scanning Range",
+            "value": 0.35,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_WormThreatReduction74",
+        "name": "Without Rhythm",
+        "description": "Reduced worm threat from moving across the sand.",
+        "level": 74,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_exploration_lesswormthreat_d.webp",
+        "effects": [
+          {
+            "name": "Sandworm Threat",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_Hat75",
+        "name": "Explorer’s Helm Variant",
+        "description": "Headgear celebrating those who excel at discovery. That illimitable curiosity, stronger than the fear of death, has brought humanity across vast swaths of the universe, further than their biology had any right to take them.\n\nUsed to customize helmets.",
+        "level": 75,
+        "keystoneType": "ItemCustomization",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/rewarditems/t_ui_iconspecialization_reward_exploration_malehelmet01_d.webp",
+        "effects": []
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_PlayerInventorySlots77",
+        "name": "Pack Mule",
+        "description": "Increases inventory size by 1 row.",
+        "level": 77,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_exploration_playerinventoryslots_d.webp",
+        "effects": [
+          {
+            "name": "Inventory Slot Capacity",
+            "value": 5,
+            "format": "+{v:0}"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleSandstormDamageReduction80",
+        "name": "Rider in the Storm",
+        "description": "Reduced vehicle damage taken from sandstorms.",
+        "level": 80,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_sandstormdamagereduction_d.webp",
+        "effects": [
+          {
+            "name": "Vehicle Sandstorm Damage",
+            "value": -0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleHeatDiddipation83",
+        "name": "Superior Heat Dissipation",
+        "description": "Vehicles dissipate heat more rapidly.",
+        "level": 83,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_fastervehicleheat_d.webp",
+        "effects": [
+          {
+            "name": "Heat Dissipation Rate",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleFuelEfficiency85",
+        "name": "Superior Fuel Efficiency",
+        "description": "Reduced fuel consumption when piloting vehicles.",
+        "level": 85,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_vehiclefuelefficiency_d.webp",
+        "effects": [
+          {
+            "name": "Vehicle Fuel Efficiency",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleDamageResistance88",
+        "name": "Expert Maneuvering",
+        "description": "Your piloting skill enables you to reduce the damage taken when piloting a vehicle.",
+        "level": 88,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_exploration_vehicledamageresistance_d.webp",
+        "effects": [
+          {
+            "name": "Vehicle Damage Resistance",
+            "value": 0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleBoostHeatReduction90",
+        "name": "Vehicle Boost Heat Reduction",
+        "description": "Reduced heat buildup when using vehicle boosts.",
+        "level": 90,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_vehicleboostheatreduction_d.webp",
+        "effects": [
+          {
+            "name": "Boost Heat Generation",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_SuspensorDrainReduction93",
+        "name": "Suspensor Powerdrain Reduction",
+        "description": "Reduced power drain from suspensor belts.",
+        "level": 93,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_exploration_suspensorpowerdrain_d.webp",
+        "effects": [
+          {
+            "name": "Suspensor Power Drain",
+            "value": -0.19999999,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_VehicleHeatDiddipation95",
+        "name": "Superior Heat Dissipation",
+        "description": "Vehicles dissipate heat more rapidly.",
+        "level": 95,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_exploration_fastervehicleheat_d.webp",
+        "effects": [
+          {
+            "name": "Heat Dissipation Rate",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_WormThreatReduction98",
+        "name": "Without Rhythm",
+        "description": "Reduced worm threat from moving across the sand.",
+        "level": 98,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_exploration_lesswormthreat_d.webp",
+        "effects": [
+          {
+            "name": "Sandworm Threat",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Exploration_ExplorationKeystone_PlayerInventorySlots100",
+        "name": "Pack Mule",
+        "description": "Increases inventory size by 1 row.",
+        "level": 100,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_exploration_playerinventoryslots_d.webp",
+        "effects": [
+          {
+            "name": "Inventory Slot Capacity",
+            "value": 5,
+            "format": "+{v:0}"
+          }
+        ]
+      }
+    ],
+    "xpPerLevel": [
+      0,
+      100,
+      105,
+      110,
+      116,
+      122,
+      128,
+      135,
+      142,
+      149,
+      157,
+      164,
+      171,
+      178,
+      186,
+      194,
+      202,
+      211,
+      220,
+      229,
+      239,
+      246,
+      253,
+      260,
+      268,
+      276,
+      284,
+      292,
+      301,
+      310,
+      319,
+      326,
+      334,
+      342,
+      350,
+      358,
+      366,
+      375,
+      384,
+      393,
+      402,
+      410,
+      418,
+      426,
+      434,
+      442,
+      450,
+      459,
+      468,
+      477,
+      486,
+      494,
+      502,
+      510,
+      518,
+      526,
+      534,
+      543,
+      552,
+      561,
+      570,
+      575,
+      580,
+      585,
+      590,
+      595,
+      600,
+      606,
+      612,
+      618,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624
+    ]
+  },
+  {
+    "id": "gatheringtrack",
+    "name": "Gathering",
+    "description": "Increases resource collection efficiency. Passively improves mining yield and static compactor output. Unlocks bonuses to tool efficiency, extraction yields, and rare material chances.",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/pathbanner/t_ui_iconspecialization_path_gathering_d.webp",
+    "bannerPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/pathbanner/t_ui_iconspecialization_banner_gathering_d.webp",
+    "maxLevel": 100,
+    "passiveAttributes": [
+      {
+        "key": "VehicleMiningYieldBonus_SpecTrack",
+        "name": "Mining Yield:",
+        "values": [
+          0,
+          0.005,
+          0.01,
+          0.015,
+          0.02,
+          0.025,
+          0.03,
+          0.035,
+          0.04,
+          0.045,
+          0.05,
+          0.055,
+          0.06,
+          0.065,
+          0.07,
+          0.075,
+          0.08,
+          0.085,
+          0.09,
+          0.095,
+          0.1,
+          0.105,
+          0.11,
+          0.115,
+          0.12,
+          0.125,
+          0.13,
+          0.135,
+          0.14,
+          0.145,
+          0.15,
+          0.155,
+          0.16,
+          0.165,
+          0.17,
+          0.175,
+          0.18,
+          0.185,
+          0.19,
+          0.195,
+          0.2,
+          0.205,
+          0.21,
+          0.215,
+          0.22,
+          0.225,
+          0.23,
+          0.235,
+          0.24,
+          0.245,
+          0.25,
+          0.255,
+          0.26,
+          0.265,
+          0.27,
+          0.275,
+          0.28,
+          0.285,
+          0.29,
+          0.295,
+          0.3,
+          0.305,
+          0.31,
+          0.315,
+          0.32,
+          0.325,
+          0.33,
+          0.335,
+          0.34,
+          0.345,
+          0.35,
+          0.355,
+          0.36,
+          0.365,
+          0.37,
+          0.375,
+          0.38,
+          0.385,
+          0.39,
+          0.395,
+          0.4,
+          0.405,
+          0.41,
+          0.415,
+          0.42,
+          0.425,
+          0.43,
+          0.435,
+          0.44,
+          0.445,
+          0.45,
+          0.455,
+          0.46,
+          0.465,
+          0.47,
+          0.475,
+          0.48,
+          0.485,
+          0.49,
+          0.495,
+          0.5
+        ]
+      },
+      {
+        "key": "CompactorYieldScalar_SpecTrack",
+        "name": "Static Compactor Yield",
+        "values": [
+          1,
+          1.005,
+          1.01,
+          1.015,
+          1.02,
+          1.025,
+          1.03,
+          1.035,
+          1.04,
+          1.045,
+          1.05,
+          1.055,
+          1.06,
+          1.065,
+          1.07,
+          1.075,
+          1.08,
+          1.085,
+          1.09,
+          1.095,
+          1.1,
+          1.105,
+          1.11,
+          1.115,
+          1.12,
+          1.125,
+          1.13,
+          1.135,
+          1.14,
+          1.145,
+          1.15,
+          1.155,
+          1.16,
+          1.165,
+          1.17,
+          1.175,
+          1.1800001,
+          1.185,
+          1.19,
+          1.1949999,
+          1.2,
+          1.205,
+          1.21,
+          1.215,
+          1.22,
+          1.225,
+          1.23,
+          1.235,
+          1.24,
+          1.245,
+          1.25,
+          1.255,
+          1.26,
+          1.265,
+          1.27,
+          1.275,
+          1.28,
+          1.285,
+          1.29,
+          1.295,
+          1.3,
+          1.3050001,
+          1.31,
+          1.315,
+          1.3199999,
+          1.325,
+          1.33,
+          1.335,
+          1.34,
+          1.345,
+          1.35,
+          1.355,
+          1.36,
+          1.365,
+          1.37,
+          1.375,
+          1.38,
+          1.385,
+          1.39,
+          1.395,
+          1.4,
+          1.405,
+          1.41,
+          1.415,
+          1.42,
+          1.425,
+          1.4300001,
+          1.435,
+          1.44,
+          1.4449999,
+          1.45,
+          1.455,
+          1.46,
+          1.465,
+          1.47,
+          1.475,
+          1.48,
+          1.485,
+          1.49,
+          1.495,
+          1.5
+        ]
+      },
+      {
+        "key": "MiningOutputBaseMultiplier",
+        "name": "Mining Output Base Multiplier",
+        "values": [
+          1,
+          1.005,
+          1.01,
+          1.015,
+          1.02,
+          1.025,
+          1.03,
+          1.035,
+          1.04,
+          1.045,
+          1.05,
+          1.055,
+          1.06,
+          1.065,
+          1.07,
+          1.075,
+          1.08,
+          1.085,
+          1.09,
+          1.095,
+          1.1,
+          1.105,
+          1.11,
+          1.115,
+          1.12,
+          1.125,
+          1.13,
+          1.135,
+          1.14,
+          1.145,
+          1.15,
+          1.155,
+          1.16,
+          1.165,
+          1.17,
+          1.175,
+          1.1800001,
+          1.185,
+          1.19,
+          1.1949999,
+          1.2,
+          1.205,
+          1.21,
+          1.215,
+          1.22,
+          1.225,
+          1.23,
+          1.235,
+          1.24,
+          1.245,
+          1.25,
+          1.255,
+          1.26,
+          1.265,
+          1.27,
+          1.275,
+          1.28,
+          1.285,
+          1.29,
+          1.295,
+          1.3,
+          1.3050001,
+          1.31,
+          1.315,
+          1.3199999,
+          1.325,
+          1.33,
+          1.335,
+          1.34,
+          1.345,
+          1.35,
+          1.355,
+          1.36,
+          1.365,
+          1.37,
+          1.375,
+          1.38,
+          1.385,
+          1.39,
+          1.395,
+          1.4,
+          1.405,
+          1.41,
+          1.415,
+          1.42,
+          1.425,
+          1.4300001,
+          1.435,
+          1.44,
+          1.4449999,
+          1.45,
+          1.455,
+          1.46,
+          1.465,
+          1.47,
+          1.475,
+          1.48,
+          1.485,
+          1.49,
+          1.495,
+          1.5
+        ]
+      }
+    ],
+    "keystones": [
+      {
+        "id": "Gathering_GatheringKeystone_ScrapObjectsYield1",
+        "name": "Effective Salvaging",
+        "description": "Scrap-yielding resource nodes have a chance to yield additional bonus components when mined using analysis mode.",
+        "level": 1,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_bonusyieldscrap_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Scrap)",
+            "value": 0.3,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_BonusWater2",
+        "name": "Every Last Drop",
+        "description": "Increased water yield when using a dew reaper or scythe.",
+        "level": 2,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_additionalwaterplants_d.webp",
+        "effects": [
+          {
+            "name": "Water Harvesting Yield",
+            "value": 0.2,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_BonusBlood3",
+        "name": "Exsanguination Mastery",
+        "description": "Increased blood harvested from corpses.",
+        "level": 3,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_additionalbloodcorpses_d.webp",
+        "effects": [
+          {
+            "name": "Blood Extraction Yield",
+            "value": 1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_ToolPowerCostReduction5",
+        "name": "More Efficient Tools",
+        "description": "Reduced power consumption from using tools.",
+        "level": 5,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_toolusagecostspower_d.webp",
+        "effects": [
+          {
+            "name": "Tool Power Drain",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_ByproductSalvage7",
+        "name": "Effective Mining",
+        "description": "Adds a chance to gain additional resources from mineral nodes that aren't normally present when mining using analysis mode.",
+        "level": 7,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_byproductsalvage_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Mineral)",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_CompactorThreat8",
+        "name": "Compactor Safety",
+        "description": "Reduced sandworm threat generation when using the static compactor.",
+        "level": 8,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_compactorthreatgeneration_d.webp",
+        "effects": [
+          {
+            "name": "Static Compactor Threat",
+            "value": -0.050000012,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_YieldJackpot10",
+        "name": "Yield Jackpot",
+        "description": "Adds a chance to gain additional resources when mining a resource node.",
+        "level": 10,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_yieldjackpot_d.webp",
+        "effects": [
+          {
+            "name": "Jackpot Yield Chance",
+            "value": 0.025,
+            "format": "+{v:0.#}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_CompactorRange13",
+        "name": "Superior Compactor Range",
+        "description": "Increases the range for the static compactor.",
+        "level": 13,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_compactorgatherrange_d.webp",
+        "effects": [
+          {
+            "name": "Static Compactor Area",
+            "value": 0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_PickupYield15",
+        "name": "Pickup Yields",
+        "description": "Increased amount collected when picking up items like scrap, stone, and ore.",
+        "level": 15,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_additionalyieldspickups_d.webp",
+        "effects": [
+          {
+            "name": "Pickup Yield",
+            "value": 1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_ByproductSalvage17",
+        "name": "Effective Mining",
+        "description": "Adds a chance to gain additional resources from mineral nodes that aren't normally present when mining using analysis mode.",
+        "level": 17,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_byproductsalvage_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Mineral)",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_YieldJackpot20",
+        "name": "Yield Jackpot",
+        "description": "Adds a chance to gain additional resources when mining a resource node.",
+        "level": 20,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_yieldjackpot_d.webp",
+        "effects": [
+          {
+            "name": "Jackpot Yield Chance",
+            "value": 0.025,
+            "format": "+{v:0.#}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_ByproductSalvage23",
+        "name": "Effective Mining",
+        "description": "Adds a chance to gain additional resources from mineral nodes that aren't normally present when mining using analysis mode.",
+        "level": 23,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_byproductsalvage_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Mineral)",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_CompactorThreat25",
+        "name": "Compactor Safety",
+        "description": "Reduced sandworm threat generation when using the static compactor.",
+        "level": 25,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_compactorthreatgeneration_d.webp",
+        "effects": [
+          {
+            "name": "Static Compactor Threat",
+            "value": -0.050000012,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_ByproductSalvage28",
+        "name": "Effective Mining",
+        "description": "Adds a chance to gain additional resources from mineral nodes that aren't normally present when mining using analysis mode.",
+        "level": 28,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_byproductsalvage_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Mineral)",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_YieldJackpot30",
+        "name": "Yield Jackpot",
+        "description": "Adds a chance to gain additional resources when mining a resource node.",
+        "level": 30,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_yieldjackpot_d.webp",
+        "effects": [
+          {
+            "name": "Jackpot Yield Chance",
+            "value": 0.025,
+            "format": "+{v:0.#}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_CompactorRange33",
+        "name": "Superior Compactor Range",
+        "description": "Increases the range for the static compactor.",
+        "level": 33,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_compactorgatherrange_d.webp",
+        "effects": [
+          {
+            "name": "Static Compactor Area",
+            "value": 0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_ScrapObjectsYield35",
+        "name": "Effective Salvaging",
+        "description": "Scrap-yielding resource nodes have a chance to yield additional bonus components when mined using analysis mode.",
+        "level": 35,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_bonusyieldscrap_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Scrap)",
+            "value": 0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_ByproductSalvage38",
+        "name": "Effective Mining",
+        "description": "Adds a chance to gain additional resources from mineral nodes that aren't normally present when mining using analysis mode.",
+        "level": 38,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_byproductsalvage_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Mineral)",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_YieldJackpot40",
+        "name": "Yield Jackpot",
+        "description": "Adds a chance to gain additional resources when mining a resource node.",
+        "level": 40,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_yieldjackpot_d.webp",
+        "effects": [
+          {
+            "name": "Jackpot Yield Chance",
+            "value": 0.025,
+            "format": "+{v:0.#}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_ByproductSalvage43",
+        "name": "Effective Mining",
+        "description": "Adds a chance to gain additional resources from mineral nodes that aren't normally present when mining using analysis mode.",
+        "level": 43,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_byproductsalvage_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Mineral)",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_ToolPowerCostReduction45",
+        "name": "More Efficient Tools",
+        "description": "Reduced power consumption from using tools.",
+        "level": 45,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_toolusagecostspower_d.webp",
+        "effects": [
+          {
+            "name": "Tool Power Drain",
+            "value": -0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_ByproductSalvage48",
+        "name": "Effective Mining",
+        "description": "Adds a chance to gain additional resources from mineral nodes that aren't normally present when mining using analysis mode.",
+        "level": 48,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_byproductsalvage_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Mineral)",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_YieldJackpot50",
+        "name": "Yield Jackpot",
+        "description": "Adds a chance to gain additional resources when mining a resource node.",
+        "level": 50,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_yieldjackpot_d.webp",
+        "effects": [
+          {
+            "name": "Jackpot Yield Chance",
+            "value": 0.025,
+            "format": "+{v:0.#}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_ByproductSalvage53",
+        "name": "Effective Mining",
+        "description": "Adds a chance to gain additional resources from mineral nodes that aren't normally present when mining using analysis mode.",
+        "level": 53,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_byproductsalvage_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Mineral)",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_PickupYield55",
+        "name": "Pickup Yields",
+        "description": "Increased amount collected when picking up items like scrap, stone, and ore.",
+        "level": 55,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_additionalyieldspickups_d.webp",
+        "effects": [
+          {
+            "name": "Pickup Yield",
+            "value": 1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_NewCorpseType58",
+        "name": "Corpse Compression",
+        "description": "Corpses occupy less inventory volume.",
+        "level": 58,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_jellyfingcorpse_d.webp",
+        "effects": [
+          {
+            "name": "Corpse Volume",
+            "value": -0.5,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_YieldJackpot61",
+        "name": "Yield Jackpot",
+        "description": "Adds a chance to gain additional resources when mining a resource node.",
+        "level": 61,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_yieldjackpot_d.webp",
+        "effects": [
+          {
+            "name": "Jackpot Yield Chance",
+            "value": 0.025,
+            "format": "+{v:0.#}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_CompactorRange63",
+        "name": "Superior Compactor Range",
+        "description": "Increases the range for the static compactor.",
+        "level": 63,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_compactorgatherrange_d.webp",
+        "effects": [
+          {
+            "name": "Static Compactor Area",
+            "value": 0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_CompactorThreat65",
+        "name": "Compactor Safety",
+        "description": "Reduced sandworm threat generation when using the static compactor.",
+        "level": 65,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_compactorthreatgeneration_d.webp",
+        "effects": [
+          {
+            "name": "Static Compactor Threat",
+            "value": -0.050000012,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_ByproductSalvage68",
+        "name": "Effective Mining",
+        "description": "Adds a chance to gain additional resources from mineral nodes that aren't normally present when mining using analysis mode.",
+        "level": 68,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_byproductsalvage_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Mineral)",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_YieldJackpot71",
+        "name": "Yield Jackpot",
+        "description": "Adds a chance to gain additional resources when mining a resource node.",
+        "level": 71,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_yieldjackpot_d.webp",
+        "effects": [
+          {
+            "name": "Jackpot Yield Chance",
+            "value": 0.025,
+            "format": "+{v:0.#}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_CompactorRange74",
+        "name": "Superior Compactor Range",
+        "description": "Increases the range for the static compactor.",
+        "level": 74,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_compactorgatherrange_d.webp",
+        "effects": [
+          {
+            "name": "Static Compactor Area",
+            "value": 0.4,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_Hat75",
+        "name": "Gatherer's Helm Variant",
+        "description": "Headgear for those who know how to acquire that which is needed. No matter how powerful they are, the most affluent people in the universe cannot escape their dependence on such agents.\n\nUsed to customize helmets.",
+        "level": 75,
+        "keystoneType": "ItemCustomization",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/rewarditems/t_ui_iconspecialization_reward_gathering_malehelmet01_d.webp",
+        "effects": []
+      },
+      {
+        "id": "Gathering_GatheringKeystone_CompactorRange78",
+        "name": "Superior Compactor Range",
+        "description": "Increases the range for the static compactor.",
+        "level": 78,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_compactorgatherrange_d.webp",
+        "effects": [
+          {
+            "name": "Static Compactor Area",
+            "value": 0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_YieldJackpot81",
+        "name": "Yield Jackpot",
+        "description": "Adds a chance to gain additional resources when mining a resource node.",
+        "level": 81,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_yieldjackpot_d.webp",
+        "effects": [
+          {
+            "name": "Jackpot Yield Chance",
+            "value": 0.025,
+            "format": "+{v:0.#}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_ByproductSalvage83",
+        "name": "Effective Mining",
+        "description": "Adds a chance to gain additional resources from mineral nodes that aren't normally present when mining using analysis mode.",
+        "level": 83,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_byproductsalvage_d.webp",
+        "effects": [
+          {
+            "name": "Bonus Yield Chance (Mineral)",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_CompactorThreat86",
+        "name": "Compactor Safety",
+        "description": "Reduced sandworm threat generation when using the static compactor.",
+        "level": 86,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_compactorthreatgeneration_d.webp",
+        "effects": [
+          {
+            "name": "Static Compactor Threat",
+            "value": -0.050000012,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_YieldJackpot90",
+        "name": "Yield Jackpot",
+        "description": "Adds a chance to gain additional resources when mining a resource node.",
+        "level": 90,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_yieldjackpot_d.webp",
+        "effects": [
+          {
+            "name": "Jackpot Yield Chance",
+            "value": 0.025,
+            "format": "+{v:0.#}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_ToolPowerCostReduction93",
+        "name": "More Efficient Tools",
+        "description": "Reduced power consumption from using tools.",
+        "level": 93,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_toolusagecostspower_d.webp",
+        "effects": [
+          {
+            "name": "Tool Power Drain",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_CompactorThreat96",
+        "name": "Compactor Safety",
+        "description": "Reduced sandworm threat generation when using the static compactor.",
+        "level": 96,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_gathering_compactorthreatgeneration_d.webp",
+        "effects": [
+          {
+            "name": "Static Compactor Threat",
+            "value": -0.050000012,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Gathering_GatheringKeystone_YieldJackpot100",
+        "name": "Yield Jackpot",
+        "description": "Adds a chance to gain additional resources when mining a resource node.",
+        "level": 100,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_gathering_yieldjackpot_d.webp",
+        "effects": [
+          {
+            "name": "Jackpot Yield Chance",
+            "value": 0.025,
+            "format": "+{v:0.#}%"
+          }
+        ]
+      }
+    ],
+    "xpPerLevel": [
+      0,
+      100,
+      105,
+      110,
+      116,
+      122,
+      128,
+      135,
+      142,
+      149,
+      157,
+      164,
+      171,
+      178,
+      186,
+      194,
+      202,
+      211,
+      220,
+      229,
+      239,
+      246,
+      253,
+      260,
+      268,
+      276,
+      284,
+      292,
+      301,
+      310,
+      319,
+      326,
+      334,
+      342,
+      350,
+      358,
+      366,
+      375,
+      384,
+      393,
+      402,
+      410,
+      418,
+      426,
+      434,
+      442,
+      450,
+      459,
+      468,
+      477,
+      486,
+      494,
+      502,
+      510,
+      518,
+      526,
+      534,
+      543,
+      552,
+      561,
+      570,
+      575,
+      580,
+      585,
+      590,
+      595,
+      600,
+      606,
+      612,
+      618,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624
+    ]
+  },
+  {
+    "id": "sabotagetrack",
+    "name": "Sabotage",
+    "description": "Specializes in covert operations and opportunistic strikes. Passively increases damage against staggered targets. Unlocks bonuses to stealth, scanning resistance, and Landsraad influence.",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/pathbanner/t_ui_iconspecialization_path_sabotage_d.webp",
+    "bannerPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/pathbanner/t_ui_iconspecialization_banner_sabotage_d.webp",
+    "maxLevel": 100,
+    "passiveAttributes": [
+      {
+        "key": "BackstabDamageBonus_SpecTrack",
+        "name": "Damage to Staggered Targets",
+        "values": [
+          0,
+          0.005,
+          0.01,
+          0.015,
+          0.02,
+          0.025,
+          0.03,
+          0.035,
+          0.04,
+          0.045,
+          0.05,
+          0.055,
+          0.06,
+          0.065,
+          0.07,
+          0.075,
+          0.08,
+          0.085,
+          0.09,
+          0.095,
+          0.1,
+          0.105,
+          0.11,
+          0.115,
+          0.12,
+          0.125,
+          0.13,
+          0.135,
+          0.14,
+          0.145,
+          0.15,
+          0.155,
+          0.16,
+          0.165,
+          0.17,
+          0.175,
+          0.18,
+          0.185,
+          0.19,
+          0.195,
+          0.2,
+          0.205,
+          0.21,
+          0.215,
+          0.22,
+          0.225,
+          0.23,
+          0.235,
+          0.24,
+          0.245,
+          0.25,
+          0.255,
+          0.26,
+          0.265,
+          0.27,
+          0.275,
+          0.28,
+          0.285,
+          0.29,
+          0.295,
+          0.3,
+          0.305,
+          0.31,
+          0.315,
+          0.32,
+          0.325,
+          0.33,
+          0.335,
+          0.34,
+          0.345,
+          0.35,
+          0.355,
+          0.36,
+          0.365,
+          0.37,
+          0.375,
+          0.38,
+          0.385,
+          0.39,
+          0.395,
+          0.4,
+          0.405,
+          0.41,
+          0.415,
+          0.42,
+          0.425,
+          0.43,
+          0.435,
+          0.44,
+          0.445,
+          0.45,
+          0.455,
+          0.46,
+          0.465,
+          0.47,
+          0.475,
+          0.48,
+          0.485,
+          0.49,
+          0.495,
+          0.5
+        ]
+      }
+    ],
+    "keystones": [
+      {
+        "id": "Sabotage_SabotageKeystone_HeadshotDamage1",
+        "name": "Head Hunter",
+        "description": "Increases damage dealt to enemies when shooting them in the head.",
+        "level": 1,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_headshotdmg_d.webp",
+        "effects": [
+          {
+            "name": "Headshot Damage",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_IncreasedTrapTimer2",
+        "name": "Soft Step",
+        "description": "Traps triggered by you take more time to detonate.",
+        "level": 2,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_sabotage_trapstriggerdetonate_d.webp",
+        "effects": [
+          {
+            "name": "Trap Trigger Delay",
+            "value": 1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_HouseCreditsBonus3",
+        "name": "Loosen the Purse Strings",
+        "description": "Gain additional House Scrip when completing Landsraad Missions.",
+        "level": 3,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_morehousecredits_d.webp",
+        "effects": [
+          {
+            "name": "House Scrip Bonus",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_AggroRangeReduction5",
+        "name": "Discreet",
+        "description": "Reduces the distance that enemies sense you.",
+        "level": 5,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_sabotage_reducedistancenpcsense_d.webp",
+        "effects": [
+          {
+            "name": "Enemy Detection Range",
+            "value": -0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_ExplosiveBarrels8",
+        "name": "Explosive",
+        "description": "Increases the damage dealt by explosive barrels that you detonate.",
+        "level": 8,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_sabotage_moredamageexplosivebarrels_d.webp",
+        "effects": [
+          {
+            "name": "Explosive Barrel Damage",
+            "value": 1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_HeadshotDamage10",
+        "name": "Head Hunter",
+        "description": "Increases damage dealt to enemies when shooting them in the head.",
+        "level": 10,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_headshotdmg_d.webp",
+        "effects": [
+          {
+            "name": "Headshot Damage",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_ScanningResistance12",
+        "name": "Infiltrator",
+        "description": "Reduces range at which you can be scanned.",
+        "level": 12,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_sabotage_reducerangescanned_d.webp",
+        "effects": [
+          {
+            "name": "Scanned Range Requirement",
+            "value": 0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_RecognitionSpeedReduction15",
+        "name": "Hard to Spot",
+        "description": "Reduces speed at which enemies recognize you as a threat.",
+        "level": 15,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_sabotage_reducerecognitionspeed_d.webp",
+        "effects": [
+          {
+            "name": "Enemy Recognition Speed",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_LandsraadBribeCost17",
+        "name": "Greasing Palms",
+        "description": "The cost of bribing Landsraad envoys is reduced.",
+        "level": 17,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_bribinglandsraad_d.webp",
+        "effects": [
+          {
+            "name": "Landsraad Bribe Cost",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_LandsraadContribution19",
+        "name": "Landsraad Contributor",
+        "description": "When completing a Landsraad task, you contribute more points on behalf of your faction toward gaining the support of that House.",
+        "level": 19,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_contributionlandsraad_d.webp",
+        "effects": [
+          {
+            "name": "Landsraad Contribution",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_HouseCreditsBonus22",
+        "name": "Loosen the Purse Strings",
+        "description": "Gain additional House Scrip when completing Landsraad Missions.",
+        "level": 22,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_morehousecredits_d.webp",
+        "effects": [
+          {
+            "name": "House Scrip Bonus",
+            "value": 0.02,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_ReducedScannedTime24",
+        "name": "Shadow",
+        "description": "Reduces the scanning duration when you are scanned.",
+        "level": 24,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_reducetimescanned_d.webp",
+        "effects": [
+          {
+            "name": "Scanned Duration Reduction",
+            "value": -0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_HeadshotDamage27",
+        "name": "Head Hunter",
+        "description": "Increases damage dealt to enemies when shooting them in the head.",
+        "level": 27,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_headshotdmg_d.webp",
+        "effects": [
+          {
+            "name": "Headshot Damage",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_LandsraadBribeCost29",
+        "name": "Greasing Palms",
+        "description": "The cost of bribing Landsraad envoys is reduced.",
+        "level": 29,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_bribinglandsraad_d.webp",
+        "effects": [
+          {
+            "name": "Landsraad Bribe Cost",
+            "value": -0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_ScanningResistance32",
+        "name": "Infiltrator",
+        "description": "Reduces range at which you can be scanned.",
+        "level": 32,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_sabotage_reducerangescanned_d.webp",
+        "effects": [
+          {
+            "name": "Scanned Range Requirement",
+            "value": 0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_ReducedScannedTime35",
+        "name": "Shadow",
+        "description": "Reduces the scanning duration when you are scanned.",
+        "level": 35,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_reducetimescanned_d.webp",
+        "effects": [
+          {
+            "name": "Scanned Duration Reduction",
+            "value": -0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_HouseCreditsBonus37",
+        "name": "Loosen the Purse Strings",
+        "description": "Gain additional House Scrip when completing Landsraad Missions.",
+        "level": 37,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_morehousecredits_d.webp",
+        "effects": [
+          {
+            "name": "House Scrip Bonus",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_ExtraLootOnCorpses40",
+        "name": "What’s Theirs is Mine",
+        "description": "Enemy corpses grant additional loot.",
+        "level": 40,
+        "keystoneType": "PlayerTag",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_extraloot_d.webp",
+        "effects": []
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_LandsraadContribution43",
+        "name": "Landsraad Contributor",
+        "description": "When completing a Landsraad task, you contribute more points on behalf of your faction toward gaining the support of that House.",
+        "level": 43,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_contributionlandsraad_d.webp",
+        "effects": [
+          {
+            "name": "Landsraad Contribution",
+            "value": 0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_HouseCreditsBonus45",
+        "name": "Loosen the Purse Strings",
+        "description": "Gain additional House Scrip when completing Landsraad Missions.",
+        "level": 45,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_morehousecredits_d.webp",
+        "effects": [
+          {
+            "name": "House Scrip Bonus",
+            "value": 0.02,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_ReducedScannedTime48",
+        "name": "Shadow",
+        "description": "Reduces the scanning duration when you are scanned.",
+        "level": 48,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_reducetimescanned_d.webp",
+        "effects": [
+          {
+            "name": "Scanned Duration Reduction",
+            "value": -0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_HeadshotDamage50",
+        "name": "Head Hunter",
+        "description": "Increases damage dealt to enemies when shooting them in the head.",
+        "level": 50,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_headshotdmg_d.webp",
+        "effects": [
+          {
+            "name": "Headshot Damage",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_LandsraadContribution53",
+        "name": "Landsraad Contributor",
+        "description": "When completing a Landsraad task, you contribute more points on behalf of your faction toward gaining the support of that House.",
+        "level": 53,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_contributionlandsraad_d.webp",
+        "effects": [
+          {
+            "name": "Landsraad Contribution",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_ScanningResistance55",
+        "name": "Infiltrator",
+        "description": "Reduces range at which you can be scanned.",
+        "level": 55,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_sabotage_reducerangescanned_d.webp",
+        "effects": [
+          {
+            "name": "Scanned Range Requirement",
+            "value": 0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_LandsraadBribeCost58",
+        "name": "Greasing Palms",
+        "description": "The cost of bribing Landsraad envoys is reduced.",
+        "level": 58,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_bribinglandsraad_d.webp",
+        "effects": [
+          {
+            "name": "Landsraad Bribe Cost",
+            "value": -0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_HouseCreditsBonus60",
+        "name": "Loosen the Purse Strings",
+        "description": "Gain additional House Scrip when completing Landsraad Missions.",
+        "level": 60,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_morehousecredits_d.webp",
+        "effects": [
+          {
+            "name": "House Scrip Bonus",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_ReducedScannedTime63",
+        "name": "Shadow",
+        "description": "Reduces the scanning duration when you are scanned.",
+        "level": 63,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_reducetimescanned_d.webp",
+        "effects": [
+          {
+            "name": "Scanned Duration Reduction",
+            "value": -0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_RecognitionSpeedReduction65",
+        "name": "Hard to Spot",
+        "description": "Reduces speed at which enemies recognize you as a threat.",
+        "level": 65,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_sabotage_reducerecognitionspeed_d.webp",
+        "effects": [
+          {
+            "name": "Enemy Recognition Speed",
+            "value": -0.25,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_ScanningResistance69",
+        "name": "Infiltrator",
+        "description": "Reduces range at which you can be scanned.",
+        "level": 69,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_sabotage_reducerangescanned_d.webp",
+        "effects": [
+          {
+            "name": "Scanned Range Requirement",
+            "value": 0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_LandsraadContribution72",
+        "name": "Landsraad Contributor",
+        "description": "When completing a Landsraad task, you contribute more points on behalf of your faction toward gaining the support of that House.",
+        "level": 72,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_contributionlandsraad_d.webp",
+        "effects": [
+          {
+            "name": "Landsraad Contribution",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_HeadshotDamage74",
+        "name": "Head Hunter",
+        "description": "Increases damage dealt to enemies when shooting them in the head.",
+        "level": 74,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_headshotdmg_d.webp",
+        "effects": [
+          {
+            "name": "Headshot Damage",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_Hat75",
+        "name": "Saboteur’s Helm Variant",
+        "description": "Headgear for those expert in the nefarious enterprise of undoing. Such devious souls can see a seemingly impenetrable wall, and know which single brick to remove in order to cause the whole thing to come tumbling down.\n\nUsed to customize helmets.",
+        "level": 75,
+        "keystoneType": "ItemCustomization",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/rewarditems/t_ui_iconspecialization_reward_sabotage_malehelmet01_d.webp",
+        "effects": []
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_LandsraadBribeCost78",
+        "name": "Greasing Palms",
+        "description": "The cost of bribing Landsraad envoys is reduced.",
+        "level": 78,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_bribinglandsraad_d.webp",
+        "effects": [
+          {
+            "name": "Landsraad Bribe Cost",
+            "value": -0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_ReducedScannedTime81",
+        "name": "Shadow",
+        "description": "Reduces the scanning duration when you are scanned.",
+        "level": 81,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_reducetimescanned_d.webp",
+        "effects": [
+          {
+            "name": "Scanned Duration Reduction",
+            "value": -0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_HouseCreditsBonus85",
+        "name": "Loosen the Purse Strings",
+        "description": "Gain additional House Scrip when completing Landsraad Missions.",
+        "level": 85,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_morehousecredits_d.webp",
+        "effects": [
+          {
+            "name": "House Scrip Bonus",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_LandsraadContribution88",
+        "name": "Landsraad Contributor",
+        "description": "When completing a Landsraad task, you contribute more points on behalf of your faction toward gaining the support of that House.",
+        "level": 88,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_contributionlandsraad_d.webp",
+        "effects": [
+          {
+            "name": "Landsraad Contribution",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_LandsraadBribeCost90",
+        "name": "Greasing Palms",
+        "description": "The cost of bribing Landsraad envoys is reduced.",
+        "level": 90,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_bribinglandsraad_d.webp",
+        "effects": [
+          {
+            "name": "Landsraad Bribe Cost",
+            "value": -0.1,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_AggroRangeReduction93",
+        "name": "Discreet",
+        "description": "Reduces the distance that enemies sense you.",
+        "level": 93,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_sabotage_reducedistancenpcsense_d.webp",
+        "effects": [
+          {
+            "name": "Enemy Detection Range",
+            "value": -0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_LandsraadBribeCost95",
+        "name": "Greasing Palms",
+        "description": "The cost of bribing Landsraad envoys is reduced.",
+        "level": 95,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_bribinglandsraad_d.webp",
+        "effects": [
+          {
+            "name": "Landsraad Bribe Cost",
+            "value": -0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_ScanningResistance98",
+        "name": "Infiltrator",
+        "description": "Reduces range at which you can be scanned.",
+        "level": 98,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystoneminor_sabotage_reducerangescanned_d.webp",
+        "effects": [
+          {
+            "name": "Scanned Range Requirement",
+            "value": 0.15,
+            "format": "+{v:0}%"
+          }
+        ]
+      },
+      {
+        "id": "Sabotage_SabotageKeystone_HeadshotDamage100",
+        "name": "Head Hunter",
+        "description": "Increases damage dealt to enemies when shooting them in the head.",
+        "level": 100,
+        "keystoneType": "AttributeMod",
+        "iconPath": "/images/dune/gui/textures/icons/gameplay/specializationkeystones/t_ui_iconspecialization_keystonemajor_sabotage_headshotdmg_d.webp",
+        "effects": [
+          {
+            "name": "Headshot Damage",
+            "value": 0.05,
+            "format": "+{v:0}%"
+          }
+        ]
+      }
+    ],
+    "xpPerLevel": [
+      0,
+      100,
+      105,
+      110,
+      116,
+      122,
+      128,
+      135,
+      142,
+      149,
+      157,
+      164,
+      171,
+      178,
+      186,
+      194,
+      202,
+      211,
+      220,
+      229,
+      239,
+      246,
+      253,
+      260,
+      268,
+      276,
+      284,
+      292,
+      301,
+      310,
+      319,
+      326,
+      334,
+      342,
+      350,
+      358,
+      366,
+      375,
+      384,
+      393,
+      402,
+      410,
+      418,
+      426,
+      434,
+      442,
+      450,
+      459,
+      468,
+      477,
+      486,
+      494,
+      502,
+      510,
+      518,
+      526,
+      534,
+      543,
+      552,
+      561,
+      570,
+      575,
+      580,
+      585,
+      590,
+      595,
+      600,
+      606,
+      612,
+      618,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624,
+      624
+    ]
+  }
+]

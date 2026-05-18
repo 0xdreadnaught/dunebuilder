@@ -6,7 +6,8 @@ const { autoUpdater } = require('electron-updater');
 
 function createWindow() {
   const { workAreaSize } = screen.getPrimaryDisplay();
-  const useCompact = workAreaSize.height < 1080;
+  const forceCompact = process.argv.includes('--compact');
+  const useCompact = forceCompact || workAreaSize.height < 1080;
 
   const win = new BrowserWindow({
     width: useCompact ? 1180 : 1020,

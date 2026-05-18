@@ -8,12 +8,16 @@ if (new URLSearchParams(location.search).get('compact') === '1') {
 // =============================================
 // CONSTANTS
 // =============================================
-const EXCLUDED_KEYS = new Set(['Power Pool', 'Armor Value', 'Maximum Power']);
 const RESOURCE_KEYS = new Set(['Health', 'Stamina', 'Energy']);
-const LABEL_OVERRIDES = { 'Energy': 'Power' };
+const LABEL_OVERRIDES = {
+  'Energy': 'Power',
+  'Regen per Second': 'Power Regen/s',
+  'Power Drain (%)': 'Power Drain %',
+};
 const STAMINA_REGEN_PCT = 0.25; // ~25% of max stamina per second (estimated)
 const STAMINA_REGEN_DELAY = 1.0; // 1.0s delay before regen starts (patch 1.2.10.0)
 const BASE_STATS = { Health: 150, Stamina: 100, Energy: 0 }; // Power=0 until power pack equipped
+const BASE_INVENTORY = { slots: 35, volume: 175.0 };
 
 // =============================================
 // PARSING
@@ -22,7 +26,7 @@ const BASE_STATS = { Health: 150, Stamina: 100, Energy: 0 }; // Power=0 until po
 /**
  * Extracts and parses the JSON block following a named === section header.
  * @param {string} text - Full pasted text
- * @param {string} section - Section title, e.g. "FINAL BUILD TOTALS"
+ * @param {string} section - Section title, e.g. "DUNEBUILDER EXPORT"
  * @returns {object|null}
  */
 function extractSection(text, section) {
@@ -69,25 +73,15 @@ function parseResource(value) {
  * @returns {{ buildTotals: object|null, characterPanel: object|null }|null}
  */
 function parseClipboardText(text) {
-  // Check for DuneBuilder export format first
   const duneExport = extractSection(text, 'DUNEBUILDER EXPORT');
-  if (duneExport) {
-    return { duneExport: true, slots: duneExport.slots || {}, hotbar: duneExport.hotbar || null, characterPanel: duneExport.characterPanel || null, buildTotals: null, skillBonuses: null };
-  }
-
-  const buildTotals    = extractSection(text, 'FINAL BUILD TOTALS');
-  const characterPanel = extractSection(text, 'CHARACTER PANEL');
-  const skillBonuses   = extractSection(text, 'SKILL TREE BONUSES');
-
-  if (!buildTotals && !characterPanel && !skillBonuses) return null;
-
-  if (buildTotals) {
-    for (const key of EXCLUDED_KEYS) {
-      delete buildTotals[key];
-    }
-  }
-
-  return { buildTotals, characterPanel, skillBonuses };
+  if (!duneExport) return null;
+  return {
+    duneExport: true,
+    slots: duneExport.slots || {},
+    hotbar: duneExport.hotbar || null,
+    characterPanel: duneExport.characterPanel || null,
+    specializations: duneExport.specializations || null,
+  };
 }
 
 // =============================================
@@ -110,12 +104,9 @@ function createStatRow(label, value, formula) {
   row.appendChild(valueEl);
 
   if (formula) {
-    row.addEventListener('mouseenter', () => {
-      if (appSettings.showFormulas) showFormulaTooltip(label, value, formula);
-    });
-    row.addEventListener('mouseleave', () => {
-      if (appSettings.showFormulas) clearTooltip();
-    });
+    row.addEventListener('mouseenter', e => showFormulaTooltip(label, value, formula, e));
+    row.addEventListener('mousemove',  e => positionStatFormulaTooltip(e));
+    row.addEventListener('mouseleave', hideStatFormulaTooltip);
   }
 
   return row;
@@ -124,6 +115,7 @@ function createStatRow(label, value, formula) {
 function createResourceBar(label, { current, max }, cssKey, regenPerSec, regenDelay) {
   const wrapper = document.createElement('div');
   wrapper.className = 'resource-bar-wrapper';
+  wrapper.dataset.resource = cssKey || label;
 
   const labelEl = document.createElement('span');
   labelEl.className = 'resource-label';
@@ -140,7 +132,7 @@ function createResourceBar(label, { current, max }, cssKey, regenPerSec, regenDe
 
   const text = document.createElement('span');
   text.className = 'resource-bar__text';
-  text.textContent = `${Math.round(current)} / ${Math.round(max)}`;
+  text.textContent = `${formatNumber(Math.round(current))} / ${formatNumber(Math.round(max))}`;
 
   bar.appendChild(fill);
   bar.appendChild(text);
@@ -154,7 +146,7 @@ function createResourceBar(label, { current, max }, cssKey, regenPerSec, regenDe
       if (startPct < 100) {
         setTimeout(() => {
           fill.style.width = '100%';
-          text.textContent = `${Math.round(max)} / ${Math.round(max)}`;
+          text.textContent = `${formatNumber(Math.round(max))} / ${formatNumber(Math.round(max))}`;
         }, 600);
       }
     });
@@ -174,7 +166,7 @@ function createResourceBar(label, { current, max }, cssKey, regenPerSec, regenDe
     // Disable CSS transition for instant snap
     fill.style.transition = 'none';
     fill.style.width = `${(cur / max) * 100}%`;
-    text.textContent = `${Math.round(cur)} / ${Math.round(max)}`;
+    text.textContent = `${formatNumber(Math.round(cur))} / ${formatNumber(Math.round(max))}`;
 
     if (regenPerSec && cur < max) {
       const delayMs = (regenDelay || 0) * 1000;
@@ -185,7 +177,7 @@ function createResourceBar(label, { current, max }, cssKey, regenPerSec, regenDe
           lastTime = now;
           cur = Math.min(max, cur + regenPerSec * dt);
           fill.style.width = `${(cur / max) * 100}%`;
-          text.textContent = `${Math.round(cur)} / ${Math.round(max)}`;
+          text.textContent = `${formatNumber(Math.round(cur))} / ${formatNumber(Math.round(max))}`;
           if (cur < max) {
             regenAnim = requestAnimationFrame(tick);
           } else {
@@ -212,59 +204,74 @@ function createResourceBar(label, { current, max }, cssKey, regenPerSec, regenDe
 function renderCharacterPanel(data, itemStats) {
   const container = document.getElementById('character-stats');
   container.innerHTML = '';
+  const barsHolder = document.createElement('div');
+  barsHolder.className = 'char-bars';
+  container.appendChild(barsHolder);
+  renderResourceBars(barsHolder, data);
 
-  const powerPool = getEquippedStat('pack', 'power pool');
+  const extrasHolder = document.createElement('div');
+  extrasHolder.className = 'char-extras';
+  container.appendChild(extrasHolder);
+  renderCharExtras(extrasHolder, itemStats);
+}
+
+/** Resource bars (Health, Stamina, Power). Animations only run on first build. */
+function renderResourceBars(container, data) {
+  const powerPool  = getEquippedStat('pack', 'power pool');
   const powerRegen = getEquippedStat('pack', 'regen per second');
-
   let renderedPowerBar = false;
   let renderedHealth = false;
   let renderedStamina = false;
+  const sb = getSpecBonuses();
 
   if (data) {
     for (const [key, value] of Object.entries(data)) {
-      if (RESOURCE_KEYS.has(key)) {
-        // Replace Energy bar with Power Pool from equipped pack
-        if (key === 'Energy' && powerPool !== null) {
-          container.appendChild(createResourceBar('Power', { current: powerPool, max: powerPool }, 'Energy', powerRegen));
-          renderedPowerBar = true;
-          continue;
-        }
-        const resource = parseResource(value);
-        if (resource) {
-          const displayLabel = LABEL_OVERRIDES[key] || key;
-          const regen = key === 'Stamina' ? resource.max * STAMINA_REGEN_PCT : null;
-          const delay = key === 'Stamina' ? STAMINA_REGEN_DELAY : 0;
-          container.appendChild(createResourceBar(displayLabel, resource, key, regen, delay));
-          if (key === 'Health') renderedHealth = true;
-          if (key === 'Stamina') renderedStamina = true;
-          continue;
-        }
+      if (!RESOURCE_KEYS.has(key)) continue;
+      if (key === 'Energy' && powerPool !== null) {
+        container.appendChild(createResourceBar('Power', { current: powerPool, max: powerPool }, 'Energy', powerRegen));
+        renderedPowerBar = true;
+        continue;
       }
-      container.appendChild(createStatRow(key, value));
+      const resource = parseResource(value);
+      if (!resource) continue;
+      // Combat Max Health / Max Stamina keystones add on top of pasted values.
+      const specBonus = key === 'Health' ? sb.health
+                      : key === 'Stamina' ? sb.stamina
+                      : 0;
+      if (specBonus) { resource.max += specBonus; resource.current += specBonus; }
+      const displayLabel = LABEL_OVERRIDES[key] || key;
+      const regen = key === 'Stamina' ? resource.max * STAMINA_REGEN_PCT : null;
+      const delay = key === 'Stamina' ? STAMINA_REGEN_DELAY : 0;
+      container.appendChild(createResourceBar(displayLabel, resource, key, regen, delay));
+      if (key === 'Health') renderedHealth = true;
+      if (key === 'Stamina') renderedStamina = true;
     }
   }
 
-  // Show base resource bars if not provided by paste data
+  // Fallback bars when paste data didn't provide them.
   if (!renderedHealth && BASE_STATS.Health > 0) {
-    const max = BASE_STATS.Health;
+    const max = BASE_STATS.Health + sb.health;
     container.appendChild(createResourceBar('Health', { current: max, max }, 'Health'));
-    renderedHealth = true;
   }
   if (!renderedStamina && BASE_STATS.Stamina > 0) {
-    const max = BASE_STATS.Stamina;
+    const max = BASE_STATS.Stamina + sb.stamina;
     const regen = max * STAMINA_REGEN_PCT;
     container.appendChild(createResourceBar('Stamina', { current: max, max }, 'Stamina', regen, STAMINA_REGEN_DELAY));
-    renderedStamina = true;
   }
-
-  // Show Power Pool bar — 0/0 if no pack equipped
   if (!renderedPowerBar) {
     const pp = powerPool || BASE_STATS.Energy || 0;
     container.appendChild(createResourceBar('Power', { current: pp, max: pp }, 'Energy', powerRegen));
   }
+}
+
+/** Equipment + Inventory + Spec readouts. Safe to re-render on spec changes
+ *  without touching (and re-animating) the resource bars above. */
+function renderCharExtras(container, itemStats) {
+  container.innerHTML = '';
 
   // Remove Power Pool from equipment stats since it's shown as a bar
-  if (itemStats && powerPool !== null) {
+  const hasPack = getEquippedStat('pack', 'power pool') !== null;
+  if (itemStats && hasPack) {
     delete itemStats['Power Pool'];
   }
 
@@ -274,9 +281,36 @@ function renderCharacterPanel(data, itemStats) {
     label.textContent = 'Equipment';
     container.appendChild(label);
     for (const [key, value] of Object.entries(itemStats)) {
-      container.appendChild(createStatRow(key, value));
+      container.appendChild(createStatRow(LABEL_OVERRIDES[key] || key, value));
     }
   }
+
+  // Inventory section — character carrying capacity, always shown.
+  const invHeading = document.createElement('div');
+  invHeading.className = 'stats-section-label';
+  invHeading.textContent = 'Inventory';
+  container.appendChild(invHeading);
+
+  const invBonus = getSpecBonuses();
+  const slots = BASE_INVENTORY.slots + invBonus.inventorySlots;
+  const volume = Math.round((BASE_INVENTORY.volume * invBonus.backpackVolumeMul) * 10) / 10;
+  container.appendChild(createStatRow('Slots', formatNumber(slots)));
+  container.appendChild(createStatRow('Volume', `${formatNumber(volume, 1)}v`));
+
+  // Spec sections holder — populated by renderSpecSummary().
+  const specHolder = document.createElement('div');
+  specHolder.id = 'spec-summary';
+  container.appendChild(specHolder);
+  renderSpecSummary();
+}
+
+/** In-place text update for an existing bar — used on spec changes so we
+ *  don't trigger the snap-then-regen animation. */
+function updateResourceBarMaxInPlace(resourceKey, newMax) {
+  const wrapper = document.querySelector(`.resource-bar-wrapper[data-resource="${resourceKey}"]`);
+  if (!wrapper) return;
+  const textEl = wrapper.querySelector('.resource-bar__text');
+  if (textEl) textEl.textContent = `${formatNumber(Math.round(newMax))} / ${formatNumber(Math.round(newMax))}`;
 }
 
 let calcMode = 'def';
@@ -294,9 +328,11 @@ function renderDefCalcs(container, equipped) {
   const powerPool   = getEquippedStat('pack',     'power pool');
   const powerDrain  = getEquippedStat('holtzman', 'power drain (%)');
   const regenPerSec = getEquippedStat('pack',     'regen per second');
+  const beltDrain   = getEquippedStat('belt',     'power drain');
 
   const hasShield = !!equippedItems['holtzman'];
   const hasPack   = !!equippedItems['pack'];
+  const hasBelt   = !!equippedItems['belt'];
 
   // --- EHP section (red — matches Health) ---
   const ehpHeading = document.createElement('div');
@@ -304,12 +340,21 @@ function renderDefCalcs(container, equipped) {
   ehpHeading.textContent = 'Effective Health Pool (EHP)';
   container.appendChild(ehpHeading);
 
-  const maxHealth = lastCharacterPanel?.Health
+  const baseHpFromSource = lastCharacterPanel?.Health
     ? (parseResource(lastCharacterPanel.Health)?.max ?? null)
     : (BASE_STATS.Health > 0 ? BASE_STATS.Health : null);
+  const maxHealth = baseHpFromSource != null
+    ? baseHpFromSource + getSpecBonuses().health
+    : null;
 
   const totalArmor = equipped['Armor Value'] ?? 0;
   const armorMit = (totalArmor / (totalArmor + 500)) * 100;
+  const specMit = getSpecBonuses().mitigationPercent;
+
+  // Combined Damage Reduction stacks armor and the Combat spec passive
+  // multiplicatively: 1 - (1 - armor%) × (1 - spec%).
+  const drFraction = 1 - (1 - armorMit / 100) * (1 - specMit / 100);
+  const drPercent = drFraction * 100;
 
   const DAMAGE_TYPES = [
     ['vs Light Dart',  'Light Dart Mitigation'],
@@ -321,37 +366,37 @@ function renderDefCalcs(container, equipped) {
   ];
 
   if (maxHealth !== null) {
-    const ehpFromMit = (armorPct, typePct) => {
-      const armorMul = Math.max(0.001, 1 - armorPct / 100);
-      const typeMul  = 1 - typePct / 100;
-      return Math.round(maxHealth / (armorMul * typeMul));
+    const ehpFromMit = (drPct, typePct) => {
+      const drMul   = Math.max(0.001, 1 - drPct / 100);
+      const typeMul = 1 - typePct / 100;
+      return Math.round(maxHealth / (drMul * typeMul));
     };
 
+    const drFormula = specMit > 0
+      ? `1 - (1 - Armor/(Armor+500)) × (1 - SpecMit%)\n` +
+        `1 - (1 - ${(armorMit / 100).toFixed(4)}) × (1 - ${(specMit / 100).toFixed(4)}) = ${drFraction.toFixed(4)}`
+      : `Armor / (Armor + 500)\n${totalArmor} / (${totalArmor} + 500) = ${drFraction.toFixed(4)}`;
+
     container.appendChild(createStatRow('Damage Reduction',
-      `${Math.round(armorMit * 10) / 10}%`,
-      `Armor / (Armor + 500)\n${totalArmor} / (${totalArmor} + 500) = ${(armorMit / 100).toFixed(4)}`));
+      `${formatNumber(Math.round(drPercent * 10) / 10, 1)}%`, drFormula));
     container.appendChild(createStatRow('vs Physical',
-      ehpFromMit(armorMit, 0).toLocaleString(),
-      `Health / (DMG - ArmorMit%)\n${maxHealth} / (1 - ${(armorMit / 100).toFixed(4)}) = ${ehpFromMit(armorMit, 0)}`));
+      formatNumber(ehpFromMit(drPercent, 0)),
+      `Health / (DMG - DR%)\n${formatNumber(maxHealth)} / (1 - ${drFraction.toFixed(4)}) = ${formatNumber(ehpFromMit(drPercent, 0))}`));
 
     DAMAGE_TYPES.forEach(([label, key]) => {
-      const gearMit  = equipped[key] ?? 0;
-      const pasteMit = lastBuildTotals?.[key] != null
-        ? (parseFloat(String(lastBuildTotals[key])) || 0) : 0;
-      const totalMit = gearMit + pasteMit;
-      const armorMul = Math.max(0.001, 1 - armorMit / 100);
-      const typeMul  = 1 - totalMit / 100;
+      const typeMit = equipped[key] ?? 0;
+      const drMul   = Math.max(0.001, 1 - drPercent / 100);
+      const typeMul = 1 - typeMit / 100;
       container.appendChild(createStatRow(label,
-        ehpFromMit(armorMit, totalMit).toLocaleString(),
-        `Health / ((DMG - ArmorMit%) × (DMG - TypeMit%))\n${maxHealth} / (${armorMul.toFixed(4)} × ${typeMul.toFixed(4)}) = ${ehpFromMit(armorMit, totalMit)}`));
+        formatNumber(ehpFromMit(drPercent, typeMit)),
+        `Health / ((DMG - DR%) × (DMG - TypeMit%))\n${formatNumber(maxHealth)} / (${drMul.toFixed(4)} × ${typeMul.toFixed(4)}) = ${formatNumber(ehpFromMit(drPercent, typeMit))}`));
     });
 
     // Radiation: not HP damage — a 150,000-rad poisoning meter that fills at a flat rate per zone level,
     // linearly slowed by Radiation Mitigation. Headline shows the range: worst zone (L3) → lightest (L1).
     const RAD_CAPACITY = 150000;
     const RAD_RATES = [['L1', 1500], ['L2', 3000], ['L3', 15000]];
-    const radMit = (equipped['Radiation Mitigation'] ?? 0)
-      + (lastBuildTotals?.['Radiation Mitigation'] != null ? (parseFloat(String(lastBuildTotals['Radiation Mitigation'])) || 0) : 0);
+    const radMit = equipped['Radiation Mitigation'] ?? 0;
     const radMul = 1 - radMit / 100;
     const fmtRadTime = secs => {
       if (!isFinite(secs) || secs <= 0) return '∞';
@@ -361,9 +406,9 @@ function renderDefCalcs(container, equipped) {
     const radSurvival = base => radMul <= 0 ? Infinity : RAD_CAPACITY / (base * radMul);
     container.appendChild(createStatRow('vs Radiation',
       `${fmtRadTime(radSurvival(15000))} - ${fmtRadTime(radSurvival(1500))}`,
-      `${RAD_CAPACITY.toLocaleString()} rad capacity / (zone rate × (1 - RadMit%))\n` +
+      `${formatNumber(RAD_CAPACITY)} rad capacity / (zone rate × (1 - RadMit%))\n` +
       `RadMit ${radMit}% → ${Math.round(radMul * 100)}% of base fill rate\n` +
-      RAD_RATES.map(([lvl, base]) => `${lvl} (${base}/s): ${fmtRadTime(radSurvival(base))}`).join('  ·  ') +
+      RAD_RATES.map(([lvl, base]) => `${lvl} (${formatNumber(base)}/s): ${fmtRadTime(radSurvival(base))}`).join('  ·  ') +
       `\nshown: L3 (worst zone) - L1 (lightest)`));
   }
 
@@ -374,50 +419,80 @@ function renderDefCalcs(container, equipped) {
   container.appendChild(staminaHeading);
 
   const BASE_DASH_COST = 30;
-  const maxStamina = lastCharacterPanel?.Stamina
+  const baseStamFromSource = lastCharacterPanel?.Stamina
     ? (parseResource(lastCharacterPanel.Stamina)?.max ?? null)
     : (BASE_STATS.Stamina > 0 ? BASE_STATS.Stamina : null);
-  const skillDashRaw = lastSkillBonuses?.['Dash Stamina Cost'];
-  const skillDashMod = skillDashRaw != null ? (parseFloat(String(skillDashRaw)) || 0) : 0;
+  const maxStamina = baseStamFromSource != null
+    ? baseStamFromSource + getSpecBonuses().stamina
+    : null;
   const gearDashMod  = equipped['Dash Stamina Cost'] ?? 0;
-  const effectiveCost = Math.max(1, BASE_DASH_COST * (1 + (skillDashMod + gearDashMod) / 100));
+  const effectiveCost = Math.max(1, BASE_DASH_COST * (1 + gearDashMod / 100));
 
-  const totalDashMod = skillDashMod + gearDashMod;
-  container.appendChild(createStatRow('Dash Cost', `${Math.round(effectiveCost)}`,
-    `BaseCost × (1 + ModTotal%)\n${BASE_DASH_COST} × (1 + ${totalDashMod}%) = ${Math.round(effectiveCost)}`));
+  container.appendChild(createStatRow('Dash Cost', formatNumber(Math.round(effectiveCost)),
+    `BaseCost × (1 + ModTotal%)\n${BASE_DASH_COST} × (1 + ${gearDashMod}%) = ${formatNumber(Math.round(effectiveCost))}`));
 
   if (maxStamina !== null) {
     const rawDashes = maxStamina / effectiveCost;
     const rawRounded = Math.round(rawDashes * 10) / 10;
     const effectiveDashes = Math.ceil(rawRounded);
-    container.appendChild(createStatRow('Max Dashes', `${effectiveDashes} (${rawRounded.toFixed(1)})`,
-      `MaxStamina / DashCost\n${maxStamina} / ${Math.round(effectiveCost)} = ${rawRounded.toFixed(1)}`));
+    container.appendChild(createStatRow('Max Dashes', `${formatNumber(effectiveDashes)} (${formatNumber(rawRounded, 1)})`,
+      `MaxStamina / DashCost\n${formatNumber(maxStamina)} / ${formatNumber(Math.round(effectiveCost))} = ${formatNumber(rawRounded, 1)}`));
   }
 
-  // --- Shield section (blue — matches Power) ---
+  // --- Power section (blue — matches Power Pool) ---
+  // Houses everything that draws from the same power pool: shield endurance,
+  // recharge time, and suspensor-belt active time.
   const heading = document.createElement('div');
   heading.className = 'stats-section-label stats-section-label--energy';
-  heading.textContent = 'Shield';
+  heading.textContent = 'Power';
   container.appendChild(heading);
 
-  if (!hasShield || !hasPack) {
+  if (!hasPack) {
     const p = document.createElement('p');
     p.className = 'empty-state';
-    p.textContent = (!hasShield && !hasPack) ? 'Equip a shield and power pack'
-                  : !hasShield               ? 'No shield equipped'
-                  :                            'No power pack equipped';
+    p.textContent = 'No power pack equipped';
     container.appendChild(p);
-  } else {
+    return;
+  }
+
+  // Shield endurance + recharge — only when a shield is also equipped.
+  if (hasShield) {
     if (powerPool !== null && powerDrain !== null) {
       const endurance = Math.round(powerPool / (powerDrain / 100));
-      container.appendChild(createStatRow('Max Damage Absorbed', endurance.toLocaleString(),
-        `PowerPool / (PowerDrain%)\n${powerPool} / ${(powerDrain / 100).toFixed(4)} = ${endurance}`));
+      container.appendChild(createStatRow('Max Damage Absorbed', formatNumber(endurance),
+        `PowerPool / (PowerDrain%)\n${formatNumber(powerPool)} / ${(powerDrain / 100).toFixed(4)} = ${formatNumber(endurance)}`));
     }
+  }
 
-    if (powerPool !== null && regenPerSec !== null) {
-      const recharge = (powerPool / regenPerSec).toFixed(1);
-      container.appendChild(createStatRow('Full Recharge', `${recharge}s`,
-        `PowerPool / RegenPerSec\n${powerPool} / ${regenPerSec} = ${recharge}s`));
+  if (powerPool !== null && regenPerSec !== null) {
+    const recharge = powerPool / regenPerSec;
+    container.appendChild(createStatRow('Full Recharge', `${formatNumber(recharge, 1)}s`,
+      `PowerPool / RegenPerSec\n${formatNumber(powerPool)} / ${formatNumber(regenPerSec)} = ${formatNumber(recharge, 1)}s`));
+  }
+
+  // Suspension — how long the suspensor belt can run before the pack is empty.
+  // Exploration Suspensor Powerdrain Reduction keystones apply as the FINAL
+  // layer (same pattern as the Combat damage / mitigation passives).
+  if (hasBelt && beltDrain !== null && powerPool !== null) {
+    const drainMul = getSpecBonuses().suspensorDrainMul;
+    const effectiveDrain = beltDrain * drainMul;
+    if (effectiveDrain > 0) {
+      const duration = powerPool / effectiveDrain;
+      const fmtDur = secs => {
+        if (!isFinite(secs) || secs <= 0) return '0s';
+        // Preserve the decimal — a fractional second is meaningful here
+        // (you don't get the rounded-up time when the pack runs dry).
+        if (secs < 60) return `${formatNumber(secs, 1)}s`;
+        const m = Math.floor(secs / 60);
+        const s = secs - m * 60;
+        if (s < 0.05) return `${formatNumber(m)}m`;
+        return `${formatNumber(m)}m${formatNumber(s, 1)}s`;
+      };
+      const baseFormula = `PowerPool / (BeltDrain × SpecMul)\n` +
+        `${formatNumber(powerPool)} / (${formatNumber(beltDrain)} × ${drainMul.toFixed(2)}) = ${formatNumber(duration, 1)}s`;
+      const simpleFormula = `PowerPool / BeltDrain\n${formatNumber(powerPool)} / ${formatNumber(beltDrain)} = ${formatNumber(duration, 1)}s`;
+      container.appendChild(createStatRow('Suspension', fmtDur(duration),
+        drainMul !== 1 ? baseFormula : simpleFormula));
     }
   }
 }
@@ -476,23 +551,25 @@ let GARMENT_ITEMS = [];
 let WEAPON_ITEMS = [];
 let AUGMENT_DATA = [];
 let WEAPON_AUGMENT_DATA = [];
+let SPECIALIZATIONS_DATA = [];
+const specState = {}; // { trackId: { level: 0, keystones: Set<id> } }
+const SPEC_TRACK_ORDER = ['craftingtrack', 'gatheringtrack', 'explorationtrack', 'combattrack', 'sabotagetrack'];
 let GARMENT_BY_SLUG = new Map();
 let WEAPON_BY_SLUG = new Map();
 let AUGMENT_BY_SLUG = new Map();
 let WEAPON_AUGMENT_BY_SLUG = new Map();
 let lastCharacterPanel = null;
-let lastBuildTotals = null;
-let lastSkillBonuses = null;
 let currentPickerItems = [];
 let currentPickerSlotType = null;
 const appSettings = loadSettings();
 
 function loadSettings() {
+  const defaults = { showCommons: false, showFormulas: true, showT0: false, showT1: false, showT2: false, showT3: false, showT4: false, showT5: false, showWeaponCommons: false, showWeaponT1: false, showWeaponT2: false, showWeaponT3: false, showWeaponT4: false, showWeaponT5: false, persistWeaponTypeFilter: false, applyStaggered: false, applyHeadshot: false };
   try {
     const saved = localStorage.getItem('dunebuilder-settings');
-    if (saved) return { showCommons: false, showFormulas: false, showT0: false, showT1: false, showT2: false, showT3: false, showT4: false, showT5: false, showWeaponCommons: false, showWeaponT1: false, showWeaponT2: false, showWeaponT3: false, showWeaponT4: false, showWeaponT5: false, persistWeaponTypeFilter: false, ...JSON.parse(saved) };
+    if (saved) return { ...defaults, ...JSON.parse(saved) };
   } catch { /* ignore corrupt data */ }
-  return { showCommons: false, showFormulas: false, showT0: false, showT1: false, showT2: false, showT3: false, showT4: false, showT5: false, showWeaponCommons: false, showWeaponT1: false, showWeaponT2: false, showWeaponT3: false, showWeaponT4: false, showWeaponT5: false, persistWeaponTypeFilter: false };
+  return defaults;
 }
 
 function saveSettings() {
@@ -590,13 +667,23 @@ const LOWER_BETTER_TRADEOFF_STATS = new Set([
 // Stats whose tradeoff values are percentage-based (not flat).
 const PERCENT_TRADEOFFS = new Set(['Volume', 'Rate of Fire', 'Reload Time', 'Recoil', 'Power Consumption (per shot)', 'Accuracy']);
 
+/** Locale-formatted number with optional fixed decimals. Adds thousands
+ *  separators ("2,977" instead of "2977"). */
+function formatNumber(value, decimals) {
+  if (typeof value !== 'number' || !isFinite(value)) return String(value);
+  const opts = decimals != null
+    ? { minimumFractionDigits: decimals, maximumFractionDigits: decimals }
+    : undefined;
+  return value.toLocaleString(undefined, opts);
+}
+
 function formatStatValue(name, value) {
   if (typeof value !== 'number') return String(value);
   const n = name.toLowerCase().replace(/:$/, '');
-  if (FLAT_STATS.has(n)) return String(value);
+  if (FLAT_STATS.has(n)) return formatNumber(value);
   // Accuracy is stored on Funcom's 0–1 scale; show it as a human-readable percent.
-  if (n === 'accuracy') return `${Math.round(value * 1000) / 10}%`;
-  return `${value}%`;
+  if (n === 'accuracy') return `${formatNumber(Math.round(value * 1000) / 10)}%`;
+  return `${formatNumber(value)}%`;
 }
 
 function assignUtilitySlot(slug) {
@@ -628,6 +715,16 @@ async function loadGarmentItems() {
       fetch('./data/augments_melee.json'),
       fetch('./data/augments_ranged.json'),
     ]);
+    // Specializations — loaded separately so it doesn't block on a single bad response.
+    try {
+      const specRes = await fetch('./data/specializations.json');
+      SPECIALIZATIONS_DATA = await specRes.json();
+      SPECIALIZATIONS_DATA.forEach(track => {
+        specState[track.id] = { level: 0, keystones: new Set() };
+      });
+    } catch (e) {
+      console.error('Failed to load specializations:', e);
+    }
     const t6 = await t6Res.json();
     const t5 = await t5Res.json();
     const t4 = await t4Res.json();
@@ -802,8 +899,130 @@ function aggregateEquippedStats() {
     }
   });
 
+  // Combat Damage passive multiplies all weapon damage stats. (Hotbar items
+  // are skipped above, so this loop is effectively a no-op for SPEC_DAMAGE_KEYS
+  // today — kept as a safety net should weapon stats ever enter the aggregate.)
+  const dmgMul = getSpecBonuses().combatDamageMul;
+  if (dmgMul !== 1) {
+    for (const key of Object.keys(totals)) {
+      if (SPEC_DAMAGE_KEYS.has(key)) totals[key] *= dmgMul;
+    }
+  }
+
   return totals;
 }
+
+// =============================================
+// SPECIALIZATIONS — calc integration
+// =============================================
+
+// Weapon damage stats that get multiplied by the Combat damage passive.
+const SPEC_DAMAGE_KEYS = new Set([
+  'Damage Per Shot', 'Damage Per Hit',
+  'Shield Damage Per Shot', 'Shield Damage Per Hit',
+  'Heavy Attack Damage (Shielded)', 'Heavy Attack Damage (Unshielded)',
+  'DPS',
+]);
+
+/** Aggregated allocated-spec contributions that feed into existing calcs. */
+function getSpecBonuses() {
+  const b = {
+    health: 0,
+    stamina: 0,
+    combatDamageMul: 1,      // Combat passive only — always-on damage multiplier
+    staggerMul: 1,           // Sabotage stagger passive — 1 unless setting + spec
+    headHunterBonus: 0,      // Sabotage Head Hunter keystone sum (0–0.30) — used by headshot calc
+    mitigationPercent: 0,    // percentage points to add across all mitigation types
+    suspensorDrainMul: 1,    // 1.0 = no reduction; 0.7 = 30% less drain
+    inventorySlots: 0,       // flat slot additions from Pack Mule keystones
+    backpackVolumeMul: 1,    // 1.0 = base; 2.0 = +100% from passive at L100
+  };
+  if (!SPECIALIZATIONS_DATA?.length) return b;
+
+  for (const track of SPECIALIZATIONS_DATA) {
+    const state = specState[track.id];
+    if (!state) continue;
+
+    if (track.id === 'combattrack') {
+      for (const p of (track.passiveAttributes || [])) {
+        const v = p.values?.[state.level] ?? 0;
+        if (p.key === 'DamageBonus_SpecTrack') b.combatDamageMul = 1 + v;
+        if (p.key === 'TotalDamageMitigation_SpecTrack') b.mitigationPercent = v * 100;
+      }
+      for (const k of (track.keystones || [])) {
+        if (!state.keystones.has(k.id)) continue;
+        for (const e of (k.effects || [])) {
+          if (e.value == null) continue;
+          if (e.name === 'Max Health') b.health += e.value;
+          if (e.name === 'Max Stamina') b.stamina += e.value;
+        }
+      }
+    }
+
+    if (track.id === 'explorationtrack') {
+      // Backpack Volume Capacity passive — stored as a multiplier (1.01→2.0).
+      for (const p of (track.passiveAttributes || [])) {
+        if (p.key === 'BackpackVolumeCapacityMultiplier') {
+          b.backpackVolumeMul = p.values?.[state.level] ?? 1;
+        }
+      }
+      // Pack Mule keystones — flat +5 slots each — and Suspensor drain
+      // reductions summed into a final multiplier.
+      let drainPct = 0;
+      for (const k of (track.keystones || [])) {
+        if (!state.keystones.has(k.id)) continue;
+        for (const e of (k.effects || [])) {
+          if (e.value == null) continue;
+          if (e.name === 'Inventory Slot Capacity') b.inventorySlots += e.value;
+          if (e.name === 'Suspensor Power Drain') drainPct += e.value;
+        }
+      }
+      b.suspensorDrainMul = Math.max(0, 1 + drainPct);
+    }
+
+    if (track.id === 'sabotagetrack') {
+      // Damage-to-Staggered passive — applied only when the user toggles the
+      // setting (matches our "you've staggered them or you haven't" model).
+      if (appSettings.applyStaggered) {
+        for (const p of (track.passiveAttributes || [])) {
+          if (p.key === 'BackstabDamageBonus_SpecTrack') {
+            const v = p.values?.[state.level] ?? 0;
+            b.staggerMul = 1 + v;
+          }
+        }
+      }
+      // Head Hunter keystones — sum the headshot-damage bonuses. The base
+      // ×1.5 headshot multiplier is applied at the consumer (since it's
+      // weapon-dependent: drillshots/lasguns/etc. can't headshot).
+      for (const k of (track.keystones || [])) {
+        if (!state.keystones.has(k.id)) continue;
+        for (const e of (k.effects || [])) {
+          if (e.name === 'Headshot Damage' && e.value != null) b.headHunterBonus += e.value;
+        }
+      }
+    }
+  }
+  return b;
+}
+
+/** Whether a weapon item can land headshots in-game. Excludes melee, drillshots,
+ *  flamethrowers, lasguns, pyrockets, and missile launchers. */
+const HEADSHOT_BLOCKED_FAMILIES = new Set([
+  'Drillshot FK7', 'Flamethrower', 'Lasgun', 'Pyrocket', 'Missile Launcher',
+]);
+const HEADSHOT_BLOCKED_NAME_KEYWORDS = [
+  'drillshot', 'flamethrower', 'lasgun', 'pyrocket', 'pyrorocket', 'missile launcher',
+];
+function canHeadshot(item) {
+  if (!item) return false;
+  if (item.weaponType === 'melee') return false;
+  if (item.weaponFamily && HEADSHOT_BLOCKED_FAMILIES.has(item.weaponFamily)) return false;
+  const name = (item.name || '').toLowerCase();
+  return !HEADSHOT_BLOCKED_NAME_KEYWORDS.some(kw => name.includes(kw));
+}
+
+/** Base in-game headshot multiplier — community estimate of +50% on head hits. */
+const HEADSHOT_BASE_MULTIPLIER = 1.5;
 
 function formatAggregatedStats(totals) {
   const result = {};
@@ -820,6 +1039,7 @@ function refreshPanels(skipResourceBars) {
   const itemStats = Object.keys(equipped).length > 0 ? formatAggregatedStats(equipped) : null;
   if (!skipResourceBars) renderCharacterPanel(lastCharacterPanel, itemStats);
   renderCalculations(equipped);
+  refreshActiveTooltip();
 }
 
 // Persistent "no results" message for a picker list. Lives as a child of the
@@ -1514,13 +1734,572 @@ function saveAugmentCustomValue() {
 }
 
 // =============================================
+// SPECIALIZATIONS PANEL
+// =============================================
+
+function openSpecializations() {
+  if (SPECIALIZATIONS_DATA.length === 0) return;
+  renderSpecOverlay();
+  document.getElementById('specializations-overlay').classList.add('visible');
+}
+
+function closeSpecializations() {
+  document.getElementById('specializations-overlay').classList.remove('visible');
+  hideSpecTooltip();
+}
+
+function specIconUrl(iconPath) {
+  if (!iconPath) return '';
+  const m = iconPath.match(/([^/\\]+?)\.(webp|png)$/i);
+  return m ? `./imgs/specializations/${m[1]}.webp` : '';
+}
+
+function renderSpecOverlay() {
+  const body = document.getElementById('spec-body');
+  body.innerHTML = '';
+  const byId = new Map(SPECIALIZATIONS_DATA.map(t => [t.id, t]));
+  SPEC_TRACK_ORDER.forEach(id => {
+    const track = byId.get(id);
+    if (track) body.appendChild(renderSpecTrack(track));
+  });
+}
+
+function renderSpecTrack(track) {
+  const state = specState[track.id];
+  const keystonesByLevel = new Map();
+  track.keystones.forEach(k => keystonesByLevel.set(k.level, k));
+
+  const row = document.createElement('div');
+  row.className = 'spec-track';
+  row.dataset.track = track.id;
+
+  // Banner / name / level setter
+  const banner = document.createElement('div');
+  banner.className = 'spec-track__banner';
+  const bannerUrl = specIconUrl(track.bannerPath);
+  if (bannerUrl) banner.style.backgroundImage = `url("${bannerUrl}")`;
+
+  const headerRow = document.createElement('div');
+  headerRow.className = 'spec-track__header-row';
+  const nameEl = document.createElement('div');
+  nameEl.className = 'spec-track__name';
+  nameEl.textContent = track.name;
+  headerRow.appendChild(nameEl);
+  banner.appendChild(headerRow);
+
+  const setLevel = (n) => {
+    const clamped = Math.max(0, Math.min(track.maxLevel, n));
+    if (clamped === state.level) return;
+    state.level = clamped;
+    track.keystones.forEach(k => { if (k.level > clamped) state.keystones.delete(k.id); });
+    updateSpecTrack(track);
+    focusSpecHighest(track);
+  };
+
+  const levelDisplay = document.createElement('div');
+  levelDisplay.className = 'spec-track__level-display';
+  const arrowLeft = document.createElement('button');
+  arrowLeft.className = 'spec-track__level-arrow spec-track__level-arrow--down';
+  arrowLeft.setAttribute('aria-label', 'Decrease level');
+  arrowLeft.textContent = '◀';
+  arrowLeft.addEventListener('click', () => setLevel(state.level - 1));
+  const levelText = document.createElement('span');
+  levelText.className = 'spec-track__level-text';
+  if (state.level >= track.maxLevel) levelText.classList.add('spec-track__level-text--max');
+  levelText.textContent = `${state.level}/${track.maxLevel}`;
+  const arrowRight = document.createElement('button');
+  arrowRight.className = 'spec-track__level-arrow spec-track__level-arrow--up';
+  arrowRight.setAttribute('aria-label', 'Increase level');
+  arrowRight.textContent = '▶';
+  arrowRight.addEventListener('click', () => setLevel(state.level + 1));
+  levelDisplay.appendChild(arrowLeft);
+  levelDisplay.appendChild(levelText);
+  levelDisplay.appendChild(arrowRight);
+  banner.appendChild(levelDisplay);
+
+  // Wheel anywhere on the banner adjusts the level.
+  banner.addEventListener('wheel', e => {
+    if (e.deltaY === 0) return;
+    e.preventDefault();
+    setLevel(state.level + (e.deltaY < 0 ? 1 : -1));
+  }, { passive: false });
+
+  // Info button — sits beside the spec name in the header row, on the same plane.
+  // Hover for a passive-bonuses summary at the current level.
+  const info = document.createElement('button');
+  info.className = 'spec-track__info';
+  info.type = 'button';
+  info.setAttribute('aria-label', 'Show passive bonuses at current level');
+  info.textContent = '?';
+  info.addEventListener('mouseenter', e => showSpecPassivesTooltip(track, e));
+  info.addEventListener('mousemove', e => positionSpecTooltip(e));
+  info.addEventListener('mouseleave', hideSpecTooltip);
+  headerRow.appendChild(info);
+
+  row.appendChild(banner);
+
+  // Horizontal strip of level nodes 1..maxLevel
+  const strip = document.createElement('div');
+  strip.className = 'spec-track__strip';
+
+  // Connecting bar (sits behind the nodes, gold portion shows current progress).
+  const bar = document.createElement('div');
+  bar.className = 'spec-track__bar';
+  const barFill = document.createElement('div');
+  barFill.className = 'spec-track__bar-fill';
+  bar.appendChild(barFill);
+  strip.appendChild(bar);
+
+  for (let lvl = 1; lvl <= track.maxLevel; lvl++) {
+    const node = buildSpecNode(track, state, lvl, keystonesByLevel.get(lvl));
+    node.dataset.level = String(lvl);
+    strip.appendChild(node);
+  }
+  // Vertical wheel → horizontal scroll so users can mousewheel through the strip.
+  strip.addEventListener('wheel', e => {
+    if (e.deltaY === 0) return;
+    e.preventDefault();
+    strip.scrollLeft += e.deltaY;
+  }, { passive: false });
+  row.appendChild(strip);
+
+  // After layout, size + position the bar (top aligned to icon midline)
+  // and apply the initial fill.
+  requestAnimationFrame(() => layoutSpecBar(track));
+
+  return row;
+}
+
+/**
+ * Measure the strip layout and (re)position the connecting bar:
+ *  - top: vertically centered on the icon (not the node), so passive and keystone icons share the midline
+ *  - width: spans from the first node's left edge to the last node's right edge
+ *  - fill width: from start to the center of the current-level node
+ *
+ * Does NOT rebuild any DOM — purely numeric updates, so CSS transitions
+ * animate the fill smoothly without flicker.
+ */
+function layoutSpecBar(track) {
+  const state = specState[track.id];
+  const row = document.querySelector(`.spec-track[data-track="${track.id}"]`);
+  if (!row) return;
+  const strip = row.querySelector('.spec-track__strip');
+  const bar = row.querySelector('.spec-track__bar');
+  const barFill = row.querySelector('.spec-track__bar-fill');
+  if (!strip || !bar || !barFill) return;
+
+  const first = strip.querySelector('.spec-node[data-level="1"]');
+  const last = strip.querySelector(`.spec-node[data-level="${track.maxLevel}"]`);
+  if (!first || !last) return;
+
+  // Vertical centering of the bar is handled in CSS (top: 50%; translateY(-50%)).
+  // The level number is now position:absolute so icons sit on the node midline,
+  // which equals the strip/row midline regardless of resolution.
+
+  // Span: left edge of first node → right edge of last node.
+  const leftEdge = first.offsetLeft;
+  const rightEdge = last.offsetLeft + last.offsetWidth;
+  bar.style.left = `${leftEdge}px`;
+  bar.style.width = `${rightEdge - leftEdge}px`;
+
+  // Fill: bar-relative offset to center of current-level node.
+  if (state.level > 0) {
+    const target = strip.querySelector(`.spec-node[data-level="${state.level}"]`);
+    if (target) {
+      const centerX = target.offsetLeft + target.offsetWidth / 2;
+      barFill.style.width = `${Math.max(0, centerX - leftEdge)}px`;
+    }
+  } else {
+    barFill.style.width = '0px';
+  }
+}
+
+/**
+ * Smoothly scroll a track's strip so the highest unlocked node is centered.
+ * Called only on level changes (not on keystone toggles), so toggling a
+ * keystone from a manually-scrolled position doesn't yank focus away.
+ */
+function focusSpecHighest(track) {
+  const state = specState[track.id];
+  if (state.level <= 0) return;
+  const row = document.querySelector(`.spec-track[data-track="${track.id}"]`);
+  if (!row) return;
+  const target = row.querySelector(`.spec-node[data-level="${state.level}"]`);
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+}
+
+/**
+ * In-place update of a single track row: refresh node states (locked/unlocked/claimed)
+ * and recompute the bar fill. No DOM rebuild — CSS transitions stay smooth and
+ * scroll position is preserved.
+ */
+function updateSpecTrack(track) {
+  const state = specState[track.id];
+  const row = document.querySelector(`.spec-track[data-track="${track.id}"]`);
+  if (!row) return;
+
+  const levelText = row.querySelector('.spec-track__level-text');
+  if (levelText) {
+    levelText.textContent = `${state.level}/${track.maxLevel}`;
+    levelText.classList.toggle('spec-track__level-text--max', state.level >= track.maxLevel);
+  }
+
+  row.querySelectorAll('.spec-node').forEach(node => {
+    const lvl = parseInt(node.dataset.level, 10);
+    const locked = lvl > state.level;
+    node.classList.toggle('locked', locked);
+    node.classList.toggle('unlocked', !locked);
+    const ksId = node.dataset.keystone;
+    if (ksId) node.classList.toggle('claimed', state.keystones.has(ksId));
+  });
+
+  layoutSpecBar(track);
+  // Spec changes affect HP/Stamina, weapon damage, mitigation, and the readout
+  // sections. Refresh just those — re-rendering the resource bars would replay
+  // their snap-then-regen animation on every level tick.
+  refreshAfterSpecChange();
+}
+
+/** Targeted refresh used by spec mutations. Updates bar text in-place (no
+ *  animation), re-renders Equipment/Inventory/Spec sections, and refreshes
+ *  the right-panel calcs. */
+function refreshAfterSpecChange() {
+  // 1. Bar text (HP/Stamina max may have moved from Combat keystones).
+  const sb = getSpecBonuses();
+  const baseHp = lastCharacterPanel?.Health
+    ? (parseResource(lastCharacterPanel.Health)?.max ?? null)
+    : (BASE_STATS.Health > 0 ? BASE_STATS.Health : null);
+  if (baseHp != null) updateResourceBarMaxInPlace('Health', baseHp + sb.health);
+  const baseStam = lastCharacterPanel?.Stamina
+    ? (parseResource(lastCharacterPanel.Stamina)?.max ?? null)
+    : (BASE_STATS.Stamina > 0 ? BASE_STATS.Stamina : null);
+  if (baseStam != null) updateResourceBarMaxInPlace('Stamina', baseStam + sb.stamina);
+
+  // 2. Extras section (Equipment / Inventory / Spec readouts).
+  const extras = document.querySelector('.char-extras');
+  if (extras) {
+    const equipped = aggregateEquippedStats();
+    const itemStats = Object.keys(equipped).length > 0 ? formatAggregatedStats(equipped) : null;
+    renderCharExtras(extras, itemStats);
+  }
+
+  // 3. Right-panel calcs (EHP / Stamina / Power).
+  renderCalculations();
+
+  // 4. If a weapon/armor tooltip is currently visible, re-render it in place
+  //    so its damage/mitigation values reflect the spec change immediately.
+  refreshActiveTooltip();
+}
+
+/**
+ * Build the per-spec readout sections at the bottom of the left character panel.
+ * Each section lists the spec's currently-active passives (at level) plus the
+ * aggregated effect totals from claimed keystones. Tracks with nothing active
+ * are skipped to keep the panel clean.
+ */
+function renderSpecSummary() {
+  const container = document.getElementById('spec-summary');
+  if (!container) return;
+  container.innerHTML = '';
+
+  const byId = new Map(SPECIALIZATIONS_DATA.map(t => [t.id, t]));
+  SPEC_TRACK_ORDER.forEach(id => {
+    const track = byId.get(id);
+    if (!track) return;
+    const state = specState[track.id];
+    if (!state) return;
+    const claimedKs = track.keystones.filter(k => state.keystones.has(k.id));
+    if (state.level === 0 && claimedKs.length === 0) return;
+
+    const heading = document.createElement('div');
+    heading.className = 'stats-section-label';
+    heading.textContent = `${track.name} — L${state.level}`;
+    container.appendChild(heading);
+
+    // Passives at current level (skip if level 0 — no passive value yet)
+    if (state.level > 0) {
+      (track.passiveAttributes || []).forEach(p => {
+        container.appendChild(createStatRow(p.name, formatSpecPassive(p, state.level)));
+      });
+    }
+
+    // Aggregated effects across all claimed keystones in this track.
+    const totals = new Map(); // name → { value, format }
+    claimedKs.forEach(k => {
+      (k.effects || []).forEach(e => {
+        if (e.value == null) return;
+        const prev = totals.get(e.name);
+        if (prev) prev.value += e.value;
+        else totals.set(e.name, { value: e.value, format: e.format });
+      });
+    });
+    totals.forEach((entry, name) => {
+      container.appendChild(createStatRow(name, formatKeystoneValue(entry.value, entry.format)));
+    });
+  });
+}
+
+function buildSpecNode(track, state, lvl, keystone) {
+  const node = document.createElement('div');
+  const locked = lvl > state.level;
+  node.className = 'spec-node' + (keystone ? ' keystone' : '') + (locked ? ' locked' : ' unlocked');
+  if (keystone) {
+    node.dataset.keystone = keystone.id;
+    // Cosmetic helm keystones use full-color art and get a grayscale-→-color
+    // reveal on claim instead of the flat gold tint the others get.
+    if (keystone.keystoneType === 'ItemCustomization') node.classList.add('cosmetic');
+    if (state.keystones.has(keystone.id)) node.classList.add('claimed');
+  }
+
+  const lvlEl = document.createElement('div');
+  lvlEl.className = 'spec-node__level';
+  lvlEl.textContent = String(lvl);
+  node.appendChild(lvlEl);
+
+  const iconWrap = document.createElement('div');
+  iconWrap.className = 'spec-node__icon';
+  const img = document.createElement('img');
+  if (keystone) {
+    img.src = specIconUrl(keystone.iconPath);
+    img.alt = keystone.name;
+  } else {
+    // Use the track's path icon as a generic passive marker.
+    img.src = specIconUrl(track.iconPath);
+    img.alt = track.name;
+    // Default/locked/unlocked dimming + gold tint handled in CSS.
+  }
+  iconWrap.appendChild(img);
+  node.appendChild(iconWrap);
+
+  // Tooltip on hover
+  node.addEventListener('mouseenter', e => showSpecTooltip(track, lvl, keystone, e));
+  node.addEventListener('mousemove', e => positionSpecTooltip(e));
+  node.addEventListener('mouseleave', hideSpecTooltip);
+
+  if (keystone) {
+    node.addEventListener('click', (e) => {
+      const curState = specState[track.id];
+      if (lvl > curState.level) return;
+      if (e.ctrlKey || e.metaKey) {
+        // Bulk: claim every keystone up to and including this one (within level cap).
+        track.keystones.forEach(k => {
+          if (k.level <= lvl) curState.keystones.add(k.id);
+        });
+      } else if (curState.keystones.has(keystone.id)) {
+        curState.keystones.delete(keystone.id);
+      } else {
+        curState.keystones.add(keystone.id);
+      }
+      updateSpecTrack(track);
+    });
+  }
+
+  return node;
+}
+
+function showSpecTooltip(track, lvl, keystone, event) {
+  const tip = document.getElementById('spec-tooltip');
+  tip.innerHTML = '';
+
+  const title = document.createElement('div');
+  title.className = 'spec-tooltip__title';
+  title.textContent = keystone ? keystone.name : `Level ${lvl} passive`;
+  tip.appendChild(title);
+
+  const meta = document.createElement('div');
+  meta.className = 'spec-tooltip__meta';
+  meta.textContent = `L${lvl}` + (keystone ? '  ·  keystone' : '  ·  passive only');
+  tip.appendChild(meta);
+
+  if (keystone) {
+    // Effect list (if any), then description text.
+    if (keystone.effects?.length) {
+      const effects = document.createElement('div');
+      effects.className = 'spec-tooltip__effects';
+      keystone.effects.forEach(e => {
+        const row = document.createElement('div');
+        row.textContent = `${e.name}: ${formatKeystoneValue(e.value, e.format)}`;
+        effects.appendChild(row);
+      });
+      tip.appendChild(effects);
+    }
+    if (keystone.description) {
+      const desc = document.createElement('div');
+      desc.className = 'spec-tooltip__desc';
+      desc.textContent = keystone.description;
+      tip.appendChild(desc);
+    }
+  } else {
+    // Passive nodes — show each passive's per-level delta.
+    const desc = document.createElement('div');
+    desc.className = 'spec-tooltip__desc';
+    desc.style.whiteSpace = 'pre-line';
+    const parts = track.passiveAttributes.map(p => {
+      const prev = p.values[lvl - 1] ?? 0;
+      const cur = p.values[lvl] ?? 0;
+      return `${p.name}: ${formatSpecPassiveDelta(cur - prev)}`;
+    });
+    desc.textContent = parts.join('\n');
+    tip.appendChild(desc);
+  }
+
+  tip.hidden = false;
+  positionSpecTooltip(event);
+}
+
+function positionSpecTooltip(event) {
+  const tip = document.getElementById('spec-tooltip');
+  if (tip.hidden) return;
+  const pad = 12;
+  const edge = 8; // viewport margin
+  const rect = tip.getBoundingClientRect();
+
+  // Horizontal: prefer right-of-cursor; flip left if that would overflow.
+  let x = event.clientX + pad;
+  if (x + rect.width > window.innerWidth - edge) {
+    x = event.clientX - rect.width - pad;
+  }
+
+  // Vertical: pick the direction based on CURSOR POSITION, not content height.
+  // Otherwise short tooltips show below the cursor while tall ones flip above,
+  // and hovers on the same row read inconsistently. With this rule, every
+  // tooltip on a given row goes the same way.
+  const placeAbove = event.clientY > window.innerHeight / 2;
+  let y = placeAbove
+    ? event.clientY - rect.height - pad
+    : event.clientY + pad;
+
+  // Final clamp: keep the tooltip on-screen even if the chosen direction overflows.
+  x = Math.max(edge, Math.min(x, window.innerWidth - rect.width - edge));
+  y = Math.max(edge, Math.min(y, window.innerHeight - rect.height - edge));
+
+  tip.style.left = `${x}px`;
+  tip.style.top = `${y}px`;
+}
+
+function hideSpecTooltip() {
+  const tip = document.getElementById('spec-tooltip');
+  if (tip) tip.hidden = true;
+}
+
+function formatSpecPassiveDelta(delta) {
+  if (!delta) return '+0';
+  if (delta < 0.5) return `+${Math.round(delta * 1000) / 10}%`;
+  return `+${Math.round(delta * 100) / 100}`;
+}
+
+/**
+ * Format a keystone effect value per its format template. Known templates from
+ * the source data: "+{v:0}" (int), "+{v:0}%" (int percent), "+{v:0.#}%" (1-dec percent).
+ * Percent values are stored as fractions (0.3 = 30%), so we scale by 100 for those.
+ */
+function formatKeystoneValue(value, format) {
+  if (value == null) return '';
+  if (format === '+{v:0}%') {
+    const n = Math.round(value * 100);
+    return `${n >= 0 ? '+' : ''}${n}%`;
+  }
+  if (format === '+{v:0.#}%') {
+    const n = Math.round(value * 1000) / 10;
+    return `${n >= 0 ? '+' : ''}${n}%`;
+  }
+  const n = Math.round(value);
+  return `${n >= 0 ? '+' : ''}${n}`;
+}
+
+/**
+ * Format a cumulative passive value as a percent gain. The source data uses two
+ * conventions for the same idea: Combat Damage stores 0→1.0 (read directly as
+ * 0%→100%), while Crafted Item Durability stores 1.01→2.0 (a multiplier, so
+ * convert via (v-1) to get the percent gain). Either way we display as +N%.
+ */
+function formatSpecPassive(passive, level) {
+  const v = passive?.values?.[level];
+  if (typeof v !== 'number') return '—';
+  const isMultiplier = (passive.values[1] ?? 0) >= 1;
+  const pct = isMultiplier ? (v - 1) * 100 : v * 100;
+  const rounded = Math.round(pct * 10) / 10;
+  return `${rounded >= 0 ? '+' : ''}${rounded}%`;
+}
+
+/** Hover summary for the `?` button — passives + aggregated claimed-keystone effects. */
+function showSpecPassivesTooltip(track, event) {
+  const state = specState[track.id];
+  const tip = document.getElementById('spec-tooltip');
+  tip.innerHTML = '';
+
+  const title = document.createElement('div');
+  title.className = 'spec-tooltip__title';
+  title.textContent = `${track.name} — Level ${state.level}`;
+  tip.appendChild(title);
+
+  const section = (label) => {
+    const h = document.createElement('div');
+    h.className = 'spec-tooltip__meta';
+    h.textContent = label;
+    tip.appendChild(h);
+  };
+
+  // Passives at current level
+  if (track.passiveAttributes?.length) {
+    section('Passives');
+    const body = document.createElement('div');
+    body.className = 'spec-tooltip__desc';
+    track.passiveAttributes.forEach(p => {
+      const row = document.createElement('div');
+      row.textContent = `${p.name}: ${formatSpecPassive(p, state.level)}`;
+      body.appendChild(row);
+    });
+    tip.appendChild(body);
+  }
+
+  // Aggregated effects across all claimed keystones in this track.
+  const totals = new Map(); // name → { value, format }
+  track.keystones.forEach(k => {
+    if (!state.keystones.has(k.id)) return;
+    (k.effects || []).forEach(e => {
+      if (e.value == null) return;
+      const prev = totals.get(e.name);
+      if (prev) prev.value += e.value;
+      else totals.set(e.name, { value: e.value, format: e.format });
+    });
+  });
+
+  if (totals.size > 0) {
+    section('From claimed keystones');
+    const body = document.createElement('div');
+    body.className = 'spec-tooltip__desc';
+    totals.forEach((entry, name) => {
+      const row = document.createElement('div');
+      row.textContent = `${name}: ${formatKeystoneValue(entry.value, entry.format)}`;
+      body.appendChild(row);
+    });
+    tip.appendChild(body);
+  }
+
+  if (!track.passiveAttributes?.length && totals.size === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'spec-tooltip__desc';
+    empty.textContent = 'No bonuses yet — raise the level or claim a keystone.';
+    tip.appendChild(empty);
+  }
+
+  tip.hidden = false;
+  positionSpecTooltip(event);
+}
+
+// =============================================
 // TOOLTIP PANEL
 // =============================================
 
-function showTooltip(slotType) {
+function showTooltip(slotType, force) {
+  // While Ctrl is pinning the current tooltip, ignore mouseenter-driven switches
+  // to other slots. Internal refreshes pass `force: true` so they still update.
+  if (tooltipPinned && !force) return;
   const item = equippedItems[slotType];
   if (!item) return;
   if (tooltipClearTimer) { clearTimeout(tooltipClearTimer); tooltipClearTimer = null; }
+  activeTooltip = { fn: 'item', args: [slotType] };
 
   document.getElementById('build-stats').hidden = true;
   const panel = document.getElementById('tooltip-panel');
@@ -1611,25 +2390,69 @@ function showTooltip(slotType) {
     const augEff = augEffects[key];
     const baseText = formatStatValue(stat.name, stat.value);
 
-    if (augEff) {
+    // Damage multipliers applied as the FINAL stages of the calc chain.
+    // Each layer is conditional, so the formula tooltip can list them individually.
+    const sb = getSpecBonuses();
+    const isDamageKey = SPEC_DAMAGE_KEYS.has(key);
+    const combatMul = isDamageKey ? sb.combatDamageMul : 1;
+    const staggerMul = isDamageKey ? sb.staggerMul : 1;
+    const headshotApplies = isDamageKey && appSettings.applyHeadshot && canHeadshot(item);
+    const headshotBaseMul = headshotApplies ? HEADSHOT_BASE_MULTIPLIER : 1;
+    // Sabotage Head Hunter — additive on top of the base HS multiplier; only
+    // contributes when headshot also applies (it's a HS-conditional bonus).
+    const headHunterMul = headshotApplies ? (1 + sb.headHunterBonus) : 1;
+    const specMul = combatMul * staggerMul * headshotBaseMul * headHunterMul;
+    const hasSpec = specMul !== 1;
+
+    if (augEff || hasSpec) {
       // Accuracy is on a 0–1 scale, so it needs more precision than the default 1-decimal rounding.
       const precision = key === 'Accuracy' ? 1000 : 10;
-      const applyAug = (base, augVal) => {
-        if (augEff.type === 'percent') return Math.round(base * (1 + augVal / 100) * precision) / precision;
-        return Math.round((base + augVal) * precision) / precision;
+      const roundP = v => Math.round(v * precision) / precision;
+      const applyAug = (base) => {
+        if (!augEff) return { min: base, max: base };
+        if (augEff.type === 'percent') {
+          return {
+            min: base * (1 + augEff.min / 100),
+            max: base * (1 + augEff.max / 100),
+          };
+        }
+        return { min: base + augEff.min, max: base + augEff.max };
       };
-      const finalMin = applyAug(stat.value, augEff.min);
-      const finalMax = applyAug(stat.value, augEff.max);
+      const { min: augMin, max: augMax } = applyAug(stat.value);
+      const finalMin = roundP(augMin * specMul);
+      const finalMax = roundP(augMax * specMul);
+
       const lowerBetter = LOWER_IS_BETTER.has(key);
       const isWorse = lowerBetter ? finalMin > stat.value : finalMax < stat.value;
       const color = isWorse ? 'var(--color-health)' : 'var(--color-stamina)';
 
-      const isRange = !augEff.hasCustom && augEff.min !== augEff.max;
-      if (isRange) {
-        value.innerHTML = `${baseText} <span style="color:${color}">(${formatStatValue(stat.name, finalMin)}–${formatStatValue(stat.name, finalMax)})</span>`;
-      } else {
-        value.innerHTML = `${baseText} <span style="color:${color}">(${formatStatValue(stat.name, finalMin)})</span>`;
-      }
+      // Overwrite the raw item value with the calculated final value, colored
+      // to indicate whether the modifications net-improve or net-degrade the
+      // stat. The breakdown is available on hover via the formula tooltip.
+      const isRange = augEff && !augEff.hasCustom && augEff.min !== augEff.max;
+      value.style.color = color;
+      value.textContent = isRange
+        ? `${formatStatValue(stat.name, finalMin)}–${formatStatValue(stat.name, finalMax)}`
+        : formatStatValue(stat.name, finalMin);
+
+      // Hover on the row → floating formula breakdown.
+      const breakdown = {
+        name: key,
+        statName: stat.name,
+        baseValue: stat.value,
+        augEff,
+        combatMul,
+        staggerMul,
+        headshotBaseMul,
+        headHunterMul,
+        specMul, // combined; kept for backwards compatibility / quick checks
+        finalMin,
+        finalMax,
+        isRange,
+      };
+      row.addEventListener('mouseenter', e => showStatFormulaTooltip(breakdown, e));
+      row.addEventListener('mousemove', e => positionStatFormulaTooltip(e));
+      row.addEventListener('mouseleave', hideStatFormulaTooltip);
     } else {
       value.textContent = baseText;
     }
@@ -1733,13 +2556,15 @@ function showTooltip(slotType) {
   }
 }
 
-function showAugmentTooltip(slotType, dotIndex) {
+function showAugmentTooltip(slotType, dotIndex, force) {
   const equipped = equippedAugments[slotType]?.[dotIndex];
   if (!equipped) return;
 
+  if (tooltipPinned && !force) return;
   const augData = findAugmentData(equipped.slug, slotType);
   if (!augData) return;
   if (tooltipClearTimer) { clearTimeout(tooltipClearTimer); tooltipClearTimer = null; }
+  activeTooltip = { fn: 'augment', args: [slotType, dotIndex] };
 
   document.getElementById('build-stats').hidden = true;
   const panel = document.getElementById('tooltip-panel');
@@ -1830,42 +2655,184 @@ function showAugmentTooltip(slotType, dotIndex) {
   }
 }
 
-function showFormulaTooltip(label, value, formula) {
-  if (tooltipClearTimer) { clearTimeout(tooltipClearTimer); tooltipClearTimer = null; }
-  const panel = document.getElementById('tooltip-panel');
-  panel.style.flex = '';
-  panel.innerHTML = '';
+/**
+ * Floating breakdown of how a weapon-tooltip stat value was computed:
+ *   base × augments × spec multiplier = final.
+ * Renders into #stat-formula-tooltip near the cursor — separate from the main
+ * tooltip panel so it doesn't conflict with a pinned weapon tooltip.
+ */
+function showStatFormulaTooltip(b, event) {
+  if (!appSettings.showFormulas) return;
+  const tip = document.getElementById('stat-formula-tooltip');
+  if (!tip) return;
+  tip.innerHTML = '';
 
-  const nameEl = document.createElement('div');
-  nameEl.className = 'tooltip-panel__name';
-  nameEl.textContent = label;
-  panel.appendChild(nameEl);
+  const title = document.createElement('div');
+  title.className = 'stat-formula-tooltip__title';
+  title.textContent = b.name;
+  tip.appendChild(title);
 
-  // Split formula on \n — first line is generic formula, second is with values
-  const lines = formula.split('\n');
+  // Symbolic formula line — built from whichever modifiers actually apply, so
+  // the user reads "Base × (1 + Aug%) × Combat × Stagger × Headshot" and the
+  // values below show each step.
+  const augOp = b.augEff
+    ? (b.augEff.type === 'percent' ? '× (1 + Aug%)' : '+ Aug')
+    : null;
+  const formulaParts = ['Base'];
+  if (augOp) formulaParts.push(augOp);
+  if (b.combatMul !== 1) formulaParts.push('× CombatDMG');
+  if (b.staggerMul !== 1) formulaParts.push('× Stagger');
+  if (b.headshotBaseMul !== 1) formulaParts.push('× HS');
+  if (b.headHunterMul !== 1) formulaParts.push('× SabotageHS');
+  const formula = document.createElement('div');
+  formula.className = 'stat-formula-tooltip__formula';
+  formula.textContent = formulaParts.join(' ') + ' = Final';
+  tip.appendChild(formula);
 
-  const genericEl = document.createElement('div');
-  genericEl.className = 'tooltip-panel__formula tooltip-panel__formula--generic';
-  genericEl.textContent = lines[0];
-  panel.appendChild(genericEl);
+  const addRow = (label, value) => {
+    const row = document.createElement('div');
+    row.className = 'stat-formula-tooltip__row';
+    const l = document.createElement('span'); l.className = 'label'; l.textContent = label;
+    const v = document.createElement('span'); v.className = 'value'; v.textContent = value;
+    row.appendChild(l); row.appendChild(v);
+    tip.appendChild(row);
+  };
 
-  if (lines[1]) {
-    const computedEl = document.createElement('div');
-    computedEl.className = 'tooltip-panel__formula tooltip-panel__formula--computed';
-    computedEl.textContent = lines[1];
-    panel.appendChild(computedEl);
+  addRow('Base', formatStatValue(b.statName, b.baseValue));
+
+  if (b.augEff) {
+    const isPct = b.augEff.type === 'percent';
+    const fmt = v => {
+      const n = Math.round(v * 10) / 10;
+      const sign = n >= 0 ? '+' : '';
+      return `${sign}${n}${isPct ? '%' : ''}`;
+    };
+    const range = b.augEff.min === b.augEff.max
+      ? fmt(b.augEff.min)
+      : `${fmt(b.augEff.min)} to ${fmt(b.augEff.max)}`;
+    addRow('Augments', range);
   }
+
+  const fmtMul = m => `×${(Math.round(m * 100) / 100).toFixed(2)}`;
+  if (b.combatMul !== 1) addRow('CombatDMG', fmtMul(b.combatMul));
+  if (b.staggerMul !== 1) addRow('Stagger', fmtMul(b.staggerMul));
+  if (b.headshotBaseMul !== 1) addRow('HS', fmtMul(b.headshotBaseMul));
+  if (b.headHunterMul !== 1) addRow('SabotageHS', fmtMul(b.headHunterMul));
+
+  const total = document.createElement('div');
+  total.className = 'stat-formula-tooltip__total';
+  const tLabel = document.createElement('span'); tLabel.textContent = 'Final';
+  const tValue = document.createElement('span');
+  tValue.textContent = b.isRange
+    ? `${formatStatValue(b.statName, b.finalMin)}–${formatStatValue(b.statName, b.finalMax)}`
+    : formatStatValue(b.statName, b.finalMin);
+  total.appendChild(tLabel); total.appendChild(tValue);
+  tip.appendChild(total);
+
+  tip.hidden = false;
+  positionStatFormulaTooltip(event);
+}
+
+function positionStatFormulaTooltip(event) {
+  const tip = document.getElementById('stat-formula-tooltip');
+  if (!tip || tip.hidden) return;
+  const pad = 12;
+  const edge = 8;
+  const rect = tip.getBoundingClientRect();
+  let x = event.clientX + pad;
+  if (x + rect.width > window.innerWidth - edge) x = event.clientX - rect.width - pad;
+  // Direction based on cursor position so neighboring rows place consistently.
+  const placeAbove = event.clientY > window.innerHeight / 2;
+  let y = placeAbove
+    ? event.clientY - rect.height - pad
+    : event.clientY + pad;
+  x = Math.max(edge, Math.min(x, window.innerWidth - rect.width - edge));
+  y = Math.max(edge, Math.min(y, window.innerHeight - rect.height - edge));
+  tip.style.left = `${x}px`;
+  tip.style.top  = `${y}px`;
+}
+
+function hideStatFormulaTooltip() {
+  const tip = document.getElementById('stat-formula-tooltip');
+  if (tip) tip.hidden = true;
+}
+
+/**
+ * Right-panel calc-row formula tooltip — renders into the floating element
+ * (#stat-formula-tooltip) near the cursor so it never has to clobber the
+ * main right-panel tooltip area (which is also used for weapon hover).
+ *
+ * Formula string is the existing two-line "generic\ncomputed" format used by
+ * createStatRow call sites.
+ */
+function showFormulaTooltip(label, value, formula, event) {
+  if (!appSettings.showFormulas) return;
+  const tip = document.getElementById('stat-formula-tooltip');
+  if (!tip) return;
+  tip.innerHTML = '';
+
+  const title = document.createElement('div');
+  title.className = 'stat-formula-tooltip__title';
+  title.textContent = label;
+  tip.appendChild(title);
+
+  const [generic, computed] = formula.split('\n');
+
+  if (generic) {
+    const g = document.createElement('div');
+    g.className = 'stat-formula-tooltip__formula';
+    g.textContent = generic;
+    tip.appendChild(g);
+  }
+
+  if (computed) {
+    const c = document.createElement('div');
+    c.className = 'stat-formula-tooltip__computed';
+    c.textContent = computed;
+    tip.appendChild(c);
+  }
+
+  // Total row pinned at the bottom mirrors the value shown in the panel.
+  const total = document.createElement('div');
+  total.className = 'stat-formula-tooltip__total';
+  const tLabel = document.createElement('span'); tLabel.textContent = label;
+  const tValue = document.createElement('span'); tValue.textContent = String(value);
+  total.appendChild(tLabel); total.appendChild(tValue);
+  tip.appendChild(total);
+
+  tip.hidden = false;
+  if (event) positionStatFormulaTooltip(event);
 }
 
 let tooltipClearTimer = null;
+// What's currently in the right-panel tooltip, so we can re-render it in place
+// when build state changes (augment applied, spec level moved, etc.) without
+// the user having to mouseout/mouseback to see fresh values.
+let activeTooltip = null; // { fn: 'item'|'augment', args: [...] }
+
+// Ctrl-hold "pins" the tooltip — keeps it visible across mouseleave events so
+// the user can move onto the tooltip itself (scroll it, hover inner rows).
+let tooltipPinned = false;
 
 function clearTooltip() {
+  // Skip the deferred clear while the user is holding Ctrl to pin the tooltip.
+  if (tooltipPinned) return;
   tooltipClearTimer = setTimeout(() => {
+    activeTooltip = null;
     document.getElementById('build-stats').hidden = false;
     const panel = document.getElementById('tooltip-panel');
     panel.style.flex = '';
     panel.innerHTML = '<div class="tooltip-panel__empty">Hover an item to inspect</div>';
   }, 100);
+}
+
+function refreshActiveTooltip() {
+  if (!activeTooltip) return;
+  const t = activeTooltip;
+  // `true` bypasses the pin so this internal refresh can update values while
+  // the user is holding Ctrl on the currently-shown tooltip.
+  if (t.fn === 'item') showTooltip(t.args[0], true);
+  else if (t.fn === 'augment') showAugmentTooltip(t.args[0], t.args[1], true);
 }
 
 function updateSlotDisplay(slotEl, item) {
@@ -2237,6 +3204,38 @@ function clearHotbarSlot(slotEl) {
     }
   });
 
+  // Ctrl-hold pins the right-panel tooltip so it can be moused-over and scrolled.
+  // Pressed: skip pending clears, keep tooltip alive across mouseleave events.
+  // Released: if the cursor isn't on the tooltip or a tooltip source, dismiss.
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Control' && !tooltipPinned) {
+      tooltipPinned = true;
+      if (tooltipClearTimer) { clearTimeout(tooltipClearTimer); tooltipClearTimer = null; }
+    }
+  });
+  document.addEventListener('keyup', e => {
+    if (e.key === 'Control') {
+      tooltipPinned = false;
+      // If the mouse isn't currently sitting on something that would keep the
+      // tooltip alive on its own, schedule the normal deferred clear.
+      const overSource = document.querySelector(
+        '.armor-slot:hover, .hotbar-slot:hover, .augment-dot:hover, #tooltip-panel:hover'
+      );
+      if (!overSource) clearTooltip();
+    }
+  });
+
+  // Ctrl+wheel is browser zoom by default — intercept it on the tooltip panel
+  // so a pinned tooltip can be scrolled with the wheel instead.
+  const tooltipPanelEl = document.getElementById('tooltip-panel');
+  if (tooltipPanelEl) {
+    tooltipPanelEl.addEventListener('wheel', e => {
+      if (!tooltipPinned) return;
+      e.preventDefault();
+      tooltipPanelEl.scrollTop += e.deltaY;
+    }, { passive: false });
+  }
+
   // Initial render of character panel with base stats
   refreshPanels();
 })();
@@ -2286,15 +3285,15 @@ document.getElementById('settings-overlay').addEventListener('click', e => {
   if (e.target === e.currentTarget) closeSettings();
 });
 
+document.getElementById('open-specializations-btn').addEventListener('click', openSpecializations);
+document.getElementById('spec-close').addEventListener('click', closeSpecializations);
+document.getElementById('specializations-overlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeSpecializations();
+});
+
 document.getElementById('setting-show-commons').checked = appSettings.showCommons;
 document.getElementById('setting-show-commons').addEventListener('change', e => {
   appSettings.showCommons = e.target.checked;
-  saveSettings();
-});
-
-document.getElementById('setting-show-formulas').checked = appSettings.showFormulas;
-document.getElementById('setting-show-formulas').addEventListener('change', e => {
-  appSettings.showFormulas = e.target.checked;
   saveSettings();
 });
 
@@ -2325,10 +3324,35 @@ for (const tier of [1, 2, 3, 4, 5]) {
   });
 }
 
+document.getElementById('setting-show-formulas').checked = appSettings.showFormulas;
+document.getElementById('setting-show-formulas').addEventListener('change', e => {
+  appSettings.showFormulas = e.target.checked;
+  saveSettings();
+  // If a formula tooltip is currently visible, hide it immediately on opt-out.
+  if (!appSettings.showFormulas) hideStatFormulaTooltip();
+});
+
 document.getElementById('setting-persist-weapon-filter').checked = appSettings.persistWeaponTypeFilter;
 document.getElementById('setting-persist-weapon-filter').addEventListener('change', e => {
   appSettings.persistWeaponTypeFilter = e.target.checked;
   saveSettings();
+});
+
+document.getElementById('setting-apply-staggered').checked = appSettings.applyStaggered;
+document.getElementById('setting-apply-staggered').addEventListener('change', e => {
+  appSettings.applyStaggered = e.target.checked;
+  saveSettings();
+  // Folds the Sabotage Damage-to-Staggered passive into weapon damage totals.
+  refreshPanels();
+});
+
+document.getElementById('setting-apply-headshot').checked = appSettings.applyHeadshot;
+document.getElementById('setting-apply-headshot').addEventListener('change', e => {
+  appSettings.applyHeadshot = e.target.checked;
+  saveSettings();
+  // Adds the ×1.5 base headshot multiplier (plus Sabotage Head Hunter bonus)
+  // to weapons that can headshot.
+  refreshPanels();
 });
 
 // =============================================
@@ -2378,6 +3402,17 @@ function exportBuild() {
 
   const exportData = { slots };
   if (Object.keys(hotbar).length > 0) exportData.hotbar = hotbar;
+
+  // Specializations — per-track level + claimed keystones. Skip tracks with
+  // no progress to keep exports compact.
+  const specs = {};
+  for (const [id, state] of Object.entries(specState)) {
+    const keystones = [...state.keystones];
+    if (state.level > 0 || keystones.length > 0) {
+      specs[id] = { level: state.level, keystones };
+    }
+  }
+  if (Object.keys(specs).length > 0) exportData.specializations = specs;
 
   if (lastCharacterPanel) {
     exportData.characterPanel = {};
@@ -2492,6 +3527,28 @@ function applyBuildData(data) {
     lastCharacterPanel = data.characterPanel;
   }
 
+  // Reset all specializations to baseline, then layer in any saved state.
+  for (const id of Object.keys(specState)) {
+    specState[id] = { level: 0, keystones: new Set() };
+  }
+  if (data.specializations) {
+    for (const [id, s] of Object.entries(data.specializations)) {
+      if (!specState[id]) continue; // unknown track id — ignore
+      const track = SPECIALIZATIONS_DATA.find(t => t.id === id);
+      const maxLevel = track?.maxLevel ?? 100;
+      const level = Math.max(0, Math.min(maxLevel, parseInt(s.level, 10) || 0));
+      const validKsIds = new Set((track?.keystones || []).map(k => k.id));
+      const keystones = new Set(
+        (Array.isArray(s.keystones) ? s.keystones : [])
+          .filter(id => validKsIds.has(id))
+      );
+      specState[id] = { level, keystones };
+    }
+  }
+  // If the spec modal is currently open, rebuild it so it reflects the load.
+  const specOverlay = document.getElementById('specializations-overlay');
+  if (specOverlay?.classList.contains('visible')) renderSpecOverlay();
+
   refreshPanels();
   triggerRevealAnimation();
 }
@@ -2573,8 +3630,6 @@ async function openLoadModal() {
     applyBuildData({ slots: {}, hotbar: null });
     currentBuildPath = null;
     lastCharacterPanel = null;
-    lastBuildTotals = null;
-    lastSkillBonuses = null;
     refreshPanels();
     closeLoadModal();
   });
@@ -2713,17 +3768,11 @@ pasteBtn.addEventListener('click', async () => {
 
     if (!result) {
       showError('No valid build data found in clipboard.');
-    } else if (result.duneExport) {
+    } else {
       applyBuildData(result);
       if (result.characterPanel) {
         lastCharacterPanel = result.characterPanel;
       }
-      refreshPanels();
-      triggerRevealAnimation();
-    } else {
-      lastCharacterPanel = result.characterPanel;
-      lastBuildTotals    = result.buildTotals;
-      lastSkillBonuses   = result.skillBonuses;
       refreshPanels();
       triggerRevealAnimation();
     }

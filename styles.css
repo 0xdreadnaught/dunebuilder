@@ -98,14 +98,6 @@ body {
   transform: scale(1.08);
 }
 
-.app-title {
-  font-size: 23px;
-  font-weight: normal;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-gold-bright);
-  text-shadow: 0 0 16px rgba(232, 196, 106, 0.35);
-}
 
 .header-controls {
   display: flex;
@@ -1226,18 +1218,6 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.engine-ini-modal .modal-close {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--color-text-secondary);
-  font-size: 18px;
-  line-height: 1;
-  padding: 2px 7px;
-  transition: color 0.15s;
-}
-.engine-ini-modal .modal-close:hover { color: var(--color-gold-bright); }
-
 .engine-ini-empty {
   flex: 1;
   display: flex;
@@ -2332,27 +2312,6 @@ body {
   padding-left: calc(var(--spacing-md) + 8px);
 }
 
-.tooltip-panel__formula {
-  padding: var(--spacing-sm) var(--spacing-md);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  border-radius: var(--radius-sm);
-  margin: var(--spacing-xs) var(--spacing-sm);
-  line-height: 1.6;
-}
-
-.tooltip-panel__formula--generic {
-  color: var(--color-spice);
-  background: rgba(160, 123, 200, 0.1);
-  border-left: 2px solid var(--color-spice);
-}
-
-.tooltip-panel__formula--computed {
-  color: var(--color-text-value);
-  background: rgba(0, 0, 0, 0.3);
-  border-left: 2px solid var(--color-gold-main);
-}
-
 /* =============================================
    QR CODE BUILDER MODAL
    ============================================= */
@@ -2391,14 +2350,6 @@ body {
   font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--color-gold-main);
 }
-.qr-builder-modal .modal-close {
-  background: none; border: none; cursor: pointer;
-  color: var(--color-text-secondary);
-  font-size: 18px; line-height: 1; padding: 2px 7px;
-  transition: color 0.15s;
-}
-.qr-builder-modal .modal-close:hover { color: var(--color-gold-bright); }
-
 .qr-builder-controls {
   display: flex; align-items: center; gap: var(--spacing-md);
   padding: var(--spacing-sm) var(--spacing-md);
@@ -2494,3 +2445,418 @@ body {
 .qr-info-box strong { color: var(--color-text-primary); }
 .qr-legend { display: inline-flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
 .qr-legend .qr-run { font-weight: 700; }
+
+/* =============================================
+   SPECIALIZATIONS MODAL
+   ============================================= */
+.spec-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 110;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--spacing-lg);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+.spec-overlay.visible { opacity: 1; pointer-events: all; }
+
+.spec-modal {
+  width: min(1100px, 96vw);
+  height: 88vh;
+  max-height: 92vh;
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-gold-main);
+  border-radius: 4px;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  transform: translateY(-6px) scale(0.97);
+  transition: transform 0.22s ease;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 1px rgba(200, 164, 90, 0.3);
+}
+.spec-overlay.visible .spec-modal { transform: translateY(0) scale(1); }
+
+.spec-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: var(--border-accent);
+  flex-shrink: 0;
+}
+.spec-title {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-main);
+}
+
+.spec-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* One full row per track — flex to fill the modal height evenly. */
+.spec-track {
+  display: flex;
+  flex: 1 1 0;
+  min-height: 0;
+  gap: var(--spacing-sm);
+  align-items: stretch;
+  background: var(--color-bg-void);
+  border: 1px solid var(--color-gold-dim);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.spec-track__banner {
+  position: relative;
+  flex: 0 0 240px;
+  padding: 14px 16px;
+  background-size: cover;
+  background-position: center;
+  background-color: #14110b;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Header row: spec name on the left, "?" info button on the right, same baseline. */
+.spec-track__header-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.spec-track__info {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid var(--color-gold-dim);
+  border-radius: 50%;
+  color: var(--color-gold-main);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1;
+  cursor: help;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.spec-track__info:hover {
+  color: var(--color-gold-bright);
+  border-color: var(--color-gold-main);
+  background: rgba(0, 0, 0, 0.75);
+}
+.spec-track__banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.85) 100%);
+  pointer-events: none;
+}
+.spec-track__banner > * { position: relative; z-index: 1; }
+
+.spec-track__name {
+  font-size: 18px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-bright);
+  /* Layered: hard ~2px black outline so the text reads against any banner artwork,
+     plus a soft drop shadow for depth. */
+  text-shadow:
+    -2px -2px 0 #000,
+     0   -2px 0 #000,
+     2px -2px 0 #000,
+     2px  0   0 #000,
+     2px  2px 0 #000,
+     0    2px 0 #000,
+    -2px  2px 0 #000,
+    -2px  0   0 #000,
+     0 1px 6px rgba(0, 0, 0, 0.85);
+}
+
+/* Big-and-centered level display with hover-revealed left/right arrows.
+   Arrows live on the sides so they never collide with the track name above. */
+.spec-track__level-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.spec-track__level-text {
+  font-size: 26px;
+  font-family: var(--font-mono);
+  color: var(--color-gold-bright);
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+  min-width: 88px;
+  text-align: center;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+/* Maxed-out track: switch to purple with a faint matching glow. */
+.spec-track__level-text--max {
+  color: #c8a4ff;
+  text-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.85),
+    0 0 10px rgba(167, 139, 250, 0.55);
+}
+.spec-track__level-arrow {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  color: var(--color-gold-main);
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s, transform 0.1s;
+}
+.spec-track__banner:hover .spec-track__level-arrow { opacity: 1; }
+.spec-track__level-arrow:hover {
+  color: var(--color-gold-bright);
+  transform: scale(1.15);
+}
+.spec-track__level-arrow:active { transform: scale(0.95); }
+
+/* Horizontal strip of level nodes. */
+.spec-track__strip {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  padding: 8px 10px;
+  scrollbar-color: var(--color-gold-dim) transparent;
+}
+
+/* Connecting bar behind the nodes — runs left-to-right at the icon midline.
+   The +12px offset matches the icon's margin-top:24 (which shifts the icon
+   down by half via align-items:center), so the bar stays on the icon midline
+   while the level numbers keep their breathing room above. */
+.spec-track__bar {
+  position: absolute;
+  left: 0;
+  top: calc(50% + 12px);
+  transform: translateY(-50%);
+  height: 18px;
+  background: rgba(232, 196, 106, 0.12);
+  z-index: 0;
+  pointer-events: none;
+}
+.spec-track__bar-fill {
+  position: absolute;
+  left: 0; top: 0;
+  height: 100%;
+  width: 0;
+  background: var(--color-gold-main);
+  opacity: 0.55;
+  transition: width 0.22s ease;
+}
+.spec-track__strip::-webkit-scrollbar { height: 8px; }
+.spec-track__strip::-webkit-scrollbar-thumb {
+  background: var(--color-gold-dim);
+  border-radius: 4px;
+}
+.spec-track__strip::-webkit-scrollbar-track { background: transparent; }
+
+.spec-node {
+  position: relative;
+  z-index: 1; /* sit in front of the connecting bar */
+  flex: 0 0 auto;
+  width: 44px;
+  display: flex;
+  align-items: center;       /* center icon vertically on node midline */
+  justify-content: center;
+  padding: 2px 1px;
+  cursor: default;
+  /* Opaque background matching the row hides the connecting bar behind each node,
+     so the bar is only visible in the gaps between nodes. */
+  background: var(--color-bg-void);
+}
+.spec-node__level {
+  /* Absolutely positioned so it does NOT push the icon off the node midline. */
+  position: absolute;
+  top: 2px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--color-gold-bright);
+  font-family: var(--font-mono);
+  pointer-events: none;
+}
+.spec-node__icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-gold-dim);
+  background: rgba(0,0,0,0.4);
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+  /* Margin-top with align-items:center on the parent shifts the icon down by
+     half this value, opening clear space below the level number. The bar is
+     offset by the same amount in CSS below to stay aligned. */
+  margin-top: 24px;
+}
+.spec-node__icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.6));
+}
+/* Keystone-bearing nodes are 2× the size of passive-only nodes. */
+.spec-node.keystone { width: 80px; }
+.spec-node.keystone .spec-node__icon { width: 72px; height: 72px; border-width: 2px; }
+.spec-node.keystone .spec-node__icon img { width: 60px; height: 60px; }
+.spec-node.keystone { cursor: pointer; }
+.spec-node.keystone.unlocked .spec-node__icon { border-color: var(--color-gold-main); }
+.spec-node.keystone.unlocked:hover .spec-node__icon {
+  border-color: var(--color-gold-bright);
+  transform: scale(1.06);
+}
+.spec-node.keystone.claimed .spec-node__icon {
+  border-color: var(--color-gold-bright);
+}
+/* Gold-tint filter for icons — flatten to black, then re-colorize to roughly
+   --color-gold-main (#c8a45a). Used by claimed keystones and unlocked passives.
+   Cosmetic helms are excluded — they have their own grayscale→color behavior. */
+.spec-node.keystone.claimed:not(.cosmetic) .spec-node__icon img,
+.spec-node:not(.keystone).unlocked .spec-node__icon img {
+  filter:
+    brightness(0) saturate(100%)
+    invert(72%) sepia(34%) saturate(640%) hue-rotate(2deg) brightness(96%) contrast(92%)
+    drop-shadow(0 1px 2px rgba(0,0,0,0.6));
+}
+/* Helm cosmetic keystones: render in grayscale until claimed, then full color. */
+.spec-node.keystone.cosmetic .spec-node__icon img {
+  filter: grayscale(1) drop-shadow(0 1px 2px rgba(0,0,0,0.6));
+}
+.spec-node.keystone.cosmetic.claimed .spec-node__icon img {
+  /* Soft gold underglow + the standard dark drop shadow underneath. */
+  filter:
+    drop-shadow(0 0 6px rgba(232, 196, 106, 0.55))
+    drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+}
+/* Passive icons that aren't yet unlocked stay dim so they read as "not earned". */
+.spec-node:not(.keystone).locked .spec-node__icon img {
+  opacity: 0.5;
+}
+/* Dim locked nodes via children only — keep the node's background opaque so
+   it still hides the connecting bar behind it. */
+.spec-node.locked .spec-node__icon { opacity: 0.4; filter: grayscale(0.6); }
+.spec-node.locked .spec-node__level { opacity: 0.4; }
+
+/* Tooltip used for hover descriptions */
+.spec-tooltip {
+  position: fixed;
+  pointer-events: none;
+  z-index: 200;
+  width: 360px;
+  max-height: calc(100vh - 16px);
+  overflow: hidden;
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-gold-main);
+  border-radius: 3px;
+  padding: 8px 10px;
+  font-size: 16px;
+  color: var(--color-text-primary);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.6);
+}
+.spec-tooltip[hidden] { display: none; }
+.spec-tooltip__title {
+  font-weight: 600;
+  color: var(--color-gold-bright);
+  margin-bottom: 4px;
+  font-size: 18px;
+}
+.spec-tooltip__meta {
+  font-size: 15px;
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+  margin-bottom: 4px;
+}
+.spec-tooltip__desc { line-height: 1.4; color: var(--color-text-primary); }
+
+/* Floating formula tooltip for weapon-tooltip stat rows.
+   Matches .spec-tooltip styling so it feels familiar. */
+.stat-formula-tooltip {
+  position: fixed;
+  pointer-events: none;
+  z-index: 250;
+  width: 320px;
+  max-height: calc(100vh - 16px);
+  overflow: hidden;
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-gold-main);
+  border-radius: 3px;
+  padding: 8px 10px;
+  font-size: 15px;
+  color: var(--color-text-primary);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+  font-family: var(--font-mono);
+}
+.stat-formula-tooltip[hidden] { display: none; }
+.stat-formula-tooltip__title {
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--color-gold-bright);
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+.stat-formula-tooltip__formula {
+  color: var(--color-spice);
+  font-size: 14px;
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--color-gold-dim);
+  line-height: 1.3;
+}
+.stat-formula-tooltip__computed {
+  color: var(--color-text-primary);
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+.stat-formula-tooltip__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  line-height: 1.4;
+}
+.stat-formula-tooltip__row .label {
+  color: var(--color-text-primary);
+}
+.stat-formula-tooltip__row .value {
+  color: var(--color-text-primary);
+}
+.stat-formula-tooltip__total {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid var(--color-gold-dim);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--color-gold-bright);
+  font-weight: 600;
+}
+
+.spec-tooltip__effects {
+  color: var(--color-stamina);
+  font-family: var(--font-mono);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+

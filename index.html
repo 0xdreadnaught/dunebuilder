@@ -13,7 +13,6 @@
   <header class="app-header">
     <div class="app-brand">
       <img src="dunebuilder_logo_512.png" alt="DuneBuilder" class="app-logo" id="app-logo" title="About DuneBuilder">
-      <h1 class="app-title">DuneBuilder</h1>
     </div>
     <div class="header-controls">
       <span id="error-message" class="error-message" role="alert"></span>
@@ -24,6 +23,7 @@
       </div>
       <button id="export-btn" class="btn-primary">Export</button>
       <button id="paste-btn" class="btn-primary">Paste Build</button>
+      <button id="open-specializations-btn" class="btn-icon" aria-label="Specializations" title="Specializations">G</button>
       <button id="open-engine-ini-btn" class="btn-icon" aria-label="Engine.ini Reference" title="Engine.ini Reference"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8V5M11 5H17M6 12H3M3 9V15M21 11V19M9 12H9.01M12 12H12.01M15 12H15.01M6 8V16H8L10 19H18V10L16 8H6Z"/></svg></button>
       <button id="open-qr-builder-btn" class="btn-icon" aria-label="QR Code Builder" title="QR Code Builder"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8,21H4a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H8a1,1,0,0,0,0-2Zm14-6a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H16a1,1,0,0,0,0,2h4a3,3,0,0,0,3-3V16A1,1,0,0,0,22,15ZM20,1H16a1,1,0,0,0,0,2h4a1,1,0,0,1,1,1V8a1,1,0,0,0,2,0V4A3,3,0,0,0,20,1ZM2,9A1,1,0,0,0,3,8V4A1,1,0,0,1,4,3H8A1,1,0,0,0,8,1H4A3,3,0,0,0,1,4V8A1,1,0,0,0,2,9Zm8-4H6A1,1,0,0,0,5,6v4a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V6A1,1,0,0,0,10,5ZM9,9H7V7H9Zm5,2h4a1,1,0,0,0,1-1V6a1,1,0,0,0-1-1H14a1,1,0,0,0-1,1v4A1,1,0,0,0,14,11Zm1-4h2V9H15Zm-5,6H6a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V14A1,1,0,0,0,10,13ZM9,17H7V15H9Zm5-1h.01a1,1,0,0,0,0-2H14a1,1,0,0,0,0,2Zm4-3a1,1,0,0,0-1,1v3a1,1,0,0,0,2,0V14A1,1,0,0,0,18,13Zm-4,4h.01a1,1,0,0,0,0-2H14a1,1,0,0,0,0,2Z"/></svg></button>
       <button id="settings-btn" class="btn-icon" aria-label="Settings" title="Settings">⚙</button>
@@ -239,11 +239,19 @@
         <div class="settings-footer">
           <label class="settings-toggle">
             <input type="checkbox" id="setting-show-formulas">
-            <span class="settings-toggle__label">Show Formulas</span>
+            <span class="settings-toggle__label">Show Formula Tooltips</span>
           </label>
           <label class="settings-toggle">
             <input type="checkbox" id="setting-persist-weapon-filter">
             <span class="settings-toggle__label">Persist Weapon Type Filter</span>
+          </label>
+          <label class="settings-toggle">
+            <input type="checkbox" id="setting-apply-staggered">
+            <span class="settings-toggle__label">Apply Staggered Bonus</span>
+          </label>
+          <label class="settings-toggle">
+            <input type="checkbox" id="setting-apply-headshot">
+            <span class="settings-toggle__label">Apply Headshot Bonus</span>
           </label>
         </div>
       </div>
@@ -258,7 +266,7 @@
           <span class="engine-ini-title">Engine.ini Reference</span>
           <span id="engine-ini-subtitle" class="engine-ini-subtitle"></span>
         </div>
-        <button id="engine-ini-close" class="modal-close" aria-label="Close">×</button>
+        <button id="engine-ini-close" class="item-picker-close" aria-label="Close">✕</button>
       </div>
       <div id="engine-ini-empty" class="engine-ini-empty" hidden>
         <p>Engine.ini not found at the expected location.</p>
@@ -304,7 +312,7 @@
     <div class="qr-builder-modal">
       <div class="qr-builder-header">
         <span class="qr-builder-title">QR Code Builder</span>
-        <button id="qr-builder-close" class="modal-close" aria-label="Close">&times;</button>
+        <button id="qr-builder-close" class="item-picker-close" aria-label="Close">✕</button>
       </div>
       <div class="qr-builder-controls">
         <label class="qr-ctl">
@@ -350,6 +358,24 @@
       </div>
     </div>
   </div>
+
+  <!-- Floating formula breakdown shown on hover of weapon-tooltip stat rows. -->
+  <div id="stat-formula-tooltip" class="stat-formula-tooltip" hidden></div>
+
+  <!-- Specializations modal -->
+  <div id="specializations-overlay" class="spec-overlay">
+    <div class="spec-modal">
+      <div class="spec-header">
+        <span class="spec-title">Specializations</span>
+        <button id="spec-close" class="item-picker-close" aria-label="Close">✕</button>
+      </div>
+      <div class="spec-body" id="spec-body"></div>
+    </div>
+  </div>
+
+  <!-- Spec hover tooltip — kept OUTSIDE the modal so its `position: fixed`
+       isn't trapped inside the modal's transformed/overflow:hidden box. -->
+  <div id="spec-tooltip" class="spec-tooltip" hidden></div>
 
   <script defer src="qr-encode.js"></script>
   <script defer src="qr-builder.js"></script>
