@@ -642,7 +642,7 @@ const FLAT_STATS = new Set([
   'armor value', 'heat protection', 'max stack', 'volume',
   'power pool', 'regen per second', 'power drain', 'shield refresh time',
   // Weapon stats
-  'damage per shot', 'shield damage per shot', 'clip size', 'dps',
+  'damage per shot', 'shield damage per shot', 'clip size', 'dps', 'sustained dps',
   'reload time', 'rate of fire', 'effective range', 'maximum range',
   'damage per hit', 'attack speed',
   'heavy attack damage (shielded)', 'heavy attack damage (unshielded)',
@@ -899,14 +899,13 @@ function aggregateEquippedStats() {
     }
   });
 
-  // Combat Damage passive multiplies all weapon damage stats. (Hotbar items
-  // are skipped above, so this loop is effectively a no-op for SPEC_DAMAGE_KEYS
-  // today — kept as a safety net should weapon stats ever enter the aggregate.)
-  const dmgMul = getSpecBonuses().combatDamageMul;
-  if (dmgMul !== 1) {
-    for (const key of Object.keys(totals)) {
-      if (SPEC_DAMAGE_KEYS.has(key)) totals[key] *= dmgMul;
-    }
+  // Clean up IEEE-754 accumulation noise. Source values carry at most a few
+  // decimals (e.g., gloves/boots end in .3), but summing binary-inexact
+  // fractions like 0.3 leaves artifacts (2951.6 → 2951.6000000000004).
+  // Round to 6 dp: removes the ~1e-13 noise while preserving any genuine
+  // precision from augment-percent math.
+  for (const key of Object.keys(totals)) {
+    totals[key] = Math.round(totals[key] * 1e6) / 1e6;
   }
 
   return totals;
@@ -921,17 +920,149 @@ const SPEC_DAMAGE_KEYS = new Set([
   'Damage Per Shot', 'Damage Per Hit',
   'Shield Damage Per Shot', 'Shield Damage Per Hit',
   'Heavy Attack Damage (Shielded)', 'Heavy Attack Damage (Unshielded)',
-  'DPS',
+  'DPS', 'Sustained DPS',
 ]);
 
-/** Aggregated allocated-spec contributions that feed into existing calcs. */
+// Display-label remap for ranged: existing DPS is the burst-rate value
+// (Damage × RoF/60). The synthetic "Sustained DPS" factors in reload time —
+// that's the meaningful sustained metric so it gets the "DPS" headline label.
+const RANGED_DISPLAY_LABELS = {
+  'DPS': 'Burst DPS',
+  'Sustained DPS': 'DPS',
+};
+
+// Display-only label remapping for melee weapon damage rows. The four damage
+// stats break down by attack type (light/heavy) and target state (shielded/
+// unshielded); this surface them clearly instead of using the data's stat names.
+const MELEE_DISPLAY_LABELS = {
+  'Damage Per Hit': 'Light vs Unshielded',
+  'Shield Damage Per Hit': 'Light vs Shielded',
+  'Heavy Attack Damage (Unshielded)': 'Heavy vs Unshielded',
+  'Heavy Attack Damage (Shielded)': 'Heavy vs Shielded',
+};
+
+// Preferred row order for melee weapon tooltips — keeps the four damage rows
+// grouped at the top in light→heavy / unshielded→shielded reading order.
+const MELEE_STAT_ORDER = [
+  'Damage Type',
+  'Damage Per Hit',
+  'Shield Damage Per Hit',
+  'Heavy Attack Damage (Unshielded)',
+  'Heavy Attack Damage (Shielded)',
+  'DPS',
+  'Attack Speed',
+  'Attack Stamina Cost',
+  'Block Stamina Cost',
+  'Volume',
+];
+
+/** Returns how a single damage row is composed from the weapon's one stated
+ *  damage value. Every melee/ranged damage row resolves to:
+ *    final = (stated + augFlat) × factorMul × hitSplit × (1 + pool%)
+ *  where `stated` is the SAME number across all rows that share a primary stat
+ *  (e.g., all light/heavy melee rows reference Damage Per Hit, with heavy rows
+ *  carrying a ×3 / ×6 multiplier). Returns null if the row isn't a recognised
+ *  damage row. `statMap` is { statKey → raw stat object }. */
+function getDamageRowSpec(item, statKey, statMap, augEffects) {
+  const valOf = key => statMap[key]?.value ?? 0;
+  const augmentedValue = (key) => {
+    const base = valOf(key);
+    const ae = augEffects?.[key];
+    if (!ae) return base;
+    if (ae.type === 'percent') return base * (1 + ae.max / 100);
+    return base + ae.max;
+  };
+  const fmtN = v => String(Math.round(v * 100) / 100);
+
+  // factorSymExpr / factorNumExpr are inlined into the formula's factor slot
+  // so the user sees the full derivation rather than an opaque "Mag/Cycle"
+  // bucket. factorLabel is the compact row-below display (e.g. "Mag/Cycle ×2.73").
+  const noFactor = { factorMul: 1, factorLabel: '', factorSymExpr: '', factorNumExpr: '' };
+
+  if (item.weaponType === 'melee') {
+    const dph = valOf('Damage Per Hit');
+    if (statKey === 'Damage Per Hit') {
+      return { ...noFactor, statedKey: 'Damage Per Hit', statedValue: dph, isPrimary: true };
+    }
+    if (statKey === 'Shield Damage Per Hit') {
+      return { ...noFactor, statedKey: 'Shield Damage Per Hit', statedValue: valOf('Shield Damage Per Hit'), isPrimary: true };
+    }
+    if (statKey === 'Heavy Attack Damage (Unshielded)') {
+      return {
+        statedKey: 'Damage Per Hit', statedValue: dph, isPrimary: false,
+        factorMul: 3, factorLabel: 'Heavy ×3', factorSymExpr: 'Heavy', factorNumExpr: '3',
+        factorRows: [{ label: 'Heavy', value: '×3' }],
+      };
+    }
+    if (statKey === 'Heavy Attack Damage (Shielded)') {
+      return {
+        statedKey: 'Damage Per Hit', statedValue: dph, isPrimary: false,
+        factorMul: 6, factorLabel: 'Heavy ×6', factorSymExpr: 'Heavy', factorNumExpr: '6',
+        factorRows: [{ label: 'Heavy', value: '×6' }],
+      };
+    }
+    if (statKey === 'DPS') {
+      const spd = augmentedValue('Attack Speed') || 60;
+      const mul = spd / 60;
+      return {
+        statedKey: 'Damage Per Hit', statedValue: dph, isPrimary: false,
+        factorMul: mul, factorLabel: `Speed/60 ×${mul.toFixed(2)}`,
+        factorSymExpr: 'Speed/60', factorNumExpr: `${fmtN(spd)}/60`,
+        factorRows: [{ label: 'Attack Speed', value: fmtN(spd) }],
+      };
+    }
+  } else if (item.weaponType === 'ranged') {
+    const dps = valOf('Damage Per Shot');
+    if (statKey === 'Damage Per Shot') {
+      return { ...noFactor, statedKey: 'Damage Per Shot', statedValue: dps, isPrimary: true };
+    }
+    if (statKey === 'Shield Damage Per Shot') {
+      return { ...noFactor, statedKey: 'Shield Damage Per Shot', statedValue: valOf('Shield Damage Per Shot'), isPrimary: true };
+    }
+    if (statKey === 'DPS') {
+      const rof = augmentedValue('Rate of Fire') || 60;
+      const mul = rof / 60;
+      return {
+        statedKey: 'Damage Per Shot', statedValue: dps, isPrimary: false,
+        factorMul: mul, factorLabel: `RoF/60 ×${mul.toFixed(2)}`,
+        factorSymExpr: 'RoF/60', factorNumExpr: `${fmtN(rof)}/60`,
+        factorRows: [{ label: 'RoF', value: fmtN(rof) }],
+      };
+    }
+    if (statKey === 'Sustained DPS') {
+      // Average shots-per-second over a full magazine cycle including reload.
+      const clip = augmentedValue('Clip Size');
+      const rof = augmentedValue('Rate of Fire') || 60;
+      const reload = augmentedValue('Reload Time');
+      const cycle = (clip * 60 / rof) + reload;
+      const mul = cycle > 0 ? clip / cycle : 0;
+      return {
+        statedKey: 'Damage Per Shot', statedValue: dps, isPrimary: false,
+        factorMul: mul, factorLabel: `Mag/Cycle ×${mul.toFixed(2)}`,
+        factorSymExpr: 'Clip / (Clip × 60/RoF + Reload)',
+        factorNumExpr: `${fmtN(clip)} / (${fmtN(clip)} × 60/${fmtN(rof)} + ${fmtN(reload)})`,
+        factorRows: [
+          { label: 'Clip', value: fmtN(clip) },
+          { label: 'RoF', value: fmtN(rof) },
+          { label: 'Reload', value: `${fmtN(reload)}s` },
+        ],
+      };
+    }
+  }
+  return null;
+}
+
+/** Aggregated allocated-spec contributions that feed into existing calcs.
+ *  Damage bonuses are returned as percentage points (e.g. 100 = +100%) so they
+ *  can be summed with augment damage % into a single additive bonus pool —
+ *  matching the in-game damage model. */
 function getSpecBonuses() {
   const b = {
     health: 0,
     stamina: 0,
-    combatDamageMul: 1,      // Combat passive only — always-on damage multiplier
-    staggerMul: 1,           // Sabotage stagger passive — 1 unless setting + spec
-    headHunterBonus: 0,      // Sabotage Head Hunter keystone sum (0–0.30) — used by headshot calc
+    combatDamagePct: 0,      // Combat passive — % to add to damage bonus pool (0–100)
+    staggerPct: 0,           // Sabotage stagger passive — 0 unless setting + spec (0–50)
+    headHunterPct: 0,        // Sabotage Head Hunter keystones — % to head pool only (0–30)
     mitigationPercent: 0,    // percentage points to add across all mitigation types
     suspensorDrainMul: 1,    // 1.0 = no reduction; 0.7 = 30% less drain
     inventorySlots: 0,       // flat slot additions from Pack Mule keystones
@@ -946,7 +1077,7 @@ function getSpecBonuses() {
     if (track.id === 'combattrack') {
       for (const p of (track.passiveAttributes || [])) {
         const v = p.values?.[state.level] ?? 0;
-        if (p.key === 'DamageBonus_SpecTrack') b.combatDamageMul = 1 + v;
+        if (p.key === 'DamageBonus_SpecTrack') b.combatDamagePct = v * 100;
         if (p.key === 'TotalDamageMitigation_SpecTrack') b.mitigationPercent = v * 100;
       }
       for (const k of (track.keystones || [])) {
@@ -987,17 +1118,16 @@ function getSpecBonuses() {
         for (const p of (track.passiveAttributes || [])) {
           if (p.key === 'BackstabDamageBonus_SpecTrack') {
             const v = p.values?.[state.level] ?? 0;
-            b.staggerMul = 1 + v;
+            b.staggerPct = v * 100;
           }
         }
       }
-      // Head Hunter keystones — sum the headshot-damage bonuses. The base
-      // ×1.5 headshot multiplier is applied at the consumer (since it's
-      // weapon-dependent: drillshots/lasguns/etc. can't headshot).
+      // Head Hunter keystones — sum the headshot-damage bonuses. Joins the
+      // additive pool but only on headshots (and only on weapons that can HS).
       for (const k of (track.keystones || [])) {
         if (!state.keystones.has(k.id)) continue;
         for (const e of (k.effects || [])) {
-          if (e.name === 'Headshot Damage' && e.value != null) b.headHunterBonus += e.value;
+          if (e.name === 'Headshot Damage' && e.value != null) b.headHunterPct += e.value * 100;
         }
       }
     }
@@ -1021,8 +1151,22 @@ function canHeadshot(item) {
   return !HEADSHOT_BLOCKED_NAME_KEYWORDS.some(kw => name.includes(kw));
 }
 
-/** Base in-game headshot multiplier — community estimate of +50% on head hits. */
-const HEADSHOT_BASE_MULTIPLIER = 1.5;
+/** Actual in-game hit-location splits — your weapon's printed Damage Per Shot
+ *  is the *stated* value; you only ever deal a fraction of it depending on
+ *  where you hit. The 0.60 / 0.40 = 1.5 ratio IS the "+50% headshot bonus".
+ *  All damage % bonuses sum into a single additive pool that multiplies the
+ *  split value. */
+const HIT_SPLIT_BODY = 0.40;
+const HIT_SPLIT_HEAD = 0.60;
+
+/** Whether a weapon participates in the body/head hit-location split. Melee
+ *  swings don't hit a location zone — they deal the stated value directly —
+ *  while all ranged weapons use the body split (only headshot eligibility
+ *  varies, handled by `canHeadshot`). */
+function canBodySplit(item) {
+  if (!item) return false;
+  return item.weaponType !== 'melee';
+}
 
 function formatAggregatedStats(totals) {
   const result = {};
@@ -2330,8 +2474,17 @@ function showTooltip(slotType, force) {
     stats = mergeBaseWithScaled(stats, item.scaledStats[grade - 1]);
   }
 
-  // Compute augment contributions per stat for this item
-  const augEffects = {}; // key -> { min, max, hasCustom }
+  // Compute augment contributions per stat for this item.
+  //   augEffects[key]  → aggregated min/max/type, used for the final math.
+  //   augContribs[key] → per-augment list { augName, augGrade, type, min, max,
+  //     isCustom, isTradeoff } so the breakdown can show each augment as its
+  //     own term in the formula rather than collapsing everything to "Aug%".
+  const augEffects = {};
+  const augContribs = {};
+  const pushContrib = (key, entry) => {
+    if (!augContribs[key]) augContribs[key] = [];
+    augContribs[key].push(entry);
+  };
   const augSlotsForCalc = equippedAugments[slotType] || [];
   augSlotsForCalc.forEach(aug => {
     if (!aug) return;
@@ -2344,72 +2497,230 @@ function showTooltip(slotType, force) {
       const g = eff.grades?.[gradeIdx];
       if (!g) return;
       const statKey = eff.stat.replace(/:$/, '');
-      const keys = expandStatKey(statKey);
+      let keys = expandStatKey(statKey);
       const customVal = aug.customValues?.[eff.stat];
       // Accuracy is displayed with inverted sign in-game; flip here so the math works.
       const sign = statKey === 'Accuracy' ? -1 : 1;
+      const cMin = sign * (customVal != null ? customVal : g[0]);
+      const cMax = sign * (customVal != null ? customVal : g[1]);
       keys.forEach(key => {
         if (!augEffects[key]) augEffects[key] = { min: 0, max: 0, hasCustom: true, type: eff.type };
-        if (customVal != null) {
-          augEffects[key].min += sign * customVal;
-          augEffects[key].max += sign * customVal;
-        } else {
-          augEffects[key].min += sign * g[0];
-          augEffects[key].max += sign * g[1];
-          augEffects[key].hasCustom = false;
-        }
+        augEffects[key].min += cMin;
+        augEffects[key].max += cMax;
+        if (customVal == null) augEffects[key].hasCustom = false;
+        pushContrib(key, {
+          augName: augData.name, augGrade, type: eff.type,
+          min: cMin, max: cMax, isCustom: customVal != null, isTradeoff: false,
+        });
       });
     });
 
-    // Tradeoffs — expand compound keys
     (augData.tradeoffs || []).forEach(t => {
       const statKey = t.stat.replace(/:$/, '');
-      const keys = expandStatKey(statKey);
+      let keys = expandStatKey(statKey);
       const isPercent = PERCENT_TRADEOFFS.has(statKey);
       const tradeoffVal = statKey === 'Accuracy' ? -t.value : t.value;
       keys.forEach(key => {
         if (!augEffects[key]) augEffects[key] = { min: 0, max: 0, hasCustom: true, type: isPercent ? 'percent' : 'flat' };
         augEffects[key].min += tradeoffVal;
         augEffects[key].max += tradeoffVal;
+        pushContrib(key, {
+          augName: augData.name, augGrade, type: isPercent ? 'percent' : 'flat',
+          min: tradeoffVal, max: tradeoffVal, isCustom: false, isTradeoff: true,
+        });
       });
     });
   });
 
-  stats.forEach(stat => {
+  // Build the displayed stat list with any derived/synthetic stats injected.
+  // - Melee with damage-per-hit/attack-speed → add "DPS" and group attack rows.
+  const displayStats = stats.slice();
+  const findStat = (name) => stats.find(s => s.name.replace(/:$/, '') === name);
+  const valueWithAugMax = (name, base) => {
+    const ae = augEffects[name];
+    if (!ae) return base;
+    if (ae.type === 'percent') return base * (1 + ae.max / 100);
+    return base + ae.max;
+  };
+  if (item.weaponType === 'melee') {
+    const dphS = findStat('Damage Per Hit');
+    const spdS = findStat('Attack Speed');
+    if (dphS && spdS) {
+      const spd = Math.max(1, valueWithAugMax('Attack Speed', spdS.value));
+      const dps = dphS.value * spd / 60;
+      displayStats.push({ name: 'DPS', value: dps, type: 'number' });
+    }
+    // Group the four light/heavy × shielded/unshielded rows together at the top
+    // so they read as a damage table rather than scattered through the stats.
+    const orderIdx = name => {
+      const i = MELEE_STAT_ORDER.indexOf(name.replace(/:$/, ''));
+      return i === -1 ? Infinity : i;
+    };
+    displayStats.sort((a, b) => {
+      const ai = orderIdx(a.name);
+      const bi = orderIdx(b.name);
+      return ai === bi ? 0 : ai - bi;
+    });
+  } else if (item.weaponType === 'ranged') {
+    // Inject a synthetic "Sustained DPS" row that factors in reload time.
+    // Display label flips: data's DPS (burst rate) → "Burst DPS"; synthetic
+    // sustained → "DPS" (the meaningful sustained metric). Renders just above
+    // the burst row so the user sees the honest DPS first.
+    const dpsIdx = displayStats.findIndex(s => s.name.replace(/:$/, '') === 'DPS');
+    if (dpsIdx >= 0 && findStat('Clip Size') && findStat('Rate of Fire') && findStat('Reload Time')) {
+      displayStats.splice(dpsIdx, 0, { name: 'Sustained DPS', value: 0, type: 'number' });
+    }
+  }
+
+  // Stats indexed by clean key so getDamageRowSpec can resolve cross-row refs
+  // (e.g., Heavy Attack rows need to find Damage Per Hit's raw value).
+  const statMap = {};
+  displayStats.forEach(s => { statMap[s.name.replace(/:$/, '')] = s; });
+
+  displayStats.forEach(stat => {
     const row = document.createElement('div');
     row.className = 'stat-row';
 
+    const key = stat.name.replace(/:$/, '');
+    const displayLabel =
+      (item.weaponType === 'melee'  && MELEE_DISPLAY_LABELS[key])  ||
+      (item.weaponType === 'ranged' && RANGED_DISPLAY_LABELS[key]) ||
+      key;
+
     const label = document.createElement('span');
     label.className = 'stat-label';
-    label.textContent = stat.name.replace(/:$/, '');
+    label.textContent = displayLabel;
 
     const value = document.createElement('span');
     value.className = 'stat-value';
 
-    const key = stat.name.replace(/:$/, '');
-    const augEff = augEffects[key];
-    const baseText = formatStatValue(stat.name, stat.value);
-
-    // Damage multipliers applied as the FINAL stages of the calc chain.
-    // Each layer is conditional, so the formula tooltip can list them individually.
     const sb = getSpecBonuses();
     const isDamageKey = SPEC_DAMAGE_KEYS.has(key);
-    const combatMul = isDamageKey ? sb.combatDamageMul : 1;
-    const staggerMul = isDamageKey ? sb.staggerMul : 1;
-    const headshotApplies = isDamageKey && appSettings.applyHeadshot && canHeadshot(item);
-    const headshotBaseMul = headshotApplies ? HEADSHOT_BASE_MULTIPLIER : 1;
-    // Sabotage Head Hunter — additive on top of the base HS multiplier; only
-    // contributes when headshot also applies (it's a HS-conditional bonus).
-    const headHunterMul = headshotApplies ? (1 + sb.headHunterBonus) : 1;
-    const specMul = combatMul * staggerMul * headshotBaseMul * headHunterMul;
-    const hasSpec = specMul !== 1;
+    const spec = isDamageKey ? getDamageRowSpec(item, key, statMap, augEffects) : null;
+    // For damage rows, augments are sourced from the STATED stat (so heavy/DPS
+    // rows inherit the same augment as Damage Per Hit / Damage Per Shot).
+    const augEff = spec ? augEffects[spec.statedKey] : augEffects[key];
+    const baseText = formatStatValue(stat.name, stat.value);
 
-    if (augEff || hasSpec) {
-      // Accuracy is on a 0–1 scale, so it needs more precision than the default 1-decimal rounding.
+    if (spec) {
+      // Damage = (Stated + augFlat) × factorMul × hitSplit × (1 + pool%)
+      // where factorMul covers deterministic multipliers between Stated and
+      // this row (Heavy ×3/×6, RoF/60, Speed/60), and hitSplit is the body/head
+      // hit-location multiplier (1 when not applicable).
+      const augPctMin = augEff?.type === 'percent' ? augEff.min : 0;
+      const augPctMax = augEff?.type === 'percent' ? augEff.max : 0;
+      const augFlatMin = augEff && augEff.type !== 'percent' ? augEff.min : 0;
+      const augFlatMax = augEff && augEff.type !== 'percent' ? augEff.max : 0;
+
+      // Shield damage hits the bubble — no body/head zone. The shield Stated
+      // already represents the shield-specific damage value.
+      const isShieldStated = (spec.statedKey === 'Shield Damage Per Shot' || spec.statedKey === 'Shield Damage Per Hit');
+      const useSplit = canBodySplit(item) && !isShieldStated;
+      const showHead = useSplit && appSettings.applyHeadshot && canHeadshot(item);
+      const hitMode = !useSplit ? 'none' : showHead ? 'head' : 'body';
+      const hitSplit = hitMode === 'none' ? 1
+                     : hitMode === 'head' ? HIT_SPLIT_HEAD
+                     : HIT_SPLIT_BODY;
+
+      const combatPct = sb.combatDamagePct;
+      const staggerPct = sb.staggerPct;
+      const headHunterPct = hitMode === 'head' ? sb.headHunterPct : 0;
+
+      const poolMin = augPctMin + combatPct + staggerPct + headHunterPct;
+      const poolMax = augPctMax + combatPct + staggerPct + headHunterPct;
+
+      const round1 = v => Math.round(v * 10) / 10;
+      const finalDmg = (poolPct, flatBonus) =>
+        round1((spec.statedValue + flatBonus) * spec.factorMul * hitSplit * (1 + poolPct / 100));
+      const finalMin = finalDmg(poolMin, augFlatMin);
+      const finalMax = finalDmg(poolMax, augFlatMax);
+
+      // In-game weapon tooltip = Stated × (1 + aug%). Lets the user verify
+      // augment math against the actual game tooltip. Only meaningful for the
+      // primary rows the game actually shows (Damage Per Shot, Damage Per Hit,
+      // Shield Damage Per *) — heavy/DPS are derived rows the game doesn't
+      // expose as their own tooltip values.
+      const tipDmg = (pct, flat) => round1((spec.statedValue + flat) * (1 + pct / 100));
+      const tooltipMin = tipDmg(augPctMin, augFlatMin);
+      const tooltipMax = tipDmg(augPctMax, augFlatMax);
+
+      const isRange = augEff && !augEff.hasCustom && augEff.min !== augEff.max;
+      const netPositive = poolMax > 0 || augFlatMax > 0;
+      const netNegative = poolMax < 0 && poolMin < 0;
+      value.style.color = netNegative ? 'var(--color-health)'
+                       : netPositive ? 'var(--color-stamina)'
+                       : '';
+      value.textContent = isRange
+        ? `${formatStatValue(stat.name, finalMin)}–${formatStatValue(stat.name, finalMax)}`
+        : formatStatValue(stat.name, finalMin);
+
+      const breakdown = {
+        kind: 'damage',
+        name: displayLabel,
+        statName: stat.name,
+        statedKey: spec.statedKey,
+        statedValue: spec.statedValue,
+        factorMul: spec.factorMul,
+        factorLabel: spec.factorLabel,
+        factorSymExpr: spec.factorSymExpr,
+        factorNumExpr: spec.factorNumExpr,
+        factorRows: spec.factorRows || [],
+        isPrimary: spec.isPrimary,
+        augPctMin, augPctMax, augFlatMin, augFlatMax,
+        augContribs: augContribs[spec.statedKey] || [],
+        combatPct, staggerPct, headHunterPct,
+        poolMin, poolMax,
+        finalMin, finalMax,
+        tooltipMin, tooltipMax,
+        isRange,
+        hitMode,
+        hitSplit,
+      };
+      row.addEventListener('mouseenter', e => showStatFormulaTooltip(breakdown, e));
+      row.addEventListener('mousemove', e => positionStatFormulaTooltip(e));
+      row.addEventListener('mouseleave', hideStatFormulaTooltip);
+
+      // "Tooltip (in-game)" row above the headline value — only for primary
+      // damage rows that get a hit-location split (so the in-game tooltip
+      // value meaningfully differs from the headline). Shield rows skip the
+      // split, so their tooltip row would just duplicate the headline value
+      // sans Combat/Stagger — info already visible in the breakdown.
+      const isShieldRow = spec.statedKey === 'Shield Damage Per Shot' || spec.statedKey === 'Shield Damage Per Hit';
+      if (spec.isPrimary && !isShieldRow && augEff && (augPctMin || augPctMax || augFlatMin || augFlatMax)) {
+        const tipRow = document.createElement('div');
+        tipRow.className = 'stat-row';
+        const tipLabel = document.createElement('span');
+        tipLabel.className = 'stat-label';
+        tipLabel.textContent = `Stated ${key}`;
+        const tipValue = document.createElement('span');
+        tipValue.className = 'stat-value';
+        tipValue.textContent = isRange
+          ? `${formatStatValue(stat.name, tooltipMin)}–${formatStatValue(stat.name, tooltipMax)}`
+          : formatStatValue(stat.name, tooltipMin);
+        tipRow.appendChild(tipLabel);
+        tipRow.appendChild(tipValue);
+        // Stated row's own breakdown: Base × (1 + Aug%) = Stated. No split, no
+        // spec pool — that's the headline row's story.
+        const statedBreakdown = {
+          kind: 'stated',
+          name: `Stated ${key}`,
+          statName: stat.name,
+          statedValue: spec.statedValue,
+          augPctMin, augPctMax, augFlatMin, augFlatMax,
+          augContribs: augContribs[spec.statedKey] || [],
+          tooltipMin, tooltipMax,
+          isRange,
+        };
+        tipRow.addEventListener('mouseenter', e => showStatFormulaTooltip(statedBreakdown, e));
+        tipRow.addEventListener('mousemove', e => positionStatFormulaTooltip(e));
+        tipRow.addEventListener('mouseleave', hideStatFormulaTooltip);
+        panel.appendChild(tipRow);
+      }
+    } else if (augEff) {
+      // === Non-damage stat path (unchanged) ===
       const precision = key === 'Accuracy' ? 1000 : 10;
       const roundP = v => Math.round(v * precision) / precision;
       const applyAug = (base) => {
-        if (!augEff) return { min: base, max: base };
         if (augEff.type === 'percent') {
           return {
             min: base * (1 + augEff.min / 100),
@@ -2419,33 +2730,26 @@ function showTooltip(slotType, force) {
         return { min: base + augEff.min, max: base + augEff.max };
       };
       const { min: augMin, max: augMax } = applyAug(stat.value);
-      const finalMin = roundP(augMin * specMul);
-      const finalMax = roundP(augMax * specMul);
+      const finalMin = roundP(augMin);
+      const finalMax = roundP(augMax);
 
       const lowerBetter = LOWER_IS_BETTER.has(key);
       const isWorse = lowerBetter ? finalMin > stat.value : finalMax < stat.value;
       const color = isWorse ? 'var(--color-health)' : 'var(--color-stamina)';
 
-      // Overwrite the raw item value with the calculated final value, colored
-      // to indicate whether the modifications net-improve or net-degrade the
-      // stat. The breakdown is available on hover via the formula tooltip.
-      const isRange = augEff && !augEff.hasCustom && augEff.min !== augEff.max;
+      const isRange = !augEff.hasCustom && augEff.min !== augEff.max;
       value.style.color = color;
       value.textContent = isRange
         ? `${formatStatValue(stat.name, finalMin)}–${formatStatValue(stat.name, finalMax)}`
         : formatStatValue(stat.name, finalMin);
 
-      // Hover on the row → floating formula breakdown.
       const breakdown = {
+        kind: 'plain',
         name: key,
         statName: stat.name,
         baseValue: stat.value,
         augEff,
-        combatMul,
-        staggerMul,
-        headshotBaseMul,
-        headHunterMul,
-        specMul, // combined; kept for backwards compatibility / quick checks
+        augContribs: augContribs[key] || [],
         finalMin,
         finalMax,
         isRange,
@@ -2672,62 +2976,192 @@ function showStatFormulaTooltip(b, event) {
   title.textContent = b.name;
   tip.appendChild(title);
 
-  // Symbolic formula line — built from whichever modifiers actually apply, so
-  // the user reads "Base × (1 + Aug%) × Combat × Stagger × Headshot" and the
-  // values below show each step.
-  const augOp = b.augEff
-    ? (b.augEff.type === 'percent' ? '× (1 + Aug%)' : '+ Aug')
-    : null;
-  const formulaParts = ['Base'];
-  if (augOp) formulaParts.push(augOp);
-  if (b.combatMul !== 1) formulaParts.push('× CombatDMG');
-  if (b.staggerMul !== 1) formulaParts.push('× Stagger');
-  if (b.headshotBaseMul !== 1) formulaParts.push('× HS');
-  if (b.headHunterMul !== 1) formulaParts.push('× SabotageHS');
-  const formula = document.createElement('div');
-  formula.className = 'stat-formula-tooltip__formula';
-  formula.textContent = formulaParts.join(' ') + ' = Final';
-  tip.appendChild(formula);
-
-  const addRow = (label, value) => {
+  const addRow = (label, value, cls) => {
     const row = document.createElement('div');
-    row.className = 'stat-formula-tooltip__row';
+    row.className = 'stat-formula-tooltip__row' + (cls ? ' ' + cls : '');
     const l = document.createElement('span'); l.className = 'label'; l.textContent = label;
     const v = document.createElement('span'); v.className = 'value'; v.textContent = value;
     row.appendChild(l); row.appendChild(v);
     tip.appendChild(row);
   };
+  const addFormula = (text) => {
+    const f = document.createElement('div');
+    f.className = 'stat-formula-tooltip__formula';
+    f.textContent = text;
+    tip.appendChild(f);
+  };
+  const addTotal = (label, value) => {
+    const row = document.createElement('div');
+    row.className = 'stat-formula-tooltip__total';
+    const l = document.createElement('span'); l.textContent = label;
+    const v = document.createElement('span'); v.textContent = value;
+    row.appendChild(l); row.appendChild(v);
+    tip.appendChild(row);
+  };
 
-  addRow('Base', formatStatValue(b.statName, b.baseValue));
+  // Shared helpers for damage / stated kinds: render each augment as its own
+  // term in both the symbolic and the numeric (computed) form of the formula.
+  const fmtPct  = v => `${v >= 0 ? '+' : ''}${Math.round(v * 10) / 10}%`;
+  const fmtFlat = v => `${v >= 0 ? '+' : ''}${Math.round(v * 10) / 10}`;
+  const fmtDec  = v => {
+    const r = Math.round(v * 10000) / 10000;
+    return String(r);
+  };
+  const fmtNum  = v => {
+    const r = Math.round(v * 100) / 100;
+    return String(r);
+  };
 
-  if (b.augEff) {
-    const isPct = b.augEff.type === 'percent';
-    const fmt = v => {
-      const n = Math.round(v * 10) / 10;
-      const sign = n >= 0 ? '+' : '';
-      return `${sign}${n}${isPct ? '%' : ''}`;
+  const addComputed = (text) => {
+    const f = document.createElement('div');
+    f.className = 'stat-formula-tooltip__computed';
+    f.textContent = text;
+    tip.appendChild(f);
+  };
+  const addDivider = () => {
+    const d = document.createElement('div');
+    d.className = 'stat-formula-tooltip__divider';
+    tip.appendChild(d);
+  };
+
+  // Split augContribs into the flat additions (modify Base) and the percent
+  // contributions (join the bonus pool).
+  const flatContribs = (b.augContribs || []).filter(c => c.type !== 'percent');
+  const pctContribs  = (b.augContribs || []).filter(c => c.type === 'percent');
+
+  // Build symbolic + numeric forms for the bonus pool. Each augment gets its
+  // own Aug# placeholder so the formula expands per-augment rather than
+  // hiding everything under a single "Aug%" bucket.
+  const buildPoolExpr = ({ includeSpecs }) => {
+    const sym = [], num = [];
+    pctContribs.forEach((c, i) => {
+      sym.push(`Aug${i + 1}%`);
+      num.push(fmtDec(c.max / 100));
+    });
+    if (includeSpecs && b.combatPct)     { sym.push('CombatDMG%');  num.push(fmtDec(b.combatPct / 100)); }
+    if (includeSpecs && b.staggerPct)    { sym.push('Stagger%');    num.push(fmtDec(b.staggerPct / 100)); }
+    if (includeSpecs && b.headHunterPct) { sym.push('SabotageHS%'); num.push(fmtDec(b.headHunterPct / 100)); }
+    return {
+      sym: sym.length ? ` × (1 + ${sym.join(' + ')})` : '',
+      num: sym.length ? ` × (1 + ${num.join(' + ')})` : '',
     };
-    const range = b.augEff.min === b.augEff.max
-      ? fmt(b.augEff.min)
-      : `${fmt(b.augEff.min)} to ${fmt(b.augEff.max)}`;
-    addRow('Augments', range);
+  };
+
+  // Base may have flat augment additions folded in: (Base + Aug1flat + …).
+  const buildBaseExpr = () => {
+    if (!flatContribs.length) {
+      return { sym: 'Base', num: fmtNum(b.statedValue) };
+    }
+    const symParts = ['Base', ...flatContribs.map((_, i) => `Aug${i + 1}flat`)];
+    const numParts = [fmtNum(b.statedValue), ...flatContribs.map(c => fmtFlat(c.max))];
+    return { sym: `(${symParts.join(' + ')})`, num: `(${numParts.join(' + ')})` };
+  };
+
+  // Render the per-augment rows below the formulas — same in both kinds.
+  // Rows are listed in the same order as the Aug# terms in the formula above,
+  // so the user can match positionally without needing the "Aug1:" prefix.
+  const renderAugRows = () => {
+    pctContribs.forEach(c => {
+      const tag = `${c.augName} G${c.augGrade}${c.isTradeoff ? ' (tradeoff)' : ''}`;
+      const valText = c.min === c.max ? fmtPct(c.max) : `${fmtPct(c.min)} to ${fmtPct(c.max)}`;
+      addRow(tag, valText);
+    });
+    flatContribs.forEach(c => {
+      const tag = `${c.augName} G${c.augGrade}${c.isTradeoff ? ' (tradeoff)' : ''} (flat)`;
+      const valText = c.min === c.max ? fmtFlat(c.max) : `${fmtFlat(c.min)} to ${fmtFlat(c.max)}`;
+      addRow(tag, valText);
+    });
+  };
+
+  if (b.kind === 'damage') {
+    const hasFactor = !!b.factorLabel;
+    const hasSplit = b.hitMode !== 'none';
+    // Wrap multi-token factor expressions in parens to make the precedence
+    // unambiguous (e.g., `Clip / (Clip × 60/RoF + Reload)` needs outer parens
+    // so it's clear the whole quotient is the factor).
+    const wrap = expr => expr.includes(' ') ? `(${expr})` : expr;
+    const factorSym = hasFactor && b.factorSymExpr ? ` × ${wrap(b.factorSymExpr)}` : '';
+    const factorNum = hasFactor && b.factorNumExpr ? ` × ${wrap(b.factorNumExpr)}` : '';
+    const splitSym = hasSplit ? ' × Split' : '';
+    const splitNum = hasSplit ? ` × ${b.hitSplit.toFixed(2)}` : '';
+    const resultLabel = hasSplit ? 'Hit Damage' : 'Damage';
+
+    const baseExpr = buildBaseExpr();
+    const poolExpr = buildPoolExpr({ includeSpecs: true });
+    const finalText = b.isRange
+      ? `${formatStatValue(b.statName, b.finalMin)}–${formatStatValue(b.statName, b.finalMax)}`
+      : formatStatValue(b.statName, b.finalMin);
+
+    addFormula(`${baseExpr.sym}${factorSym}${splitSym}${poolExpr.sym} = ${resultLabel}`);
+    addDivider();
+    addComputed(`${baseExpr.num}${factorNum}${splitNum}${poolExpr.num} = ${formatStatValue(b.statName, b.finalMax)}`);
+    addDivider();
+
+    addRow('Base', formatStatValue(b.statName, b.statedValue));
+    // One row per variable that appears in the formula's factor (e.g., Clip,
+    // RoF, Reload for sustained DPS; Heavy ×3 for heavy attacks). No derived
+    // intermediates — every row maps to a term the formula references.
+    (b.factorRows || []).forEach(r => addRow(r.label, r.value));
+    if (hasSplit) {
+      const splitLabel = b.hitMode === 'head' ? `Head ×${HIT_SPLIT_HEAD.toFixed(2)}`
+                                              : `Body ×${HIT_SPLIT_BODY.toFixed(2)}`;
+      addRow('Split', splitLabel);
+    }
+    renderAugRows();
+    if (b.combatPct)     addRow('CombatDMG',  fmtPct(b.combatPct));
+    if (b.staggerPct)    addRow('Stagger',    fmtPct(b.staggerPct));
+    if (b.headHunterPct) addRow('SabotageHS', fmtPct(b.headHunterPct));
+
+    addTotal(b.name, finalText);
+  } else if (b.kind === 'stated') {
+    // In-game tooltip value: (Base + flat aug) × (1 + Aug%…) = Stated.
+    const baseExpr = buildBaseExpr();
+    const poolExpr = buildPoolExpr({ includeSpecs: false });
+    const totalText = b.isRange
+      ? `${formatStatValue(b.statName, b.tooltipMin)}–${formatStatValue(b.statName, b.tooltipMax)}`
+      : formatStatValue(b.statName, b.tooltipMin);
+
+    addFormula(`${baseExpr.sym}${poolExpr.sym} = Stated`);
+    addDivider();
+    addComputed(`${baseExpr.num}${poolExpr.num} = ${formatStatValue(b.statName, b.tooltipMax)}`);
+    addDivider();
+
+    addRow('Base', formatStatValue(b.statName, b.statedValue));
+    renderAugRows();
+
+    addTotal('Stated', totalText);
+  } else {
+    // Plain (non-damage) stat. Expanded per-augment, matching the damage rows:
+    //   percent: Base × (1 + Aug1% + Aug2% + …) = Final
+    //   flat:    Base + Aug1 + Aug2 + …          = Final
+    const isPct = b.augEff && b.augEff.type === 'percent';
+    const finalText = b.isRange
+      ? `${formatStatValue(b.statName, b.finalMin)}–${formatStatValue(b.statName, b.finalMax)}`
+      : formatStatValue(b.statName, b.finalMin);
+
+    if (isPct) {
+      const poolExpr = buildPoolExpr({ includeSpecs: false });
+      addFormula(`Base${poolExpr.sym} = Final`);
+      addDivider();
+      addComputed(`${fmtNum(b.baseValue)}${poolExpr.num} = ${formatStatValue(b.statName, b.finalMax)}`);
+    } else {
+      // Flat: render proper +/- signs in the numeric form (Base - 2, not + -2).
+      let symExpr = 'Base', numExpr = fmtNum(b.baseValue);
+      flatContribs.forEach((c, i) => {
+        symExpr += ` + Aug${i + 1}`;
+        const rv = Math.round(c.max * 10) / 10;
+        numExpr += rv >= 0 ? ` + ${rv}` : ` - ${Math.abs(rv)}`;
+      });
+      addFormula(`${symExpr} = Final`);
+      addDivider();
+      addComputed(`${numExpr} = ${formatStatValue(b.statName, b.finalMax)}`);
+    }
+    addDivider();
+
+    addRow('Base', formatStatValue(b.statName, b.baseValue));
+    renderAugRows();
+    addTotal('Final', finalText);
   }
-
-  const fmtMul = m => `×${(Math.round(m * 100) / 100).toFixed(2)}`;
-  if (b.combatMul !== 1) addRow('CombatDMG', fmtMul(b.combatMul));
-  if (b.staggerMul !== 1) addRow('Stagger', fmtMul(b.staggerMul));
-  if (b.headshotBaseMul !== 1) addRow('HS', fmtMul(b.headshotBaseMul));
-  if (b.headHunterMul !== 1) addRow('SabotageHS', fmtMul(b.headHunterMul));
-
-  const total = document.createElement('div');
-  total.className = 'stat-formula-tooltip__total';
-  const tLabel = document.createElement('span'); tLabel.textContent = 'Final';
-  const tValue = document.createElement('span');
-  tValue.textContent = b.isRange
-    ? `${formatStatValue(b.statName, b.finalMin)}–${formatStatValue(b.statName, b.finalMax)}`
-    : formatStatValue(b.statName, b.finalMin);
-  total.appendChild(tLabel); total.appendChild(tValue);
-  tip.appendChild(total);
 
   tip.hidden = false;
   positionStatFormulaTooltip(event);
@@ -2783,6 +3217,12 @@ function showFormulaTooltip(label, value, formula, event) {
     g.className = 'stat-formula-tooltip__formula';
     g.textContent = generic;
     tip.appendChild(g);
+  }
+
+  if (generic && computed) {
+    const d = document.createElement('div');
+    d.className = 'stat-formula-tooltip__divider';
+    tip.appendChild(d);
   }
 
   if (computed) {
@@ -3247,6 +3687,10 @@ function clearHotbarSlot(slotEl) {
 function openAbout() {
   const overlay = document.getElementById('about-overlay');
   requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('visible')));
+  // Refresh the version display each time so it always matches the running app.
+  window.electronAPI.getVersion()
+    .then(v => { document.getElementById('about-version').textContent = `v${v}`; })
+    .catch(e => console.warn('[about] version fetch failed:', e));
 }
 
 function closeAbout() {
@@ -3259,12 +3703,6 @@ document.getElementById('about-overlay').addEventListener('click', e => {
   if (e.target === e.currentTarget) closeAbout();
 });
 
-(async () => {
-  try {
-    const version = await window.electronAPI.getVersion();
-    document.getElementById('about-version').textContent = `v${version}`;
-  } catch { /* fallback to hardcoded version in HTML */ }
-})();
 
 // =============================================
 // SETTINGS
@@ -3289,6 +3727,20 @@ document.getElementById('open-specializations-btn').addEventListener('click', op
 document.getElementById('spec-close').addEventListener('click', closeSpecializations);
 document.getElementById('specializations-overlay').addEventListener('click', e => {
   if (e.target === e.currentTarget) closeSpecializations();
+});
+
+// Help / Tips modal — open via the ? button next to the logo.
+const openHelp  = () => {
+  document.getElementById('help-overlay').classList.add('visible');
+  // Reset scroll to the top so opening always starts at the first section.
+  const body = document.querySelector('.help-body');
+  if (body) body.scrollTop = 0;
+};
+const closeHelp = () => document.getElementById('help-overlay').classList.remove('visible');
+document.getElementById('open-help-btn').addEventListener('click', openHelp);
+document.getElementById('help-close').addEventListener('click', closeHelp);
+document.getElementById('help-overlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeHelp();
 });
 
 document.getElementById('setting-show-commons').checked = appSettings.showCommons;

@@ -69,6 +69,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Karpov 38",
     "img": "imgs/weapons/uniquear_burst_02.webp"
   },
   {
@@ -141,6 +142,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Disruptor M11",
     "img": "imgs/weapons/smg_unique_largemag_02.webp"
   },
   {
@@ -327,6 +329,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "GRDA 44",
     "img": "imgs/weapons/uniquescattergun1.webp"
   },
   {
@@ -399,6 +402,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Disruptor M11",
     "img": "imgs/weapons/atresmg2.webp"
   },
   {
@@ -471,6 +475,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "GRDA 44",
     "img": "imgs/weapons/scattergun_prototype.webp"
   },
   {
@@ -543,6 +548,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Karpov 38",
     "img": "imgs/weapons/harkar3.webp"
   },
   {
@@ -672,6 +678,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Maula Pistol",
     "img": "imgs/weapons/choamsda3.webp"
   },
   {
@@ -801,6 +808,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Maula Pistol",
     "img": "imgs/weapons/uniquesda2.webp"
   }
 ]

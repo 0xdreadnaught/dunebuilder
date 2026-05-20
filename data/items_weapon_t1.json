@@ -69,6 +69,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Karpov 38",
     "img": "imgs/weapons/uniquear_burst_01.webp"
   },
   {
@@ -198,6 +199,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Karpov 38",
     "img": "imgs/weapons/harkar2.webp"
   },
   {
@@ -327,6 +329,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Maula Pistol",
     "img": "imgs/weapons/choamsda2.webp"
   },
   {
@@ -399,6 +402,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Maula Pistol",
     "img": "imgs/weapons/uniquesda1.webp"
   }
 ]

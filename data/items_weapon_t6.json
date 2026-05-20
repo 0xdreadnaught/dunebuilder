@@ -1118,29 +1118,29 @@
     "img": "imgs/weapons/uniquear_burst_06.webp",
     "scaledStats": [
       {
-        "Damage Per Shot": 55.9,
-        "Shield Damage Per Shot": 17.3,
-        "DPS": 180.2
+        "Damage Per Shot": 55.8,
+        "Shield Damage Per Shot": 18.0,
+        "DPS": 179.5
       },
       {
-        "Damage Per Shot": 65.4,
-        "Shield Damage Per Shot": 18.6,
-        "DPS": 211.1
+        "Damage Per Shot": 65.3,
+        "Shield Damage Per Shot": 19.3,
+        "DPS": 210.0
       },
       {
-        "Damage Per Shot": 79.1,
-        "Shield Damage Per Shot": 19.8,
-        "DPS": 255.1
+        "Damage Per Shot": 79.0,
+        "Shield Damage Per Shot": 20.5,
+        "DPS": 254.1
       },
       {
-        "Damage Per Shot": 98.2,
-        "Shield Damage Per Shot": 21.1,
-        "DPS": 316.7
+        "Damage Per Shot": 98.1,
+        "Shield Damage Per Shot": 21.8,
+        "DPS": 315.6
       },
       {
-        "Damage Per Shot": 124.9,
-        "Shield Damage Per Shot": 22.4,
-        "DPS": 402.9
+        "Damage Per Shot": 124.8,
+        "Shield Damage Per Shot": 23.0,
+        "DPS": 401.4
       }
     ],
     "weaponFamily": "Karpov 38"
@@ -1752,6 +1752,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Disruptor M11",
     "img": "imgs/weapons/atresmg6.webp"
   },
   {
@@ -1919,6 +1920,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Drillshot FK7",
     "img": "imgs/weapons/smugshot5.webp"
   },
   {
@@ -2048,6 +2050,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "GRDA 44",
     "img": "imgs/weapons/scattergun_prototype3.webp"
   },
   {
@@ -2120,6 +2123,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "JABAL Spitdart",
     "img": "imgs/weapons/smugdmr6.webp"
   },
   {
@@ -2192,6 +2196,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Karpov 38",
     "img": "imgs/weapons/harkar7.webp"
   },
   {
@@ -2321,6 +2326,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Maula Pistol",
     "img": "imgs/weapons/choamsda7.webp"
   },
   {
@@ -2393,6 +2399,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Missile Launcher",
     "img": "imgs/weapons/rocketlauncher_2.webp"
   },
   {
@@ -2465,6 +2472,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Rafiq Snubnose",
     "img": "imgs/weapons/harkheavypistol5.webp"
   },
   {
@@ -2751,6 +2759,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "VULCAN GAU-92",
     "img": "imgs/weapons/atrelmg5.webp"
   },
   {

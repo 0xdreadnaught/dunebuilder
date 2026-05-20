@@ -69,6 +69,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Disruptor M11",
     "img": "imgs/weapons/uniquesmg1.webp"
   },
   {
@@ -198,6 +199,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "GRDA 44",
     "img": "imgs/weapons/uniquescattergun3.webp"
   },
   {
@@ -270,6 +272,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "VULCAN GAU-92",
     "img": "imgs/weapons/lmg_unique_rapidfire_04.webp"
   },
   {
@@ -342,6 +345,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "GRDA 44",
     "img": "imgs/weapons/uniquescattergun_fire_04.webp"
   },
   {
@@ -409,6 +413,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Drillshot FK7",
     "img": "imgs/weapons/shotgun_unique_explosive_04.webp"
   },
   {
@@ -538,6 +543,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Disruptor M11",
     "img": "imgs/weapons/atresmg4.webp"
   },
   {
@@ -610,6 +616,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Rafiq Snubnose",
     "img": "imgs/weapons/heavypistol_unique_bleed_04.webp"
   },
   {
@@ -677,6 +684,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Drillshot FK7",
     "img": "imgs/weapons/smugshot3.webp"
   },
   {
@@ -749,6 +757,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "GRDA 44",
     "img": "imgs/weapons/scattergun_prototype1.webp"
   },
   {
@@ -821,6 +830,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "JABAL Spitdart",
     "img": "imgs/weapons/smugdmr4.webp"
   },
   {
@@ -893,6 +903,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Karpov 38",
     "img": "imgs/weapons/harkar5.webp"
   },
   {
@@ -1022,6 +1033,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Maula Pistol",
     "img": "imgs/weapons/choamsda5.webp"
   },
   {
@@ -1094,6 +1106,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Rafiq Snubnose",
     "img": "imgs/weapons/harkheavypistol3.webp"
   },
   {
@@ -1280,6 +1293,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "VULCAN GAU-92",
     "img": "imgs/weapons/atrelmg3.webp"
   },
   {
@@ -1352,6 +1366,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Disruptor M11",
     "img": "imgs/weapons/smg_unique_largemag_04.webp"
   },
   {
@@ -1424,6 +1439,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "JABAL Spitdart",
     "img": "imgs/weapons/longrifle_unique_poison_04.webp"
   },
   {
@@ -1496,6 +1512,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Karpov 38",
     "img": "imgs/weapons/uniquear2.webp"
   },
   {
@@ -1682,6 +1699,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Maula Pistol",
     "img": "imgs/weapons/uniquesda_doubleshot_04.webp"
   },
   {
@@ -1868,6 +1886,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Karpov 38",
     "img": "imgs/weapons/uniquear_burst_04.webp"
   },
   {
@@ -1997,6 +2016,7 @@
       }
     ],
     "weaponType": "ranged",
+    "weaponFamily": "Maula Pistol",
     "img": "imgs/weapons/uniquesda4.webp"
   }
 ]

@@ -13,6 +13,7 @@
   <header class="app-header">
     <div class="app-brand">
       <img src="dunebuilder_logo_512.png" alt="DuneBuilder" class="app-logo" id="app-logo" title="About DuneBuilder">
+      <button id="open-help-btn" class="btn-icon" aria-label="Help" title="Help &amp; tips">?</button>
     </div>
     <div class="header-controls">
       <span id="error-message" class="error-message" role="alert"></span>
@@ -106,8 +107,8 @@
       <div class="about-body">
         <img src="dunebuilder_logo_512.png" alt="DuneBuilder" class="about-logo">
         <h2 class="about-app-name">DuneBuilder</h2>
-        <p class="about-version" id="about-version">v0.1.0</p>
-        <p class="about-description">Character build viewer &amp; theorycrafting tool for Dune: Awakening.<br>Equip gear, paste stats, and plan your loadout.</p>
+        <p class="about-version" id="about-version"></p>
+        <p class="about-description">Character build viewer &amp; theorycrafting tool for Dune: Awakening.</p>
         <div class="about-divider"></div>
         <div class="about-thanks">
           <h3 class="about-thanks-title">Special Thanks</h3>
@@ -355,6 +356,60 @@
             <span class="qr-legend"><span class="qr-run qr-run--dark">N</span> = N dark tiles in a row &nbsp;<span class="qr-run qr-run--light">N</span> = N light tiles</span>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Help / tips modal -->
+  <div id="help-overlay" class="help-overlay">
+    <div class="help-modal">
+      <div class="help-header">
+        <span class="help-title">Help &amp; Tips</span>
+        <button id="help-close" class="item-picker-close" aria-label="Close">✕</button>
+      </div>
+      <div class="help-body">
+
+        <h3 class="help-section-title">Tooltips</h3>
+        <p>Hover an item to see its stats on the right. Hover any stat row to get a small popup showing how that number was calculated.</p>
+        <p>Hold Ctrl to pin the tooltip in place. Useful when you want to move your mouse onto it and read without it vanishing. Scrolling inside the tooltip works while pinned too.</p>
+
+        <h3 class="help-section-title">Specializations (G)</h3>
+        <p>Press G or click the icon in the header. Set a level on each track and click keystones to claim them. Ctrl+click claims everything up to that point. The ? on each row shows what you're currently getting.</p>
+
+        <h3 class="help-section-title">About the damage math</h3>
+        <p>The Damage Per Shot printed on a weapon isn't what you actually deal. The game splits it by where you hit:</p>
+        <ul class="help-list">
+          <li>Body shot: <code>stated × 0.40</code></li>
+          <li>Headshot: <code>stated × 0.60</code></li>
+        </ul>
+        <p>Damage bonuses add together, they don't stack multiplicatively. An augment giving +10% and a spec giving +50% is +60% total, not ×1.10 × ×1.50.</p>
+        <p>Shield damage skips the split. When you hit someone's shield you deal the shield damage value straight up, no body or head zone.</p>
+
+        <h3 class="help-section-title">Melee damage</h3>
+        <p>Melee weapons skip the body and head split. They show four damage rows instead: light and heavy attacks, each against a shielded or unshielded target.</p>
+        <p>A light hit deals the stated damage. Heavy attacks hit harder: three times stated against an unshielded target, six times against a shielded one. Shield damage is its own separate value.</p>
+
+        <h3 class="help-section-title">DPS and Burst DPS</h3>
+        <p>Ranged weapons show two DPS numbers. Burst DPS is your damage while the trigger is down, just fire rate times damage. DPS is the honest one: it works in the reload, so it's what you average over emptying a magazine and loading the next.</p>
+        <p>With a big magazine and a quick reload the two are close. With a small clip and a slow reload, DPS sits well below Burst DPS.</p>
+
+        <h3 class="help-section-title">The headshot &amp; stagger toggles</h3>
+        <p>These live in Settings. Both are off by default since they only apply in specific situations.</p>
+        <p><b>Apply Headshot</b>: when on, the weapon tooltip shows head damage instead of body damage. Sabotage's Head Hunter keystones only contribute while this is on. Some weapons can't headshot at all (see below).</p>
+        <p><b>Apply Stagger</b>: when on, Sabotage's stagger passive folds into damage. Stagger comes from things like shotguns, shigawire claws, and stabs. Assume the target is staggered and you'll see your real damage.</p>
+
+        <h3 class="help-section-title">Weapons that can't headshot</h3>
+        <p>Melee, drillshots, flamethrowers, lasguns, pyrockets, and missile launchers. Everything else can.</p>
+
+        <h3 class="help-section-title">What's wired and what's just shown</h3>
+        <p>Most specialization effects are informational. The ones that actually move numbers on the calc panel are:</p>
+        <ul class="help-list">
+          <li>Combat: damage, mitigation, max HP, max stamina</li>
+          <li>Exploration: suspensor power drain, inventory slots, backpack volume</li>
+          <li>Sabotage: stagger and headshot (via the toggles)</li>
+        </ul>
+        <p>Everything else (yields, repair efficiency, vehicle stuff, scrip bonuses) shows up in the left panel readouts but doesn't feed any calculation.</p>
+
       </div>
     </div>
   </div>
