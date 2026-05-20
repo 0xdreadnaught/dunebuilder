@@ -695,7 +695,7 @@ function assignUtilitySlot(slug) {
 
 async function loadGarmentItems() {
   try {
-    const [t6Res, t5Res, t4Res, t3Res, t2Res, t1Res, utilityRes, augmentRes,
+    const [t6Res, t5Res, t4Res, t3Res, t2Res, t1Res, t0Res, utilityRes, augmentRes,
            wt6Res, wt5Res, wt4Res, wt3Res, wt2Res, wt1Res,
            augMeleeRes, augRangedRes] = await Promise.all([
       fetch('./data/items_garment_t6.json'),
@@ -704,6 +704,7 @@ async function loadGarmentItems() {
       fetch('./data/items_garment_t3.json'),
       fetch('./data/items_garment_t2.json'),
       fetch('./data/items_garment_t1.json'),
+      fetch('./data/items_garment_t0.json'),
       fetch('./data/items_utility.json'),
       fetch('./data/augments_garment.json'),
       fetch('./data/items_weapon_t6.json'),
@@ -731,6 +732,7 @@ async function loadGarmentItems() {
     const t3 = await t3Res.json();
     const t2 = await t2Res.json();
     const t1 = await t1Res.json();
+    const t0 = await t0Res.json();
     const utility = await utilityRes.json();
     AUGMENT_DATA = await augmentRes.json();
     const wt6 = await wt6Res.json();
@@ -751,7 +753,7 @@ async function loadGarmentItems() {
       })
       .filter(Boolean);
 
-    GARMENT_ITEMS = [...t6, ...t5, ...t4, ...t3, ...t2, ...t1, ...withSlots];
+    GARMENT_ITEMS = [...t6, ...t5, ...t4, ...t3, ...t2, ...t1, ...t0, ...withSlots];
     const indexBySlug = (arr) => { const m = new Map(); for (const x of arr) if (!m.has(x.slug)) m.set(x.slug, x); return m; };
     GARMENT_BY_SLUG = indexBySlug(GARMENT_ITEMS);
     WEAPON_BY_SLUG = indexBySlug(WEAPON_ITEMS);

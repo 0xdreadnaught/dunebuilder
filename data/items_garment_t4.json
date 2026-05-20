@@ -30,11 +30,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 3.3,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 2,
         "type": "number"
@@ -82,71 +77,6 @@
       {
         "name": "Concussive Mitigation:",
         "value": 3,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 5.3,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 750,
         "type": "number"
       },
       {
@@ -200,71 +130,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 5.3,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 600,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 1,
         "type": "number"
@@ -312,11 +177,6 @@
       {
         "name": "Concussive Mitigation:",
         "value": 6,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 5.3,
         "type": "number"
       },
       {
@@ -370,71 +230,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 5.3,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 850,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 850,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 850,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 850,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 850,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 850,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 850,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 850,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 850,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 850,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 850,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 850,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 1,
         "type": "number"
@@ -485,11 +280,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 5.3,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 2,
         "type": "number"
@@ -527,71 +317,6 @@
       {
         "name": "Heat Protection:",
         "value": 0.5,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 5.3,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 600,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 600,
         "type": "number"
       },
       {
@@ -635,71 +360,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 5.3,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 500,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 500,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 500,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 500,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 500,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 500,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 500,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 500,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 500,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 500,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 500,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 500,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 1,
         "type": "number"
@@ -737,71 +397,6 @@
       {
         "name": "Heat Protection:",
         "value": 0.5,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 5.3,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 750,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 750,
         "type": "number"
       },
       {
@@ -845,71 +440,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 5.3,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 950,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 2,
         "type": "number"
@@ -947,71 +477,6 @@
       {
         "name": "Heat Protection:",
         "value": 0.5,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 5.3,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 800,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 800,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 800,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 800,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 800,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 800,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 800,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 800,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 800,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 800,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 800,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 800,
         "type": "number"
       },
       {
@@ -1147,11 +612,6 @@
       {
         "name": "Heat Protection:",
         "value": 0.5,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 3.3,
         "type": "number"
       },
       {
@@ -1640,11 +1100,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 5.3,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 4,
         "type": "number"
@@ -1672,11 +1127,6 @@
       {
         "name": "Heat Protection:",
         "value": 0.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 5.3,
         "type": "number"
       },
       {
@@ -1710,11 +1160,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 5.3,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 1,
         "type": "number"
@@ -1742,11 +1187,6 @@
       {
         "name": "Heat Protection:",
         "value": 0.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 5.3,
         "type": "number"
       },
       {
@@ -1790,11 +1230,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 3.3,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 4,
         "type": "number"
@@ -1827,11 +1262,6 @@
       {
         "name": "Heat Protection:",
         "value": 0.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 3.3,
         "type": "number"
       },
       {
@@ -2000,11 +1430,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 5.3,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 6,
         "type": "number"
@@ -2013,5 +1438,280 @@
     "scaledStats": [],
     "img": "imgs/garments/radiation_suit.webp",
     "slot": "radsuit"
+  },
+  {
+    "slug": "combat_neut_smugglerdeserterunique04_boots",
+    "name": "Quirth's Boots",
+    "description": "Denira Quirth never intended to fight a war - she just wanted to survive it. When the Sandflies defected she swore not to shed the blood of her former colleagues - despite believing that the Sandflies cause was just. Her <Unique>Unique</> armor is built to withstand the ordeals of Arrakis - but not the darts of her enemies.",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutsmugdeserterunique04bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 104,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_smugglerdeserterunique04_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_neut_smugglerdeserterunique04_bottom",
+    "name": "Quirth's Pants",
+    "description": "Denira Quirth never intended to fight a war - she just wanted to survive it. When the Sandflies defected she swore not to shed the blood of her former colleagues - despite believing that the Sandflies cause was just. Her <Unique>Unique</> armor is built to withstand the ordeals of Arrakis - but not the darts of her enemies.",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutsmugdeserterunique04bottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_smugglerdeserterunique04_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_neut_smugglerdeserterunique04_gloves",
+    "name": "Quirth's Gauntlets",
+    "description": "Denira Quirth never intended to fight a war - she just wanted to survive it. When the Sandflies defected she swore not to shed the blood of her former colleagues - despite believing that the Sandflies cause was just. Her <Unique>Unique</> armor is built to withstand the ordeals of Arrakis - but not the darts of her enemies.",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutsmugdeserterunique04glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 104,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_smugglerdeserterunique04_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_neut_smugglerdeserterunique04_helmet",
+    "name": "Quirth's Helmet",
+    "description": "Denira Quirth never intended to fight a war - she just wanted to survive it. When the Sandflies defected she swore not to shed the blood of her former colleagues - despite believing that the Sandflies cause was just. Her <Unique>Unique</> armor is built to withstand the ordeals of Arrakis - but not the darts of her enemies.",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutsmugdeserterunique04helmetr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_smugglerdeserterunique04_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_neut_smugglerdeserterunique04_top",
+    "name": "Quirth's Jacket",
+    "description": "Denira Quirth never intended to fight a war - she just wanted to survive it. When the Sandflies defected she swore not to shed the blood of her former colleagues - despite believing that the Sandflies cause was just. Her <Unique>Unique</> armor is built to withstand the ordeals of Arrakis - but not the darts of her enemies.",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothneutsmugdeserterunique04topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 208,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Radiation Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_neut_smugglerdeserterunique04_top.webp",
+    "slot": "chest"
   }
 ]

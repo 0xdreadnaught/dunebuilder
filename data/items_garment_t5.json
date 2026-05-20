@@ -880,11 +880,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 3.3,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 4,
         "type": "number"
@@ -1435,21 +1430,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvE Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvP Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 1,
         "type": "number"
@@ -1497,21 +1477,6 @@
       {
         "name": "Concussive Mitigation:",
         "value": 6,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvE Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvP Area)",
-        "value": 5.9,
         "type": "number"
       },
       {
@@ -1565,21 +1530,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvE Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvP Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 1,
         "type": "number"
@@ -1630,21 +1580,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvE Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvP Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 1,
         "type": "number"
@@ -1692,21 +1627,6 @@
       {
         "name": "Concussive Mitigation:",
         "value": 4,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvE Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvP Area)",
-        "value": 5.9,
         "type": "number"
       },
       {
@@ -2075,21 +1995,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvE Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvP Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 4,
         "type": "number"
@@ -2117,21 +2022,6 @@
       {
         "name": "Heat Protection:",
         "value": 1.2,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvE Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvP Area)",
-        "value": 5.9,
         "type": "number"
       },
       {
@@ -2165,21 +2055,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvE Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvP Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 1,
         "type": "number"
@@ -2207,21 +2082,6 @@
       {
         "name": "Heat Protection:",
         "value": 1.2,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvE Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvP Area)",
-        "value": 5.9,
         "type": "number"
       },
       {
@@ -2425,21 +2285,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvE Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck (PvP Area)",
-        "value": 5.9,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 6,
         "type": "number"
@@ -2448,5 +2293,705 @@
     "scaledStats": [],
     "img": "imgs/garments/radiation_suit_t5.webp",
     "slot": "radsuit"
+  },
+  {
+    "slug": "combat_choam_light05_boots",
+    "name": "Mercenary Scout Boots",
+    "description": "Lightly armored boots made of duraluminum, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothmerclightbootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 97,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_light05_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_choam_light05_bottom",
+    "name": "Mercenary Scout Leggings",
+    "description": "Lightly armored leggings made of duraluminum, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothmerclightbottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 130,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_light05_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_choam_light05_gloves",
+    "name": "Mercenary Scout Gloves",
+    "description": "Lightly armored gloves made of duraluminum, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothmerclightglovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 97,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_light05_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_choam_light05_helmet",
+    "name": "Mercenary Scout Helmet",
+    "description": "A lightly armored helmet made of duraluminum, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothmerclighthelmetr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 130,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_light05_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_choam_light05_top",
+    "name": "Mercenary Scout Top",
+    "description": "A lightly armored top made of duraluminum, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 5,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothmerclightbodyr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 194,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_light05_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_hark_medunique01_boots",
+    "name": "Syndicate Boots",
+    "description": "The Syndicate is a large offworld criminal organization that has never been able to get a foothold on Arrakis — due to the tireless efforts of Esmar Tuek and the smugglers to keep them out. Nobody knows why their mercenaries have begun to arrive in the Hagga Basin, nor what their interest is in the radiated wrecks of the Sheol. This <Unique>Unique</> armor is designed to keep environmental hazards at bay.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothharkmedunique01bootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Fire Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Poison Mitigation:",
+        "value": 4.5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_hark_medunique01_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_hark_medunique01_bottom",
+    "name": "Syndicate Pants",
+    "description": "The Syndicate is a large offworld criminal organization that has never been able to get a foothold on Arrakis — due to the tireless efforts of Esmar Tuek and the smugglers to keep them out. Nobody knows why their mercenaries have begun to arrive in the Hagga Basin, nor what their interest is in the radiated wrecks of the Sheol. This <Unique>Unique</> armor is designed to keep environmental hazards at bay.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothharkmedunique01bottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 157,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Fire Mitigation:",
+        "value": 10,
+        "type": "number"
+      },
+      {
+        "name": "Poison Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_hark_medunique01_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_hark_medunique01_gloves",
+    "name": "Syndicate Gauntlets",
+    "description": "The Syndicate is a large offworld criminal organization that has never been able to get a foothold on Arrakis — due to the tireless efforts of Esmar Tuek and the smugglers to keep them out. Nobody knows why their mercenaries have begun to arrive in the Hagga Basin, nor what their interest is in the radiated wrecks of the Sheol. This <Unique>Unique</> armor is designed to keep environmental hazards at bay.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothharkmedunique01glovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 3.8,
+        "type": "number"
+      },
+      {
+        "name": "Fire Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Poison Mitigation:",
+        "value": 4.5,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_hark_medunique01_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_hark_medunique01_helmet",
+    "name": "Syndicate Helmet",
+    "description": "The Syndicate is a large offworld criminal organization that has never been able to get a foothold on Arrakis — due to the tireless efforts of Esmar Tuek and the smugglers to keep them out. Nobody knows why their mercenaries have begun to arrive in the Hagga Basin, nor what their interest is in the radiated wrecks of the Sheol. This <Unique>Unique</> armor is designed to keep environmental hazards at bay.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothharkmedunique01helmetr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 157,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Fire Mitigation:",
+        "value": 10,
+        "type": "number"
+      },
+      {
+        "name": "Poison Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_hark_medunique01_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_hark_medunique01_top",
+    "name": "Syndicate Chestplate",
+    "description": "The Syndicate is a large offworld criminal organization that has never been able to get a foothold on Arrakis — due to the tireless efforts of Esmar Tuek and the smugglers to keep them out. Nobody knows why their mercenaries have begun to arrive in the Hagga Basin, nor what their interest is in the radiated wrecks of the Sheol. This <Unique>Unique</> armor is designed to keep environmental hazards at bay.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothharkmedunique01topr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 236,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Energy Mitigation:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Fire Mitigation:",
+        "value": 15,
+        "type": "number"
+      },
+      {
+        "name": "Poison Mitigation:",
+        "value": 9,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_hark_medunique01_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "stillsuit_unique_planetologist_boots",
+    "name": "Planetologist Light Armor Boots",
+    "description": "Though the interests of a Planetologist are largely academic, their path to knowledge can lead them into physical danger. This light-weight armor offers some protection while aiding the Planetologist in their specialized pursuits.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothplanetologistshoesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Planetologist Ability Cooldowns:",
+        "value": -101,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_planetologist_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "stillsuit_unique_planetologist_bottom",
+    "name": "Planetologist Light Armor Leggings",
+    "description": "Though the interests of a Planetologist are largely academic, their path to knowledge can lead them into physical danger. This light-weight armor offers some protection while aiding the Planetologist in their specialized pursuits.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothplanetologistbottommaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 157,
+        "type": "number"
+      },
+      {
+        "name": "Planetologist Ability Cooldowns:",
+        "value": -102,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_planetologist_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "stillsuit_unique_planetologist_gloves",
+    "name": "Planetologist Light Armor Gloves",
+    "description": "Though the interests of a Planetologist are largely academic, their path to knowledge can lead them into physical danger. This light-weight armor offers some protection while aiding the Planetologist in their specialized pursuits.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothplanetologistglovesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Planetologist Ability Cooldowns:",
+        "value": -101,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_planetologist_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "stillsuit_unique_planetologist_helmet",
+    "name": "Planetologist Light Armor Headpiece",
+    "description": "Though the interests of a Planetologist are largely academic, their path to knowledge can lead them into physical danger. This light-weight armor offers some protection while aiding the Planetologist in their specialized pursuits.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothplanetologistheadmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 157,
+        "type": "number"
+      },
+      {
+        "name": "Planetologist Ability Cooldowns:",
+        "value": -101,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_planetologist_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "stillsuit_unique_planetologist_top",
+    "name": "Planetologist Light Armor Coat",
+    "description": "Though the interests of a Planetologist are largely academic, their path to knowledge can lead them into physical danger. This light-weight armor offers some protection while aiding the Planetologist in their specialized pursuits.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothplanetologisttopmalet3r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 236,
+        "type": "number"
+      },
+      {
+        "name": "Planetologist Ability Cooldowns:",
+        "value": -102,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -9,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/stillsuit_unique_planetologist_top.webp",
+    "slot": "chest"
   }
 ]

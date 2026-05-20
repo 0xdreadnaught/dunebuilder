@@ -45,66 +45,6 @@
         "type": "number"
       },
       {
-        "name": "Ormuna Laaks",
-        "value": 590,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 590,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 590,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 590,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 590,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 590,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 590,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 590,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 590,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 590,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 590,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 590,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 1,
         "type": "number"
@@ -157,71 +97,6 @@
       {
         "name": "Heat Protection:",
         "value": 0.4,
-        "type": "number"
-      },
-      {
-        "name": "Traj Axxari",
-        "value": 953,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 477,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 477,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 477,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 477,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 477,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 477,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 477,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 477,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 477,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 477,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 477,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 477,
         "type": "number"
       },
       {
@@ -280,66 +155,6 @@
         "type": "number"
       },
       {
-        "name": "Ormuna Laaks",
-        "value": 912,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 912,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 912,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 912,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 912,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 912,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 912,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 912,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 912,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 912,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 912,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 912,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 2,
         "type": "number"
@@ -392,66 +207,6 @@
       {
         "name": "Heat Protection:",
         "value": 0.4,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 698,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 698,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 698,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 698,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 698,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 698,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 698,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 698,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 698,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 698,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 698,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 698,
         "type": "number"
       },
       {
@@ -510,66 +265,6 @@
         "type": "number"
       },
       {
-        "name": "Ormuna Laaks",
-        "value": 805,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 805,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 805,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 805,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 805,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 805,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 805,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 805,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 805,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 805,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 805,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 805,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 2,
         "type": "number"
@@ -617,66 +312,6 @@
       {
         "name": "Concussive Mitigation:",
         "value": 6,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 740,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 740,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 740,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 740,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 740,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 740,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 740,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 740,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 740,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 740,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 740,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 740,
         "type": "number"
       },
       {
@@ -730,66 +365,6 @@
         "type": "number"
       },
       {
-        "name": "Ormuna Laaks",
-        "value": 607,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 607,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 607,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 607,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 607,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 607,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 607,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 607,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 607,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 607,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 607,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 607,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 1,
         "type": "number"
@@ -837,66 +412,6 @@
       {
         "name": "Concussive Mitigation:",
         "value": 8,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 858,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 858,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 858,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 858,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 858,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 858,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 858,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 858,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 858,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 858,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 858,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 858,
         "type": "number"
       },
       {
@@ -1030,71 +545,6 @@
         "type": "number"
       },
       {
-        "name": "Ormuna Laaks",
-        "value": 683,
-        "type": "number"
-      },
-      {
-        "name": "Traj Axxari",
-        "value": 683,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 683,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 683,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 683,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 683,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 683,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 683,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 683,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 683,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 683,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 683,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 683,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 1,
         "type": "number"
@@ -1160,71 +610,6 @@
         "type": "number"
       },
       {
-        "name": "Ormuna Laaks",
-        "value": 565,
-        "type": "number"
-      },
-      {
-        "name": "Traj Axxari",
-        "value": 565,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 565,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 565,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 565,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 565,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 565,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 565,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 565,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 565,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 565,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 565,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 565,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 1,
         "type": "number"
@@ -1252,71 +637,6 @@
       {
         "name": "Heat Protection:",
         "value": 0.6,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 807,
-        "type": "number"
-      },
-      {
-        "name": "Traj Axxari",
-        "value": 807,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 807,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 807,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 807,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 807,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 807,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 807,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 807,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 807,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 807,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 807,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 807,
         "type": "number"
       },
       {
@@ -1375,66 +695,6 @@
         "type": "number"
       },
       {
-        "name": "Ormuna Laaks",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 950,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 950,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 1,
         "type": "number"
@@ -1482,76 +742,6 @@
       {
         "name": "Concussive Mitigation:",
         "value": 3,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 6.9,
-        "type": "number"
-      },
-      {
-        "name": "Traj Axxari",
-        "value": 570,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 285,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 285,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 285,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 285,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 285,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 285,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 285,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 285,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 285,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 285,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 285,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 285,
         "type": "number"
       },
       {
@@ -1605,76 +795,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 6.9,
-        "type": "number"
-      },
-      {
-        "name": "Traj Axxari",
-        "value": 430,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 215,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 215,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 215,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 215,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 215,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 215,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 215,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 215,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 215,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 215,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 215,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 215,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 1,
         "type": "number"
@@ -1722,76 +842,6 @@
       {
         "name": "Concussive Mitigation:",
         "value": 4,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 6.9,
-        "type": "number"
-      },
-      {
-        "name": "Traj Axxari",
-        "value": 650,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 325,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 325,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 325,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 325,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 325,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 325,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 325,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 325,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 325,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 325,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 325,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 325,
         "type": "number"
       },
       {
@@ -1845,76 +895,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 6.9,
-        "type": "number"
-      },
-      {
-        "name": "Traj Axxari",
-        "value": 840,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 420,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 420,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 420,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 420,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 420,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 420,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 420,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 420,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 420,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 420,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 420,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 420,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 2,
         "type": "number"
@@ -1965,76 +945,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 6.9,
-        "type": "number"
-      },
-      {
-        "name": "Traj Axxari",
-        "value": 770,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 385,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 385,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 385,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 385,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 385,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 385,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 385,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 385,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 385,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 385,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 385,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 385,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 2,
         "type": "number"
@@ -2070,11 +980,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 6.9,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 4,
         "type": "number"
@@ -2102,76 +1007,6 @@
       {
         "name": "Heat Protection:",
         "value": 0.6,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 6.9,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 753,
-        "type": "number"
-      },
-      {
-        "name": "Traj Axxari",
-        "value": 753,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 753,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 753,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 753,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 753,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 753,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 753,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 753,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 753,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 753,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 753,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 753,
         "type": "number"
       },
       {
@@ -2205,76 +1040,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 6.9,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 586,
-        "type": "number"
-      },
-      {
-        "name": "Traj Axxari",
-        "value": 586,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 586,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 586,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 586,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 586,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 586,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 586,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 586,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 586,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 586,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 586,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 586,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 1,
         "type": "number"
@@ -2302,76 +1067,6 @@
       {
         "name": "Heat Protection:",
         "value": 0.6,
-        "type": "number"
-      },
-      {
-        "name": "Fallen Shipwreck",
-        "value": 6.9,
-        "type": "number"
-      },
-      {
-        "name": "Ormuna Laaks",
-        "value": 881,
-        "type": "number"
-      },
-      {
-        "name": "Traj Axxari",
-        "value": 881,
-        "type": "number"
-      },
-      {
-        "name": "Zoe",
-        "value": 881,
-        "type": "number"
-      },
-      {
-        "name": "Myr Charki",
-        "value": 881,
-        "type": "number"
-      },
-      {
-        "name": "Tyg Rolsum",
-        "value": 881,
-        "type": "number"
-      },
-      {
-        "name": "Soha Sirrendrin",
-        "value": 881,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 881,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Vehicle Vendor",
-        "value": 881,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 881,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Weapons Vendor",
-        "value": 881,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 881,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Armor Vendor",
-        "value": 881,
-        "type": "number"
-      },
-      {
-        "name": "Landsraad Tools Vendor",
-        "value": 881,
         "type": "number"
       },
       {
@@ -2415,11 +1110,6 @@
         "type": "number"
       },
       {
-        "name": "Fallen Shipwreck",
-        "value": 3.6,
-        "type": "number"
-      },
-      {
         "name": "Volume",
         "value": 4,
         "type": "number"
@@ -2427,6 +1117,206 @@
     ],
     "scaledStats": [],
     "img": "imgs/garments/stillsuit_choam_unique_dashed03_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_choam_light03_boots",
+    "name": "Slaver Scout Boots",
+    "description": "Lightly armored boots made of steel, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 3,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothslaverrusherbootsr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 42,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_light03_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_choam_light03_bottom",
+    "name": "Slaver Scout Pants",
+    "description": "Lightly armored leggings made of steel, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 3,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothslaverrusherbottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 56,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_light03_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_choam_light03_gloves",
+    "name": "Slaver Scout Gloves",
+    "description": "Lightly armored gloves made of steel, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 3,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothslaverrusherglovesr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 42,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_light03_gloves.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_choam_light03_helmet",
+    "name": "Slaver Scout Mask",
+    "description": "A lightly armored helmet made of steel, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 3,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothslaverrusherhelmetr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 56,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_light03_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_choam_light03_top",
+    "name": "Slaver Scout Jacket",
+    "description": "A lightly armored top made of steel, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 3,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothslaverrusherbodyr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 83,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_light03_top.webp",
     "slot": "chest"
   }
 ]
