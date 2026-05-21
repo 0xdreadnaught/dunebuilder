@@ -1318,5 +1318,180 @@
     "scaledStats": [],
     "img": "imgs/garments/combat_choam_light03_top.webp",
     "slot": "chest"
+  },
+  {
+    "slug": "combat_light_unique_biomeheat_top_03",
+    "name": "Skin-lined Jacket",
+    "description": "When they were establishing their presence in the Hagga Basin, the Slavers noticed that their slaves were often dying of heatstroke. They could not have their stock dying, so they developed this <Unique>Unique</> jacket to protect their slaves from the worst of the elements. Sometimes even the worst of people have good ideas. Just don't look too closely at the leather.",
+    "tier": 3,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquebiomheattop03r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 142,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_biomeheat_top_03.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_light_unique_dewreap_gloves_03",
+    "name": "Reaper Gloves",
+    "description": "Treated with a small amount of huf-huf oil, these <Unique>Unique</> gloves repel water and prevent any additional dew from escaping while harvesting.",
+    "tier": 3,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquedewreapgloves03r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 71,
+        "type": "number"
+      },
+      {
+        "name": "Dew Reaper Yield",
+        "value": -90,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_dewreap_gloves_03.webp",
+    "slot": "gloves"
+  },
+  {
+    "slug": "combat_light_unique_reducesuspensor_top_03",
+    "name": "Rigged Suspensor Jacket",
+    "description": "Used primarily by those who are called to spend long hours doing heavy activity while using suspensor belts, this <Unique>Unique</>  jacket features a series of specially designed capacitors to optimize the flow of energy through battery pack and suspensor belt. ",
+    "tier": 3,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquereducesuspensortop03r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 142,
+        "type": "number"
+      },
+      {
+        "name": "Power Drain",
+        "value": 0.8,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_reducesuspensor_top_03.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_light_unique_wormthreat_boots_03",
+    "name": "Ta'lab Softstep Boots",
+    "description": "Found abandoned throughout the former territories of the Fremen, these <Unique>Unique</> boots are made of a strange type of soft leather. Each step in these boots seems to melt into the sand, reducing the vibrations that attract the worm. This particular set is based on a design found in the long-abandoned Sietch Ta'lab.",
+    "tier": 3,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquewormthreatboots03r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 71,
+        "type": "number"
+      },
+      {
+        "name": "Worm Threat:",
+        "value": -145,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_wormthreat_boots_03.webp",
+    "slot": "boots"
   }
 ]

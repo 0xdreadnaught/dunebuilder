@@ -3337,5 +3337,183 @@
     ],
     "img": "imgs/t_ui_iconclothlightuniquedewreapgloves06r_d.webp",
     "slot": "gloves"
+  },
+  {
+    "slug": "assassin_light06_unique_helmet",
+    "name": "Phantom Whisper Helm",
+    "description": "In addition to its base stats, this <Unique>Unique</> headpiece grants a 5% detection speed reduction.\n\nA protracted, never-ending War of Assassins makes a fertile ground for those who slay by stealth. The Phantom Whisper Tech employed in armor and garments, to dampen sound while moving, is the brainchild of Ixian inventors who saw a tremendous uptick in their wealth with the conflict on Arrakis.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c4/gui/textures/icons/gameplay/clothing/t_ui_iconclothchoamscoutarmourhelmetmale02r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 194,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {
+        "Armor Value:": 216.2
+      },
+      {
+        "Armor Value:": 243.9
+      },
+      {
+        "Armor Value:": 271.6
+      },
+      {
+        "Armor Value:": 290.1
+      },
+      {
+        "Armor Value:": 327.0
+      }
+    ],
+    "img": "imgs/garments/assassin_light06_unique_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "assassin_light06_unique_top",
+    "name": "Phantom Whisper Chestpiece",
+    "description": "In addition to its base stats, this <Unique>Unique</> chestpiece grants a 5% detection speed reduction.\n\nA protracted, never-ending War of Assassins makes a fertile ground for those who slay by stealth. The Phantom Whisper Tech employed in armor and garments, to dampen sound while moving, is the brainchild of Ixian inventors who saw a tremendous uptick in their wealth with the conflict on Arrakis. ",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c4/gui/textures/icons/gameplay/clothing/t_ui_iconclothchoamscoutarmourtopmale02r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 291,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.7,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {
+        "Armor Value:": 324.3
+      },
+      {
+        "Armor Value:": 365.8
+      },
+      {
+        "Armor Value:": 407.3
+      },
+      {
+        "Armor Value:": 435.1
+      },
+      {
+        "Armor Value:": 490.5
+      }
+    ],
+    "img": "imgs/garments/assassin_light06_unique_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "exoskeleton_heavy06_unique_top",
+    "name": "Combat Exoskeleton Chestpiece",
+    "description": "In addition to its base stats, this <Unique>Unique</> heavy armor grants +10% melee damage to the wearer.\n\nThis advanced armor comes with a muscle memory tech system. It learns the motions of the wearer and exaggerates them, for more powerful attacks. ",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c4/gui/textures/icons/gameplay/clothing/t_ui_iconclothchoamheavytorsomale02r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 525,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": 7.5,
+        "type": "number"
+      },
+      {
+        "name": "Light Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Dart Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": -12,
+        "type": "number"
+      },
+      {
+        "name": "Concussive Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {
+        "Armor Value:": 585.0
+      },
+      {
+        "Armor Value:": 660.0
+      },
+      {
+        "Armor Value:": 734.9
+      },
+      {
+        "Armor Value:": 785.0
+      },
+      {
+        "Armor Value:": 885.0
+      }
+    ],
+    "img": "imgs/garments/exoskeleton_heavy06_unique_top.webp",
+    "slot": "chest"
   }
 ]

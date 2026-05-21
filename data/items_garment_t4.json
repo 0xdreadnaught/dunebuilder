@@ -1713,5 +1713,80 @@
     "scaledStats": [],
     "img": "imgs/garments/combat_neut_smugglerdeserterunique04_top.webp",
     "slot": "chest"
+  },
+  {
+    "slug": "combat_light_spicemask",
+    "name": "Spice Mask",
+    "description": "A mask with a filtration system that prevents the wearer from inhaling airborne spice particles. Dunemen utilize this to avoid adverse addictive effects while working the spice fields.",
+    "tier": 4,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothspicemaskr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 83,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_spicemask.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_light_unique_biomeheat_top_04",
+    "name": "Miner's Blessing",
+    "description": "Once in a while, there is a glitch in the gigantic entity that is CHOAM and the supply chains get crossed and something is sent to the place it was never meant to be. These <Unique>Unique</> jackets, which arrived on Arrakis in very limited supply, are made of a much lighter material than the standard, which means they are cooler and more protective.",
+    "tier": 4,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquebiomheattop04r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 208,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.9,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_biomeheat_top_04.webp",
+    "slot": "chest"
   }
 ]

@@ -1238,5 +1238,130 @@
     "scaledStats": [],
     "img": "imgs/garments/combat_neut_smugglerdeserterunique02_top.webp",
     "slot": "chest"
+  },
+  {
+    "slug": "combat_choam_light02_bottom",
+    "name": "Kirab Scout Pants",
+    "description": "Lightly armored leggings made of iron, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothkirablightbottomr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 37,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.2,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_light02_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_choam_light02_top",
+    "name": "Kirab Scout Jacket",
+    "description": "A lightly armored top made of iron, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts.",
+    "tier": 2,
+    "rarity": "Common",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothkirablightbodyr_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 56,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.2,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_choam_light02_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_light_unique_wormthreat_boots_02",
+    "name": "Softstep Boots",
+    "description": "Found abandoned throughout the former territories of the Fremen, these <Unique>Unique</> boots are made of a strange type of soft leather. Each step in these boots seems to melt into the sand, reducing the vibrations that attract the worm.",
+    "tier": 2,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquewormthreatboots02r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 47,
+        "type": "number"
+      },
+      {
+        "name": "Worm Threat:",
+        "value": -145,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.2,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_wormthreat_boots_02.webp",
+    "slot": "boots"
   }
 ]

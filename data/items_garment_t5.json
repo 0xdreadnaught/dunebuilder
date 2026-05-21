@@ -2993,5 +2993,535 @@
     "scaledStats": [],
     "img": "imgs/garments/stillsuit_unique_planetologist_top.webp",
     "slot": "chest"
+  },
+  {
+    "slug": "combat_light_unique_benegeserit_bottom",
+    "name": "Leggings of the Sisterhood",
+    "description": "When one of the Sisterhood raises her hand in violence, the enemy is rarely able to register the motion. This set of unique Bene Gesserit leggings is awarded to those who undertake advanced Bene Gesserit training.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothbenegbottommaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 157,
+        "type": "number"
+      },
+      {
+        "name": "Bene Gesserit Ability Cooldowns:",
+        "value": -102,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_benegeserit_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_light_unique_benegeserit_helmet",
+    "name": "Veil of the Sisterhood",
+    "description": "When one of the Sisterhood raises her hand in violence, the enemy is rarely able to register the motion. This unique Bene Gesserit hood is awarded to those who undertake advanced Bene Gesserit training.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothbenegheadmalet3r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 157,
+        "type": "number"
+      },
+      {
+        "name": "Bene Gesserit Ability Cooldowns:",
+        "value": -101,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_benegeserit_helmet.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_light_unique_benegeserit_top",
+    "name": "Robe of the Sisterhood",
+    "description": "When one of the Sisterhood raises her hand in violence, the enemy is rarely able to register the motion. This unique Bene Gesserit robe is awarded to those who undertake advanced Bene Gesserit training.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothbenegtopmalet3r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 236,
+        "type": "number"
+      },
+      {
+        "name": "Bene Gesserit Ability Cooldowns:",
+        "value": -102,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -9,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_benegeserit_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_light_unique_mentat_boots",
+    "name": "Reinforced Boots of the Mentat",
+    "description": "In the subtle battleground of tactical intrigue, a set of light armor can mean the difference between a punctured vital organ and a survivable scar.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothmentatshoesmaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Mentat Ability Cooldowns:",
+        "value": -101,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4.5,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_mentat_boots.webp",
+    "slot": "boots"
+  },
+  {
+    "slug": "combat_light_unique_mentat_bottom",
+    "name": "Leggings of the Mentat",
+    "description": "In the subtle battleground of tactical intrigue, a set of light armor can mean the difference between a punctured vital organ and a survivable scar.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothmentatbottommaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 157,
+        "type": "number"
+      },
+      {
+        "name": "Mentat Ability Cooldowns:",
+        "value": -102,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_mentat_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_light_unique_mentat_top",
+    "name": "Tactical Coat of the Mentat",
+    "description": "In the subtle battleground of tactical intrigue, a set of light armor can mean the difference between a punctured vital organ and a survivable scar.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothmentattopmalet3r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 236,
+        "type": "number"
+      },
+      {
+        "name": "Mentat Ability Cooldowns:",
+        "value": -102,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -9,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_mentat_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_heavy_unique_swordmaster_bottom",
+    "name": "Leggings of Ginaz",
+    "description": "The Swordmasters of Ginaz have a legendary reputation, and they often live up to it.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothswordmasterbottommaler_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 157,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Swordmaster Ability Cooldowns:",
+        "value": -102,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_swordmaster_bottom.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_heavy_unique_swordmaster_top",
+    "name": "Tunic of Ginaz",
+    "description": "The Swordmasters of Ginaz have a legendary reputation, and they often live up to it.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dlc/b1c2/gui/textures/icons/gameplay/clothing/t_ui_iconclothswordmastertopmalet3r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 236,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -9,
+        "type": "number"
+      },
+      {
+        "name": "Swordmaster Ability Cooldowns:",
+        "value": -102,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_heavy_unique_swordmaster_top.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_light_unique_biomeheat_top_05",
+    "name": "Station Garb",
+    "description": "These <Unique>Unique</> jackets were designed for the workers and guard from the Mysa Tarill power station. They are a cut above the usual supplies given out to pyons — probably because the power station was manned by a crew of highly trained engineers. Like the station, these jackets have mostly been long since abandoned.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquebiomheattop05r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 236,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -6,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 12,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 1.2,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_biomeheat_top_05.webp",
+    "slot": "chest"
+  },
+  {
+    "slug": "combat_light_unique_scanning_helmet_05",
+    "name": "Wayfinder Helm",
+    "description": "The electronics in this <Unique>Unique</> helmet connect to hand-held scanners, boosting their scanning range.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquescanninghelmet05r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 157,
+        "type": "number"
+      },
+      {
+        "name": "Scanner Range:",
+        "value": -85,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -4,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_scanning_helmet_05.webp",
+    "slot": "helm"
+  },
+  {
+    "slug": "combat_light_unique_stamina_bottom_05",
+    "name": "Stim-Leggings",
+    "description": "These <Unique>Unique</> light leggings are equipped with a compression triggered mechanism which stimulates the leg muscles, reducing the stamina drain of dashing.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquestaminabottom05r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 157,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -10,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 8,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_stamina_bottom_05.webp",
+    "slot": "pants"
+  },
+  {
+    "slug": "combat_light_unique_wormthreat_boots_05",
+    "name": "Tarl Softstep Boots",
+    "description": "These <Unique>Unique</> boots were taken from the rubble of Sietch Tarl after it was destroyed by the Sardaukar. Sietch Tarl was the place where Liet-Kynes made a final stand against the Sardaukar, collapsing the walls and killing dozens of them in a desperate final stand. Perhaps Liet-Kynes wore these same boots on that fateful day.",
+    "tier": 5,
+    "rarity": "Unique",
+    "iconPath": "/images/dune/gui/textures/icons/gameplay/clothing/gear/t_ui_iconclothlightuniquewormthreatboots05r_d.webp",
+    "mainCategoryId": "items",
+    "categories": [],
+    "stats": [
+      {
+        "name": "Armor Value:",
+        "value": 118,
+        "type": "number"
+      },
+      {
+        "name": "Worm Threat:",
+        "value": -145,
+        "type": "number"
+      },
+      {
+        "name": "Dash Stamina Cost:",
+        "value": -3,
+        "type": "number"
+      },
+      {
+        "name": "Blade Mitigation:",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Heat Protection:",
+        "value": 0.6,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [],
+    "img": "imgs/garments/combat_light_unique_wormthreat_boots_05.webp",
+    "slot": "boots"
   }
 ]
