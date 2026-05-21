@@ -3019,7 +3019,7 @@ function showStatFormulaTooltip(b, event) {
       num.push(fmtDec(c.max / 100));
     });
     if (includeSpecs && b.combatPct)     { sym.push('CombatDMG%');  num.push(fmtDec(b.combatPct / 100)); }
-    if (includeSpecs && b.staggerPct)    { sym.push('Stagger%');    num.push(fmtDec(b.staggerPct / 100)); }
+    if (includeSpecs && b.staggerPct)    { sym.push('SabotageSTGR%'); num.push(fmtDec(b.staggerPct / 100)); }
     if (includeSpecs && b.headHunterPct) { sym.push('SabotageHS%'); num.push(fmtDec(b.headHunterPct / 100)); }
     return {
       sym: sym.length ? ` × (1 + ${sym.join(' + ')})` : '',
@@ -3094,7 +3094,7 @@ function showStatFormulaTooltip(b, event) {
     }
     renderAugRows();
     if (b.combatPct)     addRow('CombatDMG',  fmtPct(b.combatPct));
-    if (b.staggerPct)    addRow('Stagger',    fmtPct(b.staggerPct));
+    if (b.staggerPct)    addRow('SabotageSTGR', fmtPct(b.staggerPct));
     if (b.headHunterPct) addRow('SabotageHS', fmtPct(b.headHunterPct));
 
     addTotal(b.name, finalText);
