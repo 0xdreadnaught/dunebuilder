@@ -4334,9 +4334,38 @@ pasteBtn.addEventListener('click', async () => {
   let dismissed = false;
   const show = () => { if (!dismissed) banner.hidden = false; };
 
+  // Render a safe markdown subset (headings, bold, code, bullets, paragraphs).
+  // Input is HTML-escaped first, then only our own tags are added — no raw
+  // HTML from the release body passes through.
+  function renderNotesHtml(raw) {
+    const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const inline = s => esc(s)
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/`(.+?)`/g, '<code>$1</code>');
+    let html = '', listOpen = false;
+    const closeList = () => { if (listOpen) { html += '</ul>'; listOpen = false; } };
+    for (const line of String(raw).split(/\r?\n/)) {
+      const t = line.trim();
+      if (!t) { closeList(); continue; }
+      let m;
+      if ((m = t.match(/^#{1,6}\s+(.+)$/))) {
+        closeList();
+        html += `<h4 class="update-notes__heading">${inline(m[1])}</h4>`;
+      } else if ((m = t.match(/^[-*]\s+(.+)$/))) {
+        if (!listOpen) { html += '<ul class="update-notes__list">'; listOpen = true; }
+        html += `<li>${inline(m[1])}</li>`;
+      } else {
+        closeList();
+        html += `<p class="update-notes__para">${inline(t)}</p>`;
+      }
+    }
+    closeList();
+    return html;
+  }
+
   function setNotes(notes) {
     if (notes) {
-      notesPanel.textContent = notes;
+      notesPanel.innerHTML = renderNotesHtml(notes);
       notesBtn.hidden = false;
       notesBtn.onclick = () => {
         const showing = !notesPanel.hidden;
