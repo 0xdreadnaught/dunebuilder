@@ -705,6 +705,15 @@ body {
     inset 0 0 6px 1px rgba(176, 96, 208, 0.25);
 }
 
+/* Drag cues (shared by hotbar swap and armor non-swap drag) */
+.slot-dragging {
+  opacity: 0.4;
+}
+.hotbar-slot--dragover {
+  border-color: var(--color-gold-bright) !important;
+  box-shadow: 0 0 6px 1px rgba(212, 175, 95, 0.5);
+}
+
 .hotbar-slot__icon {
   width: 80%;
   height: 80%;

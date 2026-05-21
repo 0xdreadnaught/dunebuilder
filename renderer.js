@@ -3288,6 +3288,7 @@ function updateSlotDisplay(slotEl, item) {
   img.className = 'armor-slot__icon';
   img.src = item.img;
   img.alt = item.name;
+  img.draggable = false; // stop native image drag (was draggable to desktop)
 
   const clearBtn = document.createElement('button');
   clearBtn.className = 'armor-slot__clear';
@@ -3537,6 +3538,7 @@ function updateHotbarSlotDisplay(slotEl, item, slotType) {
   img.className = 'hotbar-slot__icon';
   img.src = item.img;
   img.alt = item.name;
+  img.draggable = false; // let the slot's drag-to-swap handle dragging, not the image
   slotEl.appendChild(img);
 
   const clearBtn = document.createElement('button');
@@ -3581,6 +3583,47 @@ function clearHotbarSlot(slotEl) {
   }
 }
 
+// Re-render a hotbar slot's DOM from current state without mutating that state
+// (unlike clearHotbarSlot). Used after a drag-swap.
+function renderHotbarSlotDom(slotType) {
+  const idx = parseInt(slotType.replace('hotbar', ''), 10);
+  const slotEl = document.querySelector(`.hotbar-slot[data-hotbar="${idx}"]`);
+  if (!slotEl) return;
+  const item = equippedItems[slotType];
+  if (item) {
+    updateHotbarSlotDisplay(slotEl, item, slotType);
+  } else {
+    slotEl.classList.remove('has-item');
+    slotEl.title = '';
+    slotEl.innerHTML = '';
+    const numEl = document.createElement('span');
+    numEl.className = 'slot-number';
+    numEl.textContent = String(idx + 1);
+    slotEl.appendChild(numEl);
+  }
+}
+
+// Swap the full per-slot state between two hotbar slots so the user can arrange
+// the hotbar to match in-game without re-picking. The weapon's grade and
+// augments travel with it. If the target is empty, the source moves there.
+function swapHotbarSlots(srcType, tgtType) {
+  if (!srcType || !tgtType || srcType === tgtType) return;
+  for (const map of [equippedItems, equippedGrades, equippedAugments, augmentSlotUnlocks]) {
+    const tmp = map[srcType];
+    if (map[tgtType] === undefined) delete map[srcType]; else map[srcType] = map[tgtType];
+    if (tmp === undefined) delete map[tgtType]; else map[tgtType] = tmp;
+  }
+  renderHotbarSlotDom(srcType);
+  renderHotbarSlotDom(tgtType);
+  // Active slot is positional; if it ended up empty, fall back to the first weapon.
+  if (activeHotbarIndex != null && !equippedItems[`hotbar${activeHotbarIndex}`]) {
+    autoSelectFirstHotbarWeapon();
+  } else {
+    updateHotbarSelection();
+  }
+  refreshPanels(true);
+}
+
 (async () => {
   await loadGarmentItems();
 
@@ -3590,6 +3633,15 @@ function clearHotbarSlot(slotEl) {
     const armorSlotType = getSlotType(slotEl);
     slotEl.addEventListener('mouseenter', () => showTooltip(armorSlotType));
     slotEl.addEventListener('mouseleave', clearTooltip);
+
+    // Armor slots drag as the whole slot object (matching the hotbar's look)
+    // instead of the bare icon, but they're fixed positions — no drop/swap.
+    slotEl.draggable = true;
+    slotEl.addEventListener('dragstart', e => {
+      e.dataTransfer.effectAllowed = 'none'; // can't be dropped anywhere
+      slotEl.classList.add('slot-dragging');
+    });
+    slotEl.addEventListener('dragend', () => slotEl.classList.remove('slot-dragging'));
   });
 
   // Hotbar slot click → weapon picker
@@ -3602,6 +3654,30 @@ function clearHotbarSlot(slotEl) {
     const hotbarSlotType = getHotbarSlotType(slotEl);
     slotEl.addEventListener('mouseenter', () => showTooltip(hotbarSlotType));
     slotEl.addEventListener('mouseleave', clearTooltip);
+
+    // Drag-to-swap: arrange weapons across slots to match in-game positions.
+    slotEl.draggable = true;
+    slotEl.addEventListener('dragstart', e => {
+      const st = getHotbarSlotType(slotEl);
+      if (!st || !equippedItems[st]) { e.preventDefault(); return; } // nothing to drag
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', st);
+      slotEl.classList.add('slot-dragging');
+    });
+    slotEl.addEventListener('dragend', () => slotEl.classList.remove('slot-dragging'));
+    slotEl.addEventListener('dragover', e => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      slotEl.classList.add('hotbar-slot--dragover');
+    });
+    slotEl.addEventListener('dragleave', () => slotEl.classList.remove('hotbar-slot--dragover'));
+    slotEl.addEventListener('drop', e => {
+      e.preventDefault();
+      slotEl.classList.remove('hotbar-slot--dragover');
+      const srcType = e.dataTransfer.getData('text/plain');
+      const tgtType = getHotbarSlotType(slotEl);
+      swapHotbarSlots(srcType, tgtType);
+    });
   });
 
   document.getElementById('item-picker-close').addEventListener('click', closeItemPicker);
