@@ -3002,6 +3002,8 @@ function showStatFormulaTooltip(b, event) {
   // contributions (join the bonus pool).
   const flatContribs = (b.augContribs || []).filter(c => c.type !== 'percent');
   const pctContribs  = (b.augContribs || []).filter(c => c.type === 'percent');
+  // Headshot-damage augment contributions (head rows only; [] otherwise).
+  const hsContribs = b.hsContribs || [];
 
   // Build symbolic + numeric forms for the bonus pool. Each augment gets its
   // own Aug# placeholder so the formula expands per-augment rather than
@@ -3010,6 +3012,10 @@ function showStatFormulaTooltip(b, event) {
     const sym = [], num = [];
     pctContribs.forEach((c, i) => {
       sym.push(`Aug${i + 1}%`);
+      num.push(fmtDec(c.max / 100));
+    });
+    hsContribs.forEach((c, i) => {
+      sym.push(`HSAug${i + 1}%`);
       num.push(fmtDec(c.max / 100));
     });
     if (includeSpecs && b.combatPct)     { sym.push('CombatDMG%');  num.push(fmtDec(b.combatPct / 100)); }
@@ -3037,6 +3043,11 @@ function showStatFormulaTooltip(b, event) {
   const renderAugRows = () => {
     pctContribs.forEach(c => {
       const tag = `${c.augName} G${c.augGrade}${c.isTradeoff ? ' (tradeoff)' : ''}`;
+      const valText = c.min === c.max ? fmtPct(c.max) : `${fmtPct(c.min)} to ${fmtPct(c.max)}`;
+      addRow(tag, valText);
+    });
+    hsContribs.forEach(c => {
+      const tag = `${c.augName} G${c.augGrade}${c.isTradeoff ? ' (tradeoff)' : ''} (HS)`;
       const valText = c.min === c.max ? fmtPct(c.max) : `${fmtPct(c.min)} to ${fmtPct(c.max)}`;
       addRow(tag, valText);
     });
