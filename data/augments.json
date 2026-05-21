@@ -1044,6 +1044,160 @@
     }
   },
   {
+    "slug": "disruptor-m11-personnel-buster",
+    "name": "Disruptor M11 Personnel-Buster",
+    "category": "augment",
+    "subtype": "ranged",
+    "family": "Disruptor M11",
+    "tier": null,
+    "rarity": null,
+    "slot": null,
+    "maxGrade": 5,
+    "description": "A Disruptor M11-specific augmentation which increases critical damage and rate of fire, at the cost of shield damage, range, and recoil.",
+    "icon": "imgs/augments/T_UI_IconAugmentModHeadshotDmg_D.png",
+    "stats": {},
+    "effects": [
+      {
+        "key": "headshotDamage",
+        "name": "Headshot Damage:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            10,
+            16
+          ],
+          [
+            20,
+            31
+          ],
+          [
+            34,
+            50
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "rateOfFire",
+        "name": "Rate of Fire:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            12,
+            18
+          ],
+          [
+            20,
+            26
+          ],
+          [
+            27,
+            34
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "shieldDamage",
+        "name": "Shield Damage:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -5,
+            -5
+          ],
+          [
+            -5,
+            -5
+          ],
+          [
+            -5,
+            -5
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "effectiveRange",
+        "name": "Effective Range:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "maximumRange",
+        "name": "Maximum Range:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "recoil",
+        "name": "Recoil:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            5
+          ]
+        ],
+        "good": false
+      }
+    ],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
     "slug": "drillshot-fk7-amplifier",
     "name": "Drillshot FK7 Amplifier",
     "category": "augment",
@@ -1785,6 +1939,182 @@
     }
   },
   {
+    "slug": "drillshot-fk7-spray-and-pray",
+    "name": "Drillshot FK7 Spray-and-Pray",
+    "category": "augment",
+    "subtype": "ranged",
+    "family": "Drillshot FK7",
+    "tier": null,
+    "rarity": null,
+    "slot": null,
+    "maxGrade": 5,
+    "description": "A Drillshot FK7-specific augmentation which increases reload speed and rate of fire, at the cost of range, recoil, and magazine size.",
+    "icon": "imgs/augments/T_UI_IconAugmentModRateOfFire_D.png",
+    "stats": {},
+    "effects": [
+      {
+        "key": "rateOfFire",
+        "name": "Rate of Fire:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            12,
+            18
+          ],
+          [
+            20,
+            26
+          ],
+          [
+            27,
+            34
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "effectiveRange",
+        "name": "Effective Range:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "maximumRange",
+        "name": "Maximum Range:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "recoil",
+        "name": "Recoil:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            5
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "clipSize",
+        "name": "Clip Size:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -25,
+            -25
+          ],
+          [
+            -25,
+            -25
+          ],
+          [
+            -25,
+            -25
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "powerConsumptionPerShot",
+        "name": "Power Consumption (per shot):",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            30,
+            30
+          ],
+          [
+            30,
+            30
+          ],
+          [
+            30,
+            30
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "reloadTime",
+        "name": "Reload Time:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -6,
+            -6
+          ],
+          [
+            -8,
+            -8
+          ],
+          [
+            -10,
+            -10
+          ]
+        ],
+        "good": true
+      }
+    ],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
     "slug": "flamethrower-amplifier",
     "name": "Flamethrower Amplifier",
     "category": "augment",
@@ -2279,6 +2609,72 @@
           ]
         ],
         "good": false
+      }
+    ],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "flamethrower-decimator",
+    "name": "Flamethrower Decimator",
+    "category": "augment",
+    "subtype": "ranged",
+    "family": "Flamethrower",
+    "tier": null,
+    "rarity": null,
+    "slot": null,
+    "maxGrade": 5,
+    "description": "A Flamethrower-specific augmentation which offers a massive bonus to shield damage but reduces the rate of fire.",
+    "icon": "imgs/augments/T_UI_IconAugmentModShieldDmg_D.png",
+    "stats": {},
+    "effects": [
+      {
+        "key": "rateOfFire",
+        "name": "Rate of Fire:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "shieldDamage",
+        "name": "Shield Damage:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            12,
+            18
+          ],
+          [
+            20,
+            28
+          ],
+          [
+            30,
+            40
+          ]
+        ],
+        "good": true
       }
     ],
     "sourcing": {
@@ -3121,6 +3517,116 @@
     }
   },
   {
+    "slug": "scattergun-rampage-enhancement",
+    "name": "Scattergun Rampage-Enhancement",
+    "category": "augment",
+    "subtype": "ranged",
+    "family": "GRDA 44",
+    "tier": null,
+    "rarity": null,
+    "slot": null,
+    "maxGrade": 5,
+    "description": "A Scattergun-specific augmentation which increases damage and magazine size, at the cost of critical hit damage.",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "stats": {},
+    "effects": [
+      {
+        "key": "damage",
+        "name": "Damage:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            18,
+            26
+          ],
+          [
+            28,
+            44
+          ],
+          [
+            48,
+            70
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "headshotDamage",
+        "name": "Headshot Damage:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -15,
+            -15
+          ],
+          [
+            -15,
+            -15
+          ],
+          [
+            -15,
+            -15
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "clipSize",
+        "name": "Clip Size:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            40,
+            60
+          ],
+          [
+            60,
+            80
+          ],
+          [
+            80,
+            100
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "powerConsumptionPerShot",
+        "name": "Power Consumption (per shot):",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -15,
+            -25
+          ],
+          [
+            -20,
+            -30
+          ],
+          [
+            -25,
+            -35
+          ]
+        ],
+        "good": true
+      }
+    ],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
     "slug": "heavy-caliber-upgrade",
     "name": "Heavy Caliber Upgrade",
     "category": "augment",
@@ -3826,6 +4332,94 @@
     }
   },
   {
+    "slug": "jabal-spitdart-ranger",
+    "name": "JABAL Spitdart Ranger",
+    "category": "augment",
+    "subtype": "ranged",
+    "family": "JABAL Spitdart",
+    "tier": null,
+    "rarity": null,
+    "slot": null,
+    "maxGrade": 5,
+    "description": "A JABAL Spitdart-specific augmentation which increases reload speed and range, at a cost to the rate of fire.",
+    "icon": "imgs/augments/T_UI_IconAugmentModReload_D.png",
+    "stats": {},
+    "effects": [
+      {
+        "key": "rateOfFire",
+        "name": "Rate of Fire:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "recoil",
+        "name": "Recoil:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -22,
+            -30
+          ],
+          [
+            -33,
+            -40
+          ],
+          [
+            -44,
+            -50
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "reloadTime",
+        "name": "Reload Time:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -6,
+            -6
+          ],
+          [
+            -8,
+            -8
+          ],
+          [
+            -10,
+            -10
+          ]
+        ],
+        "good": true
+      }
+    ],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
     "slug": "karpov-38-dart-sprayer",
     "name": "Karpov 38 Dart Sprayer",
     "category": "augment",
@@ -4395,6 +4989,116 @@
           [
             -20,
             -20
+          ]
+        ],
+        "good": false
+      }
+    ],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "karpov-38-sniper-barrel",
+    "name": "Karpov 38 Sniper Barrel",
+    "category": "augment",
+    "subtype": "ranged",
+    "family": "Karpov 38",
+    "tier": null,
+    "rarity": null,
+    "slot": null,
+    "maxGrade": 5,
+    "description": "A Karpov 38-specific augmentation which increases range and accuracy but reduces reload speed.",
+    "icon": "imgs/augments/T_UI_IconAugmentModRange_D.png",
+    "stats": {},
+    "effects": [
+      {
+        "key": "accuracy",
+        "name": "Accuracy:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -11,
+            -15
+          ],
+          [
+            -16,
+            -20
+          ],
+          [
+            -21,
+            -25
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "effectiveRange",
+        "name": "Effective Range:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11,
+            15
+          ],
+          [
+            17,
+            20
+          ],
+          [
+            22,
+            25
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "maximumRange",
+        "name": "Maximum Range:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            11,
+            15
+          ],
+          [
+            17,
+            20
+          ],
+          [
+            22,
+            25
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "reloadTime",
+        "name": "Reload Time:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            10,
+            10
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            10,
+            10
           ]
         ],
         "good": false
@@ -5061,6 +5765,116 @@
           [
             -10,
             -10
+          ]
+        ],
+        "good": false
+      }
+    ],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "lasgun-concentrator",
+    "name": "Lasgun Concentrator",
+    "category": "augment",
+    "subtype": "ranged",
+    "family": "Lasgun",
+    "tier": null,
+    "rarity": null,
+    "slot": null,
+    "maxGrade": 5,
+    "description": "A Lasgun-specific augmentation which increases the beam’s damaging power and accuracy but reduces the rate of fire and magazine size.",
+    "icon": "imgs/augments/T_UI_IconAugmentModAccuracy_D.png",
+    "stats": {},
+    "effects": [
+      {
+        "key": "damage",
+        "name": "Damage:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            18,
+            26
+          ],
+          [
+            28,
+            44
+          ],
+          [
+            48,
+            70
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "accuracy",
+        "name": "Accuracy:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -18,
+            -30
+          ],
+          [
+            -24,
+            -40
+          ],
+          [
+            -30,
+            -50
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "rateOfFire",
+        "name": "Rate of Fire:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "powerConsumptionPerShot",
+        "name": "Power Consumption (per shot):",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            30,
+            30
+          ],
+          [
+            30,
+            30
+          ],
+          [
+            30,
+            30
           ]
         ],
         "good": false
@@ -5778,6 +6592,160 @@
     }
   },
   {
+    "slug": "maula-pistol-antipersonnel-rounds",
+    "name": "Maula Pistol Antipersonnel Rounds",
+    "category": "augment",
+    "subtype": "ranged",
+    "family": "Maula Pistol",
+    "tier": null,
+    "rarity": null,
+    "slot": null,
+    "maxGrade": 5,
+    "description": "A Maula Pistol-specific augmentation which increases damage and critical damage at the cost of shield damage, range, and recoil.",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "stats": {},
+    "effects": [
+      {
+        "key": "damage",
+        "name": "Damage:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            18,
+            26
+          ],
+          [
+            28,
+            44
+          ],
+          [
+            48,
+            70
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "headshotDamage",
+        "name": "Headshot Damage:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            10,
+            16
+          ],
+          [
+            20,
+            31
+          ],
+          [
+            34,
+            50
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "shieldDamage",
+        "name": "Shield Damage:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -5,
+            -5
+          ],
+          [
+            -5,
+            -5
+          ],
+          [
+            -5,
+            -5
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "effectiveRange",
+        "name": "Effective Range:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "maximumRange",
+        "name": "Maximum Range:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "recoil",
+        "name": "Recoil:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            5
+          ]
+        ],
+        "good": false
+      }
+    ],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
     "slug": "missile-launcher-disruptive-coating",
     "name": "Missile Launcher Disruptive Coating",
     "category": "augment",
@@ -6181,6 +7149,94 @@
     }
   },
   {
+    "slug": "missile-launcher-obliterator",
+    "name": "Missile Launcher Obliterator",
+    "category": "augment",
+    "subtype": "ranged",
+    "family": "Missile Launcher",
+    "tier": null,
+    "rarity": null,
+    "slot": null,
+    "maxGrade": 5,
+    "description": "An augmentation for Missile Launchers which increases shield damage and recoil control, but reduces accuracy.",
+    "icon": "imgs/augments/T_UI_IconAugmentModShieldDmg_D.png",
+    "stats": {},
+    "effects": [
+      {
+        "key": "accuracy",
+        "name": "Accuracy:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            10,
+            10
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            10,
+            10
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "shieldDamage",
+        "name": "Shield Damage:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            6,
+            9
+          ],
+          [
+            10,
+            14
+          ],
+          [
+            15,
+            20
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "recoil",
+        "name": "Recoil:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -22,
+            -30
+          ],
+          [
+            -33,
+            -40
+          ],
+          [
+            -44,
+            -50
+          ]
+        ],
+        "good": true
+      }
+    ],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
     "slug": "precision-barrel-adjuster",
     "name": "Precision Barrel Adjuster",
     "category": "augment",
@@ -6521,6 +7577,116 @@
           [
             20,
             20
+          ]
+        ],
+        "good": false
+      }
+    ],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "pyrocket-decimator",
+    "name": "Pyrocket Decimator",
+    "category": "augment",
+    "subtype": "ranged",
+    "family": "Pyrocket",
+    "tier": null,
+    "rarity": null,
+    "slot": null,
+    "maxGrade": 5,
+    "description": "A Pyrocket-specific augmentation which offers a massive bonus to shield damage but reduces magazine size and accuracy.",
+    "icon": "imgs/augments/T_UI_IconAugmentModShieldDmg_D.png",
+    "stats": {},
+    "effects": [
+      {
+        "key": "accuracy",
+        "name": "Accuracy:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            10,
+            10
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            10,
+            10
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "shieldDamage",
+        "name": "Shield Damage:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            12,
+            18
+          ],
+          [
+            20,
+            28
+          ],
+          [
+            30,
+            40
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "clipSize",
+        "name": "Clip Size:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -25,
+            -25
+          ],
+          [
+            -25,
+            -25
+          ],
+          [
+            -25,
+            -25
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "powerConsumptionPerShot",
+        "name": "Power Consumption (per shot):",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            30,
+            30
+          ],
+          [
+            30,
+            30
+          ],
+          [
+            30,
+            30
           ]
         ],
         "good": false
@@ -7190,6 +8356,138 @@
           [
             -5,
             -5
+          ]
+        ],
+        "good": false
+      }
+    ],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "rafiq-snubnose-marksman",
+    "name": "Rafiq Snubnose Marksman",
+    "category": "augment",
+    "subtype": "ranged",
+    "family": "Rafiq Snubnose",
+    "tier": null,
+    "rarity": null,
+    "slot": null,
+    "maxGrade": 5,
+    "description": "A Rafiq Snubnose-specific augmentation which grants a significant bonus to range and some added recoil control — but reduces magazine size.",
+    "icon": "imgs/augments/T_UI_IconAugmentModRange_D.png",
+    "stats": {},
+    "effects": [
+      {
+        "key": "effectiveRange",
+        "name": "Effective Range:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            22,
+            30
+          ],
+          [
+            34,
+            40
+          ],
+          [
+            44,
+            50
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "maximumRange",
+        "name": "Maximum Range:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            22,
+            30
+          ],
+          [
+            34,
+            40
+          ],
+          [
+            44,
+            50
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "recoil",
+        "name": "Recoil:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -22,
+            -30
+          ],
+          [
+            -33,
+            -40
+          ],
+          [
+            -44,
+            -50
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "powerConsumptionPerShot",
+        "name": "Power Consumption (per shot):",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            30,
+            30
+          ],
+          [
+            30,
+            30
+          ],
+          [
+            30,
+            30
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "clipSize",
+        "name": "Clip Size:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -25,
+            -25
+          ],
+          [
+            -25,
+            -25
+          ],
+          [
+            -25,
+            -25
           ]
         ],
         "good": false
@@ -7912,6 +9210,116 @@
     }
   },
   {
+    "slug": "vulcan-gau-92-accelerator",
+    "name": "VULCAN GAU-92 Accelerator",
+    "category": "augment",
+    "subtype": "ranged",
+    "family": "VULCAN GAU-92",
+    "tier": null,
+    "rarity": null,
+    "slot": null,
+    "maxGrade": 5,
+    "description": "A VULCAN GAU-92-specific augmentation which increases accuracy, recoil control, and reload speed at the cost of its shield damaging capabilities.",
+    "icon": "imgs/augments/T_UI_IconAugmentModAccuracy_D.png",
+    "stats": {},
+    "effects": [
+      {
+        "key": "accuracy",
+        "name": "Accuracy:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -11,
+            -15
+          ],
+          [
+            -16,
+            -20
+          ],
+          [
+            -21,
+            -25
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "shieldDamage",
+        "name": "Shield Damage:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -5,
+            -5
+          ],
+          [
+            -5,
+            -5
+          ],
+          [
+            -5,
+            -5
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "recoil",
+        "name": "Recoil:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -22,
+            -30
+          ],
+          [
+            -33,
+            -40
+          ],
+          [
+            -44,
+            -50
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "reloadTime",
+        "name": "Reload Time:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          [
+            -6,
+            -6
+          ],
+          [
+            -8,
+            -8
+          ],
+          [
+            -10,
+            -10
+          ]
+        ],
+        "good": true
+      }
+    ],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
     "slug": "aggressive-grip-adjuster",
     "name": "Aggressive Grip Adjuster",
     "category": "augment",
@@ -8540,6 +9948,172 @@
           ]
         ],
         "good": false
+      }
+    ],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "blade-blood-grooves",
+    "name": "Blade Blood Grooves",
+    "category": "augment",
+    "subtype": "melee",
+    "family": null,
+    "tier": null,
+    "rarity": null,
+    "slot": null,
+    "maxGrade": 5,
+    "description": "An augmentation, for any melee weapon, which reduces weight and stamina cost but reduces damage.",
+    "icon": "imgs/augments/T_UI_IconAugmentModStaminaAtk_D.png",
+    "stats": {},
+    "effects": [
+      {
+        "key": "volume",
+        "name": "Volume:",
+        "op": "percent",
+        "grades": [
+          [
+            -25,
+            -30
+          ],
+          [
+            -35,
+            -40
+          ],
+          [
+            -45,
+            -50
+          ],
+          [
+            -55,
+            -60
+          ],
+          [
+            -65,
+            -70
+          ]
+        ],
+        "good": true
+      },
+      {
+        "key": "damage",
+        "name": "Damage:",
+        "op": "percent",
+        "grades": [
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ],
+          [
+            -10,
+            -10
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "attackStaminaCost",
+        "name": "Attack Stamina Cost:",
+        "op": "percent",
+        "grades": [
+          [
+            -3,
+            -5
+          ],
+          [
+            -7,
+            -9
+          ],
+          [
+            -11,
+            -13
+          ],
+          [
+            -15,
+            -17
+          ],
+          [
+            -18,
+            -20
+          ]
+        ],
+        "good": true
+      }
+    ],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "heavy-metal-blade-coating",
+    "name": "Heavy Metal Blade Coating",
+    "category": "augment",
+    "subtype": "melee",
+    "family": null,
+    "tier": null,
+    "rarity": null,
+    "slot": null,
+    "maxGrade": 5,
+    "description": "An augmentation which increases the damage output of any melee weapon while greatly increasing its weight.",
+    "icon": "imgs/augments/T_UI_IconAugmentModDmg_D.png",
+    "stats": {},
+    "effects": [
+      {
+        "key": "volume",
+        "name": "Volume:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            50,
+            50
+          ],
+          [
+            50,
+            50
+          ]
+        ],
+        "good": false
+      },
+      {
+        "key": "damage",
+        "name": "Damage:",
+        "op": "percent",
+        "grades": [
+          null,
+          null,
+          null,
+          [
+            28,
+            44
+          ],
+          [
+            48,
+            70
+          ]
+        ],
+        "good": true
       }
     ],
     "sourcing": {
