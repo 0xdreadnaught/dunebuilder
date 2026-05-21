@@ -2612,8 +2612,15 @@ function showTooltip(slotType, force) {
       const staggerPct = sb.staggerPct;
       const headHunterPct = hitMode === 'head' ? sb.headHunterPct : 0;
 
-      const poolMin = augPctMin + combatPct + staggerPct + headHunterPct;
-      const poolMax = augPctMax + combatPct + staggerPct + headHunterPct;
+      // Headshot-damage augments (the Tactical line) join the additive pool on
+      // head rows only — same bucket as the Sabotage Head Hunter keystone.
+      // Stored op:percent (whole numbers) after normalization, so read directly.
+      const hsAe = augEffects['headshotDamage'];
+      const hsDmgAugPctMin = (hitMode === 'head' && hsAe?.type === 'percent') ? hsAe.min : 0;
+      const hsDmgAugPctMax = (hitMode === 'head' && hsAe?.type === 'percent') ? hsAe.max : 0;
+
+      const poolMin = augPctMin + combatPct + staggerPct + headHunterPct + hsDmgAugPctMin;
+      const poolMax = augPctMax + combatPct + staggerPct + headHunterPct + hsDmgAugPctMax;
 
       const round1 = v => Math.round(v * 10) / 10;
       const finalDmg = (poolPct, flatBonus) =>
@@ -2630,7 +2637,10 @@ function showTooltip(slotType, force) {
       const tooltipMin = tipDmg(augPctMin, augFlatMin);
       const tooltipMax = tipDmg(augPctMax, augFlatMax);
 
-      const isRange = augEff && !augEff.hasCustom && augEff.min !== augEff.max;
+      // A headshot augment can introduce a range even when the stated-damage
+      // augment is absent/single-valued — so the head row shows X–Y correctly.
+      const hsIsRange = hitMode === 'head' && hsAe && !hsAe.hasCustom && hsAe.min !== hsAe.max;
+      const isRange = (augEff && !augEff.hasCustom && augEff.min !== augEff.max) || hsIsRange;
       const netPositive = poolMax > 0 || augFlatMax > 0;
       const netNegative = poolMax < 0 && poolMin < 0;
       value.style.color = netNegative ? 'var(--color-health)'
@@ -2655,6 +2665,8 @@ function showTooltip(slotType, force) {
         augPctMin, augPctMax, augFlatMin, augFlatMax,
         augContribs: augContribs[spec.statedKey] || [],
         combatPct, staggerPct, headHunterPct,
+        hsDmgAugPctMin, hsDmgAugPctMax,
+        hsContribs: hitMode === 'head' ? (augContribs['headshotDamage'] || []) : [],
         poolMin, poolMax,
         finalMin, finalMax,
         tooltipMin, tooltipMax,

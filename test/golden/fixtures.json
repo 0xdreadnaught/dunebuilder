@@ -209,5 +209,38 @@
       "hotbar": {},
       "specializations": {}
     }
+  },
+  {
+    "name": "ranged-headshot-aug-on",
+    "settings": { "applyHeadshot": true, "applyStaggered": false },
+    "build": {
+      "slots": {},
+      "hotbar": {
+        "hotbar0": { "item": "atresmg5", "grade": 5, "augments": [ { "slug": "tactical-enhancer", "grade": 5, "customValues": {} }, null, null ] }
+      },
+      "specializations": {}
+    }
+  },
+  {
+    "name": "ranged-headshot-aug-off",
+    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "build": {
+      "slots": {},
+      "hotbar": {
+        "hotbar0": { "item": "atresmg5", "grade": 5, "augments": [ { "slug": "tactical-enhancer", "grade": 5, "customValues": {} }, null, null ] }
+      },
+      "specializations": {}
+    }
+  },
+  {
+    "name": "ranged-headshot-downside",
+    "settings": { "applyHeadshot": true, "applyStaggered": false },
+    "build": {
+      "slots": {},
+      "hotbar": {
+        "hotbar0": { "item": "choamsda1", "grade": 0, "augments": [ { "slug": "maula-pistol-sprayer", "grade": 1, "customValues": {} }, null, null ] }
+      },
+      "specializations": {}
+    }
   }
 ]
