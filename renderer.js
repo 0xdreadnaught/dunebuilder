@@ -721,7 +721,7 @@ async function loadGarmentItems() {
     //  - weapon pool (ranged/melee) — selectable on hotbar weapons
     //  - garment/generic pool — selectable on garments/utility
     WEAPON_AUGMENT_DATA = augments.filter(a => a.subtype === 'ranged' || a.subtype === 'melee');
-    AUGMENT_DATA        = augments.filter(a => a.subtype === 'garment' || a.subtype === 'generic');
+    AUGMENT_DATA        = augments.filter(a => a.subtype === 'garment');
 
     const indexBySlug = (arr) => { const m = new Map(); for (const x of arr) if (!m.has(x.slug)) m.set(x.slug, x); return m; };
     GARMENT_BY_SLUG = indexBySlug(GARMENT_ITEMS);
@@ -1190,10 +1190,10 @@ function canBodySplit(item) {
 
 function formatAggregatedStats(totals) {
   const result = {};
-  for (const [key, value] of Object.entries(totals)) {
-    const precision = key === 'Accuracy' ? 1000 : 10;
+  for (const [displayName, value] of Object.entries(totals)) {
+    const precision = displayName === 'Accuracy' ? 1000 : 10;
     const rounded = Math.round(value * precision) / precision;
-    result[key] = formatStatValue(key, rounded);
+    result[displayName] = formatStatValue(displayName, rounded);
   }
   return result;
 }
@@ -1518,14 +1518,12 @@ function createUnlockedDot(slotType, dotIndex) {
   return dot;
 }
 
-// Expand augment stat names to match item stat names
 /** Title-case label for an augment subtype ('ranged' → 'Ranged'), matching the
  *  capitalized badge text the pre-migration `type[0]` field carried. */
 function augTypeLabel(subtype) {
   if (!subtype) return '';
   return subtype.charAt(0).toUpperCase() + subtype.slice(1);
 }
-
 
 function findAugmentData(slug, slotType) {
   if (HOTBAR_SLOTS.has(slotType)) {
