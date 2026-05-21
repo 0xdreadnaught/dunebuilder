@@ -6,7 +6,9 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --win nsis",
-    "build:scan": "electron-builder --win nsis && node scripts/vt-scan.js"
+    "build:scan": "electron-builder --win nsis && node scripts/vt-scan.js",
+    "golden:capture": "node test/golden/capture.mjs --out test/golden/baseline.json",
+    "golden:check": "node test/golden/capture.mjs --check test/golden/baseline.json"
   },
   "build": {
     "appId": "com.dunebuilder.app",

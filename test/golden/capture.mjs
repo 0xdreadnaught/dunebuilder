@@ -19,14 +19,25 @@ const ROOT = path.resolve(__dirname, '..', '..');
 const FIXTURES_PATH = path.join(__dirname, 'fixtures.json');
 
 // ---------------------------------------------------------------------------
+// Named constants for magic numbers
+// ---------------------------------------------------------------------------
+const INIT_TIMEOUT_MS   = 15_000;  // max wait for app + data to be ready
+
+// ---------------------------------------------------------------------------
 // CLI args
 // ---------------------------------------------------------------------------
 const args = process.argv.slice(2);
-const outIdx = args.indexOf('--out');
+const outIdx   = args.indexOf('--out');
 const checkIdx = args.indexOf('--check');
 
 if (outIdx === -1 && checkIdx === -1) {
   console.error('Usage: capture.mjs --out <file>  OR  capture.mjs --check <file>');
+  process.exit(1);
+}
+
+// m1: --out and --check are mutually exclusive
+if (outIdx !== -1 && checkIdx !== -1) {
+  console.error('--out and --check are mutually exclusive. Use one at a time.');
   process.exit(1);
 }
 
@@ -37,6 +48,29 @@ if (outFile == null && checkFile == null) {
   console.error('Missing file argument after --out / --check');
   process.exit(1);
 }
+
+// ---------------------------------------------------------------------------
+// appSettings defaults (must stay in sync with renderer.js loadSettings)
+// ---------------------------------------------------------------------------
+const APP_SETTINGS_DEFAULTS = {
+  showCommons:            false,
+  showFormulas:           true,
+  showT0:                 false,
+  showT1:                 false,
+  showT2:                 false,
+  showT3:                 false,
+  showT4:                 false,
+  showT5:                 false,
+  showWeaponCommons:      false,
+  showWeaponT1:           false,
+  showWeaponT2:           false,
+  showWeaponT3:           false,
+  showWeaponT4:           false,
+  showWeaponT5:           false,
+  persistWeaponTypeFilter: false,
+  applyStaggered:         false,
+  applyHeadshot:          false,
+};
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -110,33 +144,28 @@ async function captureAll(page) {
 async function captureFixture(page, fixture) {
   const { settings, build } = fixture;
 
-  // Apply settings
-  await page.evaluate((s) => {
+  // I3: Reset ALL appSettings to baseline defaults, then overlay fixture settings.
+  // This prevents settings from leaking between fixtures.
+  await page.evaluate(({ defaults, overrides }) => {
     const g = window.__golden;
-    g.appSettings.applyHeadshot  = s.applyHeadshot;
-    g.appSettings.applyStaggered = s.applyStaggered;
-  }, settings);
+    Object.assign(g.appSettings, defaults, overrides);
+  }, { defaults: APP_SETTINGS_DEFAULTS, overrides: settings });
 
-  // Apply build state and refresh
-  await page.evaluate((b) => {
+  // Apply build state. applyBuildData already calls refreshPanels() internally,
+  // so no explicit refreshPanels() call is needed here (I2).
+  // Read #build-stats innerText inside the same evaluate so we capture the
+  // synchronously-updated DOM without any setTimeout (I1 + m3).
+  const calcPanelText = await page.evaluate((b) => {
     const g = window.__golden;
     g.applyBuildData(b);
-    g.refreshPanels();
-  }, build);
-
-  // Wait a tick for DOM to settle
-  await page.waitForTimeout(200);
-
-  // Capture #build-stats (make sure it is visible first)
-  const calcPanelText = await page.evaluate(() => {
-    // Ensure build-stats is showing (tooltip may have hidden it)
+    // Rendering is synchronous — DOM is fully updated by the time applyBuildData returns.
+    // Ensure tooltip-panel hasn't obscured build-stats.
     const bs = document.getElementById('build-stats');
     const tp = document.getElementById('tooltip-panel');
-    // Clear any active tooltip so build-stats becomes visible
     if (bs) bs.hidden = false;
     if (tp) tp.innerHTML = '<div class="tooltip-panel__empty">Hover an item to inspect</div>';
     return bs ? bs.innerText : '';
-  });
+  }, build);
 
   // Capture per-slot tooltips
   const slots = {};
@@ -191,8 +220,6 @@ async function main() {
     electronApp = await electron.launch({
       args: [ROOT],
       cwd: ROOT,
-      // Suppress auto-updater noise in tests
-      env: { ...process.env, DUNEBUILDER_NO_UPDATE: '1' },
     });
   } catch (err) {
     console.error('BLOCKED: Failed to launch Electron app.');
@@ -206,25 +233,27 @@ async function main() {
 
   // Wait for __golden hook to be available (set after renderer.js initialises)
   try {
-    await page.waitForFunction(() => typeof window.__golden !== 'undefined', { timeout: 15000 });
+    await page.waitForFunction(() => typeof window.__golden !== 'undefined', { timeout: INIT_TIMEOUT_MS });
   } catch (err) {
     console.error('BLOCKED: window.__golden not found within 15s. Is the dev hook in renderer.js?');
     await electronApp.close();
     process.exit(2);
   }
 
-  // Also wait for item data to be loaded (WEAPON_BY_SLUG and GARMENT_BY_SLUG populated)
+  // I4: Wait for item data maps to be fully populated, including augment maps.
   try {
     await page.waitForFunction(
       () => {
         const g = window.__golden;
-        return g.WEAPON_BY_SLUG && g.WEAPON_BY_SLUG.size > 0 &&
-               g.GARMENT_BY_SLUG && g.GARMENT_BY_SLUG.size > 0;
+        return g.WEAPON_BY_SLUG      && g.WEAPON_BY_SLUG.size > 0 &&
+               g.GARMENT_BY_SLUG     && g.GARMENT_BY_SLUG.size > 0 &&
+               g.AUGMENT_BY_SLUG     && g.AUGMENT_BY_SLUG.size > 0 &&
+               g.WEAPON_AUGMENT_BY_SLUG && g.WEAPON_AUGMENT_BY_SLUG.size > 0;
       },
-      { timeout: 15000 }
+      { timeout: INIT_TIMEOUT_MS }
     );
   } catch (err) {
-    console.error('BLOCKED: Item data maps (WEAPON_BY_SLUG / GARMENT_BY_SLUG) not populated within 15s.');
+    console.error('BLOCKED: Item data maps not fully populated within 15s.');
     await electronApp.close();
     process.exit(2);
   }

@@ -31,7 +31,7 @@
           "item": "atresmg5",
           "grade": 5,
           "augments": [
-            { "slug": "disruptor-m11-amplifier", "grade": 4, "customValues": 36 },
+            { "slug": "disruptor-m11-amplifier", "grade": 4, "customValues": { "Damage:": 36 } },
             { "slug": "heavy-caliber-upgrade", "grade": 4 },
             null
           ]
@@ -194,6 +194,19 @@
       "hotbar": {
         "hotbar0": { "item": "choamsda1", "grade": 0, "augments": [null, null, null] }
       },
+      "specializations": {}
+    }
+  },
+  {
+    "name": "power-shield-pack-belt",
+    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "build": {
+      "slots": {
+        "holtzman": { "item": "holtzmanshieldactivedrain3", "grade": 0, "augments": [null, null, null] },
+        "pack":     { "item": "powerpack7",                 "grade": 0, "augments": [null, null, null] },
+        "belt":     { "item": "fullsuspensorbelt",          "grade": 0, "augments": [null, null, null] }
+      },
+      "hotbar": {},
       "specializations": {}
     }
   }

@@ -4441,8 +4441,10 @@ window.__golden = {
   equippedAugments,
   augmentSlotUnlocks,
   specState,
-  // WEAPON_BY_SLUG / GARMENT_BY_SLUG are reassigned after async load, so expose
-  // getters so the harness always sees the current Map reference.
-  get WEAPON_BY_SLUG()  { return WEAPON_BY_SLUG; },
-  get GARMENT_BY_SLUG() { return GARMENT_BY_SLUG; },
+  // All four data maps are reassigned after async load, so expose getters
+  // so the harness always sees the current Map reference.
+  get WEAPON_BY_SLUG()         { return WEAPON_BY_SLUG; },
+  get GARMENT_BY_SLUG()        { return GARMENT_BY_SLUG; },
+  get AUGMENT_BY_SLUG()        { return AUGMENT_BY_SLUG; },
+  get WEAPON_AUGMENT_BY_SLUG() { return WEAPON_AUGMENT_BY_SLUG; },
 };
