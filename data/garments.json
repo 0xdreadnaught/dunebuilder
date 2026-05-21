@@ -13984,6 +13984,11 @@
           885.0
         ]
       },
+      "meleeDamage": {
+        "name": "Melee Damage",
+        "type": "percent",
+        "value": 10
+      },
       "dashStaminaCost": {
         "name": "Dash Stamina Cost:",
         "type": "number",
