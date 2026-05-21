@@ -1298,21 +1298,21 @@
       {
         "key": "headshotDamage",
         "name": "Headshot Damage:",
-        "op": "flat",
+        "op": "percent",
         "grades": [
           null,
           null,
           [
-            0.1,
-            0.16
+            10,
+            16
           ],
           [
-            0.2,
-            0.31
+            20,
+            31
           ],
           [
-            0.34,
-            0.5
+            34,
+            50
           ]
         ],
         "good": true
@@ -1663,21 +1663,21 @@
       {
         "key": "headshotDamage",
         "name": "Headshot Damage:",
-        "op": "flat",
+        "op": "percent",
         "grades": [
           null,
           null,
           [
-            0.1,
-            0.16
+            10,
+            16
           ],
           [
-            0.2,
-            0.31
+            20,
+            31
           ],
           [
-            0.34,
-            0.5
+            34,
+            50
           ]
         ],
         "good": true
@@ -3062,24 +3062,24 @@
       {
         "key": "headshotDamage",
         "name": "Headshot Damage:",
-        "op": "flat",
+        "op": "percent",
         "grades": [
           null,
           [
-            0.06,
-            0.09999997
+            6,
+            10
           ],
           [
-            0.1,
-            0.16
+            10,
+            16
           ],
           [
-            0.2,
-            0.31
+            20,
+            31
           ],
           [
-            0.34,
-            0.5
+            34,
+            50
           ]
         ],
         "good": true
@@ -3724,21 +3724,21 @@
       {
         "key": "headshotDamage",
         "name": "Headshot Damage:",
-        "op": "flat",
+        "op": "percent",
         "grades": [
           null,
           null,
           [
-            0.1,
-            0.16
+            10,
+            16
           ],
           [
-            0.2,
-            0.31
+            20,
+            31
           ],
           [
-            0.34,
-            0.5
+            34,
+            50
           ]
         ],
         "good": true
@@ -4173,21 +4173,21 @@
       {
         "key": "headshotDamage",
         "name": "Headshot Damage:",
-        "op": "flat",
+        "op": "percent",
         "grades": [
           null,
           null,
           [
-            0.1,
-            0.16
+            10,
+            16
           ],
           [
-            0.2,
-            0.31
+            20,
+            31
           ],
           [
-            0.34,
-            0.5
+            34,
+            50
           ]
         ],
         "good": true
@@ -5538,27 +5538,27 @@
       {
         "key": "headshotDamage",
         "name": "Headshot Damage:",
-        "op": "flat",
+        "op": "percent",
         "grades": [
           [
-            -0.15,
-            -0.15
+            -15,
+            -15
           ],
           [
-            -0.15,
-            -0.15
+            -15,
+            -15
           ],
           [
-            -0.15,
-            -0.15
+            -15,
+            -15
           ],
           [
-            -0.15,
-            -0.15
+            -15,
+            -15
           ],
           [
-            -0.15,
-            -0.15
+            -15,
+            -15
           ]
         ],
         "good": false
@@ -5613,24 +5613,24 @@
       {
         "key": "headshotDamage",
         "name": "Headshot Damage:",
-        "op": "flat",
+        "op": "percent",
         "grades": [
           null,
           [
-            0.06,
-            0.09999997
+            6,
+            10
           ],
           [
-            0.1,
-            0.16
+            10,
+            16
           ],
           [
-            0.2,
-            0.31
+            20,
+            31
           ],
           [
-            0.34,
-            0.5
+            34,
+            50
           ]
         ],
         "good": true
@@ -6953,18 +6953,18 @@
       {
         "key": "headshotDamage",
         "name": "Headshot Damage:",
-        "op": "flat",
+        "op": "percent",
         "grades": [
           null,
           null,
           null,
           [
-            0.2,
-            0.31
+            20,
+            31
           ],
           [
-            0.34,
-            0.5
+            34,
+            50
           ]
         ],
         "good": true
@@ -7269,27 +7269,27 @@
       {
         "key": "headshotDamage",
         "name": "Headshot Damage:",
-        "op": "flat",
+        "op": "percent",
         "grades": [
           [
-            0.03,
-            0.049999986
+            3,
+            5
           ],
           [
-            0.06,
-            0.09999997
+            6,
+            10
           ],
           [
-            0.1,
-            0.16
+            10,
+            16
           ],
           [
-            0.2,
-            0.31
+            20,
+            31
           ],
           [
-            0.34,
-            0.5
+            34,
+            50
           ]
         ],
         "good": true
