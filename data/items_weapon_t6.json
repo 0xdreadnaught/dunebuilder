@@ -3917,5 +3917,950 @@
       }
     ],
     "weaponFamily": "Maula Pistol"
+  },
+  {
+    "slug": "b1c4_unique_harkar2",
+    "name": "The Angry Adder",
+    "description": "Sometimes, even a minor wound can kill. This <Unique>Unique</> rifle is modified to do poison damage.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c4/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnuniquear5r_d.webp?v=1775935124890",
+    "weaponType": "ranged",
+    "img": "imgs/weapons/b1c4_unique_harkar2.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Shot",
+        "value": 85.5,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 28,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 20,
+        "type": "number"
+      },
+      {
+        "name": "Reload Time",
+        "value": 1.7,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 333,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 475,
+        "type": "number"
+      },
+      {
+        "name": "Effective Range",
+        "value": 48,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 0.05,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "weaponFamily": "Karpov 38",
+    "scaledStats": [
+      {
+        "Damage Per Shot": 91.5,
+        "Shield Damage Per Shot": 30.2,
+        "DPS": 508.2
+      },
+      {
+        "Damage Per Shot": 107.2,
+        "Shield Damage Per Shot": 32.5,
+        "DPS": 595.3
+      },
+      {
+        "Damage Per Shot": 129.5,
+        "Shield Damage Per Shot": 34.7,
+        "DPS": 719.5
+      },
+      {
+        "Damage Per Shot": 160.8,
+        "Shield Damage Per Shot": 37.0,
+        "DPS": 893.2
+      },
+      {
+        "Damage Per Shot": 204.6,
+        "Shield Damage Per Shot": 39.2,
+        "DPS": 1136.5
+      }
+    ]
+  },
+  {
+    "slug": "b1c4_unique_heavypistol2",
+    "name": "Hell-Fury Pistol",
+    "description": "A special cocktail of magnesium and certain other elements can produce a very nasty, burning round. This <Unique>Unique</> snub-nosed heavy pistol causes fire-buildup on a hit.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c4/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnheavypistol_unique_headsho07r_d.webp?v=1775935124890",
+    "weaponType": "ranged",
+    "img": "imgs/weapons/b1c4_unique_heavypistol2.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Shot",
+        "value": 371.1,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 121,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 6,
+        "type": "number"
+      },
+      {
+        "name": "Reload Time",
+        "value": 1.8,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 70,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 436.6,
+        "type": "number"
+      },
+      {
+        "name": "Effective Range",
+        "value": 63,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 3.55,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "weaponFamily": "Rafiq Snubnose",
+    "scaledStats": [
+      {
+        "Damage Per Shot": 397.1,
+        "Shield Damage Per Shot": 130.7,
+        "DPS": 467.2
+      },
+      {
+        "Damage Per Shot": 465.1,
+        "Shield Damage Per Shot": 140.4,
+        "DPS": 547.2
+      },
+      {
+        "Damage Per Shot": 562.1,
+        "Shield Damage Per Shot": 150.0,
+        "DPS": 661.3
+      },
+      {
+        "Damage Per Shot": 697.9,
+        "Shield Damage Per Shot": 159.7,
+        "DPS": 821.0
+      },
+      {
+        "Damage Per Shot": 887.9,
+        "Shield Damage Per Shot": 169.4,
+        "DPS": 1044.7
+      }
+    ]
+  },
+  {
+    "slug": "b1c4_unique_lmg2",
+    "name": "The Hateful Barker",
+    "description": "Peak aggression is often the enemy of precision. This <Unique>Unique</> LMG is very inaccurate but makes up for it with a 25% damage bonus.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c4/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlmg_unique_rapidfire_07r_d.webp?v=1775935124890",
+    "weaponType": "ranged",
+    "img": "imgs/weapons/b1c4_unique_lmg2.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Shot",
+        "value": 33.1,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 11,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 140,
+        "type": "number"
+      },
+      {
+        "name": "Reload Time",
+        "value": 3.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 1176,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 649,
+        "type": "number"
+      },
+      {
+        "name": "Effective Range",
+        "value": 58,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 2,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 1.1,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 5,
+        "type": "number"
+      }
+    ],
+    "weaponFamily": "VULCAN GAU-92",
+    "scaledStats": [
+      {
+        "Damage Per Shot": 35.4,
+        "Shield Damage Per Shot": 11.9,
+        "DPS": 694.4
+      },
+      {
+        "Damage Per Shot": 41.5,
+        "Shield Damage Per Shot": 12.8,
+        "DPS": 813.4
+      },
+      {
+        "Damage Per Shot": 50.1,
+        "Shield Damage Per Shot": 13.6,
+        "DPS": 983.0
+      },
+      {
+        "Damage Per Shot": 62.2,
+        "Shield Damage Per Shot": 14.5,
+        "DPS": 1220.4
+      },
+      {
+        "Damage Per Shot": 79.2,
+        "Shield Damage Per Shot": 15.4,
+        "DPS": 1552.9
+      }
+    ]
+  },
+  {
+    "slug": "b1c4_unique_smg2",
+    "name": "Spitting Cobra",
+    "description": "If at first your poison fails to slay — inundate, inundate, inundate. This <Unique>Unique</>, assassin-modified disruptor causes poison buildup with every hit.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c4/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnsmg_unique_largemag_07r_d.webp?v=1775935124890",
+    "weaponType": "ranged",
+    "img": "imgs/weapons/b1c4_unique_smg2.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Automatic",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Shot",
+        "value": 61.6,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 24,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 36,
+        "type": "number"
+      },
+      {
+        "name": "Reload Time",
+        "value": 1.5,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 600,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 616,
+        "type": "number"
+      },
+      {
+        "name": "Effective Range",
+        "value": 10,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.5,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 0.29,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "weaponFamily": "Disruptor M11",
+    "scaledStats": [
+      {
+        "Damage Per Shot": 65.9,
+        "Shield Damage Per Shot": 25.9,
+        "DPS": 659.1
+      },
+      {
+        "Damage Per Shot": 77.2,
+        "Shield Damage Per Shot": 27.8,
+        "DPS": 772.0
+      },
+      {
+        "Damage Per Shot": 93.3,
+        "Shield Damage Per Shot": 29.8,
+        "DPS": 933.1
+      },
+      {
+        "Damage Per Shot": 115.8,
+        "Shield Damage Per Shot": 31.7,
+        "DPS": 1158.4
+      },
+      {
+        "Damage Per Shot": 147.4,
+        "Shield Damage Per Shot": 33.6,
+        "DPS": 1473.9
+      }
+    ]
+  },
+  {
+    "slug": "b1c4_unique_smugdmr1",
+    "name": "Blind Fury",
+    "description": "Necessity is the mother of modification. This <Unique>Unique</> rifle sacrifices its scope for slightly faster reload, slightly faster rate of fire, and holds 5 ammo.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c4/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnlongrifle_unique_poison_07r_d.webp?v=1775935124890",
+    "weaponType": "ranged",
+    "img": "imgs/weapons/b1c4_unique_smugdmr1.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Heavy Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Shot",
+        "value": 325.9,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 99,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Reload Time",
+        "value": 1.9,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 95,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 517.3,
+        "type": "number"
+      },
+      {
+        "name": "Effective Range",
+        "value": 88,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.18,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 8.75,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "weaponFamily": "JABAL Spitdart",
+    "scaledStats": [
+      {
+        "Damage Per Shot": 348.7,
+        "Shield Damage Per Shot": 106.9,
+        "DPS": 553.5
+      },
+      {
+        "Damage Per Shot": 408.4,
+        "Shield Damage Per Shot": 114.8,
+        "DPS": 648.3
+      },
+      {
+        "Damage Per Shot": 493.6,
+        "Shield Damage Per Shot": 122.8,
+        "DPS": 783.5
+      },
+      {
+        "Damage Per Shot": 612.9,
+        "Shield Damage Per Shot": 130.7,
+        "DPS": 972.8
+      },
+      {
+        "Damage Per Shot": 779.8,
+        "Shield Damage Per Shot": 138.6,
+        "DPS": 1237.7
+      }
+    ]
+  },
+  {
+    "slug": "b1c4_unique_dirk2",
+    "name": "Eel’s Tooth",
+    "description": "The best offense is a fully-charged battery. Every attack from this <Unique>Unique</> blade restores one’s battery pack by 5.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c4/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquedirk_05r_d.webp?v=1775935124890",
+    "weaponType": "melee",
+    "img": "imgs/weapons/b1c4_unique_dirk2.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Hit",
+        "value": 138.52,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 831.1,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 415.6,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 14.63,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {
+        "Damage Per Hit": 148.2,
+        "Heavy Attack Damage (Shielded)": 889.3,
+        "Heavy Attack Damage (Unshielded)": 444.7,
+        "Shield Damage Per Hit": 15.8
+      },
+      {
+        "Damage Per Hit": 173.6,
+        "Heavy Attack Damage (Shielded)": 1041.6,
+        "Heavy Attack Damage (Unshielded)": 520.9,
+        "Shield Damage Per Hit": 17.0
+      },
+      {
+        "Damage Per Hit": 209.8,
+        "Heavy Attack Damage (Shielded)": 1258.9,
+        "Heavy Attack Damage (Unshielded)": 629.5,
+        "Shield Damage Per Hit": 18.1
+      },
+      {
+        "Damage Per Hit": 260.5,
+        "Heavy Attack Damage (Shielded)": 1562.9,
+        "Heavy Attack Damage (Unshielded)": 781.5,
+        "Shield Damage Per Hit": 19.3
+      },
+      {
+        "Damage Per Hit": 331.4,
+        "Heavy Attack Damage (Shielded)": 1988.6,
+        "Heavy Attack Damage (Unshielded)": 994.4,
+        "Shield Damage Per Hit": 20.5
+      }
+    ]
+  },
+  {
+    "slug": "b1c4_unique_dualblades1",
+    "name": "Leech’s Maw",
+    "description": "A drained enemy is a helpless enemy. Every hit from these <Unique>Unique</> dual blades drains a target of power.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c4/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeharkdualdagger01_maros01r_d.webp?v=1775935124890",
+    "weaponType": "melee",
+    "img": "imgs/weapons/b1c4_unique_dualblades1.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Hit",
+        "value": 137.15,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 822.9,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 411.4,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 14.63,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 2,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {
+        "Damage Per Hit": 146.8,
+        "Heavy Attack Damage (Shielded)": 880.5,
+        "Heavy Attack Damage (Unshielded)": 440.2,
+        "Shield Damage Per Hit": 15.8
+      },
+      {
+        "Damage Per Hit": 171.9,
+        "Heavy Attack Damage (Shielded)": 1031.3,
+        "Heavy Attack Damage (Unshielded)": 515.6,
+        "Shield Damage Per Hit": 17.0
+      },
+      {
+        "Damage Per Hit": 207.7,
+        "Heavy Attack Damage (Shielded)": 1246.5,
+        "Heavy Attack Damage (Unshielded)": 623.1,
+        "Shield Damage Per Hit": 18.1
+      },
+      {
+        "Damage Per Hit": 257.9,
+        "Heavy Attack Damage (Shielded)": 1547.5,
+        "Heavy Attack Damage (Unshielded)": 773.6,
+        "Shield Damage Per Hit": 19.3
+      },
+      {
+        "Damage Per Hit": 328.2,
+        "Heavy Attack Damage (Shielded)": 1969.0,
+        "Heavy Attack Damage (Unshielded)": 984.4,
+        "Shield Damage Per Hit": 20.5
+      }
+    ]
+  },
+  {
+    "slug": "b1c4_unique_kindjal2",
+    "name": "Serpent’s Fang",
+    "description": "Intrigue amongst the Great Houses is a treacherous game. Poison often coats the blades of polite society. This <Unique>Unique</> Kindjal causes poison damage.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c4/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleekindjal_unique_blood_07r_d.webp?v=1775935124890",
+    "weaponType": "melee",
+    "img": "imgs/weapons/b1c4_unique_kindjal2.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Hit",
+        "value": 138.52,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 831.1,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 415.6,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 14.63,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {
+        "Damage Per Hit": 148.2,
+        "Heavy Attack Damage (Shielded)": 889.3,
+        "Heavy Attack Damage (Unshielded)": 444.7,
+        "Shield Damage Per Hit": 15.8
+      },
+      {
+        "Damage Per Hit": 173.6,
+        "Heavy Attack Damage (Shielded)": 1041.6,
+        "Heavy Attack Damage (Unshielded)": 520.9,
+        "Shield Damage Per Hit": 17.0
+      },
+      {
+        "Damage Per Hit": 209.8,
+        "Heavy Attack Damage (Shielded)": 1258.9,
+        "Heavy Attack Damage (Unshielded)": 629.5,
+        "Shield Damage Per Hit": 18.1
+      },
+      {
+        "Damage Per Hit": 260.5,
+        "Heavy Attack Damage (Shielded)": 1562.9,
+        "Heavy Attack Damage (Unshielded)": 781.5,
+        "Shield Damage Per Hit": 19.3
+      },
+      {
+        "Damage Per Hit": 331.4,
+        "Heavy Attack Damage (Shielded)": 1988.6,
+        "Heavy Attack Damage (Unshielded)": 994.4,
+        "Shield Damage Per Hit": 20.5
+      }
+    ]
+  },
+  {
+    "slug": "b1c4_unique_rapier2",
+    "name": "Prescient Edge",
+    "description": "The edge of this blade is so sharp, its balance so precise, the wielder feels as if they know their opponent’s next move before they do. No attacker comes away unscathed. This <Unique>Unique</> rapier causes bleed on an opponent with every successful parry.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c4/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquerapier_power_07r_d.webp?v=1775935124890",
+    "weaponType": "melee",
+    "img": "imgs/weapons/b1c4_unique_rapier2.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Hit",
+        "value": 138.52,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 831.1,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 415.6,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 14.63,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 2,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {
+        "Damage Per Hit": 148.2,
+        "Heavy Attack Damage (Shielded)": 889.3,
+        "Heavy Attack Damage (Unshielded)": 444.7,
+        "Shield Damage Per Hit": 15.8
+      },
+      {
+        "Damage Per Hit": 173.6,
+        "Heavy Attack Damage (Shielded)": 1041.6,
+        "Heavy Attack Damage (Unshielded)": 520.9,
+        "Shield Damage Per Hit": 17.0
+      },
+      {
+        "Damage Per Hit": 209.8,
+        "Heavy Attack Damage (Shielded)": 1258.9,
+        "Heavy Attack Damage (Unshielded)": 629.5,
+        "Shield Damage Per Hit": 18.1
+      },
+      {
+        "Damage Per Hit": 260.5,
+        "Heavy Attack Damage (Shielded)": 1562.9,
+        "Heavy Attack Damage (Unshielded)": 781.5,
+        "Shield Damage Per Hit": 19.3
+      },
+      {
+        "Damage Per Hit": 331.4,
+        "Heavy Attack Damage (Shielded)": 1988.6,
+        "Heavy Attack Damage (Unshielded)": 994.4,
+        "Shield Damage Per Hit": 20.5
+      }
+    ]
+  },
+  {
+    "slug": "b1c4_unique_sword2",
+    "name": "Branding Blade",
+    "description": "A special chemical treatment super heats the blade. Enemies who live tend to carry the scars with them forever after. This <Unique>Unique</> sword causes burn buildup with every hit.",
+    "tier": 6,
+    "rarity": "Unique",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c4/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeuniquesword_06r_d.webp?v=1775935124890",
+    "weaponType": "melee",
+    "img": "imgs/weapons/b1c4_unique_sword2.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Hit",
+        "value": 152.37,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 914.2,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 457.1,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 14.63,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "scaledStats": [
+      {
+        "Damage Per Hit": 163.0,
+        "Heavy Attack Damage (Shielded)": 978.2,
+        "Heavy Attack Damage (Unshielded)": 489.1,
+        "Shield Damage Per Hit": 15.8
+      },
+      {
+        "Damage Per Hit": 191.0,
+        "Heavy Attack Damage (Shielded)": 1145.8,
+        "Heavy Attack Damage (Unshielded)": 572.9,
+        "Shield Damage Per Hit": 17.0
+      },
+      {
+        "Damage Per Hit": 230.8,
+        "Heavy Attack Damage (Shielded)": 1384.7,
+        "Heavy Attack Damage (Unshielded)": 692.4,
+        "Shield Damage Per Hit": 18.1
+      },
+      {
+        "Damage Per Hit": 286.5,
+        "Heavy Attack Damage (Shielded)": 1719.2,
+        "Heavy Attack Damage (Unshielded)": 859.6,
+        "Shield Damage Per Hit": 19.3
+      },
+      {
+        "Damage Per Hit": 364.6,
+        "Heavy Attack Damage (Shielded)": 2187.4,
+        "Heavy Attack Damage (Unshielded)": 1093.7,
+        "Shield Damage Per Hit": 20.5
+      }
+    ]
   }
 ]

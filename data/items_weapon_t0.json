@@ -1,0 +1,564 @@
+[
+  {
+    "slug": "choamsda1",
+    "name": "Improvised Maula Pistol",
+    "description": "Lightweight but with a short range, the Maula Pistol is a reliable sidearm.",
+    "tier": 0,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hchoammaula01_t0r_d.webp?v=1775935124890",
+    "weaponType": "ranged",
+    "img": "imgs/weapons/choamsda1.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Shot",
+        "value": 4.8,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 4,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 18,
+        "type": "number"
+      },
+      {
+        "name": "Reload Time",
+        "value": 1.16667,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 342,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 27.4,
+        "type": "number"
+      },
+      {
+        "name": "Effective Range",
+        "value": 39,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 1.825,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 1.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "weaponFamily": "Maula Pistol"
+  },
+  {
+    "slug": "uniquesda_story_ari",
+    "name": "Ari's Pistol",
+    "description": "A special Maula Pistol that greatly increases accuracy while Prescient.",
+    "tier": 0,
+    "rarity": "Memento",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpn2hchoammaula01_t4r_d.webp?v=1775935124890",
+    "weaponType": "ranged",
+    "img": "imgs/weapons/uniquesda_story_ari.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Light Dart",
+        "type": "text"
+      },
+      {
+        "name": "Fire Mode",
+        "value": "Semi-Automatic",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Shot",
+        "value": 34.5,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Shot",
+        "value": 11,
+        "type": "number"
+      },
+      {
+        "name": "Clip Size",
+        "value": 18,
+        "type": "number"
+      },
+      {
+        "name": "Reload Time",
+        "value": 1.83,
+        "type": "number"
+      },
+      {
+        "name": "Rate of Fire",
+        "value": 352,
+        "type": "number"
+      },
+      {
+        "name": "DPS",
+        "value": 202.9,
+        "type": "number"
+      },
+      {
+        "name": "Effective Range",
+        "value": 39,
+        "type": "number"
+      },
+      {
+        "name": "Accuracy",
+        "value": 0.4,
+        "type": "number"
+      },
+      {
+        "name": "Stability",
+        "value": 1,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ],
+    "weaponFamily": "Maula Pistol"
+  },
+  {
+    "slug": "contractseronvarlindamasteelsword",
+    "name": "Ceremonial Damasteel Sword",
+    "description": "Forged to Seron's specifications, it seems more a piece of art than a blade.",
+    "tier": 0,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/contracts/t_ui_iconcontractwrappedpackage_d.webp?v=1775935124890",
+    "weaponType": "melee",
+    "img": "imgs/weapons/contractseronvarlindamasteelsword.webp",
+    "stats": [
+      {
+        "name": "Volume",
+        "value": 0,
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "slug": "crysknife",
+    "name": "Unfixed Crysknife",
+    "description": "The Unfixed Crysknife is made from a sandworm's tooth and is very brittle. Cannot leave the owner's person.",
+    "tier": 0,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleefremcrysknife01r_d.webp?v=1775935124890",
+    "weaponType": "melee",
+    "img": "imgs/weapons/crysknife.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Hit",
+        "value": 191.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 1149.6,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 574.8,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 4.01,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "slug": "crysknife_story_zantara",
+    "name": "Zantara's Crysknife",
+    "description": "A Special crysknife that used to belong to Zantara.",
+    "tier": 0,
+    "rarity": "Memento",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleefremcrysknife01r_d.webp?v=1775935124890",
+    "weaponType": "melee",
+    "img": "imgs/weapons/crysknife_story_zantara.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Hit",
+        "value": 191.6,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 1149.6,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 574.8,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 4.01,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "slug": "dualblades_memento",
+    "name": "Feyd’s Spare Blades",
+    "description": "Feyd-Rautha is known to favor his own custom sets of Kindjal and Slip-tip dual blades, making deadly use of their combination. It would be a rare privileged to own such a set. How many lives have these razor edges claimed?",
+    "tier": 0,
+    "rarity": "Memento",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c3/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeharkdualdaggerr_d.webp?v=1775935124890",
+    "weaponType": "melee",
+    "img": "imgs/weapons/dualblades_memento.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Hit",
+        "value": 99.22,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 595.3,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 297.7,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 11.2,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 2,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 5,
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "slug": "hook_01",
+    "name": "The Glutton's Hook",
+    "description": "A Special sharpened hook that's been used on all manner of meats. Adds bleed stacks to its target on hit.",
+    "tier": 0,
+    "rarity": "Memento",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/tools/t_ui_icontoolharkonnentorturetoolhook01r_d.webp?v=1775935124890",
+    "weaponType": "melee",
+    "img": "imgs/weapons/hook_01.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Hit",
+        "value": 54.27,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 325.6,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 162.8,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 12.4,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "slug": "minotaur_memento",
+    "name": "Asterion’s End",
+    "description": "A dense, razor-edged <Unique>Unique</> weapon built to shear through armored flesh by force alone.\n\nTauromachy, the brutal Old Terran contest of man against beast, endured as a defining Atreides rite until Old Duke Paulus fell beneath Salusan horns. Asterion’s End lingers as a ghost of the arena, whispered as though the Minotaur’s curse still coils within it, binding valor and doom in equal measure.",
+    "tier": 0,
+    "rarity": "Memento",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dlc/b1c3/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleesmugminoswordr_d.webp?v=1775935124890",
+    "weaponType": "melee",
+    "img": "imgs/weapons/minotaur_memento.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Hit",
+        "value": 110.16,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 105,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 661,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 330.5,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 12.4,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 5,
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "slug": "scrapmetalknife",
+    "name": "Scrap Metal Knife",
+    "description": "Designed by necessity using whatever is close at hand, many resort to this melee weapon for short-range Blade Damage.",
+    "tier": 0,
+    "rarity": "Common",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeneutdagger01r_d.webp?v=1775935124890",
+    "weaponType": "melee",
+    "img": "imgs/weapons/scrapmetalknife.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Hit",
+        "value": 5.52,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 33.1,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 16.6,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 2.67,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "slug": "uniquedirk_story_feyd",
+    "name": "Feyd's Take-Down Blade",
+    "description": "A Special assassination blade that quickly poisons its target.",
+    "tier": 0,
+    "rarity": "Memento",
+    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/weapons/player/t_ui_iconwpnmeleeharkdagger01r_d.webp?v=1775935124890",
+    "weaponType": "melee",
+    "img": "imgs/weapons/uniquedirk_story_feyd.webp",
+    "stats": [
+      {
+        "name": "Damage Type",
+        "value": "Blade",
+        "type": "text"
+      },
+      {
+        "name": "Damage Per Hit",
+        "value": 53.33,
+        "type": "number"
+      },
+      {
+        "name": "Attack Speed",
+        "value": 139,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Shielded)",
+        "value": 320,
+        "type": "number"
+      },
+      {
+        "name": "Heavy Attack Damage (Unshielded)",
+        "value": 160,
+        "type": "number"
+      },
+      {
+        "name": "Shield Damage Per Hit",
+        "value": 12.4,
+        "type": "number"
+      },
+      {
+        "name": "Attack Stamina Cost",
+        "value": 5,
+        "type": "number"
+      },
+      {
+        "name": "Block Stamina Cost",
+        "value": 7.8,
+        "type": "number"
+      },
+      {
+        "name": "Volume",
+        "value": 1,
+        "type": "number"
+      }
+    ]
+  }
+]

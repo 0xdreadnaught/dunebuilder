@@ -696,7 +696,7 @@ function assignUtilitySlot(slug) {
 async function loadGarmentItems() {
   try {
     const [t6Res, t5Res, t4Res, t3Res, t2Res, t1Res, t0Res, utilityRes, augmentRes,
-           wt6Res, wt5Res, wt4Res, wt3Res, wt2Res, wt1Res,
+           wt6Res, wt5Res, wt4Res, wt3Res, wt2Res, wt1Res, wt0Res,
            augMeleeRes, augRangedRes] = await Promise.all([
       fetch('./data/items_garment_t6.json'),
       fetch('./data/items_garment_t5.json'),
@@ -713,6 +713,7 @@ async function loadGarmentItems() {
       fetch('./data/items_weapon_t3.json'),
       fetch('./data/items_weapon_t2.json'),
       fetch('./data/items_weapon_t1.json'),
+      fetch('./data/items_weapon_t0.json'),
       fetch('./data/augments_melee.json'),
       fetch('./data/augments_ranged.json'),
     ]);
@@ -741,7 +742,8 @@ async function loadGarmentItems() {
     const wt3 = await wt3Res.json();
     const wt2 = await wt2Res.json();
     const wt1 = await wt1Res.json();
-    WEAPON_ITEMS = [...wt6, ...wt5, ...wt4, ...wt3, ...wt2, ...wt1];
+    const wt0 = await wt0Res.json();
+    WEAPON_ITEMS = [...wt6, ...wt5, ...wt4, ...wt3, ...wt2, ...wt1, ...wt0];
     const augMelee = await augMeleeRes.json();
     const augRanged = await augRangedRes.json();
     WEAPON_AUGMENT_DATA = [...augMelee, ...augRanged];
