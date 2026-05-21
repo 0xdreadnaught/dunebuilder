@@ -4428,3 +4428,21 @@ pasteBtn.addEventListener('click', async () => {
     }
   });
 })();
+
+// Dev hook — exposes key state and functions for the golden-test harness.
+// Safe to leave in production builds: harmless read-only surface.
+window.__golden = {
+  applyBuildData,
+  refreshPanels,
+  showTooltip,
+  appSettings,
+  equippedItems,
+  equippedGrades,
+  equippedAugments,
+  augmentSlotUnlocks,
+  specState,
+  // WEAPON_BY_SLUG / GARMENT_BY_SLUG are reassigned after async load, so expose
+  // getters so the harness always sees the current Map reference.
+  get WEAPON_BY_SLUG()  { return WEAPON_BY_SLUG; },
+  get GARMENT_BY_SLUG() { return GARMENT_BY_SLUG; },
+};

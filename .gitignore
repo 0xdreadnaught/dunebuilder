@@ -2,3 +2,4 @@ mockups/
 docs/superpowers/
 scratch/
 dune-test-transcript.txt
+test/golden/baseline.json
