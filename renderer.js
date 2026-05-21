@@ -2512,7 +2512,7 @@ function showTooltip(slotType, force) {
     augEffects[c.key].max += c.max;
     if (!c.hasCustom) augEffects[c.key].hasCustom = false;
     pushContrib(c.key, {
-      augName: c.augName, augGrade: c.augGrade, type: c.type,
+      key: c.key, augName: c.augName, augGrade: c.augGrade, type: c.type,
       min: c.min, max: c.max, isCustom: c.hasCustom, isTradeoff: c.isTradeoff,
     });
   });
@@ -2939,6 +2939,27 @@ function showAugmentTooltip(slotType, dotIndex, force) {
  * Renders into #stat-formula-tooltip near the cursor — separate from the main
  * tooltip panel so it doesn't conflict with a pinned weapon tooltip.
  */
+// Short, uniform stat abbreviations for formula-tooltip tokens (Aug1DMG%,
+// Aug2HS%, CombatDMG%, …). Keyed by the EXPANDED stat key as it appears in a
+// contribution (damage→damagePerShot/Hit, dartMitigation→light/heavyDartMitigation).
+// Unmapped keys fall back to a CamelCase of the key so future stats degrade gracefully.
+const STAT_ABBREV = {
+  damagePerShot: 'DMG', damagePerHit: 'DMG',
+  shieldDamagePerShot: 'SHD', shieldDamagePerHit: 'SHD',
+  headshotDamage: 'HS',
+  rateOfFire: 'ROF', clipSize: 'CLIP', reloadTime: 'RLD', recoil: 'RCL',
+  accuracy: 'ACC', projectileSpread: 'SPR', effectiveRange: 'RNG', maximumRange: 'MaxRNG',
+  aoeRadiusM: 'AOE', powerConsumptionPerShot: 'PWR', attackStaminaCost: 'ATKStam',
+  volume: 'VOL', blockStaminaCost: 'BlkStam',
+  fireDamageOverTime: 'FireDOT', poisonDamageOverTime: 'PoisonDOT',
+  armorValue: 'ARM',
+  lightDartMitigation: 'LDartMit', heavyDartMitigation: 'HDartMit',
+  energyMitigation: 'EnrgMit', bladeMitigation: 'BladeMit', concussiveMitigation: 'ConcMit',
+  fireMitigation: 'FireMit', poisonMitigation: 'PsnMit', radiationMitigation: 'RadMit',
+  heatProtection: 'HeatProt', durabilityLossOnDefeat: 'DurLoss',
+};
+const statAbbrev = (key) => STAT_ABBREV[key] || (key ? key.charAt(0).toUpperCase() + key.slice(1) : '');
+
 function showStatFormulaTooltip(b, event) {
   if (!appSettings.showFormulas) return;
   const tip = document.getElementById('stat-formula-tooltip');
@@ -3011,11 +3032,11 @@ function showStatFormulaTooltip(b, event) {
   const buildPoolExpr = ({ includeSpecs }) => {
     const sym = [], num = [];
     pctContribs.forEach((c, i) => {
-      sym.push(`Aug${i + 1}%`);
+      sym.push(`Aug${i + 1}${statAbbrev(c.key)}%`);
       num.push(fmtDec(c.max / 100));
     });
     hsContribs.forEach((c, i) => {
-      sym.push(`HSAug${i + 1}%`);
+      sym.push(`Aug${i + 1}${statAbbrev(c.key)}%`);
       num.push(fmtDec(c.max / 100));
     });
     if (includeSpecs && b.combatPct)     { sym.push('CombatDMG%');  num.push(fmtDec(b.combatPct / 100)); }
@@ -3032,7 +3053,7 @@ function showStatFormulaTooltip(b, event) {
     if (!flatContribs.length) {
       return { sym: 'Base', num: fmtNum(b.statedValue) };
     }
-    const symParts = ['Base', ...flatContribs.map((_, i) => `Aug${i + 1}flat`)];
+    const symParts = ['Base', ...flatContribs.map((c, i) => `Aug${i + 1}${statAbbrev(c.key)}`)];
     const numParts = [fmtNum(b.statedValue), ...flatContribs.map(c => fmtFlat(c.max))];
     return { sym: `(${symParts.join(' + ')})`, num: `(${numParts.join(' + ')})` };
   };
@@ -3042,17 +3063,17 @@ function showStatFormulaTooltip(b, event) {
   // so the user can match positionally without needing the "Aug1:" prefix.
   const renderAugRows = () => {
     pctContribs.forEach(c => {
-      const tag = `${c.augName} G${c.augGrade}${c.isTradeoff ? ' (tradeoff)' : ''}`;
+      const tag = `${c.augName} G${c.augGrade}${c.isTradeoff ? ' (tradeoff)' : ''} (${statAbbrev(c.key)})`;
       const valText = c.min === c.max ? fmtPct(c.max) : `${fmtPct(c.min)} to ${fmtPct(c.max)}`;
       addRow(tag, valText);
     });
     hsContribs.forEach(c => {
-      const tag = `${c.augName} G${c.augGrade}${c.isTradeoff ? ' (tradeoff)' : ''} (HS)`;
+      const tag = `${c.augName} G${c.augGrade}${c.isTradeoff ? ' (tradeoff)' : ''} (${statAbbrev(c.key)})`;
       const valText = c.min === c.max ? fmtPct(c.max) : `${fmtPct(c.min)} to ${fmtPct(c.max)}`;
       addRow(tag, valText);
     });
     flatContribs.forEach(c => {
-      const tag = `${c.augName} G${c.augGrade}${c.isTradeoff ? ' (tradeoff)' : ''} (flat)`;
+      const tag = `${c.augName} G${c.augGrade}${c.isTradeoff ? ' (tradeoff)' : ''} (${statAbbrev(c.key)})`;
       const valText = c.min === c.max ? fmtFlat(c.max) : `${fmtFlat(c.min)} to ${fmtFlat(c.max)}`;
       addRow(tag, valText);
     });
