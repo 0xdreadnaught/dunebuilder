@@ -1657,7 +1657,7 @@
     "slot": null,
     "maxGrade": 5,
     "description": "",
-    "icon": "imgs/augments/T_UI_IconAugmentModCritDmg_D.png",
+    "icon": "imgs/augments/T_UI_IconAugmentModHeadshotDmg_D.png",
     "stats": {},
     "effects": [
       {
@@ -3056,7 +3056,7 @@
     "slot": null,
     "maxGrade": 5,
     "description": "",
-    "icon": "imgs/augments/T_UI_IconAugmentModCritDmg_D.png",
+    "icon": "imgs/augments/T_UI_IconAugmentModHeadshotDmg_D.png",
     "stats": {},
     "effects": [
       {
@@ -3718,7 +3718,7 @@
     "slot": null,
     "maxGrade": 5,
     "description": "An augmentation for the JABAL Spitdart Rifle which increases headshot damage, but increases recoil.",
-    "icon": "imgs/augments/T_UI_IconAugmentModCritDmg_D.png",
+    "icon": "imgs/augments/T_UI_IconAugmentModHeadshotDmg_D.png",
     "stats": {},
     "effects": [
       {
@@ -6928,7 +6928,7 @@
     "slot": null,
     "maxGrade": 5,
     "description": "An augmentation for the Rafiq Snubnose heavy pistol which focuses on improving the stopping power of the gun, but makes it harder to handle. This increases the damage and headshot damage of the gun at the cost of reducing the fire rate.",
-    "icon": "imgs/augments/T_UI_IconAugmentModCritDmg_D.png",
+    "icon": "imgs/augments/T_UI_IconAugmentModHeadshotDmg_D.png",
     "stats": {},
     "effects": [
       {
@@ -7263,7 +7263,7 @@
     "slot": null,
     "maxGrade": 5,
     "description": "An augmentation which increases the headshot damage of any ranged weapon.",
-    "icon": "imgs/augments/T_UI_IconAugmentModCritDmg_D.png",
+    "icon": "imgs/augments/T_UI_IconAugmentModHeadshotDmg_D.png",
     "stats": {},
     "effects": [
       {
