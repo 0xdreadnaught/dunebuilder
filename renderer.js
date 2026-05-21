@@ -3051,6 +3051,7 @@ function showStatFormulaTooltip(b, event) {
     if (includeSpecs && b.combatPct)     { sym.push('CombatDMG%');  num.push(fmtDec(b.combatPct / 100)); }
     if (includeSpecs && b.staggerPct)    { sym.push('SabotageSTGR%'); num.push(fmtDec(b.staggerPct / 100)); }
     if (includeSpecs && b.headHunterPct) { sym.push('SabotageHS%'); num.push(fmtDec(b.headHunterPct / 100)); }
+    if (includeSpecs && b.gearDmgPct)    { sym.push('GearDMG%');   num.push(fmtDec(b.gearDmgPct / 100)); }
     return {
       sym: sym.length ? ` × (1 + ${sym.join(' + ')})` : '',
       num: sym.length ? ` × (1 + ${num.join(' + ')})` : '',
@@ -3126,6 +3127,7 @@ function showStatFormulaTooltip(b, event) {
     if (b.combatPct)     addRow('CombatDMG',  fmtPct(b.combatPct));
     if (b.staggerPct)    addRow('SabotageSTGR', fmtPct(b.staggerPct));
     if (b.headHunterPct) addRow('SabotageHS', fmtPct(b.headHunterPct));
+    if (b.gearDmgPct)    addRow('GearDMG', fmtPct(b.gearDmgPct));
 
     addTotal(b.name, finalText);
   } else if (b.kind === 'stated') {
