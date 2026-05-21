@@ -105,6 +105,43 @@
     }
   },
   {
+    "name": "ranged-t6-grade0",
+    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "build": {
+      "slots": {},
+      "hotbar": {
+        "hotbar0": { "item": "smg_unique_largemag_06", "grade": 0, "augments": [null, null, null] }
+      },
+      "specializations": {}
+    }
+  },
+  {
+    "name": "ranged-t6-grade5",
+    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "build": {
+      "slots": {},
+      "hotbar": {
+        "hotbar0": { "item": "smg_unique_largemag_06", "grade": 5, "augments": [null, null, null] }
+      },
+      "specializations": {}
+    }
+  },
+  {
+    "name": "armor-t6-grade5",
+    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "build": {
+      "slots": {
+        "helm":   { "item": "combat_neut_atreidesdeserterunique05_helmet", "grade": 5, "augments": [null, null, null] },
+        "chest":  { "item": "combat_neut_atreidesdeserterunique05_top",    "grade": 5, "augments": [null, null, null] },
+        "gloves": { "item": "combat_neut_atreidesdeserterunique05_gloves", "grade": 5, "augments": [null, null, null] },
+        "pants":  { "item": "combat_neut_atreidesdeserterunique05_bottom", "grade": 5, "augments": [null, null, null] },
+        "boots":  { "item": "combat_neut_atreidesdeserterunique05_boots",  "grade": 5, "augments": [null, null, null] }
+      },
+      "hotbar": {},
+      "specializations": {}
+    }
+  },
+  {
     "name": "radsuit-t5",
     "settings": { "applyHeadshot": false, "applyStaggered": false },
     "build": {
