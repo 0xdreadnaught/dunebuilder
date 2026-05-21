@@ -146,23 +146,6 @@
     "weaponFamily": "Maula Pistol"
   },
   {
-    "slug": "contractseronvarlindamasteelsword",
-    "name": "Ceremonial Damasteel Sword",
-    "description": "Forged to Seron's specifications, it seems more a piece of art than a blade.",
-    "tier": 0,
-    "rarity": "Common",
-    "iconPath": "https://cdn-hosted.gaming.tools/dune/images/dune/gui/textures/icons/gameplay/contracts/t_ui_iconcontractwrappedpackage_d.webp?v=1775935124890",
-    "weaponType": "melee",
-    "img": "imgs/weapons/contractseronvarlindamasteelsword.webp",
-    "stats": [
-      {
-        "name": "Volume",
-        "value": 0,
-        "type": "number"
-      }
-    ]
-  },
-  {
     "slug": "crysknife",
     "name": "Unfixed Crysknife",
     "description": "The Unfixed Crysknife is made from a sandworm's tooth and is very brittle. Cannot leave the owner's person.",
