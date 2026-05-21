@@ -318,7 +318,7 @@ let calcMode = 'def';
 function getEquippedStat(slotType, nameFragment) {
   const item = equippedItems[slotType];
   if (!item) return null;
-  const stat = (item.stats || []).find(s =>
+  const stat = Object.values(item.stats || {}).find(s =>
     s.name.toLowerCase().includes(nameFragment.toLowerCase())
   );
   return stat != null ? stat.value : null;
@@ -558,6 +558,11 @@ let GARMENT_BY_SLUG = new Map();
 let WEAPON_BY_SLUG = new Map();
 let AUGMENT_BY_SLUG = new Map();
 let WEAPON_AUGMENT_BY_SLUG = new Map();
+// camelCase stat/effect key → its stripped display name (e.g. armorValue →
+// "Armor Value"). Populated at load from the data's own `.name` fields so the
+// defense totals (which the EHP/mitigation calcs and Equipment list read by
+// display name) can name a key even when no equipped item carries that stat.
+const STAT_KEY_DISPLAY = {};
 let lastCharacterPanel = null;
 let currentPickerItems = [];
 let currentPickerSlotType = null;
@@ -664,9 +669,6 @@ const LOWER_BETTER_TRADEOFF_STATS = new Set([
   'Accuracy', 'Projectile spread',
 ]);
 
-// Stats whose tradeoff values are percentage-based (not flat).
-const PERCENT_TRADEOFFS = new Set(['Volume', 'Rate of Fire', 'Reload Time', 'Recoil', 'Power Consumption (per shot)', 'Accuracy']);
-
 /** Locale-formatted number with optional fixed decimals. Adds thousands
  *  separators ("2,977" instead of "2977"). */
 function formatNumber(value, decimals) {
@@ -686,36 +688,13 @@ function formatStatValue(name, value) {
   return `${formatNumber(value)}%`;
 }
 
-function assignUtilitySlot(slug) {
-  if (slug.startsWith('powerpack')) return 'pack';
-  if (slug.startsWith('holtzman')) return 'holtzman';
-  if (slug.includes('suspensorbelt') || slug.includes('stabilizationbelt') || slug === 't2tsp') return 'belt';
-  return null;
-}
-
 async function loadGarmentItems() {
   try {
-    const [t6Res, t5Res, t4Res, t3Res, t2Res, t1Res, t0Res, utilityRes, augmentRes,
-           wt6Res, wt5Res, wt4Res, wt3Res, wt2Res, wt1Res, wt0Res,
-           augMeleeRes, augRangedRes] = await Promise.all([
-      fetch('./data/items_garment_t6.json'),
-      fetch('./data/items_garment_t5.json'),
-      fetch('./data/items_garment_t4.json'),
-      fetch('./data/items_garment_t3.json'),
-      fetch('./data/items_garment_t2.json'),
-      fetch('./data/items_garment_t1.json'),
-      fetch('./data/items_garment_t0.json'),
-      fetch('./data/items_utility.json'),
-      fetch('./data/augments_garment.json'),
-      fetch('./data/items_weapon_t6.json'),
-      fetch('./data/items_weapon_t5.json'),
-      fetch('./data/items_weapon_t4.json'),
-      fetch('./data/items_weapon_t3.json'),
-      fetch('./data/items_weapon_t2.json'),
-      fetch('./data/items_weapon_t1.json'),
-      fetch('./data/items_weapon_t0.json'),
-      fetch('./data/augments_melee.json'),
-      fetch('./data/augments_ranged.json'),
+    const [weaponsRes, garmentsRes, augmentsRes, utilityRes] = await Promise.all([
+      fetch('./data/weapons.json'),
+      fetch('./data/garments.json'),
+      fetch('./data/augments.json'),
+      fetch('./data/utility.json'),
     ]);
     // Specializations — loaded separately so it doesn't block on a single bad response.
     try {
@@ -727,43 +706,124 @@ async function loadGarmentItems() {
     } catch (e) {
       console.error('Failed to load specializations:', e);
     }
-    const t6 = await t6Res.json();
-    const t5 = await t5Res.json();
-    const t4 = await t4Res.json();
-    const t3 = await t3Res.json();
-    const t2 = await t2Res.json();
-    const t1 = await t1Res.json();
-    const t0 = await t0Res.json();
-    const utility = await utilityRes.json();
-    AUGMENT_DATA = await augmentRes.json();
-    const wt6 = await wt6Res.json();
-    const wt5 = await wt5Res.json();
-    const wt4 = await wt4Res.json();
-    const wt3 = await wt3Res.json();
-    const wt2 = await wt2Res.json();
-    const wt1 = await wt1Res.json();
-    const wt0 = await wt0Res.json();
-    WEAPON_ITEMS = [...wt6, ...wt5, ...wt4, ...wt3, ...wt2, ...wt1, ...wt0];
-    const augMelee = await augMeleeRes.json();
-    const augRanged = await augRangedRes.json();
-    WEAPON_AUGMENT_DATA = [...augMelee, ...augRanged];
 
-    const withSlots = utility
-      .map(item => {
-        const slot = assignUtilitySlot(item.slug);
-        return slot ? { ...item, slot } : null;
-      })
-      .filter(Boolean);
+    const weapons  = await weaponsRes.json();
+    const garments = await garmentsRes.json();
+    const augments = await augmentsRes.json();
+    // Utility items already carry their `slot` baked in by the dataset, so no
+    // slot-assignment mapping is needed — they merge straight into the garment pool.
+    const utility  = await utilityRes.json();
 
-    GARMENT_ITEMS = [...t6, ...t5, ...t4, ...t3, ...t2, ...t1, ...t0, ...withSlots];
+    WEAPON_ITEMS = weapons;
+    GARMENT_ITEMS = [...garments, ...utility];
+
+    // Augments split by `subtype` into the two pools the app keeps:
+    //  - weapon pool (ranged/melee) — selectable on hotbar weapons
+    //  - garment/generic pool — selectable on garments/utility
+    WEAPON_AUGMENT_DATA = augments.filter(a => a.subtype === 'ranged' || a.subtype === 'melee');
+    AUGMENT_DATA        = augments.filter(a => a.subtype === 'garment' || a.subtype === 'generic');
+
     const indexBySlug = (arr) => { const m = new Map(); for (const x of arr) if (!m.has(x.slug)) m.set(x.slug, x); return m; };
     GARMENT_BY_SLUG = indexBySlug(GARMENT_ITEMS);
     WEAPON_BY_SLUG = indexBySlug(WEAPON_ITEMS);
     AUGMENT_BY_SLUG = indexBySlug(AUGMENT_DATA);
     WEAPON_AUGMENT_BY_SLUG = indexBySlug(WEAPON_AUGMENT_DATA);
+
+    // Build the key→display-name map from the data's own `.name` values: item
+    // stats first, then augment effect names (skipping the fan-out keys, whose
+    // expanded targets are already named by the item stats above).
+    const stripColon = s => s.replace(/:$/, '');
+    [...weapons, ...garments, ...utility].forEach(it => {
+      for (const [k, v] of Object.entries(it.stats || {})) {
+        if (v?.name && STAT_KEY_DISPLAY[k] == null) STAT_KEY_DISPLAY[k] = stripColon(v.name);
+      }
+    });
+    augments.forEach(a => (a.effects || []).forEach(e => {
+      if (e.key === 'damage' || e.key === 'shieldDamage' || e.key === 'dartMitigation') return;
+      if (e.name && STAT_KEY_DISPLAY[e.key] == null) STAT_KEY_DISPLAY[e.key] = stripColon(e.name);
+    }));
   } catch (e) {
     console.error('Failed to load items:', e);
   }
+}
+
+// =============================================
+// KEYED STAT ACCESS + EFFECT REGISTRY
+// =============================================
+
+/** Numeric value of a keyed stat at a given grade. Grade scaling reads
+ *  `perGrade[grade-1]` (grade 1..maxGrade); falls back to the grade-0 `value`
+ *  at grade 0 or when the stat doesn't scale. Returns null when the key is
+ *  absent or non-numeric. */
+function statValueAt(stats, key, grade) {
+  const s = stats?.[key];
+  if (!s || typeof s.value !== 'number') return null;
+  if (grade > 0 && Array.isArray(s.perGrade) && s.perGrade[grade - 1] != null) {
+    return s.perGrade[grade - 1];
+  }
+  return s.value;
+}
+
+/** The keys an effect's `key` routes to. Mirrors the old expandStatKey:
+ *  `damage`/`shieldDamage` fan out to the per-shot AND per-hit stat keys, and
+ *  `dartMitigation` to the light + heavy mitigation keys. All other keys route
+ *  to themselves. */
+function expandEffectKey(key) {
+  if (key === 'dartMitigation') return ['lightDartMitigation', 'heavyDartMitigation'];
+  if (key === 'damage') return ['damagePerShot', 'damagePerHit'];
+  if (key === 'shieldDamage') return ['shieldDamagePerShot', 'shieldDamagePerHit'];
+  return [key];
+}
+
+/** Effect keys whose in-game sign is inverted (Funcom shows a "-40%" accuracy
+ *  augment as a buff). The data matches the game's display, so the calc flips
+ *  the sign here. */
+const SIGN_FLIP_KEYS = new Set(['accuracy']);
+
+/**
+ * Resolve a slot's socketed augments into normalized per-stat-key contributions.
+ *
+ * Returns an array of contribution objects, one per (effect × expanded key):
+ *   { key, type, min, max, hasCustom, isTradeoff, augName, augGrade }
+ * where `type` is 'percent'|'flat', min/max are the rolled (sign-corrected)
+ * bounds for the augment's grade (equal when custom-valued or a single-value
+ * effect), and `isTradeoff` marks downside effects (good:false).
+ *
+ * Behavior preserved from the pre-migration code:
+ *  - reads effect.grades[augGrade-1]; null (below min quality) is skipped;
+ *  - good:true effects honor a per-effect custom override (keyed by effect.name)
+ *    which collapses min==max==custom; good:false (tradeoffs) ignore customs;
+ *  - accuracy sign flip applied to both bounds;
+ *  - damage/shieldDamage/dartMitigation fan out via expandEffectKey.
+ */
+function resolveAugmentContribs(slotType, augSlots) {
+  const contribs = [];
+  (augSlots || []).forEach(aug => {
+    if (!aug || !aug.slug) return;
+    const augData = findAugmentData(aug.slug, slotType);
+    if (!augData) return;
+    const augGrade = aug.grade || 1;
+    const gradeIdx = augGrade > 0 ? augGrade - 1 : 0;
+
+    (augData.effects || []).forEach(eff => {
+      const g = eff.grades?.[gradeIdx];
+      if (!g) return; // null below min quality → skip
+      const isTradeoff = eff.good === false;
+      const sign = SIGN_FLIP_KEYS.has(eff.key) ? -1 : 1;
+      // Tradeoffs never honored custom values (matches old tradeoff path).
+      const customVal = isTradeoff ? null : aug.customValues?.[eff.name];
+      const hasCustom = customVal != null;
+      const min = sign * (hasCustom ? customVal : g[0]);
+      const max = sign * (hasCustom ? customVal : g[1]);
+      expandEffectKey(eff.key).forEach(key => {
+        contribs.push({
+          key, type: eff.op, min, max, hasCustom, isTradeoff,
+          augName: augData.name, augGrade,
+        });
+      });
+    });
+  });
+  return contribs;
 }
 
 function createItemCard(item, slotType) {
@@ -773,7 +833,7 @@ function createItemCard(item, slotType) {
 
   const img = document.createElement('img');
   img.className = 'item-card__icon';
-  img.src = item.img;
+  img.src = item.icon;
   img.alt = item.name;
   img.loading = 'lazy';
 
@@ -796,7 +856,7 @@ function createItemCard(item, slotType) {
 
   const statsEl = document.createElement('div');
   statsEl.className = 'item-card__stats';
-  (item.stats || []).forEach(stat => {
+  Object.values(item.stats || {}).forEach(stat => {
     const s = document.createElement('span');
     s.className = 'item-card__stat';
     s.textContent = `${stat.name.replace(/:$/, '')}: ${formatStatValue(stat.name, stat.value)}`;
@@ -812,14 +872,6 @@ function createItemCard(item, slotType) {
   return card;
 }
 
-function mergeBaseWithScaled(baseStats, scaledOverrides) {
-  return baseStats.map(stat => {
-    if (stat.name in scaledOverrides) {
-      return { ...stat, value: scaledOverrides[stat.name] };
-    }
-    return stat;
-  });
-}
 
 function aggregateEquippedStats() {
   const totals = {};
@@ -835,67 +887,30 @@ function aggregateEquippedStats() {
     // A rad suit occupies all 5 armor slots; its grade and augments live on the 'helm' key.
     const stateSlot = item.slot === 'radsuit' ? 'helm' : slotType;
     const grade = equippedGrades[stateSlot] || 0;
-    const stats = (grade > 0 && item.scaledStats?.[grade - 1] && Object.keys(item.scaledStats[grade - 1]).length > 0)
-      ? mergeBaseWithScaled(item.stats, item.scaledStats[grade - 1])
-      : item.stats;
 
-    // Build per-item stat map so augments can modify it before summing
+    // Build per-item stat map (keyed by display name) so augments can modify it
+    // before summing. Grade scaling reads perGrade[grade-1] ?? value.
     const itemStats = {};
-    (stats || []).forEach(stat => {
-      if (typeof stat.value !== 'number') return;
-      const key = stat.name.replace(/:$/, '');
-      itemStats[key] = (itemStats[key] || 0) + stat.value;
-    });
-
-    // Apply augment effects to this item's stats only
-    const augSlots = equippedAugments[stateSlot];
-    if (augSlots) {
-      augSlots.forEach(aug => {
-        if (!aug || !aug.slug) return;
-        const augData = findAugmentData(aug.slug, slotType);
-        if (!augData) return;
-        const augGrade = aug.grade || 1;
-
-        (augData.effects || []).forEach(eff => {
-          const gradeData = eff.grades[augGrade - 1];
-          if (!gradeData) return;
-          const statKey = eff.stat.replace(/:$/, '');
-          const keys = expandStatKey(statKey);
-          const customVal = aug.customValues?.[eff.stat];
-          const rawVal = customVal != null ? customVal : gradeData[1];
-          // Funcom displays Accuracy with an inverted sign: an in-game "-40%" is actually a +40%
-          // gain to the accuracy stat. The data files match the game's display, so flip here.
-          const effectVal = statKey === 'Accuracy' ? -rawVal : rawVal;
-
-          keys.forEach(key => {
-            const baseVal = itemStats[key] || 0;
-            if (eff.type === 'percent') {
-              if (baseVal === 0) return; // Percent of nothing is nothing
-              itemStats[key] = baseVal * (1 + effectVal / 100);
-            } else {
-              itemStats[key] = baseVal + effectVal;
-            }
-          });
-        });
-
-        // Tradeoffs apply to the item
-        (augData.tradeoffs || []).forEach(t => {
-          const statKey = t.stat.replace(/:$/, '');
-          const keys = expandStatKey(statKey);
-          const isPercent = PERCENT_TRADEOFFS.has(statKey);
-          const tradeoffVal = statKey === 'Accuracy' ? -t.value : t.value;
-          keys.forEach(key => {
-            const baseVal = itemStats[key] || 0;
-            if (isPercent) {
-              if (baseVal === 0) return; // Percent of nothing is nothing
-              itemStats[key] = baseVal * (1 + tradeoffVal / 100);
-            } else {
-              itemStats[key] = baseVal + tradeoffVal;
-            }
-          });
-        });
-      });
+    for (const [statKey, stat] of Object.entries(item.stats || {})) {
+      const v = statValueAt(item.stats, statKey, grade);
+      if (v == null) continue;
+      const name = stat.name.replace(/:$/, '');
+      itemStats[name] = (itemStats[name] || 0) + v;
     }
+
+    // Apply socketed augment effects to this item's stats only. Effects route by
+    // camelCase key; translate to the display-name space `itemStats` uses. The
+    // aggregate uses each effect's MAX rolled value (or custom override).
+    resolveAugmentContribs(stateSlot, equippedAugments[stateSlot]).forEach(c => {
+      const name = STAT_KEY_DISPLAY[c.key] || c.key;
+      const baseVal = itemStats[name] || 0;
+      if (c.type === 'percent') {
+        if (baseVal === 0) return; // Percent of nothing is nothing
+        itemStats[name] = baseVal * (1 + c.max / 100);
+      } else {
+        itemStats[name] = baseVal + c.max;
+      }
+    });
 
     // Sum this item's (augmented) stats into global totals
     for (const [key, value] of Object.entries(itemStats)) {
@@ -919,45 +934,46 @@ function aggregateEquippedStats() {
 // SPECIALIZATIONS — calc integration
 // =============================================
 
-// Weapon damage stats that get multiplied by the Combat damage passive.
+// Weapon damage stat keys that get multiplied by the Combat damage passive.
+// `sustainedDps` is a synthetic key the ranged path injects (no source stat).
 const SPEC_DAMAGE_KEYS = new Set([
-  'Damage Per Shot', 'Damage Per Hit',
-  'Shield Damage Per Shot', 'Shield Damage Per Hit',
-  'Heavy Attack Damage (Shielded)', 'Heavy Attack Damage (Unshielded)',
-  'DPS', 'Sustained DPS',
+  'damagePerShot', 'damagePerHit',
+  'shieldDamagePerShot', 'shieldDamagePerHit',
+  'heavyAttackDamageShielded', 'heavyAttackDamageUnshielded',
+  'dps', 'sustainedDps',
 ]);
 
-// Display-label remap for ranged: existing DPS is the burst-rate value
-// (Damage × RoF/60). The synthetic "Sustained DPS" factors in reload time —
+// Display-label remap for ranged (keyed): existing dps is the burst-rate value
+// (Damage × RoF/60). The synthetic "sustainedDps" factors in reload time —
 // that's the meaningful sustained metric so it gets the "DPS" headline label.
 const RANGED_DISPLAY_LABELS = {
-  'DPS': 'Burst DPS',
-  'Sustained DPS': 'DPS',
+  dps: 'Burst DPS',
+  sustainedDps: 'DPS',
 };
 
-// Display-only label remapping for melee weapon damage rows. The four damage
-// stats break down by attack type (light/heavy) and target state (shielded/
-// unshielded); this surface them clearly instead of using the data's stat names.
+// Display-only label remapping for melee weapon damage rows (keyed). The four
+// damage stats break down by attack type (light/heavy) and target state
+// (shielded/unshielded); surface them clearly instead of the raw stat names.
 const MELEE_DISPLAY_LABELS = {
-  'Damage Per Hit': 'Light vs Unshielded',
-  'Shield Damage Per Hit': 'Light vs Shielded',
-  'Heavy Attack Damage (Unshielded)': 'Heavy vs Unshielded',
-  'Heavy Attack Damage (Shielded)': 'Heavy vs Shielded',
+  damagePerHit: 'Light vs Unshielded',
+  shieldDamagePerHit: 'Light vs Shielded',
+  heavyAttackDamageUnshielded: 'Heavy vs Unshielded',
+  heavyAttackDamageShielded: 'Heavy vs Shielded',
 };
 
-// Preferred row order for melee weapon tooltips — keeps the four damage rows
-// grouped at the top in light→heavy / unshielded→shielded reading order.
+// Preferred row order for melee weapon tooltips (keyed) — keeps the four damage
+// rows grouped at the top in light→heavy / unshielded→shielded reading order.
 const MELEE_STAT_ORDER = [
-  'Damage Type',
-  'Damage Per Hit',
-  'Shield Damage Per Hit',
-  'Heavy Attack Damage (Unshielded)',
-  'Heavy Attack Damage (Shielded)',
-  'DPS',
-  'Attack Speed',
-  'Attack Stamina Cost',
-  'Block Stamina Cost',
-  'Volume',
+  'damageType',
+  'damagePerHit',
+  'shieldDamagePerHit',
+  'heavyAttackDamageUnshielded',
+  'heavyAttackDamageShielded',
+  'dps',
+  'attackSpeed',
+  'attackStaminaCost',
+  'blockStaminaCost',
+  'volume',
 ];
 
 /** Returns how a single damage row is composed from the weapon's one stated
@@ -983,65 +999,65 @@ function getDamageRowSpec(item, statKey, statMap, augEffects) {
   // bucket. factorLabel is the compact row-below display (e.g. "Mag/Cycle ×2.73").
   const noFactor = { factorMul: 1, factorLabel: '', factorSymExpr: '', factorNumExpr: '' };
 
-  if (item.weaponType === 'melee') {
-    const dph = valOf('Damage Per Hit');
-    if (statKey === 'Damage Per Hit') {
-      return { ...noFactor, statedKey: 'Damage Per Hit', statedValue: dph, isPrimary: true };
+  if (item.subtype === 'melee') {
+    const dph = valOf('damagePerHit');
+    if (statKey === 'damagePerHit') {
+      return { ...noFactor, statedKey: 'damagePerHit', statedValue: dph, isPrimary: true };
     }
-    if (statKey === 'Shield Damage Per Hit') {
-      return { ...noFactor, statedKey: 'Shield Damage Per Hit', statedValue: valOf('Shield Damage Per Hit'), isPrimary: true };
+    if (statKey === 'shieldDamagePerHit') {
+      return { ...noFactor, statedKey: 'shieldDamagePerHit', statedValue: valOf('shieldDamagePerHit'), isPrimary: true };
     }
-    if (statKey === 'Heavy Attack Damage (Unshielded)') {
+    if (statKey === 'heavyAttackDamageUnshielded') {
       return {
-        statedKey: 'Damage Per Hit', statedValue: dph, isPrimary: false,
+        statedKey: 'damagePerHit', statedValue: dph, isPrimary: false,
         factorMul: 3, factorLabel: 'Heavy ×3', factorSymExpr: 'Heavy', factorNumExpr: '3',
         factorRows: [{ label: 'Heavy', value: '×3' }],
       };
     }
-    if (statKey === 'Heavy Attack Damage (Shielded)') {
+    if (statKey === 'heavyAttackDamageShielded') {
       return {
-        statedKey: 'Damage Per Hit', statedValue: dph, isPrimary: false,
+        statedKey: 'damagePerHit', statedValue: dph, isPrimary: false,
         factorMul: 6, factorLabel: 'Heavy ×6', factorSymExpr: 'Heavy', factorNumExpr: '6',
         factorRows: [{ label: 'Heavy', value: '×6' }],
       };
     }
-    if (statKey === 'DPS') {
-      const spd = augmentedValue('Attack Speed') || 60;
+    if (statKey === 'dps') {
+      const spd = augmentedValue('attackSpeed') || 60;
       const mul = spd / 60;
       return {
-        statedKey: 'Damage Per Hit', statedValue: dph, isPrimary: false,
+        statedKey: 'damagePerHit', statedValue: dph, isPrimary: false,
         factorMul: mul, factorLabel: `Speed/60 ×${mul.toFixed(2)}`,
         factorSymExpr: 'Speed/60', factorNumExpr: `${fmtN(spd)}/60`,
         factorRows: [{ label: 'Attack Speed', value: fmtN(spd) }],
       };
     }
-  } else if (item.weaponType === 'ranged') {
-    const dps = valOf('Damage Per Shot');
-    if (statKey === 'Damage Per Shot') {
-      return { ...noFactor, statedKey: 'Damage Per Shot', statedValue: dps, isPrimary: true };
+  } else if (item.subtype === 'ranged') {
+    const dps = valOf('damagePerShot');
+    if (statKey === 'damagePerShot') {
+      return { ...noFactor, statedKey: 'damagePerShot', statedValue: dps, isPrimary: true };
     }
-    if (statKey === 'Shield Damage Per Shot') {
-      return { ...noFactor, statedKey: 'Shield Damage Per Shot', statedValue: valOf('Shield Damage Per Shot'), isPrimary: true };
+    if (statKey === 'shieldDamagePerShot') {
+      return { ...noFactor, statedKey: 'shieldDamagePerShot', statedValue: valOf('shieldDamagePerShot'), isPrimary: true };
     }
-    if (statKey === 'DPS') {
-      const rof = augmentedValue('Rate of Fire') || 60;
+    if (statKey === 'dps') {
+      const rof = augmentedValue('rateOfFire') || 60;
       const mul = rof / 60;
       return {
-        statedKey: 'Damage Per Shot', statedValue: dps, isPrimary: false,
+        statedKey: 'damagePerShot', statedValue: dps, isPrimary: false,
         factorMul: mul, factorLabel: `RoF/60 ×${mul.toFixed(2)}`,
         factorSymExpr: 'RoF/60', factorNumExpr: `${fmtN(rof)}/60`,
         factorRows: [{ label: 'RoF', value: fmtN(rof) }],
       };
     }
-    if (statKey === 'Sustained DPS') {
+    if (statKey === 'sustainedDps') {
       // Average shots-per-second over a full magazine cycle including reload.
-      const clip = augmentedValue('Clip Size');
-      const rof = augmentedValue('Rate of Fire') || 60;
-      const reload = augmentedValue('Reload Time');
+      const clip = augmentedValue('clipSize');
+      const rof = augmentedValue('rateOfFire') || 60;
+      const reload = augmentedValue('reloadTime');
       const cycle = (clip * 60 / rof) + reload;
       const mul = cycle > 0 ? clip / cycle : 0;
       return {
-        statedKey: 'Damage Per Shot', statedValue: dps, isPrimary: false,
+        statedKey: 'damagePerShot', statedValue: dps, isPrimary: false,
         factorMul: mul, factorLabel: `Mag/Cycle ×${mul.toFixed(2)}`,
         factorSymExpr: 'Clip / (Clip × 60/RoF + Reload)',
         factorNumExpr: `${fmtN(clip)} / (${fmtN(clip)} × 60/${fmtN(rof)} + ${fmtN(reload)})`,
@@ -1149,8 +1165,8 @@ const HEADSHOT_BLOCKED_NAME_KEYWORDS = [
 ];
 function canHeadshot(item) {
   if (!item) return false;
-  if (item.weaponType === 'melee') return false;
-  if (item.weaponFamily && HEADSHOT_BLOCKED_FAMILIES.has(item.weaponFamily)) return false;
+  if (item.subtype === 'melee') return false;
+  if (item.family && HEADSHOT_BLOCKED_FAMILIES.has(item.family)) return false;
   const name = (item.name || '').toLowerCase();
   return !HEADSHOT_BLOCKED_NAME_KEYWORDS.some(kw => name.includes(kw));
 }
@@ -1169,7 +1185,7 @@ const HIT_SPLIT_HEAD = 0.60;
  *  varies, handled by `canHeadshot`). */
 function canBodySplit(item) {
   if (!item) return false;
-  return item.weaponType !== 'melee';
+  return item.subtype !== 'melee';
 }
 
 function formatAggregatedStats(totals) {
@@ -1503,12 +1519,13 @@ function createUnlockedDot(slotType, dotIndex) {
 }
 
 // Expand augment stat names to match item stat names
-function expandStatKey(key) {
-  if (key === 'Dart Mitigation') return ['Light Dart Mitigation', 'Heavy Dart Mitigation'];
-  if (key === 'Damage') return ['Damage Per Shot', 'Damage Per Hit'];
-  if (key === 'Shield Damage') return ['Shield Damage Per Shot', 'Shield Damage Per Hit'];
-  return [key];
+/** Title-case label for an augment subtype ('ranged' → 'Ranged'), matching the
+ *  capitalized badge text the pre-migration `type[0]` field carried. */
+function augTypeLabel(subtype) {
+  if (!subtype) return '';
+  return subtype.charAt(0).toUpperCase() + subtype.slice(1);
 }
+
 
 function findAugmentData(slug, slotType) {
   if (HOTBAR_SLOTS.has(slotType)) {
@@ -1526,7 +1543,7 @@ function createAppliedAugmentDot(slotType, dotIndex, augment) {
 
   const icon = document.createElement('img');
   icon.className = 'augment-dot__icon';
-  if (augData?.type?.length) icon.classList.add(`augment-type--${augData.type[0].toLowerCase()}`);
+  if (augData?.subtype) icon.classList.add(`augment-type--${augData.subtype}`);
   icon.src = augData?.icon || '';
   icon.alt = augData?.name || '';
   dot.appendChild(icon);
@@ -1624,7 +1641,7 @@ function refreshAugmentDots(slotType, expandDotIndex) {
     if (existing) existing.remove();
     const item = equippedItems[slotType];
     const isGradeable = GARMENT_SLOTS.has(slotType) || HOTBAR_SLOTS.has(slotType);
-    if (item && isGradeable && item.scaledStats?.length && item.rarity === 'Unique' && (item.slot !== 'radsuit' || slotType === 'helm')) {
+    if (item && isGradeable && item.maxGrade > 0 && item.rarity === 'Unique' && (item.slot !== 'radsuit' || slotType === 'helm')) {
       const dots = createAugmentDots(slotType);
       slotEl.appendChild(dots);
       if (expandDotIndex != null) {
@@ -1644,15 +1661,14 @@ function getAvailableAugments(slotType, dotIndex) {
   let source;
   if (HOTBAR_SLOTS.has(slotType)) {
     const item = equippedItems[slotType];
-    const wType = item?.weaponType;
-    const wFamily = item?.weaponFamily;
+    const wType = item?.subtype;
+    const wFamily = item?.family;
     source = wType
       ? WEAPON_AUGMENT_DATA.filter(a => {
-          const types = (a.type || []).map(t => t.toLowerCase());
-          // Generic ranged/melee augments
-          if (types.length === 1 && types.includes(wType)) return true;
-          // Weapon-family-specific augments
-          if (wFamily && types.includes(wFamily.toLowerCase())) return true;
+          // Generic ranged/melee augments (no family restriction).
+          if (a.family == null && a.subtype === wType) return true;
+          // Weapon-family-specific augments.
+          if (wFamily && a.family === wFamily) return true;
           return false;
         })
       : WEAPON_AUGMENT_DATA;
@@ -1703,7 +1719,7 @@ function createAugmentCard(aug) {
 
   const img = document.createElement('img');
   img.className = 'augment-card__icon';
-  if (aug.type?.length) img.classList.add(`augment-type--${aug.type[0].toLowerCase()}`);
+  if (aug.subtype) img.classList.add(`augment-type--${aug.subtype}`);
   img.src = aug.icon;
   img.alt = aug.name;
   img.loading = 'lazy';
@@ -1719,29 +1735,26 @@ function createAugmentCard(aug) {
   effectsEl.className = 'augment-card__effects';
 
   (aug.effects || []).forEach(eff => {
-    // Show the range for the best available grade
+    // Show the range for the best available grade.
     const bestGrade = [...eff.grades].reverse().find(g => g !== null);
     if (!bestGrade) return;
     const span = document.createElement('span');
-    span.className = 'augment-card__effect';
-    const statLabel = eff.stat.replace(/:$/, '');
-    const suffix = '%';  // NOTE: flat effects arguably shouldn't carry '%' — leaving as-is (changing it alters card text; out of scope here)
+    const statLabel = eff.name.replace(/:$/, '');
     const fmtVal = v => (v >= 0 ? `+${v}` : `${v}`);
-    if (bestGrade[0] === bestGrade[1]) {
-      span.textContent = `${statLabel}: ${fmtVal(bestGrade[0])}${suffix}`;
+    // Card text always carries a '%' suffix (matches pre-migration behavior,
+    // including the flat-effect quirk). Downsides (good:false) are single-valued.
+    if (eff.good === false) {
+      const isBuff = LOWER_BETTER_TRADEOFF_STATS.has(statLabel) ? bestGrade[1] < 0 : bestGrade[1] > 0;
+      span.className = isBuff ? 'augment-card__effect' : 'augment-card__tradeoff';
+      span.textContent = `${statLabel}: ${fmtVal(bestGrade[1])}%`;
     } else {
-      span.textContent = `${statLabel}: ${fmtVal(bestGrade[0])}${suffix} to ${fmtVal(bestGrade[1])}${suffix}`;
+      span.className = 'augment-card__effect';
+      if (bestGrade[0] === bestGrade[1]) {
+        span.textContent = `${statLabel}: ${fmtVal(bestGrade[0])}%`;
+      } else {
+        span.textContent = `${statLabel}: ${fmtVal(bestGrade[0])}% to ${fmtVal(bestGrade[1])}%`;
+      }
     }
-    effectsEl.appendChild(span);
-  });
-
-  (aug.tradeoffs || []).forEach(t => {
-    const span = document.createElement('span');
-    const statKey = t.stat.replace(/:$/, '');
-    const isBuff = LOWER_BETTER_TRADEOFF_STATS.has(statKey) ? t.value < 0 : t.value > 0;
-    span.className = isBuff ? 'augment-card__effect' : 'augment-card__tradeoff';
-    const fmtVal = v => (v >= 0 ? `+${v}` : `${v}`);
-    span.textContent = `${statKey}: ${fmtVal(t.value)}%`;
     effectsEl.appendChild(span);
   });
 
@@ -1799,6 +1812,7 @@ function openAugmentValuePopup(slotType, dotIndex, event) {
   const customValues = aug.customValues || {};
 
   (augData.effects || []).forEach(eff => {
+    if (eff.good === false) return; // downsides (folded tradeoffs) aren't user-tunable
     const g = eff.grades?.[gradeIdx];
     if (!g) return; // stat not available at this grade
 
@@ -1808,20 +1822,20 @@ function openAugmentValuePopup(slotType, dotIndex, event) {
     const label = document.createElement('label');
     label.className = 'augment-value-popup__stat';
     const min = g[0], max = g[1];
-    const suffix = eff.type === 'percent' ? '%' : '';
-    label.textContent = `${eff.stat.replace(/:$/, '')} (${min}${suffix} – ${max}${suffix})`;
+    const suffix = eff.op === 'percent' ? '%' : '';
+    label.textContent = `${eff.name.replace(/:$/, '')} (${min}${suffix} – ${max}${suffix})`;
 
     const input = document.createElement('input');
     input.className = 'augment-value-popup__input';
     input.type = 'number';
     input.step = '0.1';
     input.placeholder = `${min} – ${max}`;
-    input.dataset.stat = eff.stat;
+    input.dataset.stat = eff.name;
     input.dataset.min = String(Math.min(min, max));
     input.dataset.max = String(Math.max(min, max));
 
-    if (customValues[eff.stat] != null) {
-      input.value = customValues[eff.stat];
+    if (customValues[eff.name] != null) {
+      input.value = customValues[eff.name];
     }
 
     input.addEventListener('keydown', e => {
@@ -2471,14 +2485,19 @@ function showTooltip(slotType, force) {
   nameRow.appendChild(badge);
   panel.appendChild(nameRow);
 
-  // Stats — apply grade scaling if applicable
-  let stats = item.stats || [];
+  // Stats — read the keyed map, applying grade scaling per stat. Each display
+  // row carries its camelCase `key` (for spec/label/statMap lookups) and its
+  // `name` (the display string formatStatValue keys off). Object insertion
+  // order is preserved, so the visible row order matches the data layout.
   const grade = equippedGrades[slotType] || 0;
-  if (grade > 0 && item.scaledStats?.[grade - 1]) {
-    stats = mergeBaseWithScaled(stats, item.scaledStats[grade - 1]);
-  }
+  const stats = Object.entries(item.stats || {}).map(([key, s]) => ({
+    key,
+    name: s.name,
+    type: s.type,
+    value: statValueAt(item.stats, key, grade) ?? s.value,
+  }));
 
-  // Compute augment contributions per stat for this item.
+  // Compute augment contributions per stat key for this item.
   //   augEffects[key]  → aggregated min/max/type, used for the final math.
   //   augContribs[key] → per-augment list { augName, augGrade, type, min, max,
   //     isCustom, isTradeoff } so the breakdown can show each augment as its
@@ -2489,107 +2508,72 @@ function showTooltip(slotType, force) {
     if (!augContribs[key]) augContribs[key] = [];
     augContribs[key].push(entry);
   };
-  const augSlotsForCalc = equippedAugments[slotType] || [];
-  augSlotsForCalc.forEach(aug => {
-    if (!aug) return;
-    const augData = findAugmentData(aug.slug, slotType);
-    if (!augData) return;
-    const augGrade = aug.grade || 1;
-    const gradeIdx = augGrade > 0 ? augGrade - 1 : 0;
-
-    (augData.effects || []).forEach(eff => {
-      const g = eff.grades?.[gradeIdx];
-      if (!g) return;
-      const statKey = eff.stat.replace(/:$/, '');
-      let keys = expandStatKey(statKey);
-      const customVal = aug.customValues?.[eff.stat];
-      // Accuracy is displayed with inverted sign in-game; flip here so the math works.
-      const sign = statKey === 'Accuracy' ? -1 : 1;
-      const cMin = sign * (customVal != null ? customVal : g[0]);
-      const cMax = sign * (customVal != null ? customVal : g[1]);
-      keys.forEach(key => {
-        if (!augEffects[key]) augEffects[key] = { min: 0, max: 0, hasCustom: true, type: eff.type };
-        augEffects[key].min += cMin;
-        augEffects[key].max += cMax;
-        if (customVal == null) augEffects[key].hasCustom = false;
-        pushContrib(key, {
-          augName: augData.name, augGrade, type: eff.type,
-          min: cMin, max: cMax, isCustom: customVal != null, isTradeoff: false,
-        });
-      });
-    });
-
-    (augData.tradeoffs || []).forEach(t => {
-      const statKey = t.stat.replace(/:$/, '');
-      let keys = expandStatKey(statKey);
-      const isPercent = PERCENT_TRADEOFFS.has(statKey);
-      const tradeoffVal = statKey === 'Accuracy' ? -t.value : t.value;
-      keys.forEach(key => {
-        if (!augEffects[key]) augEffects[key] = { min: 0, max: 0, hasCustom: true, type: isPercent ? 'percent' : 'flat' };
-        augEffects[key].min += tradeoffVal;
-        augEffects[key].max += tradeoffVal;
-        pushContrib(key, {
-          augName: augData.name, augGrade, type: isPercent ? 'percent' : 'flat',
-          min: tradeoffVal, max: tradeoffVal, isCustom: false, isTradeoff: true,
-        });
-      });
+  resolveAugmentContribs(slotType, equippedAugments[slotType]).forEach(c => {
+    if (!augEffects[c.key]) augEffects[c.key] = { min: 0, max: 0, hasCustom: true, type: c.type };
+    augEffects[c.key].min += c.min;
+    augEffects[c.key].max += c.max;
+    if (!c.hasCustom) augEffects[c.key].hasCustom = false;
+    pushContrib(c.key, {
+      augName: c.augName, augGrade: c.augGrade, type: c.type,
+      min: c.min, max: c.max, isCustom: c.hasCustom, isTradeoff: c.isTradeoff,
     });
   });
 
   // Build the displayed stat list with any derived/synthetic stats injected.
   // - Melee with damage-per-hit/attack-speed → add "DPS" and group attack rows.
   const displayStats = stats.slice();
-  const findStat = (name) => stats.find(s => s.name.replace(/:$/, '') === name);
-  const valueWithAugMax = (name, base) => {
-    const ae = augEffects[name];
+  const findStat = (key) => stats.find(s => s.key === key);
+  const valueWithAugMax = (key, base) => {
+    const ae = augEffects[key];
     if (!ae) return base;
     if (ae.type === 'percent') return base * (1 + ae.max / 100);
     return base + ae.max;
   };
-  if (item.weaponType === 'melee') {
-    const dphS = findStat('Damage Per Hit');
-    const spdS = findStat('Attack Speed');
+  if (item.subtype === 'melee') {
+    const dphS = findStat('damagePerHit');
+    const spdS = findStat('attackSpeed');
     if (dphS && spdS) {
-      const spd = Math.max(1, valueWithAugMax('Attack Speed', spdS.value));
+      const spd = Math.max(1, valueWithAugMax('attackSpeed', spdS.value));
       const dps = dphS.value * spd / 60;
-      displayStats.push({ name: 'DPS', value: dps, type: 'number' });
+      displayStats.push({ key: 'dps', name: 'DPS', value: dps, type: 'number' });
     }
     // Group the four light/heavy × shielded/unshielded rows together at the top
     // so they read as a damage table rather than scattered through the stats.
-    const orderIdx = name => {
-      const i = MELEE_STAT_ORDER.indexOf(name.replace(/:$/, ''));
+    const orderIdx = key => {
+      const i = MELEE_STAT_ORDER.indexOf(key);
       return i === -1 ? Infinity : i;
     };
     displayStats.sort((a, b) => {
-      const ai = orderIdx(a.name);
-      const bi = orderIdx(b.name);
+      const ai = orderIdx(a.key);
+      const bi = orderIdx(b.key);
       return ai === bi ? 0 : ai - bi;
     });
-  } else if (item.weaponType === 'ranged') {
+  } else if (item.subtype === 'ranged') {
     // Inject a synthetic "Sustained DPS" row that factors in reload time.
     // Display label flips: data's DPS (burst rate) → "Burst DPS"; synthetic
     // sustained → "DPS" (the meaningful sustained metric). Renders just above
     // the burst row so the user sees the honest DPS first.
-    const dpsIdx = displayStats.findIndex(s => s.name.replace(/:$/, '') === 'DPS');
-    if (dpsIdx >= 0 && findStat('Clip Size') && findStat('Rate of Fire') && findStat('Reload Time')) {
-      displayStats.splice(dpsIdx, 0, { name: 'Sustained DPS', value: 0, type: 'number' });
+    const dpsIdx = displayStats.findIndex(s => s.key === 'dps');
+    if (dpsIdx >= 0 && findStat('clipSize') && findStat('rateOfFire') && findStat('reloadTime')) {
+      displayStats.splice(dpsIdx, 0, { key: 'sustainedDps', name: 'Sustained DPS', value: 0, type: 'number' });
     }
   }
 
-  // Stats indexed by clean key so getDamageRowSpec can resolve cross-row refs
-  // (e.g., Heavy Attack rows need to find Damage Per Hit's raw value).
+  // Stats indexed by camelCase key so getDamageRowSpec can resolve cross-row
+  // refs (e.g., Heavy Attack rows need to find Damage Per Hit's raw value).
   const statMap = {};
-  displayStats.forEach(s => { statMap[s.name.replace(/:$/, '')] = s; });
+  displayStats.forEach(s => { statMap[s.key] = s; });
 
   displayStats.forEach(stat => {
     const row = document.createElement('div');
     row.className = 'stat-row';
 
-    const key = stat.name.replace(/:$/, '');
+    const key = stat.key;
+    const displayName = stat.name.replace(/:$/, '');
     const displayLabel =
-      (item.weaponType === 'melee'  && MELEE_DISPLAY_LABELS[key])  ||
-      (item.weaponType === 'ranged' && RANGED_DISPLAY_LABELS[key]) ||
-      key;
+      (item.subtype === 'melee'  && MELEE_DISPLAY_LABELS[key])  ||
+      (item.subtype === 'ranged' && RANGED_DISPLAY_LABELS[key]) ||
+      displayName;
 
     const label = document.createElement('span');
     label.className = 'stat-label';
@@ -2618,7 +2602,7 @@ function showTooltip(slotType, force) {
 
       // Shield damage hits the bubble — no body/head zone. The shield Stated
       // already represents the shield-specific damage value.
-      const isShieldStated = (spec.statedKey === 'Shield Damage Per Shot' || spec.statedKey === 'Shield Damage Per Hit');
+      const isShieldStated = (spec.statedKey === 'shieldDamagePerShot' || spec.statedKey === 'shieldDamagePerHit');
       const useSplit = canBodySplit(item) && !isShieldStated;
       const showHead = useSplit && appSettings.applyHeadshot && canHeadshot(item);
       const hitMode = !useSplit ? 'none' : showHead ? 'head' : 'body';
@@ -2689,13 +2673,13 @@ function showTooltip(slotType, force) {
       // value meaningfully differs from the headline). Shield rows skip the
       // split, so their tooltip row would just duplicate the headline value
       // sans Combat/Stagger — info already visible in the breakdown.
-      const isShieldRow = spec.statedKey === 'Shield Damage Per Shot' || spec.statedKey === 'Shield Damage Per Hit';
+      const isShieldRow = spec.statedKey === 'shieldDamagePerShot' || spec.statedKey === 'shieldDamagePerHit';
       if (spec.isPrimary && !isShieldRow && augEff && (augPctMin || augPctMax || augFlatMin || augFlatMax)) {
         const tipRow = document.createElement('div');
         tipRow.className = 'stat-row';
         const tipLabel = document.createElement('span');
         tipLabel.className = 'stat-label';
-        tipLabel.textContent = `Stated ${key}`;
+        tipLabel.textContent = `Stated ${displayName}`;
         const tipValue = document.createElement('span');
         tipValue.className = 'stat-value';
         tipValue.textContent = isRange
@@ -2707,7 +2691,7 @@ function showTooltip(slotType, force) {
         // spec pool — that's the headline row's story.
         const statedBreakdown = {
           kind: 'stated',
-          name: `Stated ${key}`,
+          name: `Stated ${displayName}`,
           statName: stat.name,
           statedValue: spec.statedValue,
           augPctMin, augPctMax, augFlatMin, augFlatMax,
@@ -2722,7 +2706,7 @@ function showTooltip(slotType, force) {
       }
     } else if (augEff) {
       // === Non-damage stat path (unchanged) ===
-      const precision = key === 'Accuracy' ? 1000 : 10;
+      const precision = key === 'accuracy' ? 1000 : 10;
       const roundP = v => Math.round(v * precision) / precision;
       const applyAug = (base) => {
         if (augEff.type === 'percent') {
@@ -2737,7 +2721,7 @@ function showTooltip(slotType, force) {
       const finalMin = roundP(augMin);
       const finalMax = roundP(augMax);
 
-      const lowerBetter = LOWER_IS_BETTER.has(key);
+      const lowerBetter = LOWER_IS_BETTER.has(displayName);
       const isWorse = lowerBetter ? finalMin > stat.value : finalMax < stat.value;
       const color = isWorse ? 'var(--color-health)' : 'var(--color-stamina)';
 
@@ -2749,7 +2733,7 @@ function showTooltip(slotType, force) {
 
       const breakdown = {
         kind: 'plain',
-        name: key,
+        name: displayName,
         statName: stat.name,
         baseValue: stat.value,
         augEff,
@@ -2775,7 +2759,7 @@ function showTooltip(slotType, force) {
   meta.className = 'tooltip-panel__meta';
   const parts = [];
 
-  if (item.scaledStats?.length && grade > 0) {
+  if (item.maxGrade > 0 && grade > 0) {
     parts.push(`Grade ${grade}`);
   }
 
@@ -2818,41 +2802,32 @@ function showTooltip(slotType, force) {
 
           const label = document.createElement('span');
           label.className = 'stat-label';
-          label.textContent = eff.stat.replace(/:$/, '');
+          const statName = eff.name.replace(/:$/, '');
+          label.textContent = statName;
 
           const value = document.createElement('span');
           value.className = 'stat-value';
-          value.style.color = 'var(--color-stamina)';
-
-          const customVal = aug.customValues?.[eff.stat];
-          const suffix = eff.type === 'percent' ? '%' : '';
           const fmtAugVal = v => (v >= 0 ? `+${v}` : `${v}`);
-          if (customVal != null) {
-            value.textContent = `${fmtAugVal(customVal)}${suffix}`;
-          } else if (g[0] === g[1]) {
-            value.textContent = `${fmtAugVal(g[0])}${suffix}`;
+
+          if (eff.good === false) {
+            // Downside (folded tradeoff): always rendered with a '%' suffix and
+            // colored by direction. Tradeoffs repeat one value across grades.
+            const isBuff = LOWER_BETTER_TRADEOFF_STATS.has(statName) ? g[1] < 0 : g[1] > 0;
+            value.style.color = isBuff ? 'var(--color-stamina)' : 'var(--color-health)';
+            value.textContent = `${fmtAugVal(g[1])}%`;
           } else {
-            value.textContent = `${fmtAugVal(g[0])}${suffix} to ${fmtAugVal(g[1])}${suffix}`;
+            value.style.color = 'var(--color-stamina)';
+            const customVal = aug.customValues?.[eff.name];
+            const suffix = eff.op === 'percent' ? '%' : '';
+            if (customVal != null) {
+              value.textContent = `${fmtAugVal(customVal)}${suffix}`;
+            } else if (g[0] === g[1]) {
+              value.textContent = `${fmtAugVal(g[0])}${suffix}`;
+            } else {
+              value.textContent = `${fmtAugVal(g[0])}${suffix} to ${fmtAugVal(g[1])}${suffix}`;
+            }
           }
 
-          row.appendChild(label);
-          row.appendChild(value);
-          augSection.appendChild(row);
-        });
-
-        (augData.tradeoffs || []).forEach(t => {
-          const row = document.createElement('div');
-          row.className = 'stat-row';
-          const label = document.createElement('span');
-          label.className = 'stat-label';
-          label.textContent = t.stat.replace(/:$/, '');
-          const value = document.createElement('span');
-          value.className = 'stat-value';
-          const statKey = t.stat.replace(/:$/, '');
-          const isBuff = LOWER_BETTER_TRADEOFF_STATS.has(statKey) ? t.value < 0 : t.value > 0;
-          value.style.color = isBuff ? 'var(--color-stamina)' : 'var(--color-health)';
-          const fmtVal = v => (v >= 0 ? `+${v}` : `${v}`);
-          value.textContent = `${fmtVal(t.value)}%`;
           row.appendChild(label);
           row.appendChild(value);
           augSection.appendChild(row);
@@ -2887,15 +2862,16 @@ function showAugmentTooltip(slotType, dotIndex, force) {
   nameEl.textContent = augData.name;
   nameRow.appendChild(nameEl);
 
-  if (augData.type?.length) {
+  if (augData.subtype) {
     const badge = document.createElement('span');
     badge.className = 'tooltip-panel__badge rarity--unique';
-    badge.textContent = augData.type[0];
+    badge.textContent = augTypeLabel(augData.subtype);
     nameRow.appendChild(badge);
   }
   panel.appendChild(nameRow);
 
-  // Effects at current grade
+  // Effects at current grade. good:true → upside (colored stamina, op suffix,
+  // honors custom override); good:false → downside (colored health, always '%').
   const grade = equipped.grade || 0;
   (augData.effects || []).forEach(eff => {
     const row = document.createElement('div');
@@ -2903,17 +2879,20 @@ function showAugmentTooltip(slotType, dotIndex, force) {
 
     const label = document.createElement('span');
     label.className = 'stat-label';
-    label.textContent = eff.stat.replace(/:$/, '');
+    label.textContent = eff.name.replace(/:$/, '');
 
     const value = document.createElement('span');
     value.className = 'stat-value';
-    value.style.color = 'var(--color-stamina)';
 
     const gradeIdx = grade > 0 ? grade - 1 : 0;
     const g = eff.grades?.[gradeIdx];
-    if (g) {
-      const customVal = equipped.customValues?.[eff.stat];
-      const suffix = eff.type === 'percent' ? '%' : '';
+    if (g && eff.good === false) {
+      value.style.color = 'var(--color-health)';
+      value.textContent = `${g[1]}%`;
+    } else if (g) {
+      value.style.color = 'var(--color-stamina)';
+      const customVal = equipped.customValues?.[eff.name];
+      const suffix = eff.op === 'percent' ? '%' : '';
       const fmtAugVal = v => (v >= 0 ? `+${v}` : `${v}`);
       if (customVal != null) {
         value.textContent = `${fmtAugVal(customVal)}${suffix}`;
@@ -2923,28 +2902,9 @@ function showAugmentTooltip(slotType, dotIndex, force) {
         value.textContent = `${fmtAugVal(g[0])}${suffix} to ${fmtAugVal(g[1])}${suffix}`;
       }
     } else {
-      value.textContent = '—';
       value.style.color = 'var(--color-text-dim)';
+      value.textContent = '—';
     }
-
-    row.appendChild(label);
-    row.appendChild(value);
-    panel.appendChild(row);
-  });
-
-  // Tradeoffs
-  (augData.tradeoffs || []).forEach(t => {
-    const row = document.createElement('div');
-    row.className = 'stat-row';
-
-    const label = document.createElement('span');
-    label.className = 'stat-label';
-    label.textContent = t.stat.replace(/:$/, '');
-
-    const value = document.createElement('span');
-    value.className = 'stat-value';
-    value.style.color = 'var(--color-health)';
-    value.textContent = `${t.value}%`;
 
     row.appendChild(label);
     row.appendChild(value);
@@ -3286,7 +3246,7 @@ function updateSlotDisplay(slotEl, item) {
 
   const img = document.createElement('img');
   img.className = 'armor-slot__icon';
-  img.src = item.img;
+  img.src = item.icon;
   img.alt = item.name;
   img.draggable = false; // stop native image drag (was draggable to desktop)
 
@@ -3301,7 +3261,7 @@ function updateSlotDisplay(slotEl, item) {
 
   const slotType = getSlotType(slotEl);
   // A rad suit is rendered on the 'helm' position; its grade ring / augment dots live there.
-  if (slotType && GARMENT_SLOTS.has(slotType) && item.scaledStats?.length) {
+  if (slotType && GARMENT_SLOTS.has(slotType) && item.maxGrade > 0) {
     slotEl.appendChild(createSlotGradeRing(slotType));
     // Augment dots only for Unique garments
     if (item.rarity === 'Unique') {
@@ -3424,8 +3384,8 @@ function getFilteredWeaponItems() {
   // Apply weapon type filter
   if (!weaponTypeFilter.melee || !weaponTypeFilter.ranged) {
     items = items.filter(i => {
-      if (i.weaponType === 'melee' && !weaponTypeFilter.melee) return false;
-      if (i.weaponType === 'ranged' && !weaponTypeFilter.ranged) return false;
+      if (i.subtype === 'melee' && !weaponTypeFilter.melee) return false;
+      if (i.subtype === 'ranged' && !weaponTypeFilter.ranged) return false;
       return true;
     });
   }
@@ -3536,7 +3496,7 @@ function updateHotbarSlotDisplay(slotEl, item, slotType) {
 
   const img = document.createElement('img');
   img.className = 'hotbar-slot__icon';
-  img.src = item.img;
+  img.src = item.icon;
   img.alt = item.name;
   img.draggable = false; // let the slot's drag-to-swap handle dragging, not the image
   slotEl.appendChild(img);
@@ -3548,8 +3508,8 @@ function updateHotbarSlotDisplay(slotEl, item, slotType) {
   clearBtn.addEventListener('click', e => { e.stopPropagation(); clearHotbarSlot(slotEl); });
   slotEl.appendChild(clearBtn);
 
-  // Grade ring for Unique weapons with scaledStats
-  if (item.scaledStats?.length) {
+  // Grade ring for Unique weapons that support grades.
+  if (item.maxGrade > 0) {
     slotEl.appendChild(createSlotGradeRing(slotType));
     if (item.rarity === 'Unique') {
       if (!augmentSlotUnlocks[slotType]) augmentSlotUnlocks[slotType] = 1;
