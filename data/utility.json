@@ -1,0 +1,1211 @@
+[
+  {
+    "slug": "powerpack_unique_capacity_06",
+    "name": "Accelerator Power Pack",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 6,
+    "rarity": "Unique",
+    "slot": "pack",
+    "maxGrade": 0,
+    "description": "An Imperial Testing Station full of radiation and corpses sits in the Deep Desert. It is said the parts of lost House atomics were used to create other devices. This <Unique>Unique</> power pack is charged by a nuclear accelerator, offering a higher than normal durability for those brave enough to use it.",
+    "icon": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": {
+      "regenPerSecond": {
+        "name": "Regen per Second:",
+        "type": "number",
+        "value": 64
+      },
+      "powerPool": {
+        "name": "Power Pool:",
+        "type": "number",
+        "value": 900
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.1
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "holtzmanshieldactivedrain_unique_01",
+    "name": "Adaptive Holtzman Shield",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 6,
+    "rarity": "Unique",
+    "slot": "holtzman",
+    "maxGrade": 0,
+    "description": "A <Unique>Unique</> personal shielding device that can be manually toggled on and off to deflect incoming darts and blades at the cost of power from a Power Pack. However, the slow blade penetrates the shield and melee combatants will take advantage of this.\n\nThe shield also prevents objects from exiting, thus it will automatically deactivate when firing darts or throwing objects. It will then automatically reactivate according to its refresh time. While active, the shield generates sounds and vibrations that drive sandworms mad. Usage on open sands is not recommended.",
+    "icon": "imgs/t_ui_iconwearchoamshield01r_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "shieldRefreshTime": {
+        "name": "Shield Refresh Time:",
+        "type": "number",
+        "value": 0.5
+      },
+      "powerDrainPercent": {
+        "name": "Power Drain (%):",
+        "type": "number",
+        "value": 100
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "fullsuspensorbelt_unique_durability",
+    "name": "Elohim-Class Suspensor Belt",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 6,
+    "rarity": "Unique",
+    "slot": "belt",
+    "maxGrade": 0,
+    "description": "It is said Baron Harkonnen floats into a room with the grotesque majesty of a glutinous god. He owes much of that awe to his superior suspensor belt. This <Unique>Unique</> model likewise bears the markings and fine materials designating it as a custom creation that belonged to, or was meant for, someone of high nobility.",
+    "icon": "imgs/t_ui_iconwearchoamsuspensorfullreductionr_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "powerDrain": {
+        "name": "Power Drain:",
+        "type": "number",
+        "value": 57
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.4
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "fullsuspensorbelt",
+    "name": "Full Suspensor Belt",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 4,
+    "rarity": "Common",
+    "slot": "belt",
+    "maxGrade": 0,
+    "description": "Removes gravity's influence on the user while active, allowing for extending traversal in any vertical direction. Depletes power from a Power Pack when in use. <OldImperial>Old Imperial</> origin.",
+    "icon": "imgs/t_ui_iconwearchoamsuspensorfullreductionr_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "powerDrain": {
+        "name": "Power Drain:",
+        "type": "number",
+        "value": 57
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "holtzmanshieldactivedrain",
+    "name": "Holtzman Shield Mk2",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 2,
+    "rarity": "Common",
+    "slot": "holtzman",
+    "maxGrade": 0,
+    "description": "An <OldImperial>Old Imperial</> personal shielding device that can be manually toggled on and off to deflect incoming darts and blades at the cost of power from a Power Pack. However, the slow blade penetrates the shield and melee combatants will take advantage of this.\n\nThe shield also prevents objects from exiting, thus it will automatically deactivate when firing darts or throwing objects. It will then automatically reactivate according to its refresh time. While active, the shield generates sounds and vibrations that drive sandworms mad. Usage on open sands is not recommended.",
+    "icon": "imgs/t_ui_iconwearchoamshield01r_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "shieldRefreshTime": {
+        "name": "Shield Refresh Time:",
+        "type": "number",
+        "value": 0.6
+      },
+      "powerDrainPercent": {
+        "name": "Power Drain (%):",
+        "type": "number",
+        "value": 115
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "holtzmanshieldactivedrain2",
+    "name": "Holtzman Shield Mk3",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 3,
+    "rarity": "Common",
+    "slot": "holtzman",
+    "maxGrade": 0,
+    "description": "An <OldImperial>Old Imperial</> personal shielding device that can be manually toggled on and off to deflect incoming darts and blades at the cost of power from a Power Pack. However, the slow blade penetrates the shield and melee combatants will take advantage of this.\n\nThe shield also prevents objects from exiting, thus it will automatically deactivate when firing darts or throwing objects. It will then automatically reactivate according to its refresh time. While active, the shield generates sounds and vibrations that drive sandworms mad. Usage on open sands is not recommended.",
+    "icon": "imgs/t_ui_iconwearchoamshield01r_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "shieldRefreshTime": {
+        "name": "Shield Refresh Time:",
+        "type": "number",
+        "value": 0.6
+      },
+      "powerDrainPercent": {
+        "name": "Power Drain (%):",
+        "type": "number",
+        "value": 110
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "holtzmanshieldactivedrain3",
+    "name": "Holtzman Shield Mk5",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 5,
+    "rarity": "Common",
+    "slot": "holtzman",
+    "maxGrade": 0,
+    "description": "An <OldImperial>Old Imperial</> personal shielding device that can be manually toggled on and off to deflect incoming darts and blades at the cost of power from a Power Pack. However, the slow blade penetrates the shield and melee combatants will take advantage of this.\n\nThe shield also prevents objects from exiting, thus it will automatically deactivate when firing darts or throwing objects. It will then automatically reactivate according to its refresh time. While active, the shield generates sounds and vibrations that drive sandworms mad. Usage on open sands is not recommended.",
+    "icon": "imgs/t_ui_iconwearchoamshield01r_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "shieldRefreshTime": {
+        "name": "Shield Refresh Time:",
+        "type": "number",
+        "value": 0.6
+      },
+      "powerDrainPercent": {
+        "name": "Power Drain (%):",
+        "type": "number",
+        "value": 104
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "powerpack",
+    "name": "Improvised Power Pack",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 0,
+    "rarity": "Common",
+    "slot": "pack",
+    "maxGrade": 0,
+    "description": "Essential item that allows the user to operate equipment that requires power. When all power is depleted, stop the current activity to allow the battery to recharge.",
+    "icon": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": {
+      "regenPerSecond": {
+        "name": "Regen per Second:",
+        "type": "number",
+        "value": 8
+      },
+      "powerPool": {
+        "name": "Power Pool:",
+        "type": "number",
+        "value": 100
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.1
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "suspensorbelt",
+    "name": "Leap Suspensor Belt",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 2,
+    "rarity": "Common",
+    "slot": "belt",
+    "maxGrade": 0,
+    "description": "Reduces gravity's pull on the user, allowing for extended height and distance when jumping. <OldImperial>Old Imperial</> origin. Depletes power from a power pack on use.",
+    "icon": "imgs/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "powerDrain": {
+        "name": "Power Drain:",
+        "type": "number",
+        "value": 27
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "powerpack_unique_regen_01",
+    "name": "Old Sparky Mk1",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 1,
+    "rarity": "Unique",
+    "slot": "pack",
+    "maxGrade": 0,
+    "description": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for it's constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration.",
+    "icon": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": {
+      "regenPerSecond": {
+        "name": "Regen per Second:",
+        "type": "number",
+        "value": 13
+      },
+      "powerPool": {
+        "name": "Power Pool:",
+        "type": "number",
+        "value": 125
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.1
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "powerpack_unique_regen_02",
+    "name": "Old Sparky Mk2",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 2,
+    "rarity": "Unique",
+    "slot": "pack",
+    "maxGrade": 0,
+    "description": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for its constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration.",
+    "icon": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": {
+      "regenPerSecond": {
+        "name": "Regen per Second:",
+        "type": "number",
+        "value": 18
+      },
+      "powerPool": {
+        "name": "Power Pool:",
+        "type": "number",
+        "value": 175
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.1
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "powerpack_unique_regen_03",
+    "name": "Old Sparky Mk3",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 3,
+    "rarity": "Unique",
+    "slot": "pack",
+    "maxGrade": 0,
+    "description": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for its constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration.",
+    "icon": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": {
+      "regenPerSecond": {
+        "name": "Regen per Second:",
+        "type": "number",
+        "value": 27
+      },
+      "powerPool": {
+        "name": "Power Pool:",
+        "type": "number",
+        "value": 250
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.1
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "powerpack_unique_regen_04",
+    "name": "Old Sparky Mk4",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 4,
+    "rarity": "Unique",
+    "slot": "pack",
+    "maxGrade": 0,
+    "description": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for its constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration.",
+    "icon": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": {
+      "regenPerSecond": {
+        "name": "Regen per Second:",
+        "type": "number",
+        "value": 36
+      },
+      "powerPool": {
+        "name": "Power Pool:",
+        "type": "number",
+        "value": 350
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.1
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "holtzmanshieldactivedrain_story_paranoid",
+    "name": "Paranoid's Holtzman Shield",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 0,
+    "rarity": "Memento",
+    "slot": "holtzman",
+    "maxGrade": 0,
+    "description": "A Special Holtzman Shield with increased durability, obtained from defeating the Paranoid assassination target. ",
+    "icon": "imgs/t_ui_iconwearchoamshield01r_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "shieldRefreshTime": {
+        "name": "Shield Refresh Time:",
+        "type": "number",
+        "value": 0.6
+      },
+      "powerDrainPercent": {
+        "name": "Power Drain (%):",
+        "type": "number",
+        "value": 104
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "t2tsp",
+    "name": "Passive Suspensor Belt",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 1,
+    "rarity": "Common",
+    "slot": "belt",
+    "maxGrade": 0,
+    "description": "Protects user from taking damage from falling. Automatically kicks on at damaging speeds and will persist as long as the user has power. <OldImperial>Old Imperial</> origin.",
+    "icon": "imgs/t_ui_iconwearchoamsuspensorpassivereductionr_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "powerDrain": {
+        "name": "Power Drain:",
+        "type": "number",
+        "value": 14
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "partialstabilizationbelt",
+    "name": "Planar Suspensor Belt",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 3,
+    "rarity": "Common",
+    "slot": "belt",
+    "maxGrade": 0,
+    "description": "Stabilizes the user's vertical position and allows them to reposition horizontally. Sluggish repositioning but low power depletion for extended use.",
+    "icon": "imgs/t_ui_iconwearchoamsuspensorpartialstabilizationr_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "powerDrain": {
+        "name": "Power Drain:",
+        "type": "number",
+        "value": 27
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "powerpack5",
+    "name": "Power Pack Mk1",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 1,
+    "rarity": "Common",
+    "slot": "pack",
+    "maxGrade": 0,
+    "description": "Essential item that allows the user to operate equipment that requires power. When all power is depleted, stop the current activity to allow the battery to recharge.",
+    "icon": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": {
+      "regenPerSecond": {
+        "name": "Regen per Second:",
+        "type": "number",
+        "value": 12
+      },
+      "powerPool": {
+        "name": "Power Pool:",
+        "type": "number",
+        "value": 150
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.1
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "powerpack2",
+    "name": "Power Pack Mk2",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 2,
+    "rarity": "Common",
+    "slot": "pack",
+    "maxGrade": 0,
+    "description": "An improved power pack. This more advanced version has a larger power capacity and regenerates power faster.",
+    "icon": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": {
+      "regenPerSecond": {
+        "name": "Regen per Second:",
+        "type": "number",
+        "value": 16
+      },
+      "powerPool": {
+        "name": "Power Pool:",
+        "type": "number",
+        "value": 200
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.1
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "powerpack6",
+    "name": "Power Pack Mk3",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 3,
+    "rarity": "Common",
+    "slot": "pack",
+    "maxGrade": 0,
+    "description": "Essential item that allows the user to operate equipment that requires power. When all power is depleted, stop the current activity to allow the battery to recharge.",
+    "icon": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": {
+      "regenPerSecond": {
+        "name": "Regen per Second:",
+        "type": "number",
+        "value": 24
+      },
+      "powerPool": {
+        "name": "Power Pool:",
+        "type": "number",
+        "value": 300
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.1
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "powerpack3",
+    "name": "Power Pack Mk4",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 4,
+    "rarity": "Common",
+    "slot": "pack",
+    "maxGrade": 0,
+    "description": "A power pack with a very large capacity, made for the use of industrial tools and equipment.",
+    "icon": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": {
+      "regenPerSecond": {
+        "name": "Regen per Second:",
+        "type": "number",
+        "value": 32
+      },
+      "powerPool": {
+        "name": "Power Pool:",
+        "type": "number",
+        "value": 400
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.1
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "powerpack7",
+    "name": "Power Pack Mk5",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 5,
+    "rarity": "Common",
+    "slot": "pack",
+    "maxGrade": 0,
+    "description": "Essential item that allows the user to operate equipment that requires power. When all power is depleted, stop the current activity to allow the battery to recharge.",
+    "icon": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": {
+      "regenPerSecond": {
+        "name": "Regen per Second:",
+        "type": "number",
+        "value": 48
+      },
+      "powerPool": {
+        "name": "Power Pool:",
+        "type": "number",
+        "value": 600
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.1
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "powerpack4",
+    "name": "Power Pack Mk6",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 6,
+    "rarity": "Common",
+    "slot": "pack",
+    "maxGrade": 0,
+    "description": "The first generation of power packs were quite unstable and had a unfortunate habit of blowing its user to smithereens. The design has since been improved to ensure this happens quite rarely now.",
+    "icon": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": {
+      "regenPerSecond": {
+        "name": "Regen per Second:",
+        "type": "number",
+        "value": 64
+      },
+      "powerPool": {
+        "name": "Power Pool:",
+        "type": "number",
+        "value": 800
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.1
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "fullstabilizationbelt",
+    "name": "Responsive Planar Suspensor Belt",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 5,
+    "rarity": "Common",
+    "slot": "belt",
+    "maxGrade": 0,
+    "description": "Stabilizes the user's vertical position and allows them to reposition horizontally. Responsive repositioning but high power depletion, generally used for advanced combat maneuvers.",
+    "icon": "imgs/t_ui_iconwearchoamsuspensorfullstabilizationr_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "powerDrain": {
+        "name": "Power Drain:",
+        "type": "number",
+        "value": 27
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "fullstabilizationbelt_unique_dmgreduction",
+    "name": "Sentinel Belt",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 6,
+    "rarity": "Unique",
+    "slot": "belt",
+    "maxGrade": 0,
+    "description": "This {Unique} stabilization suspensor belt enables the wearer to rapidly adjust movements to avoid incoming hits while suspended.",
+    "icon": "imgs/t_ui_iconwearchoamsuspensorfullstabilizationr_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "powerDrain": {
+        "name": "Power Drain:",
+        "type": "number",
+        "value": 57
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "glidepartialstabilizationbelt",
+    "name": "The Emperor's Wings Mk1",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 1,
+    "rarity": "Unique",
+    "slot": "belt",
+    "maxGrade": 0,
+    "description": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated.",
+    "icon": "imgs/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "powerDrain": {
+        "name": "Power Drain:",
+        "type": "number",
+        "value": 14
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "glidepartialstabilizationbelt_02",
+    "name": "The Emperor's Wings Mk2",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 2,
+    "rarity": "Unique",
+    "slot": "belt",
+    "maxGrade": 0,
+    "description": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated.",
+    "icon": "imgs/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "powerDrain": {
+        "name": "Power Drain:",
+        "type": "number",
+        "value": 14
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "glidepartialstabilizationbelt_03",
+    "name": "The Emperor's Wings Mk3",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 3,
+    "rarity": "Unique",
+    "slot": "belt",
+    "maxGrade": 0,
+    "description": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated.",
+    "icon": "imgs/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "powerDrain": {
+        "name": "Power Drain:",
+        "type": "number",
+        "value": 14
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "glidepartialstabilizationbelt_04",
+    "name": "The Emperor's Wings Mk4",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 4,
+    "rarity": "Unique",
+    "slot": "belt",
+    "maxGrade": 0,
+    "description": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated.",
+    "icon": "imgs/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "powerDrain": {
+        "name": "Power Drain:",
+        "type": "number",
+        "value": 14
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "glidepartialstabilizationbelt_05",
+    "name": "The Emperor's Wings Mk5",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 5,
+    "rarity": "Unique",
+    "slot": "belt",
+    "maxGrade": 0,
+    "description": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated.",
+    "icon": "imgs/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "powerDrain": {
+        "name": "Power Drain:",
+        "type": "number",
+        "value": 14
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "glidepartialstabilizationbelt_06",
+    "name": "The Emperor's Wings Mk6",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 6,
+    "rarity": "Unique",
+    "slot": "belt",
+    "maxGrade": 0,
+    "description": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated.",
+    "icon": "imgs/t_ui_iconwearchoamsuspensorpartialreductionr_d.webp",
+    "stats": {
+      "wormAttractionIntensity": {
+        "name": "Worm Attraction Intensity:",
+        "type": "text",
+        "value": "Extreme"
+      },
+      "powerDrain": {
+        "name": "Power Drain:",
+        "type": "number",
+        "value": 14
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.2
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "powerpack_unique_regen_05",
+    "name": "Young Sparky Mk5",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 5,
+    "rarity": "Unique",
+    "slot": "pack",
+    "maxGrade": 0,
+    "description": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for its constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration.",
+    "icon": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": {
+      "regenPerSecond": {
+        "name": "Regen per Second:",
+        "type": "number",
+        "value": 55
+      },
+      "powerPool": {
+        "name": "Power Pool:",
+        "type": "number",
+        "value": 500
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.1
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  },
+  {
+    "slug": "powerpack_unique_regen_06",
+    "name": "Young Sparky Mk6",
+    "category": "utility",
+    "subtype": null,
+    "family": null,
+    "tier": 6,
+    "rarity": "Unique",
+    "slot": "pack",
+    "maxGrade": 0,
+    "description": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for its constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration.",
+    "icon": "imgs/t_ui_iconwearchoampowerpack01r_d.webp",
+    "stats": {
+      "regenPerSecond": {
+        "name": "Regen per Second:",
+        "type": "number",
+        "value": 73
+      },
+      "powerPool": {
+        "name": "Power Pool:",
+        "type": "number",
+        "value": 700
+      },
+      "volume": {
+        "name": "Volume",
+        "type": "number",
+        "value": 0.1
+      }
+    },
+    "effects": [],
+    "sourcing": {
+      "buyPrice": null,
+      "vendors": [],
+      "drops": [],
+      "recipe": null
+    }
+  }
+]
