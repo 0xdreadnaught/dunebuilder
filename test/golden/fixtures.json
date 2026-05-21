@@ -242,5 +242,23 @@
       },
       "specializations": {}
     }
+  },
+  {
+    "name": "gear-melee-bonus",
+    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "build": {
+      "slots": { "chest": { "item": "exoskeleton_heavy06_unique_top", "grade": 5, "augments": [null, null, null] } },
+      "hotbar": { "hotbar0": { "item": "kindjal_3", "grade": 5, "augments": [null, null, null] } },
+      "specializations": {}
+    }
+  },
+  {
+    "name": "gear-ranged-unaffected",
+    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "build": {
+      "slots": { "chest": { "item": "exoskeleton_heavy06_unique_top", "grade": 5, "augments": [null, null, null] } },
+      "hotbar": { "hotbar0": { "item": "atresmg5", "grade": 5, "augments": [null, null, null] } },
+      "specializations": {}
+    }
   }
 ]

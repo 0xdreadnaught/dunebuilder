@@ -2562,6 +2562,14 @@ function showTooltip(slotType, force) {
   const statMap = {};
   displayStats.forEach(s => { statMap[s.key] = s; });
 
+  // Cross-domain offensive bonus from equipped gear (e.g. exoskeleton +melee%).
+  // Character-wide and additive: a melee weapon gets the aggregated 'Melee Damage'
+  // total, a ranged weapon gets 'Ranged Damage'. Computed once per tooltip render.
+  const equippedTotals = aggregateEquippedStats();
+  const gearDmgPct = item.subtype === 'melee'
+    ? (equippedTotals['Melee Damage'] || 0)
+    : (equippedTotals['Ranged Damage'] || 0);
+
   displayStats.forEach(stat => {
     const row = document.createElement('div');
     row.className = 'stat-row';
@@ -2619,8 +2627,8 @@ function showTooltip(slotType, force) {
       const hsDmgAugPctMin = (hitMode === 'head' && hsAe?.type === 'percent') ? hsAe.min : 0;
       const hsDmgAugPctMax = (hitMode === 'head' && hsAe?.type === 'percent') ? hsAe.max : 0;
 
-      const poolMin = augPctMin + combatPct + staggerPct + headHunterPct + hsDmgAugPctMin;
-      const poolMax = augPctMax + combatPct + staggerPct + headHunterPct + hsDmgAugPctMax;
+      const poolMin = augPctMin + combatPct + staggerPct + headHunterPct + hsDmgAugPctMin + gearDmgPct;
+      const poolMax = augPctMax + combatPct + staggerPct + headHunterPct + hsDmgAugPctMax + gearDmgPct;
 
       const round1 = v => Math.round(v * 10) / 10;
       const finalDmg = (poolPct, flatBonus) =>
@@ -2665,6 +2673,7 @@ function showTooltip(slotType, force) {
         augPctMin, augPctMax, augFlatMin, augFlatMax,
         augContribs: augContribs[spec.statedKey] || [],
         combatPct, staggerPct, headHunterPct,
+        gearDmgPct,
         hsDmgAugPctMin, hsDmgAugPctMax,
         hsContribs: hitMode === 'head' ? (augContribs['headshotDamage'] || []) : [],
         poolMin, poolMax,
