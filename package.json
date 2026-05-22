@@ -16,6 +16,9 @@
     "directories": {
       "output": "dist"
     },
+    "releaseInfo": {
+      "releaseNotesFile": "release-notes.md"
+    },
     "files": [
       "main.js",
       "preload.js",
