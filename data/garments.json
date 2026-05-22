@@ -13876,6 +13876,11 @@
           327.0
         ]
       },
+      "detectionSpeedReduction": {
+        "name": "Detection Speed Reduction",
+        "type": "percent",
+        "value": 5
+      },
       "dashStaminaCost": {
         "name": "Dash Stamina Cost:",
         "type": "number",
@@ -13929,6 +13934,11 @@
           435.1,
           490.5
         ]
+      },
+      "detectionSpeedReduction": {
+        "name": "Detection Speed Reduction",
+        "type": "percent",
+        "value": 5
       },
       "dashStaminaCost": {
         "name": "Dash Stamina Cost:",
