@@ -1,0 +1,2445 @@
+{
+  "specs": [
+    "Bene Gesserit",
+    "Mentat",
+    "Planetologist",
+    "Swordmaster",
+    "Trooper"
+  ],
+  "skills_by_spec": {
+    "Trooper": [
+      {
+        "name": "Ranged Damage",
+        "tag": "Skills.Attribute.Weaponry1",
+        "x": 475,
+        "y": 915,
+        "skillType": "attribute",
+        "prerequisites": [],
+        "statsPerRank": [
+          {
+            "Ranged Damage": "+3%"
+          },
+          {
+            "Ranged Damage": "+6%"
+          },
+          {
+            "Ranged Damage": "+9%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeDamage_D.png"
+      },
+      {
+        "name": "Disruptor Damage",
+        "tag": "Skills.Attribute.Weaponry2",
+        "x": 350,
+        "y": 791,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Weaponry1",
+          "Skills.Attribute.Weaponry3",
+          "Skills.Perk.HeavyWeaponNaib"
+        ],
+        "statsPerRank": [
+          {
+            "Disruptor Damage": "+5%"
+          },
+          {
+            "Disruptor Damage": "+10%"
+          },
+          {
+            "Disruptor Damage": "+15%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeDamageBonusSMG_D.png"
+      },
+      {
+        "name": "Center of Mass",
+        "tag": "Skills.Perk.BodyShots",
+        "x": 594,
+        "y": 788,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Attribute.Weaponry1",
+          "Skills.Attribute.Weaponry3",
+          "Skills.Attribute.Weaponry4"
+        ],
+        "statsPerRank": [
+          {
+            "Body Shot Damage": "+10%"
+          },
+          {
+            "Body Shot Damage": "+15%"
+          },
+          {
+            "Body Shot Damage": "+20%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 2,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreePerkCentralAim_D.png"
+      },
+      {
+        "name": "Heavy Weapon Agility",
+        "tag": "Skills.Perk.HeavyWeaponNaib",
+        "x": 231,
+        "y": 673,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Attribute.Weaponry2",
+          "Skills.Attribute.Weaponry5"
+        ],
+        "statsPerRank": [
+          {
+            "Movement Penalty Reduction": "60%"
+          },
+          {
+            "Movement Penalty Reduction": "40%"
+          },
+          {
+            "Movement Penalty Reduction": "25%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 0,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreePerkHeavyWeaponNaib_D.png"
+      },
+      {
+        "name": "Scattergun Damage",
+        "tag": "Skills.Attribute.Weaponry3",
+        "x": 469,
+        "y": 675,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Weaponry2",
+          "Skills.Attribute.Weaponry5",
+          "Skills.Attribute.Weaponry6",
+          "Skills.Perk.BodyShots"
+        ],
+        "statsPerRank": [
+          {
+            "Scattergun Damage": "+5%"
+          },
+          {
+            "Scattergun Damage": "+10%"
+          },
+          {
+            "Scattergun Damage": "+15%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeDamageBonusRifle_D.png"
+      },
+      {
+        "name": "Field Maintenance",
+        "tag": "Skills.Attribute.Weaponry4",
+        "x": 713,
+        "y": 666,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Weaponry6",
+          "Skills.Perk.BodyShots"
+        ],
+        "statsPerRank": [
+          {
+            "Durability Loss Reduction": "15%"
+          },
+          {
+            "Durability Loss Reduction": "20%"
+          },
+          {
+            "Durability Loss Reduction": "25%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 2,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeRepair_D.png"
+      },
+      {
+        "name": "Heavy Weapon Damage",
+        "tag": "Skills.Attribute.Weaponry5",
+        "x": 349,
+        "y": 551,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.EnergyCapsule",
+          "Skills.Attribute.Weaponry3",
+          "Skills.Perk.HeavyWeaponNaib"
+        ],
+        "statsPerRank": [
+          {
+            "Heavy Weapon Damage": "+5%"
+          },
+          {
+            "Heavy Weapon Damage": "+10%"
+          },
+          {
+            "Heavy Weapon Damage": "+15%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeDamageBonusHeavyWeapon_D.png"
+      },
+      {
+        "name": "Gunsmith",
+        "tag": "Skills.Attribute.Weaponry6",
+        "x": 593,
+        "y": 550,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.EnergyCapsule",
+          "Skills.Attribute.Weaponry3",
+          "Skills.Attribute.Weaponry4"
+        ],
+        "statsPerRank": [
+          {
+            "Max Durability Loss Reduction": "15%"
+          },
+          {
+            "Max Durability Loss Reduction": "20%"
+          },
+          {
+            "Max Durability Loss Reduction": "25%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 2,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeRepairEfficiency_D.png"
+      },
+      {
+        "name": "Energy Capsule",
+        "tag": "Skills.Ability.EnergyCapsule",
+        "x": 472,
+        "y": 426,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Attribute.Weaponry6",
+          "Skills.Attribute.Weaponry5"
+        ],
+        "statsPerRank": [
+          {
+            "Ranged Damage": "+35%"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityEnergyCapsule_D.png"
+      },
+      {
+        "name": "Anti-gravity Field",
+        "tag": "Skills.Ability.SuspensorGrenade_Reduction",
+        "x": 956,
+        "y": 914,
+        "skillType": "ability",
+        "prerequisites": [],
+        "statsPerRank": [
+          {
+            "Field Duration": "12 seconds"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconGadgetReductionSuspensorGrenade_D.png"
+      },
+      {
+        "name": "Suspensor Dash",
+        "tag": "Skills.Perk.SuspensorDash",
+        "x": 828,
+        "y": 790,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Ability.SuspensorGrenade_Reduction",
+          "Skills.Attribute.SuspensorTech1",
+          "Skills.Perk.DeathFromAbove"
+        ],
+        "statsPerRank": [
+          {
+            "Suspensor Power Cost": "75"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeSuspensorDash_D.png"
+      },
+      {
+        "name": "Gravity Field",
+        "tag": "Skills.Ability.SuspensorGrenade_Amplification",
+        "x": 1078,
+        "y": 795,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Ability.CollapseGrenade",
+          "Skills.Ability.SuspensorGrenade_Reduction",
+          "Skills.Attribute.SuspensorTech1"
+        ],
+        "statsPerRank": [
+          {
+            "Field Duration": "8 seconds"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 4,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconGadgetAmplificationGrenade_D.png"
+      },
+      {
+        "name": "Suspensor Efficiency",
+        "tag": "Skills.Attribute.SuspensorTech1",
+        "x": 954,
+        "y": 672,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.CollapseGrenade",
+          "Skills.Ability.SuspensorGrenade_Amplification",
+          "Skills.Perk.DeathFromAbove",
+          "Skills.Perk.SuspensorDash"
+        ],
+        "statsPerRank": [
+          {
+            "Suspensor Power Drain Reduction": "10%"
+          },
+          {
+            "Suspensor Power Drain Reduction": "15%"
+          },
+          {
+            "Suspensor Power Drain Reduction": "20%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeSkillPowerEfficiency_D.png"
+      },
+      {
+        "name": "Death from Above",
+        "tag": "Skills.Perk.DeathFromAbove",
+        "x": 833,
+        "y": 550,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Ability.SuspensorBlast",
+          "Skills.Attribute.SuspensorTech1",
+          "Skills.Perk.SuspensorDash"
+        ],
+        "statsPerRank": [
+          {
+            "Weapon Damage": "+10%"
+          },
+          {
+            "Weapon Damage": "+15%"
+          },
+          {
+            "Weapon Damage": "+20%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreePerkDeathFromAbove_D.png"
+      },
+      {
+        "name": "Collapse Grenade",
+        "tag": "Skills.Ability.CollapseGrenade",
+        "x": 1072,
+        "y": 548,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Ability.SuspensorBlast",
+          "Skills.Ability.SuspensorGrenade_Amplification",
+          "Skills.Attribute.SuspensorTech1"
+        ],
+        "statsPerRank": [
+          {
+            "Sphere Duration": "1 second"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 4,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityCollapseGrenade_D.png"
+      },
+      {
+        "name": "Suspensor Blast",
+        "tag": "Skills.Ability.SuspensorBlast",
+        "x": 951,
+        "y": 429,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Perk.DeathFromAbove",
+          "Skills.Ability.CollapseGrenade"
+        ],
+        "statsPerRank": [
+          {
+            "Damage": "35"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilitySuspensorBlast_D.png"
+      },
+      {
+        "name": "Shigawire Claw",
+        "tag": "Skills.Ability.CablePull",
+        "x": 1439,
+        "y": 912,
+        "skillType": "ability",
+        "prerequisites": [],
+        "statsPerRank": [
+          {
+            "Max Claw Range": "1800"
+          },
+          {
+            "Max Claw Range": "2160"
+          },
+          {
+            "Max Claw Range": "2520"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconGadgetShigMultiToolSardaukarPull_D.png"
+      },
+      {
+        "name": "Explosive Grenade",
+        "tag": "Skills.Ability.FragGrenade",
+        "x": 1312,
+        "y": 790,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Ability.AssaultSeeker",
+          "Skills.Ability.CablePull"
+        ],
+        "statsPerRank": [
+          {
+            "Damage": "75"
+          },
+          {
+            "Damage": "240"
+          },
+          {
+            "Damage": "490"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconGadgetFragGrenadeS_D.png"
+      },
+      {
+        "name": "Battle Hardened",
+        "tag": "Skills.Perk.TrooperCooldowns",
+        "x": 1556,
+        "y": 789,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Ability.CablePull",
+          "Skills.Ability.MagneticAttractor"
+        ],
+        "statsPerRank": [
+          {
+            "Ability Cooldown Reduction": "20%"
+          },
+          {
+            "Ability Cooldown Reduction": "25%"
+          },
+          {
+            "Ability Cooldown Reduction": "30%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 6,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeTrooperCooldown_D.png"
+      },
+      {
+        "name": "Assault Seeker",
+        "tag": "Skills.Ability.AssaultSeeker",
+        "x": 1315,
+        "y": 554,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Ability.FragGrenade",
+          "Skills.Spice.GadgetReload"
+        ],
+        "statsPerRank": [
+          {
+            "Damage": "80"
+          },
+          {
+            "Damage": "250"
+          },
+          {
+            "Damage": "550"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityAssaultSeeker_D.png"
+      },
+      {
+        "name": "Attractor Field",
+        "tag": "Skills.Ability.MagneticAttractor",
+        "x": 1555,
+        "y": 551,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Perk.TrooperCooldowns",
+          "Skills.Spice.GadgetReload"
+        ],
+        "statsPerRank": [
+          {
+            "Field Duration": "8 seconds"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 6,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconGadgetShigMultiToolMagneticAttractor_D.png"
+      },
+      {
+        "name": "Reflexive Reload",
+        "tag": "Skills.Spice.GadgetReload",
+        "x": 1435,
+        "y": 429,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.AssaultSeeker",
+          "Skills.Ability.MagneticAttractor"
+        ],
+        "statsPerRank": [
+          {}
+        ],
+        "pipCount": 1,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeReflexiveReload_D.png"
+      }
+    ],
+    "Mentat": [
+      {
+        "name": "The Sentinel",
+        "tag": "Skills.Ability.TurretSeeker",
+        "x": 470,
+        "y": 909,
+        "skillType": "ability",
+        "prerequisites": [],
+        "statsPerRank": [
+          {
+            "Damage Per Hit": "14"
+          },
+          {
+            "Damage Per Hit": "31"
+          },
+          {
+            "Damage Per Hit": "87"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityTurretSeeker_D.png"
+      },
+      {
+        "name": "Garment Keeper",
+        "tag": "Skills.Attribute.MentalCalculus1",
+        "x": 352,
+        "y": 787,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.TurretSeeker",
+          "Skills.Attribute.MentalCalculus3",
+          "Skills.Perk.HeadShots"
+        ],
+        "statsPerRank": [
+          {
+            "Durability Loss Reduction": "15%"
+          },
+          {
+            "Durability Loss Reduction": "20%"
+          },
+          {
+            "Durability Loss Reduction": "25%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeRepair_D.png"
+      },
+      {
+        "name": "Ranged Damage",
+        "tag": "Skills.Attribute.MentalCalculus2",
+        "x": 599,
+        "y": 793,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.TurretSeeker",
+          "Skills.Attribute.MentalCalculus4",
+          "Skills.Perk.HeadShots"
+        ],
+        "statsPerRank": [
+          {
+            "Ranged Damage": "+3%"
+          },
+          {
+            "Ranged Damage": "+6%"
+          },
+          {
+            "Ranged Damage": "+9%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 2,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeDamage_D.png"
+      },
+      {
+        "name": "Tailoring",
+        "tag": "Skills.Attribute.MentalCalculus3",
+        "x": 235,
+        "y": 670,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.MentalCalculus1",
+          "Skills.Perk.ExploitWeakness"
+        ],
+        "statsPerRank": [
+          {
+            "Max Durability Loss Reduction": "15%"
+          },
+          {
+            "Max Durability Loss Reduction": "20%"
+          },
+          {
+            "Max Durability Loss Reduction": "25%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 0,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeRepairEfficiency_D.png"
+      },
+      {
+        "name": "Marksman",
+        "tag": "Skills.Perk.HeadShots",
+        "x": 472,
+        "y": 674,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Attribute.MentalCalculus1",
+          "Skills.Attribute.MentalCalculus2",
+          "Skills.Attribute.MentalCalculus5",
+          "Skills.Perk.ExploitWeakness"
+        ],
+        "statsPerRank": [
+          {
+            "Headshot Damage": "+10%"
+          },
+          {
+            "Headshot Damage": "+15%"
+          },
+          {
+            "Headshot Damage": "+20%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreePerkMarksman_D.png"
+      },
+      {
+        "name": "Pistol Damage",
+        "tag": "Skills.Attribute.MentalCalculus4",
+        "x": 717,
+        "y": 675,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.MentalCalculus2",
+          "Skills.Attribute.MentalCalculus5"
+        ],
+        "statsPerRank": [
+          {
+            "Pistol Damage": "+5%"
+          },
+          {
+            "Pistol Damage": "+10%"
+          },
+          {
+            "Pistol Damage": "+15%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 2,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeDamageBonusGun_D.png"
+      },
+      {
+        "name": "Exploit Weakness",
+        "tag": "Skills.Perk.ExploitWeakness",
+        "x": 348,
+        "y": 552,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Attribute.MentalCalculus3",
+          "Skills.Perk.HeadShots",
+          "Skills.Perk.ShieldWeakpoint"
+        ],
+        "statsPerRank": [
+          {}
+        ],
+        "pipCount": 1,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeSpiceEffectExploitWeakness_D.png"
+      },
+      {
+        "name": "Rifle Damage",
+        "tag": "Skills.Attribute.MentalCalculus5",
+        "x": 598,
+        "y": 551,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.MentalCalculus4",
+          "Skills.Perk.HeadShots",
+          "Skills.Perk.ShieldWeakpoint"
+        ],
+        "statsPerRank": [
+          {
+            "Rifle Damage": "+5%"
+          },
+          {
+            "Rifle Damage": "+10%"
+          },
+          {
+            "Rifle Damage": "+15%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 2,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeDamageBonusScattergun_D.png"
+      },
+      {
+        "name": "Shield Overcharge",
+        "tag": "Skills.Perk.ShieldWeakpoint",
+        "x": 475,
+        "y": 430,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Perk.ExploitWeakness",
+          "Skills.Attribute.MentalCalculus5"
+        ],
+        "statsPerRank": [
+          {}
+        ],
+        "pipCount": 1,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeShieldOvercharge_D.png"
+      },
+      {
+        "name": "Poison Capsule",
+        "tag": "Skills.Ability.PoisonCapsuleLauncher",
+        "x": 954,
+        "y": 916,
+        "skillType": "ability",
+        "prerequisites": [],
+        "statsPerRank": [
+          {
+            "Damage Per Tick": "3"
+          },
+          {
+            "Damage Per Tick": "9"
+          },
+          {
+            "Damage Per Tick": "18"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconGadgetPoisonCapsuleLauncher_D.png"
+      },
+      {
+        "name": "Poison Mine",
+        "tag": "Skills.Ability.PoisonMine",
+        "x": 830,
+        "y": 791,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Ability.PoisonCapsuleLauncher",
+          "Skills.Attribute.Assassination2",
+          "Skills.Perk.PoisonTooth"
+        ],
+        "statsPerRank": [
+          {
+            "Damage Per Tick": "3"
+          },
+          {
+            "Damage Per Tick": "9"
+          },
+          {
+            "Damage Per Tick": "18"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityPoisonMine_D.png"
+      },
+      {
+        "name": "Headshot Damage",
+        "tag": "Skills.Attribute.Assassination1",
+        "x": 1073,
+        "y": 791,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.PoisonCapsuleLauncher",
+          "Skills.Ability.StunDart",
+          "Skills.Attribute.Assassination2"
+        ],
+        "statsPerRank": [
+          {
+            "Headshot Damage": "+5%"
+          },
+          {
+            "Headshot Damage": "+10%"
+          },
+          {
+            "Headshot Damage": "+15%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 4,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeHeadshotBonus_D.png"
+      },
+      {
+        "name": "Assassin's Shot",
+        "tag": "Skills.Attribute.Assassination2",
+        "x": 957,
+        "y": 672,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.PoisonMine",
+          "Skills.Ability.StunDart",
+          "Skills.Attribute.Assassination1",
+          "Skills.Perk.PoisonTooth"
+        ],
+        "statsPerRank": [
+          {
+            "Damage to Back": "+5%"
+          },
+          {
+            "Damage to Back": "+10%"
+          },
+          {
+            "Damage to Back": "+15%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeDamage_D.png"
+      },
+      {
+        "name": "Poison Tooth",
+        "tag": "Skills.Perk.PoisonTooth",
+        "x": 832,
+        "y": 552,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Ability.HunterSeeker",
+          "Skills.Ability.PoisonMine",
+          "Skills.Attribute.Assassination2"
+        ],
+        "statsPerRank": [
+          {
+            "Damage Per Tick": "3"
+          },
+          {
+            "Damage Per Tick": "9"
+          },
+          {
+            "Damage Per Tick": "18"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreePoisonTooth_D.png"
+      },
+      {
+        "name": "Stunner",
+        "tag": "Skills.Ability.StunDart",
+        "x": 1071,
+        "y": 553,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Ability.HunterSeeker",
+          "Skills.Attribute.Assassination1",
+          "Skills.Attribute.Assassination2"
+        ],
+        "statsPerRank": [
+          {
+            "Stun Duration": "6 seconds"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 4,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityStunnerDart_D.png"
+      },
+      {
+        "name": "Hunter-Seeker",
+        "tag": "Skills.Ability.HunterSeeker",
+        "x": 956,
+        "y": 430,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Perk.PoisonTooth",
+          "Skills.Ability.StunDart"
+        ],
+        "statsPerRank": [
+          {
+            "Damage": "1200"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconGadgetHunterSeeker_D.png"
+      },
+      {
+        "name": "Shield Wall",
+        "tag": "Skills.Ability.SuspensorWall",
+        "x": 1438,
+        "y": 918,
+        "skillType": "ability",
+        "prerequisites": [],
+        "statsPerRank": [
+          {
+            "Duration": "25 seconds"
+          },
+          {
+            "Duration": "30 seconds"
+          },
+          {
+            "Duration": "35 seconds"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilitySuspensorWall_D.png"
+      },
+      {
+        "name": "Gravity Mine",
+        "tag": "Skills.Ability.SuspensorMine_Amplification",
+        "x": 1313,
+        "y": 791,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Ability.SuspensorMine_Reduction",
+          "Skills.Ability.SuspensorWall"
+        ],
+        "statsPerRank": [
+          {
+            "Duration": "17 seconds"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconGadgetAmplificationRemoteMine_D.png"
+      },
+      {
+        "name": "Solido Decoy",
+        "tag": "Skills.Ability.SolidoDecoy",
+        "x": 1554,
+        "y": 795,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Ability.SuspensorWall",
+          "Skills.Perk.IronWill"
+        ],
+        "statsPerRank": [
+          {
+            "Duration": "15 seconds"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 6,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilitySolidoDecoy_D.png"
+      },
+      {
+        "name": "Anti-gravity Mine",
+        "tag": "Skills.Ability.SuspensorMine_Reduction",
+        "x": 1306,
+        "y": 551,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Ability.PortableGenerator",
+          "Skills.Ability.SuspensorMine_Amplification"
+        ],
+        "statsPerRank": [
+          {
+            "Duration": "17 seconds"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconGadgetReductionRemoteMine_D.png"
+      },
+      {
+        "name": "Iron Will",
+        "tag": "Skills.Perk.IronWill",
+        "x": 1555,
+        "y": 554,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Ability.PortableGenerator",
+          "Skills.Ability.SolidoDecoy"
+        ],
+        "statsPerRank": [
+          {}
+        ],
+        "pipCount": 1,
+        "gridX": 6,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeIronWill_D.png"
+      },
+      {
+        "name": "Source of Power",
+        "tag": "Skills.Ability.PortableGenerator",
+        "x": 1432,
+        "y": 429,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Ability.SuspensorMine_Reduction",
+          "Skills.Perk.IronWill"
+        ],
+        "statsPerRank": [
+          {
+            "Duration": "20 seconds"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityPortableGenerator_D.png"
+      }
+    ],
+    "Planetologist": [
+      {
+        "name": "Cutteray Mining",
+        "tag": "Skills.Attribute.Scientist1",
+        "x": 471,
+        "y": 909,
+        "skillType": "attribute",
+        "prerequisites": [],
+        "statsPerRank": [
+          {
+            "Yield": "+10%"
+          },
+          {
+            "Yield": "+15%"
+          },
+          {
+            "Yield": "+20%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeMineralYield_D.png"
+      },
+      {
+        "name": "Dew Gathering",
+        "tag": "Skills.Attribute.Scientist2",
+        "x": 353,
+        "y": 791,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Scientist1",
+          "Skills.Attribute.Scientist4",
+          "Skills.Attribute.Scientist5"
+        ],
+        "statsPerRank": [
+          {
+            "Yield": "+10%"
+          },
+          {
+            "Yield": "+15%"
+          },
+          {
+            "Yield": "+20%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeWatherYield_D.png"
+      },
+      {
+        "name": "Rerouting",
+        "tag": "Skills.Attribute.Scientist3",
+        "x": 594,
+        "y": 787,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Scientist1",
+          "Skills.Attribute.Scientist4",
+          "Skills.Science.m_PowerMax"
+        ],
+        "statsPerRank": [
+          {
+            "Power Pack Regeneration": "+2%"
+          },
+          {
+            "Power Pack Regeneration": "+5%"
+          },
+          {
+            "Power Pack Regeneration": "+10%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 2,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeSkillPowerEfficiency_D.png"
+      },
+      {
+        "name": "Deep Analysis",
+        "tag": "Skills.Attribute.Scientist4",
+        "x": 473,
+        "y": 668,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Scientist2",
+          "Skills.Attribute.Scientist3",
+          "Skills.Attribute.Scientist5",
+          "Skills.Science.m_PowerMax"
+        ],
+        "statsPerRank": [
+          {
+            "Bonus Yield": "+10%"
+          },
+          {
+            "Bonus Yield": "+15%"
+          },
+          {
+            "Bonus Yield": "+20%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeMineralYield_D.png"
+      },
+      {
+        "name": "Compaction",
+        "tag": "Skills.Attribute.Scientist5",
+        "x": 353,
+        "y": 548,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Scientist2",
+          "Skills.Attribute.Scientist4",
+          "Skills.Perk.BatteryExpert"
+        ],
+        "statsPerRank": [
+          {
+            "Yield": "+10%"
+          },
+          {
+            "Yield": "+15%"
+          },
+          {
+            "Yield": "+20%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeSpiceYield_D.png"
+      },
+      {
+        "name": "Overcharge",
+        "tag": "Skills.Science.m_PowerMax",
+        "x": 597,
+        "y": 550,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Scientist3",
+          "Skills.Attribute.Scientist4",
+          "Skills.Perk.BatteryExpert"
+        ],
+        "statsPerRank": [
+          {
+            "Max Power": "+20"
+          },
+          {
+            "Max Power": "+30"
+          },
+          {
+            "Max Power": "+40"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 2,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_TechTree_Icon_Power_D.png"
+      },
+      {
+        "name": "Conservation of Energy",
+        "tag": "Skills.Perk.BatteryExpert",
+        "x": 474,
+        "y": 431,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Attribute.Scientist5",
+          "Skills.Science.m_PowerMax"
+        ],
+        "statsPerRank": [
+          {
+            "Power Usage Reduction": "3%"
+          },
+          {
+            "Power Usage Reduction": "6%"
+          },
+          {
+            "Power Usage Reduction": "9%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreePerkBatteryExpert_D.png"
+      },
+      {
+        "name": "Suspensor Pad",
+        "tag": "Skills.Ability.SuspensorPad",
+        "x": 954,
+        "y": 915,
+        "skillType": "ability",
+        "prerequisites": [],
+        "statsPerRank": [
+          {}
+        ],
+        "pipCount": 1,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilitySuspensorPad_D.png"
+      },
+      {
+        "name": "Cartographer",
+        "tag": "Skills.Attribute.Explorer1",
+        "x": 834,
+        "y": 793,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.SuspensorPad",
+          "Skills.Attribute.Explorer3"
+        ],
+        "statsPerRank": [
+          {}
+        ],
+        "pipCount": 1,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeSkillObservation_D.png"
+      },
+      {
+        "name": "Mountaineer",
+        "tag": "Skills.Attribute.Explorer2",
+        "x": 1077,
+        "y": 791,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.SuspensorPad",
+          "Skills.Attribute.Explorer4"
+        ],
+        "statsPerRank": [
+          {
+            "Climbing Stamina Drain Reduction": "15%"
+          },
+          {
+            "Climbing Stamina Drain Reduction": "20%"
+          },
+          {
+            "Climbing Stamina Drain Reduction": "25%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 4,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeSkillClimber_D.png"
+      },
+      {
+        "name": "Scanner Mastery",
+        "tag": "Skills.Attribute.Explorer3",
+        "x": 834,
+        "y": 553,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Explorer1",
+          "Skills.Attribute.Explorer5"
+        ],
+        "statsPerRank": [
+          {
+            "Detection Radius": "+15%"
+          },
+          {
+            "Detection Radius": "+20%"
+          },
+          {
+            "Detection Radius": "+25%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeScanningBonus_D.png"
+      },
+      {
+        "name": "Stillsuit Seals",
+        "tag": "Skills.Attribute.Explorer4",
+        "x": 1074,
+        "y": 551,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Explorer2",
+          "Skills.Attribute.Explorer5"
+        ],
+        "statsPerRank": [
+          {
+            "Water Reclamation": "+5%"
+          },
+          {
+            "Water Reclamation": "+10%"
+          },
+          {
+            "Water Reclamation": "+15%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 4,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeSkillHydration_D.png"
+      },
+      {
+        "name": "Spice Surveyor",
+        "tag": "Skills.Attribute.Explorer5",
+        "x": 954,
+        "y": 431,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Explorer3",
+          "Skills.Attribute.Explorer4"
+        ],
+        "statsPerRank": [
+          {}
+        ],
+        "pipCount": 1,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeSpice_D.png"
+      },
+      {
+        "name": "Vehicle Repair",
+        "tag": "Skills.Attribute.Driver1",
+        "x": 1436,
+        "y": 911,
+        "skillType": "attribute",
+        "prerequisites": [],
+        "statsPerRank": [
+          {
+            "Max Durability Loss Reduction": "15%"
+          },
+          {
+            "Max Durability Loss Reduction": "25%"
+          },
+          {
+            "Max Durability Loss Reduction": "35%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeRepairEfficiency_D.png"
+      },
+      {
+        "name": "Fuel Efficient Driver",
+        "tag": "Skills.Attribute.Driver2",
+        "x": 1314,
+        "y": 793,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Driver1",
+          "Skills.Attribute.Driver4",
+          "Skills.Attribute.Driver5"
+        ],
+        "statsPerRank": [
+          {
+            "Fuel Usage Reduction": "15%"
+          },
+          {
+            "Fuel Usage Reduction": "20%"
+          },
+          {
+            "Fuel Usage Reduction": "25%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeVehicle_D.png"
+      },
+      {
+        "name": "Vehicle Mining",
+        "tag": "Skills.Attribute.Driver3",
+        "x": 1554,
+        "y": 790,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Driver1",
+          "Skills.Attribute.Driver4",
+          "Skills.Attribute.Driver6"
+        ],
+        "statsPerRank": [
+          {
+            "Yield": "+10%"
+          },
+          {
+            "Yield": "+15%"
+          },
+          {
+            "Yield": "+20%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 6,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeMineralYield_D.png"
+      },
+      {
+        "name": "Vehicle Scanning",
+        "tag": "Skills.Attribute.Driver4",
+        "x": 1434,
+        "y": 670,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Driver2",
+          "Skills.Attribute.Driver3",
+          "Skills.Attribute.Driver5",
+          "Skills.Attribute.Driver6"
+        ],
+        "statsPerRank": [
+          {
+            "Detection Radius": "+15%"
+          },
+          {
+            "Detection Radius": "+20%"
+          },
+          {
+            "Detection Radius": "+25%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeScanningBonus_D.png"
+      },
+      {
+        "name": "Fuel Efficient Pilot",
+        "tag": "Skills.Attribute.Driver5",
+        "x": 1314,
+        "y": 549,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Driver2",
+          "Skills.Attribute.Driver4",
+          "Skills.Spice.VehicleHeat"
+        ],
+        "statsPerRank": [
+          {
+            "Fuel Usage Reduction": "15%"
+          },
+          {
+            "Fuel Usage Reduction": "20%"
+          },
+          {
+            "Fuel Usage Reduction": "25%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeVehicle_D.png"
+      },
+      {
+        "name": "Sandcrawler Yield",
+        "tag": "Skills.Attribute.Driver6",
+        "x": 1555,
+        "y": 547,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Driver3",
+          "Skills.Attribute.Driver4",
+          "Skills.Spice.VehicleHeat"
+        ],
+        "statsPerRank": [
+          {
+            "Yield": "+10%"
+          },
+          {
+            "Yield": "+15%"
+          },
+          {
+            "Yield": "+20%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 6,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeSpiceYield_D.png"
+      },
+      {
+        "name": "Heat Management",
+        "tag": "Skills.Spice.VehicleHeat",
+        "x": 1434,
+        "y": 428,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Driver5",
+          "Skills.Attribute.Driver6"
+        ],
+        "statsPerRank": [
+          {
+            "Vehicle Heat Generation Reduction": "20%"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeHeatManagement_D.png"
+      }
+    ],
+    "Bene Gesserit": [
+      {
+        "name": "Bindu Sprint",
+        "tag": "Skills.Ability.Hypersprint",
+        "x": 473,
+        "y": 913,
+        "skillType": "ability",
+        "prerequisites": [],
+        "statsPerRank": [
+          {
+            "Stamina Cost": "15 start, 40/tick"
+          },
+          {
+            "Stamina Cost": "10 start, 20/tick"
+          },
+          {
+            "Stamina Cost": "5 start, 10/tick"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityDash_D.png"
+      },
+      {
+        "name": "Manipulate Instability",
+        "tag": "Skills.Perk.Backstabber",
+        "x": 352,
+        "y": 791,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Ability.BinduNerveStrike",
+          "Skills.Ability.Hypersprint",
+          "Skills.Attribute.WeirdingWay2"
+        ],
+        "statsPerRank": [
+          {
+            "Damage to Unstable Enemies": "+10%"
+          },
+          {
+            "Damage to Unstable Enemies": "+15%"
+          },
+          {
+            "Damage to Unstable Enemies": "+20%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreePerkBackstabber_D.png"
+      },
+      {
+        "name": "Blade Damage",
+        "tag": "Skills.Attribute.WeirdingWay1",
+        "x": 593,
+        "y": 791,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.Hypersprint",
+          "Skills.Attribute.WeirdingWay2",
+          "Skills.Perk.Backstabber"
+        ],
+        "statsPerRank": [
+          {
+            "Blade Damage": "+3%"
+          },
+          {
+            "Blade Damage": "+6%"
+          },
+          {
+            "Blade Damage": "+9%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 2,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeSkillBrawler_D.png"
+      },
+      {
+        "name": "Short Blade Damage",
+        "tag": "Skills.Attribute.WeirdingWay2",
+        "x": 475,
+        "y": 670,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.BinduNerveStrike",
+          "Skills.Ability.WeirdingStep",
+          "Skills.Attribute.WeirdingWay1",
+          "Skills.Perk.Backstabber"
+        ],
+        "statsPerRank": [
+          {
+            "Short Blade Damage": "+5%"
+          },
+          {
+            "Short Blade Damage": "+10%"
+          },
+          {
+            "Short Blade Damage": "+15%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeSkillBrawler_D.png"
+      },
+      {
+        "name": "Prana-Bindu Strikes",
+        "tag": "Skills.Ability.BinduNerveStrike",
+        "x": 355,
+        "y": 554,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Attribute.WeirdingWay2",
+          "Skills.Perk.Backstabber",
+          "Skills.Spice.BinduDodge"
+        ],
+        "statsPerRank": [
+          {
+            "Damage Per Strike": "7"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityBinduNerveStrike_D.png"
+      },
+      {
+        "name": "Weirding Step",
+        "tag": "Skills.Ability.WeirdingStep",
+        "x": 596,
+        "y": 553,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Attribute.WeirdingWay1",
+          "Skills.Attribute.WeirdingWay2",
+          "Skills.Spice.BinduDodge"
+        ],
+        "statsPerRank": [
+          {}
+        ],
+        "pipCount": 1,
+        "gridX": 2,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityWeirdingStep_D.png"
+      },
+      {
+        "name": "Bindu Dodge",
+        "tag": "Skills.Spice.BinduDodge",
+        "x": 472,
+        "y": 429,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.BinduNerveStrike",
+          "Skills.Ability.WeirdingStep"
+        ],
+        "statsPerRank": [
+          {}
+        ],
+        "pipCount": 1,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeBinduDodge_D.png"
+      },
+      {
+        "name": "Compel",
+        "tag": "Skills.Ability.VoiceCompel",
+        "x": 956,
+        "y": 917,
+        "skillType": "ability",
+        "prerequisites": [],
+        "statsPerRank": [
+          {
+            "Range": "30"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityTheVoiceCompel_D.png"
+      },
+      {
+        "name": "Ignore",
+        "tag": "Skills.Ability.Blindspot",
+        "x": 836,
+        "y": 791,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Ability.VoiceCompel",
+          "Skills.Perk.VoiceAnalysis"
+        ],
+        "statsPerRank": [
+          {
+            "Duration": "10 seconds"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityBlindSpot_D.png"
+      },
+      {
+        "name": "Voice Training",
+        "tag": "Skills.Attribute.Manipulation1",
+        "x": 1074,
+        "y": 790,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Ability.VoiceCompel",
+          "Skills.Ability.VoiceStop"
+        ],
+        "statsPerRank": [
+          {
+            "Cooldown Reduction": "8%"
+          },
+          {
+            "Cooldown Reduction": "16%"
+          },
+          {
+            "Cooldown Reduction": "25%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 4,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeBeneGesseritCooldown_D.png"
+      },
+      {
+        "name": "Rapid Register",
+        "tag": "Skills.Perk.VoiceAnalysis",
+        "x": 835,
+        "y": 552,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Ability.Blindspot",
+          "Skills.Spice.VoiceSplash"
+        ],
+        "statsPerRank": [
+          {
+            "Channel Time Reduction": "30%"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeVoiceAnalysis_D.png"
+      },
+      {
+        "name": "Stop",
+        "tag": "Skills.Ability.VoiceStop",
+        "x": 1073,
+        "y": 550,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Attribute.Manipulation1",
+          "Skills.Spice.VoiceSplash"
+        ],
+        "statsPerRank": [
+          {
+            "Duration": "5 seconds"
+          }
+        ],
+        "pipCount": 1,
+        "gridX": 4,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityVoiceStop_D.png"
+      },
+      {
+        "name": "Screech",
+        "tag": "Skills.Spice.VoiceSplash",
+        "x": 951,
+        "y": 428,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Perk.VoiceAnalysis",
+          "Skills.Ability.VoiceStop"
+        ],
+        "statsPerRank": [
+          {}
+        ],
+        "pipCount": 1,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeScreech_D.png"
+      },
+      {
+        "name": "Recovery",
+        "tag": "Skills.Attribute.SelfControl1",
+        "x": 1433,
+        "y": 911,
+        "skillType": "attribute",
+        "prerequisites": [],
+        "statsPerRank": [
+          {
+            "Healing Regen Limit": "110%"
+          },
+          {
+            "Healing Regen Limit": "115%"
+          },
+          {
+            "Healing Regen Limit": "120%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeSkillHealingMultiplier_D.png"
+      },
+      {
+        "name": "Trauma Recovery",
+        "tag": "Skills.Perk.RegenCap",
+        "x": 1312,
+        "y": 791,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Attribute.SelfControl1",
+          "Skills.Attribute.SelfControl3",
+          "Skills.Attribute.SelfControl4"
+        ],
+        "statsPerRank": [
+          {
+            "Healing Regen Limit": "120%",
+            "Regen Rate": "+10%"
+          },
+          {
+            "Healing Regen Limit": "125%",
+            "Regen Rate": "+15%"
+          },
+          {
+            "Healing Regen Limit": "130%",
+            "Regen Rate": "+20%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreePerkHealingFactor_D.png"
+      },
+      {
+        "name": "Sun Tolerance",
+        "tag": "Skills.Attribute.SelfControl2",
+        "x": 1558,
+        "y": 792,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.SelfControl1",
+          "Skills.Attribute.SelfControl4",
+          "Skills.Attribute.SelfControl5"
+        ],
+        "statsPerRank": [
+          {
+            "Sunstroke Rate": "90%"
+          },
+          {
+            "Sunstroke Rate": "80%"
+          },
+          {
+            "Sunstroke Rate": "70%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 6,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeSunDefense_D.png"
+      },
+      {
+        "name": "Vitality",
+        "tag": "Skills.Attribute.SelfControl3",
+        "x": 1194,
+        "y": 671,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Perk.BinduStability",
+          "Skills.Perk.RegenCap"
+        ],
+        "statsPerRank": [
+          {
+            "Max Health": "+25"
+          },
+          {
+            "Max Health": "+40"
+          },
+          {
+            "Max Health": "+55"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 4,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeMaxHPBonus_D.png"
+      },
+      {
+        "name": "Self-Healing",
+        "tag": "Skills.Attribute.SelfControl4",
+        "x": 1431,
+        "y": 669,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.SelfControl2",
+          "Skills.Perk.BinduStability",
+          "Skills.Perk.MetabolizePoison",
+          "Skills.Perk.RegenCap"
+        ],
+        "statsPerRank": [
+          {
+            "Effectiveness": "+12%"
+          },
+          {
+            "Effectiveness": "+20%"
+          },
+          {
+            "Effectiveness": "+30%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeSkillMaxHealth_D.png"
+      },
+      {
+        "name": "Poison Tolerance",
+        "tag": "Skills.Attribute.SelfControl5",
+        "x": 1673,
+        "y": 674,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.SelfControl2",
+          "Skills.Perk.MetabolizePoison"
+        ],
+        "statsPerRank": [
+          {},
+          {},
+          {}
+        ],
+        "pipCount": 3,
+        "gridX": 6,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributePoisonDefense_D.png"
+      },
+      {
+        "name": "Prana-Bindu Stability",
+        "tag": "Skills.Perk.BinduStability",
+        "x": 1312,
+        "y": 549,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Ability.LitanyAgainstFear",
+          "Skills.Attribute.SelfControl3",
+          "Skills.Attribute.SelfControl4"
+        ],
+        "statsPerRank": [
+          {
+            "Poise Damage Reduction": "10%"
+          },
+          {
+            "Poise Damage Reduction": "15%"
+          },
+          {
+            "Poise Damage Reduction": "20%"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeBinduStability_D.png"
+      },
+      {
+        "name": "Metabolize Poison",
+        "tag": "Skills.Perk.MetabolizePoison",
+        "x": 1555,
+        "y": 549,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Ability.LitanyAgainstFear",
+          "Skills.Attribute.SelfControl4",
+          "Skills.Attribute.SelfControl5"
+        ],
+        "statsPerRank": [
+          {}
+        ],
+        "pipCount": 1,
+        "gridX": 6,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeMetabolizePosion_D.png"
+      },
+      {
+        "name": "Litany Against Fear",
+        "tag": "Skills.Ability.LitanyAgainstFear",
+        "x": 1434,
+        "y": 429,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Perk.BinduStability",
+          "Skills.Perk.MetabolizePoison"
+        ],
+        "statsPerRank": [
+          {
+            "Poise Damage Reduction": "15%",
+            "Armor Multiplier": "2"
+          },
+          {
+            "Poise Damage Reduction": "20%",
+            "Armor Multiplier": "2.5"
+          },
+          {
+            "Poise Damage Reduction": "25%",
+            "Armor Multiplier": "3"
+          }
+        ],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityLitanyAgainstFear_D.png"
+      }
+    ],
+    "Swordmaster": [
+      {
+        "name": "Blade Damage",
+        "tag": "Skills.Attribute.Blade1",
+        "x": 472,
+        "y": 907,
+        "skillType": "attribute",
+        "prerequisites": [],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeSkillBrawler_D.png"
+      },
+      {
+        "name": "Dance of Blades",
+        "tag": "Skills.Perk.MeleeChain",
+        "x": 353,
+        "y": 791,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Ability.Whirlwind",
+          "Skills.Attribute.Blade1",
+          "Skills.Attribute.Blade2"
+        ],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreePerkBladeChaining_D.png"
+      },
+      {
+        "name": "Retaliate",
+        "tag": "Skills.Ability.RiposteInjure",
+        "x": 595,
+        "y": 793,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Ability.RiposteBreak",
+          "Skills.Attribute.Blade1",
+          "Skills.Attribute.Blade2"
+        ],
+        "statsPerRank": [],
+        "pipCount": 1,
+        "gridX": 2,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityInjuringReposte_D.png"
+      },
+      {
+        "name": "Long Blade Damage",
+        "tag": "Skills.Attribute.Blade2",
+        "x": 474,
+        "y": 670,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.RiposteBreak",
+          "Skills.Ability.RiposteInjure",
+          "Skills.Ability.Whirlwind",
+          "Skills.Perk.MeleeChain"
+        ],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeSkillBrawler_D.png"
+      },
+      {
+        "name": "Eye of the Storm",
+        "tag": "Skills.Ability.Whirlwind",
+        "x": 351,
+        "y": 549,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Attribute.Blade2",
+          "Skills.Perk.MeleeChain",
+          "Skills.Spice.ParryBoost"
+        ],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityWhirlwind_D.png"
+      },
+      {
+        "name": "Foil",
+        "tag": "Skills.Ability.RiposteBreak",
+        "x": 596,
+        "y": 552,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Ability.RiposteInjure",
+          "Skills.Attribute.Blade2",
+          "Skills.Spice.ParryBoost"
+        ],
+        "statsPerRank": [],
+        "pipCount": 1,
+        "gridX": 2,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityBreakingReposte_D.png"
+      },
+      {
+        "name": "Precise Parry",
+        "tag": "Skills.Spice.ParryBoost",
+        "x": 472,
+        "y": 431,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.Whirlwind",
+          "Skills.Ability.RiposteBreak"
+        ],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 1,
+        "subTreeIdx": 0,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreePreciseParry_D.png"
+      },
+      {
+        "name": "Deflection",
+        "tag": "Skills.Ability.DeflectionSlow",
+        "x": 952,
+        "y": 911,
+        "skillType": "ability",
+        "prerequisites": [],
+        "statsPerRank": [],
+        "pipCount": 1,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityDeflection_D.png"
+      },
+      {
+        "name": "Bleed Tolerance",
+        "tag": "Skills.Attribute.Resolve1",
+        "x": 831,
+        "y": 789,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.DeflectionSlow",
+          "Skills.Attribute.Resolve2"
+        ],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeSkillMaxHealth_D.png"
+      },
+      {
+        "name": "Reckless Lunge",
+        "tag": "Skills.Perk.ToughLunge",
+        "x": 1078,
+        "y": 793,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Ability.DeflectionSlow",
+          "Skills.Attribute.UnstoppableAttacks"
+        ],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 4,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeToughLunge_D.png"
+      },
+      {
+        "name": "Solid Stance",
+        "tag": "Skills.Attribute.Resolve2",
+        "x": 836,
+        "y": 551,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Resolve1",
+          "Skills.Perk.ThriveOnDanger"
+        ],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributePoiseDefense_D.png"
+      },
+      {
+        "name": "Confidence",
+        "tag": "Skills.Attribute.UnstoppableAttacks",
+        "x": 1075,
+        "y": 550,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Perk.ThriveOnDanger",
+          "Skills.Perk.ToughLunge"
+        ],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 4,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeDamageMitigation_D.png"
+      },
+      {
+        "name": "Thrive on Danger",
+        "tag": "Skills.Perk.ThriveOnDanger",
+        "x": 955,
+        "y": 428,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Attribute.UnstoppableAttacks",
+          "Skills.Attribute.Resolve2"
+        ],
+        "statsPerRank": [],
+        "pipCount": 1,
+        "gridX": 3,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeThriveOnDanger_D.png"
+      },
+      {
+        "name": "Knee Charge",
+        "tag": "Skills.Ability.KneeCharge",
+        "x": 1433,
+        "y": 911,
+        "skillType": "ability",
+        "prerequisites": [],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityKneeCharge_D.png"
+      },
+      {
+        "name": "Field Medicine",
+        "tag": "Skills.Attribute.Aggression1",
+        "x": 1312,
+        "y": 786,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.CripplingStrike",
+          "Skills.Ability.KneeCharge",
+          "Skills.Perk.SprintStamina"
+        ],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeSkillHealingMultiplier_D.png"
+      },
+      {
+        "name": "Optimized Hydration",
+        "tag": "Skills.Attribute.Aggression2",
+        "x": 1555,
+        "y": 787,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.BattleCry",
+          "Skills.Ability.KneeCharge",
+          "Skills.Perk.SprintStamina"
+        ],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 6,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeWatherBonus_D.png"
+      },
+      {
+        "name": "Crippling Strike",
+        "tag": "Skills.Ability.CripplingStrike",
+        "x": 1193,
+        "y": 671,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Attribute.Aggression1",
+          "Skills.Attribute.Aggression3"
+        ],
+        "statsPerRank": [],
+        "pipCount": 1,
+        "gridX": 4,
+        "subTreeIdx": 1,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityCripplingStrike_D.png"
+      },
+      {
+        "name": "Disciplined Breathing",
+        "tag": "Skills.Perk.SprintStamina",
+        "x": 1436,
+        "y": 668,
+        "skillType": "technique",
+        "prerequisites": [
+          "Skills.Attribute.Aggression1",
+          "Skills.Attribute.Aggression2",
+          "Skills.Attribute.Aggression3",
+          "Skills.Attribute.Aggression4"
+        ],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreePerkRunner_D.png"
+      },
+      {
+        "name": "Inspiration",
+        "tag": "Skills.Ability.BattleCry",
+        "x": 1678,
+        "y": 671,
+        "skillType": "ability",
+        "prerequisites": [
+          "Skills.Attribute.Aggression2",
+          "Skills.Attribute.Aggression4"
+        ],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 6,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconAbilityBattleCry_D.png"
+      },
+      {
+        "name": "General Conditioning",
+        "tag": "Skills.Attribute.Aggression3",
+        "x": 1317,
+        "y": 551,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.CripplingStrike",
+          "Skills.Perk.SprintStamina",
+          "Skills.Spice.ShadowStrike"
+        ],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeStamina_D.png"
+      },
+      {
+        "name": "Desert Conditioning",
+        "tag": "Skills.Attribute.Aggression4",
+        "x": 1556,
+        "y": 551,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Ability.BattleCry",
+          "Skills.Perk.SprintStamina",
+          "Skills.Spice.ShadowStrike"
+        ],
+        "statsPerRank": [],
+        "pipCount": 3,
+        "gridX": 6,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreeAttributeWatherDefense_D.png"
+      },
+      {
+        "name": "Prescient Strike",
+        "tag": "Skills.Spice.ShadowStrike",
+        "x": 1435,
+        "y": 429,
+        "skillType": "attribute",
+        "prerequisites": [
+          "Skills.Attribute.Aggression3",
+          "Skills.Attribute.Aggression4"
+        ],
+        "statsPerRank": [],
+        "pipCount": 1,
+        "gridX": 5,
+        "subTreeIdx": 2,
+        "iconPath_local": "imgs/skill-tree/T_UI_IconSkilltreePrescientStrike_D.png"
+      }
+    ]
+  },
+  "scale": 0.62,
+  "class_tabs": {
+    "Trooper": [
+      233,
+      195
+    ],
+    "Mentat": [
+      343,
+      195
+    ],
+    "Planetologist": [
+      447,
+      193
+    ],
+    "Bene Gesserit": [
+      556,
+      197
+    ],
+    "Swordmaster": [
+      667,
+      197
+    ]
+  }
+}

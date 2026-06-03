@@ -30,6 +30,24 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
+  // Window width scaling (used by skill-tree modal to widen the app while open).
+  // Tracks the original bounds so we can restore on close.
+  const winState = { originalWidth: null, originalX: null };
+  ipcMain.handle('window:setWidthScale', (_, scale) => {
+    const win = BrowserWindow.getFocusedWindow();
+    if (!win) return;
+    const bounds = win.getBounds();
+    if (winState.originalWidth == null) {
+      winState.originalWidth = bounds.width;
+      winState.originalX = bounds.x;
+    }
+    const targetW = Math.round(winState.originalWidth * scale);
+    // Keep window centred horizontally on the same monitor while widening.
+    const { workArea } = screen.getDisplayMatching(bounds);
+    const newX = Math.max(workArea.x, Math.round(bounds.x + (bounds.width - targetW) / 2));
+    win.setBounds({ x: newX, y: bounds.y, width: targetW, height: bounds.height });
+  });
+
   ipcMain.handle('clipboard:read', () => {
     return clipboard.readText();
   });
@@ -47,6 +65,17 @@ app.whenReady().then(() => {
   const buildsDir = path.join(app.getPath('appData'), 'DuneBuilder', 'builds');
   fs.mkdirSync(buildsDir, { recursive: true });
 
+  // Path-containment guards. The renderer only ever hands these handlers paths it got from
+  // builds:list (inside buildsDir) or the OS file dialog (.dbf-filtered), so these checks are
+  // defence-in-depth: they cap the blast radius if the renderer is ever compromised, without
+  // breaking legit flows. A .dbf file selected from any folder still loads; nothing outside
+  // buildsDir can be deleted; only .dbf files can be read or written.
+  const isDbf = (p) => typeof p === 'string' && path.resolve(p).toLowerCase().endsWith('.dbf');
+  const insideBuildsDir = (p) => {
+    const resolved = path.resolve(p);
+    return resolved === buildsDir || resolved.startsWith(buildsDir + path.sep);
+  };
+
   ipcMain.handle('builds:list', () => {
     try {
       const files = fs.readdirSync(buildsDir).filter(f => f.endsWith('.dbf'));
@@ -59,12 +88,14 @@ app.whenReady().then(() => {
   });
 
   ipcMain.handle('builds:load', (_, filepath) => {
+    if (!isDbf(filepath)) return null;
     try {
       return fs.readFileSync(filepath, 'utf-8');
     } catch { return null; }
   });
 
   ipcMain.handle('builds:delete', async (_, filepath) => {
+    if (!isDbf(filepath) || !insideBuildsDir(filepath)) return false;
     try {
       await fs.promises.unlink(filepath);
       return true;
@@ -72,6 +103,7 @@ app.whenReady().then(() => {
   });
 
   ipcMain.handle('builds:save', async (_, filepath, data) => {
+    if (!isDbf(filepath)) return false;
     try {
       await fs.promises.mkdir(path.dirname(filepath), { recursive: true });
       await fs.promises.writeFile(filepath, data, 'utf-8');

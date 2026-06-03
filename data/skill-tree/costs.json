@@ -1,0 +1,785 @@
+{
+  "_note": "Per-rank skill point costs from DT_TrainingModules + SkillCosts curve table. Source: F:/dune-extract/out/Systems-v2/{DT_TrainingModules, SkillCosts}.uasset. Curves are evaluated by linear interpolation between keys with constant extrapolation. Tag -> curve mapping was extracted by byte-scan of DT_TrainingModules.uexp because CUE4Parse fails to deserialize the table after ~11 rows; the byte-scan recovers 112 of 145 tags. Skills.Key.* (specialization keystones) are NOT purchased with regular SP and are omitted. DISCREPANCY: User stated Center of Mass (Skills.Perk.BodyShots) costs [1,3,4] but the data table maps it to 'Technique' curve which evaluates to [2,3,4]; ALL Skills.Perk.* multi-rank skills are 'Technique'. The [1,3,4] pattern matches the 'Attribute' curve. Treat costs for Perks as approximate until reconciled.",
+  "_curves": {
+    "Ability_First": {
+      "keys": [
+        {
+          "time": 1,
+          "value": 1
+        },
+        {
+          "time": 3,
+          "value": 3
+        }
+      ],
+      "evaluated_ranks_1_to_3": [
+        1,
+        2,
+        3
+      ]
+    },
+    "Ability_Standard": {
+      "keys": [
+        {
+          "time": 1,
+          "value": 2
+        },
+        {
+          "time": 3,
+          "value": 4
+        }
+      ],
+      "evaluated_ranks_1_to_3": [
+        2,
+        3,
+        4
+      ]
+    },
+    "Attribute": {
+      "keys": [
+        {
+          "time": 1,
+          "value": 1
+        },
+        {
+          "time": 2,
+          "value": 3
+        },
+        {
+          "time": 3,
+          "value": 4
+        }
+      ],
+      "evaluated_ranks_1_to_3": [
+        1,
+        3,
+        4
+      ]
+    },
+    "Technique": {
+      "keys": [
+        {
+          "time": 1,
+          "value": 2
+        },
+        {
+          "time": 3,
+          "value": 4
+        }
+      ],
+      "evaluated_ranks_1_to_3": [
+        2,
+        3,
+        4
+      ]
+    },
+    "SpiceEffect": {
+      "keys": [
+        {
+          "time": 1,
+          "value": 3
+        },
+        {
+          "time": 3,
+          "value": 3
+        }
+      ],
+      "evaluated_ranks_1_to_3": [
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "_levelToSP": {
+    "0": 0,
+    "1": 0,
+    "2": 1,
+    "3": 2,
+    "4": 3,
+    "5": 4,
+    "6": 5,
+    "7": 6,
+    "8": 7,
+    "9": 8,
+    "10": 9,
+    "11": 10,
+    "12": 11,
+    "13": 12,
+    "14": 13,
+    "15": 14,
+    "16": 15,
+    "17": 16,
+    "18": 17,
+    "19": 18,
+    "20": 19,
+    "21": 20,
+    "22": 21,
+    "23": 22,
+    "24": 23,
+    "25": 24,
+    "26": 25,
+    "27": 26,
+    "28": 27,
+    "29": 28,
+    "30": 29,
+    "31": 30,
+    "32": 31,
+    "33": 32,
+    "34": 33,
+    "35": 34,
+    "36": 35,
+    "37": 36,
+    "38": 37,
+    "39": 38,
+    "40": 39,
+    "41": 40,
+    "42": 41,
+    "43": 42,
+    "44": 43,
+    "45": 44,
+    "46": 45,
+    "47": 46,
+    "48": 47,
+    "49": 48,
+    "50": 49,
+    "51": 50,
+    "52": 51,
+    "53": 52,
+    "54": 53,
+    "55": 54,
+    "56": 55,
+    "57": 56,
+    "58": 57,
+    "59": 58,
+    "60": 59,
+    "61": 60,
+    "62": 61,
+    "63": 62,
+    "64": 63,
+    "65": 64,
+    "66": 65,
+    "67": 66,
+    "68": 67,
+    "69": 68,
+    "70": 69,
+    "71": 70,
+    "72": 71,
+    "73": 72,
+    "74": 73,
+    "75": 74,
+    "76": 75,
+    "77": 76,
+    "78": 77,
+    "79": 78,
+    "80": 79,
+    "81": 80,
+    "82": 81,
+    "83": 82,
+    "84": 83,
+    "85": 84,
+    "86": 85,
+    "87": 86,
+    "88": 87,
+    "89": 88,
+    "90": 89,
+    "91": 90,
+    "92": 91,
+    "93": 92,
+    "94": 93,
+    "95": 94,
+    "96": 95,
+    "97": 96,
+    "98": 97,
+    "99": 98,
+    "100": 99,
+    "101": 100,
+    "102": 101,
+    "103": 102,
+    "104": 103,
+    "105": 104,
+    "106": 105,
+    "107": 106,
+    "108": 107,
+    "109": 108,
+    "110": 109,
+    "111": 110,
+    "112": 111,
+    "113": 112,
+    "114": 113,
+    "115": 114,
+    "116": 115,
+    "117": 116,
+    "118": 117,
+    "119": 118,
+    "120": 119,
+    "121": 120,
+    "122": 121,
+    "123": 122,
+    "124": 123,
+    "125": 124,
+    "126": 125,
+    "127": 126,
+    "128": 127,
+    "129": 128,
+    "130": 129,
+    "131": 130,
+    "132": 131,
+    "133": 132,
+    "134": 133,
+    "135": 134,
+    "136": 135,
+    "137": 136,
+    "138": 137,
+    "139": 138,
+    "140": 139,
+    "141": 140,
+    "142": 141,
+    "143": 142,
+    "144": 143,
+    "145": 144,
+    "146": 145,
+    "147": 146,
+    "148": 147,
+    "149": 148,
+    "150": 149,
+    "151": 150,
+    "152": 151,
+    "153": 152,
+    "154": 153,
+    "155": 154,
+    "156": 155,
+    "157": 156,
+    "158": 157,
+    "159": 158,
+    "160": 159,
+    "161": 160,
+    "162": 161,
+    "163": 162,
+    "164": 163,
+    "165": 164,
+    "166": 165,
+    "167": 166,
+    "168": 167,
+    "169": 168,
+    "170": 169,
+    "171": 170,
+    "172": 171,
+    "173": 172,
+    "174": 173,
+    "175": 174,
+    "176": 175,
+    "177": 176,
+    "178": 177,
+    "179": 178,
+    "180": 179,
+    "181": 180,
+    "182": 181,
+    "183": 182,
+    "184": 183,
+    "185": 184,
+    "186": 185,
+    "187": 186,
+    "188": 187,
+    "189": 188,
+    "190": 189,
+    "191": 190,
+    "192": 191,
+    "193": 192,
+    "194": 193,
+    "195": 194,
+    "196": 195,
+    "197": 196,
+    "198": 197,
+    "199": 198,
+    "200": 199
+  },
+  "_maxSPLevel200": 199,
+  "_spPerLevelSource": "SkillXPPerLevel.uasset \u2192 SkillPointsRewarded curve = (0\u21920)(1\u21920)(2\u21921)(200\u21921) linear \u2192 1 SP per level for levels 2..200",
+  "_fallback_used_count": 2,
+  "_fallback_used": [
+    "Skills.Ability.HealerSeeker",
+    "Skills.Ability.HealingCapsule"
+  ],
+  "Skills.Ability.AssaultSeeker": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Ability.BattleCry": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Ability.BinduNerveStrike": [
+    2
+  ],
+  "Skills.Ability.Blindspot": [
+    2
+  ],
+  "Skills.Ability.CablePull": [
+    1,
+    2,
+    3
+  ],
+  "Skills.Ability.CollapseGrenade": [
+    2
+  ],
+  "Skills.Ability.CripplingStrike": [
+    2
+  ],
+  "Skills.Ability.DeflectionSlow": [
+    1
+  ],
+  "Skills.Ability.EnergyCapsule": [
+    2
+  ],
+  "Skills.Ability.FragGrenade": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Ability.HealerSeeker": [
+    2
+  ],
+  "Skills.Ability.HealingCapsule": [
+    2
+  ],
+  "Skills.Ability.HunterSeeker": [
+    2
+  ],
+  "Skills.Ability.Hypersprint": [
+    1,
+    2,
+    3
+  ],
+  "Skills.Ability.KneeCharge": [
+    1,
+    2,
+    3
+  ],
+  "Skills.Ability.LitanyAgainstFear": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Ability.MagneticAttractor": [
+    2
+  ],
+  "Skills.Ability.PoisonCapsuleLauncher": [
+    1,
+    2,
+    3
+  ],
+  "Skills.Ability.PoisonMine": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Ability.PortableGenerator": [
+    2
+  ],
+  "Skills.Ability.RiposteBreak": [
+    2
+  ],
+  "Skills.Ability.RiposteInjure": [
+    2
+  ],
+  "Skills.Ability.SolidoDecoy": [
+    2
+  ],
+  "Skills.Ability.StunDart": [
+    2
+  ],
+  "Skills.Ability.SuspensorBlast": [
+    2
+  ],
+  "Skills.Ability.SuspensorGrenade_Amplification": [
+    2
+  ],
+  "Skills.Ability.SuspensorGrenade_Reduction": [
+    1
+  ],
+  "Skills.Ability.SuspensorGrenade_Stabilization": [
+    2
+  ],
+  "Skills.Ability.SuspensorMine_Amplification": [
+    2
+  ],
+  "Skills.Ability.SuspensorMine_Reduction": [
+    2
+  ],
+  "Skills.Ability.SuspensorMine_Stabilization": [
+    2
+  ],
+  "Skills.Ability.SuspensorPad": [
+    1
+  ],
+  "Skills.Ability.SuspensorWall": [
+    1,
+    2,
+    3
+  ],
+  "Skills.Ability.TurretSeeker": [
+    1,
+    2,
+    3
+  ],
+  "Skills.Ability.VoiceCompel": [
+    1
+  ],
+  "Skills.Ability.VoiceStop": [
+    2
+  ],
+  "Skills.Ability.WeirdingStep": [
+    2
+  ],
+  "Skills.Ability.Whirlwind": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Attribute.Aggression1": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Aggression2": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Aggression3": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Aggression4": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Assassination1": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Assassination2": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Blade1": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Blade2": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Driver1": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Driver2": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Driver3": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Driver4": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Driver5": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Driver6": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Explorer1": [
+    1
+  ],
+  "Skills.Attribute.Explorer2": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Explorer3": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Explorer4": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Explorer5": [
+    1
+  ],
+  "Skills.Attribute.Manipulation1": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.MentalCalculus1": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.MentalCalculus2": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.MentalCalculus3": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.MentalCalculus4": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.MentalCalculus5": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Resolve1": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Resolve2": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Scientist1": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Scientist2": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Scientist3": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Scientist4": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Scientist5": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.SelfControl1": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.SelfControl2": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.SelfControl3": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.SelfControl4": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.SelfControl5": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.SuspensorTech1": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.UnstoppableAttacks": [
+    1
+  ],
+  "Skills.Attribute.Weaponry1": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Weaponry2": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Weaponry3": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Weaponry4": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Weaponry5": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.Weaponry6": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.WeirdingWay1": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Attribute.WeirdingWay2": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Perk.Backstabber": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Perk.BatteryExpert": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Perk.BinduStability": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Perk.BodyShots": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Perk.DeathFromAbove": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Perk.ExploitWeakness": [
+    2
+  ],
+  "Skills.Perk.Gunsmith": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Perk.HeadShots": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Perk.HeavyWeaponNaib": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Perk.IronWill": [
+    2
+  ],
+  "Skills.Perk.MeleeChain": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Perk.MetabolizePoison": [
+    2
+  ],
+  "Skills.Perk.PoisonTooth": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Perk.RegenCap": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Perk.ShieldWeakpoint": [
+    3
+  ],
+  "Skills.Perk.SprintStamina": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Perk.SuspensorDash": [
+    2
+  ],
+  "Skills.Perk.ThriveOnDanger": [
+    2
+  ],
+  "Skills.Perk.ToughLunge": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Perk.TrooperCooldowns": [
+    2,
+    3,
+    4
+  ],
+  "Skills.Perk.VoiceAnalysis": [
+    2
+  ],
+  "Skills.Science.m_PowerMax": [
+    1,
+    3,
+    4
+  ],
+  "Skills.Spice.BinduDodge": [
+    3
+  ],
+  "Skills.Spice.GadgetReload": [
+    3
+  ],
+  "Skills.Spice.ParryBoost": [
+    3
+  ],
+  "Skills.Spice.ShadowStrike": [
+    3
+  ],
+  "Skills.Spice.VehicleHeat": [
+    3
+  ],
+  "Skills.Spice.VoiceSplash": [
+    3
+  ]
+}

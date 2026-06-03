@@ -1,0 +1,1610 @@
+{
+  "combat_nati_sandtroutleathers01_boots": {
+    "internalToken": "CLOTHING_SANDTROUT_LEATHER_SHOES",
+    "name": "Makeshift Shoes",
+    "shortDescription": "A crude pair of shoes made from plant fiber.",
+    "longDescription": "A crude pair of shoes made from plant fiber, used as a last resort by explorers."
+  },
+  "combat_nati_sandtroutleathers01_bottom": {
+    "internalToken": "CLOTHING_SANDTROUT_LEATHER_BREECHES",
+    "name": "Makeshift Pants",
+    "shortDescription": "A crude pair of pants made from plant fiber.",
+    "longDescription": "A crude pair of pants made from plant fiber, used as a last resort by explorers."
+  },
+  "combat_nati_sandtroutleathers01_gloves": {
+    "internalToken": "CLOTHING_SANDTROUT_LEATHER_GLOVES",
+    "name": "Makeshift Gloves",
+    "shortDescription": "A crude pair of gloves made from plant fiber.",
+    "longDescription": "A crude pair of gloves made from plant fiber, used as a last resort by explorers."
+  },
+  "combat_nati_sandtroutleathers01_helmet": {
+    "internalToken": "CLOTHING_SANDTROUT_LEATHER_HOOD",
+    "name": "Makeshift Hood",
+    "shortDescription": "A crude hood made from plant fiber.",
+    "longDescription": "A crude hood made from plant fiber, used as a last resort by explorers."
+  },
+  "combat_nati_sandtroutleathers01_top": {
+    "internalToken": "CLOTHING_SANDTROUT_LEATHER_TUNIC",
+    "name": "Makeshift Jacket",
+    "shortDescription": "A crude jacket made from plant fiber.",
+    "longDescription": "A crude jacket made from plant fiber, used as a last resort by explorers."
+  },
+  "combat_light_unique_story_jackal_helmet": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_STORY_JACKAL_HELMET",
+    "name": "The Jackal's Blindfold",
+    "shortDescription": "Light-weight armor.",
+    "longDescription": "A Special light-weight armor with additional poison mitigation."
+  },
+  "social_neut_unique_story_procesverbal_noblemask": {
+    "internalToken": "CLOTHING_SOCIAL_NEUT_UNIQUE_STORY_PROCESVERBAL_NOBLEMASK",
+    "name": "Phaedra's Mask",
+    "shortDescription": "Phaedra Vye's mask, gifted by Dhood Shazz after the Proces-Verbal.",
+    "longDescription": "Phaedra's white and gold mask with a phoenix motif, gifted by Dhood Shazz after the Proces-Verbal. This adornment projects affluence, decadence, and more than a little eccentricity."
+  },
+  "combat_neut_smugglerdeserterunique01_boots": {
+    "internalToken": "CLOTHING_PINCUSHION_BOOTS",
+    "name": "Aren's Boots",
+    "shortDescription": "Unique boots designed by the warlord, Aren.",
+    "longDescription": "Aren was a disgraced Kirab warlord who fled south to live amongst the scavengers. He developed this <Unique>Unique</> scavenger armor - but it did not save him when the Kirab sent a squad south to eliminate him."
+  },
+  "combat_neut_smugglerdeserterunique01_top": {
+    "internalToken": "CLOTHING_PINCUSHION_CHESTPIECE",
+    "name": "Aren's Chestpiece",
+    "shortDescription": "A unique chestpiece designed by the warlord, Aren.",
+    "longDescription": "Aren was a disgraced Kirab warlord who fled south to live amongst the scavengers. He developed this <Unique>Unique</> scavenger armor - but it did not save him when the Kirab sent a squad south to eliminate him."
+  },
+  "combat_neut_smugglerdeserterunique01_gloves": {
+    "internalToken": "CLOTHING_PINCUSHION_GAUNTLETS",
+    "name": "Aren's Gloves",
+    "shortDescription": "Unique gloves designed by the warlord, Aren.",
+    "longDescription": "Aren was a disgraced Kirab warlord who fled south to live amongst the scavengers. He developed this <Unique>Unique</> scavenger armor - but it did not save him when the Kirab sent a squad south to eliminate him."
+  },
+  "combat_neut_smugglerdeserterunique01_helmet": {
+    "internalToken": "CLOTHING_PINCUSHION_HOOD",
+    "name": "Aren's Mask",
+    "shortDescription": "A unique mask designed by the warlord, Aren.",
+    "longDescription": "Aren was a disgraced Kirab warlord who fled south to live amongst the scavengers. He developed this <Unique>Unique</> scavenger armor - but it did not save him when the Kirab sent a squad south to eliminate him."
+  },
+  "combat_neut_smugglerdeserterunique01_bottom": {
+    "internalToken": "CLOTHING_PINCUSHION_PANTS",
+    "name": "Aren's Pants",
+    "shortDescription": "Unique pants designed by the warlord, Aren.",
+    "longDescription": "Aren was a disgraced Kirab warlord who fled south to live amongst the scavengers. He developed this <Unique>Unique</> scavenger armor - but it did not save him when the Kirab sent a squad south to eliminate him."
+  },
+  "stillsuit_unique_armored_01_boots": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_01_BOOTS",
+    "name": "Hollower Stillsuit Boots",
+    "shortDescription": "Unique armored stillsuit boots developed by the Hollower clan.",
+    "longDescription": "The Hollower Clan is an inbred family of scavengers who inhabit the Hollow Arches of Southern Hagga Basin. This <Unique>Unique</> stillsuit was their invention - though rumor persists that it was a gift from Fremen that they hid during the Sardaukar pogrom."
+  },
+  "stillsuit_unique_armored_01_top": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_01_TOP",
+    "name": "Hollower Stillsuit Garment",
+    "shortDescription": "A unique armored stillsuit garment developed by the Hollower clan.",
+    "longDescription": "The Hollower Clan is an inbred family of scavengers who inhabit the Hollow Arches of Southern Hagga Basin. This <Unique>Unique</> stillsuit was their invention - though rumor persists that it was a gift from Fremen that they hid during the Sardaukar pogrom."
+  },
+  "stillsuit_unique_armored_01_gloves": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_01_GLOVES",
+    "name": "Hollower Stillsuit Gloves",
+    "shortDescription": "Unique armored stillsuit gloves developed by the Hollower clan.",
+    "longDescription": "The Hollower Clan is an inbred family of scavengers who inhabit the Hollow Arches of Southern Hagga Basin. This <Unique>Unique</> stillsuit was their invention - though rumor persists that it was a gift from Fremen that they hid during the Sardaukar pogrom."
+  },
+  "stillsuit_unique_armored_01_mask": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_01_MASK",
+    "name": "Hollower Stillsuit Mask",
+    "shortDescription": "A unique armored stillsuit mask developed by the Hollower clan.",
+    "longDescription": "The Hollower Clan is an inbred family of scavengers who inhabit the Hollow Arches of Southern Hagga Basin. This <Unique>Unique</> stillsuit was their invention - though rumor persists that it was a gift from Fremen that they hid during the Sardaukar pogrom."
+  },
+  "stillsuit_neut_leaking01_top": {
+    "internalToken": "CLOTHING_SIMPLE_STILLSUIT",
+    "name": "Scavenger Stillsuit Body",
+    "shortDescription": "A full-body stillsuit with copper fittings.",
+    "longDescription": "Designed by <Fremen>Fremen</>, this stillsuit uses copper-fitted tubings and catchpockets to withstand many expeditions."
+  },
+  "stillsuit_neut_leaking01_boots": {
+    "internalToken": "CLOTHING_SIMPLE_STILLSUIT_BOOTS",
+    "name": "Scavenger Stillsuit Boots",
+    "shortDescription": "Stillsuit boots with copper actuator pumps.",
+    "longDescription": "These <Fremen>Fremen</> designed stillsuit boots utilize copper heel pumps in order to facilitate the distillation process."
+  },
+  "stillsuit_neut_leaking01_gloves": {
+    "internalToken": "CLOTHING_SIMPLE_STILLSUIT_GLOVES",
+    "name": "Scavenger Stillsuit Gloves",
+    "shortDescription": "Stillsuit gloves with copper fittings.",
+    "longDescription": "Designed by <Fremen>Fremen</>, these stillsuit gloves utilize copper fittings to help withstand many expeditions."
+  },
+  "stillsuit_neut_leaking01_mask": {
+    "internalToken": "CLOTHING_SIMPLE_STILLSUIT_MASK",
+    "name": "Scavenger Stillsuit Mask",
+    "shortDescription": "A stillsuit mask with copper fittings.",
+    "longDescription": "A <Fremen>Fremen</> stillsuit mask with copper fittings, made to withstand many expeditions."
+  },
+  "combat_nati_scavengerrags02_boots": {
+    "internalToken": "CLOTHING_SCAVENGER_RAGS_SHOES",
+    "name": "Scavenger Boots",
+    "shortDescription": "A scavenger's shoes.",
+    "longDescription": "Threadbare apparel. Those scrounging for salvage in the open desert can often afford little else."
+  },
+  "combat_nati_scavengerrags02_bottom": {
+    "internalToken": "CLOTHING_SCAVENGER_RAGS_BOTTOM",
+    "name": "Scavenger Pants",
+    "shortDescription": "A scavenger's breeches.",
+    "longDescription": "Threadbare apparel. Those scrounging for salvage in the open desert can often afford little else."
+  },
+  "combat_nati_scavengerrags02_gloves": {
+    "internalToken": "CLOTHING_SCAVENGER_RAGS_GLOVES",
+    "name": "Scavenger Gloves",
+    "shortDescription": "A scavenger's gloves.",
+    "longDescription": "Threadbare apparel. Those scrounging for salvage in the open desert can often afford little else."
+  },
+  "combat_nati_scavengerrags02_helmet": {
+    "internalToken": "CLOTHING_SCAVENGER_RAGS_HOOD",
+    "name": "Scavenger Hood",
+    "shortDescription": "A scavenger's hood.",
+    "longDescription": "Threadbare apparel. Those scrounging for salvage in the open desert can often afford little else."
+  },
+  "combat_nati_scavengerrags02_top": {
+    "internalToken": "CLOTHING_SCAVENGER_RAGS_ROBE",
+    "name": "Scavenger Chestpiece",
+    "shortDescription": "A scavenger's robe.",
+    "longDescription": "Threadbare apparel. Those scrounging for salvage in the open desert can often afford little else."
+  },
+  "stillsuit_choam_unique_dashed02_top": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_UNIQUE_DASHED02_TOP",
+    "name": "Desert Dasher Garment",
+    "shortDescription": "A lightweight stillsuit top that reduce the stamina cost of dashing.",
+    "longDescription": "Veteran Dune Men know the value of being able to run just a little bit faster and further than the next guy when danger threatens. Those who can afford the extra cost often invest in this <Unique>Unique</> upgraded stillsuit fashioned from lightweight materials."
+  },
+  "combat_heavy_unique_powerefficient_gloves_02": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_POWEREFFICIENT_GLOVES_02",
+    "name": "Iri's Gauntlets",
+    "shortDescription": "A pair of gauntlets that increase power efficiency.",
+    "longDescription": "Iri was a leader among the Kirab who became obsessed with finding a way to nullify the Holtzman effect. His tinkering led to the development of these <Unique>Unique</>  gauntlets that use a feedback loop to decrease power usage. Iri himself claimed that the gauntlets \"spoke\" to him and his state of mind deteriorated greatly until he threw himself from a cliff."
+  },
+  "combat_choam_heavy02_boots": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY02_BOOTS",
+    "name": "Kirab Heavy Boots",
+    "shortDescription": "Heavy boots made from iron.",
+    "longDescription": "Heavy combat boots made of reinforced iron providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy02_gloves": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY02_GLOVES",
+    "name": "Kirab Heavy Gauntlet",
+    "shortDescription": "Heavy hand armor made from iron.",
+    "longDescription": "Heavy combat hand armor made of reinforced iron providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy02_helmet": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY02_HELMET",
+    "name": "Kirab Heavy Headwrap",
+    "shortDescription": "Heavy combat helmet made from iron.",
+    "longDescription": "A heavy combat helmet made of reinforced iron providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy02_top": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY02_TOP",
+    "name": "Kirab Heavy Jerkin",
+    "shortDescription": "Heavy chest armor made from iron.",
+    "longDescription": "A heavy combat armor made of reinforced iron providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy02_bottom": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY02_BOTTOM",
+    "name": "Kirab Heavy Pants",
+    "shortDescription": "Heavy leg armor made from iron.",
+    "longDescription": "Heavy combat leg armor made of reinforced iron providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_light02_boots": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT02_BOOTS",
+    "name": "Kirab Scout Boots",
+    "shortDescription": "Light armor boots made from iron.",
+    "longDescription": "Lightly armored boots made of iron, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_light02_gloves": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT02_GLOVES",
+    "name": "Kirab Scout Gloves",
+    "shortDescription": "Light armor gloves made from iron.",
+    "longDescription": "Lightly armored gloves made of iron, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_light02_helmet": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT02_HELMET",
+    "name": "Kirab Scout Helmet",
+    "shortDescription": "Light armor helmet made from iron.",
+    "longDescription": "A lightly armored helmet made of iron, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_neut_atreidesdeserterunique01_boots": {
+    "internalToken": "CLOTHING_OATHBREAKER_BOOTS",
+    "name": "Oathbreaker Boots",
+    "shortDescription": "Unique boots worn by those without other options.",
+    "longDescription": "Amongst the Kirab there is a common expression \"there is only the final oath\". The Kirab know how close they are to the edge, to becoming what they despise, scavengers without friend or family, consigned to the southern reaches of Hagga Basin. This <Unique>Unique</> armor is a remnant of those who have forsaken their final oath - their oath to the Kirab themselves."
+  },
+  "combat_neut_atreidesdeserterunique01_top": {
+    "internalToken": "CLOTHING_OATHBREAKER_CHESTPIECE",
+    "name": "Oathbreaker Chestpiece",
+    "shortDescription": "A unique jerkin worn by those without other options.",
+    "longDescription": "Amongst the Kirab there is a common expression \"there is only the final oath\". The Kirab know how close they are to the edge, to becoming what they despise, scavengers without friend or family, consigned to the southern reaches of Hagga Basin. This <Unique>Unique</> armor is a remnant of those who have forsaken their final oath - their oath to the Kirab themselves."
+  },
+  "combat_neut_atreidesdeserterunique01_gloves": {
+    "internalToken": "CLOTHING_OATHBREAKER_GAUNTLETS",
+    "name": "Oathbreaker Gauntlets",
+    "shortDescription": "Unique gloves worn by those without other options.",
+    "longDescription": "Amongst the Kirab there is a common expression \"there is only the final oath\". The Kirab know how close they are to the edge, to becoming what they despise, scavengers without friend or family, consigned to the southern reaches of Hagga Basin. This <Unique>Unique</> armor is a remnant of those who have forsaken their final oath - their oath to the Kirab themselves."
+  },
+  "combat_neut_atreidesdeserterunique01_helmet": {
+    "internalToken": "CLOTHING_OATHBREAKER_HOOD",
+    "name": "Oathbreaker Headwrap",
+    "shortDescription": "Unique headwrap worn by those without other options.",
+    "longDescription": "Amongst the Kirab there is a common expression \"there is only the final oath\". The Kirab know how close they are to the edge, to becoming what they despise, scavengers without friend or family, consigned to the southern reaches of Hagga Basin. This <Unique>Unique</> armor is a remnant of those who have forsaken their final oath - their oath to the Kirab themselves."
+  },
+  "combat_neut_atreidesdeserterunique01_bottom": {
+    "internalToken": "CLOTHING_OATHBREAKER_PANTS",
+    "name": "Oathbreaker Pants",
+    "shortDescription": "Unique pants worn by those without other options.",
+    "longDescription": "Amongst the Kirab there is a common expression \"there is only the final oath\". The Kirab know how close they are to the edge, to becoming what they despise, scavengers without friend or family, consigned to the southern reaches of Hagga Basin. This <Unique>Unique</> armor is a remnant of those who have forsaken their final oath - their oath to the Kirab themselves."
+  },
+  "stillsuit_choam_02_top": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_02_TOP",
+    "name": "Kirab Stillsuit Body",
+    "shortDescription": "A full-body stillsuit with iron fittings.",
+    "longDescription": "Designed by <Fremen>Fremen</>, this stillsuit uses iron-fitted tubings and catchpockets to withstand many expeditions."
+  },
+  "stillsuit_choam_02_boots": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_02_BOOTS",
+    "name": "Kirab Stillsuit Boots",
+    "shortDescription": "Stillsuit boots with iron actuator pumps.",
+    "longDescription": "These <Fremen>Fremen</> designed stillsuit boots utilize iron heel pumps in order to facilitate the distillation process."
+  },
+  "stillsuit_choam_02_gloves": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_02_GLOVES",
+    "name": "Kirab Stillsuit Gloves",
+    "shortDescription": "Stillsuit gloves with iron fittings.",
+    "longDescription": "Designed by <Fremen>Fremen</>, these stillsuit gloves utilize iron fittings to help withstand many expeditions."
+  },
+  "stillsuit_choam_02_mask": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_02_MASK",
+    "name": "Kirab Stillsuit Mask",
+    "shortDescription": "A stillsuit mask with iron fittings.",
+    "longDescription": "A <Fremen>Fremen</> stillsuit mask with iron fittings, made to withstand many expeditions."
+  },
+  "stillsuit_unique_armored_02_boots": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_02_BOOTS",
+    "name": "Menol's Stillsuit Boots",
+    "shortDescription": "Unique armored stillsuit boots created by Menol.",
+    "longDescription": "Menol was well loved among the Kirab, known far and wide for his spice beer brewing operations. He accidentally discovered that soaking his stillsuit leathers led to a stiffer, more protective <Unique>Unique</> garment. Like his spice beer, he shared this knowledge freely, didn't help him much when he was  stabbed to death by a drunk Kirab who hallucinated he was a sandworm."
+  },
+  "stillsuit_unique_armored_02_top": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_02_TOP",
+    "name": "Menol's Stillsuit Garment",
+    "shortDescription": "A unique armored stillsuit garment created by Menol.",
+    "longDescription": "Menol was well loved among the Kirab, known far and wide for his spice beer brewing operations. He accidentally discovered that soaking his stillsuit leathers led to a stiffer, more protective <Unique>Unique</> garment. Like his spice beer, he shared this knowledge freely, didn't help him much when he was  stabbed to death by a drunk Kirab who hallucinated he was a sandworm."
+  },
+  "stillsuit_unique_armored_02_gloves": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_02_GLOVES",
+    "name": "Menol's Stillsuit Gloves",
+    "shortDescription": "Unique armored stillsuit gloves created by Menol.",
+    "longDescription": "Menol was well loved among the Kirab, known far and wide for his spice beer brewing operations. He accidentally discovered that soaking his stillsuit leathers led to a stiffer, more protective <Unique>Unique</> garment. Like his spice beer, he shared this knowledge freely, didn't help him much when he was  stabbed to death by a drunk Kirab who hallucinated he was a sandworm."
+  },
+  "stillsuit_unique_armored_02_mask": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_02_MASK",
+    "name": "Menol's Stillsuit Mask",
+    "shortDescription": "A unique armored stillsuit mask created by Menol.",
+    "longDescription": "Menol was well loved among the Kirab, known far and wide for his spice beer brewing operations. He accidentally discovered that soaking his stillsuit leathers led to a stiffer, more protective <Unique>Unique</> garment. Like his spice beer, he shared this knowledge freely, didn't help him much when he was  stabbed to death by a drunk Kirab who hallucinated he was a sandworm."
+  },
+  "combat_neut_smugglerdeserterunique02_boots": {
+    "internalToken": "CLOTHING_PINCUSHION_BOOTS_NAME",
+    "name": "Mendia's Boots",
+    "shortDescription": "Unique boots worn by the Kirab leader, Mendia.",
+    "longDescription": "The story of the warlord Mendia is well known among the Kirab. How she escaped slavery in the north, abandoning her former life. How she gained a reputation for brutality by executing any slavers they captured. How she defeated their former leader, Aren, in a duel and drove him into hiding in the Southern Hagga Basin. This <Unique>Unique</> armor is modelled after her own - reinforced to keep her enemies at bay."
+  },
+  "combat_neut_smugglerdeserterunique02_bottom": {
+    "internalToken": "CLOTHING_PINCUSHION_PANTS_NAME",
+    "name": "Mendia's Pants",
+    "shortDescription": "Unique pants worn by the Kirab leader, Mendia.",
+    "longDescription": "The story of the warlord Mendia is well known among the Kirab. How she escaped slavery in the north, abandoning her former life. How she gained a reputation for brutality by executing any slavers they captured. How she defeated their former leader, Aren, in a duel and drove him into hiding in the Southern Hagga Basin. This <Unique>Unique</> armor is modelled after her own - reinforced to keep her enemies at bay."
+  },
+  "combat_neut_smugglerdeserterunique02_gloves": {
+    "internalToken": "CLOTHING_PINCUSHION_GAUNTLETS_NAME",
+    "name": "Mendia's Gauntlets",
+    "shortDescription": "Unique gloves worn by the Kirab leader, Mendia.",
+    "longDescription": "The story of the warlord Mendia is well known among the Kirab. How she escaped slavery in the north, abandoning her former life. How she gained a reputation for brutality by executing any slavers they captured. How she defeated their former leader, Aren, in a duel and drove him into hiding in the Southern Hagga Basin. This <Unique>Unique</> armor is modelled after her own - reinforced to keep her enemies at bay."
+  },
+  "combat_neut_smugglerdeserterunique02_helmet": {
+    "internalToken": "CLOTHING_PINCUSHION_HOOD_NAME",
+    "name": "Mendia's Wrap",
+    "shortDescription": "Unique headwrap worn by the Kirab leader, Mendia.",
+    "longDescription": "The story of the warlord Mendia is well known among the Kirab. How she escaped slavery in the north, abandoning her former life. How she gained a reputation for brutality by executing any slavers they captured. How she defeated their former leader, Aren, in a duel and drove him into hiding in the Southern Hagga Basin. This <Unique>Unique</> armor is modelled after her own - reinforced to keep her enemies at bay."
+  },
+  "combat_neut_smugglerdeserterunique02_top": {
+    "internalToken": "CLOTHING_PINCUSHION_CHESTPIECE_NAME",
+    "name": "Mendia's Jacket",
+    "shortDescription": "A unique jacket worn by the Kirab leader, Mendia.",
+    "longDescription": "The story of the warlord Mendia is well known among the Kirab. How she escaped slavery in the north, abandoning her former life. How she gained a reputation for brutality by executing any slavers they captured. How she defeated their former leader, Aren, in a duel and drove him into hiding in the Southern Hagga Basin. This <Unique>Unique</> armor is modelled after her own - reinforced to keep her enemies at bay."
+  },
+  "combat_choam_light02_bottom": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT02_BOTTOM",
+    "name": "Kirab Scout Pants",
+    "shortDescription": "Light armor leggings made from iron.",
+    "longDescription": "Lightly armored leggings made of iron, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_light02_top": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT02_TOP",
+    "name": "Kirab Scout Jacket",
+    "shortDescription": "Light armor top made from iron.",
+    "longDescription": "A lightly armored top made of iron, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_light_unique_wormthreat_boots_02": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_WORMTHREAT_BOOTS_02",
+    "name": "Softstep Boots",
+    "shortDescription": "A pair of boots that decrease vibrations.",
+    "longDescription": "Found abandoned throughout the former territories of the Fremen, these <Unique>Unique</> boots are made of a strange type of soft leather. Each step in these boots seems to melt into the sand, reducing the vibrations that attract the worm."
+  },
+  "combat_neut_smugglerdeserterunique03_boots": {
+    "internalToken": "CLOTHING_PINCUSHION_BOOTS_NAME",
+    "name": "Inkvine Boots",
+    "shortDescription": "Unique boots named for their likeness to the inkvine of Giedi Prime.",
+    "longDescription": "Inkvine was a creeping plant native to Giedi Prime, used as a material by slavers for generations. Inkvine whips were the most common - particularly for the slow burning beet colored scars that they left on their victims. This <Unique>Unique</> light armor is dyed to look almost like inkvine, despite being made from lesser materials."
+  },
+  "combat_neut_smugglerdeserterunique03_gloves": {
+    "internalToken": "CLOTHING_PINCUSHION_GAUNTLETS_NAME",
+    "name": "Inkvine Gauntlets",
+    "shortDescription": "Unique gauntlets named for their likeness to the inkvine of Giedi Prime.",
+    "longDescription": "Inkvine was a creeping plant native to Giedi Prime, used as a material by slavers for generations. Inkvine whips were the most common - particularly for the slow burning beet colored scars that they left on their victims. This <Unique>Unique</> light armor is dyed to look almost like inkvine, despite being made from lesser materials. "
+  },
+  "combat_neut_smugglerdeserterunique03_top": {
+    "internalToken": "CLOTHING_PINCUSHION_CHESTPIECE_NAME",
+    "name": "Inkvine Jacket",
+    "shortDescription": "A unique jacket named for its likeness to the inkvine of Giedi Prime.",
+    "longDescription": "Inkvine was a creeping plant native to Giedi Prime, used as a material by slavers for generations. Inkvine whips were the most common - particularly for the slow burning beet colored scars that they left on their victims. This <Unique>Unique</> light armor is dyed to look almost like inkvine, despite being made from lesser materials. "
+  },
+  "combat_neut_smugglerdeserterunique03_helmet": {
+    "internalToken": "CLOTHING_PINCUSHION_HOOD_NAME",
+    "name": "Inkvine Mask",
+    "shortDescription": "A unique mask named for its likeness to the inkvine of Giedi Prime.",
+    "longDescription": "Inkvine was a creeping plant native to Giedi Prime, used as a material by slavers for generations. Inkvine whips were the most common - particularly for the slow burning beet colored scars that they left on their victims. This <Unique>Unique</> light armor is dyed to look almost like inkvine, despite being made from lesser materials. "
+  },
+  "combat_neut_smugglerdeserterunique03_bottom": {
+    "internalToken": "CLOTHING_PINCUSHION_PANTS_NAME",
+    "name": "Inkvine Pants",
+    "shortDescription": "Unique pants named for their likeness to the inkvine of Giedi Prime.",
+    "longDescription": "Inkvine was a creeping plant native to Giedi Prime, used as a material by slavers for generations. Inkvine whips were the most common - particularly for the slow burning beet colored scars that they left on their victims. This <Unique>Unique</> light armor is dyed to look almost like inkvine, despite being made from lesser materials. "
+  },
+  "combat_neut_atreidesdeserterunique02_boots": {
+    "internalToken": "CLOTHING_OATHBREAKER_BOOTS_NAME",
+    "name": "Karak's Boots",
+    "shortDescription": "Unique boots crafted for the slavemaster Karak.",
+    "longDescription": "Zaal Karak is a ruthless slavelord who runs his operation with an iron fist. This intimidating <Unique>Unique</> heavy armor was commissioned as a present for him from the na-baron of the Harkonnen, Feyd-Rautha. It is Zaal Karak and his men who supply the bulk of slaves for the building of Neo-Carthag."
+  },
+  "combat_neut_atreidesdeserterunique02_gloves": {
+    "internalToken": "CLOTHING_OATHBREAKER_GAUNTLETS_NAME",
+    "name": "Karak's Gauntlets",
+    "shortDescription": "Unique gauntlets crafted for the slavemaster Karak.",
+    "longDescription": "Zaal Karak is a ruthless slavelord who runs his operation with an iron fist. This intimidating <Unique>Unique</> heavy armor was commissioned as a present for him from the na-baron of the Harkonnen, Feyd-Rautha. It is Zaal Karak and his men who supply the bulk of slaves for the building of Neo-Carthag."
+  },
+  "combat_neut_atreidesdeserterunique02_helmet": {
+    "internalToken": "CLOTHING_OATHBREAKER_HOOD_NAME",
+    "name": "Karak's Helmet",
+    "shortDescription": "Unique mask crafted for the slavemaster Karak.",
+    "longDescription": "Zaal Karak is a ruthless slavelord who runs his operation with an iron fist. This intimidating <Unique>Unique</> heavy armor was commissioned as a present for him from the na-baron of the Harkonnen, Feyd-Rautha. It is Zaal Karak and his men who supply the bulk of slaves for the building of Neo-Carthag."
+  },
+  "combat_neut_atreidesdeserterunique02_top": {
+    "internalToken": "CLOTHING_OATHBREAKER_CHESTPIECE_NAME",
+    "name": "Karak's Jacket",
+    "shortDescription": "A unique jacket crafted for the slavemaster Karak.",
+    "longDescription": "Zaal Karak is a ruthless slavelord who runs his operation with an iron fist. This intimidating <Unique>Unique</> heavy armor was commissioned as a present for him from the na-baron of the Harkonnen, Feyd-Rautha. It is Zaal Karak and his men who supply the bulk of slaves for the building of Neo-Carthag."
+  },
+  "combat_neut_atreidesdeserterunique02_bottom": {
+    "internalToken": "CLOTHING_OATHBREAKER_PANTS_NAME",
+    "name": "Karak's Pants",
+    "shortDescription": "Unique pants crafted for the slavemaster Karak.",
+    "longDescription": "Zaal Karak is a ruthless slavelord who runs his operation with an iron fist. This intimidating <Unique>Unique</> heavy armor was commissioned as a present for him from the na-baron of the Harkonnen, Feyd-Rautha. It is Zaal Karak and his men who supply the bulk of slaves for the building of Neo-Carthag."
+  },
+  "stillsuit_unique_armored_03_boots": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_03_BOOTS",
+    "name": "Kel's Stillsuit Boots",
+    "shortDescription": "Unique armored stillsuit boots designed by Kel.",
+    "longDescription": "Kel is the most paranoid of the slavelords who came to Arrakis to help with the building of Neo-Carthag. He was a nervous businessman, even before he splintered with the rest of the slavers and moved his operations across the rift. Now he sleeps in this <Unique>Unique</> stillsuit he designed. He does not sleep well at night. "
+  },
+  "stillsuit_unique_armored_03_top": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_03_TOP",
+    "name": "Kel's Stillsuit Garment",
+    "shortDescription": "A unique armored stillsuit garment designed by Kel .",
+    "longDescription": "Kel is the most paranoid of the slavelords who came to Arrakis to help with the building of Neo-Carthag. He was a nervous businessman, even before he splintered with the rest of the slavers and moved his operations across the rift. Now he sleeps in this <Unique>Unique</> stillsuit he designed. He does not sleep well at night. "
+  },
+  "stillsuit_unique_armored_03_gloves": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_03_GLOVES",
+    "name": "Kel's Stillsuit Gloves",
+    "shortDescription": "Unique armored stillsuit gloves designed by Kel.",
+    "longDescription": "Kel is the most paranoid of the slavelords who came to Arrakis to help with the building of Neo-Carthag. He was a nervous businessman, even before he splintered with the rest of the slavers and moved his operations across the rift. Now he sleeps in this <Unique>Unique</> stillsuit he designed. He does not sleep well at night. "
+  },
+  "stillsuit_unique_armored_03_mask": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_03_MASK",
+    "name": "Kel's Stillsuit Mask",
+    "shortDescription": "A unique armored stillsuit mask designed by Kel.",
+    "longDescription": "Kel is the most paranoid of the slavelords who came to Arrakis to help with the building of Neo-Carthag. He was a nervous businessman, even before he splintered with the rest of the slavers and moved his operations across the rift. Now he sleeps in this <Unique>Unique</> stillsuit he designed. He does not sleep well at night. "
+  },
+  "combat_heavy_unique_powerefficient_gloves_03": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_POWEREFFICIENT_GLOVES_03",
+    "name": "Shock Gauntlets",
+    "shortDescription": "A pair of gauntlets that increase power efficiency.",
+    "longDescription": "These <Unique>Unique</> gauntlets used to be attached to uncooperative slaves - shocking their palms as a punishment. One supervisor noticed that slaves equipped with the gauntlets needed to recharge their tools and power packs less frequently. The gauntlets were quickly modified to a low level current and given to all workers. Even slavers value efficiency."
+  },
+  "combat_choam_heavy03_boots": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY03_BOOTS",
+    "name": "Slaver Heavy Boots",
+    "shortDescription": "Heavy boots made from steel.",
+    "longDescription": "Heavy combat boots made of reinforced steel providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy03_gloves": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY03_GLOVES",
+    "name": "Slaver Heavy Gloves",
+    "shortDescription": "Heavy hand armor made from steel.",
+    "longDescription": "Heavy combat hand armor made of reinforced steel providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy03_helmet": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY03_HELMET",
+    "name": "Slaver Heavy Helmet",
+    "shortDescription": "Heavy combat helmet made from steel.",
+    "longDescription": "A heavy combat helmet made of reinforced steel providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy03_top": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY03_TOP",
+    "name": "Slaver Heavy Jerkin",
+    "shortDescription": "Heavy chest armor made from steel.",
+    "longDescription": "A heavy combat armor made of reinforced steel providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy03_bottom": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY03_BOTTOM",
+    "name": "Slaver Heavy Pants",
+    "shortDescription": "Heavy leg armor made from steel.",
+    "longDescription": "Heavy combat leg armor made of reinforced steel providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "stillsuit_choam_01_top": {
+    "internalToken": "CLOTHING_CHOAM_STILLSUIT_BODY",
+    "name": "Slaver Stillsuit Body",
+    "shortDescription": "A full-body stillsuit with steel fittings.",
+    "longDescription": "Designed by <Fremen>Fremen</>, this stillsuit uses steel-fitted tubings and catchpockets to withstand many expeditions."
+  },
+  "stillsuit_choam_01_boots": {
+    "internalToken": "CLOTHING_CHOAM_STILLSUIT_BOOTS",
+    "name": "Slaver Stillsuit Boots",
+    "shortDescription": "Stillsuit boots with steel actuator pumps.",
+    "longDescription": "These <Fremen>Fremen</> designed stillsuit boots utilize steel heel pumps in order to facilitate the distillation process."
+  },
+  "stillsuit_choam_01_gloves": {
+    "internalToken": "CLOTHING_CHOAM_STILLSUIT_GLOVES",
+    "name": "Slaver Stillsuit Gloves",
+    "shortDescription": "Stillsuit gloves with steel fittings.",
+    "longDescription": "Designed by <Fremen>Fremen</>, these stillsuit gloves utilize steel fittings to help withstand many expeditions."
+  },
+  "stillsuit_choam_01_mask": {
+    "internalToken": "CLOTHING_CHOAM_STILLSUIT_HOOD",
+    "name": "Slaver Stillsuit Mask",
+    "shortDescription": "A stillsuit mask with steel fittings.",
+    "longDescription": "A <Fremen>Fremen</> stillsuit mask with steel fittings, made to withstand many expeditions."
+  },
+  "stillsuit_choam_unique_dashed03_top": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_UNIQUE_DASHED03_TOP",
+    "name": "Sprinter's Stillsuit Garment",
+    "shortDescription": "A lightweight stillsuit top that reduces the stamina cost of dashing.",
+    "longDescription": "Veteran Dune Men know the value of being able to run just a little bit faster and further than the next guy when danger threatens. Those who can afford the extra cost often invest in this <Unique>Unique</> upgraded stillsuit fashioned from lightweight materials."
+  },
+  "combat_choam_light03_boots": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT03_BOOTS",
+    "name": "Slaver Scout Boots",
+    "shortDescription": "Light armor boots made from steel.",
+    "longDescription": "Lightly armored boots made of steel, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_light03_bottom": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT03_BOTTOM",
+    "name": "Slaver Scout Pants",
+    "shortDescription": "Light armor leggings made from steel.",
+    "longDescription": "Lightly armored leggings made of steel, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_light03_gloves": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT03_GLOVES",
+    "name": "Slaver Scout Gloves",
+    "shortDescription": "Light armor gloves made from steel.",
+    "longDescription": "Lightly armored gloves made of steel, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_light03_helmet": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT03_HELMET",
+    "name": "Slaver Scout Mask",
+    "shortDescription": "Light armor helmet made from steel.",
+    "longDescription": "A lightly armored helmet made of steel, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_light03_top": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT03_TOP",
+    "name": "Slaver Scout Jacket",
+    "shortDescription": "Light armor top made from steel.",
+    "longDescription": "A lightly armored top made of steel, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_light_unique_biomeheat_top_03": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_BIOMEHEAT_TOP_03",
+    "name": "Skin-lined Jacket",
+    "shortDescription": "A jacket made from a pale, breathable leather.",
+    "longDescription": "When they were establishing their presence in the Hagga Basin, the Slavers noticed that their slaves were often dying of heatstroke. They could not have their stock dying, so they developed this <Unique>Unique</> jacket to protect their slaves from the worst of the elements. Sometimes even the worst of people have good ideas. Just don't look too closely at the leather."
+  },
+  "combat_light_unique_dewreap_gloves_03": {
+    "internalToken": "CLOTHING_STEEL_DEW_GLOVES",
+    "name": "Reaper Gloves",
+    "shortDescription": "Special gloves design to maximize water gathering.",
+    "longDescription": "Treated with a small amount of huf-huf oil, these <Unique>Unique</> gloves repel water and prevent any additional dew from escaping while harvesting."
+  },
+  "combat_light_unique_reducesuspensor_top_03": {
+    "internalToken": "CLOTHING_STEEL_SUSPENSOR_AIDED_HARNESS",
+    "name": "Rigged Suspensor Jacket",
+    "shortDescription": "A jacket rigged with wires that aid suspensor usage.",
+    "longDescription": "Used primarily by those who are called to spend long hours doing heavy activity while using suspensor belts, this <Unique>Unique</>  jacket features a series of specially designed capacitors to optimize the flow of energy through battery pack and suspensor belt. "
+  },
+  "combat_light_unique_wormthreat_boots_03": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_WORMTHREAT_BOOTS_03",
+    "name": "Ta'lab Softstep Boots",
+    "shortDescription": "A pair of boots that decrease vibrations.",
+    "longDescription": "Found abandoned throughout the former territories of the Fremen, these <Unique>Unique</> boots are made of a strange type of soft leather. Each step in these boots seems to melt into the sand, reducing the vibrations that attract the worm. This particular set is based on a design found in the long-abandoned Sietch Ta'lab."
+  },
+  "combat_light_unique_stamina_bottom_04": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_STAMINA_BOTTOM_04",
+    "name": "Compression-Stim Leggings",
+    "shortDescription": "Light leggings with reduced stamina drain while sprinting.",
+    "longDescription": "These <Unique>Unique</> light leggings are equipped with a compression triggered mechanism which stimulates the leg muscles, reducing the stamina drain of dashing."
+  },
+  "combat_choam_heavy01_boots": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY01_BOOTS",
+    "name": "Duneman Heavy Boots",
+    "shortDescription": "Heavy boots made from aluminum.",
+    "longDescription": "Heavy combat boots made of reinforced aluminum providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy01_gloves": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY01_GLOVES",
+    "name": "Duneman Heavy Gloves",
+    "shortDescription": "Heavy hand armor made from aluminum.",
+    "longDescription": "Heavy combat hand armor made of reinforced aluminum providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy01_top": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY01_TOP",
+    "name": "Duneman Heavy Jacket",
+    "shortDescription": "Heavy chest armor made from aluminum.",
+    "longDescription": "A heavy combat armor made of reinforced aluminum providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy01_helmet": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY01_HELMET",
+    "name": "Duneman Heavy Mask",
+    "shortDescription": "Heavy combat mask made from aluminum.",
+    "longDescription": "A heavy combat helmet made of reinforced aluminum providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy01_bottom": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY01_BOTTOM",
+    "name": "Duneman Heavy Pants",
+    "shortDescription": "Heavy leg armor made from aluminum.",
+    "longDescription": "Heavy combat leg armor made of reinforced aluminum providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_scout03_boots": {
+    "internalToken": "CLOTHING_CHOAM_SCOUT_BOOTS",
+    "name": "Duneman Scout Boots",
+    "shortDescription": "Light armor boots made from aluminum.",
+    "longDescription": "Lightly armored boots made of aluminum, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_scout03_gloves": {
+    "internalToken": "CLOTHING_CHOAM_SCOUT_GAUNTLETS",
+    "name": "Duneman Scout Gloves",
+    "shortDescription": "Light armor gloves made from aluminum.",
+    "longDescription": "Lightly armored gloves made of aluminum, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_scout03_helmet": {
+    "internalToken": "CLOTHING_CHOAM_SCOUT_HELMET",
+    "name": "Duneman Scout Helmet",
+    "shortDescription": "Light armor helmet made from aluminum.",
+    "longDescription": "A lightly armored helmet made of aluminum, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_scout03_top": {
+    "internalToken": "CLOTHING_CHOAM_SCOUT_CHESTPIECE",
+    "name": "Duneman Scout Jacket",
+    "shortDescription": "Light armor top made from aluminum.",
+    "longDescription": "A lightly armored top made of aluminum, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_scout03_bottom": {
+    "internalToken": "CLOTHING_CHOAM_SCOUT_PANTS",
+    "name": "Duneman Scout Pants",
+    "shortDescription": "Light armor leggings made from aluminum.",
+    "longDescription": "Lightly armored leggings made of aluminum, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_light_unique_wormthreat_boots_04": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_WORMTHREAT_BOOTS_04",
+    "name": "Idaho Softstep Boots",
+    "shortDescription": "A pair of boots that decrease vibrations.",
+    "longDescription": "A small mechanism in the sole of these <Unique>Unique</> light armor boots emits an irregular vibration that reduces the amount of worm-attention generated by footsteps on the open sands."
+  },
+  "combat_light_unique_dewreap_gloves_04": {
+    "internalToken": "CLOTHING_ALUMINUM_DEW_GLOVES",
+    "name": "Improved Reaper Gloves",
+    "shortDescription": "Special gloves design to maximize water gathering.",
+    "longDescription": "Treated with a small amount of huf-huf oil, these <Unique>Unique</> gloves repel water and prevent any additional dew from escaping while harvesting."
+  },
+  "combat_light_unique_reducesuspensor_top_04": {
+    "internalToken": "CLOTHING_ALUMINUM_SUSPENSOR_AIDED_HARNESS",
+    "name": "Improved Suspensor Jacket",
+    "shortDescription": "Schematic for a jacket rigged with wires that aid suspensor usage.",
+    "longDescription": "Used primarily by those who are called to spend long hours doing heavy activity while using suspensor belts, this <Unique>Unique</> jacket features a series of specially designed capacitors to optimize the flow of energy through battery pack and suspensor belt."
+  },
+  "combat_heavy_unique_powerefficient_gloves_04": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_POWEREFFICIENT_GLOVES_04",
+    "name": "Power Gauntlets",
+    "shortDescription": "A heavy armor gauntlet with optimized power usage.",
+    "longDescription": "These <Unique>Unique</> gauntlets were developed to help fatigued miners keep going when their tools were running low. Containing a series of capacitors within them, they help to even out the power flow and increase efficiency. The Sandflies have co-opted these gauntlets for use in their own operations."
+  },
+  "combat_neut_atreidesdeserterunique03_boots": {
+    "internalToken": "CLOTHING_OATHBREAKER_BOOTS_NAME",
+    "name": "Sentinel Boots",
+    "shortDescription": "Heavy boots worn by the Sandflies, built for endurance and pursuit.",
+    "longDescription": "Though the Sandflies have long since broken ties with the Miner's Guild, they still maintain the gear and traditions of their former life. These <Unique>Unique</> boots are modified duneman boots - built for long hours in the mines."
+  },
+  "combat_neut_atreidesdeserterunique03_gloves": {
+    "internalToken": "CLOTHING_OATHBREAKER_GAUNTLETS_NAME",
+    "name": "Sentinel Gauntlets",
+    "shortDescription": "Heavy gauntlets used by the Sandflies, reinforced for both labor and combat.",
+    "longDescription": "Though the Sandflies have long since broken ties with the Miner's Guild, they still maintain the gear and traditions of their former life. These <Unique>Unique</> gauntlets are modified duneman gauntlets - built for long hours in the mines."
+  },
+  "combat_neut_atreidesdeserterunique03_helmet": {
+    "internalToken": "CLOTHING_OATHBREAKER_HOOD_NAME",
+    "name": "Sentinel Helmet",
+    "shortDescription": "A rugged helmet worn by Sandflies to shield their identities.",
+    "longDescription": "Though the Sandflies have long since broken ties with the Miner's Guild, they still maintain the gear and traditions of their former life. This <Unique>Unique</> helmet is a modified duneman helmet - built for long hours in the mines."
+  },
+  "combat_neut_atreidesdeserterunique03_top": {
+    "internalToken": "CLOTHING_OATHBREAKER_CHESTPIECE_NAME",
+    "name": "Sentinel Jacket",
+    "shortDescription": "A heavy jacket worn by Sandfly sentinels, marked by stolen insignias.",
+    "longDescription": "Though the Sandflies have long since broken ties with the Miner's Guild, they still maintain the gear and traditions of their former life. This <Unique>Unique</> jacket is a modified duneman jacket - built for long hours in the mines."
+  },
+  "combat_neut_atreidesdeserterunique03_bottom": {
+    "internalToken": "CLOTHING_OATHBREAKER_PANTS_NAME",
+    "name": "Sentinel Pants",
+    "shortDescription": "Reinforced pants worn by the Sandflies, designed for rough terrain.",
+    "longDescription": "Though the Sandflies have long since broken ties with the Miner's Guild, they still maintain the gear and traditions of their former life. These <Unique>Unique</> pants are modified duneman pants - built for long hours in the mines."
+  },
+  "stillsuit_unique_efficient_04_boots": {
+    "internalToken": "CLOTHING_ALUMINUM_EFFICIENT_STILLSUIT_BOOTS",
+    "name": "Maraqeb Stillsuit Boots",
+    "shortDescription": "Stillsuit boots made in honor of Maraqeb, the sentinel.",
+    "longDescription": "Maraqeb, known colloquially as The Sentinel, is a rock formation that has weathered thousands of years of sandstorms. The Fremen believed it was a holy site, a place that rewards endurance. This <Unique>Unique</> stillsuit is based on the principles of Maraqeb - durability and efficiency."
+  },
+  "stillsuit_unique_efficient_04_top": {
+    "internalToken": "CLOTHING_ALUMINUM_EFFICIENT_STILLSUIT_TOP",
+    "name": "Maraqeb Stillsuit Garment",
+    "shortDescription": "A stillsuit garment made in honor of Maraqeb, the sentinel.",
+    "longDescription": "Maraqeb, known colloquially as The Sentinel, is a rock formation that has weathered thousands of years of sandstorms. The Fremen believed it was a holy site, a place that rewards endurance. This <Unique>Unique</> stillsuit is based on the principles of Maraqeb - durability and efficiency."
+  },
+  "stillsuit_unique_efficient_04_gloves": {
+    "internalToken": "CLOTHING_ALUMINUM_EFFICIENT_STILLSUIT_GLOVES",
+    "name": "Maraqeb Stillsuit Gloves",
+    "shortDescription": "Stillsuit gloves made in honor of Maraqeb, the sentinel.",
+    "longDescription": "Maraqeb, known colloquially as The Sentinel, is a rock formation that has weathered thousands of years of sandstorms. The Fremen believed it was a holy site, a place that rewards endurance. This <Unique>Unique</> stillsuit is based on the principles of Maraqeb - durability and efficiency."
+  },
+  "stillsuit_unique_efficient_04_mask": {
+    "internalToken": "CLOTHING_ALUMINUM_EFFICIENT_STILLSUIT_MASK",
+    "name": "Maraqeb Stillsuit Mask",
+    "shortDescription": "A stillsuit mask made in honor of Maraqeb, the sentinel.",
+    "longDescription": "Maraqeb, known colloquially as The Sentinel, is a rock formation that has weathered thousands of years of sandstorms. The Fremen believed it was a holy site, a place that rewards endurance. This <Unique>Unique</> stillsuit is based on the principles of Maraqeb - durability and efficiency."
+  },
+  "stillsuit_choam_04_top": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_04_TOP",
+    "name": "Native Stillsuit Body",
+    "shortDescription": "A full-body stillsuit with aluminum fittings.",
+    "longDescription": "Designed by <Fremen>Fremen</>, this stillsuit uses aluminum-fitted tubings and catchpockets to withstand many expeditions."
+  },
+  "stillsuit_choam_04_boots": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_04_BOOTS",
+    "name": "Native Stillsuit Boots",
+    "shortDescription": "Stillsuit boots with aluminum actuator pumps.",
+    "longDescription": "These <Fremen>Fremen</> designed stillsuit boots utilize aluminum heel pumps in order to facilitate the distillation process."
+  },
+  "stillsuit_choam_04_gloves": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_04_GLOVES",
+    "name": "Native Stillsuit Gloves",
+    "shortDescription": "Stillsuit gloves with aluminum fittings.",
+    "longDescription": "Designed by <Fremen>Fremen</>, these stillsuit gloves utilize aluminum fittings to help withstand many expeditions."
+  },
+  "stillsuit_choam_04_mask": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_04_MASK",
+    "name": "Native Stillsuit Mask",
+    "shortDescription": "A stillsuit mask with aluminum fittings.",
+    "longDescription": "A <Fremen>Fremen</> stillsuit mask with aluminum fittings, made to withstand many expeditions."
+  },
+  "stillsuit_choam_unique_dashed04_top": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_UNIQUE_DASHED04_TOP",
+    "name": "Sand Strider Stillsuit Garment",
+    "shortDescription": "A lightweight stillsuit top that reduces the stamina cost of dashing.",
+    "longDescription": "Veteran Dune Men know the value of being able to run just a little bit faster and further than the next guy when danger threatens. Those who can afford the extra cost often invest in this <Unique>Unique</> upgraded stillsuit fashioned from lightweight materials."
+  },
+  "stillsuit_unique_heatmitigation_04_mask": {
+    "internalToken": "CLOTHING_ALUMINUM_SUN_SHADE",
+    "name": "Shadow Hood",
+    "shortDescription": "A stillsuit hood of heat protective material.",
+    "longDescription": "This <Unique>Unique</> hood is designed to reduce the harm caused by direct sunlight. It has been soaked in the juice of the creosote bush - inhibiting sweating and reducing heat buildup."
+  },
+  "stillsuit_unique_armored_04_boots": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_04_BOOTS",
+    "name": "Shadrath's Stillsuit Boots",
+    "shortDescription": "Stillsuit boots made in imitation of Shadrath the Fremen.",
+    "longDescription": "Shadrath was a Fremen warrior, who killed dozens of Sardaukar in razzia across the Shield Wall. When he was gravely wounded, he returned to a hidden cave and sealed himself in a deathstill, preserving his water for his tribe. This <Unique>Unique</> armored stillsuit is based on the design of the one found abandoned by the deathstill."
+  },
+  "stillsuit_unique_armored_04_top": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_04_TOP",
+    "name": "Shadrath's Stillsuit Garment",
+    "shortDescription": "Stillsuit garment made in imitation of Shadrath the Fremen.",
+    "longDescription": "Shadrath was a Fremen warrior, who killed dozens of Sardaukar in razzia across the Shield Wall. When he was gravely wounded, he returned to a hidden cave and sealed himself in a deathstill, preserving his water for his tribe. This <Unique>Unique</> armored stillsuit is based on the design of the one found abandoned by the deathstill."
+  },
+  "stillsuit_unique_armored_04_gloves": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_04_GLOVES",
+    "name": "Shadrath's Stillsuit Gloves",
+    "shortDescription": "Stillsuit gloves made in imitation of Shadrath the Fremen.",
+    "longDescription": "Shadrath was a Fremen warrior, who killed dozens of Sardaukar in razzia across the Shield Wall. When he was gravely wounded, he returned to a hidden cave and sealed himself in a deathstill, preserving his water for his tribe. This <Unique>Unique</> armored stillsuit is based on the design of the one found abandoned by the deathstill."
+  },
+  "stillsuit_unique_armored_04_mask": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_04_MASK",
+    "name": "Shadrath's Stillsuit Mask",
+    "shortDescription": "Stillsuit mask made in imitation of Shadrath the Fremen.",
+    "longDescription": "Shadrath was a Fremen warrior, who killed dozens of Sardaukar in razzia across the Shield Wall. When he was gravely wounded, he returned to a hidden cave and sealed himself in a deathstill, preserving his water for his tribe. This <Unique>Unique</> armored stillsuit is based on the design of the one found abandoned by the deathstill."
+  },
+  "radiation_suit": {
+    "internalToken": "CLOTHING_RADIATION_SUIT",
+    "name": "Radiation Suit Mk4",
+    "shortDescription": "Full body protection from radiation.",
+    "longDescription": "The radiation suit is a <GreatHouse>Great House</> protection garment that can shield the body from exposure to radiological exposure and allow the wearer to fight or otherwise function in a contaminated area. "
+  },
+  "combat_neut_smugglerdeserterunique04_boots": {
+    "internalToken": "CLOTHING_PINCUSHION_BOOTS_NAME",
+    "name": "Quirth's Boots",
+    "shortDescription": "Lightweight boots favored by Denira Quirth, built for speed and silence.",
+    "longDescription": "Denira Quirth never intended to fight a war - she just wanted to survive it. When the Sandflies defected she swore not to shed the blood of her former colleagues - despite believing that the Sandflies cause was just. Her <Unique>Unique</> armor is built to withstand the ordeals of Arrakis - but not the darts of her enemies."
+  },
+  "combat_neut_smugglerdeserterunique04_bottom": {
+    "internalToken": "CLOTHING_PINCUSHION_PANTS_NAME",
+    "name": "Quirth's Pants",
+    "shortDescription": "Flexible pants modified by Denira Quirth for ease of movement.",
+    "longDescription": "Denira Quirth never intended to fight a war - she just wanted to survive it. When the Sandflies defected she swore not to shed the blood of her former colleagues - despite believing that the Sandflies cause was just. Her <Unique>Unique</> armor is built to withstand the ordeals of Arrakis - but not the darts of her enemies."
+  },
+  "combat_neut_smugglerdeserterunique04_gloves": {
+    "internalToken": "CLOTHING_PINCUSHION_GAUNTLETS_NAME",
+    "name": "Quirth's Gauntlets",
+    "shortDescription": "Fitted gauntlets used by Denira Quirth, designed for precision and control.",
+    "longDescription": "Denira Quirth never intended to fight a war - she just wanted to survive it. When the Sandflies defected she swore not to shed the blood of her former colleagues - despite believing that the Sandflies cause was just. Her <Unique>Unique</> armor is built to withstand the ordeals of Arrakis - but not the darts of her enemies."
+  },
+  "combat_neut_smugglerdeserterunique04_helmet": {
+    "internalToken": "CLOTHING_PINCUSHION_HOOD_NAME",
+    "name": "Quirth's Helmet",
+    "shortDescription": "A helmet worn by Denira Quirth to keep dust and prying eyes away.",
+    "longDescription": "Denira Quirth never intended to fight a war - she just wanted to survive it. When the Sandflies defected she swore not to shed the blood of her former colleagues - despite believing that the Sandflies cause was just. Her <Unique>Unique</> armor is built to withstand the ordeals of Arrakis - but not the darts of her enemies."
+  },
+  "combat_neut_smugglerdeserterunique04_top": {
+    "internalToken": "CLOTHING_PINCUSHION_CHESTPIECE_NAME",
+    "name": "Quirth's Jacket",
+    "shortDescription": "A reinforced scout jacket tailored by Denira Quirth for quick getaways.",
+    "longDescription": "Denira Quirth never intended to fight a war - she just wanted to survive it. When the Sandflies defected she swore not to shed the blood of her former colleagues - despite believing that the Sandflies cause was just. Her <Unique>Unique</> armor is built to withstand the ordeals of Arrakis - but not the darts of her enemies."
+  },
+  "combat_light_spicemask": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_SPICEMASK",
+    "name": "Spice Mask",
+    "shortDescription": "A mask that filters out spice.",
+    "longDescription": "A mask with a filtration system that prevents the wearer from inhaling airborne spice particles. Dunemen utilize this to avoid adverse addictive effects while working the spice fields."
+  },
+  "combat_light_unique_biomeheat_top_04": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_BIOMEHEAT_TOP_04",
+    "name": "Miner's Blessing",
+    "shortDescription": "Schematic for a jacket made from breathable materials.",
+    "longDescription": "Once in a while, there is a glitch in the gigantic entity that is CHOAM and the supply chains get crossed and something is sent to the place it was never meant to be. These <Unique>Unique</> jackets, which arrived on Arrakis in very limited supply, are made of a much lighter material than the standard, which means they are cooler and more protective."
+  },
+  "combat_neut_atreidesdeserterunique04_boots": {
+    "internalToken": "CLOTHING_OATHBREAKER_BOOTS_NAME",
+    "name": "Acheronian Boots",
+    "shortDescription": "Heavy boots retrieved from hell.",
+    "longDescription": "In ancient mythology, Acheron was said to be the entrance to hell. This <Unique>Unique</> armor was retrieved from a shipwreck in the Sheol and became sought after due to its thick protective layer. Not that it helped those who died of radiation in the Sheol."
+  },
+  "combat_neut_atreidesdeserterunique04_top": {
+    "internalToken": "CLOTHING_OATHBREAKER_CHESTPIECE_NAME",
+    "name": "Acheronian Chestplate",
+    "shortDescription": "A heavy chestplate retrieved from hell.",
+    "longDescription": "In ancient mythology, Acheron was said to be the entrance to hell. This <Unique>Unique</> armor was retrieved from a shipwreck in the Sheol and became sought after due to its thick protective layer. Not that it helped those who died of radiation in the Sheol."
+  },
+  "combat_neut_atreidesdeserterunique04_gloves": {
+    "internalToken": "CLOTHING_OATHBREAKER_GAUNTLETS_NAME",
+    "name": "Acheronian Gauntlets",
+    "shortDescription": "Heavy gauntlets retrieved from hell.",
+    "longDescription": "In ancient mythology, Acheron was said to be the entrance to hell. This <Unique>Unique</> armor was retrieved from a shipwreck in the Sheol and became sought after due to its thick protective layer. Not that it helped those who died of radiation in the Sheol."
+  },
+  "combat_neut_atreidesdeserterunique04_helmet": {
+    "internalToken": "CLOTHING_OATHBREAKER_HOOD_NAME",
+    "name": "Acheronian Helmet",
+    "shortDescription": "A heavy helmet retrieved from hell.",
+    "longDescription": "In ancient mythology, Acheron was said to be the entrance to hell. This <Unique>Unique</> armor was retrieved from a shipwreck in the Sheol and became sought after due to its thick protective layer. Not that it helped those who died of radiation in the Sheol."
+  },
+  "combat_neut_atreidesdeserterunique04_bottom": {
+    "internalToken": "CLOTHING_OATHBREAKER_PANTS_NAME",
+    "name": "Acheronian Pants",
+    "shortDescription": "Heavy pants retrieved from hell.",
+    "longDescription": "In ancient mythology, Acheron was said to be the entrance to hell. This <Unique>Unique</> armor was retrieved from a shipwreck in the Sheol and became sought after due to its thick protective layer. Not that it helped those who died of radiation in the Sheol."
+  },
+  "combat_light_unique_dewreap_gloves_05": {
+    "internalToken": "CLOTHING_DURALUMINUM_DEW_GLOVES",
+    "name": "Advanced Reaper Gloves",
+    "shortDescription": "Special gloves design to maximize water gathering.",
+    "longDescription": "Treated with a small amount of huf-huf oil, these <Unique>Unique</> gloves repel water and prevent any additional dew from escaping while harvesting."
+  },
+  "combat_light_unique_reducesuspensor_top_05": {
+    "internalToken": "CLOTHING_DURALUMINUM_SUSPENSOR_AIDED_HARNESS",
+    "name": "Advanced Suspensor Jacket",
+    "shortDescription": "A jacket rigged with wires that aid suspensor usage.",
+    "longDescription": "Used primarily by those who are called to spend long hours doing heavy activity while using suspensor belts, this <Unique>Unique</> jacket features a series of specially designed capacitors to optimize the flow of energy through battery pack and suspensor belt."
+  },
+  "stillsuit_unique_efficient_05_boots": {
+    "internalToken": "CLOTHING_DURALUMINUM_EFFICIENT_STILLSUIT_BOOTS",
+    "name": "Batigh Stillsuit Boots",
+    "shortDescription": "Stillsuit boots designed for improved efficiency.",
+    "longDescription": "A stillsuit manufacturer from Carthag once visited Kynes the Planetologist to enlist his aid in designing a better stillsuit. This <Unique>Unique</> stillsuit was the result, and Kynes insisted that the manufacturer name it the Batigh, which the manufacturer proudly did."
+  },
+  "stillsuit_unique_efficient_05_top": {
+    "internalToken": "CLOTHING_DURALUMINUM_EFFICIENT_STILLSUIT_TOP",
+    "name": "Batigh Stillsuit Garment",
+    "shortDescription": "Stillsuit garment designed for improved efficiency.",
+    "longDescription": "A stillsuit manufacturer from Carthag once visited Kynes the Planetologist to enlist his aid in designing a better stillsuit. This <Unique>Unique</> stillsuit was the result, and Kynes insisted that the manufacturer name it the Batigh, which the manufacturer proudly did."
+  },
+  "stillsuit_unique_efficient_05_gloves": {
+    "internalToken": "CLOTHING_DURALUMINUM_EFFICIENT_STILLSUIT_GLOVES",
+    "name": "Batigh Stillsuit Gloves",
+    "shortDescription": "Stillsuit gloves designed for improved efficiency.",
+    "longDescription": "A stillsuit manufacturer from Carthag once visited Kynes the Planetologist to enlist his aid in designing a better stillsuit. This <Unique>Unique</> stillsuit was the result, and Kynes insisted that the manufacturer name it the Batigh, which the manufacturer proudly did."
+  },
+  "stillsuit_unique_efficient_05_mask": {
+    "internalToken": "CLOTHING_DURALUMINUM_EFFICIENT_STILLSUIT_MASK",
+    "name": "Batigh Stillsuit Mask",
+    "shortDescription": "Stillsuit mask designed for improved efficiency.",
+    "longDescription": "A stillsuit manufacturer from Carthag once visited Kynes the Planetologist to enlist his aid in designing a better stillsuit. This <Unique>Unique</> stillsuit was the result, and Kynes insisted that the manufacturer name it the Batigh, which the manufacturer proudly did."
+  },
+  "combat_heavy_unique_swordmaster_boots": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_SWORDMASTER_BOOTS",
+    "name": "Boots of Ginaz",
+    "shortDescription": "Heavy armor boots specialized for Swordmasters",
+    "longDescription": "The Swordmasters of Ginaz have a legendary reputation, and they often live up to it."
+  },
+  "combat_light_unique_benegeserit_boots": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_BENEGESERIT_BOOTS",
+    "name": "Boots of the Sisterhood",
+    "shortDescription": "Light armor boots specialized for the Bene Gesserit",
+    "longDescription": "When one of the Sisterhood raises her hand in violence, the enemy is rarely able to register the motion. This pair of unique Bene Gesserit boots is awarded to those who undertake advanced Bene Gesserit training."
+  },
+  "combat_neut_smugglerdeserterunique05_boots": {
+    "internalToken": "CLOTHING_PINCUSHION_BOOTS_NAME",
+    "name": "Chosen Boots",
+    "shortDescription": "Boots worn by the Chosen.",
+    "longDescription": "The Chosen are the elite warriors of the Maas Kharet cult, which makes its home at the old power station of Mysa Tarill. There are always four Chosen - Fire, Body, Tooth and Breath. Each is a symbolic part of the great sandworm, though this <Unique>Unique</> armor is probably just something looted from the station."
+  },
+  "combat_neut_smugglerdeserterunique05_top": {
+    "internalToken": "CLOTHING_PINCUSHION_CHESTPIECE_NAME",
+    "name": "Chosen Chestplate",
+    "shortDescription": "A chestplate worn by the Chosen.",
+    "longDescription": "The Chosen are the elite warriors of the Maas Kharet cult, which makes its home at the old power station of Mysa Tarill. There are always four Chosen - Fire, Body, Tooth and Breath. Each is a symbolic part of the great sandworm, though this <Unique>Unique</> armor is probably just something looted from the station."
+  },
+  "combat_neut_smugglerdeserterunique05_gloves": {
+    "internalToken": "CLOTHING_PINCUSHION_GAUNTLETS_NAME",
+    "name": "Chosen Gauntlets",
+    "shortDescription": "Gauntlets worn by the Chosen.",
+    "longDescription": "The Chosen are the elite warriors of the Maas Kharet cult, which makes its home at the old power station of Mysa Tarill. There are always four Chosen - Fire, Body, Tooth and Breath. Each is a symbolic part of the great sandworm, though this <Unique>Unique</> armor is probably just something looted from the station."
+  },
+  "combat_neut_smugglerdeserterunique05_helmet": {
+    "internalToken": "CLOTHING_PINCUSHION_HOOD_NAME",
+    "name": "Chosen Helmet",
+    "shortDescription": "A helmet worn by the Chosen.",
+    "longDescription": "The Chosen are the elite warriors of the Maas Kharet cult, which makes its home at the old power station of Mysa Tarill. There are always four Chosen - Fire, Body, Tooth and Breath. Each is a symbolic part of the great sandworm, though this <Unique>Unique</> armor is probably just something looted from the station."
+  },
+  "combat_neut_smugglerdeserterunique05_bottom": {
+    "internalToken": "CLOTHING_PINCUSHION_PANTS_NAME",
+    "name": "Chosen Pants",
+    "shortDescription": "Pants worn by the Chosen.",
+    "longDescription": "The Chosen are the elite warriors of the Maas Kharet cult, which makes its home at the old power station of Mysa Tarill. There are always four Chosen - Fire, Body, Tooth and Breath. Each is a symbolic part of the great sandworm, though this <Unique>Unique</> armor is probably just something looted from the station."
+  },
+  "stillsuit_choam_unique_dashed05_top": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_UNIQUE_DASHED05_TOP",
+    "name": "Dune Dancer Stillsuit Garment",
+    "shortDescription": "A lightweight stillsuit top that reduces the stamina cost of dashing.",
+    "longDescription": "Veteran Dune Men know the value of being able to run just a little bit faster and further than the next guy when danger threatens. Those who can afford the extra cost often invest in this <Unique>Unique</> upgraded stillsuit fashioned from lightweight materials."
+  },
+  "combat_heavy_unique_swordmaster_gloves": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_SWORDMASTER_GLOVES",
+    "name": "Gauntlets of Ginaz",
+    "shortDescription": "Heavy armor gauntlets specialized for Swordmasters",
+    "longDescription": "The Swordmasters of Ginaz have a legendary reputation, and they often live up to it."
+  },
+  "combat_light_unique_mentat_gloves": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_MENTAT_GLOVES",
+    "name": "Gauntlets of the Mentat",
+    "shortDescription": "Light armor gauntlets specialized for Mentats",
+    "longDescription": "In the subtle battleground of tactical intrigue, a set of light armor can mean the difference between a punctured vital organ and a survivable scar."
+  },
+  "combat_light_unique_benegeserit_gloves": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_BENEGESERIT_GLOVES",
+    "name": "Gloves of the Sisterhood",
+    "shortDescription": "Light armor gloves specialized for the Bene Gesserit",
+    "longDescription": "When one of the Sisterhood raises her hand in violence, the enemy is rarely able to register the motion. This pair of unique Bene Gesserit gloves is awarded to those who undertake advanced Bene Gesserit training."
+  },
+  "combat_heavy_unique_swordmaster_helmet": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_SWORDMASTER_HELMET",
+    "name": "Helm of Ginaz",
+    "shortDescription": "A heavy armor helm specialized for Swordmasters",
+    "longDescription": "The Swordmasters of Ginaz have a legendary reputation, and they often live up to it."
+  },
+  "combat_light_unique_mentat_helmet": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_MENTAT_HELMET",
+    "name": "Helm of the Mentat",
+    "shortDescription": "A light armor helm specialized for Mentats",
+    "longDescription": "In the subtle battleground of tactical intrigue, a set of light armor can mean the difference between a punctured vital organ and a survivable scar."
+  },
+  "combat_heavy_unique_reinforced_boots_05": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_REINFORCED_BOOTS_05",
+    "name": "Mendek's Boots",
+    "shortDescription": "Heavy boots designed by General Mendek.",
+    "longDescription": "General Mendek of the Harkonnen famously led a battlegroup during the Battle of Arrakeen that used old-world artillery to seal Atreides forces in shield wall caves. Mendek had this <Unique>Unique</> armor conditioned as a reminder of the battle, sometimes wearing it to remind himself of what it must have felt like to be trapped in those caves, with no way to escape."
+  },
+  "combat_heavy_unique_reinforced_top_05": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_REINFORCED_TOP_05",
+    "name": "Mendek's Chestplate",
+    "shortDescription": "A heavy chestplate designed by General Mendek.",
+    "longDescription": "General Mendek of the Harkonnen famously led a battlegroup during the Battle of Arrakeen that used old-world artillery to seal Atreides forces in shield wall caves. Mendek had this <Unique>Unique</> armor conditioned as a reminder of the battle, sometimes wearing it to remind himself of what it must have felt like to be trapped in those caves, with no way to escape."
+  },
+  "combat_heavy_unique_reinforced_gloves_05": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_REINFORCED_GLOVES_05",
+    "name": "Mendek's Gauntlets",
+    "shortDescription": "Heavy gauntlets designed by General Mendek.",
+    "longDescription": "General Mendek of the Harkonnen famously led a battlegroup during the Battle of Arrakeen that used old-world artillery to seal Atreides forces in shield wall caves. Mendek had this <Unique>Unique</> armor conditioned as a reminder of the battle, sometimes wearing it to remind himself of what it must have felt like to be trapped in those caves, with no way to escape."
+  },
+  "combat_heavy_unique_reinforced_helmet_05": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_REINFORCED_HELMET_05",
+    "name": "Mendek's Helmet",
+    "shortDescription": "A heavy helmet designed by General Mendek.",
+    "longDescription": "General Mendek of the Harkonnen famously led a battlegroup during the Battle of Arrakeen that used old-world artillery to seal Atreides forces in shield wall caves. Mendek had this <Unique>Unique</> armor conditioned as a reminder of the battle, sometimes wearing it to remind himself of what it must have felt like to be trapped in those caves, with no way to escape."
+  },
+  "combat_heavy_unique_reinforced_bottom_05": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_REINFORCED_BOTTOM_05",
+    "name": "Mendek's Pants",
+    "shortDescription": "Heavy pants designed by General Mendek.",
+    "longDescription": "General Mendek of the Harkonnen famously led a battlegroup during the Battle of Arrakeen that used old-world artillery to seal Atreides forces in shield wall caves. Mendek had this <Unique>Unique</> armor conditioned as a reminder of the battle, sometimes wearing it to remind himself of what it must have felt like to be trapped in those caves, with no way to escape."
+  },
+  "combat_choam_heavy04_shoes": {
+    "internalToken": "CLOTHING_CHOAM_HEAVY_BOOTS",
+    "name": "Mercenary Heavy Boots",
+    "shortDescription": "Heavy boots made from duraluminum.",
+    "longDescription": "Heavy combat boots made of reinforced duraluminum providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy04_top": {
+    "internalToken": "CLOTHING_CHOAM_HEAVY_CHESTPIECE",
+    "name": "Mercenary Heavy Chestplate",
+    "shortDescription": "Heavy chest armor made from duraluminum.",
+    "longDescription": "A heavy combat armor made of reinforced duraluminum providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy04_gloves": {
+    "internalToken": "CLOTHING_CHOAM_HEAVY_GLOVES",
+    "name": "Mercenary Heavy Gloves",
+    "shortDescription": "Heavy hand armor made from duraluminum.",
+    "longDescription": "Heavy combat hand armor made of reinforced duraluminum providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy04_helmet": {
+    "internalToken": "CLOTHING_CHOAM_HEAVY_HELMET",
+    "name": "Mercenary Heavy Helmet",
+    "shortDescription": "Heavy combat helmet made from duraluminum.",
+    "longDescription": "A heavy combat helmet made of reinforced duraluminum providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy04_bottom": {
+    "internalToken": "CLOTHING_CHOAM_HEAVY_PANTS",
+    "name": "Mercenary Heavy Pants",
+    "shortDescription": "Heavy leg armor made from duraluminum.",
+    "longDescription": "Heavy combat leg armor made of reinforced duraluminum providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_heavy_unique_powerefficient_gloves_05": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_POWEREFFICIENT_GLOVES_05",
+    "name": "Station Gauntlets",
+    "shortDescription": "A pair of gauntlets that increase power efficiency.",
+    "longDescription": "These <Unique>Unique</> gauntlets were developed for use on the power station at Mysa Tarill. After the incident with the sandworm, the station was abandoned and boxes of these gauntlets were left lying around to be scavenged by those brave or foolish enough to approach the worm."
+  },
+  "combat_heavy_unique_trooper_boots": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_TROOPER_BOOTS",
+    "name": "Trooper Heavy Armor Tactical Boots",
+    "shortDescription": "Heavy armor boots specialized for Troopers",
+    "longDescription": "It is said that House Troopers train in their heavy armor so thoroughly and come to know the heft and weight so intimately, that they feel awkward moving around while clothed in mere fatigues or civilian garments.\n"
+  },
+  "combat_heavy_unique_trooper_top": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_TROOPER_TOP",
+    "name": "Trooper Heavy Armor Tactical Coat",
+    "shortDescription": "A heavy armor coat specialized for Troopers",
+    "longDescription": "It is said that House Troopers train in their heavy armor so thoroughly and come to know the heft and weight so intimately, that they feel awkward moving around while clothed in mere fatigues or civilian garments."
+  },
+  "combat_heavy_unique_trooper_gloves": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_TROOPER_GLOVES",
+    "name": "Trooper Heavy Armor Tactical Gauntlets",
+    "shortDescription": "Heavy armor gauntlets specialized for Troopers\n",
+    "longDescription": "It is said that House Troopers train in their heavy armor so thoroughly and come to know the heft and weight so intimately, that they feel awkward moving around while clothed in mere fatigues or civilian garments."
+  },
+  "combat_heavy_unique_trooper_helmet": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_TROOPER_HELMET",
+    "name": "Trooper Heavy Armor Tactical Helmet",
+    "shortDescription": "A heavy armor helmet specialized for Troopers",
+    "longDescription": "It is said that House Troopers train in their heavy armor so thoroughly and come to know the heft and weight so intimately, that they feel awkward moving around while clothed in mere fatigues or civilian garments."
+  },
+  "combat_heavy_unique_trooper_bottom": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_TROOPER_BOTTOM",
+    "name": "Trooper Heavy Armor Tactical Pants",
+    "shortDescription": "Heavy armor pants specialized for Troopers\n",
+    "longDescription": "It is said that House Troopers train in their heavy armor so thoroughly and come to know the heft and weight so intimately, that they feel awkward moving around while clothed in mere fatigues or civilian garments."
+  },
+  "stillsuit_choam_05_top": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_05_TOP",
+    "name": "Mercenary Stillsuit Body",
+    "shortDescription": "A full-body stillsuit with duraluminum fittings.",
+    "longDescription": "Designed by <Fremen>Fremen</>, this stillsuit uses duraluminum-fitted tubings and catchpockets to withstand many expeditions."
+  },
+  "stillsuit_choam_05_boots": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_05_BOOTS",
+    "name": "Mercenary Stillsuit Boots",
+    "shortDescription": "Stillsuit boots with duraluminum actuator pumps.",
+    "longDescription": "These <Fremen>Fremen</> designed stillsuit boots utilize duraluminum heel pumps in order to facilitate the distillation process."
+  },
+  "stillsuit_choam_05_gloves": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_05_GLOVES",
+    "name": "Mercenary Stillsuit Gloves",
+    "shortDescription": "Stillsuit gloves with duraluminum fittings.",
+    "longDescription": "Designed by <Fremen>Fremen</>, these stillsuit gloves utilize duraluminum fittings to help withstand many expeditions."
+  },
+  "stillsuit_choam_05_mask": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_05_MASK",
+    "name": "Mercenary Stillsuit Mask",
+    "shortDescription": "A stillsuit mask with duraluminum fittings.",
+    "longDescription": "A <Fremen>Fremen</> stillsuit mask with duraluminum fittings, made to withstand many expeditions."
+  },
+  "stillsuit_unique_armored_05_boots": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_05_BOOTS",
+    "name": "Saturnine Stillsuit Boots",
+    "shortDescription": "Stillsuit boots made of durable materials.",
+    "longDescription": "The Saturnine were a group of merc-assassins who came to Arrakis during the Fremen pogrom. The Saturnine pride themselves on hunting dangerous individuals and converting them into trophies. The Saturnine claim that this <Unique>Unique</> stillsuit bears the visage of Stilgar, a famous Fremen naib."
+  },
+  "stillsuit_unique_armored_05_top": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_05_TOP",
+    "name": "Saturnine Stillsuit Garment",
+    "shortDescription": "A stillsuit garment made of durable materials.",
+    "longDescription": "The Saturnine were a group of merc-assassins who came to Arrakis during the Fremen pogrom. The Saturnine pride themselves on hunting dangerous individuals and converting them into trophies. The Saturnine claim that this <Unique>Unique</> stillsuit bears the visage of Stilgar, a famous Fremen naib."
+  },
+  "stillsuit_unique_armored_05_gloves": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_05_GLOVES",
+    "name": "Saturnine Stillsuit Gloves",
+    "shortDescription": "Stillsuit gloves made of durable materials.",
+    "longDescription": "The Saturnine were a group of merc-assassins who came to Arrakis during the Fremen pogrom. The Saturnine pride themselves on hunting dangerous individuals and converting them into trophies. The Saturnine claim that this <Unique>Unique</> stillsuit bears the visage of Stilgar, a famous Fremen naib."
+  },
+  "stillsuit_unique_armored_05_mask": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_05_MASK",
+    "name": "Saturnine Stillsuit Mask",
+    "shortDescription": "Stillsuit mask made of durable materials.",
+    "longDescription": "The Saturnine were a group of merc-assassins who came to Arrakis during the Fremen pogrom. The Saturnine pride themselves on hunting dangerous individuals and converting them into trophies. The Saturnine claim that this <Unique>Unique</> stillsuit bears the visage of Stilgar, a famous Fremen naib."
+  },
+  "stillsuit_unique_heatmitigation_05_mask": {
+    "internalToken": "CLOTHING_DURALUMINUM_SUN_SHADE",
+    "name": "Shaded Hood",
+    "shortDescription": "A stillsuit hood of heat protective material.",
+    "longDescription": "This <Unique>Unique</> hood is designed to reduce the harm caused by direct sunlight. It has been soaked in the juice of the creosote bush - inhibiting sweating and reducing heat buildup."
+  },
+  "radiation_suit_t5": {
+    "internalToken": "CLOTHING_RADIATION_SUIT_T5",
+    "name": "Radiation Suit Mk5",
+    "shortDescription": "Full body protection from radiation.",
+    "longDescription": "The radiation suit is a <GreatHouse>Great House</> protection garment that can shield the body from exposure to radiological exposure and allow the wearer to fight or otherwise function in a contaminated area. "
+  },
+  "combat_choam_light05_boots": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT05_BOOTS",
+    "name": "Mercenary Scout Boots",
+    "shortDescription": "Light armor boots made from duraluminum.",
+    "longDescription": "Lightly armored boots made of duraluminum, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_light05_bottom": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT05_BOTTOM",
+    "name": "Mercenary Scout Leggings",
+    "shortDescription": "Light armor leggings made from duraluminum.",
+    "longDescription": "Lightly armored leggings made of duraluminum, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_light05_gloves": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT05_GLOVES",
+    "name": "Mercenary Scout Gloves",
+    "shortDescription": "Light armor gloves made from duraluminum.",
+    "longDescription": "Lightly armored gloves made of duraluminum, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_light05_helmet": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT05_HELMET",
+    "name": "Mercenary Scout Helmet",
+    "shortDescription": "Light armor helmet made from duraluminum.",
+    "longDescription": "A lightly armored helmet made of duraluminum, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_light05_top": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT05_TOP",
+    "name": "Mercenary Scout Top",
+    "shortDescription": "Light armor top made from duraluminum.",
+    "longDescription": "A lightly armored top made of duraluminum, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_hark_medunique01_boots": {
+    "internalToken": "CLOTHING_THE_FORGE_BOOTS",
+    "name": "Syndicate Boots",
+    "shortDescription": "Boots worn by Syndicate Mercenaries.",
+    "longDescription": "The Syndicate is a large offworld criminal organization that has never been able to get a foothold on Arrakis — due to the tireless efforts of Esmar Tuek and the smugglers to keep them out. Nobody knows why their mercenaries have begun to arrive in the Hagga Basin, nor what their interest is in the radiated wrecks of the Sheol. This <Unique>Unique</> armor is designed to keep environmental hazards at bay."
+  },
+  "combat_hark_medunique01_bottom": {
+    "internalToken": "CLOTHING_THE_FORGE_PANTS",
+    "name": "Syndicate Pants",
+    "shortDescription": "Pants worn by Syndicate Mercenaries.",
+    "longDescription": "The Syndicate is a large offworld criminal organization that has never been able to get a foothold on Arrakis — due to the tireless efforts of Esmar Tuek and the smugglers to keep them out. Nobody knows why their mercenaries have begun to arrive in the Hagga Basin, nor what their interest is in the radiated wrecks of the Sheol. This <Unique>Unique</> armor is designed to keep environmental hazards at bay."
+  },
+  "combat_hark_medunique01_gloves": {
+    "internalToken": "CLOTHING_THE_FORGE_GLOVES",
+    "name": "Syndicate Gauntlets",
+    "shortDescription": "Gauntlets worn by Syndicate Mercenaries.",
+    "longDescription": "The Syndicate is a large offworld criminal organization that has never been able to get a foothold on Arrakis — due to the tireless efforts of Esmar Tuek and the smugglers to keep them out. Nobody knows why their mercenaries have begun to arrive in the Hagga Basin, nor what their interest is in the radiated wrecks of the Sheol. This <Unique>Unique</> armor is designed to keep environmental hazards at bay."
+  },
+  "combat_hark_medunique01_helmet": {
+    "internalToken": "CLOTHING_THE_FORGE_HELMET",
+    "name": "Syndicate Helmet",
+    "shortDescription": "A helmet worn by Syndicate Mercenaries.",
+    "longDescription": "The Syndicate is a large offworld criminal organization that has never been able to get a foothold on Arrakis — due to the tireless efforts of Esmar Tuek and the smugglers to keep them out. Nobody knows why their mercenaries have begun to arrive in the Hagga Basin, nor what their interest is in the radiated wrecks of the Sheol. This <Unique>Unique</> armor is designed to keep environmental hazards at bay."
+  },
+  "combat_hark_medunique01_top": {
+    "internalToken": "CLOTHING_THE_FORGE_CHESTPIECE",
+    "name": "Syndicate Chestplate",
+    "shortDescription": "A chestplate worn by Syndicate Mercenaries.",
+    "longDescription": "The Syndicate is a large offworld criminal organization that has never been able to get a foothold on Arrakis — due to the tireless efforts of Esmar Tuek and the smugglers to keep them out. Nobody knows why their mercenaries have begun to arrive in the Hagga Basin, nor what their interest is in the radiated wrecks of the Sheol. This <Unique>Unique</> armor is designed to keep environmental hazards at bay."
+  },
+  "stillsuit_unique_planetologist_boots": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_PLANETOLOGIST_BOOTS",
+    "name": "Planetologist Light Armor Boots",
+    "shortDescription": "Light armor boots specialized for Planetologists",
+    "longDescription": "Though the interests of a Planetologist are largely academic, their path to knowledge can lead them into physical danger. This light-weight armor offers some protection while aiding the Planetologist in their specialized pursuits."
+  },
+  "stillsuit_unique_planetologist_bottom": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_PLANETOLOGIST_BOTTOM",
+    "name": "Planetologist Light Armor Leggings",
+    "shortDescription": "Light armor leggings specialized for Planetologists",
+    "longDescription": "Though the interests of a Planetologist are largely academic, their path to knowledge can lead them into physical danger. This light-weight armor offers some protection while aiding the Planetologist in their specialized pursuits."
+  },
+  "stillsuit_unique_planetologist_gloves": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_PLANETOLOGIST_GLOVES",
+    "name": "Planetologist Light Armor Gloves",
+    "shortDescription": "Light armor gloves specialized for Planetologists",
+    "longDescription": "Though the interests of a Planetologist are largely academic, their path to knowledge can lead them into physical danger. This light-weight armor offers some protection while aiding the Planetologist in their specialized pursuits."
+  },
+  "stillsuit_unique_planetologist_helmet": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_PLANETOLOGIST_HELMET",
+    "name": "Planetologist Light Armor Headpiece",
+    "shortDescription": "A light armor headpiece specialized for Planetologists",
+    "longDescription": "Though the interests of a Planetologist are largely academic, their path to knowledge can lead them into physical danger. This light-weight armor offers some protection while aiding the Planetologist in their specialized pursuits."
+  },
+  "stillsuit_unique_planetologist_top": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_PLANETOLOGIST_TOP",
+    "name": "Planetologist Light Armor Coat",
+    "shortDescription": "A light armor coat specialized for Planetologists",
+    "longDescription": "Though the interests of a Planetologist are largely academic, their path to knowledge can lead them into physical danger. This light-weight armor offers some protection while aiding the Planetologist in their specialized pursuits."
+  },
+  "combat_light_unique_benegeserit_bottom": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_BENEGESERIT_BOTTOM",
+    "name": "Leggings of the Sisterhood",
+    "shortDescription": "Light armor leggings specialized for the Bene Gesserit",
+    "longDescription": "When one of the Sisterhood raises her hand in violence, the enemy is rarely able to register the motion. This set of unique Bene Gesserit leggings is awarded to those who undertake advanced Bene Gesserit training."
+  },
+  "combat_light_unique_benegeserit_helmet": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_BENEGESERIT_HELMET",
+    "name": "Veil of the Sisterhood",
+    "shortDescription": "A light armor veil specialized for the Bene Gesserit",
+    "longDescription": "When one of the Sisterhood raises her hand in violence, the enemy is rarely able to register the motion. This unique Bene Gesserit hood is awarded to those who undertake advanced Bene Gesserit training."
+  },
+  "combat_light_unique_benegeserit_top": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_BENEGESERIT_TOP",
+    "name": "Robe of the Sisterhood",
+    "shortDescription": "A light armor robe specialized for the Bene Gesserit",
+    "longDescription": "When one of the Sisterhood raises her hand in violence, the enemy is rarely able to register the motion. This unique Bene Gesserit robe is awarded to those who undertake advanced Bene Gesserit training."
+  },
+  "combat_light_unique_mentat_boots": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_MENTAT_BOOTS",
+    "name": "Reinforced Boots of the Mentat",
+    "shortDescription": "Light armor boots specialized for Mentats",
+    "longDescription": "In the subtle battleground of tactical intrigue, a set of light armor can mean the difference between a punctured vital organ and a survivable scar."
+  },
+  "combat_light_unique_mentat_bottom": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_MENTAT_BOTTOM",
+    "name": "Leggings of the Mentat",
+    "shortDescription": "Light armor leggings specialized for Mentats",
+    "longDescription": "In the subtle battleground of tactical intrigue, a set of light armor can mean the difference between a punctured vital organ and a survivable scar."
+  },
+  "combat_light_unique_mentat_top": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_MENTAT_TOP",
+    "name": "Tactical Coat of the Mentat",
+    "shortDescription": "A light armor coat specialized for Mentats",
+    "longDescription": "In the subtle battleground of tactical intrigue, a set of light armor can mean the difference between a punctured vital organ and a survivable scar."
+  },
+  "combat_heavy_unique_swordmaster_bottom": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_SWORDMASTER_BOTTOM",
+    "name": "Leggings of Ginaz",
+    "shortDescription": "Heavy armor leggings specialized for Swordmasters",
+    "longDescription": "The Swordmasters of Ginaz have a legendary reputation, and they often live up to it."
+  },
+  "combat_heavy_unique_swordmaster_top": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_SWORDMASTER_TOP",
+    "name": "Tunic of Ginaz",
+    "shortDescription": "A heavy armor garment specialized for Swordmasters",
+    "longDescription": "The Swordmasters of Ginaz have a legendary reputation, and they often live up to it."
+  },
+  "combat_light_unique_biomeheat_top_05": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_BIOMEHEAT_TOP_05",
+    "name": "Station Garb",
+    "shortDescription": "A jacket made from breathable materials.",
+    "longDescription": "These <Unique>Unique</> jackets were designed for the workers and guard from the Mysa Tarill power station. They are a cut above the usual supplies given out to pyons — probably because the power station was manned by a crew of highly trained engineers. Like the station, these jackets have mostly been long since abandoned."
+  },
+  "combat_light_unique_scanning_helmet_05": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_SCANNING_HELMET_05",
+    "name": "Wayfinder Helm",
+    "shortDescription": "A helmet with a boost to scanning range.",
+    "longDescription": "The electronics in this <Unique>Unique</> helmet connect to hand-held scanners, boosting their scanning range."
+  },
+  "combat_light_unique_stamina_bottom_05": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_STAMINA_BOTTOM_05",
+    "name": "Stim-Leggings ",
+    "shortDescription": "Light leggings with reduced stamina drain while sprinting.",
+    "longDescription": "These <Unique>Unique</> light leggings are equipped with a compression triggered mechanism which stimulates the leg muscles, reducing the stamina drain of dashing."
+  },
+  "combat_light_unique_wormthreat_boots_05": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_WORMTHREAT_BOOTS_05",
+    "name": "Tarl Softstep Boots",
+    "shortDescription": "A pair of boots that decrease vibrations.",
+    "longDescription": "These <Unique>Unique</> boots were taken from the rubble of Sietch Tarl after it was destroyed by the Sardaukar. Sietch Tarl was the place where Liet-Kynes made a final stand against the Sardaukar, collapsing the walls and killing dozens of them in a desperate final stand. Perhaps Liet-Kynes wore these same boots on that fateful day."
+  },
+  "combat_heavy_unique_reinforced_boots_06": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_REINFORCED_BOOTS_06",
+    "name": "Bulwark Boots",
+    "shortDescription": "A Unique reinforced heavy armor boots.",
+    "longDescription": "This <Unique>Unique</> heavy armor has internal layers of reinforced metal to protect House troops from blades and darts, however the bulk of this armor greatly increases stamina costs."
+  },
+  "combat_heavy_unique_reinforced_top_06": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_REINFORCED_TOP_06",
+    "name": "Bulwark Chest",
+    "shortDescription": "A Unique reinforced heavy armor chest.",
+    "longDescription": "This <Unique>Unique</> heavy armor has internal layers of reinforced metal to protect House troops from blades and darts, however the bulk of this armor greatly increases stamina costs."
+  },
+  "combat_heavy_unique_reinforced_gloves_06": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_REINFORCED_GLOVES_06",
+    "name": "Bulwark Gloves",
+    "shortDescription": "A Unique reinforced heavy armor gloves.",
+    "longDescription": "This <Unique>Unique</> heavy armor has internal layers of reinforced metal to protect House troops from blades and darts, however the bulk of this armor greatly increases stamina costs."
+  },
+  "combat_heavy_unique_reinforced_helmet_06": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_REINFORCED_HELMET_06",
+    "name": "Bulwark Helmet",
+    "shortDescription": "A Unique reinforced heavy armor helmet.",
+    "longDescription": "This <Unique>Unique</> heavy armor has internal layers of reinforced metal to protect House troops from blades and darts, however the bulk of this armor greatly increases stamina costs."
+  },
+  "combat_heavy_unique_reinforced_bottom_06": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_REINFORCED_BOTTOM_06",
+    "name": "Bulwark Leggings",
+    "shortDescription": "A Unique reinforced heavy armor leggings.",
+    "longDescription": "This <Unique>Unique</> heavy armor has internal layers of reinforced metal to protect House troops from blades and darts, however the bulk of this armor greatly increases stamina costs."
+  },
+  "combat_choam_heavy06_boots": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY06_BOOTS",
+    "name": "CHOAM Heavy Boots",
+    "shortDescription": "Heavy boots made from plastanium.",
+    "longDescription": "Heavy combat boots made of reinforced plastanium providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy06_top": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY06_TOP",
+    "name": "CHOAM Heavy Chestplate",
+    "shortDescription": "Heavy chest armor made from plastanium.",
+    "longDescription": "A heavy combat armor made of reinforced plastanium providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy06_gloves": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY06_GLOVES",
+    "name": "CHOAM Heavy Gauntlets",
+    "shortDescription": "Heavy hand armor made from plastanium.",
+    "longDescription": "Heavy combat hand armor made of reinforced plastanium providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy06_bottom": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY06_BOTTOM",
+    "name": "CHOAM Heavy Greaves",
+    "shortDescription": "Heavy leg armor made from plastanium.",
+    "longDescription": "Heavy combat leg armor made of reinforced plastanium providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_heavy06_helmet": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_HEAVY06_HELMET",
+    "name": "CHOAM Heavy Helmet",
+    "shortDescription": "Heavy combat helmet made from plastanium.",
+    "longDescription": "A heavy combat helmet made of reinforced plastanium providing maximum protection to <GreatHouse>Great House</> troops."
+  },
+  "combat_choam_light06_boots": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT06_BOOTS",
+    "name": "CHOAM Scout Boots",
+    "shortDescription": "Light armor boots made from plastanium.",
+    "longDescription": "Lightly armored boots made of plastanium, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_light06_top": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT06_TOP",
+    "name": "CHOAM Scout Chestplate",
+    "shortDescription": "Light armor top made from plastanium.",
+    "longDescription": "A lightly armored top made of plastanium, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_light06_gloves": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT06_GLOVES",
+    "name": "CHOAM Scout Gloves",
+    "shortDescription": "Light armor gloves made from plastanium.",
+    "longDescription": "Lightly armored gloves made of plastanium, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_light06_helmet": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT06_HELMET",
+    "name": "CHOAM Scout Helmet",
+    "shortDescription": "Light armor helmet made from plastanium.",
+    "longDescription": "A lightly armored helmet made of plastanium, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "combat_choam_light06_bottom": {
+    "internalToken": "CLOTHING_COMBAT_CHOAM_LIGHT06_BOTTOM",
+    "name": "CHOAM Scout Pants",
+    "shortDescription": "Light armor leggings made from plastanium.",
+    "longDescription": "Lightly armored leggings made of plastanium, providing versatility in hydration and protection to <GreatHouse>Great House</> scouts."
+  },
+  "stillsuit_choam_06_top": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_06_TOP",
+    "name": "CHOAM Stillsuit Body",
+    "shortDescription": "A full-body stillsuit with plastanium fittings.",
+    "longDescription": "Designed by <Fremen>Fremen</>, this stillsuit uses plastanium-fitted tubings and catchpockets to withstand many expeditions."
+  },
+  "stillsuit_choam_06_boots": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_06_BOOTS",
+    "name": "CHOAM Stillsuit Boots",
+    "shortDescription": "Stillsuit boots with plastanium actuator pumps.",
+    "longDescription": "These <Fremen>Fremen</> designed stillsuit boots utilize plastanium heel pumps in order to facilitate the distillation process."
+  },
+  "stillsuit_choam_06_gloves": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_06_GLOVES",
+    "name": "CHOAM Stillsuit Gloves",
+    "shortDescription": "Stillsuit gloves with plastanium fittings.",
+    "longDescription": "Designed by <Fremen>Fremen</>, these stillsuit gloves utilize plastanium fittings to help withstand many expeditions."
+  },
+  "stillsuit_choam_06_mask": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_06_MASK",
+    "name": "CHOAM Stillsuit Mask",
+    "shortDescription": "A stillsuit mask with plastanium fittings.",
+    "longDescription": "A <Fremen>Fremen</> stillsuit mask with plastanium fittings, made to withstand many expeditions."
+  },
+  "combat_heavy_unique_powerefficient_gloves_06": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_POWEREFFICIENT_GLOVES_06",
+    "name": "Circuit Gauntlets",
+    "shortDescription": "A heavy armor gauntlet with optimized power usage.",
+    "longDescription": "A <Unique>Unique</> heavy armor gauntlet that recon squads use to optimize power usage on connected Power Packs."
+  },
+  "stillsuit_choam_unique_dashed06_top": {
+    "internalToken": "CLOTHING_STILLSUIT_CHOAM_UNIQUE_DASHED06_TOP",
+    "name": "Crew Chief’s Stillsuit Garment",
+    "shortDescription": "A lightweight stillsuit top that reduces the stamina cost of dashing.",
+    "longDescription": "It takes years of hard work to reach the rank of Guild Crew Chief. Most chiefs are well into their later years when they earn their promotion, and the wear and tear of a lifetime spent spice harvesting has taken its toll on their bodies. Investing in one of these <Unique>Unique</> ultralight stillsuits is one way to make getting through a twelve hour shift a bit easier. Even those who are still strong and vigorous will benefit from wearing such a suit, as it significantly reduces the stamina cost of dashing."
+  },
+  "combat_light_unique_biomeheat_top_06": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_BIOMEHEAT_TOP_06",
+    "name": "Desert Garb",
+    "shortDescription": "Light armor chest that is more breathable.",
+    "longDescription": "This <Unique>Unique</> light chest armor is made with breathable material which allows House forces to better survive harsh desert climates."
+  },
+  "combat_neut_atreidesdeserterunique05_boots": {
+    "internalToken": "CLOTHING_OATHBREAKER_BOOTS_NAME",
+    "name": "Executor's Boots",
+    "shortDescription": "A pair of boots designed for CHOAM executors.",
+    "longDescription": "This <Unique>Unique</> armor is handed out to the legal representatives of CHOAM, such as lawyers and tax collectors. Unfortunately the bright orange CHOAM logo tends to make them more of a target, despite the reinforcement."
+  },
+  "combat_neut_atreidesdeserterunique05_top": {
+    "internalToken": "CLOTHING_OATHBREAKER_CHESTPIECE_NAME",
+    "name": "Executor's Chestpiece",
+    "shortDescription": "A chestpiece designed for CHOAM executors.",
+    "longDescription": "This <Unique>Unique</> armor is handed out to the legal representatives of CHOAM, such as lawyers and tax collectors. Unfortunately the bright orange CHOAM logo tends to make them more of a target, despite the reinforcement."
+  },
+  "combat_neut_atreidesdeserterunique05_gloves": {
+    "internalToken": "CLOTHING_OATHBREAKER_GAUNTLETS_NAME",
+    "name": "Executor's Gauntlets",
+    "shortDescription": "A pair of gauntlets designed for CHOAM executors.",
+    "longDescription": "This <Unique>Unique</> armor is handed out to the legal representatives of CHOAM, such as lawyers and tax collectors. Unfortunately the bright orange CHOAM logo tends to make them more of a target, despite the reinforcement."
+  },
+  "combat_neut_atreidesdeserterunique05_helmet": {
+    "internalToken": "CLOTHING_OATHBREAKER_HOOD_NAME",
+    "name": "Executor's Helmet",
+    "shortDescription": "A helmet designed for CHOAM executors.",
+    "longDescription": "This <Unique>Unique</> armor is handed out to the legal representatives of CHOAM, such as lawyers and tax collectors. Unfortunately the bright orange CHOAM logo tends to make them more of a target, despite the reinforcement."
+  },
+  "combat_neut_atreidesdeserterunique05_bottom": {
+    "internalToken": "CLOTHING_OATHBREAKER_PANTS_NAME",
+    "name": "Executor's Pants",
+    "shortDescription": "A pair of pants designed for CHOAM executors.",
+    "longDescription": "This <Unique>Unique</> armor is handed out to the legal representatives of CHOAM, such as lawyers and tax collectors. Unfortunately the bright orange CHOAM logo tends to make them more of a target, despite the reinforcement."
+  },
+  "combat_light_unique_climbing_gloves_06": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_CLIMBING_GLOVES_06",
+    "name": "Hook-claw Gloves",
+    "shortDescription": "Light armor gloves that makes climbing less arduous and stamina draining.",
+    "longDescription": "These <Unique>Unique</> light armor gloves assist House troops in climbing, making it less arduous and stamina draining."
+  },
+  "combat_light_unique_reducesuspensor_top_06": {
+    "internalToken": "CLOTHING_PLASTANIUM_SUSPENSOR_AIDED_HARNESS",
+    "name": "Idaho's Charge",
+    "shortDescription": "A jacket rigged with wires that aid suspensor usage.",
+    "longDescription": "This jacket was jury-rigged by Duncan Idaho to improve his suspensor power during aerial combat bouts. His famous knee charge relies on suspensors to give him additional range. This <Unique>Unique</> jacket features a series of specially designed capacitors to optimize the flow of energy through battery pack and suspensor belt."
+  },
+  "stillsuit_unique_armored_06_boots": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_06_BOOTS",
+    "name": "Imperial Stillsuit Boots",
+    "shortDescription": "Stillsuit boots designed for Imperial visitors.",
+    "longDescription": "This <Unique>Unique</> stillsuit was designed by the finest tailors CHOAM has access to, and every detail has been considered for the comfort and cut. It is also highly armored, which makes it useful in combat. But regardless, the Imperium has never quite managed to replicate the elegant simplicity of Fremen technology."
+  },
+  "stillsuit_unique_armored_06_top": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_06_TOP",
+    "name": "Imperial Stillsuit Garment",
+    "shortDescription": "A stillsuit garment designed for Imperial visitors.",
+    "longDescription": "This <Unique>Unique</> stillsuit was designed by the finest tailors CHOAM has access to, and every detail has been considered for the comfort and cut. It is also highly armored, which makes it useful in combat. But regardless, the Imperium has never quite managed to replicate the elegant simplicity of Fremen technology."
+  },
+  "stillsuit_unique_armored_06_gloves": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_06_GLOVES",
+    "name": "Imperial Stillsuit Gloves",
+    "shortDescription": "Stillsuit gloves designed for Imperial visitors.",
+    "longDescription": "This <Unique>Unique</> stillsuit was designed by the finest tailors CHOAM has access to, and every detail has been considered for the comfort and cut. It is also highly armored, which makes it useful in combat. But regardless, the Imperium has never quite managed to replicate the elegant simplicity of Fremen technology."
+  },
+  "stillsuit_unique_armored_06_mask": {
+    "internalToken": "CLOTHING_STILLSUIT_UNIQUE_ARMORED_06_MASK",
+    "name": "Imperial Stillsuit Mask",
+    "shortDescription": "A stillsuit mask designed for Imperial visitors.",
+    "longDescription": "This <Unique>Unique</> stillsuit was designed by the finest tailors CHOAM has access to, and every detail has been considered for the comfort and cut. It is also highly armored, which makes it useful in combat. But regardless, the Imperium has never quite managed to replicate the elegant simplicity of Fremen technology."
+  },
+  "combat_light_unique_stamina_bottom_06": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_STAMINA_BOTTOM_06",
+    "name": "Ix-core Leggings",
+    "shortDescription": "Light leggings with reduced stamina drain while sprinting.",
+    "longDescription": "These <Unique>Unique</> light leggings are equipped with a compression triggered mechanism which stimulates the leg muscles, reducing the stamina drain of dashing."
+  },
+  "stillsuit_unique_heatmitigation_06_mask": {
+    "internalToken": "CLOTHING_PLASTANIUM_SUN_SHADE",
+    "name": "Pardot's Hood",
+    "shortDescription": "A stillsuit hood designed by Pardot Kynes.",
+    "longDescription": "This <Unique>Unique</> hood is designed to reduce the harm caused by direct sunlight. The famous planetologist, Pardot Kynes, designed this hood for Fremen workers who were helping with his experiments. It has been soaked in the juice of the creosote bush - inhibiting sweating and reducing heat buildup."
+  },
+  "combat_neut_smugglerdeserterunique06_boots": {
+    "internalToken": "CLOTHING_PINCUSHION_BOOTS_NAME",
+    "name": "Pincushion Boots",
+    "shortDescription": "A pair of boots made to absorb dart impacts.",
+    "longDescription": "This <Unique>Unique</> armor set uses an experimental plasmeld layer to absorb dart impacts. In the earliest versions, the darts would stick in the gel-like outer layer, leaving the wearer bristling with darts like a pincushion. Though that flaw has been perfected, the name persists."
+  },
+  "combat_neut_smugglerdeserterunique06_top": {
+    "internalToken": "CLOTHING_PINCUSHION_CHESTPIECE_NAME",
+    "name": "Pincushion Chestpiece",
+    "shortDescription": "A chestpiece made to absorb dart impacts.",
+    "longDescription": "This <Unique>Unique</> armor set uses an experimental plasmeld layer to absorb dart impacts. In the earliest versions, the darts would stick in the gel-like outer layer, leaving the wearer bristling with darts like a pincushion. Though that flaw has been perfected, the name persists."
+  },
+  "combat_neut_smugglerdeserterunique06_gloves": {
+    "internalToken": "CLOTHING_PINCUSHION_GAUNTLETS_NAME",
+    "name": "Pincushion Gauntlets",
+    "shortDescription": "A pair of gauntlets made to absorb dart impacts.",
+    "longDescription": "This <Unique>Unique</> armor set uses an experimental plasmeld layer to absorb dart impacts. In the earliest versions, the darts would stick in the gel-like outer layer, leaving the wearer bristling with darts like a pincushion. Though that flaw has been perfected, the name persists."
+  },
+  "combat_neut_smugglerdeserterunique06_helmet": {
+    "internalToken": "CLOTHING_PINCUSHION_HOOD_NAME",
+    "name": "Pincushion Helmet",
+    "shortDescription": "A helmet made to absorb dart impacts.",
+    "longDescription": "This <Unique>Unique</> armor set uses an experimental plasmeld layer to absorb dart impacts. In the earliest versions, the darts would stick in the gel-like outer layer, leaving the wearer bristling with darts like a pincushion. Though that flaw has been perfected, the name persists."
+  },
+  "combat_neut_smugglerdeserterunique06_bottom": {
+    "internalToken": "CLOTHING_PINCUSHION_PANTS_NAME",
+    "name": "Pincushion Pants",
+    "shortDescription": "A pair of pants made to absorb dart impacts.",
+    "longDescription": "This <Unique>Unique</> armor set uses an experimental plasmeld layer to absorb dart impacts. In the earliest versions, the darts would stick in the gel-like outer layer, leaving the wearer bristling with darts like a pincushion. Though that flaw has been perfected, the name persists."
+  },
+  "combat_heavy_unique_powerincrease_top_06": {
+    "internalToken": "CLOTHING_COMBAT_HEAVY_UNIQUE_POWERINCREASE_TOP_06",
+    "name": "Power Harness",
+    "shortDescription": "A Heavy chest armor with additional power reserves.",
+    "longDescription": "This <Unique>Unique</> heavy chest armor comes with additional power reserves to assist House forces in mining and suspensor usage."
+  },
+  "radiation_suit_t6": {
+    "internalToken": "CLOTHING_RADIATION_SUIT_T6",
+    "name": "Radiation Suit Mk6",
+    "shortDescription": "Full body protection from radiation.",
+    "longDescription": "The radiation suit is a <GreatHouse>Great House</> protection garment that can shield the body from exposure to radiological exposure and allow the wearer to fight or otherwise function in a contaminated area. "
+  },
+  "stillsuit_unique_highcapacity_06_top": {
+    "internalToken": "CLOTHING_PLASTANIUM_HIGH_CAPACITY_STILLSUIT_TOP",
+    "name": "Shaddam's Bladder",
+    "shortDescription": "A stillsuit garment that boats additional water storage.",
+    "longDescription": "This <Unique>Unique</> stillsuit design was originally an extension to the Imperial stillsuit and was manufactured by sycophant in the case of a visit from the Emperor himself. With extra large thighpads and catchpockets, this stillsuit lets the wearer go for days without needing to use a toilet, something which has become a source of much amusement."
+  },
+  "combat_light_unique_wormthreat_boots_06": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_WORMTHREAT_BOOTS_06",
+    "name": "Tabr Softstep Boots",
+    "shortDescription": "A pair of boots that decrease vibrations.",
+    "longDescription": "Found abandoned throughout the former territories of the Fremen, these <Unique>Unique</> boots are made of a strange type of soft leather. Each step in these boots seems to melt into the sand, reducing the vibrations that attract the worm. Sietch Tabr was one of the Fremen sietches that put up little to no resistance during the pogrom, instead melting away quietly."
+  },
+  "radiation_suit_t6_unique_armored": {
+    "internalToken": "CLOTHING_RADIATION_SUIT_T6_UNIQUE_ARMORED",
+    "name": "Tactical Radiation Suit",
+    "shortDescription": "A <Unique>unique</> radiation suit reinforced with armor and higher radiation mitigation for those unfortunate souls who find themselves fighting in an irradiated hellscape.",
+    "longDescription": "It is difficult enough to keep out leaks and maintain the integrity of a radiation suit under normal circumstances, let alone in the chaos of combat. This <Unique>unique</> suit is reinforced with armor and higher radiation mitigation for those unfortunate souls who find themselves fighting in an irradiated hellscape."
+  },
+  "combat_hark_medunique02_boots": {
+    "internalToken": "CLOTHING_THE_FORGE_BOOTS_NAME",
+    "name": "The Forge Boots",
+    "shortDescription": "A pair of boots hardened against heat.",
+    "longDescription": "Stock armor is made of hardened plasmeld. This <Unique>Unique</> armor set is reinforced during the fabrication process - attaching minor heat dissipating components to every molecule within the plasmeld mass. This delivers increased heat resistance and a hard armor."
+  },
+  "combat_hark_medunique02_top": {
+    "internalToken": "CLOTHING_THE_FORGE_CHESTPIECE_NAME",
+    "name": "The Forge Chestpiece",
+    "shortDescription": "A chestpiece hardened against heat.",
+    "longDescription": "Stock armor is made of hardened plasmeld. This <Unique>Unique</> armor set is reinforced during the fabrication process - attaching minor heat dissipating components to every molecule within the plasmeld mass. This delivers increased heat resistance and a hard armor."
+  },
+  "combat_hark_medunique02_gloves": {
+    "internalToken": "CLOTHING_THE_FORGE_GLOVES_NAME",
+    "name": "The Forge Gloves",
+    "shortDescription": "A pair of gloves hardened against heat.",
+    "longDescription": "Stock armor is made of hardened plasmeld. This <Unique>Unique</> armor set is reinforced during the fabrication process - attaching minor heat dissipating components to every molecule within the plasmeld mass. This delivers increased heat resistance and a hard armor."
+  },
+  "combat_hark_medunique02_helmet": {
+    "internalToken": "CLOTHING_THE_FORGE_HELMET_NAME",
+    "name": "The Forge Helmet",
+    "shortDescription": "A helmet hardened against heat.",
+    "longDescription": "Stock armor is made of hardened plasmeld. This <Unique>Unique</> armor set is reinforced during the fabrication process - attaching minor heat dissipating components to every molecule within the plasmeld mass. This delivers increased heat resistance and a hard armor."
+  },
+  "combat_hark_medunique02_bottom": {
+    "internalToken": "CLOTHING_THE_FORGE_PANTS_NAME",
+    "name": "The Forge Pants",
+    "shortDescription": "A pair of pants hardened against heat.",
+    "longDescription": "Stock armor is made of hardened plasmeld. This <Unique>Unique</> armor set is reinforced during the fabrication process - attaching minor heat dissipating components to every molecule within the plasmeld mass. This delivers increased heat resistance and a hard armor."
+  },
+  "stillsuit_unique_efficient_06_boots": {
+    "internalToken": "CLOTHING_PLASTANIUM_EFFICIENT_STILLSUIT_BOOTS",
+    "name": "Villari's Stillsuit Boots",
+    "shortDescription": "Stillsuit boots designed for water retention.",
+    "longDescription": "After his ordeal in the Deep Desert, Keif Villari became an overnight hero to the members of the Miner's Guild. Cashing in on his fame, this <Unique>Unique</> stillsuit is branded by CHOAM as 'the stillsuit to wear when you're stuck in the desert for forty days'. Villari receives a small royalty for each stillsuit purchased."
+  },
+  "stillsuit_unique_efficient_06_top": {
+    "internalToken": "CLOTHING_PLASTANIUM_EFFICIENT_STILLSUIT_TOP",
+    "name": "Villari's Stillsuit Garment",
+    "shortDescription": " A stillsuit garment designed for water retention.",
+    "longDescription": "After his ordeal in the Deep Desert, Keif Villari became an overnight hero to the members of the Miner's Guild. Cashing in on his fame, this <Unique>Unique</> stillsuit is branded by CHOAM as 'the stillsuit to wear when you're stuck in the desert for forty days'. Villari receives a small royalty for each stillsuit purchased."
+  },
+  "stillsuit_unique_efficient_06_gloves": {
+    "internalToken": "CLOTHING_PLASTANIUM_EFFICIENT_STILLSUIT_GLOVES",
+    "name": "Villari's Stillsuit Gloves",
+    "shortDescription": "Stillsuit gloves designed for water retention.",
+    "longDescription": "After his ordeal in the Deep Desert, Keif Villari became an overnight hero to the members of the Miner's Guild. Cashing in on his fame, this <Unique>Unique</> stillsuit is branded by CHOAM as 'the stillsuit to wear when you're stuck in the desert for forty days'. Villari receives a small royalty for each stillsuit purchased."
+  },
+  "stillsuit_unique_efficient_06_mask": {
+    "internalToken": "CLOTHING_PLASTANIUM_EFFICIENT_STILLSUIT_MASK",
+    "name": "Villari's Stillsuit Mask",
+    "shortDescription": "A stillsuit mask designed for water retention.",
+    "longDescription": "After his ordeal in the Deep Desert, Keif Villari became an overnight hero to the members of the Miner's Guild. Cashing in on his fame, this <Unique>Unique</> stillsuit is branded by CHOAM as 'the stillsuit to wear when you're stuck in the desert for forty days'. Villari receives a small royalty for each stillsuit purchased."
+  },
+  "combat_light_unique_scanning_helmet_06": {
+    "internalToken": "CLOTHING_COMBAT_LIGHT_UNIQUE_SCANNING_HELMET_06",
+    "name": "Wayfinder Helm",
+    "shortDescription": "A helmet with a boost to scanning range.",
+    "longDescription": "The electronics in this <Unique>Unique</> helmet connect to hand-held scanners, boosting their scanning range."
+  },
+  "combat_light_unique_dewreap_gloves_06": {
+    "internalToken": "CLOTHING_PLASTANIUM_DEW_GLOVES",
+    "name": "Yueh's Reaper Gloves",
+    "shortDescription": "Special gloves design to maximize water gathering.",
+    "longDescription": "The treatment for these gloves was designed by the traitor, Dr Yueh. Originally he was searching for a way to repel blood from gloves during surgeries, but the applications of his water repellant treatment were wider than he imagined. Treated with a small amount of huf-huf oil, these <Unique>Unique</> gloves repel water and prevent any additional dew from escaping while harvesting."
+  },
+  "assassin_light06_unique_helmet": {
+    "internalToken": "CLOTHING_ASSASSIN_LIGHT06_UNIQUE_HELMET",
+    "name": "Phantom Whisper Helm",
+    "shortDescription": "A <Unique>Unique</> headpiece that grants detection speed reduction.",
+    "longDescription": "In addition to its base stats, this <Unique>Unique</> headpiece grants a 5% detection speed reduction.\n\nA protracted, never-ending War of Assassins makes a fertile ground for those who slay by stealth. The Phantom Whisper Tech employed in armor and garments, to dampen sound while moving, is the brainchild of Ixian inventors who saw a tremendous uptick in their wealth with the conflict on Arrakis."
+  },
+  "assassin_light06_unique_top": {
+    "internalToken": "CLOTHING_ASSASSIN_LIGHT06_UNIQUE_TOP",
+    "name": "Phantom Whisper Chestpiece",
+    "shortDescription": "A <Unique>Unique</> chestpiece that grants detection speed reduction.",
+    "longDescription": "In addition to its base stats, this <Unique>Unique</> chestpiece grants a 5% detection speed reduction.\n\nA protracted, never-ending War of Assassins makes a fertile ground for those who slay by stealth. The Phantom Whisper Tech employed in armor and garments, to dampen sound while moving, is the brainchild of Ixian inventors who saw a tremendous uptick in their wealth with the conflict on Arrakis. "
+  },
+  "exoskeleton_heavy06_unique_top": {
+    "internalToken": "CLOTHING_EXOSKELETON_HEAVY06_UNIQUE_TOP",
+    "name": "Combat Exoskeleton Chestpiece",
+    "shortDescription": "A <Unique>Unique</> heavy armor chestpiece that grants bonus melee damage to the wearer.",
+    "longDescription": "In addition to its base stats, this <Unique>Unique</> heavy armor grants +10% melee damage to the wearer.\n\nThis advanced armor comes with a muscle memory tech system. It learns the motions of the wearer and exaggerates them, for more powerful attacks. "
+  }
+}

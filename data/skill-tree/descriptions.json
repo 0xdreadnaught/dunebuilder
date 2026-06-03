@@ -1,0 +1,389 @@
+{
+  "_note": "Auto-generated from ST_Localization_Abilities (UE5 StringTable). Keyed by skill tag from skill-tree-data.json. `description` = LONGDESC with trailing boilerplate paragraph split off into `subDescription`. Attribute tags (Skills.Attribute.*) resolved via their `name` field matching SKILLS/ATTRIBUTE_<feature>_NAME, then reading the sibling SKILLS/ATTRIBUTE_<feature>_LONGDESC. Skills.Perk.BatteryExpert resolves to SKILLS/TECHNIQUE_POWERDRAIN_LONGDESC by name. Vehicle Mining uses the in-pak typo key _LLONGDESC; Stillsuit Seals reads from sibling SKILLS/ATTRIBUTE_STILLSUITEFFICIENCY_LONGDESC.",
+  "Skills.Ability.AssaultSeeker": {
+    "description": "A modified hunter seeker that will fly in a direct line and explode upon contact with anything. Can be triggered to explode with a second activation. Useful for situations where a thrown grenade is not precise enough.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.BattleCry": {
+    "description": "You inspire yourself and your companions to greater heights, increasing the damage of your melee attacks.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.BinduNerveStrike": {
+    "description": "You tap into your training to deliver a rapid series of powerful, painful strikes to enemies. This attack leaves them temporarily staggered.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.Blindspot": {
+    "description": "You use the Voice to force your target to ignore you. For a short while, they will act as if you are completely invisible. Voice abilities require a short period for you to \"register\" your opponent before they can be used.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.CablePull": {
+    "description": "Fires a barb that attaches to a distant surface and launches the holder towards that position."
+  },
+  "Skills.Ability.CollapseGrenade": {
+    "description": "This device, when thrown, uses a modified secondary phase Holtzman field to attract anybody within a spherical area. Those inside the sphere are drawn together and temporarily stunned, leaving them open to your area of effect attacks.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.CripplingStrike": {
+    "description": "You move in, striking at a low angle to cut your enemies below the knees. For a while after being hit, your enemies are slowed and their dashes require more stamina. While not the most honorable of attacks, the swordmaster understands that there is a difference between a duel and a war.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.DeflectionSlow": {
+    "description": "You enter a defensive stance, deflecting darts that are fired at you. This ability lasts as long as your stamina holds out.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.EnergyCapsule": {
+    "description": "You pop an energy capsule, which fills you with a concoction of neurostimulants and pain dampeners. You become detached allowing better targeting and ranged damage.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.FragGrenade": {
+    "description": "XX_This is a deprecated base version. Replace with variant version."
+  },
+  "Skills.Ability.HealerSeeker": {
+    "description": "Medic's remote-controlled drone capable of healing an ally at range."
+  },
+  "Skills.Ability.HealingCapsule": {
+    "description": "Launches a capsule that bursts on contact, healing its target. Level up this ability to increase the amount of healing."
+  },
+  "Skills.Ability.HunterSeeker": {
+    "description": "You have been trained in the use of the Hunter-Seeker, a specialized assassination device used to kill enemies without causing alarm. You pilot a thin sliver of metal that, when it strikes, burrows inside the arteries of the enemy and causes them incredible pain and often, instant death. You are vulnerable while piloting the device.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.Hypersprint": {
+    "description": "XX_This is a deprecated base version. Replace with variant version."
+  },
+  "Skills.Ability.KneeCharge": {
+    "description": "You propel yourself forward into battle with a terrific knee charge into the enemy. Deals damage and severely staggers your opponent, but costs stamina.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.LitanyAgainstFear": {
+    "description": "Reciting this litany aloud will instantly hearten any allies nearby, as well as providing you with the strength to push through almost any attacks. You and your allies will have boosted damage mitigation and stagger resistance for the duration.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.MagneticAttractor": {
+    "description": "Originally used as a training device to offset poor aim, the Attractor Field uses a modified Holtzman field to draw attacks towards itâ€™s center. Attach it to an enemy and any shot fired into the field will redirect into their center of mass.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.PoisonCapsuleLauncher": {
+    "description": "Target: hostile\nDelivery: capsule launcher\n\nFires a capsule that detonates into a poison Cloud on impact."
+  },
+  "Skills.Ability.PoisonMine": {
+    "description": "You can place a remotely triggered mine that, once triggered, releases a cloud of poisonous spores - stacking poison on all who stand within.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.PortableGenerator": {
+    "description": "You place out a powerful generator that continuously regenerates power for nearby allies. Though the device uses a form of nuclear fission, it is small enough to be safe provided that it is given adequate time to cool between uses.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.RiposteBreak": {
+    "description": "You enter a heightened state of awareness and when next attacked in melee, you parry and counterattack with a precise strike that damages their arm and numbs them. For a short period of time, their damage output is reduced.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.RiposteInjure": {
+    "description": "You enter a heightened state of awareness and when next attacked in melee, you parry and counterattack with a savage riposte that bleeds and damages your enemy.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.SolidoDecoy": {
+    "description": "You use a miniature solido projector to project a near-perfect image of yourself onto the battlefield. Triggering it again will force the projection to move forward, fooling enemies into attacking.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.StunDart": {
+    "description": "You have a hidden dart dispenser that fires off a specially prepared sedative tipped dart. On impact, this dart stuns the enemy, locking their muscles and rendering them unable to move or attack.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.SuspensorBlast": {
+    "description": "You manipulate the suspensor field generated by your suspensor belt - forcing it to explode around you with extreme force, pushing enemies back, damaging them, and impairing their movement for a short time. You can hold the ability to increase the damage dealt and time the blast release.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.SuspensorGrenade_Amplification": {
+    "description": "This device, when thrown, uses a modified secondary phase Holtzman field to amplify the effect of gravity in a spherical area. You can use the sphere to slow enemies and drain their power or decrease the speed of projectiles.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.SuspensorGrenade_Reduction": {
+    "description": "This device, when thrown, uses a modified secondary phase Holtzman field to negate the effect of gravity in a spherical area. You can use the sphere to lift enemies or prevent fall damage during traversal.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.SuspensorGrenade_Stabilization": {
+    "description": "Thrown grenade that creates a stabilization field on detonation, equalizing gravity and negating movement for those who enter."
+  },
+  "Skills.Ability.SuspensorMine_Amplification": {
+    "description": "This device, when thrown, uses a modified secondary phase Holtzman field to amplify the effect of gravity in a spherical area. You can use the sphere to slow enemies and drain their power or decrease the speed of projectiles.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.SuspensorMine_Reduction": {
+    "description": "This device, when thrown, uses a modified secondary phase Holtzman field to negate the effect of gravity in a spherical area. You can use the sphere to lift enemies or prevent fall damage during traversal.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.SuspensorMine_Stabilization": {
+    "description": "Thrown grenade that creates a stabilization field on detonation, equalizing gravity and negating movement for those who enter."
+  },
+  "Skills.Ability.SuspensorPad": {
+    "description": "Drop a suspensor device that launches yourself (and targets) into the air. Useful for navigation and traversal.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.SuspensorWall": {
+    "description": "You deploy a half-height holtzman shield that provides cover during combat for you and your allies. It will also slow enemies who attempt to pass through it - giving you time to take them down.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.TurretSeeker": {
+    "description": "You deploy a suspensor buoyed dart projector that uses motion detection to cover a field of fire. Trigger a second time to activate.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.VoiceCompel": {
+    "description": "A Bene Gesserit technique, Compel is the ability to use one's voice to force another to comply with commands immediately and unconsciously."
+  },
+  "Skills.Ability.VoiceStop": {
+    "description": "You use the Voice to stop enemies in a cone in front of you from performing any actions for a brief period. Voice abilities require a short period for you to \"register\" your opponent before they can be used.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Ability.WeirdingStep": {
+    "description": "Combining the Voice and a limited form of Bindu Sprint - you stun a single enemy while moving with superhuman speed behind them."
+  },
+  "Skills.Ability.Whirlwind": {
+    "description": "You pirouette with your blade, becoming a whirlwind of piercing damage that cuts everything around you. While seemingly chaotic, the swordmaster maintains calm - the eye at the heart of the storm.",
+    "subDescription": "Abilities must be equipped and activated from the ability bar."
+  },
+  "Skills.Attribute.UnstoppableAttacks": {
+    "description": "Every time you attempt a difficult attack like a sprint attack or a slow blade, you gain increased confidence, which reflects as damage mitigation."
+  },
+  "Skills.Perk.Backstabber": {
+    "description": "Once an enemy is stunned, staggered or knocked back, you strike in vulnerable nerve endings to cause more damage.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.BinduStability": {
+    "description": "Through a combined focus of your nerves and muscles, you are able to resist being staggered by reducing all incoming poise damage.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.BodyShots": {
+    "description": "You've been taught to target where you are most likely to hit and you do it by instinct - increasing damage that hits the body or shields, but reducing your damage via headshots.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.DeathFromAbove": {
+    "description": "While you are suspended in the air, any attacks using weapons will have a damage bonus.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.ExploitWeakness": {
+    "description": "You have learned to observe your enemies and predict their weaknesses based on a thousand minutiae. When you damage an unshielded enemy with a ranged weapon, you reveal a weak point which you can target to increase the damage of subsequent attacks (excluding range AoE attacks). Only one weak point may be visible at a time.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.Gunsmith": {
+    "description": "Significantly reduce weapon and tool durability loss. Techniques only take effect when equipped."
+  },
+  "Skills.Perk.HeadShots": {
+    "description": "You are an expert at focusing on the most vulnerable part of the human body, the head. Your headshot damage is increased.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.HeavyWeaponNaib": {
+    "description": "You have trained yourself to move faster while using heavy weapons such as the Flamethrower, Lasgun, Vulcan GAU-92 or Missile Launcher.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.IronWill": {
+    "description": "You have developed such a strong sense of self, that you are able to alter your thought patterns to avoid the manipulations of the Bene Gesserit voice at the cost of stamina. At least, those of lesser practitioners.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.MeleeChain": {
+    "description": "Defeating an enemy with a melee attack empowers your next melee attack for a brief period. The skilled swordmaster dances between opponents, keeping their damage high.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.MetabolizePoison": {
+    "description": "You have developed your internal systems to the extent that any poison you take can quickly be catalyzed and removed from your system, reducing the overall damage poisons deal to you.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.PoisonTooth": {
+    "description": "Installed by a Suk Doctor, this poison tooth activates when you are killed in combat, causing a cloud of poison mist that damages and poisons anybody nearby.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.RegenCap": {
+    "description": "You can use your own body to effectively heal catastrophic damage - improving both the rate at which healing occurs, and the amount.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.ShieldWeakpoint": {
+    "description": "Requires Prescience\n\nWhen your blood is saturated with the melange any ranged attack on a shield will reveal a vulnerability in the Holtzman shield. Continual attacks against this vulnerability will overcharge the enemy shield, causing it to drain their power pack more quickly."
+  },
+  "Skills.Perk.SprintStamina": {
+    "description": "When you focus on your technique and breathing, you can recuperate your stamina reserves more quickly.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.SuspensorDash": {
+    "description": "Your training with suspensors allows you to manipulate your flow of movement. Press the Dash button while suspended to perform a mid-air dash.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.ThriveOnDanger": {
+    "description": "When you are low on health, you regenerate health faster, receive less poise damage, and reduce all stamina costs for actions.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.ToughLunge": {
+    "description": "Lunging at an enemy will often provide them with an easy opening to attack, but you have learned to turn a lunge into an advantage. Sprint attacks provide bonus damage mitigation for a short while after a lunge.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.TrooperCooldowns": {
+    "description": "The inexperienced and untrained will flinch in the heat of battle, panicked and unable to remember their basic training. Trooper training prepares you for the realities of combat and allows you to use your Trooper abilities more often.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Perk.VoiceAnalysis": {
+    "description": "The Voice only works on targets who have been \"registered\". This technique allows you to focus on registering opponents more quickly, in order to use the Voice faster.",
+    "subDescription": "Techniques only take effect when equipped."
+  },
+  "Skills.Science.m_PowerMax": {
+    "description": "Maximum Power"
+  },
+  "Skills.Spice.BinduDodge": {
+    "description": "Requires Prescience\n\nWhen enough spice permeates your bloodstream, you become able to combine your prana-bindu training with your limited ability to see the future. After a successful parry, dart and blade attacks pass through you."
+  },
+  "Skills.Spice.GadgetReload": {
+    "description": "Requires Prescience\n\nWhen your blood is saturated with the melange, the actions that you have performed a thousand times become effortless. Whenever you throw a grenade or drop a mine, you instantly reload your current weapon â€“ your hands moving before your mind can even think."
+  },
+  "Skills.Spice.ParryBoost": {
+    "description": "Requires Prescience\n\nWhen your blood is infused with melange, your parries expose additional weaknesses in the defense of your enemies. Their ability to mitigate damage is decreased."
+  },
+  "Skills.Spice.ShadowStrike": {
+    "description": "Requires Prescience\n\nWhen your blood is saturated with melange, you see multiple ways in which to damage your enemies. After using any swordmaster ability, your next strike will strike twice, reflecting two possible versions of the future converging in a single spacetime.\n\nThe second strike deals 70% of the damage dealt by the initial strike."
+  },
+  "Skills.Spice.VehicleHeat": {
+    "description": "Requires Prescience\n\nWhile under the influence of large amounts of melange, you can instinctively sense where and how to shift a vehicle to reduce heat buildup."
+  },
+  "Skills.Spice.VoiceSplash": {
+    "description": "Requires Prescience\n\nWhen enough spice permeates your bloodstream, your Voice becomes more powerful, causing those around your registered target to stagger under the force of your commands."
+  },
+  "Skills.Attribute.Aggression1": {
+    "description": "You recover more health immediately when using healkits due to your excellent conditioning."
+  },
+  "Skills.Attribute.Aggression2": {
+    "description": "Your body knows how to make optimal use of water, so you have additional stamina reserves when well-hydrated."
+  },
+  "Skills.Attribute.Aggression3": {
+    "description": "Your extensive physical training has increased your maximum stamina."
+  },
+  "Skills.Attribute.Aggression4": {
+    "description": "You have trained yourself to deal with the rigors of the deserts, decreasing your max stamina loss while dehydrated."
+  },
+  "Skills.Attribute.Assassination1": {
+    "description": "As you train with ranged weapons, you become more proficient at shooting the vulnerable parts of the human body. Your headshot damage is increased."
+  },
+  "Skills.Attribute.Assassination2": {
+    "description": "You do not squander an advantage in battle. Ever. You deal additional damage to your enemies when shooting them in the back."
+  },
+  "Skills.Attribute.Blade1": {
+    "description": "You know exactly where and how to strike with a blade to cause additional damage."
+  },
+  "Skills.Attribute.Blade2": {
+    "description": "Your training with long blades such as swords and rapiers gives you increased damage with those weapons."
+  },
+  "Skills.Attribute.Driver1": {
+    "description": "Your field training as a mechanic reduces the maximum durability loss of vehicle components when performing repairs."
+  },
+  "Skills.Attribute.Driver2": {
+    "description": "Driving groundcars has taught you several techniques for fuel conservation while exploring. This applies to all types of ground vehicles."
+  },
+  "Skills.Attribute.Driver3": {
+    "description": "Applying your understanding of structural and mineral composition to heavier vehicle machinery results in a larger resource yield."
+  },
+  "Skills.Attribute.Driver4": {
+    "description": "You have become proficient with vehicle mounted scanners - improving the range of detection."
+  },
+  "Skills.Attribute.Driver5": {
+    "description": "Piloting ornithopters has taught you several techniques for fuel conservation while exploring. This applies to all types of ornithopters."
+  },
+  "Skills.Attribute.Driver6": {
+    "description": "Your understanding of sand and the vacuum static action of the sandcrawler allows you to harvest spice more efficiently."
+  },
+  "Skills.Attribute.Explorer1": {
+    "description": "You can now create sinkcharts of the areas revealed by your surveys.\n\nCreate sinkcharts from the Map Screen, but you will require a blank sinkchart in your inventory."
+  },
+  "Skills.Attribute.Explorer2": {
+    "description": "You are better at finding handholds and footholds while climbing, reducing your stamina drain."
+  },
+  "Skills.Attribute.Explorer3": {
+    "description": "You have become proficient with the hand scanner - improving the range of detection."
+  },
+  "Skills.Attribute.Explorer4": {
+    "description": "Though you have no formal training with the stillsuit, you’ve adjusted several seals and tabs that must be properly fitted for the suit to act with optimal efficiency. Your water reclamation while wearing a stillsuit is improved."
+  },
+  "Skills.Attribute.Explorer5": {
+    "description": "Through research and field experience, you've learned to recognize the density of a spice bed from surveys. This ability is of most use in the Deep Desert."
+  },
+  "Skills.Attribute.Manipulation1": {
+    "description": "Your rigorous training with the Voice allows you to reduce the time between uses."
+  },
+  "Skills.Attribute.MentalCalculus1": {
+    "description": "You are able to spot the flaws in any garment and see where it is most likely to tear first. This allows you to reinforce it, preventing wear and tear. Your garments maintain their durability for longer."
+  },
+  "Skills.Attribute.MentalCalculus2": {
+    "description": "Your time spent practicing your aim leads to bonus damage using all ranged weapons."
+  },
+  "Skills.Attribute.MentalCalculus3": {
+    "description": "Your skills with a needle are legendary. Every time you repair a garment, you reduce the maximum durability damage the repair would cause."
+  },
+  "Skills.Attribute.MentalCalculus4": {
+    "description": "Handfired weapons are usually less lethal the further away they are, but you have used your mental training to optimize your shots. All damage with pistol style weapons such as the Maula Pistol and Rafiq Subnose is increased."
+  },
+  "Skills.Attribute.MentalCalculus5": {
+    "description": "Learning to overcome the drop in trajectory that occurs when a firing rifles at long range, you have increased your lethality with rifles such as the Karpov 38 and JABAL Spitdart. All damage with these weapons is increased."
+  },
+  "Skills.Attribute.Resolve1": {
+    "description": "You have become harder to bleed due to a combination of training and resistance. Bleeding status takes a longer time to build on you."
+  },
+  "Skills.Attribute.Resolve2": {
+    "description": "As your training increases, you have learned to avoid being knocked around by enemy attacks. You can take more poise damage before being staggered."
+  },
+  "Skills.Attribute.Scientist1": {
+    "description": "Your understanding of structural and mineral composition leads to an increase in the resource yield when using a cutteray."
+  },
+  "Skills.Attribute.Scientist2": {
+    "description": "Careful manipulation of the Holtzman field on the dew reaper allows you to increase the water yield."
+  },
+  "Skills.Attribute.Scientist3": {
+    "description": "Tinkering with your power pack allows you to increase the recharge rate."
+  },
+  "Skills.Attribute.Scientist4": {
+    "description": "You develop an understanding of analysis mode mining with the cutteray. Your bonus yields are increased."
+  },
+  "Skills.Attribute.Scientist5": {
+    "description": "You've made minor adjustments to the way you use the compactor that improves the efficiency of its resource yields."
+  },
+  "Skills.Attribute.SelfControl1": {
+    "description": "You are able to heal your body more effectively after suffering catastrophic injury - regenerating your health to a higher threshold than normal."
+  },
+  "Skills.Attribute.SelfControl2": {
+    "description": "You are able to slow the effects of direct sun exposure on Arrakis, by altering minor chemical reactions occurring in the layers of your own skin, thereby reducing the rate of Sunstroke buildup."
+  },
+  "Skills.Attribute.SelfControl3": {
+    "description": "Through careful tuning of your internal enzyme balance and musculature, you can increase your overall health."
+  },
+  "Skills.Attribute.SelfControl4": {
+    "description": "You are strongly in touch with your own nervous and immune systems and are able to boost any healing that you perform on yourself."
+  },
+  "Skills.Attribute.SelfControl5": {
+    "description": "You have tuned your immune system to fight off toxins more effectively. Whenever you are poisoned it takes longer to reach damaging levels."
+  },
+  "Skills.Attribute.SuspensorTech1": {
+    "description": "Your practice with the suspensor has taught you how to position yourself in the air to remain aerodynamic - reducing the power drain on your suspensor belts."
+  },
+  "Skills.Attribute.Weaponry1": {
+    "description": "Your time spent practicing your aim leads to bonus damage using all ranged weapons."
+  },
+  "Skills.Attribute.Weaponry2": {
+    "description": "Using steady hands you are able to guide the disruptor's rapid fire darts more effectively to their target, thus increasing your damage."
+  },
+  "Skills.Attribute.Weaponry3": {
+    "description": "You have mastered the spread patterns of the pellet firing GRDA 44 and Drillshot FK7 scatterguns, thus improving your damage with these weapons."
+  },
+  "Skills.Attribute.Weaponry4": {
+    "description": "You know how to strip down and clean your gear, slowing the durability cost of firing weapons and tools in hostile environments."
+  },
+  "Skills.Attribute.Weaponry5": {
+    "description": "The bigger the gun, the bigger the mess. Your skill with heavy weapons such as the Flamethrower, Lasgun, Vulcan GAU-92 or Missile Launcher leads to more damage when you use them."
+  },
+  "Skills.Attribute.Weaponry6": {
+    "description": "You are skilled in the repair of weapons and tools reducing the maximum durability cost of each repair."
+  },
+  "Skills.Attribute.WeirdingWay1": {
+    "description": "You know exactly where and how to strike with a blade to cause additional damage."
+  },
+  "Skills.Attribute.WeirdingWay2": {
+    "description": "You've been trained in the use of concealed blades such as daggers and slip-tips. You know precisely where to place these blades for maximum damage."
+  },
+  "Skills.Perk.BatteryExpert": {
+    "description": "When you focus your efforts, you can reduce the power drain of every action that you take.",
+    "subDescription": "Techniques only take effect when equipped."
+  }
+}

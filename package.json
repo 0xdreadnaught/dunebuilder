@@ -1,10 +1,13 @@
 {
   "name": "dunebuilder",
-  "version": "0.8.3",
+  "version": "0.9.0",
   "description": "Character build viewer for Dune: Awakening",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "test": "node test/skill-tree-smoke.mjs",
+    "prebuild": "npm test",
+    "prebuild:scan": "npm test",
     "build": "electron-builder --win nsis",
     "build:scan": "electron-builder --win nsis && node scripts/vt-scan.js",
     "golden:capture": "node test/golden/capture.mjs --out test/golden/baseline.json",
@@ -28,6 +31,7 @@
       "qr-encode.js",
       "qr-builder.js",
       "engine-ini.js",
+      "lib/**/*.js",
       "data/**/*.json",
       "imgs/**/*",
       "dunebuilder_logo_512.png"

@@ -1,6 +1,7 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electronAPI', {
+  setWindowWidthScale: (scale) => ipcRenderer.invoke('window:setWidthScale', scale),
   readClipboard: () => ipcRenderer.invoke('clipboard:read'),
   writeClipboard: (text) => ipcRenderer.invoke('clipboard:write', text),
   getVersion: () => ipcRenderer.invoke('app:version'),

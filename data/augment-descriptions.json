@@ -1,0 +1,620 @@
+{
+  "barrel-extender": {
+    "internalToken": "AUGMENT_T6_AUGMENT_RANGE1",
+    "name": "Barrel Extender",
+    "shortDescription": "A ranged weapon augmentation",
+    "longDescription": "An augmentation which increases the effective range of any ranged weapon."
+  },
+  "capacity-expander": {
+    "internalToken": "AUGMENT_T6_AUGMENT_MAGAZINECAPACITY1",
+    "name": "Capacity Expander",
+    "shortDescription": "A ranged weapon augmentation",
+    "longDescription": "An augmentation which increases the ammo capacity of any ranged weapon, but increases overall volume."
+  },
+  "disruptive-coating": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SHIELDDAMAGE1",
+    "name": "Disruptive Coating",
+    "shortDescription": "A ranged weapon augmentation",
+    "longDescription": "An augmentation which increases the shield damage of any ranged weapon."
+  },
+  "disruptor-m11-amplifier": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SMG5",
+    "name": "Disruptor M11 Amplifier",
+    "shortDescription": "A Disruptor M11 augmentation",
+    "longDescription": "A Disruptor-specific augmentation which increases damage output, but reduces rate of fire."
+  },
+  "disruptor-m11-heavy-kit": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SMG7",
+    "name": "Disruptor M11 Heavy Kit",
+    "shortDescription": "A Disruptor M11 augmentation",
+    "longDescription": "An augmentation for the Disruptor M11 which increases damage and reduces overall volume, but reduces accuracy and ammo capacity."
+  },
+  "disruptor-m11-precision-tuning": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SMG1",
+    "name": "Disruptor M11 Precision Tuning",
+    "shortDescription": "A Disruptor M11 augmentation",
+    "longDescription": "A Disruptor-specific augmentation which increases ammo capacity and accuracy, and reduces recoil, but reduces damage output."
+  },
+  "disruptor-m11-quickloader": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SMG2",
+    "name": "Disruptor M11 Quickloader",
+    "shortDescription": "A Disruptor M11 augmentation",
+    "longDescription": "An augmentation for the Disruptor M11 which reduces reload times and increases rate of fire, but reduces damage output and accuracy, and increases overall volume."
+  },
+  "disruptor-m11-shield-breaker": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SMG3",
+    "name": "Disruptor M11 Shield Breaker",
+    "shortDescription": "A Disruptor M11 augmentation",
+    "longDescription": "A Disruptor-specific augmentation which increases shield damage and effective range, but reduces rate of fire."
+  },
+  "disruptor-m11-sprayer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SMG4",
+    "name": "Disruptor M11 Sprayer",
+    "shortDescription": "A Disruptor M11 augmentation",
+    "longDescription": "An augmentation for the Disruptor M11 which increases ammo capacity and rate of fire, but increases reload times and overall volume."
+  },
+  "disruptor-m11-personnel-buster": {
+    "internalToken": "AUGMENT_T6_AUGMENT_CH5_SMG1",
+    "name": "Disruptor M11 Personnel-Buster",
+    "shortDescription": "A Disruptor M11 augmentation",
+    "longDescription": "A Disruptor M11-specific augmentation which increases critical damage and rate of fire, at the cost of shield damage, range, and recoil."
+  },
+  "drillshot-fk7-amplifier": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SHOTGUN2",
+    "name": "Drillshot FK7 Amplifier",
+    "shortDescription": "A Drillshot FK7 augmentation",
+    "longDescription": "An augmentation for the Drillshot FK7 which increases damage and reduces overall volume, but reduces ammo capacity."
+  },
+  "drillshot-fk7-optimizer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SHOTGUN3",
+    "name": "Drillshot FK7 Optimizer",
+    "shortDescription": "A Drillshot FK7 augmentation",
+    "longDescription": "A Drillshot FK7-specific augmentation which increases damage and reduces recoil, but reduces accuracy."
+  },
+  "drillshot-fk7-quickloader": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SHOTGUN5",
+    "name": "Drillshot FK7 Quickloader",
+    "shortDescription": "A Drillshot FK7 augmentation",
+    "longDescription": "A Drillshot FK7-specific augmentation that reduces reload times, improves headshot damage, and reduces overall volume, but reduces accuracy and ammo capacity and increases recoil."
+  },
+  "drillshot-fk7-sprayer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SHOTGUN4",
+    "name": "Drillshot FK7 Sprayer",
+    "shortDescription": "A Drillshot FK7 augmentation",
+    "longDescription": "An augmentation for the Drillshot FK7 which increases rate of fire and ammo capacity, but reduces damage output and increases recoil and overall volume."
+  },
+  "drillshot-fk7-tactical-adjuster": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SHOTGUN1",
+    "name": "Drillshot FK7 Tactical Adjuster",
+    "shortDescription": "A Drillshot FK7 augmentation",
+    "longDescription": "A Drillshot FK7-specific augmentation which increases headshot damage, accuracy, and effective range, but reduces rate of fire."
+  },
+  "drillshot-fk7-spray-and-pray": {
+    "internalToken": "AUGMENT_T6_AUGMENT_CH5_SHOTGUN1",
+    "name": "Drillshot FK7 Spray-and-Pray",
+    "shortDescription": "A Drillshot FK7 augmentation",
+    "longDescription": "A Drillshot FK7-specific augmentation which increases reload speed and rate of fire, at the cost of range, recoil, and magazine size.\n"
+  },
+  "flamethrower-amplifier": {
+    "internalToken": "AUGMENT_T6_AUGMENT_FLAMETHROWER1",
+    "name": "Flamethrower Amplifier",
+    "shortDescription": "A Flamethrower augmentation",
+    "longDescription": "A flamethrower-specific augmentation that increases damage output and reduces recoil, but increases overall volume."
+  },
+  "flamethrower-nozzle-extension": {
+    "internalToken": "AUGMENT_T6_AUGMENT_FLAMETHROWER3",
+    "name": "Flamethrower Nozzle Extension",
+    "shortDescription": "A Flamethrower augmentation",
+    "longDescription": "A flamethrower-specific augmentation that increases the effective range and ammo capacity at the cost of increased volume and recoil."
+  },
+  "flamethrower-quickloader": {
+    "internalToken": "AUGMENT_T6_AUGMENT_FLAMETHROWER4",
+    "name": "Flamethrower Quickloader",
+    "shortDescription": "A Flamethrower augmentation",
+    "longDescription": "A flamethrower-specific augmentation that reduces recoil, reload time, and overall volume at the cost of damage output."
+  },
+  "flamethrower-superheater": {
+    "internalToken": "AUGMENT_T6_AUGMENT_FLAMETHROWER2",
+    "name": "Flamethrower Superheater",
+    "shortDescription": "A Flamethrower augmentation",
+    "longDescription": "A flamethrower-specific augmentation that sprays out flames faster and causes more painful burns, but reduces the effective range."
+  },
+  "flamethrower-decimator": {
+    "internalToken": "AUGMENT_T6_AUGMENT_CH5_FLAMETHROWER1",
+    "name": "Flamethrower Decimator",
+    "shortDescription": "A Flamethrower augmentation",
+    "longDescription": "A Flamethrower-specific augmentation which offers a massive bonus to shield damage but reduces the rate of fire."
+  },
+  "grda-44-amplifier": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SCATTERGUN5",
+    "name": "GRDA 44 Amplifier",
+    "shortDescription": "A GRDA 44 augmentation",
+    "longDescription": "A GRDA 44-specific augmentation which increases damage output and reduces shot spread, but reduces effective range."
+  },
+  "grda-44-expander": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SCATTERGUN4",
+    "name": "GRDA 44 Expander",
+    "shortDescription": "A GRDA 44 augmentation",
+    "longDescription": "An augmentation for the GRDA 44 which increases ammo capacity and effective range, but increases shot spread and reduces damage output."
+  },
+  "grda-44-micro-rigidity-coating": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SCATTERGUN8",
+    "name": "GRDA 44 Micro-Rigidity Coating",
+    "shortDescription": "A GRDA 44 augmentation",
+    "longDescription": "An augmentation for the GRDA 44 which increases effective range and accuracy, and reduces recoil and overall volume, but reduces ammo capacity."
+  },
+  "grda-44-optimizer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SCATTERGUN6",
+    "name": "GRDA 44 Optimizer",
+    "shortDescription": "A GRDA 44 augmentation",
+    "longDescription": "An augmentation for the GRDA 44 which increases damage output, reduces shot spread and overall volume, but at the cost of ammo capacity."
+  },
+  "grda-44-sprayer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SCATTERGUN7",
+    "name": "GRDA 44 Sprayer",
+    "shortDescription": "A GRDA 44 augmentation",
+    "longDescription": "A GRDA 44-specific augmentation which increases rate of fire, but reduces accuracy and increases recoil and shot spread."
+  },
+  "grda-44-tactical-amplifier": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SCATTERGUN2",
+    "name": "GRDA 44 Tactical Amplifier",
+    "shortDescription": "A GRDA 44 augmentation",
+    "longDescription": "A GRDA 44-specific augmentation which increases headshot damage, but reduces fire rate."
+  },
+  "scattergun-rampage-enhancement": {
+    "internalToken": "AUGMENT_T6_AUGMENT_CH5_SCATTERGUN1",
+    "name": "Scattergun Rampage-Enhancement",
+    "shortDescription": "A Scattergun augmentation",
+    "longDescription": "A Scattergun-specific augmentation which increases damage and magazine size, at the cost of critical hit damage."
+  },
+  "heavy-caliber-upgrade": {
+    "internalToken": "AUGMENT_T6_AUGMENT_DAMAGE1",
+    "name": "Heavy Caliber Upgrade",
+    "shortDescription": "A ranged weapon augmentation",
+    "longDescription": "An augmentation which increases the damage output of any ranged weapon."
+  },
+  "jabal-spitdart-amplifier": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SPITDARTRIFLE5",
+    "name": "JABAL Spitdart Amplifier",
+    "shortDescription": "A JABAL Spitdart augmentation",
+    "longDescription": "An augmentation for the JABAL Spitdart Rifle which increases damage, but increases recoil."
+  },
+  "jabal-spitdart-disruptive-coating": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SPITDARTRIFLE6",
+    "name": "JABAL Spitdart Disruptive Coating",
+    "shortDescription": "A JABAL Spitdart augmentation",
+    "longDescription": "A JABAL Spitdart Rifle-specific augmentation which increases shield damage, but reduces ammo capacity."
+  },
+  "jabal-spitdart-expander": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SPITDARTRIFLE7",
+    "name": "JABAL Spitdart Expander",
+    "shortDescription": "A JABAL Spitdart augmentation",
+    "longDescription": "An augmentation for JABAL Spitdart Rifles which increases ammo capacity and rate of fire, but reduces effective range, accuracy, and damage output and increases overall volume."
+  },
+  "jabal-spitdart-range-adjuster": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SPITDARTRIFLE3",
+    "name": "JABAL Spitdart Range Adjuster",
+    "shortDescription": "A JABAL Spitdart augmentation",
+    "longDescription": "A JABAL Spitdart Rifle-specific augmentation which increases accuracy and range, but increases reload times."
+  },
+  "jabal-spitdart-tactical-enhancer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SPITDARTRIFLE2",
+    "name": "JABAL Spitdart Tactical Enhancer",
+    "shortDescription": "A JABAL Spitdart augmentation",
+    "longDescription": "An augmentation for the JABAL Spitdart Rifle which increases headshot damage, but increases recoil."
+  },
+  "jabal-spitdart-toxicity-amplifier": {
+    "internalToken": "AUGMENT_T6_AUGMENT_SPITDARTRIFLE8",
+    "name": "JABAL Spitdart Toxicity Amplifier",
+    "shortDescription": "A JABAL Spitdart augmentation",
+    "longDescription": "A JABAL Spitdart Rifle-specific augmentation which increases poison damage dealt, but reduces shield damage dealt."
+  },
+  "jabal-spitdart-ranger": {
+    "internalToken": "AUGMENT_T6_AUGMENT_CH5_SPITDART1",
+    "name": "JABAL Spitdart Ranger",
+    "shortDescription": "A JABAL Spitdart augmentation",
+    "longDescription": "A JABAL Spitdart-specific augmentation which increases reload speed and range, at a cost to the rate of fire."
+  },
+  "karpov-38-dart-sprayer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_BR2",
+    "name": "Karpov 38 Dart Sprayer",
+    "shortDescription": "A Karpov 38 augmentation",
+    "longDescription": "A Karpov 38-specific augmentation that opts for less power behind each dart in order to fire more darts. This reduces the overall damage of each dart fired but increases the fire rate."
+  },
+  "karpov-38-focuser": {
+    "internalToken": "AUGMENT_T6_AUGMENT_BR4",
+    "name": "Karpov 38 Focuser",
+    "shortDescription": "A Karpov 38 augmentation",
+    "longDescription": "A Karpov 38-specific augmentation which improves accuracy and reload times and reduces recoil, but the overall damage output is reduced."
+  },
+  "karpov-38-heavy-kit": {
+    "internalToken": "AUGMENT_T6_AUGMENT_BR3",
+    "name": "Karpov 38 Heavy Kit",
+    "shortDescription": "A Karpov 38 augmentation",
+    "longDescription": "This Karpov 38-specific augmentation alters the magazine to hold more powerful darts but fewer of them, thus reducing the weapon's overall volume and magazine capacity while improving damage output."
+  },
+  "karpov-38-precision-kit": {
+    "internalToken": "AUGMENT_T6_AUGMENT_BR8",
+    "name": "Karpov 38 Precision Kit",
+    "shortDescription": "A Karpov 38 augmentation",
+    "longDescription": "A Karpov 38-specific augmentation which focuses more on dealing critical damage to weak spots en-masse, thus increasing magazine capacity, headshot damage, and overall volume while reducing accuracy."
+  },
+  "karpov-38-pressurizer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_BR1",
+    "name": "Karpov 38 Pressurizer",
+    "shortDescription": "A Karpov 38 augmentation",
+    "longDescription": "This Karpov 38-specific augmentation delays the release of fired darts in order to build up additional force, thus reducing the fire rate while increasing the damage output and accuracy."
+  },
+  "karpov-38-sniper-barrel": {
+    "internalToken": "AUGMENT_T6_AUGMENT_CH5_BR1",
+    "name": "Karpov 38 Sniper Barrel",
+    "shortDescription": "A Karpov 38 augmentation",
+    "longDescription": "A Karpov 38-specific augmentation which increases range and accuracy but reduces reload speed."
+  },
+  "lasgun-amplifier": {
+    "internalToken": "AUGMENT_T6_AUGMENT_LASGUN4",
+    "name": "Lasgun Amplifier",
+    "shortDescription": "A Lasgun augmentation",
+    "longDescription": "A Lasgun-specific augmentation which increases damage output and reduces overall volume, but reduces range and increases recoil."
+  },
+  "lasgun-extender": {
+    "internalToken": "AUGMENT_T6_AUGMENT_LASGUN2",
+    "name": "Lasgun Extender",
+    "shortDescription": "A Lasgun augmentation",
+    "longDescription": "This Lasgun-specific augmentation increases the range and accuracy of the beam and reduces overall volume, but reduces overall damage output."
+  },
+  "lasgun-focuser": {
+    "internalToken": "AUGMENT_T6_AUGMENT_LASGUN1",
+    "name": "Lasgun Focuser",
+    "shortDescription": "A Lasgun augmentation",
+    "longDescription": "A Lasgun-specific augmentation which increases the beam's damaging power and reduces overall volume, however the power drain and recoil suffer."
+  },
+  "lasgun-harmonizer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_LASGUN3",
+    "name": "Lasgun Harmonizer",
+    "shortDescription": "A Lasgun augmentation",
+    "longDescription": "An augmentation for Lasguns which increases the rate of fire of the beam, reduces recoil, and reduces power drain, however the range of the beam and its damage output are reduced, and overall volume is increased."
+  },
+  "lasgun-concentrator": {
+    "internalToken": "AUGMENT_T6_AUGMENT_CH5_LASGUN1",
+    "name": "Lasgun Concentrator",
+    "shortDescription": "A Lasgun augmentation",
+    "longDescription": "A Lasgun-specific augmentation which increases the beam’s damaging power and accuracy but reduces the rate of fire and magazine size."
+  },
+  "maula-pistol-barrel-extender": {
+    "internalToken": "AUGMENT_T6_AUGMENT_MAULAPISTOL4",
+    "name": "Maula Pistol Barrel Extender",
+    "shortDescription": "A Maula Pistol augmentation",
+    "longDescription": "An augmentation for Maula Pistols that increases effective range and accuracy and reduces reload times, but reduces overall rate of fire."
+  },
+  "maula-pistol-disruptive-coating": {
+    "internalToken": "AUGMENT_T6_AUGMENT_MAULAPISTOL2",
+    "name": "Maula Pistol Disruptive Coating",
+    "shortDescription": "A Maula Pistol augmentation",
+    "longDescription": "This Maula Pistol-specific augmentation increases damage and shield damage and reduces overall volume, but reduces ammo capacity."
+  },
+  "maula-pistol-expander": {
+    "internalToken": "AUGMENT_T6_AUGMENT_MAULAPISTOL3",
+    "name": "Maula Pistol Expander",
+    "shortDescription": "A Maula Pistol augmentation",
+    "longDescription": "A Maula Pistol-specific augmentation that expands ammo capacity and increases fire rate, but reduces accuracy and overall damage."
+  },
+  "maula-pistol-sprayer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_MAULAPISTOL1",
+    "name": "Maula Pistol Sprayer",
+    "shortDescription": "A Maula Pistol augmentation",
+    "longDescription": "A Maula Pistol-specific augmentation which increases fire rate but reduces headshot damage."
+  },
+  "maula-pistol-tactical-enhancer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_MAULAPISTOL5",
+    "name": "Maula Pistol Tactical Enhancer",
+    "shortDescription": "A Maula Pistol augmentation",
+    "longDescription": "A Maula Pistol-specific augmentation that reduces recoil and overall volume while also increasing accuracy and headshot damage. However, rate of fire and ammo capacity are reduced."
+  },
+  "maula-pistol-antipersonnel-rounds": {
+    "internalToken": "AUGMENT_T6_AUGMENT_CH5_MAULAPISTOL1",
+    "name": "Maula Pistol Antipersonnel Rounds",
+    "shortDescription": "A Maula Pistol augmentation",
+    "longDescription": "A Maula Pistol-specific augmentation which increases damage and critical damage at the cost of shield damage, range, and recoil."
+  },
+  "missile-launcher-disruptive-coating": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ROCKETLAUNCHER2",
+    "name": "Missile Launcher Disruptive Coating",
+    "shortDescription": "A Missile Launcher augmentation",
+    "longDescription": "A Missile Launcher-specific augmentation which increases shield damage, but increases reload times."
+  },
+  "missile-launcher-fragmenter": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ROCKETLAUNCHER1",
+    "name": "Missile Launcher Fragmenter",
+    "shortDescription": "A Missile Launcher augmentation",
+    "longDescription": "An augmentation for Missile Launchers which increases area of effect and reduces reload times, but reduces shield damage."
+  },
+  "missile-launcher-heavy-payload": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ROCKETLAUNCHER4",
+    "name": "Missile Launcher Heavy Payload",
+    "shortDescription": "A Missile Launcher augmentation",
+    "longDescription": "An augmentation for Missile Launchers which increases their damage output, but reduces shield damage and area of effect."
+  },
+  "missile-launcher-quickloader": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ROCKETLAUNCHER3",
+    "name": "Missile Launcher Quickloader",
+    "shortDescription": "A Missile Launcher augmentation",
+    "longDescription": "A Missile Launcher-specific augmentation which reduces reload times and recoil and increases accuracy, but reduces overall damage."
+  },
+  "missile-launcher-obliterator": {
+    "internalToken": "AUGMENT_T6_AUGMENT_CH5_ROCKETLAUNCHER1",
+    "name": "Missile Launcher Obliterator",
+    "shortDescription": "A Missile Launcher augmentation",
+    "longDescription": "An augmentation for Missile Launchers which increases shield damage and recoil control, but reduces accuracy."
+  },
+  "precision-barrel-adjuster": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ACURACY1",
+    "name": "Precision Barrel Adjuster",
+    "shortDescription": "A ranged weapon augmentation",
+    "longDescription": "An augmentation which increases the accuracy of any ranged weapon."
+  },
+  "pyrocket-quickloader": {
+    "internalToken": "AUGMENT_T6_AUGMENT_FIREBALLER2",
+    "name": "Pyrocket Quickloader",
+    "shortDescription": "A Pyrocket augmentation",
+    "longDescription": "This Pyrocket-specific augmentation increases ammo capacity, reduces reload times and reduces overall volume, albeit at the cost of reduced accuracy and damage to shields."
+  },
+  "pyrocket-supercharger": {
+    "internalToken": "AUGMENT_T6_AUGMENT_FIREBALLER1",
+    "name": "Pyrocket Supercharger",
+    "shortDescription": "A Pyrocket augmentation",
+    "longDescription": "A Pyrocket-specific augmentation that increases damage output and fire rate, but at the cost of reload time and increased volume."
+  },
+  "quick-release-trigger": {
+    "internalToken": "AUGMENT_T6_AUGMENT_RATEOFFIRE1",
+    "name": "Quick-release Trigger",
+    "shortDescription": "A ranged weapon augmentation",
+    "longDescription": "An augmentation which increases the rate of fire of any ranged weapon."
+  },
+  "quickloader": {
+    "internalToken": "AUGMENT_T6_AUGMENT_RELOADSPEED1",
+    "name": "Quickloader",
+    "shortDescription": "A ranged weapon augmentation",
+    "longDescription": "An augmentation which reduces the reload time of any ranged weapon."
+  },
+  "rafiq-snubnose-disruptive-coating": {
+    "internalToken": "AUGMENT_T6_AUGMENT_HEAVYPISTOL2",
+    "name": "Rafiq Snubnose Disruptive Coating",
+    "shortDescription": "A Rafiq Snubmpse augmentation",
+    "longDescription": "This Rafiq Snubnose-specific augmentation improves the stopping power and shield disruption effect of the pistol while reducing overall volume, but at the cost of ammo capacity and reload time."
+  },
+  "rafiq-snubnose-expander": {
+    "internalToken": "AUGMENT_T6_AUGMENT_HEAVYPISTOL4",
+    "name": "Rafiq Snubnose Expander",
+    "shortDescription": "A Rafiq Snubmpse augmentation",
+    "longDescription": "This Rafiq Snubnose-specific augmentation increases the ammo capacity of the pistol at the cost of recoil and increased overall volume."
+  },
+  "rafiq-snubnose-heavy-kit": {
+    "internalToken": "AUGMENT_T6_AUGMENT_HEAVYPISTOL1",
+    "name": "Rafiq Snubnose Heavy Kit",
+    "shortDescription": "A Rafiq Snubmpse augmentation",
+    "longDescription": "An augmentation for the Rafiq Snubnose heavy pistol which focuses on improving the stopping power of the gun, but makes it harder to handle.  This increases the damage and headshot damage of the gun at the cost of reducing the fire rate."
+  },
+  "rafiq-snubnose-quickdraw-assembly": {
+    "internalToken": "AUGMENT_T6_AUGMENT_HEAVYPISTOL3",
+    "name": "Rafiq Snubnose Quickdraw Assembly",
+    "shortDescription": "A Rafiq Snubmpse augmentation",
+    "longDescription": "An augmentation for the Rafiq Snubnose which reduces recoil and reload time and improves accuracy but reduces overall stopping power."
+  },
+  "rafiq-snubnose-sprayer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_HEAVYPISTOL5",
+    "name": "Rafiq Snubnose Sprayer",
+    "shortDescription": "A Rafiq Snubmpse augmentation",
+    "longDescription": "An augmentation for the Rafiq Snubnose which increases the weapon's fire rate at the cost of shield damage."
+  },
+  "rafiq-snubnose-marksman": {
+    "internalToken": "AUGMENT_T6_AUGMENT_CH5_HEAVYPISTOL1",
+    "name": "Rafiq Snubnose Marksman",
+    "shortDescription": "A Rafiq Snubnose augmentation",
+    "longDescription": "A Rafiq Snubnose-specific augmentation which grants a significant bonus to range and some added recoil control — but reduces magazine size."
+  },
+  "recoil-adjuster": {
+    "internalToken": "AUGMENT_T6_AUGMENT_RECOIL1",
+    "name": "Recoil Adjuster",
+    "shortDescription": "A ranged weapon augmentation",
+    "longDescription": "An augmentation which reduces the recoil of any ranged weapon."
+  },
+  "tactical-enhancer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_HEADSHOTDAMAGE1",
+    "name": "Tactical Enhancer",
+    "shortDescription": "A ranged weapon augmentation",
+    "longDescription": "An augmentation which increases the headshot damage of any ranged weapon."
+  },
+  "vulcan-gau-92-disruptive-coating": {
+    "internalToken": "AUGMENT_T6_AUGMENT_LMG5",
+    "name": "VULCAN GAU-92 Disruptive Coating",
+    "shortDescription": "A VULCAN GAU-92 augmentation",
+    "longDescription": "This VULCAN GAU-92-specific augmentation increases shield damage output and overall damage output, but reduces accuracy and increases recoil and reload times."
+  },
+  "vulcan-gau-92-expander": {
+    "internalToken": "AUGMENT_T6_AUGMENT_LMG1",
+    "name": "VULCAN GAU-92 Expander",
+    "shortDescription": "A VULCAN GAU-92 augmentation",
+    "longDescription": "A VULCAN GAU-92-specific augmentation which increases ammo capacity and improves reload times at the cost of accuracy, damage output, and overall volume."
+  },
+  "vulcan-gau-92-focuser": {
+    "internalToken": "AUGMENT_T6_AUGMENT_LMG4",
+    "name": "VULCAN GAU-92 Focuser",
+    "shortDescription": "A VULCAN GAU-92 augmentation",
+    "longDescription": "An augmentation for the VULCAN GAU-92 which increases range and accuracy and reduces recoil, however rate of fire is reduced."
+  },
+  "vulcan-gau-92-sprayer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_LMG6",
+    "name": "VULCAN GAU-92 Sprayer",
+    "shortDescription": "A VULCAN GAU-92 augmentation",
+    "longDescription": "A VULCAN GAU-92-specific augmentation which increases rate of fire, but reduces effective range and accuracy."
+  },
+  "vulcan-gau-92-accelerator": {
+    "internalToken": "AUGMENT_T6_AUGMENT_CH5_LMG1",
+    "name": "VULCAN GAU-92 Accelerator",
+    "shortDescription": "A VULCAN GAU-92 augmentation",
+    "longDescription": "A VULCAN GAU-92-specific augmentation which increases accuracy, recoil control, and reload speed at the cost of its shield damaging capabilities."
+  },
+  "aggressive-grip-adjuster": {
+    "internalToken": "AUGMENT_T6_AUGMENT_MELEE4",
+    "name": "Aggressive Grip Adjuster",
+    "shortDescription": "A melee weapon augmentation",
+    "longDescription": "A melee weapon augmentation which reduces the stamina cost to attack, but increases the stamina cost to block."
+  },
+  "blade-flexi-coating": {
+    "internalToken": "AUGMENT_T6_AUGMENT_MELEE3",
+    "name": "Blade Flexi-Coating",
+    "shortDescription": "A melee weapon augmentation",
+    "longDescription": "An augmentation which reduces the stamina cost to block of any melee weapon."
+  },
+  "blade-grip-adjuster": {
+    "internalToken": "AUGMENT_T6_AUGMENT_MELEE2",
+    "name": "Blade Grip Adjuster",
+    "shortDescription": "A melee weapon augmentation",
+    "longDescription": "An augmentation which reduces the stamina cost to attack of any melee weapon."
+  },
+  "blade-optimizer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_MELEE8",
+    "name": "Blade Optimizer",
+    "shortDescription": "A melee weapon augmentation",
+    "longDescription": "A melee weapon augmentation which reduces the stamina cost to block and attack, but reduces damage."
+  },
+  "blade-sharpener": {
+    "internalToken": "AUGMENT_T6_AUGMENT_MELEE1",
+    "name": "Blade Sharpener",
+    "shortDescription": "A melee weapon augmentation",
+    "longDescription": "An augmentation which increases the damage output of any melee weapon."
+  },
+  "defensive-grip-adjuster": {
+    "internalToken": "AUGMENT_T6_AUGMENT_MELEE7",
+    "name": "Defensive Grip Adjuster",
+    "shortDescription": "A melee weapon augmentation",
+    "longDescription": "A melee weapon augmentation which reduces the stamina cost to block, but increases the stamina cost to attack."
+  },
+  "edge-optimizer": {
+    "internalToken": "AUGMENT_T6_AUGMENT_MELEE9",
+    "name": "Edge Optimizer",
+    "shortDescription": "A melee weapon augmentation",
+    "longDescription": "A melee weapon augmentation which increases damage, but increases stamina cost to attack."
+  },
+  "heavy-blade-adjuster": {
+    "internalToken": "AUGMENT_T6_AUGMENT_MELEE6",
+    "name": "Heavy Blade Adjuster",
+    "shortDescription": "A melee weapon augmentation",
+    "longDescription": "A melee weapon augmentation which increases damage, but increases stamina cost to block."
+  },
+  "lightweight-adjuster": {
+    "internalToken": "AUGMENT_T6_AUGMENT_MELEE5",
+    "name": "Lightweight Adjuster",
+    "shortDescription": "A melee weapon augmentation",
+    "longDescription": "A melee weapon augmentation which reduces the stamina cost to attack and overall volume, but reduces damage output."
+  },
+  "blade-blood-grooves": {
+    "internalToken": "AUGMENT_T6_AUGMENT_CH5_MELEE3",
+    "name": "Blade Blood Grooves",
+    "shortDescription": "A melee weapon augmentation",
+    "longDescription": "An augmentation, for any melee weapon, which reduces weight and stamina cost but reduces damage."
+  },
+  "heavy-metal-blade-coating": {
+    "internalToken": "AUGMENT_T6_AUGMENT_CH5_MELEE1",
+    "name": "Heavy Metal Blade Coating",
+    "shortDescription": "A melee weapon augmentation",
+    "longDescription": "An augmentation which increases the damage output of any melee weapon while greatly increasing its weight."
+  },
+  "garment-reinforcement": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ARMOR6",
+    "name": "Garment Reinforcement",
+    "shortDescription": "A garment augmentation",
+    "longDescription": "An augmentation for garments which increases armor value."
+  },
+  "blade-warding-weave": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ARMOR14",
+    "name": "Blade-warding Weave",
+    "shortDescription": "A garment augmentation",
+    "longDescription": "An augmentation for garments which reduces blade damage taken, but increases dart damage taken."
+  },
+  "woven-reinforcement": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ARMOR3",
+    "name": "Woven Reinforcement",
+    "shortDescription": "A garment augmentation",
+    "longDescription": "An augmentation for garments which reduces blade damage taken, but increases poison and fire damage taken."
+  },
+  "concussive-dampening": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ARMOR1",
+    "name": "Concussive Dampening",
+    "shortDescription": "A garment augmentation",
+    "longDescription": "An augmentation for garments which reduces concussive damage taken, but increases energy damage taken."
+  },
+  "concussive-redirection": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ARMOR2",
+    "name": "Concussive Redirection",
+    "shortDescription": "A garment augmentation",
+    "longDescription": "An augmentation for garments which reduces concussive damage taken, but increases dart damage taken."
+  },
+  "dart-proof-latticing": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ARMOR12",
+    "name": "Dart-proof Latticing",
+    "shortDescription": "A garment augmentation",
+    "longDescription": "An augmentation for garments which reduces dart damage taken, but increases overall volume."
+  },
+  "penetrative-reinforcement": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ARMOR4",
+    "name": "Penetrative Reinforcement",
+    "shortDescription": "A garment augmentation",
+    "longDescription": "An augmentation for garments which reduces dart damage taken, but increases blade damage taken."
+  },
+  "energy-dispersing-padding": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ARMOR5",
+    "name": "Energy Dispersing Padding",
+    "shortDescription": "A garment augmentation",
+    "longDescription": "An augmentation for garments which reduces energy damage taken, but increases concussive damage taken."
+  },
+  "energy-resistant-weave": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ARMOR10",
+    "name": "Energy Resistant Weave",
+    "shortDescription": "A garment augmentation",
+    "longDescription": "An augmentation for garments which reduces energy damage taken, but increases poison damage taken."
+  },
+  "curative-infused-padding": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ARMOR9",
+    "name": "Curative-infused Padding",
+    "shortDescription": "A garment augmentation",
+    "longDescription": "An augmentation for garments which reduces poison damage taken, but increases fire damage taken."
+  },
+  "detoxifying-fabrics": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ARMOR11",
+    "name": "Detoxifying Fabrics",
+    "shortDescription": "A garment augmentation",
+    "longDescription": "An augmentation for garments which reduces poison damage taken, but increases energy damage taken."
+  },
+  "flame-resistant-fabrics": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ARMOR13",
+    "name": "Flame-resistant Fabrics",
+    "shortDescription": "A garment augmentation",
+    "longDescription": "An augmentation for garments which reduces fire damage taken, but increases poison damage taken."
+  },
+  "desert-tested-weave": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ARMOR8",
+    "name": "Desert-tested Weave",
+    "shortDescription": "A garment augmentation",
+    "longDescription": "An augmentation for garments which increases heat protection, but increases overall volume."
+  },
+  "radiation-absorbing-fabrics": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ARMOR16",
+    "name": "Radiation Absorbing Fabrics",
+    "shortDescription": "A garment augmentation",
+    "longDescription": "An augmentation for garments which reduces radiation build up and fire damage taken, but increases blade and dart damage taken. This augmentation cannot be applied to Radiation Suits."
+  },
+  "radiation-shielded-latticing": {
+    "internalToken": "AUGMENT_T6_AUGMENT_ARMOR17",
+    "name": "Radiation Shielded Latticing",
+    "shortDescription": "A garment augmentation",
+    "longDescription": "An augmentation for garments which reduces radiation build up, but increases overall volume."
+  },
+  "protective-coating": {
+    "internalToken": "AUGMENT_T6_AUGMENT_DEATHDURABILITYOFF",
+    "name": "Protective Coating",
+    "shortDescription": "A generic augmentation",
+    "longDescription": "An augmentation which removes the durability loss incurred when suffering defeat."
+  }
+}

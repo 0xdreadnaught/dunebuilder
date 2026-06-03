@@ -1,0 +1,1022 @@
+{
+  "choamsda1": {
+    "internalToken": "WEAPON_MAULA_PISTOL",
+    "name": "Improvised Maula Pistol",
+    "shortDescription": "Lightweight Pistol.",
+    "longDescription": "Lightweight but with a short range, the Maula Pistol is a reliable sidearm."
+  },
+  "uniquesda_story_ari": {
+    "internalToken": "WEAPON_UNIQUESDA_STORY_ARI",
+    "name": "Ari's Pistol",
+    "shortDescription": "Machine Pistol.",
+    "longDescription": "A special Maula Pistol that greatly increases accuracy while Prescient. "
+  },
+  "crysknife": {
+    "internalToken": "WEAPON_CRYSKNIFE",
+    "name": "Unfixed Crysknife",
+    "shortDescription": "A blade made from a sandworm's tooth.",
+    "longDescription": "The Unfixed Crysknife is made from a sandworm's tooth and is very brittle. Cannot leave the owner's person."
+  },
+  "crysknife_story_zantara": {
+    "internalToken": "WEAPON_CRYSKNIFE_STORY_ZANTARA",
+    "name": "Zantara's Crysknife",
+    "shortDescription": "A crysknife that used to belong to Zantara. ",
+    "longDescription": "A Special crysknife that used to belong to Zantara."
+  },
+  "dualblades_memento": {
+    "internalToken": "WEAPON_DUALBLADES_MEMENTO",
+    "name": "Feyd’s Spare Blades",
+    "shortDescription": "A set of Feyd-Rautha’s dual blades",
+    "longDescription": "Feyd-Rautha is known to favor his own custom sets of Kindjal and Slip-tip dual blades, making deadly use of their combination. It would be a rare privileged to own such a set. How many lives have these razor edges claimed?"
+  },
+  "hook_01": {
+    "internalToken": "WEAPON_HOOK_01",
+    "name": "The Glutton's Hook",
+    "shortDescription": "A blade in the shape of a hook.",
+    "longDescription": "A Special sharpened hook that's been used on all manner of meats. Adds bleed stacks to its target on hit. "
+  },
+  "minotaur_memento": {
+    "internalToken": "WEAPON_MINOTAUR_MEMENTO",
+    "name": "Asterion’s End",
+    "shortDescription": "A brutally heavy blade designed to cleave through thick hide.",
+    "longDescription": "A dense, razor-edged <Unique>Unique</> weapon built to shear through armored flesh by force alone.\n\nTauromachy, the brutal Old Terran contest of man against beast, endured as a defining Atreides rite until Old Duke Paulus fell beneath Salusan horns. Asterion’s End lingers as a ghost of the arena, whispered as though the Minotaur’s curse still coils within it, binding valor and doom in equal measure."
+  },
+  "scrapmetalknife": {
+    "internalToken": "WEAPON_SCRAP_METAL_KNIFE",
+    "name": "Scrap Metal Knife",
+    "shortDescription": "Makeshift edged weapon.",
+    "longDescription": "Designed by necessity using whatever is close at hand, many resort to this melee weapon for short-range Blade Damage."
+  },
+  "uniquedirk_story_feyd": {
+    "internalToken": "WEAPON_UNIQUEDIRK_STORY_FEYD",
+    "name": "Feyd's Take-Down Blade",
+    "shortDescription": "A poison blade.",
+    "longDescription": "A Special assassination blade that quickly poisons its target."
+  },
+  "uniquear_burst_01": {
+    "internalToken": "WEAPON_COPPER_BURST_FIRE_RIFLE",
+    "name": "Aren's Vengeance",
+    "shortDescription": "A modified battle rifle that fires bursts of darts.",
+    "longDescription": "When Aren was ousted by the Kirab, he brought some of their technology with him into the Southern basin. This <Unique>Unique</> battle rifle is based on a similar Kirab model, with the final dart of its three-round burst dealing additional damage. Aren's intention was to eventually lead an army of scavengers north to take vengeance on his old comrades."
+  },
+  "kindjal_unique_blood_01": {
+    "internalToken": "WEAPON_KINDJAL_UNIQUE_BLOOD_01",
+    "name": "Kaleff's Drinker",
+    "shortDescription": "An exsanguinating kindjal named for the Fremen youth, Kaleff.",
+    "longDescription": "Cornered in a cave by Sardaukar forces, Kaleff managed to stay alive for weeks without a water source, only emerging to draw blood from his enemies. When he was finally killed, the Sardaukar discovered this <Unique>Unique</> kindjal modified to include an exsanguination apparatus. "
+  },
+  "harkar2": {
+    "internalToken": "WEAPON_KARPOV38_BATTLE_RIFLE",
+    "name": "Karpov 38",
+    "shortDescription": "Gas powered assault rifle.",
+    "longDescription": "The standard <GreatHouse>Great House</> assault rifle for more than a hundred years, the Karpov 38 shone due to its simple design and very low maintenance needs."
+  },
+  "kindjal": {
+    "internalToken": "WEAPON_ATREIDES_KINDJAL",
+    "name": "Kindjal",
+    "shortDescription": "Curved short blade used for close combat.",
+    "longDescription": "A common personal weapon popular among the family members of this <GreatHouse>Great House</>, the Atreides Kindjal is styled after the particular variety that Duke Leto Atreides himself carries."
+  },
+  "choamsda2": {
+    "internalToken": "WEAPON_MAULA_PISTOL_MK_I",
+    "name": "Maula Pistol",
+    "shortDescription": "Lightweight Pistol.",
+    "longDescription": "An improvement on its predecessor, the Maula Pistol MK l did not sell well at first owing to its high price relative to its improvements. The price was subsequently dropped and sales picked up."
+  },
+  "uniquesda1": {
+    "internalToken": "WEAPON_UNIQUE_SDA1",
+    "name": "Way of the Fallen ",
+    "shortDescription": "A modified maula pistol with an automatic spring mechanism.",
+    "longDescription": "This <Unique>Unique</> Maula pistol has a modified spring mechanism that automatically reloads darts without releasing trigger pressure. Rumor has it that Count Hasimir Fenring designed this modification himself, admiring the design of the maula pistol while decrying the inefficiency of its firing mechanism."
+  },
+  "uniquear_burst_02": {
+    "internalToken": "WEAPON_IRON_BURST_FIRE_RIFLE",
+    "name": "Fila's Regret",
+    "shortDescription": "A modified battle rifle that fires bursts of darts.",
+    "longDescription": "Nobody truly knows who Fila is or was, but it is rumored that she, for a while, was mistress to Aren, a Kirab Warlord. That may explain why this <Unique>Unique</> rifle is similar to one wielded by Aren during his final days, with the final dart of its three-round burst dealing additional damage. But did he create the rifle, or was it the work of the mysterious Fila?"
+  },
+  "smg_unique_largemag_02": {
+    "internalToken": "WEAPON_SMG_UNIQUE_LARGEMAG_02",
+    "name": "Legion Tattoo",
+    "shortDescription": "A high-capacity disruptor said to be of Sardaukar make.",
+    "longDescription": "Smiley Tyg sometimes has special goods that he sells with no questions asked or answered. A few seasons ago, schematics for a <Unique>Unique</> high-capacity disruptor — a weapon focused on attacking shields — began to appear in his stock at the Anvil Tradepost. Rumors that they were plundered from a Sardaukar convoy ambushed by Zantara the Lion earned them their moniker as the Legion Tattoo — bolstered by the rhythm they make as they fire."
+  },
+  "uniquesword": {
+    "internalToken": "WEAPON_UNIQUE_SWORD",
+    "name": "Pseudo Pulse-Sword",
+    "shortDescription": "A sword styled after those used in the Butlerian Jihad.",
+    "longDescription": "During the Butlerian Jihad, pulse-swords were used to cut through the thinking machines and damage their electronics with pulses of deadly electricity. It is said that the secret of their making was lost during the ensuing centuries. This <Unique>Unique</> blade gives a small jolt of electrical energy to the palms when parrying an enemy — offering a small stamina boost. A far cry from the legendary swords of the Butlerian Jihad."
+  },
+  "kindjal_unique_blood_02": {
+    "internalToken": "WEAPON_KINDJAL_UNIQUE_BLOOD_02",
+    "name": "Scipio's Drinker",
+    "shortDescription": "An exsanguinating kindjal design named for the torturer Scipio.",
+    "longDescription": "Scipio the warlord liked to draw blood from his enemies during torture. He created this <Unique>Unique</> kindjal based on one he had stolen in the Southern Hagga Basin. Made of more advanced materials, this kindjal works on the same  principle — small grooves feed blood into the hilt which can be emptied into a waiting container. "
+  },
+  "uniquescattergun1": {
+    "internalToken": "WEAPON_UNIQUE_SCATTERGUN1",
+    "name": "Shredder",
+    "shortDescription": "A modified scattergun that converts darts to shrapnel.",
+    "longDescription": "Thin spikes in the barrel mean that the darts fired from this <Unique>Unique</> scattergun will break into multiple shrapnel pieces on impact, causing a bleeding effect on enemies. It isn't known who created such a sadistic weapon — but it is commonly used by the Kirab of Hagga Basin."
+  },
+  "atresmg2": {
+    "internalToken": "WEAPON_SAVOY_&_MIRT_M11_SMG",
+    "name": "Standard Disruptor M11",
+    "shortDescription": "Rapid fire disruptor.",
+    "longDescription": "As the Holtzman Effect is impervious to fast moving ballistics, Disruptors instead fire darts of variable velocities in order to find penetration points on the shield. Once inside a Holtzman Shield they trigger a static pulse that impacts the power flow to the shield. If enough disruptor darts penetrate, a shield can be taken offline. A <GreatHouse>Great House</> item."
+  },
+  "scattergun_prototype": {
+    "internalToken": "WEAPON_GRDA_44_SCATTERGUN",
+    "name": "Standard GRDA 44 ",
+    "shortDescription": "Wide range scattergun.",
+    "longDescription": "Heavy for its size, it is highly recommended to hold the GRDA 44 with both hands, despite certain actors portraying its use with one in each hand. A <GreatHouse>Great House</> item."
+  },
+  "harkar3": {
+    "internalToken": "WEAPON_KARPOV38_MK_I_BATTLE_RIFLE",
+    "name": "Standard Karpov 38",
+    "shortDescription": "Gas powered assault rifle.",
+    "longDescription": "Anton Karpov continued to make incremental improvements on what is widely considered a perfect design."
+  },
+  "kindjal_0": {
+    "internalToken": "WEAPON_ATREIDES_KINDJAL_MARK_I",
+    "name": "Standard Kindjal",
+    "shortDescription": "Curved short blade used for close combat.",
+    "longDescription": "A common personal weapon popular among the family members of this <GreatHouse>Great House</>, the Atreides Kindjal is styled after the particular variety that Duke Leto Atreides himself carries."
+  },
+  "choamsda3": {
+    "internalToken": "WEAPON_MAULA_PISTOL_MK_II",
+    "name": "Standard Maula Pistol",
+    "shortDescription": "Lightweight Pistol.",
+    "longDescription": "Redesigned from the ground up, the MK ll is a must-have for successful underworld kingpins. Or so they are reputed to be. They've not been convicted of anything."
+  },
+  "choamsword": {
+    "internalToken": "WEAPON_CHOAM_SWORD",
+    "name": "Standard Sword",
+    "shortDescription": "Long bladed melee weapon.",
+    "longDescription": "The sword is longer and heavier than a kindjal, but utilizes sweeping attacks that can help deal with multiple foes. Can penetrate shields. A <GreatHouse>Great House</> item."
+  },
+  "uniquesda2": {
+    "internalToken": "WEAPON_UNIQUE_SDA2",
+    "name": "Way of the Wanderer",
+    "shortDescription": "A modified maula pistol with an automatic spring mechanism.",
+    "longDescription": "This <Unique>Unique</> Maula pistol has a modified spring mechanism that automatically reloads darts without releasing trigger pressure. Integrating the modifications from Count Hasimir Fenring, this newer design also accommodates better materials for longer durability."
+  },
+  "dirk": {
+    "internalToken": "WEAPON_DIRK",
+    "name": "Artisan Dirk",
+    "shortDescription": "A Harkonnen style short blade melee weapon.",
+    "longDescription": "The Harkonnen Dirk is a short dagger used for self-defense. Can penetrate shields. A <GreatHouse>Great House</> item."
+  },
+  "atresmg3": {
+    "internalToken": "WEAPON_SAVOY_&_MIRT_M11_MK_I_SMG",
+    "name": "Artisan Disruptor M11",
+    "shortDescription": "Rapid fire disruptor.",
+    "longDescription": "As the Holtzman Effect is impervious to fast moving ballistics, Disruptors instead fire darts of variable velocities in order to find penetration points on the shield. Once inside a Holtzman Shield they trigger a static pulse that impacts the power flow to the shield. If enough disruptor darts penetrate, a shield can be taken offline. A <GreatHouse>Great House</> item."
+  },
+  "heavypistol_unique_bleed_03": {
+    "internalToken": "WEAPON_HEAVYPISTOL_UNIQUE_BLEED_03",
+    "name": "Artisan Disruptor Pistol",
+    "shortDescription": "A heavy disruptor pistol.",
+    "longDescription": "This <Unique>Unique</> heavy pistol borrows technology from the fast-firing disruptor submachine gun, while adding a charging mechanism to fire shield-destabilizing darts."
+  },
+  "scattergun_prototype0": {
+    "internalToken": "WEAPON_GRDA_44_SCATTERGUN_MK_I",
+    "name": "Artisan GRDA 44",
+    "shortDescription": "Wide range scattergun.",
+    "longDescription": "Heavy for its size, it is highly recommended to hold the GRDA 44 with both hands, despite certain actors portraying its use with one in each hand."
+  },
+  "smugdmr3": {
+    "internalToken": "WEAPON_JABAL_SPITDART_RIFLE_MK_I",
+    "name": "Artisan JABAL Spitdart",
+    "shortDescription": "Rapid cycling scoped rifle that fires poison-laced darts.",
+    "longDescription": "Another workhorse of a weapon, the JABAL Spitdart is scoped for long range engagements and fires darts capable of poisoning targets."
+  },
+  "harkar4": {
+    "internalToken": "WEAPON_KARPOV38_MK_II_BATTLE_RIFLE",
+    "name": "Artisan Karpov 38",
+    "shortDescription": "Gas powered assault rifle.",
+    "longDescription": "The new version came out in the 70s during a particularly garish fashion season and this model has since been tainted by a look that is now considered quite out-of-style."
+  },
+  "kindjal_1": {
+    "internalToken": "WEAPON_ATREIDES_KINDJAL_MARK_II",
+    "name": "Artisan Kindjal",
+    "shortDescription": "Curved short blade used for close combat.",
+    "longDescription": "A common personal weapon popular among the family members of this <GreatHouse>Great House</>, the Atreides Kindjal is styled after the particular variety that Duke Leto Atreides himself carries."
+  },
+  "choamsda4": {
+    "internalToken": "WEAPON_MAULA_PISTOL_MK_III",
+    "name": "Artisan Maula Pistol",
+    "shortDescription": "Lightweight Pistol.",
+    "longDescription": "Lightweight but with a short range, the Maula Pistol is a reliable sidearm."
+  },
+  "harkheavypistol2": {
+    "internalToken": "WEAPON_RAFIQ_SNUBNOSE_MK_I_PISTOL",
+    "name": "Artisan Rafiq Snubnose",
+    "shortDescription": "High caliber pistol.",
+    "longDescription": "There is a Rafiq Snubnose Pistol in the cabinet by the bed of Count Daran of Ishkal. His wife is unaware and would disapprove."
+  },
+  "choamsword_0": {
+    "internalToken": "WEAPON_CHOAM_SWORD_MARK_I",
+    "name": "Artisan Sword",
+    "shortDescription": "Long bladed melee weapon.",
+    "longDescription": "The sword is longer and heavier than a kindjal, but utilizes sweeping attacks that can help deal with multiple foes. Can penetrate shields. A <GreatHouse>Great House</> item."
+  },
+  "longrifle_unique_poison_03": {
+    "internalToken": "WEAPON_LONGRIFLE_UNIQUE_POISON_03",
+    "name": "Assassin's Rifle",
+    "shortDescription": "An assassin's rifle that fires poisonous darts at long range.",
+    "longDescription": "Many in the Imperium have heard of chaumurky, poison administered through the drink, and chaumas, poison delivered through the food. This <Unique>Unique</> rifle toys with a third concept — poison delivered in a small explosive dart that explodes on contact with a shield, allowing it to waft through."
+  },
+  "kindjal_unique_blood_03": {
+    "internalToken": "WEAPON_KINDJAL_UNIQUE_BLOOD_03",
+    "name": "Glutton's Drinker",
+    "shortDescription": "An exsanguinating kindjal used by the slavelord known as the Glutton.",
+    "longDescription": "This <Unique>Unique</> kindjal slurps up blood as it cuts — thoroughly suitable for the mysterious entity known only as the Glutton. Though few have claimed to see him in person, the wounds left by this knife are unmistakable."
+  },
+  "uniquescattergun2": {
+    "internalToken": "WEAPON_UNIQUE_SCATTERGUN2",
+    "name": "Ripper",
+    "shortDescription": "A modified scattergun that converts darts to shrapnel.",
+    "longDescription": "Thin spikes in the barrel mean that the darts fired from this <Unique>Unique</> scattergun will break into multiple shrapnel pieces on impact, causing a bleeding effect on enemies. The slavers claim that they are the ones who designed this weapon — it is commonly used among them for crowd control."
+  },
+  "uniquedirk": {
+    "internalToken": "WEAPON_UNIQUE_DIRK",
+    "name": "Searing Shiv",
+    "shortDescription": "A modified dirk that burns as it cuts.",
+    "longDescription": "Once there was a slave called Fila. She was captured by slavers while very young and dragged to Arrakis to serve the Harkonnen as a slave. While she lay dreaming in a slaver camp in Jabal Eifrit, disturbed by the spice that she was ingesting from the air, she dreamed of a flaming dirk that could set her free. When she woke, this <Unique>Unique</> dirk was in her hand. Fila slew several of her captors, burning them with the knife, before she fled south and disappeared. Though some say, she changed her name to Mendia and her story continued."
+  },
+  "smg_unique_largemag_03": {
+    "internalToken": "WEAPON_SMG_UNIQUE_LARGEMAG_03",
+    "name": "Seb's Kisser",
+    "shortDescription": "A high-capacity disruptor that the slavers have learned to fear.",
+    "longDescription": "Seb was a veteran of the Kytheria, that came down in the Hagga Rift. With a few survivors, Seb was able to escape the rift and overtake a small slaver cave near the edge of the rift. This <Unique>Unique</> high-capacity disruptor was a part of his success — though it is said that he later traded the secret of manufacturing them to Smiley Tyg at the Anvil Tradepost."
+  },
+  "kindjal_unique_stamina_03": {
+    "internalToken": "WEAPON_STEEL_IMPULSE_KNIFE",
+    "name": "Shock-Knife",
+    "shortDescription": "A knife styled after those used in the Butlerian Jihad.",
+    "longDescription": "During the Butlerian Jihad, pulse-blades were used to cut through the thinking machines and damage their electronics with pulses of deadly electricity. It is said that the secret of their making was lost during the ensuing centuries.\n\nThis <Unique>Unique</> blade gives a small jolt of electrical energy to the palms when hitting an enemy — offering a small stamina boost. A far cry from the legendary weapons of the Butlerian Jihad."
+  },
+  "uniquesword_02": {
+    "internalToken": "WEAPON_UNIQUE_SWORD_02",
+    "name": "Shock-sword ",
+    "shortDescription": "A sword styled after those used in the Butlerian Jihad.",
+    "longDescription": "During the Butlerian Jihad, pulse-swords were used to cut through the thinking machines and damage their electronics with pulses of deadly electricity. It is said that the secret of their making was lost during the ensuing centuries. This <Unique>Unique</> blade gives a small jolt of electrical energy to the palms when parrying an enemy — offering a small stamina boost. A far cry from the legendary swords of the Butlerian Jihad."
+  },
+  "uniquear1": {
+    "internalToken": "WEAPON_UNIQUE_AR1",
+    "name": "The Tapper",
+    "shortDescription": "A modified battle rifle that fires explosive darts.",
+    "longDescription": "This <Unique>Unique</> battle rifle has been modified with a mechanism that adds a touch of explosive powder to every dart that passes down the barrel. Though ranged weapons are uncommon elsewhere in the Imperium, on Arrakis they have become more prevalent due to the deemphasis on shields."
+  },
+  "uniquesda3": {
+    "internalToken": "WEAPON_UNIQUE_SDA3",
+    "name": "Way of the Lost",
+    "shortDescription": "A modified maula pistol with an automatic spring mechanism.",
+    "longDescription": "This <Unique>Unique</> Maula pistol has a modified spring mechanism that automatically reloads darts without releasing trigger pressure. Integrating the modifications from Count Hasimir Fenring, this newer design also accommodates better materials for longer durability."
+  },
+  "uniquear_burst_03": {
+    "internalToken": "WEAPON_STEEL_BURST_FIRE_RIFLE",
+    "name": "Zaal's Companion",
+    "shortDescription": "A modified battle rifle that fires bursts of darts.",
+    "longDescription": "Zaal Karak captured this rifle on a raid into the Vermillius Gap for fresh slaves. He admired the workmanship, particularly that the final dart of its three-round burst is more potent, but chose to reinforce it with more robust materials. Other slavers copied him and now this once-<Unique>Unique</> rifle is popular amongst the slavers of the basin."
+  },
+  "uniquesmg1": {
+    "internalToken": "WEAPON_UNIQUE_SMG1",
+    "name": "Abulurd's Rapture",
+    "shortDescription": "A modified disruptor that uses heavy darts.",
+    "longDescription": "This <Unique>Unique</> disruptor has been modified to spray doubleshots of heavy darts at a slower rate. The name is based on a popular joke that made the rounds on Arrakis a few years ago — a comment on the Baron's preferences and the virility of his younger brother, Abulurd. Anybody who was heard making the joke in Harkonnen territory was hanged, of course."
+  },
+  "uniquedirk_02": {
+    "internalToken": "WEAPON_UNIQUE_DIRK_02",
+    "name": "Denira's Gift",
+    "shortDescription": "A modified dirk that burns as it cuts.",
+    "longDescription": "Denira Quirth ran a supply depot for the Sandflies for many years, ensuring the flow of spice and other goods to the smugglers, in return for the basic supplies they needed to survive.\n\nThis <Unique>Unique</> dirk was reportedly a gift from Esmar Tuek himself a product of black-market technology that only a smuggler could access."
+  },
+  "uniquescattergun3": {
+    "internalToken": "WEAPON_UNIQUE_SCATTERGUN3",
+    "name": "Eviscerator",
+    "shortDescription": "A modified scattergun that converts darts to shrapnel.",
+    "longDescription": "Thin spikes in the barrel mean that the darts fired from this <Unique>Unique</> scattergun will break into multiple shrapnel pieces on impact, causing a bleeding effect on enemies. Sandflies propaganda states that this weapon was used against them when they rebelled, though there are no records of the mining guild ever having access to such weapons."
+  },
+  "lmg_unique_rapidfire_04": {
+    "internalToken": "WEAPON_LMG_UNIQUE_RAPIDFIRE_04",
+    "name": "Experimental Vulcan GAU-94",
+    "shortDescription": "A Vulcan gun with expanded dart capacity — not yet market ready.",
+    "longDescription": "Developed in the warfare labs of House Thorvald, this <Unique>Unique</> Vulcan gun uses new materials science to strip weight and replace it with capacity. Though highly sought after, these guns are experimental and banned from CHOAM export. How this arrived on Arrakis, is a mystery."
+  },
+  "uniquescattergun_fire_04": {
+    "internalToken": "WEAPON_ALUMINUM_MOLTEN_MASS_SPRAYER",
+    "name": "Firestorm",
+    "shortDescription": "A modified scattergun that fires molten darts.",
+    "longDescription": "The Sandflies created this <Unique>Unique</> scattergun by combining some of the principles of the cutteray with the necessities of modern warfare. The darts in this scattergun are superheated by a scalpel sized laser so that when they are fired they burst into flaming particles on impact."
+  },
+  "shotgun_unique_explosive_04": {
+    "internalToken": "WEAPON_SHOTGUN_UNIQUE_EXPLOSIVE_04",
+    "name": "House Burst Drillshot",
+    "shortDescription": "Double barrel \"anti-shield\" shotgun with increased capacity that charges up to fire a burst of two burrow darts.",
+    "longDescription": "An increased capacity makes this <Unique>Unique</> Drillshot the anti-shield weapon of choice. An added charge mechanism was added to the base FK7, powering up devastating 2-round bursts of burrow darts."
+  },
+  "dirk_0": {
+    "internalToken": "WEAPON_DIRK_MARK_I",
+    "name": "House Dirk",
+    "shortDescription": "A Harkonnen style short blade melee weapon.",
+    "longDescription": "The Harkonnen Dirk is a short dagger used for self-defense. Can penetrate shields. A <GreatHouse>Great House</> item."
+  },
+  "atresmg4": {
+    "internalToken": "WEAPON_SAVOY_&_MIRT_M11_MK_II_SMG",
+    "name": "House Disruptor M11",
+    "shortDescription": "Rapid fire disruptor.",
+    "longDescription": "As the Holtzman Effect is impervious to fast moving ballistics, Disruptors instead fire darts of variable velocities in order to find penetration points on the shield. Once inside a Holtzman Shield they trigger a static pulse that impacts the power flow to the shield. If enough disruptor darts penetrate, a shield can be taken offline. A <GreatHouse>Great House</> item."
+  },
+  "heavypistol_unique_bleed_04": {
+    "internalToken": "WEAPON_HEAVYPISTOL_UNIQUE_BLEED_04",
+    "name": "House Disruptor Pistol",
+    "shortDescription": "A heavy disruptor pistol.",
+    "longDescription": "This <Unique>Unique</> heavy pistol borrows technology from the fast-firing disruptor submachine gun, while adding a charging mechanism to fire shield-destabilizing darts."
+  },
+  "smugshot3": {
+    "internalToken": "WEAPON_SMUGGLER_ELEPHANT_GUN_MK_II",
+    "name": "House Drillshot FK7",
+    "shortDescription": "Double barrel \"anti-shield\" shotgun.",
+    "longDescription": "Double barrel mid range shotgun that fires \"burrow darts\". When colliding with an active shield, burrow darts stick to them and penetrate them after a short time, dealing damage to the protected target."
+  },
+  "scattergun_prototype1": {
+    "internalToken": "WEAPON_GRDA_44_SCATTERGUN_MK_II",
+    "name": "House GRDA 44",
+    "shortDescription": "Wide range scattergun.",
+    "longDescription": "Heavy for its size, it is highly recommended to hold the GRDA 44 with both hands, despite certain actors portraying its use with one in each hand."
+  },
+  "smugdmr4": {
+    "internalToken": "WEAPON_JABAL_SPITDART_RIFLE_MK_II",
+    "name": "House JABAL Spitdart",
+    "shortDescription": "Rapid cycling scoped rifle that fires poison-laced darts.",
+    "longDescription": "Another workhorse of a weapon, the JABAL Spitdart is scoped for long range engagements and fires darts capable of poisoning targets."
+  },
+  "harkar5": {
+    "internalToken": "WEAPON_KARPOV38_MK_III_BATTLE_RIFLE",
+    "name": "House Karpov 38",
+    "shortDescription": "Gas powered assault rifle.",
+    "longDescription": "State-of-the-art assault weapon and status notifier in mercenary and other parastate military circles."
+  },
+  "kindjal_2": {
+    "internalToken": "WEAPON_ATREIDES_KINDJAL_MARK_III",
+    "name": "House Kindjal",
+    "shortDescription": "Curved short blade used for close combat.",
+    "longDescription": "A common personal weapon popular among the family members of this <GreatHouse>Great House</>, the Atreides Kindjal is styled after the particular variety that Duke Leto Atreides himself carries."
+  },
+  "choamsda5": {
+    "internalToken": "WEAPON_MAULA_PISTOL_MK_IV",
+    "name": "House Maula Pistol",
+    "shortDescription": "Lightweight Pistol.",
+    "longDescription": "Lightweight but with a short range, the Maula Pistol is a reliable sidearm."
+  },
+  "harkheavypistol3": {
+    "internalToken": "WEAPON_RAFIQ_SNUBNOSE_MK_II_PISTOL",
+    "name": "House Rafiq Snubnose",
+    "shortDescription": "High caliber pistol.",
+    "longDescription": "There is a Rafiq Snubnose Pistol in the cabinet by the bed of Count Daran of Ishkal. His wife is unaware and would disapprove."
+  },
+  "rapier": {
+    "internalToken": "WEAPON_ATREIDES_RAPIER",
+    "name": "House Rapier",
+    "shortDescription": "Long bladed melee weapon.",
+    "longDescription": "Opening attacks: use the attack button to parry incoming attacks and move the character forward. Use the the aim button to parry and move the character backward.\n\nThe <GreatHouse>Great House</> Atreides Rapier is a longer sword used for self-defense by the most skilled swordmasters. The long blade allows for reach and raw damage, as well as penetrates shields. To truly master the rapier, its carrier must be quick on their feet and swift to react."
+  },
+  "choamsword_1": {
+    "internalToken": "WEAPON_CHOAM_SWORD_MARK_II",
+    "name": "House Sword",
+    "shortDescription": "Long bladed melee weapon.",
+    "longDescription": "The sword is longer and heavier than a kindjal, but utilizes sweeping attacks that can help deal with multiple foes. Can penetrate shields. A <GreatHouse>Great House</> item."
+  },
+  "atrelmg3": {
+    "internalToken": "WEAPON_ATREIDES_LMG_MK_II",
+    "name": "House Vulcan GAU-92",
+    "shortDescription": "Light machinegun.",
+    "longDescription": "A light machine gun that sports a large capacity magazine and a high fire rate. Used for crowd control against multiple opponents."
+  },
+  "smg_unique_largemag_04": {
+    "internalToken": "WEAPON_SMG_UNIQUE_LARGEMAG_04",
+    "name": "Ironwatch Special",
+    "shortDescription": "A high-capacity disruptor manufactured at Ironwatch.",
+    "longDescription": "The history of Ironwatch is tied to the fate of the great Ironworks of Vermillius Gap. When they were abandoned, so was Ironwatch. This <Unique>Unique</> disruptor is known as an Ironwatch Special because many of them were found stockpiled in the basement when the Sandflies reclaimed the base."
+  },
+  "longrifle_unique_poison_04": {
+    "internalToken": "WEAPON_LONGRIFLE_UNIQUE_POISON_04",
+    "name": "Long Shot",
+    "shortDescription": "An assassin's rifle that fires poisonous darts at long range.",
+    "longDescription": "This <Unique>Unique</> rifle was named for an assassin who was paid a huge sum by the Atreides to take down the Beast Rabban. Witnesses say that the shot was perfect — lodging a poison dart deep into Rabban's neck — and that he laughed and pulled it out while his bodyguard swarmed the assassin."
+  },
+  "uniquear2": {
+    "internalToken": "WEAPON_UNIQUE_AR2",
+    "name": "Pipecleaner",
+    "shortDescription": "A modified battle rifle that fires explosive darts.",
+    "longDescription": "This <Unique>Unique</> battle rifle has been modified with a mechanism that adds a touch of explosive powder to every dart that passes down the barrel. The Sandflies use weapons like this to rapidly clear rubble filled tunnels beneath the Sentinel, hence the name."
+  },
+  "uniquerapier": {
+    "internalToken": "WEAPON_UNIQUE_RAPIER",
+    "name": "Poison Mist",
+    "shortDescription": "A sword that releases a poisonous mist on contact.",
+    "longDescription": "A lethally modified version of a slaver weapon, this <Unique>Unique</> sword contains a series of toxin releasing nodules along the length of the blade. When struck with enough force, these nodules release a burst of poisonous gas — capable of passing through a shield. The slaver version of this weapon was used to release a sedative gas for capturing the unwilling."
+  },
+  "kindjal_unique_blood_04": {
+    "internalToken": "WEAPON_KINDJAL_UNIQUE_BLOOD_04",
+    "name": "Shadrath's Drinker",
+    "shortDescription": "An exsanguinating kindjal used by the fremen warrior, Shadrath.",
+    "longDescription": "This <Unique>Unique</> kindjal was used as an off-hand weapon by the Fremen warrior Shadrath in his campaign against the Sardaukar. Though a Fremen would never be far from their crysknife, a secondary blade can help to stay alive, particularly if it serves the function of capturing water during fights."
+  },
+  "uniquesda_doubleshot_04": {
+    "internalToken": "WEAPON_ALUMINUM_DART_SPITTER",
+    "name": "Shadrath's Edge",
+    "shortDescription": "A modified maula pistol that shoots two darts at once.",
+    "longDescription": "Shadrath crafted this <Unique>Unique</> Maula pistol during his razzia against the Sardaukar bases around the Shield Wall. The double shot burst firing mechanism caused some inaccuracy in the shots, but it made up for it with the ability to puncture Sardaukar armor."
+  },
+  "kindjal_unique_stamina_04": {
+    "internalToken": "WEAPON_ALUMINUM_IMPULSE_KNIFE",
+    "name": "Spark-Knife",
+    "shortDescription": "A knife styled after those used in the Butlerian Jihad.",
+    "longDescription": "During the Butlerian Jihad, pulse-blades were used to cut through the thinking machines and damage their electronics with pulses of deadly electricity. It is said that the secret of their making was lost during the ensuing centuries.\n\nThis <Unique>Unique</> blade gives a small jolt of electrical energy to the palms when hitting an enemy — offering a small stamina boost. A far cry from the legendary weapons of the Butlerian Jihad."
+  },
+  "uniquesword_03": {
+    "internalToken": "WEAPON_UNIQUE_SWORD_03",
+    "name": "Spark-sword",
+    "shortDescription": "A sword styled after those used in the Butlerian Jihad.",
+    "longDescription": "During the Butlerian Jihad, pulse-swords were used to cut through the thinking machines and damage their electronics with pulses of deadly electricity. It is said that the secret of their making was lost during the ensuing centuries.\n\nThis <Unique>Unique</> blade gives a small jolt of electrical energy to the palms when parrying an enemy — offering a small stamina boost. A far cry from the legendary swords of the Butlerian Jihad."
+  },
+  "uniquear_burst_04": {
+    "internalToken": "WEAPON_ALUMINUM_BURST_FIRE_RIFLE",
+    "name": "Stammershot",
+    "shortDescription": "A modified battle rifle that fires bursts of darts.",
+    "longDescription": "A young Atreides engineer with a very bad stutter was routinely ridiculed by his fellows stationed at The Aegis. To reduce his stutter, he began using semuta to help calm his mind. He became an addict, hopelessly enthralled to his semuta supplier — a Harkonnen agent.\n\nThis specially modified <Unique>Unique</> rifle fires in a three-round burst, with the final dart in the burst dealing additional damage. It was the last thing many heard at The Aegis when the young man turned it upon his once-comrades and then himself."
+  },
+  "unique_sword_bleedyblocky_4": {
+    "internalToken": "WEAPON_UNIQUE_SWORD_FRAME_BLEEDYBLOCKY_4",
+    "name": "Sword of Seven Sorrows",
+    "shortDescription": "A sword that reduces the stamina cost of blocking and applies a bleed effect to attackers on a successful block.",
+    "longDescription": "This beautiful <Unique>Unique</> sword is fashioned from shock-absorbing materials that reduce the strain of blocks and parries. It also includes a cluster of integrated plasteel shards - the seven sorrows - near the hilt that can wound the blade hand of an attacker upon a successful block.   "
+  },
+  "uniquesda4": {
+    "internalToken": "WEAPON_UNIQUE_SDA4",
+    "name": "Way of the Fighter",
+    "shortDescription": "A modified maula pistol with an automatic spring mechanism.",
+    "longDescription": "This <Unique>Unique</> Maula pistol has a modified spring mechanism that automatically reloads darts without releasing trigger pressure. Integrating the modifications from Count Hasimir Fenring, this newer design also accommodates better materials for longer durability."
+  },
+  "shotgun_unique_explosive_05": {
+    "internalToken": "WEAPON_SHOTGUN_UNIQUE_EXPLOSIVE_05",
+    "name": "Adept Burst Drillshot",
+    "shortDescription": "Double barrel \"anti-shield\" shotgun with increased capacity that charges up to fire a burst of two burrow darts.",
+    "longDescription": "An increased capacity makes this <Unique>Unique</> Drillshot the anti-shield weapon of choice. An added charge mechanism was added to the base FK7, powering up devastating 2-round bursts of burrow darts."
+  },
+  "dirk_1": {
+    "internalToken": "WEAPON_DIRK_MARK_II",
+    "name": "Adept Dirk",
+    "shortDescription": "A Harkonnen style short blade melee weapon.",
+    "longDescription": "The Harkonnen Dirk is a short dagger used for self-defense. Can penetrate shields. A <GreatHouse>Great House</> item."
+  },
+  "atresmg5": {
+    "internalToken": "WEAPON_SAVOY_&_MIRT_M11_MK_III_SMG",
+    "name": "Adept Disruptor M11",
+    "shortDescription": "Rapid fire disruptor.",
+    "longDescription": "As the Holtzman Effect is impervious to fast moving ballistics, Disruptors instead fire darts of variable velocities in order to find penetration points on the shield. Once inside a Holtzman Shield they trigger a static pulse that impacts the power flow to the shield. If enough disruptor darts penetrate, a shield can be taken offline. A <GreatHouse>Great House</> item."
+  },
+  "heavypistol_unique_bleed_05": {
+    "internalToken": "WEAPON_HEAVYPISTOL_UNIQUE_BLEED_05",
+    "name": "Adept Disruptor Pistol",
+    "shortDescription": "A heavy disruptor pistol.",
+    "longDescription": "This <Unique>Unique</> heavy pistol borrows technology from the fast-firing disruptor submachine gun, while adding a charging mechanism to fire shield-destabilizing darts."
+  },
+  "smugshot4": {
+    "internalToken": "WEAPON_SMUGGLER_ELEPHANT_GUN_MK_III",
+    "name": "Adept Drillshot FK7",
+    "shortDescription": "Double barrel \"anti-shield\" shotgun.",
+    "longDescription": "Double barrel mid range shotgun that fires \"burrow darts\". When colliding with an active shield, burrow darts stick to them and penetrate them after a short time, dealing damage to the protected target."
+  },
+  "dualblades_1": {
+    "internalToken": "WEAPON_DUALBLADES_1",
+    "name": "Adept Dual Blades",
+    "shortDescription": "A set of Kindjal and Slip-tip Blades",
+    "longDescription": "Holding down the attack button initiates a sequence of frenzied hits that partially bypass shields.\n\nThe slightly curved, double-edged Kindjal and the smaller Slip-tip knife form a marriage of razor-sharp mayhem. A dual-wielding fighting style has formed around these two weapons. Often, the frightful Kindjal draws the eye while the Slip-tip sneaks into one’s vitals."
+  },
+  "scattergun_prototype2": {
+    "internalToken": "WEAPON_GRDA_44_SCATTERGUN_MK_III",
+    "name": "Adept GRDA 44",
+    "shortDescription": "Wide range scattergun.",
+    "longDescription": "Heavy for its size, it is highly recommended to hold the GRDA 44 with both hands, despite certain actors portraying its use with one in each hand."
+  },
+  "smugdmr5": {
+    "internalToken": "WEAPON_JABAL_SPITDART_RIFLE_MK_III",
+    "name": "Adept JABAL Spitdart",
+    "shortDescription": "Rapid cycling scoped rifle that fires poison-laced darts.",
+    "longDescription": "Another workhorse of a weapon, the JABAL Spitdart is scoped for long range engagements and fires darts capable of poisoning targets."
+  },
+  "harkar6": {
+    "internalToken": "WEAPON_KARPOV38_MK_IV_BATTLE_RIFLE",
+    "name": "Adept Karpov 38",
+    "shortDescription": "Gas powered assault rifle.",
+    "longDescription": "State-of-the-art assault weapon and status notifier in mercenary and other parastate military circles."
+  },
+  "kindjal_3": {
+    "internalToken": "WEAPON_ATREIDES_KINDJAL_MARK_IV",
+    "name": "Adept Kindjal",
+    "shortDescription": "Curved short blade used for close combat.",
+    "longDescription": "A common personal weapon popular among the family members of this <GreatHouse>Great House</>, the Atreides Kindjal is styled after the particular variety that Duke Leto Atreides himself carries."
+  },
+  "choamsda6": {
+    "internalToken": "WEAPON_MAULA_PISTOL_MK_V",
+    "name": "Adept Maula Pistol",
+    "shortDescription": "Lightweight Pistol.",
+    "longDescription": "Lightweight but with a short range, the Maula Pistol is a reliable sidearm."
+  },
+  "rocketlauncher_3": {
+    "internalToken": "WEAPON_ROCKETLAUNCHER_3",
+    "name": "Adept Missile Launcher",
+    "shortDescription": "Missile Launcher",
+    "longDescription": "A launcher that fires homing rockets."
+  },
+  "harkheavypistol4": {
+    "internalToken": "WEAPON_RAFIQ_SNUBNOSE_MK_III_PISTOL",
+    "name": "Adept Rafiq Snubnose",
+    "shortDescription": "High caliber pistol.",
+    "longDescription": "There is a Rafiq Snubnose Pistol in the cabinet by the bed of Count Daran of Ishkal. His wife is unaware and would disapprove."
+  },
+  "rapier_0": {
+    "internalToken": "WEAPON_DURALUMINUM_RAPIER",
+    "name": "Adept Rapier",
+    "shortDescription": "Long bladed melee weapon.",
+    "longDescription": "Opening attacks: use the attack button to parry incoming attacks and move the character forward. Use the the aim button to parry and move the character backward.\n\nThe <GreatHouse>Great House</> Atreides Rapier is a longer sword used for self-defense by the most skilled swordmasters. The long blade allows for reach and raw damage, as well as penetrates shields. To truly master the rapier, its carrier must be quick on their feet and swift to react."
+  },
+  "choamsword_2": {
+    "internalToken": "WEAPON_CHOAM_SWORD_MARK_III",
+    "name": "Adept Sword",
+    "shortDescription": "Long bladed melee weapon.",
+    "longDescription": "The sword is longer and heavier than a kindjal, but utilizes sweeping attacks that can help deal with multiple foes. Can penetrate shields. A <GreatHouse>Great House</> item."
+  },
+  "atrelmg4": {
+    "internalToken": "WEAPON_ATREIDES_LMG_MK_III",
+    "name": "Adept Vulcan GAU-92",
+    "shortDescription": "Light machinegun.",
+    "longDescription": "A light machine gun that sports a large capacity magazine and a high fire rate. Used for crowd control against multiple opponents."
+  },
+  "choamlg1": {
+    "internalToken": "WEAPON_ARHUN_K-28_LASGUN",
+    "name": "Arhun K-28 Lasgun",
+    "shortDescription": "A heavily modified lasgun.",
+    "longDescription": "When a lasgun contacted a hot shield in Carthag, it was a disaster. Thousands died in the ensuing nuclear blast and the city was leveled.\n\nDue to the devastating loss of life and spice production capacity, all lasguns imported to Arrakis are now fitted with a safety mechanism that immediately shuts them off if they are targeting a Holtzman shield, including this <Unique>Unique</> model."
+  },
+  "unique_sword_bleedyblocky_5": {
+    "internalToken": "WEAPON_UNIQUE_SWORD_BLEEDYBLOCKY_5",
+    "name": "Bite Back Blade",
+    "shortDescription": "A sword that reduces the stamina cost of blocking and applies a bleed effect to attackers on a successful block.",
+    "longDescription": "This <Unique>Unique</> sword is fashioned from shock-absorbing materials that reduce the strain of blocks and parries. It also includes a cluster of integrated plasteel shards near the hilt that can wound the blade hand of an attacker upon a successful block."
+  },
+  "heavypistol_unique_headshot_05": {
+    "internalToken": "WEAPON_DURALUMINUM_DEADSHOT_PISTOL",
+    "name": "Cope",
+    "shortDescription": "A precision pistol for those who prioritize aim.",
+    "longDescription": "This <Unique>Unique</> pistol comes with increased accuracy and bonus damage for headshots, but with a low capacity clip."
+  },
+  "fireballer_2": {
+    "internalToken": "WEAPON_FIREBALLER_2",
+    "name": "Duraluminum Pyrocket",
+    "shortDescription": "A heavily modified flamethrower",
+    "longDescription": "The weapon’s designer had a known sadistic streak. This <Unique>Unique</> customized flamethrower fires condensed balls of ignited incendiary gel. On impact, fireballs detonate, dealing damage in a large radius. The splashing gel clings to flesh, searing and bubbling skin and fat with intense heat."
+  },
+  "lmg_unique_rapidfire_05": {
+    "internalToken": "WEAPON_LMG_UNIQUE_RAPIDFIRE_05",
+    "name": "Extravagant Message",
+    "shortDescription": "A Vulcan gun with expanded dart capacity.",
+    "longDescription": "A favored weapon of the Smuggler, Esmar Tuek, this <Unique>Unique</> Vulcan gun leaves a mess wherever it is fired. Tuek, it is said, is a man who likes to make sure that when he sends a message to his enemies, it is heard."
+  },
+  "longrifle_unique_largemag_05": {
+    "internalToken": "WEAPON_DURALUMINUM_REPEATING_RIFLE",
+    "name": "Fivefinger's Tripleshot Rifle",
+    "shortDescription": "A rifle named for the assassin Fivefingers.",
+    "longDescription": "For many years, the nobles of House Wydras lived in constant fear of an assassin's dart fired by the infamous Fivefingers. In his youth, he lost his right hand and eye during a duel with a Wydras nobleman. He disappeared from public eye for a long time — then returned with this <Unique>Unique</> tripleshot rifle to wreak vengeance on those who had left him maimed."
+  },
+  "kindjal_unique_stamina_05": {
+    "internalToken": "WEAPON_DURALUMINUM_IMPULSE_KNIFE",
+    "name": "Jolt-knife",
+    "shortDescription": "A knife styled after those used in the Butlerian Jihad.",
+    "longDescription": "During the Butlerian Jihad, pulse-blades were used to cut through the thinking machines and damage their electronics with pulses of deadly electricity. It is said that the secret of their making was lost during the ensuing centuries.\n\nThis <Unique>Unique</> blade gives a small jolt of electrical energy to the palms when hitting an enemy — offering a small stamina boost. A far cry from the legendary weapons of the Butlerian Jihad."
+  },
+  "uniquesword_04": {
+    "internalToken": "WEAPON_UNIQUE_SWORD_04",
+    "name": "Jolt-sword",
+    "shortDescription": "A sword styled after those used in the Butlerian Jihad.",
+    "longDescription": "During the Butlerian Jihad, pulse-swords were used to cut through the thinking machines and damage their electronics with pulses of deadly electricity. It is said that the secret of their making was lost during the ensuing centuries.\n\nThis <Unique>Unique</> blade gives a small jolt of electrical energy to the palms when parrying an enemy — offering a small stamina boost. A far cry from the legendary swords of the Butlerian Jihad."
+  },
+  "uniquerapier_02": {
+    "internalToken": "WEAPON_UNIQUE_RAPIER_02",
+    "name": "Kharet Viper",
+    "shortDescription": "A sword that releases a poisonous mist on contact.",
+    "longDescription": "This <Unique>Unique</> sword contains a series of toxin releasing nodules along the length of the blade. When struck with enough force, these nodules release a burst of poisonous gas — capable of passing through a shield. The Maas Kharet probably borrowed this design from the slavers — filling it with a poison of their own."
+  },
+  "uniquear_burst_05": {
+    "internalToken": "WEAPON_DURALUMINUM_BURST_FIRE_RIFLE",
+    "name": "Mendek's Rattle",
+    "shortDescription": "A modified battle rifle that fires bursts of darts.",
+    "longDescription": "General Mendek was a swordsman all his life, until he was stationed on Arrakis. When he saw the lack of shields among the Fremen, he commissioned a <Unique>Unique</> burst shot battle rifle which deals additional damage when firing the final dart in the burst.\n\n'The first shot is for the Baron. The second is for my lady wife. And the last shot is for forcing me to be stationed on this godsforsaken dustbowl.'"
+  },
+  "uniquedirk_03": {
+    "internalToken": "WEAPON_UNIQUE_DIRK_03",
+    "name": "Moisture Sealer",
+    "shortDescription": "A modified dirk that burns as it cuts.",
+    "longDescription": "Ironically, the Fremen themselves might be the origin of this knife. For moisture sealing caves, they used this <Unique>Unique</> knife to quickly seal the plastic hoods against the cave walls. And for removal, they simply reheated the dirk and sliced the melted plastic from the walls."
+  },
+  "kindjal_unique_blood_05": {
+    "internalToken": "WEAPON_KINDJAL_UNIQUE_BLOOD_05",
+    "name": "Pardot's Drinker",
+    "shortDescription": "An exsanguinating kindjal created by Pardot Kynes.",
+    "longDescription": "Pardot Kynes first came into contact with the Fremen by killing three Harkonnen bravos who were attacking Fremen youth. Kynes lamented violence — not the act, but the loss of blood and thus, precious water, it incurred. He developed this <Unique>Unique</> kindjal simply because if he was forced to kill others, he didn't want it to be wasteful."
+  },
+  "uniquesmg2": {
+    "internalToken": "WEAPON_UNIQUE_SMG2",
+    "name": "Piter's Disruptor",
+    "shortDescription": "A modified disruptor that uses heavy darts.",
+    "longDescription": "This <Unique>Unique</> disruptor has been modified to spray doubleshots of heavy darts at a slower rate. The twisted mentat advisor to Baron Harkonnen, Piter de Vries, created this modified disruptor to be used to suppress riots on Giedi Prime. In his words, 'peace through suppression'."
+  },
+  "smg_unique_largemag_05": {
+    "internalToken": "WEAPON_SMG_UNIQUE_LARGEMAG_05",
+    "name": "Relentless",
+    "shortDescription": "A high-capacity disruptor manufactured at Ironwatch.",
+    "longDescription": "The Atreides base in the Hagga Basin overlooks the radiated shipwrecks of the Sheol. Sometimes, during the long watches of the night, when a soldier has time to contemplate their life on Arrakis, they take the long elevator down to the sands and disappear into the south. This <Unique>Unique</> disruptor is named as an insult to those who would desert their posts — and used against them if they are ever seen again."
+  },
+  "flamethrower_prototype": {
+    "internalToken": "WEAPON_GAROTI_SCORCHBOLT_FLAMEGUN",
+    "name": "Scorchbolt",
+    "shortDescription": "Portable flamethrower.",
+    "longDescription": "A <Unique>Unique</> item. Little known fact: Jared Garoti was a notorious pyromaniac in his early years and nearly burnt his ancestral home to the ground building one of his creations."
+  },
+  "uniquear3": {
+    "internalToken": "WEAPON_UNIQUE_AR3",
+    "name": "Scrubber",
+    "shortDescription": "A modified battle rifle that fires explosive darts.",
+    "longDescription": "Another weapon liberated from the shipwrecks of the Sheol, this <Unique>Unique</> battle rifle has been modified with a mechanism that adds a touch of explosive powder to every dart that passes down the barrel. Perhaps used as protection against smuggler or pirate attacks in the interplanetary shipping lanes."
+  },
+  "uniqueflamethrower": {
+    "internalToken": "WEAPON_UNIQUE_FLAMETHROWER",
+    "name": "Shaitan's Tongue",
+    "shortDescription": "An advanced flamethrower with a large nozzle.",
+    "longDescription": "If there was one weapon the Sardaukar used to inspire fear in the Fremen, it was the flamethrower. In the narrow corridors of the sietch warrens, a single Sardaukar could become a firestorm of death and destruction. Perhaps worse, for the Fremen, the corpses could not be recovered for their water.\n\nThis <Unique>Unique</> flamethrower has a higher gel capacity and more intense flame."
+  },
+  "uniquescattergun_fire_05": {
+    "internalToken": "WEAPON_DURALUMINUM_MOLTEN_MASS_SPRAYER",
+    "name": "Starburst",
+    "shortDescription": "A modified scattergun that fires molten darts.",
+    "longDescription": "This <Unique>Unique</> scattergun was first discovered aboard the wreck of the Euporia in the Sheol. The crew and weapons on board were Ixian, leading to speculation that the weapon was sidestepping the prohibitions of the Butlerian Jihad. However, when the weapon was opened up, it was a disappointingly standard application of heat transference principles."
+  },
+  "uniquescattergun4": {
+    "internalToken": "WEAPON_UNIQUE_SCATTERGUN4",
+    "name": "Syndicate Impaler",
+    "shortDescription": "A modified scattergun that converts darts to shrapnel.",
+    "longDescription": "Thin spikes in the barrel mean that the darts fired from this <Unique>Unique</> scattergun will break into multiple shrapnel pieces on impact, causing a bleeding effect on enemies. Brought from offworld only by Syndicate mercenaries, these formidable scatterguns are rarely found on Arrakis."
+  },
+  "uniquesda_doubleshot_05": {
+    "internalToken": "WEAPON_DURALUMINUM_DART_SPITTER",
+    "name": "Taqwa's Double",
+    "shortDescription": "A modified maula pistol that shoots two darts at once.",
+    "longDescription": "A <Unique>Unique</> maula pistol developed in the shadow of Taqwa's Watch in the O'odham. Though Fremen battles rarely rely solely upon the maula pistol, it is still prudent to carry one — especially one with the capacity to fire double-shots bursts."
+  },
+  "longrifle_unique_poison_05": {
+    "internalToken": "WEAPON_LONGRIFLE_UNIQUE_POISON_05",
+    "name": "Thufir's Best",
+    "shortDescription": "An assassin's rifle that fires poisonous darts at long range.",
+    "longDescription": "Piter de Vries and Thufir Hawat are both trained assassins as well as Mentats. In the few instances where their masters must meet under a sign of truce, both men are responsible for the security of their lords beneath the Guild Peace. The soldiers who oversee these meetings are equipped with this <Unique>Unique</> rifle and placed at strategic locations. They have steady hands and a calm demeanor — anything else could quickly lead to disaster."
+  },
+  "uniquesda5": {
+    "internalToken": "WEAPON_UNIQUE_SDA5",
+    "name": "Way of the Desert",
+    "shortDescription": "A modified maula pistol with an automatic spring mechanism.",
+    "longDescription": "This <Unique>Unique</> Maula pistol has a modified spring mechanism that automatically reloads darts without releasing trigger pressure. Integrating the modifications from Count Hasimir Fenring, this newer design also accommodates better materials for longer durability."
+  },
+  "smg_unique_largemag_06": {
+    "internalToken": "WEAPON_SMG_UNIQUE_LARGEMAG_06",
+    "name": "A Dart for Every Man",
+    "shortDescription": "A high-capacity disruptor for every caste.",
+    "longDescription": "This <Unique>Unique</> disruptor has a small inscription beneath the barrel, beside the makers mark. It reads 'In honor of the Faufreluches — a dart for every man and for every man a dart.' No matter how often the schematics are modified, this inscription is always fabricated on the weapon."
+  },
+  "shotgun_unique_largemag_06": {
+    "internalToken": "WEAPON_SHOTGUN_UNIQUE_LARGEMAG_06",
+    "name": "Ambition",
+    "shortDescription": "A modified shotgun that holds two slugs in each barrel",
+    "longDescription": "A {Unique} shotgun with an ambitious design that holds two slugs in each barrel to limit the downsides of these types of weapons."
+  },
+  "lmg_unique_rapidfire_06": {
+    "internalToken": "WEAPON_LMG_UNIQUE_RAPIDFIRE_06",
+    "name": "Bashar's Command",
+    "shortDescription": "A Vulcan gun with expanded dart capacity.",
+    "longDescription": "This <Unique>Unique</> machine gun is considered so effective at cowing the populace during wars, it is often placed on display in local population centers as a threat. However, the Sardaukar prefer not to carry such bulky weapons into conflict, and will only do so at a Bashar's Command."
+  },
+  "choamlg2": {
+    "internalToken": "WEAPON_ARHUN_K-28_LASGUN_MARK_II",
+    "name": "Black Market K-28 Lasgun",
+    "shortDescription": "A heavily modified and customized lasgun.",
+    "longDescription": "Though the Imperium has forbidden the import of lasguns without a safety mechanism, there are other alternatives for bringing a lasgun to Arrakis. The smugglers have access to an entire offworld arsenal of lasguns that do not include the safety mechanisms put in place by the Landsraad council.\nUnfortunately, this <Unique>Unique</> lasgun is not one of them. It's just a regular lasgun with the serial numbers filed off."
+  },
+  "uniquedualblades_6": {
+    "internalToken": "WEAPON_UNIQUEDUALBLADES_6",
+    "name": "Burning Blades",
+    "shortDescription": "These <Unique>unique</>, heated blades both tear and scorch flesh, leaving a screaming impression.\n",
+    "longDescription": "Designed by Masano of the Sandflies, these <Unique>unique</>, heated blades both tear and scorch flesh, leaving a screaming impression."
+  },
+  "uniquedirk_04": {
+    "internalToken": "WEAPON_UNIQUE_DIRK_04",
+    "name": "Cauterizer",
+    "shortDescription": "A modified dirk that burns as it cuts.",
+    "longDescription": "This <Unique>Unique</> knife is a modified surgical tool that was developed for treating field injuries. It seals injuries as it cuts using a small cutteray to superheat the blade. Mostly useful for amputations and as desperate field surgeons discovered, setting your enemy on fire."
+  },
+  "longrifle_unique_poison_06": {
+    "internalToken": "WEAPON_LONGRIFLE_UNIQUE_POISON_06",
+    "name": "Dunewatcher",
+    "shortDescription": "An assassin's rifle that fires poisonous darts at long range.",
+    "longDescription": "Fremen warriors modified these <Unique>Unique</> rifles and used them in their relentless guerilla campaign against the Harkonnen. A single Fremen could remain, near buried and practically invisible in the sand dunes beside a spice blow, awaiting their chance at Harkonnen prey. These warriors were called Dunewatchers."
+  },
+  "uniquear6_electric": {
+    "internalToken": "WEAPON_UNIQUEAR6_ELECTRIC",
+    "name": "Experimental Lightning Gun",
+    "shortDescription": "An EMP rifle that disrupts shields.",
+    "longDescription": "An old Planetologist wisdom says: “The freaks of cyclonic storms are the rules of cyclonic storms.” In their hubris to harness the Coriolis storm, a team of scientists lost their lives in an Imperial Testing Station. This <Unique>Unique</> rifle, a byproduct of those experiments, uses electrical power rather than standard ammunition. The EMP blasts disrupt shields."
+  },
+  "kindjal_unique_blood_06": {
+    "internalToken": "WEAPON_KINDJAL_UNIQUE_BLOOD_06",
+    "name": "Feyd's Drinker",
+    "shortDescription": "An exsanguinating kindjal popularized by Feyd-Rautha Harkonnen.",
+    "longDescription": "Commonly used in his black-gloved main-hand during arena bouts, Feyd-Rautha Harkonnen had a small compartment designed that could deliver poison - though usually it was the white-gloved off-hand that carried the poisoned blade. Though most never knew of his treachery, this <Unique>Unique</> kindjal became popular on Arrakis for the opposite reason, it was capable of stealing blood from enemies and storing it in the compartment."
+  },
+  "flamethrower_prototype_2": {
+    "internalToken": "WEAPON_GAROTI_SCORCHBOLT_FLAMEGUN_MARK_II",
+    "name": "Glasser",
+    "shortDescription": "Portable flamethrower.",
+    "longDescription": "A <Unique>Unique</> item. Little known fact: Jared Garoti was a notorious pyromaniac in his early years and nearly burnt his ancestral home to the ground building one of his creations."
+  },
+  "uniquerapier_03": {
+    "internalToken": "WEAPON_UNIQUE_RAPIER_03",
+    "name": "Halleck's Pick",
+    "shortDescription": "A sword that releases a poisonous mist on contact.",
+    "longDescription": "This <Unique>Unique</> sword contains a series of toxin releasing nodules along the length of the blade. Gurney Halleck, renowned troubadour and mercenary, kept a similar blade by his side when performing for noble audiences. When a drunken noble once asked if he felt his music was bad enough that he needed a sword to defend it, Gurney replied: 'Nay, I fear not your wrath, but when your wives and daughters rush the stage — I'll need steel to keep my trousers fastened!'"
+  },
+  "uniquear_burst_06": {
+    "internalToken": "WEAPON_PLASTANIUM_BURST_FIRE_RIFLE",
+    "name": "Indara's Lullaby",
+    "shortDescription": "A modified battle rifle that fires bursts of darts.",
+    "longDescription": "When the War of Assassins came to Arrakis, Indara and her husband, Ardan, were stationed at a small Atreides outpost on the shield wall. As the relentless attacks of the Harkonnens continued, Ardan forced Indara to flee into a nearby cave system with their young child. Nobody knows why this <Unique>Unique</> weapon is named for Indara - but there is speculation that she and her child still haunt the caves of the Deep Desert Shield Wall. This rifle fires a modified three-round burst, with the final dart in the burst dealing additional damage."
+  },
+  "shotgun_unique_blood_06": {
+    "internalToken": "WEAPON_PLASTANIUM_DEEP_BORE_SHOTGUN",
+    "name": "Penetrator",
+    "shortDescription": "A scattergun with deep drilling darts.",
+    "longDescription": "This <Unique>Unique</> scattergun fires drilling darts which penetrate slowly through a Holtzman shield and then continue drilling — causing gaping bleeding wounds to the enemy. When the inventor was asked about the juvenile name he simply replied 'I'm all about drilling through defenses and going deep. I also design weapons. Ask your mother.'"
+  },
+  "uniquescattergun5": {
+    "internalToken": "WEAPON_UNIQUE_SCATTERGUN5",
+    "name": "Perforator",
+    "shortDescription": "A modified scattergun that converts darts to shrapnel.",
+    "longDescription": "Thin spikes in the barrel mean that the darts fired from this <Unique>Unique</> scattergun will break into multiple shrapnel pieces on impact, causing a bleeding effect on enemies. Another example of Sardaukar weaponry built to intimidate and oppress."
+  },
+  "lmg_unique_power_06": {
+    "internalToken": "WEAPON_PLASTANIUM_PLASMA_MACHINE_GUN",
+    "name": "Plasma Cannon",
+    "shortDescription": "A Vulcan cannon that fires superheated darts.",
+    "longDescription": "Originally designed to fire a steady stream of blue orbs at hellish foes, this <Unique>Unique</> plasma gun tears imps to shreds and rips Arch-viles and Cacodemons apart. Oh... I've just been informed this text is for DUNE not DOOM. Ignore me then."
+  },
+  "fireballer_3": {
+    "internalToken": "WEAPON_FIREBALLER_3",
+    "name": "Plastanium Pyrocket",
+    "shortDescription": "A heavily modified flamethrower",
+    "longDescription": "The weapon’s designer had a known sadistic streak. This <Unique>Unique</> customized flamethrower fires condensed balls of ignited incendiary gel. On impact, fireballs detonate, dealing damage in a large radius. The splashing gel clings to flesh, searing and bubbling skin and fat with intense heat."
+  },
+  "shotgun_unique_explosive_06": {
+    "internalToken": "WEAPON_SHOTGUN_UNIQUE_EXPLOSIVE_06",
+    "name": "Regis Burst Drillshot",
+    "shortDescription": "Double barrel \"anti-shield\" shotgun with increased capacity that charges up to fire a burst of two burrow darts.",
+    "longDescription": "An increased capacity makes this <Unique>Unique</> Drillshot the anti-shield weapon of choice. An added charge mechanism was added to the base FK7, powering up devastating 2-round bursts of burrow darts."
+  },
+  "dirk_3": {
+    "internalToken": "WEAPON_DIRK_MARK_IV",
+    "name": "Regis Dirk",
+    "shortDescription": "A Harkonnen style short blade melee weapon.",
+    "longDescription": "The Harkonnen Dirk is a short dagger used for self-defense. Can penetrate shields. A <GreatHouse>Great House</> item."
+  },
+  "atresmg6": {
+    "internalToken": "WEAPON_SAVOY_&_MIRT_M11_MK_IV_SMG",
+    "name": "Regis Disruptor M11",
+    "shortDescription": "Rapid fire disruptor.",
+    "longDescription": "As the Holtzman Effect is impervious to fast moving ballistics, Disruptors instead fire darts of variable velocities in order to find penetration points on the shield. Once inside a Holtzman Shield they trigger a static pulse that impacts the power flow to the shield. If enough disruptor darts penetrate, a shield can be taken offline. A <GreatHouse>Great House</> item."
+  },
+  "heavypistol_unique_bleed_06": {
+    "internalToken": "WEAPON_HEAVYPISTOL_UNIQUE_BLEED_06",
+    "name": "Regis Disruptor Pistol",
+    "shortDescription": "A heavy disruptor pistol.",
+    "longDescription": "This <Unique>Unique</> heavy pistol borrows technology from the fast-firing disruptor submachine gun, while adding a charging mechanism to fire shield-destabilizing darts."
+  },
+  "smugshot5": {
+    "internalToken": "WEAPON_SMUGGLER_ELEPHANT_GUN_MK_IV",
+    "name": "Regis Drillshot FK7",
+    "shortDescription": "Double barrel \"anti-shield\" shotgun.",
+    "longDescription": "Double barrel mid range shotgun that fires \"burrow darts\". When colliding with an active shield, burrow darts stick to them and penetrate them after a short time, dealing damage to the protected target."
+  },
+  "dualblades_2": {
+    "internalToken": "WEAPON_DUALBLADES_2",
+    "name": "Regis Dual Blades",
+    "shortDescription": "A set of Kindjal and Slip-tip Blades",
+    "longDescription": "Holding down the attack button initiates a sequence of frenzied hits that partially bypass shields.\n\nThe slightly curved, double-edged Kindjal and the smaller Slip-tip knife form a marriage of razor-sharp mayhem. A dual-wielding fighting style has formed around these two weapons. Often, the frightful Kindjal draws the eye while the Slip-tip sneaks into one’s vitals."
+  },
+  "scattergun_prototype3": {
+    "internalToken": "WEAPON_GRDA_44_SCATTERGUN_MK_IV",
+    "name": "Regis GRDA 44",
+    "shortDescription": "Wide range scattergun.",
+    "longDescription": "Heavy for its size, it is highly recommended to hold the GRDA 44 with both hands, despite certain actors portraying its use with one in each hand."
+  },
+  "smugdmr6": {
+    "internalToken": "WEAPON_JABAL_SPITDART_RIFLE_MK_IV",
+    "name": "Regis JABAL Spitdart",
+    "shortDescription": "Rapid cycling scoped rifle that fires poison-laced darts.",
+    "longDescription": "Another workhorse of a weapon, the JABAL Spitdart is scoped for long range engagements and fires darts capable of poisoning targets."
+  },
+  "harkar7": {
+    "internalToken": "WEAPON_KARPOV38_MK_V_BATTLE_RIFLE",
+    "name": "Regis Karpov 38",
+    "shortDescription": "Gas powered assault rifle.",
+    "longDescription": "State-of-the-art assault weapon and status notifier in mercenary and other parastate military circles."
+  },
+  "kindjal_4": {
+    "internalToken": "WEAPON_ATREIDES_KINDJAL_MARK_V",
+    "name": "Regis Kindjal",
+    "shortDescription": "Curved short blade used for close combat.",
+    "longDescription": "A common personal weapon popular among the family members of this <GreatHouse>Great House</>, the Atreides Kindjal is styled after the particular variety that Duke Leto Atreides himself carries."
+  },
+  "choamsda7": {
+    "internalToken": "WEAPON_MAULA_PISTOL_MK_VI",
+    "name": "Regis Maula Pistol",
+    "shortDescription": "Lightweight Pistol.",
+    "longDescription": "Lightweight but with a short range, the Maula Pistol is a reliable sidearm."
+  },
+  "rocketlauncher_2": {
+    "internalToken": "WEAPON_ROCKET_LAUNCHER_MARK_II",
+    "name": "Regis Missile Launcher",
+    "shortDescription": "Missile Launcher.",
+    "longDescription": "A launcher that shoots homing missiles."
+  },
+  "harkheavypistol5": {
+    "internalToken": "WEAPON_RAFIQ_SNUBNOSE_MK_IV_PISTOL",
+    "name": "Regis Rafiq Snubnose",
+    "shortDescription": "High caliber pistol.",
+    "longDescription": "There is a Rafiq Snubnose Pistol in the cabinet by the bed of Count Daran of Ishkal. His wife is unaware and would disapprove."
+  },
+  "rapier_3": {
+    "internalToken": "WEAPON_ATREIDES_RAPIER_MARK_IV",
+    "name": "Regis Rapier",
+    "shortDescription": "Long bladed melee weapon.",
+    "longDescription": "Opening attacks: use the attack button to parry incoming attacks and move the character forward. Use the the aim button to parry and move the character backward.\n\nThe <GreatHouse>Great House</> Atreides Rapier is a longer sword used for self-defense by the most skilled swordmasters. The long blade allows for reach and raw damage, as well as penetrates shields. To truly master the rapier, its carrier must be quick on their feet and swift to react."
+  },
+  "choamsword_3": {
+    "internalToken": "WEAPON_CHOAM_SWORD_MARK_IV",
+    "name": "Regis Sword",
+    "shortDescription": "Long bladed melee weapon.",
+    "longDescription": "The sword is longer and heavier than a kindjal, but utilizes sweeping attacks that can help deal with multiple foes. Can penetrate shields. A <GreatHouse>Great House</> item."
+  },
+  "longrifle_unique_largemag_06": {
+    "internalToken": "WEAPON_PLASTANIUM_REPEATING_RIFLE",
+    "name": "Regis Tripleshot Repeating Rifle",
+    "shortDescription": "A spitdart rifle that holds additional darts.",
+    "longDescription": "This <Unique>Unique</> non-scoped Spitdart Rifle was developed with increased magazine capacity and fires poison-coated darts in a horizontal tripleshot pattern."
+  },
+  "atrelmg5": {
+    "internalToken": "WEAPON_ATREIDES_LMG_MK_IV",
+    "name": "Regis Vulcan GAU-92",
+    "shortDescription": "Light machinegun.",
+    "longDescription": "A light machine gun that sports a large capacity magazine and a high fire rate. Used for crowd control against multiple opponents."
+  },
+  "kindjal_unique_stamina_06": {
+    "internalToken": "WEAPON_PLASTANIUM_IMPULSE_KNIFE",
+    "name": "Replica Pulse-knife",
+    "shortDescription": "A knife styled after those used in the Butlerian Jihad.",
+    "longDescription": "During the Butlerian Jihad, pulse-blades were used to cut through the thinking machines and damage their electronics with pulses of deadly electricity. It is said that the secret of their making was lost during the ensuing centuries.\n\nThis <Unique>Unique</> blade gives a small jolt of electrical energy to the palms when hitting an enemy — offering a small stamina boost. A far cry from the legendary weapons of the Butlerian Jihad."
+  },
+  "uniquesword_05": {
+    "internalToken": "WEAPON_UNIQUE_SWORD_05",
+    "name": "Replica Pulse-sword",
+    "shortDescription": "A sword styled after those used in the Butlerian Jihad.",
+    "longDescription": "During the Butlerian Jihad, pulse-swords were used to cut through the thinking machines and damage their electronics with pulses of deadly electricity. It is said that the secret of their making was lost during the ensuing centuries.\n\nThis <Unique>Unique</> blade gives a small jolt of electrical energy to the palms when parrying an enemy - offering a small stamina boost. A far cry from the legendary swords of the Butlerian Jihad."
+  },
+  "uniquear4": {
+    "internalToken": "WEAPON_UNIQUE_AR4",
+    "name": "Salusan Vengeance",
+    "shortDescription": "A modified battle rifle that fires explosive darts.",
+    "longDescription": "When Salusa Secundus was reduced from a fertile planet to an irradiated wasteland of a planet, House Corrino swore vengeance on their enemies. This <Unique>Unique</> battle rifle was created as a memory of that oath and the explosive darts that it fires are reminiscent of the fires that rained down on Salusa Secundus itself."
+  },
+  "uniquesmg3": {
+    "internalToken": "WEAPON_UNIQUE_SMG3",
+    "name": "Sardaukar Intimidator",
+    "shortDescription": "A modified disruptor that uses heavy darts.",
+    "longDescription": "A <Unique>Unique</> Disruptor with heavy darts doubleshots for added damage. What it lacks in rate of fire it makes up for the punches it throws."
+  },
+  "heavypistol_unique_headshot_06": {
+    "internalToken": "WEAPON_PLASTANIUM_DEADSHOT_PISTOL",
+    "name": "Seethe",
+    "shortDescription": "A precision pistol for those who prioritize aim.",
+    "longDescription": "This <Unique>Unique</> pistol comes with increased accuracy and bonus damage for headshots, but with a low capacity clip."
+  },
+  "uniquescattergun_fire_06": {
+    "internalToken": "WEAPON_PLASTANIUM_MOLTEN_MASS_SPRAYER",
+    "name": "Shellburster",
+    "shortDescription": "A modified scattergun that fires molten darts.",
+    "longDescription": "This <Unique>Unique</> scattergun was used during the Battle of Arrakeen. When Harkonnen troops charged the front gates of the palace, they were dismayed to find the shields still functional, despite being assured otherwise. A group of Atreides gunners used shellburst scatterguns to spread fire and chaos among the Harkonnen ranks, breaking them."
+  },
+  "uniquesda_doubleshot_06": {
+    "internalToken": "WEAPON_PLASTANIUM_DART_SPITTER",
+    "name": "Shishakli's Bite",
+    "shortDescription": "A modified maula pistol that shoots two darts at once.",
+    "longDescription": "A too-tight spring in the magazine coupled with a too-wide barrel make this <Unique>Unique</> maula pistol fire bursts of two darts at the same time, albeit with reduced accuracy. Manufacturers have labelled these obvious problems as \"features\"."
+  },
+  "unique_sword_bleedyblocky_6": {
+    "internalToken": "WEAPON_UNIQUE_SWORD_BLEEDYBLOCKY_6",
+    "name": "Spike Hilt Sword",
+    "shortDescription": "A sword that reduces the stamina cost of blocking and applies a bleed effect to attackers on a successful block.",
+    "longDescription": "This <Unique>Unique</> sword is fashioned from shock-absorbing materials that reduce the strain of blocks and parries. It also includes a cluster of integrated plasteel shards near the hilt that can wound the blade hand of an attacker upon a successful block."
+  },
+  "uniquerapier_power_06": {
+    "internalToken": "WEAPON_PLASTANIUM_STATIC_NEEDLE",
+    "name": "Static Needle",
+    "shortDescription": "Rapier that disrupts power supply of opponents.",
+    "longDescription": "This <Unique>Unique</> rapier is utilized by House forces to shock and disrupt the power supplies of their opponents."
+  },
+  "rocketlauncher_unique_homing_06": {
+    "internalToken": "WEAPON_ROCKETLAUNCHER_UNIQUE_HOMING_06",
+    "name": "The Ancient Way",
+    "shortDescription": "An ancient missile launcher with tracking missiles.",
+    "longDescription": "When Holtzman shields became widely available, the use of artillery in warfare dramatically reduced. During the Battle of Arrakeen, the Baron Harkonnen brought them back, using heavy rockets to seal Atreides soldiers in caves, thus avoiding the problem of Holtzman shields entirely. Since then, these <Unique>Unique</> missile launchers have become widely sought after by Fremen and Imperial troops alike."
+  },
+  "uniqueflamethrower_02": {
+    "internalToken": "WEAPON_UNIQUE_FLAMETHROWER_02",
+    "name": "Vaporizer",
+    "shortDescription": "An advanced flamethrower with a large nozzle.",
+    "longDescription": "While artillery weapons and projectiles became deemphasized with the invention of the Holtzman shield, the humble flamethrower saw wider adoption in the military forces of the Imperium. Holtzman shields provide very little protection against being slowly cooked from the outside.\n\nThis <Unique>Unique</> flamethrower has a higher gel capacity and more intense flame."
+  },
+  "uniquesda6": {
+    "internalToken": "WEAPON_UNIQUE_SDA6",
+    "name": "Way of the Misr",
+    "shortDescription": "A modified maula pistol with an automatic spring mechanism.",
+    "longDescription": "This <Unique>Unique</> Maula pistol has a modified spring mechanism that automatically reloads darts without releasing trigger pressure. This model is older than any others, and seems to have been developed by the Fremen. It differs from the designs that integrate the modifications from Count Fenring."
+  },
+  "b1c4_unique_harkar2": {
+    "internalToken": "WEAPON_B1C4_UNIQUE_HARKAR2",
+    "name": "The Angry Adder",
+    "shortDescription": "A <Unique>Unique</> rifle modified to do poison damage.",
+    "longDescription": "Sometimes, even a minor wound can kill. This <Unique>Unique</> rifle is modified to do poison damage."
+  },
+  "b1c4_unique_heavypistol2": {
+    "internalToken": "WEAPON_B1C4_UNIQUE_HEAVYPISTOL2",
+    "name": "Hell-Fury Pistol",
+    "shortDescription": "A <Unique>Unique</> heavy pistol that causes fire-buildup on a hit.",
+    "longDescription": "A special cocktail of magnesium and certain other elements can produce a very nasty, burning round. This <Unique>Unique</> snub-nosed heavy pistol causes fire-buildup on a hit."
+  },
+  "b1c4_unique_lmg2": {
+    "internalToken": "WEAPON_B1C4_UNIQUE_LMG2",
+    "name": "The Hateful Barker",
+    "shortDescription": "A <Unique>Unique</> LMG that trades accuracy for a damage bonus.",
+    "longDescription": "Peak aggression is often the enemy of precision. This <Unique>Unique</> LMG is very inaccurate but makes up for it with a 25% damage bonus."
+  },
+  "b1c4_unique_smg2": {
+    "internalToken": "WEAPON_B1C4_UNIQUE_SMG2",
+    "name": "Spitting Cobra",
+    "shortDescription": "A <Unique>Unique</> disruptor that causes poison buildup with every hit.",
+    "longDescription": "If at first your poison fails to slay — inundate, inundate, inundate. This <Unique>Unique</>, assassin-modified disruptor causes poison buildup with every hit."
+  },
+  "b1c4_unique_smugdmr1": {
+    "internalToken": "WEAPON_B1C4_UNIQUE_SMUGDMR1",
+    "name": "Blind Fury",
+    "shortDescription": "A <Unique>Unique</> rifle that sacrifices its scope for slightly faster reload and rate of fire.",
+    "longDescription": "Necessity is the mother of modification. This <Unique>Unique</> rifle sacrifices its scope for slightly faster reload, slightly faster rate of fire, and holds 5 ammo."
+  },
+  "b1c4_unique_dirk2": {
+    "internalToken": "WEAPON_B1C4_UNIQUE_DIRK2",
+    "name": "Eel’s Tooth",
+    "shortDescription": "A <Unique>Unique</> blade that restores the wielder’s battery pack with every attack.",
+    "longDescription": "The best offense is a fully-charged battery. Every attack from this <Unique>Unique</> blade restores one’s battery pack by 5."
+  },
+  "b1c4_unique_dualblades1": {
+    "internalToken": "WEAPON_B1C4_UNIQUE_DUALBLADES1",
+    "name": "Leech’s Maw",
+    "shortDescription": "A set of <Unique>Unique</> dual blades that drains a target of power.",
+    "longDescription": "A drained enemy is a helpless enemy. Every hit from these <Unique>Unique</> dual blades drains a target of power."
+  },
+  "b1c4_unique_kindjal2": {
+    "internalToken": "WEAPON_B1C4_UNIQUE_KINDJAL2",
+    "name": "Serpent’s Fang",
+    "shortDescription": "This <Unique>Unique</> Kindjal causes poison damage.",
+    "longDescription": "Intrigue amongst the Great Houses is a treacherous game. Poison often coats the blades of polite society. This <Unique>Unique</> Kindjal causes poison damage."
+  },
+  "b1c4_unique_rapier2": {
+    "internalToken": "WEAPON_B1C4_UNIQUE_RAPIER2",
+    "name": "Prescient Edge",
+    "shortDescription": "A <Unique>Unique</> rapier that causes bleed on an opponent with every successful parry.",
+    "longDescription": "The edge of this blade is so sharp, its balance so precise, the wielder feels as if they know their opponent’s next move before they do. No attacker comes away unscathed. This <Unique>Unique</> rapier causes bleed on an opponent with every successful parry."
+  },
+  "b1c4_unique_sword2": {
+    "internalToken": "WEAPON_B1C4_UNIQUE_SWORD2",
+    "name": "Branding Blade",
+    "shortDescription": "A <Unique>Unique</> sword causes burn buildup with every hit.",
+    "longDescription": "A special chemical treatment super heats the blade. Enemies who live tend to carry the scars with them forever after. This <Unique>Unique</> sword causes burn buildup with every hit."
+  }
+}

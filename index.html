@@ -24,6 +24,7 @@
       </div>
       <button id="export-btn" class="btn-primary">Export</button>
       <button id="paste-btn" class="btn-primary">Paste Build</button>
+      <button id="open-skill-tree-btn" class="btn-icon" aria-label="Skill Tree" title="Skill Tree (K)">K</button>
       <button id="open-specializations-btn" class="btn-icon" aria-label="Specializations" title="Specializations">G</button>
       <button id="open-engine-ini-btn" class="btn-icon" aria-label="Engine.ini Reference" title="Engine.ini Reference"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8V5M11 5H17M6 12H3M3 9V15M21 11V19M9 12H9.01M12 12H12.01M15 12H15.01M6 8V16H8L10 19H18V10L16 8H6Z"/></svg></button>
       <button id="open-qr-builder-btn" class="btn-icon" aria-label="QR Code Builder" title="QR Code Builder"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8,21H4a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H8a1,1,0,0,0,0-2Zm14-6a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H16a1,1,0,0,0,0,2h4a3,3,0,0,0,3-3V16A1,1,0,0,0,22,15ZM20,1H16a1,1,0,0,0,0,2h4a1,1,0,0,1,1,1V8a1,1,0,0,0,2,0V4A3,3,0,0,0,20,1ZM2,9A1,1,0,0,0,3,8V4A1,1,0,0,1,4,3H8A1,1,0,0,0,8,1H4A3,3,0,0,0,1,4V8A1,1,0,0,0,2,9Zm8-4H6A1,1,0,0,0,5,6v4a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V6A1,1,0,0,0,10,5ZM9,9H7V7H9Zm5,2h4a1,1,0,0,0,1-1V6a1,1,0,0,0-1-1H14a1,1,0,0,0-1,1v4A1,1,0,0,0,14,11Zm1-4h2V9H15Zm-5,6H6a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V14A1,1,0,0,0,10,13ZM9,17H7V15H9Zm5-1h.01a1,1,0,0,0,0-2H14a1,1,0,0,0,0,2Zm4-3a1,1,0,0,0-1,1v3a1,1,0,0,0,2,0V14A1,1,0,0,0,18,13Zm-4,4h.01a1,1,0,0,0,0-2H14a1,1,0,0,0,0,2Z"/></svg></button>
@@ -432,8 +433,136 @@
        isn't trapped inside the modal's transformed/overflow:hidden box. -->
   <div id="spec-tooltip" class="spec-tooltip" hidden></div>
 
+  <!-- Skill Tree modal -->
+  <div id="skill-tree-overlay" class="skill-tree-overlay">
+    <div class="skill-tree-modal">
+      <div class="skill-tree-header">
+        <span class="skill-tree-title">Skill Tree</span>
+        <button id="skill-tree-close" class="item-picker-close" aria-label="Close">✕</button>
+      </div>
+
+      <div class="st-top-nav" id="st-spec-nav">
+        <div class="st-top-nav-left">
+          <button class="st-reset-btn" id="st-reset-tree">RESET TREE</button>
+        </div>
+        <div class="st-key-cap">Z</div>
+        <div class="st-key-cap" id="st-trailing-key">C</div>
+        <div class="st-spec-label" id="st-spec-label">TROOPER</div>
+        <div class="st-top-nav-right">
+          <div class="st-sp-block">
+            <div class="st-sp-diamond" id="st-sp-diamond">
+              <div class="st-sp-inner">
+                <span class="st-sp-spent" id="st-sp-val">0</span>
+                <span class="st-sp-divider"></span>
+                <span class="st-sp-max"><span id="st-sp-max">199</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tree view (default) — sub-tree labels + tree area + bottom strip -->
+      <div class="st-view st-view--tree" id="st-view-tree">
+        <div class="st-sub-tree-labels" id="st-sub-tree-labels"></div>
+        <div class="st-tree-area" id="st-tree-area"></div>
+
+        <div class="st-tree-bottom-strip" id="st-enter-subpage" title="Press S to manage equipped abilities and techniques">
+          <span class="st-strip-label">ABILITIES</span>
+          <div class="st-strip-mini st-strip-mini--abilities" id="st-strip-abilities">
+            <div class="st-mini-slot st-diamond" data-equip-slot="ability:0"><div class="st-kb">Q</div></div>
+            <div class="st-mini-slot st-diamond" data-equip-slot="ability:1"><div class="st-kb">X</div></div>
+            <div class="st-mini-slot st-diamond" data-equip-slot="ability:2"><div class="st-kb">C</div></div>
+          </div>
+          <div class="st-s-key"><span>S</span></div>
+          <div class="st-strip-mini st-strip-mini--techniques" id="st-strip-techniques">
+            <div class="st-mini-slot st-oct" data-equip-slot="technique:0"></div>
+            <div class="st-mini-slot st-oct" data-equip-slot="technique:1"></div>
+            <div class="st-mini-slot st-oct" data-equip-slot="technique:2"></div>
+          </div>
+          <span class="st-strip-label">TECHNIQUES</span>
+        </div>
+      </div><!-- /st-view-tree -->
+
+      <!-- Equip view (S subpage) — hidden by default. Tabs between Abilities
+           and Techniques (Z/C also swap tabs while in equip view). Each tab
+           shows the 3 equipped slots up top, then a grid of ALL items in that
+           category — unlocked (allocated) ones show their icon + a purple
+           check; locked ones render as the "+" placeholder. -->
+      <div class="st-view st-view--equip" id="st-view-equip" hidden>
+        <div class="st-equip-tabs">
+          <div class="st-key-cap st-equip-tab-key">Z</div>
+          <button class="st-equip-tab" id="st-equip-tab-ability" data-equip-tab="ability">ABILITIES</button>
+          <button class="st-equip-tab" id="st-equip-tab-technique" data-equip-tab="technique">TECHNIQUES</button>
+          <div class="st-key-cap st-equip-tab-key">C</div>
+        </div>
+
+        <div class="st-equip-tab-content" id="st-equip-pane-ability">
+          <div class="st-equip-section-title">Active Abilities</div>
+          <div class="st-equip-slots st-equip-slots--abilities" id="st-equip-ability-slots">
+            <div class="st-equip-slot st-equip-slot--ability" data-equip-slot="ability:0">
+              <div class="st-equip-slot-content"></div>
+              <div class="st-equip-slot-mark"></div>
+              <div class="st-equip-slot-key">Q</div>
+            </div>
+            <div class="st-equip-slot st-equip-slot--ability" data-equip-slot="ability:1">
+              <div class="st-equip-slot-content"></div>
+              <div class="st-equip-slot-mark"></div>
+              <div class="st-equip-slot-key">X</div>
+            </div>
+            <div class="st-equip-slot st-equip-slot--ability" data-equip-slot="ability:2">
+              <div class="st-equip-slot-content"></div>
+              <div class="st-equip-slot-mark"></div>
+              <div class="st-equip-slot-key">C</div>
+            </div>
+          </div>
+          <div class="st-equip-slot-labels" id="st-equip-ability-labels">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="st-equip-available-label">Available</div>
+          <div class="st-equip-available-divider"></div>
+          <div class="st-equip-grid st-equip-grid--abilities" id="st-equip-ability-grid"></div>
+        </div>
+
+        <div class="st-equip-tab-content" id="st-equip-pane-technique" hidden>
+          <div class="st-equip-section-title">Passive Techniques</div>
+          <div class="st-equip-slots st-equip-slots--techniques" id="st-equip-technique-slots">
+            <div class="st-equip-slot st-equip-slot--technique" data-equip-slot="technique:0">
+              <div class="st-equip-slot-content"></div>
+              <div class="st-equip-slot-mark"></div>
+            </div>
+            <div class="st-equip-slot st-equip-slot--technique" data-equip-slot="technique:1">
+              <div class="st-equip-slot-content"></div>
+              <div class="st-equip-slot-mark"></div>
+            </div>
+            <div class="st-equip-slot st-equip-slot--technique" data-equip-slot="technique:2">
+              <div class="st-equip-slot-content"></div>
+              <div class="st-equip-slot-mark"></div>
+            </div>
+          </div>
+          <div class="st-equip-slot-labels" id="st-equip-technique-labels">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="st-equip-available-label">Available</div>
+          <div class="st-equip-available-divider"></div>
+          <div class="st-equip-grid st-equip-grid--techniques" id="st-equip-technique-grid"></div>
+        </div>
+
+        <div class="st-equip-footer">
+          <div class="st-equip-hint">Drag an unlocked icon into a slot to equip. Click a filled slot to clear it.</div>
+          <button class="st-equip-back-btn" id="st-equip-back">
+            <span class="st-s-key" style="width:26px;height:26px;border:1px solid var(--color-gold-bright);"><span>S</span></span>
+            <span>BACK TO TREE</span>
+          </button>
+        </div>
+      </div><!-- /st-view-equip -->
+
+      <div class="st-tooltip" id="st-tooltip"></div>
+    </div>
+  </div>
+
   <script defer src="qr-encode.js"></script>
   <script defer src="qr-builder.js"></script>
+  <script defer src="lib/skill-bonuses.js"></script>
   <script defer src="renderer.js"></script>
   <script defer src="engine-ini.js"></script>
 </body>

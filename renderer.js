@@ -8,16 +8,57 @@ if (new URLSearchParams(location.search).get('compact') === '1') {
 // =============================================
 // CONSTANTS
 // =============================================
-const RESOURCE_KEYS = new Set(['Health', 'Stamina', 'Energy']);
 const LABEL_OVERRIDES = {
   'Energy': 'Power',
   'Regen per Second': 'Power Regen/s',
   'Power Drain (%)': 'Power Drain %',
 };
-const STAMINA_REGEN_PCT = 0.25; // ~25% of max stamina per second (estimated)
-const STAMINA_REGEN_DELAY = 1.0; // 1.0s delay before regen starts (patch 1.2.10.0)
+// Stamina regen is FLAT (per second), NOT a percentage of max. Confirmed structurally via Ghidra:
+// UDuneCharacterAttributeSet.StaminaRegenPerTick default = 20, and BP_PassiveStaminaRegen_GE has
+// Period = 0.05s. The custom UDuneStaminaRegenExecution scales the per-tick amount by the period
+// (otherwise 20/tick × 20 ticks/sec = 400/sec, which is absurd), netting ~20 stamina/sec. The exact
+// per-tick scaling inside the execution isn't fully decompiled, but 20/sec is the gameplay-plausible
+// value and the only flat reading consistent with the attribute name + period. Revisit if in-game
+// stamina-refill timing disagrees. (2026-05-28)
+const STAMINA_REGEN_PER_SEC = 20.0;
+const STAMINA_REGEN_PCT = 0.20; // back-compat constant: 20% of starting 100 max stamina. Use STAMINA_REGEN_PER_SEC for correct math.
+const STAMINA_REGEN_DELAY = 3.0; // seconds before regen starts. Ghidra-confirmed via UDuneCharacterAttributeSet.StaminaRegenDelay (2026-05-28)
 const BASE_STATS = { Health: 150, Stamina: 100, Energy: 0 }; // Power=0 until power pack equipped
 const BASE_INVENTORY = { slots: 35, volume: 175.0 };
+
+// Build-save format version. Bump ONLY when the saved schema changes shape (slug encoding,
+// new required fields, renamed keys) — NOT for calc/constant tweaks, since derived stats are
+// recomputed on load and never persisted. migrateBuildData() keys off this to bring old saves
+// forward. Saves written before versioning existed have no formatVersion → treated as 0 (legacy).
+const BUILD_FORMAT_VERSION = 1;
+let APP_VERSION = null; // cached at startup for the informational stamp on exports (best-effort)
+
+// Hydrated Stamina Bonus (Aggression2: +15/20/25%) multiplies max stamina, but only while the
+// Innate hydration buff to MAX STAMINA. Confirmed from DT_HydrationStates
+// (GE_DehydratedState / GE_HydratedBonus1 / GE_HydratedBonus2 at the 30% / 70%
+// hydration-bar thresholds) + in-game measurement: max stamina is the floor
+// (base 100 + Max Stamina keystones + General Conditioning) multiplied by a
+// hydration factor that depends on the current hydration tier:
+//   low  (<30%):  +0%   — the bare floor
+//   mid  (30-70%): +25%
+//   high (>70%):  +50%
+// Optimized Hydration (Aggression2) adds ON TOP, additively, at the two hydrated
+// tiers (not when dehydrated). e.g. floor 130 → 130×1.50=195 at high; with 1 pt
+// Optimized Hydration (+15%) → 130×1.65=214.5≈215. Matches the live panel.
+const HYDRATION_INNATE = { low: 0, mid: 0.25, high: 0.50 };
+// Hydration tier derived from the 0–100 hydration percent (the bar position).
+// Thresholds match DT_HydrationStates (70% / 30%); upper edge inclusive.
+function hydrationTier() {
+  const ctx = (typeof SKILL_TREE_STATE !== 'undefined' && SKILL_TREE_STATE.context) || {};
+  const pct = typeof ctx.hydrationPct === 'number' ? ctx.hydrationPct : 100;
+  return pct >= 70 ? 'high' : pct >= 30 ? 'mid' : 'low';
+}
+function hydrationStaminaMul() {
+  const tier = hydrationTier();
+  const innate = HYDRATION_INNATE[tier] ?? 0.50;
+  const opt = tier === 'low' ? 0 : (getSkillBonuses().hydratedStaminaPct || 0) / 100;
+  return 1 + innate + opt;
+}
 
 // =============================================
 // PARSING
@@ -70,7 +111,7 @@ function parseResource(value) {
 /**
  * Parses clipboard text into build data.
  * @param {string} text
- * @returns {{ buildTotals: object|null, characterPanel: object|null }|null}
+ * @returns {{ duneExport: true, slots: object, hotbar: object|null, specializations: object|null, skills: object|null }|null}
  */
 function parseClipboardText(text) {
   const duneExport = extractSection(text, 'DUNEBUILDER EXPORT');
@@ -79,8 +120,8 @@ function parseClipboardText(text) {
     duneExport: true,
     slots: duneExport.slots || {},
     hotbar: duneExport.hotbar || null,
-    characterPanel: duneExport.characterPanel || null,
     specializations: duneExport.specializations || null,
+    skills: duneExport.skills || null,
   };
 }
 
@@ -88,7 +129,7 @@ function parseClipboardText(text) {
 // DOM FACTORIES
 // =============================================
 
-function createStatRow(label, value, formula) {
+function createStatRow(label, value, formula, rows) {
   const row = document.createElement('div');
   row.className = 'stat-row';
 
@@ -103,8 +144,8 @@ function createStatRow(label, value, formula) {
   row.appendChild(labelEl);
   row.appendChild(valueEl);
 
-  if (formula) {
-    row.addEventListener('mouseenter', e => showFormulaTooltip(label, value, formula, e));
+  if (formula || (rows && rows.length)) {
+    row.addEventListener('mouseenter', e => showFormulaTooltip(label, value, formula, e, rows));
     row.addEventListener('mousemove',  e => positionStatFormulaTooltip(e));
     row.addEventListener('mouseleave', hideStatFormulaTooltip);
   }
@@ -112,7 +153,7 @@ function createStatRow(label, value, formula) {
   return row;
 }
 
-function createResourceBar(label, { current, max }, cssKey, regenPerSec, regenDelay) {
+function createResourceBar(label, { current, max }, cssKey, regenPerSec, regenDelay, breakdown) {
   const wrapper = document.createElement('div');
   wrapper.className = 'resource-bar-wrapper';
   wrapper.dataset.resource = cssKey || label;
@@ -128,16 +169,31 @@ function createResourceBar(label, { current, max }, cssKey, regenPerSec, regenDe
   fill.className = 'resource-bar__fill';
   fill.style.width = '0%';
 
-  const startPct = max > 0 ? (current / max) * 100 : 0;
+  // Live state — mutated in place by setMax/setRegen so the click handler
+  // below always reads the current values. Capturing `max` / `regenPerSec`
+  // directly into the closure would leave click+drain replaying the OLD max
+  // after refreshAfterSpecChange() runs (which is what skill-tree
+  // allocations now trigger).
+  const state = { max, regenPerSec: regenPerSec || 0, regenDelay: regenDelay || 0 };
+
+  const startPct = state.max > 0 ? (current / state.max) * 100 : 0;
 
   const text = document.createElement('span');
   text.className = 'resource-bar__text';
-  text.textContent = `${formatNumber(Math.round(current))} / ${formatNumber(Math.round(max))}`;
+  text.textContent = `${formatNumber(Math.round(current))} / ${formatNumber(Math.round(state.max))}`;
 
   bar.appendChild(fill);
   bar.appendChild(text);
   wrapper.appendChild(labelEl);
   wrapper.appendChild(bar);
+
+  // Expose live setters so in-place updates from refreshAfterSpecChange()
+  // can keep both the displayed text AND the click-drain math in sync.
+  wrapper._setMax = (newMax) => {
+    state.max = newMax;
+    text.textContent = `${formatNumber(Math.round(newMax))} / ${formatNumber(Math.round(newMax))}`;
+  };
+  wrapper._setRegenPerSec = (newRegen) => { state.regenPerSec = newRegen || 0; };
 
   // Animate: snap to current%, then regen to 100% if not full
   requestAnimationFrame(() => {
@@ -146,11 +202,93 @@ function createResourceBar(label, { current, max }, cssKey, regenPerSec, regenDe
       if (startPct < 100) {
         setTimeout(() => {
           fill.style.width = '100%';
-          text.textContent = `${formatNumber(Math.round(max))} / ${formatNumber(Math.round(max))}`;
+          text.textContent = `${formatNumber(Math.round(state.max))} / ${formatNumber(Math.round(state.max))}`;
         }, 600);
       }
     });
   });
+
+  // Hover tooltip: HP / Stamina / Power source breakdown.
+  // Mirrors the right-panel stat-row hover pattern so the same formula tip
+  // doubles up here. Caller passes a `breakdown` object describing the parts
+  // that summed to `max`; we synthesize a generic+computed formula plus a
+  // contributor row list that names each skill node contributing flat HP.
+  if (breakdown && breakdown.staminaFloor != null) {
+    // Stamina = (base + Max Stamina keystones + General Conditioning) × hydration
+    // multiplier. Innate hydration buff (+0/+25/+50% by tier) + Optimized Hydration
+    // fold into the multiplier. Formula spells out the flat sum (no "Floor" jargon).
+    const innate = breakdown.innatePct || 0;
+    const opt = breakdown.optPct || 0;
+    const mul = 1 + (innate + opt) / 100;
+    const tierLabel = { high: 'Fully hydrated (>70%)', mid: 'Hydrated (30–70%)', low: 'Dehydrated (<30%)' }[breakdown.hydrationTier] || 'Hydration';
+    const sym = ['Base'];
+    const num = [formatNumber(breakdown.base || 0)];
+    const rows = [{ label: 'Base', value: formatNumber(breakdown.base || 0) }];
+    if (breakdown.spec)      { rows.push({ label: 'Spec keystones',       value: `+${formatNumber(breakdown.spec)}` });      sym.push('Spec');      num.push(formatNumber(breakdown.spec)); }
+    if (breakdown.skillFlat) { rows.push({ label: 'General Conditioning', value: `+${formatNumber(breakdown.skillFlat)}` }); sym.push('Gen Cond'); num.push(formatNumber(breakdown.skillFlat)); }
+    rows.push({ label: tierLabel, value: `+${formatNumber(innate)}%` });
+    if (opt) rows.push({ label: 'Optimized Hydration', value: `+${formatNumber(opt)}%` });
+    const multi = num.length > 1;
+    const symLeft = multi ? `(${sym.join(' + ')})` : sym[0];
+    const numLeft = multi ? `(${num.join(' + ')})` : num[0];
+    const formula = `${symLeft} × (1 + ${formatNumber(innate + opt)}%)\n${numLeft} × ${mul.toFixed(2)} = ${formatNumber(Math.round(state.max))}`;
+    bar.addEventListener('mouseenter', e => showFormulaTooltip(
+      `Max ${label}`, formatNumber(Math.round(state.max)), formula, e, rows));
+    bar.addEventListener('mousemove',  e => positionStatFormulaTooltip(e));
+    bar.addEventListener('mouseleave', hideStatFormulaTooltip);
+  } else if (breakdown && breakdown.pasted != null) {
+    // Pasted-panel path (HP): the value is the in-game final max (level + keystones + skills already
+    // baked in), so there's nothing to add up — just label it as ground truth.
+    bar.addEventListener('mouseenter', e => showFormulaTooltip(
+      `Max ${label}`, formatNumber(Math.round(breakdown.pasted)),
+      'From your pasted character panel\n(includes level scaling, keystones & skills)', e, []));
+    bar.addEventListener('mousemove',  e => positionStatFormulaTooltip(e));
+    bar.addEventListener('mouseleave', hideStatFormulaTooltip);
+  } else if (breakdown && breakdown.garmentPower) {
+    // Power: saved base power pool plus flat Maximum Power from gear (Power Harness).
+    const base = Math.round(breakdown.powerBase || 0);
+    const gear = Math.round(breakdown.garmentPower);
+    const formula = `Base + Gear\n${formatNumber(base)} + ${formatNumber(gear)} = ${formatNumber(Math.round(state.max))}`;
+    const rows = [
+      { label: 'Base Power', value: formatNumber(base) },
+      { label: 'Gear (Maximum Power)', value: `+${formatNumber(gear)}` },
+    ];
+    bar.addEventListener('mouseenter', e => showFormulaTooltip(
+      `Max ${label}`, formatNumber(Math.round(state.max)), formula, e, rows));
+    bar.addEventListener('mousemove',  e => positionStatFormulaTooltip(e));
+    bar.addEventListener('mouseleave', hideStatFormulaTooltip);
+  } else if (breakdown && (breakdown.base != null || breakdown.spec || breakdown.skillFlat || (breakdown.contributors && breakdown.contributors.length))) {
+    const fmtSigned = v => (v > 0 ? '+' : '') + formatNumber(Math.round(v));
+    const formulaParts = [];
+    const computedParts = [];
+    if (breakdown.base != null) {
+      formulaParts.push('Base');
+      computedParts.push(formatNumber(Math.round(breakdown.base)));
+    }
+    if (breakdown.spec) {
+      formulaParts.push('+ Spec');
+      computedParts.push(`+ ${formatNumber(Math.round(breakdown.spec))}`);
+    }
+    if (breakdown.skillFlat) {
+      formulaParts.push('+ Skill');
+      computedParts.push(`+ ${formatNumber(Math.round(breakdown.skillFlat))}`);
+    }
+    const formula = formulaParts.length > 1
+      ? `${formulaParts.join(' ')}\n${computedParts.join(' ')} = ${formatNumber(Math.round(state.max))}`
+      : null;
+    const rows = [];
+    if (breakdown.spec) {
+      rows.push({ label: 'Spec Bonus', value: fmtSigned(breakdown.spec) });
+    }
+    if (Array.isArray(breakdown.contributors)) {
+      for (const c of breakdown.contributors) {
+        rows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
+      }
+    }
+    bar.addEventListener('mouseenter', e => showFormulaTooltip(`Max ${label}`, formatNumber(Math.round(state.max)), formula, e, rows));
+    bar.addEventListener('mousemove',  e => positionStatFormulaTooltip(e));
+    bar.addEventListener('mouseleave', hideStatFormulaTooltip);
+  }
 
   // Click to drain + regen
   let regenAnim = null;
@@ -161,24 +299,24 @@ function createResourceBar(label, { current, max }, cssKey, regenPerSec, regenDe
 
     const rect = bar.getBoundingClientRect();
     const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-    let cur = pct * max;
+    let cur = pct * state.max;
 
     // Disable CSS transition for instant snap
     fill.style.transition = 'none';
-    fill.style.width = `${(cur / max) * 100}%`;
-    text.textContent = `${formatNumber(Math.round(cur))} / ${formatNumber(Math.round(max))}`;
+    fill.style.width = `${(cur / state.max) * 100}%`;
+    text.textContent = `${formatNumber(Math.round(cur))} / ${formatNumber(Math.round(state.max))}`;
 
-    if (regenPerSec && cur < max) {
-      const delayMs = (regenDelay || 0) * 1000;
+    if (state.regenPerSec && cur < state.max) {
+      const delayMs = state.regenDelay * 1000;
       function startRegen() {
         let lastTime = performance.now();
         function tick(now) {
           const dt = (now - lastTime) / 1000;
           lastTime = now;
-          cur = Math.min(max, cur + regenPerSec * dt);
-          fill.style.width = `${(cur / max) * 100}%`;
-          text.textContent = `${formatNumber(Math.round(cur))} / ${formatNumber(Math.round(max))}`;
-          if (cur < max) {
+          cur = Math.min(state.max, cur + state.regenPerSec * dt);
+          fill.style.width = `${(cur / state.max) * 100}%`;
+          text.textContent = `${formatNumber(Math.round(cur))} / ${formatNumber(Math.round(state.max))}`;
+          if (cur < state.max) {
             regenAnim = requestAnimationFrame(tick);
           } else {
             regenAnim = null;
@@ -201,13 +339,13 @@ function createResourceBar(label, { current, max }, cssKey, regenPerSec, regenDe
 // RENDERING
 // =============================================
 
-function renderCharacterPanel(data, itemStats) {
+function renderCharacterPanel(itemStats) {
   const container = document.getElementById('character-stats');
   container.innerHTML = '';
   const barsHolder = document.createElement('div');
   barsHolder.className = 'char-bars';
   container.appendChild(barsHolder);
-  renderResourceBars(barsHolder, data);
+  renderResourceBars(barsHolder);
 
   const extrasHolder = document.createElement('div');
   extrasHolder.className = 'char-extras';
@@ -215,52 +353,112 @@ function renderCharacterPanel(data, itemStats) {
   renderCharExtras(extrasHolder, itemStats);
 }
 
-/** Resource bars (Health, Stamina, Power). Animations only run on first build. */
-function renderResourceBars(container, data) {
+// Vertical hydration bar: click sets context.hydrationPct (0–100) to the clicked
+// vertical position (no drag, no snap). Fill shows the exact %, dashed lines mark
+// the 70%/30% stamina-tier boundaries. Replaces the old Settings dropdown.
+function buildHydrationBar() {
+  const ctx = (typeof SKILL_TREE_STATE !== 'undefined' && SKILL_TREE_STATE.context) || {};
+  const pct = typeof ctx.hydrationPct === 'number' ? ctx.hydrationPct : 100;
+  const wrap = document.createElement('div');
+  wrap.className = 'hydration-bar';
+  const track = document.createElement('div');
+  track.className = 'hydration-bar__track';
+  const fill = document.createElement('div');
+  fill.className = 'hydration-bar__fill';
+  fill.style.height = `${pct}%`;
+  const m70 = document.createElement('div'); m70.className = 'hydration-bar__mark hydration-bar__mark--70';
+  const m30 = document.createElement('div'); m30.className = 'hydration-bar__mark hydration-bar__mark--30';
+  track.append(fill, m70, m30);
+  const label = document.createElement('span');
+  label.className = 'hydration-bar__label';
+  label.textContent = `${Math.round(pct)}%`;
+  wrap.append(track, label);
+  track.addEventListener('click', e => {
+    const r = track.getBoundingClientRect();
+    const p = Math.max(0, Math.min(100, Math.round((r.bottom - e.clientY) / r.height * 100)));
+    if (typeof SKILL_TREE_STATE !== 'undefined' && SKILL_TREE_STATE.context) SKILL_TREE_STATE.context.hydrationPct = p;
+    // Update only this bar's fill/label, then recompute Stamina (and dashes/EHP)
+    // in place. Hydration touches Stamina max alone, so don't re-render the
+    // resource bars — that would re-animate HP/Power for no reason.
+    fill.style.height = `${p}%`;
+    label.textContent = `${p}%`;
+    refreshAfterSpecChange();
+  });
+  // Tooltip reads live state so it stays accurate after the bar is clicked.
+  track.addEventListener('mouseenter', e => {
+    const cur = (typeof SKILL_TREE_STATE !== 'undefined' && SKILL_TREE_STATE.context
+      && typeof SKILL_TREE_STATE.context.hydrationPct === 'number') ? SKILL_TREE_STATE.context.hydrationPct : 100;
+    const t = hydrationTier();
+    const innate = { high: 50, mid: 25, low: 0 }[t];
+    const tierName = { high: 'Fully hydrated', mid: 'Hydrated', low: 'Dehydrated' }[t];
+    showFormulaTooltip('Hydration', `${Math.round(cur)}%`, `${tierName} → +${innate}% max stamina`, e,
+      [{ label: '> 70%', value: '+50%' }, { label: '30–70%', value: '+25%' }, { label: '< 30%', value: '+0%' }]);
+  });
+  track.addEventListener('mousemove', e => positionStatFormulaTooltip(e));
+  track.addEventListener('mouseleave', hideStatFormulaTooltip);
+  return wrap;
+}
+
+/** Resource bars (Health, Stamina, Power). All three are computed from
+ *  base (150/100/0) + skill nodes + Combat keystones + gear — leveling grants
+ *  no resources (confirmed 2026-06-02), so there is nothing to import; the
+ *  build defines everything. The hover breakdown lets the user trace each
+ *  source. Animations only run on first build. */
+function renderResourceBars(container) {
   const powerPool  = getEquippedStat('pack', 'power pool');
-  const powerRegen = getEquippedStat('pack', 'regen per second');
-  let renderedPowerBar = false;
-  let renderedHealth = false;
-  let renderedStamina = false;
+  const basePowerRegen = getEquippedStat('pack', 'regen per second');
   const sb = getSpecBonuses();
+  const skb = getSkillBonuses();
+  // Skill-tree contribution to power regen — multiplicative on the pack's base
+  // regen (e.g. +10% Scientist3 turns 5/s into 5.5/s).
+  const powerRegen = basePowerRegen != null
+    ? basePowerRegen * (1 + (skb.powerRegenPct || 0) / 100)
+    : null;
 
-  if (data) {
-    for (const [key, value] of Object.entries(data)) {
-      if (!RESOURCE_KEYS.has(key)) continue;
-      if (key === 'Energy' && powerPool !== null) {
-        container.appendChild(createResourceBar('Power', { current: powerPool, max: powerPool }, 'Energy', powerRegen));
-        renderedPowerBar = true;
-        continue;
-      }
-      const resource = parseResource(value);
-      if (!resource) continue;
-      // Combat Max Health / Max Stamina keystones add on top of pasted values.
-      const specBonus = key === 'Health' ? sb.health
-                      : key === 'Stamina' ? sb.stamina
-                      : 0;
-      if (specBonus) { resource.max += specBonus; resource.current += specBonus; }
-      const displayLabel = LABEL_OVERRIDES[key] || key;
-      const regen = key === 'Stamina' ? resource.max * STAMINA_REGEN_PCT : null;
-      const delay = key === 'Stamina' ? STAMINA_REGEN_DELAY : 0;
-      container.appendChild(createResourceBar(displayLabel, resource, key, regen, delay));
-      if (key === 'Health') renderedHealth = true;
-      if (key === 'Stamina') renderedStamina = true;
-    }
-  }
+  // Two-column layout: vertical hydration bar (left) + the resource bars (right).
+  const resources = document.createElement('div');
+  resources.className = 'char-bars__resources';
+  container.appendChild(buildHydrationBar());
+  container.appendChild(resources);
 
-  // Fallback bars when paste data didn't provide them.
-  if (!renderedHealth && BASE_STATS.Health > 0) {
-    const max = BASE_STATS.Health + sb.health;
-    container.appendChild(createResourceBar('Health', { current: max, max }, 'Health'));
+  if (BASE_STATS.Health > 0) {
+    const max = BASE_STATS.Health + sb.health + (skb.maxHealthFlat || 0);
+    const breakdown = {
+      base: BASE_STATS.Health,
+      spec: sb.health,
+      skillFlat: skb.maxHealthFlat || 0,
+      contributors: getSkillContributors(['Max Health']),
+    };
+    resources.appendChild(createResourceBar('Health', { current: max, max }, 'Health', null, 0, breakdown));
   }
-  if (!renderedStamina && BASE_STATS.Stamina > 0) {
-    const max = BASE_STATS.Stamina + sb.stamina;
-    const regen = max * STAMINA_REGEN_PCT;
-    container.appendChild(createResourceBar('Stamina', { current: max, max }, 'Stamina', regen, STAMINA_REGEN_DELAY));
+  if (BASE_STATS.Stamina > 0) {
+    // Floor = base + Max Stamina keystones + General Conditioning (the <30% value).
+    // Displayed max = Floor × hydration multiplier (innate +0/+25/+50% by tier +
+    // Optimized Hydration). hydrationStaminaMul() encodes the active tier.
+    const tier = hydrationTier();
+    const floor = BASE_STATS.Stamina + sb.stamina + (skb.maxStaminaFlat || 0);
+    const max = floor * hydrationStaminaMul();
+    const regen = STAMINA_REGEN_PER_SEC * (1 + (skb.staminaRecoveryPct || 0) / 100);
+    const breakdown = {
+      staminaFloor: floor,
+      base: BASE_STATS.Stamina,
+      spec: sb.stamina,
+      skillFlat: skb.maxStaminaFlat || 0,
+      hydrationTier: tier,
+      innatePct: (HYDRATION_INNATE[tier] ?? 0.5) * 100,
+      optPct: tier === 'low' ? 0 : (skb.hydratedStaminaPct || 0),
+      contributors: getSkillContributors(['Max Stamina']),
+    };
+    resources.appendChild(createResourceBar('Stamina', { current: max, max }, 'Stamina', regen, STAMINA_REGEN_DELAY, breakdown));
   }
-  if (!renderedPowerBar) {
-    const pp = powerPool || BASE_STATS.Energy || 0;
-    container.appendChild(createResourceBar('Power', { current: pp, max: pp }, 'Energy', powerRegen));
+  {
+    // Power = pack power pool + gear Maximum Power (Power Harness +50). No skill
+    // or keystone grants max power.
+    const garmentPower = getGarmentMaxPower();
+    const basePwr = powerPool || BASE_STATS.Energy || 0;
+    const pp = basePwr + garmentPower;
+    const pBreak = garmentPower ? { powerBase: basePwr, garmentPower } : null;
+    resources.appendChild(createResourceBar('Power', { current: pp, max: pp }, 'Energy', powerRegen, 0, pBreak));
   }
 }
 
@@ -297,6 +495,20 @@ function renderCharExtras(container, itemStats) {
   container.appendChild(createStatRow('Slots', formatNumber(slots)));
   container.appendChild(createStatRow('Volume', `${formatNumber(volume, 1)}v`));
 
+  // Skills section — allocated attribute nodes from the K-menu tree.
+  // Display-only for now; calc wire-up is the next pass.
+  const skillsHolder = document.createElement('div');
+  skillsHolder.id = 'skills-summary';
+  container.appendChild(skillsHolder);
+  renderSkillsSummary();
+
+  // Techniques section — currently equipped Skills.Perk.* nodes (slotted
+  // into one of the 3 technique slots). Display-only for now.
+  const techHolder = document.createElement('div');
+  techHolder.id = 'techniques-summary';
+  container.appendChild(techHolder);
+  renderTechniquesSummary();
+
   // Spec sections holder — populated by renderSpecSummary().
   const specHolder = document.createElement('div');
   specHolder.id = 'spec-summary';
@@ -304,13 +516,143 @@ function renderCharExtras(container, itemStats) {
   renderSpecSummary();
 }
 
+/** Walks SKILL_TREE_STATE.allocations, surfacing the stat lines of allocated
+ *  attribute nodes (Ranged Damage, Scattergun Damage, etc) in the left panel.
+ *  Skipped silently if nothing is allocated yet or skill-tree data hasn't loaded. */
+function renderSkillsSummary() {
+  const container = document.getElementById('skills-summary');
+  if (!container) return;
+  container.innerHTML = '';
+  if (!SKILL_TREE_STATE.loaded) return;
+
+  // Collect every allocated attribute node, sum its current-rank stats.
+  const rows = [];
+  for (const spec of Object.keys(SKILL_TREE_STATE.allocations)) {
+    const specAlloc = SKILL_TREE_STATE.allocations[spec] || {};
+    for (const tag of Object.keys(specAlloc)) {
+      const node = SKILL_TREE_STATE.nodesByTag[tag];
+      const rank = specAlloc[tag] || 0;
+      if (!node || rank <= 0) continue;
+      if ((node.skillType || '').toLowerCase() !== 'attribute') continue;
+      const stats = (node.statsPerRank || [])[rank - 1];
+      if (!stats || typeof stats !== 'object') continue;
+      for (const [label, value] of Object.entries(stats)) {
+        rows.push({ label, value, tag });
+      }
+    }
+  }
+  if (rows.length === 0) return;
+
+  const heading = document.createElement('div');
+  heading.className = 'stats-section-label';
+  heading.textContent = 'Skills';
+  container.appendChild(heading);
+  for (const r of rows) {
+    container.appendChild(createStatRow(r.label, r.value));
+  }
+}
+
+// TECHNIQUE_HIDE_TAGS, TECHNIQUE_CONTEXT, parsePct, and computeSkillBonuses
+// live in lib/skill-bonuses.js (loaded as a <script src> before renderer.js).
+// They're attached as globals on window for direct reference here.
+
+/** Mirrors renderSkillsSummary but for techniques. Only techniques currently
+ *  equipped in one of the 3 technique slots contribute — matches in-game
+ *  behavior where allocating a technique unlocks it but the bonus only
+ *  applies while slotted. Situational techniques are further gated by the
+ *  context toggles (Suspended / Lunging / Exploited). */
+function renderTechniquesSummary() {
+  const container = document.getElementById('techniques-summary');
+  if (!container) return;
+  container.innerHTML = '';
+  if (!SKILL_TREE_STATE.loaded) return;
+
+  const equipped = (SKILL_TREE_STATE.equipped || {}).techniques || [];
+  const context = SKILL_TREE_STATE.context || {};
+
+  // First pass: figure out which context toggles to show (only for situational
+  // techniques the player has actually equipped).
+  const visibleContexts = [];
+  for (const tag of equipped) {
+    const ctx = tag && TECHNIQUE_CONTEXT[tag];
+    if (ctx && !visibleContexts.some(c => c.key === ctx.key)) {
+      visibleContexts.push(ctx);
+    }
+  }
+  // Hydration is no longer a chip — it's a 3-tier selector in Settings (the innate
+  // +0/+25/+50% max-stamina buff always applies, so it isn't a per-build toggle).
+
+  // Second pass: collect rows from equipped techniques, skipping hidden tags
+  // and context-gated ones whose toggle is off.
+  const rows = [];
+  for (const tag of equipped) {
+    if (!tag) continue;
+    if (TECHNIQUE_HIDE_TAGS.has(tag)) continue;
+    const ctx = TECHNIQUE_CONTEXT[tag];
+    if (ctx && !context[ctx.key]) continue;
+    const node = SKILL_TREE_STATE.nodesByTag[tag];
+    if (!node) continue;
+    const specAlloc = SKILL_TREE_STATE.allocations[node.spec] || {};
+    const rank = specAlloc[tag] || 0;
+    if (rank <= 0) continue;
+    const stats = (node.statsPerRank || [])[rank - 1];
+    if (!stats || typeof stats !== 'object') continue;
+    for (const [label, value] of Object.entries(stats)) {
+      rows.push({ label, value });
+    }
+  }
+
+  if (visibleContexts.length === 0 && rows.length === 0) return;
+
+  const heading = document.createElement('div');
+  heading.className = 'stats-section-label';
+  heading.textContent = 'Techniques';
+  container.appendChild(heading);
+
+  if (visibleContexts.length > 0) {
+    const chipRow = document.createElement('div');
+    chipRow.className = 'tech-context-row';
+    for (const c of visibleContexts) {
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'tech-context-chip' + (context[c.key] ? ' active' : '');
+      chip.textContent = c.label;
+      chip.dataset.contextKey = c.key;
+      chip.addEventListener('click', () => {
+        SKILL_TREE_STATE.context[c.key] = !SKILL_TREE_STATE.context[c.key];
+        persistSkillTreeState();
+        renderTechniquesSummary();
+        // Lunging flips ToughLunge's mitigation bonus on/off — needs the same
+        // EHP recompute that spec changes trigger. Other contexts piggyback.
+        refreshAfterSpecChange();
+      });
+      chipRow.appendChild(chip);
+    }
+    container.appendChild(chipRow);
+  }
+
+  for (const r of rows) {
+    container.appendChild(createStatRow(r.label, r.value));
+  }
+}
+
 /** In-place text update for an existing bar — used on spec changes so we
- *  don't trigger the snap-then-regen animation. */
+ *  don't trigger the snap-then-regen animation. Routes through the bar's
+ *  internal setter so the click-to-drain handler picks up the new max. */
 function updateResourceBarMaxInPlace(resourceKey, newMax) {
   const wrapper = document.querySelector(`.resource-bar-wrapper[data-resource="${resourceKey}"]`);
-  if (!wrapper) return;
-  const textEl = wrapper.querySelector('.resource-bar__text');
-  if (textEl) textEl.textContent = `${formatNumber(Math.round(newMax))} / ${formatNumber(Math.round(newMax))}`;
+  if (!wrapper || !wrapper._setMax) return;
+  wrapper._setMax(newMax);
+}
+
+/** Same idea for the regen rate (Stamina rate is a flat 20/sec scaled by
+ *  Disciplined Breathing; Power rate is the pack value multiplied by
+ *  Scientist3's bonus). Skips the animation; just updates the value the
+ *  click-drain regen reads. */
+function updateResourceBarRegenInPlace(resourceKey, newRegenPerSec) {
+  const wrapper = document.querySelector(`.resource-bar-wrapper[data-resource="${resourceKey}"]`);
+  if (!wrapper || !wrapper._setRegenPerSec) return;
+  wrapper._setRegenPerSec(newRegenPerSec);
 }
 
 let calcMode = 'def';
@@ -324,15 +666,39 @@ function getEquippedStat(slotType, nameFragment) {
   return stat != null ? stat.value : null;
 }
 
+/** Flat "Maximum Power" granted by equipped garments/armor, summed across slots.
+ *  The Power Harness chest (`combat_heavy_unique_powerincrease_top_06`) gives
+ *  +50 and is currently the only item with this stat. The saved build's Energy
+ *  value does NOT include it, so it has to be layered onto the power pool like
+ *  any other gear contribution. The stat is flat (no perGrade), so the raw value
+ *  is correct at every grade. */
+function getGarmentMaxPower() {
+  let total = 0;
+  for (const slot of ARMOR_SLOTS) {
+    const v = getEquippedStat(slot, 'maximum power');
+    if (typeof v === 'number') total += v;
+  }
+  return total;
+}
+
 function renderDefCalcs(container, equipped) {
   const powerPool   = getEquippedStat('pack',     'power pool');
   const powerDrain  = getEquippedStat('holtzman', 'power drain (%)');
-  const regenPerSec = getEquippedStat('pack',     'regen per second');
+  const baseRegenPerSec = getEquippedStat('pack', 'regen per second');
   const beltDrain   = getEquippedStat('belt',     'power drain');
+  const skb = getSkillBonuses();
+  // Pack regen scaled by Scientist3 (Power Regeneration %) — applies wherever
+  // we cite RegenPerSec for shield-recharge and pack-recharge calcs.
+  const regenPerSec = baseRegenPerSec != null
+    ? baseRegenPerSec * (1 + (skb.powerRegenPct || 0) / 100)
+    : null;
 
   const hasShield = !!equippedItems['holtzman'];
   const hasPack   = !!equippedItems['pack'];
   const hasBelt   = !!equippedItems['belt'];
+
+  // Shared formatter for signed percent values in the contributor row lists.
+  const fmtSignedPct = pct => (pct > 0 ? '+' : '') + pct.toFixed(pct % 1 ? 1 : 0) + '%';
 
   // --- EHP section (red — matches Health) ---
   const ehpHeading = document.createElement('div');
@@ -340,29 +706,36 @@ function renderDefCalcs(container, equipped) {
   ehpHeading.textContent = 'Effective Health Pool (EHP)';
   container.appendChild(ehpHeading);
 
-  const baseHpFromSource = lastCharacterPanel?.Health
-    ? (parseResource(lastCharacterPanel.Health)?.max ?? null)
-    : (BASE_STATS.Health > 0 ? BASE_STATS.Health : null);
-  const maxHealth = baseHpFromSource != null
-    ? baseHpFromSource + getSpecBonuses().health
+  const maxHealth = BASE_STATS.Health > 0
+    ? BASE_STATS.Health + getSpecBonuses().health + (skb.maxHealthFlat || 0)
     : null;
 
   const totalArmor = equipped['Armor Value'] ?? 0;
   const armorMit = (totalArmor / (totalArmor + 500)) * 100;
-  const specMit = getSpecBonuses().mitigationPercent;
+  // Skill mitigation (e.g. ToughLunge while lunging) stacks additively with the
+  // Combat-spec mitigation passive — they share one "specMit" channel before
+  // the multiplicative armor combine.
+  const specMitBase = getSpecBonuses().mitigationPercent;
+  const skillMitPct = skb.mitigationPct || 0;
+  const specMit = specMitBase + skillMitPct;
 
   // Combined Damage Reduction stacks armor and the Combat spec passive
   // multiplicatively: 1 - (1 - armor%) × (1 - spec%).
   const drFraction = 1 - (1 - armorMit / 100) * (1 - specMit / 100);
   const drPercent = drFraction * 100;
 
+  // Each row maps to the armor `equipped[<key>]` mitigation channel. The
+  // optional third element names the skill-bonus key whose value adds on top
+  // of the gear mitigation (e.g. MetabolizePoison contributes to vs Poison).
+  // Fourth element is the short label used in the contributor row list.
   const DAMAGE_TYPES = [
-    ['vs Light Dart',  'Light Dart Mitigation'],
-    ['vs Heavy Dart',  'Heavy Dart Mitigation'],
-    ['vs Energy',      'Energy Mitigation'],
-    ['vs Blade',       'Blade Mitigation'],
-    ['vs Concussive',  'Concussive Mitigation'],
-    ['vs Fire',        'Fire Mitigation'],
+    ['vs Light Dart',  'Light Dart Mitigation', null,                  'LDart Mit'],
+    ['vs Heavy Dart',  'Heavy Dart Mitigation', null,                  'HDart Mit'],
+    ['vs Energy',      'Energy Mitigation',     null,                  'Energy Mit'],
+    ['vs Blade',       'Blade Mitigation',      null,                  'Blade Mit'],
+    ['vs Concussive',  'Concussive Mitigation', null,                  'Concussive Mit'],
+    ['vs Fire',        'Fire Mitigation',       null,                  'Fire Mit'],
+    ['vs Poison',      'Poison Mitigation',     'poisonMitigationPct', 'Poison Mit'],
   ];
 
   if (maxHealth !== null) {
@@ -372,24 +745,74 @@ function renderDefCalcs(container, equipped) {
       return Math.round(maxHealth / (drMul * typeMul));
     };
 
-    const drFormula = specMit > 0
-      ? `1 - (1 - Armor/(Armor+500)) × (1 - SpecMit%)\n` +
-        `1 - (1 - ${(armorMit / 100).toFixed(4)}) × (1 - ${(specMit / 100).toFixed(4)}) = ${drFraction.toFixed(4)}`
-      : `Armor / (Armor + 500)\n${totalArmor} / (${totalArmor} + 500) = ${drFraction.toFixed(4)}`;
+    // Match the weapon-damage tooltip pattern: each contributor is its own
+    // NAMED variable in the symbolic formula and gets a corresponding numeric
+    // value in the substitution. No vague "+ Skill 50%" trailing lines.
+    let drFormula;
+    if (specMit > 0) {
+      // Build the mitigation expression piece-wise so SpecMit% and SkillMit%
+      // appear as distinct terms (matches how weapon damage shows SkillRGD%,
+      // SkillHS%, etc).
+      const mitTerms = [];
+      const mitVals  = [];
+      if (specMitBase) { mitTerms.push('SpecMit%');  mitVals.push((specMitBase / 100).toFixed(4)); }
+      if (skillMitPct) { mitTerms.push('SkillMit%'); mitVals.push((skillMitPct  / 100).toFixed(4)); }
+      const mitSym = mitTerms.join(' + ');
+      const mitNum = mitVals.join(' + ');
+      drFormula = `1 - (1 - Armor/(Armor+500)) × (1 - ${mitSym})\n` +
+        `1 - (1 - ${(armorMit / 100).toFixed(4)}) × (1 - ${mitNum}) = ${drFraction.toFixed(4)}`;
+    } else {
+      drFormula = `Armor / (Armor + 500)\n${totalArmor} / (${totalArmor} + 500) = ${drFraction.toFixed(4)}`;
+    }
+
+    // Contributor row list for Damage Reduction: armor (always), spec passive,
+    // each skill node contributing Damage Mitigation by name. Other EHP rows
+    // skip the HP breakdown since the Health-bar tooltip (future) will own it.
+    const drRows = [{ label: 'Armor Value', value: `${formatNumber(totalArmor)} → ${(armorMit).toFixed(1)}%` }];
+    if (specMitBase) drRows.push({ label: 'Spec Mitigation', value: fmtSignedPct(specMitBase) });
+    for (const c of getSkillContributors(['Damage Mitigation'])) {
+      drRows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
+    }
 
     container.appendChild(createStatRow('Damage Reduction',
-      `${formatNumber(Math.round(drPercent * 10) / 10, 1)}%`, drFormula));
+      `${formatNumber(Math.round(drPercent * 10) / 10, 1)}%`, drFormula, drRows));
     container.appendChild(createStatRow('vs Physical',
       formatNumber(ehpFromMit(drPercent, 0)),
       `Health / (DMG - DR%)\n${formatNumber(maxHealth)} / (1 - ${drFraction.toFixed(4)}) = ${formatNumber(ehpFromMit(drPercent, 0))}`));
 
-    DAMAGE_TYPES.forEach(([label, key]) => {
-      const typeMit = equipped[key] ?? 0;
+    // Per-type rows show only the gear + skill mitigation specific to that
+    // damage type. HP breakdown lives on the Health-bar hover tooltip.
+    const TYPE_SKILL_STAT_LABELS = {
+      poisonMitigationPct: ['Poison Mitigation'],
+    };
+    DAMAGE_TYPES.forEach(([label, key, skillBonusKey, shortLabel]) => {
+      const gearMit = equipped[key] ?? 0;
+      const skillMit = skillBonusKey ? (skb[skillBonusKey] || 0) : 0;
+      const typeMit = Math.min(95, gearMit + skillMit);
       const drMul   = Math.max(0.001, 1 - drPercent / 100);
       const typeMul = 1 - typeMit / 100;
-      container.appendChild(createStatRow(label,
-        formatNumber(ehpFromMit(drPercent, typeMit)),
-        `Health / ((DMG - DR%) × (DMG - TypeMit%))\n${formatNumber(maxHealth)} / (${drMul.toFixed(4)} × ${typeMul.toFixed(4)}) = ${formatNumber(ehpFromMit(drPercent, typeMit))}`));
+      let typeSym, typeNum;
+      if (skillMit) {
+        typeSym = 'GearMit% + SkillMit%';
+        typeNum = `${(gearMit / 100).toFixed(4)} + ${(skillMit / 100).toFixed(4)}`;
+      } else {
+        typeSym = 'TypeMit%';
+        typeNum = (typeMit / 100).toFixed(4);
+      }
+      const formula = `Health / ((DMG - DR%) × (DMG - ${typeSym}))\n` +
+        `${formatNumber(maxHealth)} / (${drMul.toFixed(4)} × (1 - ${typeNum})) = ${formatNumber(ehpFromMit(drPercent, typeMit))}`;
+      // Row list = mitigation contributors only. Skip rows when only gear is
+      // contributing and nothing else, since the value already reads from the
+      // headline number.
+      const rows = [];
+      if (gearMit) rows.push({ label: shortLabel, value: fmtSignedPct(gearMit) });
+      if (skillBonusKey) {
+        const skillLabels = TYPE_SKILL_STAT_LABELS[skillBonusKey] || [];
+        for (const c of getSkillContributors(skillLabels)) {
+          rows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
+        }
+      }
+      container.appendChild(createStatRow(label, formatNumber(ehpFromMit(drPercent, typeMit)), formula, rows));
     });
 
     // Radiation: not HP damage — a 150,000-rad poisoning meter that fills at a flat rate per zone level,
@@ -418,25 +841,119 @@ function renderDefCalcs(container, equipped) {
   staminaHeading.textContent = 'Stamina';
   container.appendChild(staminaHeading);
 
-  const BASE_DASH_COST = 30;
-  const baseStamFromSource = lastCharacterPanel?.Stamina
-    ? (parseResource(lastCharacterPanel.Stamina)?.max ?? null)
-    : (BASE_STATS.Stamina > 0 ? BASE_STATS.Stamina : null);
-  const maxStamina = baseStamFromSource != null
-    ? baseStamFromSource + getSpecBonuses().stamina
+  const BASE_DASH_COST = 35; // Ghidra-confirmed via UDuneCharacterAttributeSet.DashStaminaCost (2026-05-28). Was 30 historically; verify with in-game dash count if it feels off.
+  const baseMaxStamina = BASE_STATS.Stamina > 0
+    ? BASE_STATS.Stamina + getSpecBonuses().stamina + (skb.maxStaminaFlat || 0)
     : null;
+  // Hydrated toggle scales max stamina (Aggression2) → more dashes when hydrated.
+  const maxStamina = baseMaxStamina != null ? baseMaxStamina * hydrationStaminaMul() : null;
   const gearDashMod  = equipped['Dash Stamina Cost'] ?? 0;
-  const effectiveCost = Math.max(1, BASE_DASH_COST * (1 + gearDashMod / 100));
+  // ThriveOnDanger's "Stamina Costs -15%" reduces every stamina expenditure,
+  // dash included. Stored as a signed percent (negative means reduction).
+  const skillStaminaCostPct = skb.staminaCostPct || 0;
+  const effectiveCost = Math.max(1, BASE_DASH_COST * (1 + gearDashMod / 100) * (1 + skillStaminaCostPct / 100));
 
+  // Build the cost expression with NAMED variables per contributor.
+  const dashTerms = ['BaseCost'];
+  const dashNums  = [String(BASE_DASH_COST)];
+  if (gearDashMod) {
+    dashTerms.push('(1 + GearMod%)');
+    dashNums.push(`(1 + ${(gearDashMod / 100).toFixed(2)})`);
+  }
+  if (skillStaminaCostPct) {
+    dashTerms.push('(1 + SkillCost%)');
+    dashNums.push(`(1 + ${(skillStaminaCostPct / 100).toFixed(2)})`);
+  }
+  const dashRows = [{ label: 'Base Dash Cost', value: String(BASE_DASH_COST) }];
+  if (gearDashMod) dashRows.push({ label: 'Gear Dash Cost Mod', value: fmtSignedPct(gearDashMod) });
+  for (const c of getSkillContributors(['Stamina Costs'])) {
+    dashRows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
+  }
   container.appendChild(createStatRow('Dash Cost', formatNumber(Math.round(effectiveCost)),
-    `BaseCost × (1 + ModTotal%)\n${BASE_DASH_COST} × (1 + ${gearDashMod}%) = ${formatNumber(Math.round(effectiveCost))}`));
+    `${dashTerms.join(' × ')}\n${dashNums.join(' × ')} = ${formatNumber(Math.round(effectiveCost))}`,
+    dashRows));
 
   if (maxStamina !== null) {
     const rawDashes = maxStamina / effectiveCost;
     const rawRounded = Math.round(rawDashes * 10) / 10;
     const effectiveDashes = Math.ceil(rawRounded);
     container.appendChild(createStatRow('Max Dashes', `${formatNumber(effectiveDashes)} (${formatNumber(rawRounded, 1)})`,
-      `MaxStamina / DashCost\n${formatNumber(maxStamina)} / ${formatNumber(Math.round(effectiveCost))} = ${formatNumber(rawRounded, 1)}`));
+      `Stamina / DashCost\n${formatNumber(maxStamina)} / ${formatNumber(Math.round(effectiveCost))} = ${formatNumber(rawRounded, 1)}`));
+  }
+
+  // Mountaineer (Explorer2) reduces climbing stamina drain. The base in-game
+  // rate isn't exposed as a stat we can multiply against, so surface this as a
+  // percent reduction on the climbing channel — same shape as the other skill
+  // contributor rows.
+  const climbingDrainPct = skb.climbingStaminaPct || 0;
+  if (climbingDrainPct !== 0) {
+    const climbRows = [];
+    for (const c of getSkillContributors(['Climbing Stamina Drain'])) {
+      climbRows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
+    }
+    container.appendChild(createStatRow('Climbing Drain', fmtSignedPct(climbingDrainPct),
+      `Skill-driven reduction to stamina cost while climbing.\nNet: ${fmtSignedPct(climbingDrainPct)}`,
+      climbRows));
+  }
+
+  // --- Healing section (red — matches Health) ---
+  // All values come from the skill tree (no gear stats feed these yet).
+  // Render only the rows whose contributor is actually active.
+  const healingRegenRate = skb.healingRegenRatePct || 0;
+  const healingRegenLimit = skb.healingRegenLimitPct || 0;
+  const healingEffectiveness = skb.healingEffectivenessPct || 0;
+  const healkitRestoration = skb.healkitRestorationPct || 0;
+  const healthRegen = skb.healthRegenPct || 0;
+  const hasHealing = healingRegenRate || healingRegenLimit || healingEffectiveness || healkitRestoration || healthRegen;
+  if (hasHealing) {
+    const healHeading = document.createElement('div');
+    healHeading.className = 'stats-section-label stats-section-label--health';
+    healHeading.textContent = 'Healing';
+    container.appendChild(healHeading);
+
+    const HEAL_ROWS = [
+      ['Healing Regen Rate',    healingRegenRate,    'Healing Regen Rate',         'How fast HP regenerates after taking damage.'],
+      ['Healing Regen Limit',   healingRegenLimit,   'Healing Regen Limit',        'Cap on how much HP regen can refill (% of max).'],
+      ['Healing Effectiveness', healingEffectiveness,'Healing Effectiveness',      'Multiplier on heal item potency (potions, etc.).'],
+      ['Healkit Restoration',   healkitRestoration,  'Healkit Instant Restoration','Instant HP a healkit restores when used.'],
+      ['Health Regeneration',   healthRegen,         'Health Regeneration',        'Passive HP/sec regen (ThriveOnDanger).'],
+    ];
+    HEAL_ROWS.forEach(([label, pct, skillStat, description]) => {
+      if (!pct) return;
+      const rows = [];
+      for (const c of getSkillContributors([skillStat])) {
+        rows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
+      }
+      container.appendChild(createStatRow(label, fmtSignedPct(pct), description, rows));
+    });
+  }
+
+  // --- Hydration section (cyan — distinct from Stamina/Health) ---
+  const hydratedBonus = skb.hydratedStaminaPct || 0;
+  const dehydratedLimit = skb.dehydratedStaminaPct || 0;
+  if (hydratedBonus || dehydratedLimit) {
+    const hydHeading = document.createElement('div');
+    // Reuse the stamina (green) section style — hydration directly affects stamina.
+    hydHeading.className = 'stats-section-label stats-section-label--stamina';
+    hydHeading.textContent = 'Hydration';
+    container.appendChild(hydHeading);
+
+    if (hydratedBonus) {
+      const rows = [];
+      for (const c of getSkillContributors(['Hydrated Stamina Bonus'])) {
+        rows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
+      }
+      container.appendChild(createStatRow('Hydrated Stamina Bonus', fmtSignedPct(hydratedBonus),
+        'Bonus to max stamina while hydrated.', rows));
+    }
+    if (dehydratedLimit) {
+      const rows = [];
+      for (const c of getSkillContributors(['Dehydrated Stamina Limit'])) {
+        rows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
+      }
+      container.appendChild(createStatRow('Dehydrated Stamina Limit', fmtSignedPct(dehydratedLimit),
+        'Raised stamina ceiling when dehydrated (Desert Conditioning).', rows));
+    }
   }
 
   // --- Power section (blue — matches Power Pool) ---
@@ -466,15 +983,39 @@ function renderDefCalcs(container, equipped) {
 
   if (powerPool !== null && regenPerSec !== null) {
     const recharge = powerPool / regenPerSec;
+    const powerRegenSkillPct = skb.powerRegenPct || 0;
+    // Regen expression — split into PackRegen × (1 + SkillRegen%) when Scientist3
+    // contributes, otherwise just plain Regen.
+    const regenSym = powerRegenSkillPct ? 'PackRegen × (1 + SkillRegen%)' : 'Regen';
+    const regenNum = powerRegenSkillPct
+      ? `${formatNumber(baseRegenPerSec)} × (1 + ${(powerRegenSkillPct / 100).toFixed(2)})`
+      : formatNumber(regenPerSec);
+    const rechargeRows = [
+      { label: 'Pack Power Pool', value: formatNumber(powerPool) },
+      { label: 'Pack Regen/sec',  value: formatNumber(baseRegenPerSec) },
+    ];
+    for (const c of getSkillContributors(['Power Regeneration'])) {
+      rechargeRows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
+    }
     container.appendChild(createStatRow('Full Recharge', `${formatNumber(recharge, 1)}s`,
-      `PowerPool / RegenPerSec\n${formatNumber(powerPool)} / ${formatNumber(regenPerSec)} = ${formatNumber(recharge, 1)}s`));
+      `PowerPool / ${regenSym}\n${formatNumber(powerPool)} / ${regenNum} = ${formatNumber(recharge, 1)}s`,
+      rechargeRows));
   }
 
   // Suspension — how long the suspensor belt can run before the pack is empty.
   // Exploration Suspensor Powerdrain Reduction keystones apply as the FINAL
   // layer (same pattern as the Combat damage / mitigation passives).
   if (hasBelt && beltDrain !== null && powerPool !== null) {
-    const drainMul = getSpecBonuses().suspensorDrainMul;
+    // SuspensorTech1 attribute folds into the same drain multiplier as the
+    // Exploration spec keystone reductions. Both store percent deltas; combine
+    // additively then floor at 0 (matches the existing spec-side math).
+    // BatteryExpert (Conservation of Energy) reduces general Power Usage; the
+    // suspensor belt is one consumer of that pool, so it stacks here too.
+    const specDrainMul = getSpecBonuses().suspensorDrainMul; // 1.0 = no reduction
+    const skillDrainPct = (skb.suspensorDrainPct || 0) / 100;
+    const skillPowerUsagePct = (skb.powerUsagePct || 0) / 100;
+    const specDelta = specDrainMul - 1.0; // 0 means no spec contribution
+    const drainMul = Math.max(0, specDrainMul + skillDrainPct + skillPowerUsagePct);
     const effectiveDrain = beltDrain * drainMul;
     if (effectiveDrain > 0) {
       const duration = powerPool / effectiveDrain;
@@ -488,11 +1029,44 @@ function renderDefCalcs(container, equipped) {
         if (s < 0.05) return `${formatNumber(m)}m`;
         return `${formatNumber(m)}m${formatNumber(s, 1)}s`;
       };
-      const baseFormula = `PowerPool / (BeltDrain × SpecMul)\n` +
-        `${formatNumber(powerPool)} / (${formatNumber(beltDrain)} × ${drainMul.toFixed(2)}) = ${formatNumber(duration, 1)}s`;
+      // Build the DrainMul expression with each contributor as its own named
+      // variable. Each variable corresponds to one feeding source so the user
+      // can verify wiring without inspecting state.
+      const drainSyms = ['1.00'];
+      const drainNums = ['1.00'];
+      if (Math.abs(specDelta) > 1e-6) {
+        drainSyms.push('SpecDrain%');
+        drainNums.push((specDelta).toFixed(2));
+      }
+      if (Math.abs(skillDrainPct) > 1e-6) {
+        drainSyms.push('SuspensorTech%');
+        drainNums.push((skillDrainPct).toFixed(2));
+      }
+      if (Math.abs(skillPowerUsagePct) > 1e-6) {
+        drainSyms.push('PowerUsage%');
+        drainNums.push((skillPowerUsagePct).toFixed(2));
+      }
+      // Outer-paren the DrainMul expression when it has more than one term so
+      // it's clearly the second factor of BeltDrain × DrainMul.
+      const drainHasMods = drainSyms.length > 1;
+      const drainSymWrap = drainHasMods ? `(${drainSyms.join(' + ')})` : '1.00';
+      const drainNumWrap = drainHasMods ? `(${drainNums.join(' + ')})` : '1.00';
+      const baseFormula = `PowerPool / (BeltDrain × ${drainSymWrap})\n` +
+        `${formatNumber(powerPool)} / (${formatNumber(beltDrain)} × ${drainNumWrap}) = ${formatNumber(duration, 1)}s`;
       const simpleFormula = `PowerPool / BeltDrain\n${formatNumber(powerPool)} / ${formatNumber(beltDrain)} = ${formatNumber(duration, 1)}s`;
+      const susRows = [
+        { label: 'Pack Power Pool', value: formatNumber(powerPool) },
+        { label: 'Belt Power Drain/s', value: formatNumber(beltDrain) },
+      ];
+      if (Math.abs(specDelta) > 1e-6) {
+        susRows.push({ label: 'Spec Suspensor Drain (keystone)', value: fmtSignedPct(specDelta * 100) });
+      }
+      for (const c of getSkillContributors(['Suspensor Power Drain', 'Power Usage'])) {
+        susRows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
+      }
       container.appendChild(createStatRow('Suspension', fmtDur(duration),
-        drainMul !== 1 ? baseFormula : simpleFormula));
+        drainHasMods ? baseFormula : simpleFormula,
+        susRows));
     }
   }
 }
@@ -563,7 +1137,6 @@ let WEAPON_AUGMENT_BY_SLUG = new Map();
 // defense totals (which the EHP/mitigation calcs and Equipment list read by
 // display name) can name a key even when no equipped item carries that stat.
 const STAT_KEY_DISPLAY = {};
-let lastCharacterPanel = null;
 let currentPickerItems = [];
 let currentPickerSlotType = null;
 const appSettings = loadSettings();
@@ -626,6 +1199,38 @@ const SLOT_ORIGINAL_LABELS = {
 
 const equippedItems = {};
 const equippedGrades = {};
+
+// Skill-tree state. Declared here (with the other top-level state) rather than
+// down in the SKILL TREE PANEL section because the early init path
+// (refreshPanels → renderResourceBars → getSkillBonuses) and the hydrated
+// toggle both read it during module evaluation. The full skill-tree code lives
+// further down; this is only the state container.
+const SKILL_TREE_STATE = {
+  data: null,             // mock-v6-data.json
+  descriptions: {},       // descriptions.json
+  costs: {},              // costs.json
+  subTreeLabels: {},      // sub-tree-labels.json
+  gt: null,               // gt-skill-tree.json (for spec nav icons)
+  loaded: false,
+  // allocations: { [spec]: { [tag]: rank, ... }, ... }
+  allocations: {},
+  // Per-spec rank cache for quick lookup, populated after data load
+  nodesByTag: {},         // tag -> { spec, name, prerequisites, ... }
+  spSpent: 0,
+  spTotal: 199,
+  spBase: 199,    // L200 baseline from SkillXPPerLevel curve
+  spBonus: 0,     // sum of Combat-spec SkillPoint keystone effects currently claimed
+  spBonusBreakdown: '', // tooltip-friendly description (e.g. "+24 from Combat")
+  currentSpec: null,
+  tt: { node: null, skill: null, previewRank: 1, allocated: 0, max: 1 },
+  // Combat-context flags gate situational technique stat lines (e.g.
+  // Death from Above only contributes Damage While Suspended when `suspended`
+  // is true). Persisted with the rest of the skill-tree state.
+  // hydrated defaults ON: the pasted Stamina is the dehydrated floor, so the headline number should
+  // be the computed hydrated max (your normal topped-up state). Toggle off to see the bare floor.
+  context: { suspended: false, lunging: false, exploited: false, hydrationPct: 100 },
+};
+
 const ARMOR_SLOTS = new Set(['helm', 'chest', 'gloves', 'pants', 'boots']);
 const GARMENT_SLOTS = new Set(['helm', 'chest', 'gloves', 'pants', 'boots']);
 
@@ -685,6 +1290,10 @@ function formatStatValue(name, value) {
   if (FLAT_STATS.has(n)) return formatNumber(value);
   // Accuracy is stored on Funcom's 0–1 scale; show it as a human-readable percent.
   if (n === 'accuracy') return `${formatNumber(Math.round(value * 1000) / 10)}%`;
+  // Crit Damage is the per-weapon m_CritDamage multiplier fraction (0.5 = +50%
+  // headshot bonus, applied as ×1.50 in the damage formula). Show it as the
+  // bonus percent so the card row agrees with the formula's "× Crit × 1.50".
+  if (n === 'crit damage') return `+${formatNumber(value * 100)}%`;
   return `${formatNumber(value)}%`;
 }
 
@@ -1007,6 +1616,12 @@ function getDamageRowSpec(item, statKey, statMap, augEffects) {
     if (statKey === 'shieldDamagePerHit') {
       return { ...noFactor, statedKey: 'shieldDamagePerHit', statedValue: valOf('shieldDamagePerHit'), isPrimary: true };
     }
+    // DualBlades Flurry uses 2.5× instead of 6× for the shielded heavy (it's a
+    // multi-hit flurry where each hit lands, not a single big swing). Source:
+    // BP_DualBlades_FlurryShielded_AttackParams.m_DamageDealtOverrideMultiplier (GHID30b).
+    // The unshielded heavy still uses the default 3× — Funcom ships no DualBlades-specific
+    // unshielded params.
+    const isDualBlades = /dualblades/i.test(item.slug || '');
     if (statKey === 'heavyAttackDamageUnshielded') {
       return {
         statedKey: 'damagePerHit', statedValue: dph, isPrimary: false,
@@ -1015,10 +1630,12 @@ function getDamageRowSpec(item, statKey, statMap, augEffects) {
       };
     }
     if (statKey === 'heavyAttackDamageShielded') {
+      const mul = isDualBlades ? 2.5 : 6;
+      const label = isDualBlades ? 'Heavy ×2.5 (DualBlades)' : 'Heavy ×6';
       return {
         statedKey: 'damagePerHit', statedValue: dph, isPrimary: false,
-        factorMul: 6, factorLabel: 'Heavy ×6', factorSymExpr: 'Heavy', factorNumExpr: '6',
-        factorRows: [{ label: 'Heavy', value: '×6' }],
+        factorMul: mul, factorLabel: label, factorSymExpr: 'Heavy', factorNumExpr: String(mul),
+        factorRows: [{ label: 'Heavy', value: `×${mul}` }],
       };
     }
     if (statKey === 'dps') {
@@ -1155,27 +1772,97 @@ function getSpecBonuses() {
   return b;
 }
 
-/** Whether a weapon item can land headshots in-game. Excludes melee, drillshots,
- *  flamethrowers, lasguns, pyrockets, and missile launchers. */
-const HEADSHOT_BLOCKED_FAMILIES = new Set([
-  'Drillshot FK7', 'Flamethrower', 'Lasgun', 'Pyrocket', 'Missile Launcher',
-]);
-const HEADSHOT_BLOCKED_NAME_KEYWORDS = [
-  'drillshot', 'flamethrower', 'lasgun', 'pyrocket', 'pyrorocket', 'missile launcher',
-];
+/** Thin wrapper over the shared computeSkillBonuses() in lib/skill-bonuses.js.
+ *  Reads from the live SKILL_TREE_STATE and forwards the four inputs the
+ *  shared aggregator needs. Returning the zero-filled default before load
+ *  keeps every calc site safe to call unconditionally. */
+function getSkillBonuses() {
+  if (typeof SKILL_TREE_STATE === 'undefined' || !SKILL_TREE_STATE.loaded) {
+    return {
+      rangedDamagePct: 0, headshotDamagePct: 0, bodyDamagePct: 0,
+      pistolDamagePct: 0, rifleDamagePct: 0, carbineDamagePct: 0, scattergunDamagePct: 0,
+      heavyDamagePct: 0, bladeDamagePct: 0, shortBladeDamagePct: 0, longBladeDamagePct: 0, shieldDamagePct: 0,
+      maxHealthFlat: 0, maxStaminaFlat: 0,
+      powerRegenPct: 0, suspensorDrainPct: 0, mitigationPct: 0,
+      suspendedDamagePct: 0,
+      staminaCostPct: 0, staminaRecoveryPct: 0,
+      powerUsagePct: 0, poisonMitigationPct: 0,
+      healingRegenRatePct: 0, healingRegenLimitPct: 0,
+      healingEffectivenessPct: 0, healkitRestorationPct: 0,
+      healthRegenPct: 0,
+      hydratedStaminaPct: 0, dehydratedStaminaPct: 0, climbingStaminaPct: 0,
+    };
+  }
+  return computeSkillBonuses({
+    allocations: SKILL_TREE_STATE.allocations,
+    equipped:    SKILL_TREE_STATE.equipped,
+    context:     SKILL_TREE_STATE.context,
+    nodesByTag:  SKILL_TREE_STATE.nodesByTag,
+  });
+}
+
+/** Walks allocated nodes + equipped techniques and returns every
+ *  contributor whose per-rank stats include one of `statLabels`. Mirrors the
+ *  gating logic in computeSkillBonuses (attributes always on; techniques only
+ *  when slotted + context flag met). Used by right-panel tooltips to list each
+ *  specific skill source by name + rank for verification. Returns:
+ *    [{ nodeName, rank, statLabel, value }]
+ */
+function getSkillContributors(statLabels) {
+  if (typeof SKILL_TREE_STATE === 'undefined' || !SKILL_TREE_STATE.loaded) return [];
+  const labelSet = new Set(statLabels);
+  const _alloc = SKILL_TREE_STATE.allocations || {};
+  const _equip = (SKILL_TREE_STATE.equipped || {}).techniques || [];
+  const _ctx   = SKILL_TREE_STATE.context || {};
+  const _nodes = SKILL_TREE_STATE.nodesByTag || {};
+  const out = [];
+  for (const spec of Object.keys(_alloc)) {
+    const specAlloc = _alloc[spec] || {};
+    for (const tag of Object.keys(specAlloc)) {
+      const node = _nodes[tag];
+      if (!node) continue;
+      const rank = specAlloc[tag] || 0;
+      if (rank <= 0) continue;
+      const skillType = (node.skillType || '').toLowerCase();
+      // Techniques: must be slotted, not hidden, and context-gate must pass.
+      if (skillType === 'technique') {
+        if (!_equip.includes(tag)) continue;
+        if (typeof TECHNIQUE_HIDE_TAGS !== 'undefined' && TECHNIQUE_HIDE_TAGS.has(tag)) continue;
+        const ctx = typeof TECHNIQUE_CONTEXT !== 'undefined' ? TECHNIQUE_CONTEXT[tag] : null;
+        if (ctx && !_ctx[ctx.key]) continue;
+      } else if (skillType !== 'attribute') {
+        continue;
+      }
+      const stats = (node.statsPerRank || [])[rank - 1] || {};
+      for (const label of Object.keys(stats)) {
+        if (!labelSet.has(label)) continue;
+        out.push({ nodeName: node.name || tag, rank, statLabel: label, value: stats[label] });
+      }
+    }
+  }
+  return out;
+}
+
+/** Whether a weapon item can land headshots in-game. Driven off the per-weapon
+ *  `m_CritDamage` UPROPERTY surfaced as `stats.critDamage` — any weapon with
+ *  critDamage > 0 supports crits / headshots. critDamage == 0 weapons are
+ *  scatterguns, flamethrowers, and mining tools — confirmed via pak extraction
+ *  (see `reference_extracted_combat_data.md`).
+ *  Melee weapons always return false (they don't have a head/body split). */
 function canHeadshot(item) {
   if (!item) return false;
   if (item.subtype === 'melee') return false;
-  if (item.family && HEADSHOT_BLOCKED_FAMILIES.has(item.family)) return false;
-  const name = (item.name || '').toLowerCase();
-  return !HEADSHOT_BLOCKED_NAME_KEYWORDS.some(kw => name.includes(kw));
+  const cd = item.stats?.critDamage?.value;
+  return typeof cd === 'number' && cd > 0;
 }
 
 /** Actual in-game hit-location splits — your weapon's printed Damage Per Shot
  *  is the *stated* value; you only ever deal a fraction of it depending on
- *  where you hit. The 0.60 / 0.40 = 1.5 ratio IS the "+50% headshot bonus".
- *  All damage % bonuses sum into a single additive pool that multiplies the
- *  split value. */
+ *  where you hit. The 0.60 / 0.40 = 1.5 ratio is the location split itself.
+ *  The per-weapon `m_CritDamage` multiplier is a SEPARATE factor applied on
+ *  head rows when the target's UCritable interface fires (see
+ *  reference_damage_model.md for the full breakdown). All damage % bonuses
+ *  sum into a single additive pool that multiplies the split value. */
 const HIT_SPLIT_BODY = 0.40;
 const HIT_SPLIT_HEAD = 0.60;
 
@@ -1201,7 +1888,7 @@ function formatAggregatedStats(totals) {
 function refreshPanels(skipResourceBars) {
   const equipped = aggregateEquippedStats();
   const itemStats = Object.keys(equipped).length > 0 ? formatAggregatedStats(equipped) : null;
-  if (!skipResourceBars) renderCharacterPanel(lastCharacterPanel, itemStats);
+  if (!skipResourceBars) renderCharacterPanel(itemStats);
   renderCalculations(equipped);
   refreshActiveTooltip();
 }
@@ -2124,16 +2811,24 @@ function updateSpecTrack(track) {
  *  animation), re-renders Equipment/Inventory/Spec sections, and refreshes
  *  the right-panel calcs. */
 function refreshAfterSpecChange() {
-  // 1. Bar text (HP/Stamina max may have moved from Combat keystones).
+  // 1. Bar text (HP/Stamina max may have moved from Combat keystones or
+  //    skill-tree Vitality / General Conditioning attribute nodes; Stamina
+  //    regen is a flat 20/sec scaled by Disciplined Breathing; Power regen
+  //    scales with Scientist3).
   const sb = getSpecBonuses();
-  const baseHp = lastCharacterPanel?.Health
-    ? (parseResource(lastCharacterPanel.Health)?.max ?? null)
-    : (BASE_STATS.Health > 0 ? BASE_STATS.Health : null);
-  if (baseHp != null) updateResourceBarMaxInPlace('Health', baseHp + sb.health);
-  const baseStam = lastCharacterPanel?.Stamina
-    ? (parseResource(lastCharacterPanel.Stamina)?.max ?? null)
-    : (BASE_STATS.Stamina > 0 ? BASE_STATS.Stamina : null);
-  if (baseStam != null) updateResourceBarMaxInPlace('Stamina', baseStam + sb.stamina);
+  const skb = getSkillBonuses();
+  const hpMax = BASE_STATS.Health > 0 ? BASE_STATS.Health + sb.health + skb.maxHealthFlat : null;
+  if (hpMax != null) updateResourceBarMaxInPlace('Health', hpMax);
+  const baseStamMax = BASE_STATS.Stamina > 0 ? BASE_STATS.Stamina + sb.stamina + skb.maxStaminaFlat : null;
+  const stamMax = baseStamMax != null ? baseStamMax * hydrationStaminaMul() : null;
+  if (stamMax != null) {
+    updateResourceBarMaxInPlace('Stamina', stamMax);
+    updateResourceBarRegenInPlace('Stamina', STAMINA_REGEN_PER_SEC * (1 + (skb.staminaRecoveryPct || 0) / 100));
+  }
+  const basePackRegen = getEquippedStat('pack', 'regen per second');
+  if (basePackRegen != null) {
+    updateResourceBarRegenInPlace('Energy', basePackRegen * (1 + (skb.powerRegenPct || 0) / 100));
+  }
 
   // 2. Extras section (Equipment / Inventory / Spec readouts).
   const extras = document.querySelector('.char-extras');
@@ -2627,12 +3322,75 @@ function showTooltip(slotType, force) {
       const hsDmgAugPctMin = (hitMode === 'head' && hsAe?.type === 'percent') ? hsAe.min : 0;
       const hsDmgAugPctMax = (hitMode === 'head' && hsAe?.type === 'percent') ? hsAe.max : 0;
 
-      const poolMin = augPctMin + combatPct + staggerPct + headHunterPct + hsDmgAugPctMin + gearDmgPct;
-      const poolMax = augPctMax + combatPct + staggerPct + headHunterPct + hsDmgAugPctMax + gearDmgPct;
+      // Skill-tree contributions. Ranged Damage % from allocated attribute
+      // nodes (Weaponry1, MentalCalculus2) joins the additive pool on ranged
+      // weapons only — same shape as the cross-domain gearDmgPct above.
+      // Headshot Damage % from equipped techniques (Marksman, Center of Mass
+      // penalty) and any attribute headshot nodes joins the pool on head rows
+      // only — same bucket as the Sabotage Head Hunter keystone.
+      const skb = getSkillBonuses();
+      const skillRangedPct = item.subtype !== 'melee' ? skb.rangedDamagePct : 0;
+      const skillHeadshotPct = hitMode === 'head' ? skb.headshotDamagePct : 0;
+      // Body Damage applies to anything that isn't a headshot or a shield row.
+      // hitMode 'body' is the obvious case; 'none' covers non-splitting weapons
+      // (flamethrowers, lasguns, etc) which in-game still register as body
+      // damage. Shield-stated rows opt out — Center of Mass treats "Shield
+      // Damage" as a separate stat from "Body Damage".
+      const skillBodyPct = (!isShieldStated && hitMode !== 'head') ? skb.bodyDamagePct : 0;
+      // Per-family weapon damage bonuses — applied only when the equipped
+      // weapon matches the relevant family. Mapping derived from
+      // SupportedFrameTypes in dune-weapons-full.json (pak source):
+      //   Pistol      → Maula Pistol, Rafiq Snubnose
+      //   Rifle       → Karpov 38, JABAL Spitdart
+      //   Carbine/SMG → Disruptor M11
+      //   Scattergun  → GRDA 44, Drillshot FK7
+      //   Lmg/Lasgun/FlameThrower (Heavy) → Lasgun, VULCAN GAU-92,
+      //                                     Flamethrower, Missile Launcher, Pyrocket
+      // Shield-stated rows opt out (these are body-damage stats).
+      const skillFamilyPct = (() => {
+        if (isShieldStated || item.subtype === 'melee') return 0;
+        const fam = item.family || '';
+        if (fam === 'Maula Pistol' || fam === 'Rafiq Snubnose') return skb.pistolDamagePct;
+        if (fam === 'Karpov 38' || fam === 'JABAL Spitdart') return skb.rifleDamagePct;
+        if (fam === 'Disruptor M11') return skb.carbineDamagePct;
+        if (fam === 'GRDA 44' || fam === 'Drillshot FK7') return skb.scattergunDamagePct;
+        if (fam === 'Lasgun' || fam === 'VULCAN GAU-92' || fam === 'Flamethrower' ||
+            fam === 'Missile Launcher' || fam === 'Pyrocket') return skb.heavyDamagePct;
+        return 0;
+      })();
+      // Blade Damage applies on every melee blade weapon (Blade1/WeirdingWay1 +
+      // Center of Mass technique). Short/Long Blade nodes (WeirdingWay2 / Blade2)
+      // stack on top only when the equipped weapon's bladeClass matches —
+      // classification sourced from the pak SupportedFrameType (data/weapons.json).
+      const skillBladePct = item.subtype === 'melee'
+        ? skb.bladeDamagePct
+          + (item.bladeClass === 'Short' ? skb.shortBladeDamagePct : 0)
+          + (item.bladeClass === 'Long'  ? skb.longBladeDamagePct  : 0)
+        : 0;
+      // Shield Damage applies only on the dedicated shield-damage rows
+      // (the in-game weapon tooltip shows them separately from body damage).
+      const skillShieldPct = isShieldStated ? skb.shieldDamagePct : 0;
+      // DeathFromAbove — generic damage % active only while suspended (context
+      // chip in the techniques summary). Joins the pool on every weapon row
+      // since the in-game effect is "damage while suspended," not weapon-type
+      // specific. Shield-stated rows opt out (consistent with other generic
+      // damage bonuses; the in-game tooltip lists shield damage separately).
+      const skillSuspendedPct = !isShieldStated ? skb.suspendedDamagePct : 0;
+
+      const poolMin = augPctMin + combatPct + staggerPct + headHunterPct + hsDmgAugPctMin + gearDmgPct + skillRangedPct + skillHeadshotPct + skillBodyPct + skillFamilyPct + skillBladePct + skillShieldPct + skillSuspendedPct;
+      const poolMax = augPctMax + combatPct + staggerPct + headHunterPct + hsDmgAugPctMax + gearDmgPct + skillRangedPct + skillHeadshotPct + skillBodyPct + skillFamilyPct + skillBladePct + skillShieldPct + skillSuspendedPct;
+
+      // Per-weapon crit multiplier applied on head rows only — fires on
+      // headshots against generic NPCs (the target's UCritable interface
+      // effectively equals the headshot bit for typical humanoids). Bosses
+      // and weak-spot enemies may differ but we don't model per-NPC behavior.
+      // Verified vs Misr ground-truth: head/body ratio matches within ~3%.
+      const weaponCritDamage = item.stats?.critDamage?.value ?? 0;
+      const critMul = hitMode === 'head' ? (1 + weaponCritDamage) : 1;
 
       const round1 = v => Math.round(v * 10) / 10;
       const finalDmg = (poolPct, flatBonus) =>
-        round1((spec.statedValue + flatBonus) * spec.factorMul * hitSplit * (1 + poolPct / 100));
+        round1((spec.statedValue + flatBonus) * spec.factorMul * hitSplit * (1 + poolPct / 100) * critMul);
       const finalMin = finalDmg(poolMin, augFlatMin);
       const finalMax = finalDmg(poolMax, augFlatMax);
 
@@ -2673,7 +3431,9 @@ function showTooltip(slotType, force) {
         augPctMin, augPctMax, augFlatMin, augFlatMax,
         augContribs: augContribs[spec.statedKey] || [],
         combatPct, staggerPct, headHunterPct,
-        gearDmgPct,
+        gearDmgPct, skillRangedPct, skillHeadshotPct, skillBodyPct,
+        skillFamilyPct, skillBladePct, skillShieldPct, skillSuspendedPct,
+        weaponFamily: item.family || '',
         hsDmgAugPctMin, hsDmgAugPctMax,
         hsContribs: hitMode === 'head' ? (augContribs['headshotDamage'] || []) : [],
         poolMin, poolMax,
@@ -2682,6 +3442,7 @@ function showTooltip(slotType, force) {
         isRange,
         hitMode,
         hitSplit,
+        weaponCritDamage, critMul,
       };
       row.addEventListener('mouseenter', e => showStatFormulaTooltip(breakdown, e));
       row.addEventListener('mousemove', e => positionStatFormulaTooltip(e));
@@ -3052,6 +3813,13 @@ function showStatFormulaTooltip(b, event) {
     if (includeSpecs && b.staggerPct)    { sym.push('SabotageSTGR%'); num.push(fmtDec(b.staggerPct / 100)); }
     if (includeSpecs && b.headHunterPct) { sym.push('SabotageHS%'); num.push(fmtDec(b.headHunterPct / 100)); }
     if (includeSpecs && b.gearDmgPct)    { sym.push('GearDMG%');   num.push(fmtDec(b.gearDmgPct / 100)); }
+    if (includeSpecs && b.skillRangedPct){ sym.push('SkillRGD%');  num.push(fmtDec(b.skillRangedPct / 100)); }
+    if (includeSpecs && b.skillHeadshotPct){ sym.push('SkillHS%'); num.push(fmtDec(b.skillHeadshotPct / 100)); }
+    if (includeSpecs && b.skillBodyPct)  { sym.push('SkillBDY%'); num.push(fmtDec(b.skillBodyPct / 100)); }
+    if (includeSpecs && b.skillFamilyPct){ sym.push('SkillFAM%'); num.push(fmtDec(b.skillFamilyPct / 100)); }
+    if (includeSpecs && b.skillBladePct) { sym.push('SkillBLD%'); num.push(fmtDec(b.skillBladePct / 100)); }
+    if (includeSpecs && b.skillShieldPct){ sym.push('SkillSHD%'); num.push(fmtDec(b.skillShieldPct / 100)); }
+    if (includeSpecs && b.skillSuspendedPct){ sym.push('SkillSUS%'); num.push(fmtDec(b.skillSuspendedPct / 100)); }
     return {
       sym: sym.length ? ` × (1 + ${sym.join(' + ')})` : '',
       num: sym.length ? ` × (1 + ${num.join(' + ')})` : '',
@@ -3092,6 +3860,7 @@ function showStatFormulaTooltip(b, event) {
   if (b.kind === 'damage') {
     const hasFactor = !!b.factorLabel;
     const hasSplit = b.hitMode !== 'none';
+    const hasCrit = b.critMul && b.critMul !== 1;
     // Wrap multi-token factor expressions in parens to make the precedence
     // unambiguous (e.g., `Clip / (Clip × 60/RoF + Reload)` needs outer parens
     // so it's clear the whole quotient is the factor).
@@ -3100,6 +3869,10 @@ function showStatFormulaTooltip(b, event) {
     const factorNum = hasFactor && b.factorNumExpr ? ` × ${wrap(b.factorNumExpr)}` : '';
     const splitSym = hasSplit ? ' × Split' : '';
     const splitNum = hasSplit ? ` × ${b.hitSplit.toFixed(2)}` : '';
+    // Per-weapon crit multiplier — head rows only, hidden when critDamage = 0
+    // (scatterguns, flamethrowers, mining tools) so the formula stays clean.
+    const critSym = hasCrit ? ' × Crit' : '';
+    const critNum = hasCrit ? ` × ${b.critMul.toFixed(2)}` : '';
     const resultLabel = hasSplit ? 'Hit Damage' : 'Damage';
 
     const baseExpr = buildBaseExpr();
@@ -3108,9 +3881,9 @@ function showStatFormulaTooltip(b, event) {
       ? `${formatStatValue(b.statName, b.finalMin)}–${formatStatValue(b.statName, b.finalMax)}`
       : formatStatValue(b.statName, b.finalMin);
 
-    addFormula(`${baseExpr.sym}${factorSym}${splitSym}${poolExpr.sym} = ${resultLabel}`);
+    addFormula(`${baseExpr.sym}${factorSym}${splitSym}${poolExpr.sym}${critSym} = ${resultLabel}`);
     addDivider();
-    addComputed(`${baseExpr.num}${factorNum}${splitNum}${poolExpr.num} = ${formatStatValue(b.statName, b.finalMax)}`);
+    addComputed(`${baseExpr.num}${factorNum}${splitNum}${poolExpr.num}${critNum} = ${formatStatValue(b.statName, b.finalMax)}`);
     addDivider();
 
     addRow('Base', formatStatValue(b.statName, b.statedValue));
@@ -3128,6 +3901,16 @@ function showStatFormulaTooltip(b, event) {
     if (b.staggerPct)    addRow('SabotageSTGR', fmtPct(b.staggerPct));
     if (b.headHunterPct) addRow('SabotageHS', fmtPct(b.headHunterPct));
     if (b.gearDmgPct)    addRow('GearDMG', fmtPct(b.gearDmgPct));
+    if (b.skillRangedPct) addRow('Skill RGD', fmtPct(b.skillRangedPct));
+    if (b.skillHeadshotPct) addRow('Skill HS', fmtPct(b.skillHeadshotPct));
+    if (b.skillBodyPct) addRow('Skill BDY', fmtPct(b.skillBodyPct));
+    // Per-family / blade / shield rows label themselves with the family name
+    // so it's clear WHY they fire (e.g. "Pistol Damage" on a Maula Pistol).
+    if (b.skillFamilyPct) addRow(`Skill ${b.weaponFamily || 'Family'}`, fmtPct(b.skillFamilyPct));
+    if (b.skillBladePct) addRow('Skill Blade', fmtPct(b.skillBladePct));
+    if (b.skillShieldPct) addRow('Skill Shield', fmtPct(b.skillShieldPct));
+    if (b.skillSuspendedPct) addRow('Skill Suspended', fmtPct(b.skillSuspendedPct));
+    if (hasCrit) addRow('Crit', `+${Math.round(b.weaponCritDamage * 100)}% (×${b.critMul.toFixed(2)})`);
 
     addTotal(b.name, finalText);
   } else if (b.kind === 'stated') {
@@ -3216,7 +3999,7 @@ function hideStatFormulaTooltip() {
  * Formula string is the existing two-line "generic\ncomputed" format used by
  * createStatRow call sites.
  */
-function showFormulaTooltip(label, value, formula, event) {
+function showFormulaTooltip(label, value, formula, event, rows) {
   if (!appSettings.showFormulas) return;
   const tip = document.getElementById('stat-formula-tooltip');
   if (!tip) return;
@@ -3227,7 +4010,7 @@ function showFormulaTooltip(label, value, formula, event) {
   title.textContent = label;
   tip.appendChild(title);
 
-  const [generic, computed] = formula.split('\n');
+  const [generic, computed] = (formula || '').split('\n');
 
   if (generic) {
     const g = document.createElement('div');
@@ -3247,6 +4030,25 @@ function showFormulaTooltip(label, value, formula, event) {
     c.className = 'stat-formula-tooltip__computed';
     c.textContent = computed;
     tip.appendChild(c);
+  }
+
+  // Contributor row list — same shape as the weapon-damage tooltip's
+  // per-augment rows. Each row pairs a source name with its value
+  // (e.g. "Vitality r3 (Max Health)" / "+55").
+  if (Array.isArray(rows) && rows.length) {
+    if (generic || computed) {
+      const d = document.createElement('div');
+      d.className = 'stat-formula-tooltip__divider';
+      tip.appendChild(d);
+    }
+    for (const r of rows) {
+      const row = document.createElement('div');
+      row.className = 'stat-formula-tooltip__row';
+      const l = document.createElement('span'); l.className = 'label'; l.textContent = r.label;
+      const v = document.createElement('span'); v.className = 'value'; v.textContent = String(r.value);
+      row.appendChild(l); row.appendChild(v);
+      tip.appendChild(row);
+    }
   }
 
   // Total row pinned at the bottom mirrors the value shown in the panel.
@@ -3900,6 +4702,9 @@ document.getElementById('setting-apply-headshot').addEventListener('change', e =
   refreshPanels();
 });
 
+// Hydration is set via the interactive hydration bar in the character panel
+// (see buildHydrationBar) — no Settings control.
+
 // =============================================
 // EXPORT
 // =============================================
@@ -3945,7 +4750,9 @@ function exportBuild() {
     hotbar[slot] = entry;
   }
 
-  const exportData = { slots };
+  // Stamp the format version (load-bearing, drives load-side migration).
+  const exportData = { formatVersion: BUILD_FORMAT_VERSION };
+  exportData.slots = slots;
   if (Object.keys(hotbar).length > 0) exportData.hotbar = hotbar;
 
   // Specializations — per-track level + claimed keystones. Skip tracks with
@@ -3959,14 +4766,35 @@ function exportBuild() {
   }
   if (Object.keys(specs).length > 0) exportData.specializations = specs;
 
-  if (lastCharacterPanel) {
-    exportData.characterPanel = {};
-    for (const key of RESOURCE_KEYS) {
-      if (lastCharacterPanel[key] != null) {
-        exportData.characterPanel[key] = lastCharacterPanel[key];
+  // Skill tree — per-spec map of tag → rank, plus the _equipped block holding
+  // the 3 ability + 3 technique loadout slots. Only included if there's any
+  // allocation OR any equip set, so a clean build doesn't emit a noisy block.
+  if (typeof SKILL_TREE_STATE !== 'undefined' && SKILL_TREE_STATE.allocations) {
+    const skills = {};
+    for (const [spec, alloc] of Object.entries(SKILL_TREE_STATE.allocations)) {
+      const filtered = {};
+      for (const [tag, rank] of Object.entries(alloc)) {
+        if (rank > 0) filtered[tag] = rank;
       }
+      if (Object.keys(filtered).length > 0) skills[spec] = filtered;
     }
+    const eq = SKILL_TREE_STATE.equipped || {};
+    const hasEquip = (eq.abilities || []).some(Boolean) || (eq.techniques || []).some(Boolean);
+    if (hasEquip) {
+      skills._equipped = {
+        abilities: (eq.abilities || [null,null,null]).slice(0, 3),
+        techniques: (eq.techniques || [null,null,null]).slice(0, 3),
+      };
+    }
+    // Combat-context toggles (suspended/lunging/exploited/hydrated) are NOT
+    // persisted — they're transient view state, not part of the build. A loaded
+    // build opens in the default scenario view.
+    if (Object.keys(skills).length > 0) exportData.skills = skills;
   }
+
+  // Health/Stamina/Power are NOT persisted: they're fully computed from
+  // base (150/100/0) + skills + gear + spec (leveling grants no resources —
+  // confirmed 2026-06-02). Saving them would be redundant derived data.
 
   return exportData;
 }
@@ -3987,7 +4815,37 @@ function exportToClipboard() {
 // APPLY BUILD DATA
 // =============================================
 
-function applyBuildData(data) {
+// Bring an older build payload up to the current format before applying it. Keyed off
+// `formatVersion` (absent = 0 = pre-versioning legacy save). Each migration is a pure
+// `data => data` step registered in ascending order; we run every step whose target version
+// is newer than the save's. No-op today (current format == 1, and v0 → v1 needs no field
+// changes since the schema is identical — versioning just started getting stamped). When the
+// schema next changes, bump BUILD_FORMAT_VERSION and add a step here.
+const BUILD_MIGRATIONS = [
+  // { to: 2, migrate: (d) => { /* e.g. rename a slug, reshape a field */ return d; } },
+];
+
+function migrateBuildData(data) {
+  if (!data || typeof data !== 'object') return data;
+  let from = Number.isInteger(data.formatVersion) ? data.formatVersion : 0;
+  if (from >= BUILD_FORMAT_VERSION) return data; // current or newer (newer = forward-compat, apply as-is)
+  for (const step of BUILD_MIGRATIONS) {
+    if (step.to > from) {
+      try {
+        data = step.migrate(data) || data;
+        from = step.to;
+      } catch (e) {
+        console.warn(`[migrate] step →v${step.to} failed:`, e);
+        break; // stop the chain; apply what we have rather than corrupt further
+      }
+    }
+  }
+  data.formatVersion = BUILD_FORMAT_VERSION;
+  return data;
+}
+
+function applyBuildData(rawData) {
+  const data = migrateBuildData(rawData);
   // Clear all existing state
   for (const key of Object.keys(equippedItems)) delete equippedItems[key];
   for (const key of Object.keys(equippedGrades)) delete equippedGrades[key];
@@ -4068,9 +4926,9 @@ function applyBuildData(data) {
     autoSelectFirstHotbarWeapon();
   }
 
-  if (data.characterPanel) {
-    lastCharacterPanel = data.characterPanel;
-  }
+  // NOTE: legacy `characterPanel` (saved Health/Stamina/Power) is intentionally
+  // ignored — those pools are computed from base + skills + gear + spec, so an
+  // old build that still carries the block just has it dropped. No error.
 
   // Reset all specializations to baseline, then layer in any saved state.
   for (const id of Object.keys(specState)) {
@@ -4093,6 +4951,53 @@ function applyBuildData(data) {
   // If the spec modal is currently open, rebuild it so it reflects the load.
   const specOverlay = document.getElementById('specializations-overlay');
   if (specOverlay?.classList.contains('visible')) renderSpecOverlay();
+
+  // Skill tree allocations + equipped loadout. The `_equipped` key is a special
+  // sub-block alongside the spec-name keys — it holds the 3 ability + 3
+  // technique loadout slots. Spec-name keys never start with underscore so we
+  // discriminate by that.
+  if (typeof SKILL_TREE_STATE !== 'undefined') {
+    SKILL_TREE_STATE.allocations = {};
+    SKILL_TREE_STATE.equipped = { abilities: [null,null,null], techniques: [null,null,null] };
+    SKILL_TREE_STATE.context = { suspended: false, lunging: false, exploited: false, hydrationPct: 100 };
+    if (data.skills && typeof data.skills === 'object') {
+      for (const [key, val] of Object.entries(data.skills)) {
+        if (key === '_equipped') {
+          if (val && typeof val === 'object') {
+            const padOrTrunc = (a) => (Array.isArray(a) ? a.slice(0,3) : []).concat([null,null,null]).slice(0,3);
+            SKILL_TREE_STATE.equipped.abilities  = padOrTrunc(val.abilities);
+            SKILL_TREE_STATE.equipped.techniques = padOrTrunc(val.techniques);
+          }
+          continue;
+        }
+        // Legacy `_context` (combat-scenario toggles) is intentionally not read —
+        // context resets to defaults (hydrated ON) above. The `_`-prefix skip
+        // below silently ignores it (and any other underscore meta key).
+        if (key.startsWith('_') || !val || typeof val !== 'object') continue;
+        SKILL_TREE_STATE.allocations[key] = {};
+        for (const [tag, rank] of Object.entries(val)) {
+          const r = parseInt(rank, 10);
+          if (r > 0) SKILL_TREE_STATE.allocations[key][tag] = r;
+        }
+      }
+    }
+    if (SKILL_TREE_STATE.loaded) {
+      recomputeSpentSP();
+      pruneEquipped(); // drop any loaded equips that don't match the loaded allocations
+      // Always refresh the bottom-strip mini-slot icons (they live in the
+      // tree view and don't get rebuilt by showSpec — without this, stale
+      // equipped icons from the previous build persist across a load.)
+      renderMiniSlotIcons();
+      const stOverlay = document.getElementById('skill-tree-overlay');
+      if (stOverlay?.classList.contains('visible') && SKILL_TREE_STATE.currentSpec) {
+        showSpec(SKILL_TREE_STATE.currentSpec);
+        // If the user was on the equip subpage, rebuild it from the new state
+        // so the slots/grids don't show stale icons.
+        if (getCurrentSkillView() === 'equip') renderEquipPage();
+      }
+    }
+    persistSkillTreeState();
+  }
 
   refreshPanels();
   triggerRevealAnimation();
@@ -4174,7 +5079,6 @@ async function openLoadModal() {
   newItem.addEventListener('click', () => {
     applyBuildData({ slots: {}, hotbar: null });
     currentBuildPath = null;
-    lastCharacterPanel = null;
     refreshPanels();
     closeLoadModal();
   });
@@ -4273,8 +5177,8 @@ const exportBtn = document.getElementById('export-btn');
 
 exportBtn.addEventListener('click', async () => {
   const hasGear = Object.keys(equippedItems).some(k => equippedItems[k] != null);
-  if (!hasGear && !lastCharacterPanel) {
-    showError('Nothing to export — equip gear or paste a build first.');
+  if (!hasGear) {
+    showError('Nothing to export — equip gear first.');
     return;
   }
   exportBtn.disabled = true;
@@ -4315,9 +5219,6 @@ pasteBtn.addEventListener('click', async () => {
       showError('No valid build data found in clipboard.');
     } else {
       applyBuildData(result);
-      if (result.characterPanel) {
-        lastCharacterPanel = result.characterPanel;
-      }
       refreshPanels();
       triggerRevealAnimation();
     }
@@ -4446,8 +5347,10 @@ pasteBtn.addEventListener('click', async () => {
 // Safe to leave in production builds: harmless read-only surface.
 window.__golden = {
   applyBuildData,
+  exportBuild,
   refreshPanels,
   showTooltip,
+  SKILL_TREE_STATE,
   appSettings,
   equippedItems,
   equippedGrades,
@@ -4461,3 +5364,1398 @@ window.__golden = {
   get AUGMENT_BY_SLUG()        { return AUGMENT_BY_SLUG; },
   get WEAPON_AUGMENT_BY_SLUG() { return WEAPON_AUGMENT_BY_SLUG; },
 };
+
+// =============================================
+// SKILL TREE PANEL
+// Port of scratch/skill-tree-mock/index.html (v6.17) into DuneBuilder.
+// Key differences from the mock:
+//   - Allocation requires all prerequisites at rank >= 1 (was unenforced).
+//   - Lines highlight "available path" (prereqs met) in purple regardless of
+//     allocation; allocated-both endpoints get the brighter glow variant.
+//   - Allocations are kept in SKILL_TREE_STATE and exported with the build.
+//   - Persists to localStorage as a fallback for raw page reloads.
+// =============================================
+
+// SKILL_TREE_STATE is declared near the top-level state cluster (just after
+// equippedItems/equippedGrades) so it is initialised before the early init
+// path — refreshPanels() → renderResourceBars() → getSkillBonuses() — and the
+// hydrated-toggle setup both touch it during module evaluation. Declaring it
+// here (after those run) put it in its temporal dead zone and threw on boot.
+
+const ST_STORAGE_KEY = 'dunebuilder-skill-tree-v1';
+const ST_SPEC_ORDER = ['Trooper', 'Mentat', 'Planetologist', 'Bene Gesserit', 'Swordmaster'];
+const ST_TYPE_DISPLAY = {
+  attribute: 'ATTRIBUTE',
+  perk: 'TECHNIQUE',
+  ability: 'ABILITY',
+  spice: 'SPICE ABILITY',
+};
+
+async function loadSkillTreeData() {
+  if (SKILL_TREE_STATE.loaded) return;
+  try {
+    const [nodesRes, descRes, costsRes, labelsRes, gtRes, statsRes] = await Promise.all([
+      fetch('./data/skill-tree/nodes.json'),
+      fetch('./data/skill-tree/descriptions.json'),
+      fetch('./data/skill-tree/costs.json'),
+      fetch('./data/skill-tree/sub-tree-labels.json'),
+      fetch('./data/skill-tree/gt-skill-tree.json'),
+      fetch('./data/skill-tree/stats-per-rank.json'),
+    ]);
+    const data = await nodesRes.json();
+    const descriptions = await descRes.json();
+    const costs = await costsRes.json();
+    const subTreeLabels = await labelsRes.json();
+    const gt = await gtRes.json();
+    const statsPerRank = await statsRes.json();
+
+    // Filter specs to canonical order
+    data.specs = ST_SPEC_ORDER.filter(s => s in data.skills_by_spec);
+
+    // Merge descriptions + costs + multi-stat per-rank into nodes; build tag→node index.
+    // statsPerRank.json supersedes the partial single-stat data baked into nodes.json
+    // (which came from skill_data.py). Tags listed in stats._unresolved keep whatever
+    // nodes.json had as a fallback so the tooltip still shows something.
+    //
+    // Prereqs: gt-skill-tree.json carries the FULL bidirectional adjacency graph
+    // (each node lists every connected neighbor as a prereq). nodes.json only had
+    // the "upstream" links, which made the OR-availability check too restrictive —
+    // a node was unreachable from siblings on either side. Take the UNION so any
+    // adjacent allocated neighbor unlocks the node, matching in-game behaviour.
+    const gtPrereqByTag = {};
+    for (const s of (gt.skills || [])) {
+      if (s.tag) gtPrereqByTag[s.tag] = s.prerequisites || [];
+    }
+
+    SKILL_TREE_STATE.nodesByTag = {};
+    for (const spec of Object.keys(data.skills_by_spec)) {
+      for (const n of data.skills_by_spec[spec]) {
+        const d = descriptions[n.tag];
+        if (d && typeof d === 'object') {
+          n.description = d.description || '';
+          n.subDescription = d.subDescription || '';
+        }
+        const c = costs[n.tag];
+        n.skillPointCostPerRank = Array.isArray(c) ? c : [];
+        const sr = statsPerRank[n.tag];
+        if (Array.isArray(sr) && sr.length > 0) {
+          n.statsPerRank = sr;
+        }
+        // Union prereqs from gt — gives the full adjacency graph for OR-pathing.
+        const gtPrereqs = gtPrereqByTag[n.tag] || [];
+        if (gtPrereqs.length) {
+          const combined = new Set([...(n.prerequisites || []), ...gtPrereqs]);
+          n.prerequisites = [...combined];
+        }
+        n.spec = spec;
+        SKILL_TREE_STATE.nodesByTag[n.tag] = n;
+      }
+    }
+
+    // Spec nav icons (from gt skillTrees)
+    const specNavIcons = {};
+    for (const t of (gt.skillTrees || [])) {
+      const name = t.name;
+      const local = t.iconPath_local;
+      if (name && local) specNavIcons[name] = local;
+      if (name === 'BeneGesserit' && local) specNavIcons['Bene Gesserit'] = local;
+    }
+    data.specNavIcons = specNavIcons;
+    data.subTreeLabels = subTreeLabels;
+    data.maxSPLevel200 = costs._maxSPLevel200 || 199;
+
+    SKILL_TREE_STATE.data = data;
+    SKILL_TREE_STATE.descriptions = descriptions;
+    SKILL_TREE_STATE.costs = costs;
+    SKILL_TREE_STATE.subTreeLabels = subTreeLabels;
+    SKILL_TREE_STATE.gt = gt;
+    SKILL_TREE_STATE.spBase = data.maxSPLevel200;
+    SKILL_TREE_STATE.spTotal = data.maxSPLevel200; // may grow once spec bonus is computed
+    SKILL_TREE_STATE.loaded = true;
+
+    // Blank slate on boot: skill-tree state is NOT persisted across launches. It
+    // lives in the build file (saved/loaded via the .dbf) exactly like slots,
+    // hotbar, and specializations — a fresh launch starts empty; the user loads or
+    // imports a build to populate. Purge any legacy persisted state so old sessions
+    // don't leak in (this also fixed the stale-tree-on-boot bug + per-change
+    // localStorage writes that were adding overhead).
+    try { localStorage.removeItem(ST_STORAGE_KEY); } catch (e) { /* ignore */ }
+
+    // Recompute spent SP across all specs + drop any equips that no longer
+    // point at allocated nodes (could happen if data shape changes).
+    recomputeSpentSP();
+    pruneEquipped();
+  } catch (e) {
+    console.error('Failed to load skill tree data:', e);
+  }
+}
+
+function persistSkillTreeState() {
+  // No-op by design: skill-tree state is intentionally NOT persisted to localStorage.
+  // Blank slate on boot — the build file is the only source of truth (see
+  // loadSkillTreeData). Kept as a stub so the existing call sites stay valid;
+  // removing them outright is fine to do opportunistically in a later refactor.
+}
+
+function recomputeSpentSP() {
+  let total = 0;
+  for (const spec of Object.keys(SKILL_TREE_STATE.allocations)) {
+    const specAlloc = SKILL_TREE_STATE.allocations[spec] || {};
+    for (const tag of Object.keys(specAlloc)) {
+      const node = SKILL_TREE_STATE.nodesByTag[tag];
+      const rank = specAlloc[tag] || 0;
+      if (!node) continue;
+      const costs = node.skillPointCostPerRank || [];
+      for (let r = 1; r <= rank; r++) total += (costs[r - 1] || 1);
+    }
+  }
+  SKILL_TREE_STATE.spSpent = total;
+  refreshSPDisplay();
+}
+
+// Sum up bonus SP from currently-claimed Combat specialization keystones
+// (effect name === "Skill Points"). Other specs don't grant SP today; if they
+// ever do, the loop covers them automatically.
+function recomputeBonusSP() {
+  let bonus = 0;
+  const breakdown = {};
+  if (typeof specState === 'object' && Array.isArray(SPECIALIZATIONS_DATA)) {
+    for (const track of SPECIALIZATIONS_DATA) {
+      const state = specState[track.id];
+      if (!state || !state.keystones || state.keystones.size === 0) continue;
+      let trackBonus = 0;
+      for (const ks of (track.keystones || [])) {
+        if (!state.keystones.has(ks.id)) continue;
+        for (const eff of (ks.effects || [])) {
+          if ((eff.name || '').toLowerCase() === 'skill points') {
+            const v = parseInt(eff.value, 10);
+            if (Number.isFinite(v)) trackBonus += v;
+          }
+        }
+      }
+      if (trackBonus > 0) breakdown[track.name || track.id] = trackBonus;
+      bonus += trackBonus;
+    }
+  }
+  SKILL_TREE_STATE.spBonus = bonus;
+  SKILL_TREE_STATE.spTotal = SKILL_TREE_STATE.spBase + bonus;
+  SKILL_TREE_STATE.spBonusBreakdown = Object.entries(breakdown)
+    .map(([n, v]) => `+${v} from ${n}`).join(', ');
+  return bonus;
+}
+
+function refreshSPDisplay() {
+  recomputeBonusSP();
+  const { spSpent, spTotal, spBase, spBonus, spBonusBreakdown } = SKILL_TREE_STATE;
+  const sv = document.getElementById('st-sp-val');
+  const sm = document.getElementById('st-sp-max');
+  if (sv) sv.textContent = spSpent;
+  if (sm) sm.textContent = spTotal;
+  // Tooltip on the diamond shows the breakdown when there's a bonus.
+  const dia = document.getElementById('st-sp-diamond');
+  if (dia) {
+    dia.title = spBonus > 0
+      ? `${spSpent} / ${spTotal} skill points (${spBase} base${spBonusBreakdown ? ', ' + spBonusBreakdown : ''})`
+      : `${spSpent} / ${spTotal} skill points`;
+  }
+}
+
+function flashSPInsufficient() {
+  const d = document.getElementById('st-sp-diamond');
+  if (!d) return;
+  d.classList.add('st-sp-flash');
+  setTimeout(() => d.classList.remove('st-sp-flash'), 350);
+}
+
+// =============================================
+// Prerequisites & dependency logic
+// =============================================
+function specRankFor(tag) {
+  const node = SKILL_TREE_STATE.nodesByTag[tag];
+  if (!node) return 0;
+  const specAlloc = SKILL_TREE_STATE.allocations[node.spec] || {};
+  return specAlloc[tag] || 0;
+}
+
+// A node is "available" (prereqs met) if ANY ONE prerequisite tag has rank >= 1.
+// Dune's tree uses OR-semantics for path connections — you only need one
+// connecting allocated neighbor to branch into the next node.
+// Nodes with no prerequisites are always available.
+function isNodeAvailable(node) {
+  if (!node || !Array.isArray(node.prerequisites) || node.prerequisites.length === 0) return true;
+  return node.prerequisites.some(preTag => specRankFor(preTag) >= 1);
+}
+
+// A node can be deallocated unless it's the LAST satisfying prereq for some
+// allocated dependent. Specifically: going from 1→0 is blocked only if some
+// allocated downstream node has this in its prereq list AND no other prereq
+// of that dependent is currently allocated.
+function canDeallocate(node, newRank) {
+  if (newRank >= 1) return true;
+  if (!node) return false;
+  const tag = node.tag;
+  for (const spec of Object.keys(SKILL_TREE_STATE.allocations)) {
+    const specAlloc = SKILL_TREE_STATE.allocations[spec] || {};
+    for (const depTag of Object.keys(specAlloc)) {
+      if (specAlloc[depTag] < 1) continue;
+      const depNode = SKILL_TREE_STATE.nodesByTag[depTag];
+      if (!depNode || !Array.isArray(depNode.prerequisites)) continue;
+      if (!depNode.prerequisites.includes(tag)) continue;
+      // Dependent has us as a prereq. Would dependent still be available without us?
+      const otherSatisfied = depNode.prerequisites.some(p => p !== tag && specRankFor(p) >= 1);
+      if (!otherSatisfied) return false;
+    }
+  }
+  return true;
+}
+
+// =============================================
+// Modal open/close
+// =============================================
+// Resize the Electron window AND wait for the renderer's resize event to fire
+// (which is when document layout has actually caught up to the new viewport
+// size). `await ipc()` alone only synchronises on main's setBounds() returning —
+// the renderer-side resize event + layout pass happens on a later tick, so a
+// render fired right after the IPC await sees the OLD viewport dimensions.
+async function setWindowWidthScaleAndAwaitLayout(scale) {
+  if (!window.electronAPI?.setWindowWidthScale) return;
+  const beforeW = window.innerWidth;
+  const resizePromise = new Promise((resolve) => {
+    let resolved = false;
+    const onResize = () => {
+      if (resolved) return;
+      if (window.innerWidth === beforeW) return; // ignore phantom resize events
+      resolved = true;
+      window.removeEventListener('resize', onResize);
+      resolve();
+    };
+    window.addEventListener('resize', onResize);
+    // Safety: if the scale was a no-op (e.g. already at target), no resize
+    // event fires. Resolve after 200ms so we never hang openSkillTree.
+    setTimeout(() => {
+      if (resolved) return;
+      resolved = true;
+      window.removeEventListener('resize', onResize);
+      resolve();
+    }, 200);
+  });
+  await window.electronAPI.setWindowWidthScale(scale);
+  await resizePromise;
+}
+
+async function openSkillTree() {
+  await loadSkillTreeData();
+  const overlay = document.getElementById('skill-tree-overlay');
+  if (!overlay) return;
+  // Compact mode already starts at 1180px wide (vs non-compact 1020px), so it
+  // doesn't need the 1.35× expansion — the modal fits fine at the native width.
+  const isCompact = document.documentElement.classList.contains('compact-layout');
+  if (!isCompact) await setWindowWidthScaleAndAwaitLayout(1.35);
+  overlay.classList.add('visible');
+  buildSpecNav();
+  const startSpec = SKILL_TREE_STATE.currentSpec || SKILL_TREE_STATE.data.specs[0];
+  document.querySelectorAll('#st-spec-nav .st-spec-icon').forEach(x => {
+    x.classList.toggle('active', x.dataset.spec === startSpec);
+  });
+  ensureTreeAreaResizeObserver();
+  showSpec(startSpec);
+  refreshSPDisplay();
+  renderMiniSlotIcons();
+}
+
+// One-time install of a ResizeObserver on the tree-area. Re-renders the
+// current spec whenever the area's content rect changes (window resize, modal
+// open animation finishing, etc) so node positions always match the actual
+// container size rather than the size at first render.
+let st_resizeObserver = null;
+function ensureTreeAreaResizeObserver() {
+  if (st_resizeObserver) return;
+  const area = document.getElementById('st-tree-area');
+  if (!area || typeof ResizeObserver === 'undefined') return;
+  let lastW = 0, lastH = 0;
+  st_resizeObserver = new ResizeObserver((entries) => {
+    for (const e of entries) {
+      const w = Math.round(e.contentRect.width);
+      const h = Math.round(e.contentRect.height);
+      // Only re-render on a real size change to avoid feedback loops.
+      if (w === lastW && h === lastH) continue;
+      lastW = w; lastH = h;
+      const spec = SKILL_TREE_STATE.currentSpec;
+      const skills = spec && SKILL_TREE_STATE.data?.skills_by_spec?.[spec];
+      const overlay = document.getElementById('skill-tree-overlay');
+      if (!skills || !overlay?.classList.contains('visible')) continue;
+      renderTree(skills, spec);
+      restoreAllocationsForSpec(spec);
+      refreshAllNodes();
+    }
+  });
+  st_resizeObserver.observe(area);
+}
+
+function closeSkillTree() {
+  const overlay = document.getElementById('skill-tree-overlay');
+  if (overlay) overlay.classList.remove('visible');
+  // Only restore width if we resized on open (we didn't in compact mode).
+  const isCompact = document.documentElement.classList.contains('compact-layout');
+  if (!isCompact && window.electronAPI?.setWindowWidthScale) {
+    window.electronAPI.setWindowWidthScale(1.0);
+  }
+  hideSkillTooltip();
+}
+
+// =============================================
+// Spec navigation
+// =============================================
+function buildSpecNav() {
+  const nav = document.getElementById('st-spec-nav');
+  if (!nav) return;
+  // Remove any previously-injected spec icons
+  [...nav.querySelectorAll('.st-spec-icon')].forEach(e => e.remove());
+  const trail = document.getElementById('st-trailing-key');
+  const DATA = SKILL_TREE_STATE.data;
+  DATA.specs.forEach((spec, i) => {
+    const el = document.createElement('div');
+    el.className = 'st-spec-icon' + (i === 0 ? ' active' : '');
+    el.title = spec; el.dataset.spec = spec;
+    const inner = document.createElement('div'); inner.className = 'inner';
+    const img = document.createElement('img');
+    const iconPath = DATA.specNavIcons[spec];
+    if (iconPath) img.src = './' + iconPath.replace(/^\.\//, '');
+    img.alt = spec;
+    inner.appendChild(img); el.appendChild(inner);
+    el.addEventListener('click', () => {
+      nav.querySelectorAll('.st-spec-icon').forEach(x => x.classList.remove('active'));
+      el.classList.add('active');
+      showSpec(spec);
+    });
+    nav.insertBefore(el, trail);
+  });
+}
+
+function showSpec(spec) {
+  SKILL_TREE_STATE.currentSpec = spec;
+  const label = document.getElementById('st-spec-label');
+  if (label) label.textContent = spec.toUpperCase();
+  const skills = SKILL_TREE_STATE.data.skills_by_spec[spec];
+  if (!skills) return;
+  renderTree(skills, spec);
+  restoreAllocationsForSpec(spec);
+  refreshAllNodes();
+}
+
+function restoreAllocationsForSpec(spec) {
+  const specAlloc = SKILL_TREE_STATE.allocations[spec] || {};
+  document.querySelectorAll('.st-node').forEach(n => {
+    const r = specAlloc[n.dataset.tag] || 0;
+    n.dataset.rank = String(r);
+    [...n.querySelectorAll('.st-pip')].forEach((p, i) => p.classList.toggle('filled', i < r));
+    n.classList.toggle('allocated', r >= 1);
+  });
+}
+
+// =============================================
+// Tree rendering
+// =============================================
+const ST_TREE_W = 1300, ST_TREE_H = 580, ST_PAD = 70, ST_NODE = 60, ST_APEX = 70;
+
+// Per-node visual overrides (replicates the mock's initial-tweak-state.json).
+// These were hand-tuned for icon legibility — keep them in sync if the mock changes.
+const ST_DEFAULTS_BY_TYPE = {
+  attribute: { shape: 'circle',  size: 58, iconScale: 105 },
+  perk:      { shape: 'octagon', size: 74, iconScale: 105 },
+  ability:   { shape: 'diamond', size: 74, iconScale: 105 },
+  spice:     { shape: 'diamond', size: 70, iconScale: 105 },
+};
+const ST_DEFAULTS_APEX = { shape: 'diamond', size: 70, iconScale: 60 };
+const ST_NODE_OVERRIDES = {
+  'Skills.Attribute.Weaponry1':{shape:'circle',size:58,iconScale:183},
+  'Skills.Attribute.Weaponry2':{shape:'circle',size:58,iconScale:183},
+  'Skills.Perk.BodyShots':{shape:'octagon',size:93,iconScale:105},
+  'Skills.Perk.HeavyWeaponNaib':{shape:'octagon',size:93,iconScale:105},
+  'Skills.Attribute.Weaponry3':{shape:'circle',size:58,iconScale:183},
+  'Skills.Attribute.Weaponry4':{shape:'circle',size:58,iconScale:183},
+  'Skills.Attribute.Weaponry5':{shape:'circle',size:58,iconScale:183},
+  'Skills.Attribute.Weaponry6':{shape:'circle',size:58,iconScale:183},
+  'Skills.Ability.EnergyCapsule':{shape:'diamond',size:70,iconScale:135},
+  'Skills.Ability.SuspensorGrenade_Reduction':{shape:'diamond',size:74,iconScale:127},
+  'Skills.Perk.SuspensorDash':{shape:'octagon',size:93,iconScale:105},
+  'Skills.Attribute.SuspensorTech1':{shape:'circle',size:58,iconScale:183},
+  'Skills.Perk.DeathFromAbove':{shape:'octagon',size:93,iconScale:105},
+  'Skills.Ability.SuspensorBlast':{shape:'diamond',size:70,iconScale:105},
+  'Skills.Ability.CablePull':{pipOffsetY:14},
+  'Skills.Ability.FragGrenade':{pipOffsetY:12},
+  'Skills.Perk.TrooperCooldowns':{shape:'octagon',size:93,iconScale:105},
+  'Skills.Ability.AssaultSeeker':{shape:'diamond',size:74,iconScale:140,pipOffsetY:14},
+  'Skills.Spice.GadgetReload':{shape:'circle',size:60,iconScale:149},
+  'Skills.Ability.TurretSeeker':{shape:'diamond',size:74,iconScale:140,pipOffsetY:13},
+  'Skills.Attribute.MentalCalculus1':{shape:'circle',size:58,iconScale:183},
+  'Skills.Attribute.MentalCalculus2':{shape:'circle',size:58,iconScale:183},
+  'Skills.Attribute.MentalCalculus3':{shape:'circle',size:58,iconScale:183},
+  'Skills.Perk.HeadShots':{shape:'octagon',size:95,iconScale:105},
+  'Skills.Attribute.MentalCalculus4':{shape:'circle',size:58,iconScale:183},
+  'Skills.Perk.ExploitWeakness':{shape:'octagon',size:95,iconScale:105},
+  'Skills.Attribute.MentalCalculus5':{shape:'circle',size:58,iconScale:183},
+  'Skills.Perk.ShieldWeakpoint':{shape:'circle',size:58,iconScale:183},
+  'Skills.Ability.PoisonCapsuleLauncher':{shape:'diamond',size:74,iconScale:140,pipOffsetY:14},
+  'Skills.Ability.PoisonMine':{shape:'diamond',size:74,iconScale:120},
+  'Skills.Attribute.Assassination1':{shape:'circle',size:58,iconScale:183},
+  'Skills.Attribute.Assassination2':{shape:'circle',size:58,iconScale:183},
+  'Skills.Perk.PoisonTooth':{shape:'octagon',size:95,iconScale:105},
+  'Skills.Ability.StunDart':{shape:'diamond',size:74,iconScale:126},
+  'Skills.Ability.HunterSeeker':{shape:'diamond',size:70,iconScale:105},
+  'Skills.Ability.SuspensorWall':{shape:'diamond',size:74,iconScale:140,pipOffsetY:14},
+  'Skills.Ability.SuspensorMine_Amplification':{shape:'diamond',size:74,iconScale:127},
+  'Skills.Ability.SolidoDecoy':{shape:'diamond',size:74,iconScale:127},
+  'Skills.Ability.SuspensorMine_Reduction':{shape:'diamond',size:74,iconScale:126},
+  'Skills.Perk.IronWill':{shape:'octagon',size:95,iconScale:105},
+  'Skills.Ability.PortableGenerator':{shape:'diamond',size:70,iconScale:105},
+  'Skills.Attribute.Scientist1':{shape:'circle',size:58,iconScale:196},
+  'Skills.Attribute.Scientist2':{shape:'circle',size:58,iconScale:196},
+  'Skills.Attribute.Scientist3':{shape:'circle',size:58,iconScale:196},
+  'Skills.Attribute.Scientist4':{shape:'circle',size:58,iconScale:196},
+  'Skills.Attribute.Scientist5':{shape:'circle',size:58,iconScale:196},
+  'Skills.Science.m_PowerMax':{shape:'circle',size:58,iconScale:196},
+  'Skills.Perk.BatteryExpert':{shape:'octagon',size:70,iconScale:94},
+  'Skills.Ability.SuspensorPad':{shape:'diamond',size:74,iconScale:130},
+  'Skills.Attribute.Explorer1':{shape:'circle',size:58,iconScale:196},
+  'Skills.Attribute.Explorer2':{shape:'circle',size:58,iconScale:153},
+  'Skills.Attribute.Explorer3':{shape:'circle',size:58,iconScale:196},
+  'Skills.Attribute.Explorer4':{shape:'circle',size:58,iconScale:196},
+  'Skills.Attribute.Explorer5':{shape:'circle',size:58,iconScale:196},
+  'Skills.Attribute.Driver1':{shape:'circle',size:58,iconScale:196},
+  'Skills.Attribute.Driver2':{shape:'circle',size:58,iconScale:196},
+  'Skills.Attribute.Driver3':{shape:'circle',size:58,iconScale:196},
+  'Skills.Attribute.Driver4':{shape:'circle',size:58,iconScale:196},
+  'Skills.Attribute.Driver5':{shape:'circle',size:58,iconScale:196},
+  'Skills.Attribute.Driver6':{shape:'circle',size:58,iconScale:196},
+  'Skills.Spice.VehicleHeat':{shape:'circle',size:58,iconScale:182},
+  'Skills.Ability.Hypersprint':{pipOffsetY:15},
+  'Skills.Perk.Backstabber':{shape:'octagon',size:86,iconScale:105},
+  'Skills.Attribute.WeirdingWay1':{shape:'circle',size:58,iconScale:179},
+  'Skills.Attribute.WeirdingWay2':{shape:'circle',size:58,iconScale:179},
+  'Skills.Spice.BinduDodge':{shape:'circle',size:58,iconScale:179},
+  'Skills.Attribute.Manipulation1':{shape:'circle',size:58,iconScale:179},
+  'Skills.Perk.VoiceAnalysis':{shape:'octagon',size:81,iconScale:105},
+  'Skills.Spice.VoiceSplash':{shape:'circle',size:58,iconScale:166},
+  'Skills.Attribute.SelfControl1':{shape:'circle',size:58,iconScale:179},
+  'Skills.Perk.RegenCap':{shape:'octagon',size:85,iconScale:105},
+  'Skills.Attribute.SelfControl2':{shape:'circle',size:58,iconScale:157},
+  'Skills.Attribute.SelfControl3':{shape:'circle',size:58,iconScale:179},
+  'Skills.Attribute.SelfControl4':{shape:'circle',size:58,iconScale:179},
+  'Skills.Attribute.SelfControl5':{shape:'circle',size:58,iconScale:179},
+  'Skills.Perk.BinduStability':{shape:'octagon',size:81,iconScale:105},
+  'Skills.Perk.MetabolizePoison':{shape:'octagon',size:81,iconScale:105},
+  'Skills.Ability.LitanyAgainstFear':{shape:'diamond',size:70,iconScale:126,pipOffsetY:10},
+  'Skills.Attribute.Blade1':{shape:'circle',size:54,iconScale:187},
+  'Skills.Perk.MeleeChain':{shape:'octagon',size:74,iconScale:105},
+  'Skills.Attribute.Blade2':{shape:'circle',size:54,iconScale:187},
+  'Skills.Ability.Whirlwind':{shape:'diamond',size:74,iconScale:125,pipOffsetY:14},
+  'Skills.Spice.ParryBoost':{shape:'circle',size:54,iconScale:187},
+  'Skills.Attribute.Resolve1':{shape:'circle',size:54,iconScale:187},
+  'Skills.Perk.ToughLunge':{shape:'octagon',size:74,iconScale:105},
+  'Skills.Attribute.Resolve2':{shape:'circle',size:54,iconScale:187},
+  'Skills.Attribute.UnstoppableAttacks':{shape:'circle',size:54,iconScale:187},
+  'Skills.Perk.ThriveOnDanger':{shape:'octagon',size:70,iconScale:105},
+  'Skills.Ability.KneeCharge':{shape:'diamond',size:74,iconScale:125,pipOffsetY:15},
+  'Skills.Attribute.Aggression1':{shape:'circle',size:54,iconScale:187},
+  'Skills.Attribute.Aggression2':{shape:'circle',size:54,iconScale:187},
+  'Skills.Perk.SprintStamina':{shape:'octagon',size:74,iconScale:105},
+  'Skills.Ability.BattleCry':{pipOffsetY:14},
+  'Skills.Attribute.Aggression3':{shape:'circle',size:54,iconScale:187},
+  'Skills.Attribute.Aggression4':{shape:'circle',size:54,iconScale:187},
+  'Skills.Spice.ShadowStrike':{shape:'circle',size:54,iconScale:165},
+};
+
+function stDefaultForNode(node) {
+  if (node.classList.contains('apex')) return ST_DEFAULTS_APEX;
+  const skill = JSON.parse(node.dataset.skillJson || '{}');
+  const t = (skill.skillType || 'attribute').toLowerCase();
+  return ST_DEFAULTS_BY_TYPE[t] || ST_DEFAULTS_BY_TYPE.attribute;
+}
+
+function applyStNodeStyles(node) {
+  const tag = node.dataset.tag;
+  const def = stDefaultForNode(node);
+  const ov = ST_NODE_OVERRIDES[tag] || {};
+  const shape = ov.shape || def.shape;
+  const baseSize = ov.size != null ? ov.size : def.size;
+  const ico = ov.iconScale != null ? ov.iconScale : def.iconScale;
+  const pipY = ov.pipOffsetY != null ? ov.pipOffsetY : 0;
+  // Scale node size by the tree-area's current layout scale (1.0 = the
+  // 1300×580 reference canvas the overrides were tuned for; smaller in
+  // compact mode). Read once from the area's CSS var that renderTree sets.
+  const area = node.parentElement;
+  const layoutScale = parseFloat(area?.style.getPropertyValue('--st-layout-scale')) || 1;
+  const size = Math.max(8, Math.round(baseSize * layoutScale));
+  node.style.width = size + 'px';
+  node.style.height = size + 'px';
+  if (node.dataset.cx) {
+    node.style.left = (+node.dataset.cx - size/2) + 'px';
+    node.style.top  = (+node.dataset.cy - size/2) + 'px';
+  }
+  const img = node.querySelector('img');
+  if (img) { img.style.width = ico + '%'; img.style.height = ico + '%'; }
+  const shapeDiv = node.querySelector('.st-shape');
+  if (shapeDiv) {
+    [...shapeDiv.classList].forEach(c => {
+      if (c.startsWith('passive-')) shapeDiv.classList.remove(c);
+    });
+    shapeDiv.classList.add('passive-' + shape);
+  }
+  const pipBox = node.querySelector('.st-pips');
+  if (pipBox) {
+    const baseBottom = node.classList.contains('apex') ? -18 : -14;
+    pipBox.style.bottom = (baseBottom - pipY) + 'px';
+  }
+}
+
+function renderTree(skills, specName) {
+  const area = document.getElementById('st-tree-area');
+  if (!area) return;
+  [...area.querySelectorAll('.st-node, svg.st-lines')].forEach(e => e.remove());
+  // Read the LAYOUT size (offsetWidth/Height), NOT getBoundingClientRect —
+  // the modal has a `transform: scale(0.97) → scale(1.0)` open animation,
+  // and getBoundingClientRect would return the transformed rect (97% of
+  // layout) for the duration of the animation. That under-scaled the
+  // projection on first open and left rightmost columns compressed.
+  // offsetWidth/Height return the pre-transform border-box dimensions.
+  const areaW = area.offsetWidth  || ST_TREE_W;
+  const areaH = area.offsetHeight || ST_TREE_H;
+  // Scale the apex-frame texture + node sizes proportionally to the area
+  // (reference: 1300×580 = the "full" canvas the overrides were tuned for).
+  const layoutScale = Math.min(areaW / ST_TREE_W, areaH / ST_TREE_H);
+  area.style.setProperty('--st-layout-scale', String(layoutScale));
+  const xs = skills.map(s => s.x), ys = skills.map(s => s.y);
+  const minX = Math.min(...xs), maxX = Math.max(...xs);
+  const minY = Math.min(...ys), maxY = Math.max(...ys);
+  const w = maxX - minX, h = maxY - minY;
+  const scale = Math.min((areaW - ST_PAD*2) / w, (areaH - ST_PAD*2) / h);
+  // Center the projected tree inside the area on whichever axis isn't the
+  // limiting one. Without this, when height limits scale (compact mode), the
+  // tree's projected width is less than the area's width but rendered nodes
+  // start at ST_PAD on the left → empty space on the right edge instead of
+  // balanced margins.
+  const projectedW = w * scale;
+  const projectedH = h * scale;
+  const xOffset = Math.max(ST_PAD, (areaW - projectedW) / 2);
+  const yOffset = Math.max(ST_PAD, (areaH - projectedH) / 2);
+  const proj = (x, y) => ({ x: xOffset + (x - minX) * scale, y: yOffset + (y - minY) * scale });
+
+  renderSubTreeLabels(skills, specName, proj);
+
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.classList.add('st-lines');
+  svg.setAttribute('viewBox', `0 0 ${areaW} ${areaH}`);
+  svg.setAttribute('preserveAspectRatio', 'none');
+  area.appendChild(svg);
+
+  const placed = {};
+  skills.forEach(s => {
+    const p = proj(s.x, s.y);
+    const isApex = s.y < minY + (h * 0.1);
+    const t = (s.skillType || '').toLowerCase();
+    // build-v6.py stores 'technique' (from gt). Older mock data used 'perk' —
+    // accept both. Anything that isn't attribute/technique falls under ability
+    // (covers 'ability' and 'spice').
+    const frameType = t === 'attribute' ? 'attribute'
+      : (t === 'perk' || t === 'technique') ? 'technique'
+      : 'ability';
+    const node = document.createElement('div');
+    node.className = 'st-node ' + (isApex ? 'apex' : 'passive') + ' frame-' + frameType;
+    node.dataset.cx = p.x; node.dataset.cy = p.y;
+    node.dataset.tag = s.tag;
+    node.dataset.rank = '0';
+    node.dataset.skillJson = JSON.stringify(s);
+    const shape = document.createElement('div'); shape.className = 'st-shape';
+    const iconLocal = s.iconPath_local;
+    if (iconLocal) {
+      const img = document.createElement('img');
+      img.src = './' + iconLocal.replace(/^\.?\/?/, '');
+      img.alt = s.name; img.loading = 'lazy';
+      shape.appendChild(img);
+    }
+    node.appendChild(shape);
+    const maxRank = Math.max(1, (s.statsPerRank || []).length || s.pipCount || 1);
+    node.dataset.maxRank = String(maxRank);
+    if (maxRank > 1) {
+      const pipBox = document.createElement('div');
+      pipBox.className = 'st-pips';
+      for (let i = 0; i < maxRank; i++) {
+        const p2 = document.createElement('div'); p2.className = 'st-pip'; pipBox.appendChild(p2);
+      }
+      node.appendChild(pipBox);
+    }
+    node.addEventListener('click', (ev) => { ev.preventDefault(); tryAllocateNode(node); });
+    node.addEventListener('contextmenu', (ev) => { ev.preventDefault(); tryDeallocateNode(node); });
+    node.addEventListener('mouseenter', e => showSkillTooltip(e, s, node));
+    node.addEventListener('mousemove',  e => moveSkillTooltip(e));
+    node.addEventListener('mouseleave', () => hideSkillTooltip());
+    area.appendChild(node);
+    placed[s.tag] = { el: node, x: p.x, y: p.y };
+    applyStNodeStyles(node);
+  });
+
+  skills.forEach(s => {
+    const tgt = placed[s.tag]; if (!tgt) return;
+    (s.prerequisites || []).forEach(preTag => {
+      const src = placed[preTag]; if (!src) return;
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', src.x); line.setAttribute('y1', src.y);
+      line.setAttribute('x2', tgt.x); line.setAttribute('y2', tgt.y);
+      line.classList.add('st-line');
+      line.dataset.srcTag = preTag; line.dataset.tgtTag = s.tag;
+      svg.appendChild(line);
+    });
+  });
+}
+
+function renderSubTreeLabels(skills, specName, proj) {
+  const host = document.getElementById('st-sub-tree-labels');
+  if (!host) return;
+  host.innerHTML = '';
+  const labels = (SKILL_TREE_STATE.subTreeLabels || {})[specName];
+  if (!labels) return;
+  const buckets = [[], [], []];
+  skills.forEach(s => {
+    if (s.subTreeIdx == null) return;
+    buckets[s.subTreeIdx].push(proj(s.x, s.y).x);
+  });
+  buckets.forEach((xs, i) => {
+    if (!xs.length || !labels[i]) return;
+    const cx = xs.reduce((a,b) => a+b, 0) / xs.length;
+    const el = document.createElement('div');
+    el.className = 'st-sub-tree-label';
+    el.style.left = cx + 'px';
+    el.textContent = labels[i];
+    host.appendChild(el);
+  });
+}
+
+// Refresh "locked" class + line states based on current allocations.
+function refreshAllNodes() {
+  document.querySelectorAll('.st-node').forEach(node => {
+    const skill = SKILL_TREE_STATE.nodesByTag[node.dataset.tag];
+    if (!skill) return;
+    const rank = +node.dataset.rank;
+    const available = isNodeAvailable(skill);
+    node.classList.toggle('locked', !available && rank === 0);
+  });
+  document.querySelectorAll('svg.st-lines line').forEach(line => {
+    const srcNode = document.querySelector(`.st-node[data-tag="${line.dataset.srcTag}"]`);
+    const tgtNode = document.querySelector(`.st-node[data-tag="${line.dataset.tgtTag}"]`);
+    if (!srcNode || !tgtNode) return;
+    const srcRank = +srcNode.dataset.rank;
+    const tgtRank = +tgtNode.dataset.rank;
+    const tgtSkill = SKILL_TREE_STATE.nodesByTag[line.dataset.tgtTag];
+    // "available" = the prereq edge: src is rank>=1 (this edge is satisfied)
+    const edgeSatisfied = srcRank >= 1;
+    // Show as available (purple) once the prereq node is rank ≥1 — that's the "you can reach this" cue.
+    // Show as allocated (brighter) when BOTH nodes are allocated.
+    line.classList.toggle('available', edgeSatisfied && tgtRank === 0);
+    line.classList.toggle('allocated', edgeSatisfied && tgtRank >= 1);
+  });
+}
+
+// =============================================
+// Allocation
+// =============================================
+function spCostForRank(node, rank) {
+  const arr = node.skillPointCostPerRank;
+  if (Array.isArray(arr) && arr[rank - 1] != null) return arr[rank - 1];
+  return 1;
+}
+
+function tryAllocateNode(nodeEl) {
+  const tag = nodeEl.dataset.tag;
+  const node = SKILL_TREE_STATE.nodesByTag[tag];
+  if (!node) return;
+  const cur = +nodeEl.dataset.rank;
+  const max = +nodeEl.dataset.maxRank;
+  if (cur >= max) return;
+  if (!isNodeAvailable(node)) { flashSPInsufficient(); return; }
+  const cost = spCostForRank(node, cur + 1);
+  if (SKILL_TREE_STATE.spSpent + cost > SKILL_TREE_STATE.spTotal) { flashSPInsufficient(); return; }
+  // Commit
+  const spec = node.spec;
+  if (!SKILL_TREE_STATE.allocations[spec]) SKILL_TREE_STATE.allocations[spec] = {};
+  SKILL_TREE_STATE.allocations[spec][tag] = cur + 1;
+  setNodeRankUI(nodeEl, cur + 1);
+  SKILL_TREE_STATE.spSpent += cost;
+  refreshSPDisplay();
+  refreshAllNodes();
+  persistSkillTreeState();
+  renderSkillsSummary();
+  renderTechniquesSummary();
+  // Top resource bars + right-panel EHP/Stamina/Power calcs need to react to
+  // skill nodes that contribute Max Health / Max Stamina / mitigation / power
+  // regen / suspensor drain. Same handler the spec tracks use.
+  refreshAfterSpecChange();
+  syncTooltipIfShowing(nodeEl, cur + 1);
+}
+
+function tryDeallocateNode(nodeEl) {
+  const tag = nodeEl.dataset.tag;
+  const node = SKILL_TREE_STATE.nodesByTag[tag];
+  if (!node) return;
+  const cur = +nodeEl.dataset.rank;
+  if (cur <= 0) return;
+  const newRank = cur - 1;
+  if (!canDeallocate(node, newRank)) { flashSPInsufficient(); return; }
+  const refund = spCostForRank(node, cur);
+  const spec = node.spec;
+  if (newRank <= 0) {
+    if (SKILL_TREE_STATE.allocations[spec]) delete SKILL_TREE_STATE.allocations[spec][tag];
+  } else {
+    SKILL_TREE_STATE.allocations[spec][tag] = newRank;
+  }
+  setNodeRankUI(nodeEl, newRank);
+  SKILL_TREE_STATE.spSpent = Math.max(0, SKILL_TREE_STATE.spSpent - refund);
+  refreshSPDisplay();
+  refreshAllNodes();
+  pruneEquipped();           // drop the equip if this node is no longer allocated
+  renderMiniSlotIcons();
+  persistSkillTreeState();
+  renderSkillsSummary();
+  renderTechniquesSummary();
+  // Mirror the allocate path — see comment in tryAllocateNode.
+  refreshAfterSpecChange();
+  syncTooltipIfShowing(nodeEl, newRank);
+}
+
+function setNodeRankUI(nodeEl, newRank) {
+  nodeEl.dataset.rank = String(newRank);
+  [...nodeEl.querySelectorAll('.st-pip')].forEach((p, i) => p.classList.toggle('filled', i < newRank));
+  nodeEl.classList.toggle('allocated', newRank >= 1);
+}
+
+function syncTooltipIfShowing(nodeEl, newRank) {
+  const st = SKILL_TREE_STATE.tt;
+  if (!st || st.node !== nodeEl) return;
+  const s = st.skill;
+  const max = Math.max(1, (s.statsPerRank || []).length || s.pipCount || 1);
+  const prevAllocated = st.allocated;
+  st.allocated = newRank;
+  st.max = max;
+  // Clamp up on allocate: preview at least matches what's now allocated.
+  if (st.previewRank < newRank) st.previewRank = newRank;
+  // Clamp down on deallocate: if preview was tracking the allocated rank
+  // (the default state — preview defaults to allocated on first hover), drop
+  // it with allocated so the displayed stat reflects the new rank instead
+  // of going stale at the old rank. If preview was set independently (user
+  // scrolled to a different rank), leave it alone so they can keep previewing.
+  if (st.previewRank === prevAllocated && newRank < prevAllocated) {
+    st.previewRank = Math.max(1, newRank);
+  }
+  if (st.previewRank > max) st.previewRank = max;
+  renderSkillTooltip();
+}
+
+function resetCurrentTree() {
+  const spec = SKILL_TREE_STATE.currentSpec;
+  if (!spec) return;
+  delete SKILL_TREE_STATE.allocations[spec];
+  document.querySelectorAll('.st-node').forEach(n => setNodeRankUI(n, 0));
+  recomputeSpentSP();
+  refreshAllNodes();
+  pruneEquipped();
+  renderMiniSlotIcons();
+  persistSkillTreeState();
+  renderSkillsSummary();
+  renderTechniquesSummary();
+}
+
+// =============================================
+// Tooltip
+// =============================================
+function showSkillTooltip(e, s, nodeEl) {
+  const tt = document.getElementById('st-tooltip');
+  if (!tt) return;
+  const allocated = nodeEl ? +nodeEl.dataset.rank : 0;
+  const max = Math.max(1, (s.statsPerRank || []).length || s.pipCount || 1);
+  let preview = allocated >= 1 ? allocated : 1;
+  preview = Math.max(1, Math.min(max, preview));
+  SKILL_TREE_STATE.tt = { node: nodeEl, skill: s, previewRank: preview, allocated, max };
+  renderSkillTooltip();
+  // Position FIRST while still visibility:hidden — the layout is already live
+  // (the tooltip never went display:none) so offsetHeight reflects the just-
+  // set innerHTML correctly. Then make it visible so the user doesn't see a
+  // flash at the old position.
+  moveSkillTooltip(e);
+  tt.classList.add('st-visible');
+}
+
+function renderSkillTooltip() {
+  const tt = document.getElementById('st-tooltip');
+  if (!tt) return;
+  const { skill: s, previewRank, allocated, max } = SKILL_TREE_STATE.tt;
+  if (!s) return;
+  const typeLabel = ST_TYPE_DISPLAY[(s.skillType || '').toLowerCase()] || (s.skillType || '').toUpperCase();
+  let bars = '';
+  for (let i = 1; i <= max; i++) {
+    let cls = 'empty';
+    if (i <= allocated) cls = 'filled';
+    if (i === previewRank) cls = 'preview';
+    bars += `<div class="st-tt-bar ${cls}"></div>`;
+  }
+  const rankStats = (s.statsPerRank && s.statsPerRank[previewRank - 1]) || {};
+  let statsHtml = '';
+  for (const [name, val] of Object.entries(rankStats)) {
+    statsHtml += `<div class="st-tt-stat"><span>${name}</span><span class="v">${val}</span></div>`;
+  }
+  if (!statsHtml) {
+    statsHtml = `<div class="st-tt-stat"><span style="color:var(--color-text-secondary);font-style:italic;">(no per-rank stat mined for this rank)</span><span></span></div>`;
+  }
+  let costHtml = '';
+  if (previewRank > allocated) {
+    const node = SKILL_TREE_STATE.nodesByTag[s.tag];
+    const c = node ? spCostForRank(node, previewRank) : null;
+    if (c != null) costHtml = `<div class="st-tt-cost"><span>Cost</span><span>${c} Skill Point${c === 1 ? '' : 's'}</span></div>`;
+  }
+  let footerStatus = '';
+  if (allocated >= max) {
+    footerStatus = `<div class="st-tt-footer-status" style="color:var(--color-gold-bright);">Maxed</div>`;
+  } else if (previewRank > allocated) {
+    const node = SKILL_TREE_STATE.nodesByTag[s.tag];
+    const c = node ? spCostForRank(node, previewRank) : 0;
+    if (node && !isNodeAvailable(node)) {
+      footerStatus = `<div class="st-tt-footer-status">Prerequisites Not Met</div>`;
+    } else if (SKILL_TREE_STATE.spSpent + c > SKILL_TREE_STATE.spTotal) {
+      footerStatus = `<div class="st-tt-footer-status">Insufficient Skill Points</div>`;
+    }
+  }
+  let descHtml = '';
+  if (s.description) {
+    descHtml = `<div class="st-tt-desc"><p>${s.description}</p>${s.subDescription ? `<p>${s.subDescription}</p>` : ''}</div>`;
+  } else {
+    descHtml = `<div class="st-tt-desc"><p style="color:var(--color-text-secondary);font-style:italic;">(no description)</p></div>`;
+  }
+  let hotkeysHtml = '';
+  if (max > 1) {
+    hotkeysHtml = `
+      <div class="st-tt-hotkeys">
+        <div class="st-tt-hk"><span class="kc">Z</span><span>Prev Level</span></div>
+        <div class="st-tt-hk"><span class="kc">X</span><span>${previewRank >= max ? 'Wrap to 1' : 'Next Level'}</span></div>
+      </div>`;
+  }
+  let prereqMeta = '';
+  if (Array.isArray(s.prerequisites) && s.prerequisites.length) {
+    const names = s.prerequisites.map(pt => {
+      const pn = SKILL_TREE_STATE.nodesByTag[pt];
+      return pn ? pn.name : pt;
+    });
+    prereqMeta = `<div class="st-tt-meta">Requires: ${names.join(', ')}</div>`;
+  }
+  tt.innerHTML = `
+    <div class="st-tt-header">
+      <div class="st-tt-type">${typeLabel}</div>
+      <div class="st-tt-name">${s.name}</div>
+      <div class="st-tt-rank-diamond"><span>${allocated || 1}</span></div>
+    </div>
+    <div class="st-tt-level-row">
+      <div class="st-tt-level-label">Level ${previewRank}/${max}</div>
+      <div class="st-tt-bars">${bars}</div>
+    </div>
+    ${descHtml}
+    <div class="st-tt-stats">${statsHtml}</div>
+    ${costHtml}
+    ${footerStatus}
+    ${hotkeysHtml}
+    ${prereqMeta}
+  `;
+}
+
+function moveSkillTooltip(e) {
+  const tt = document.getElementById('st-tooltip');
+  if (!tt) return;
+  // Force a layout flush so the dimensions we read reflect the CURRENT
+  // content (showSkillTooltip just set innerHTML + display:block on the same
+  // tick — getBoundingClientRect can return 0×0 if layout hasn't settled).
+  // Reading offsetHeight forces a synchronous reflow.
+  void tt.offsetHeight;
+  // offsetWidth/Height are layout dims (immune to CSS transforms) and reliable
+  // post-flush. CSS pins `.st-tooltip { width: 380px }` so the constant
+  // fallback only ever kicks in if measurement is genuinely broken.
+  const tw = tt.offsetWidth  || 380;
+  const th = tt.offsetHeight || 200;
+  // Clamp to the modal's content rect (not the viewport) so the tooltip
+  // never spills past the panel border. Inset 8px off the modal border.
+  const modal = document.querySelector('.skill-tree-modal');
+  const mr = modal ? modal.getBoundingClientRect() : { left: 0, top: 0, right: innerWidth, bottom: innerHeight };
+  const INSET = 8;
+  const GAP   = 16;
+  const minX = mr.left + INSET;
+  const minY = mr.top  + INSET;
+  // If the tooltip is wider/taller than the modal can ever hold (degenerate
+  // tiny modal), Math.max with minX guarantees we never produce an inverted
+  // clamp range that would force the tooltip past the right/bottom edge.
+  const maxX = Math.max(minX, mr.right  - INSET - tw);
+  const maxY = Math.max(minY, mr.bottom - INSET - th);
+  // Prefer bottom-right of cursor; flip horizontally / vertically if that
+  // side would overflow the modal.
+  let x = e.clientX + GAP;
+  let y = e.clientY + GAP;
+  if (x + tw + INSET > mr.right)  x = e.clientX - tw - GAP;
+  if (y + th + INSET > mr.bottom) y = e.clientY - th - GAP;
+  // Final clamp — covers the case where neither side fits (cursor + tooltip
+  // larger than the modal edge in both directions).
+  x = Math.max(minX, Math.min(maxX, x));
+  y = Math.max(minY, Math.min(maxY, y));
+  tt.style.left = x + 'px';
+  tt.style.top  = y + 'px';
+}
+
+function hideSkillTooltip() {
+  const tt = document.getElementById('st-tooltip');
+  if (tt) tt.classList.remove('st-visible');
+  SKILL_TREE_STATE.tt = { node: null, skill: null, previewRank: 1, allocated: 0, max: 1 };
+}
+
+// X / Z to cycle the previewed rank inside the tooltip
+document.addEventListener('keydown', (e) => {
+  const st = SKILL_TREE_STATE.tt;
+  if (!st || !st.skill) return;
+  if (!document.getElementById('skill-tree-overlay').classList.contains('visible')) return;
+  if (e.key.toLowerCase() === 'x') {
+    st.previewRank = st.previewRank >= st.max ? 1 : st.previewRank + 1;
+    renderSkillTooltip(); e.preventDefault();
+  } else if (e.key.toLowerCase() === 'z') {
+    st.previewRank = st.previewRank <= 1 ? st.max : st.previewRank - 1;
+    renderSkillTooltip(); e.preventDefault();
+  }
+});
+
+// Bind buttons
+document.addEventListener('DOMContentLoaded', () => {
+  // Cache the app version once so exportBuild() (sync) can stamp it without an await.
+  window.electronAPI.getVersion()
+    .then(v => { APP_VERSION = v; })
+    .catch(() => { /* informational only — leave null */ });
+  const openBtn = document.getElementById('open-skill-tree-btn');
+  if (openBtn) openBtn.addEventListener('click', openSkillTree);
+  const closeBtn = document.getElementById('skill-tree-close');
+  if (closeBtn) closeBtn.addEventListener('click', closeSkillTree);
+  const overlay = document.getElementById('skill-tree-overlay');
+  if (overlay) overlay.addEventListener('click', e => { if (e.target === e.currentTarget) closeSkillTree(); });
+  const resetBtn = document.getElementById('st-reset-tree');
+  if (resetBtn) resetBtn.addEventListener('click', resetCurrentTree);
+});
+
+// Cycle the active spec by delta (-1 = previous / Z, +1 = next / C). Wraps.
+function cycleSkillTreeSpec(delta) {
+  const specs = SKILL_TREE_STATE.data?.specs;
+  if (!specs || !specs.length) return;
+  const current = SKILL_TREE_STATE.currentSpec || specs[0];
+  const idx = specs.indexOf(current);
+  const next = specs[(idx + delta + specs.length) % specs.length];
+  document.querySelectorAll('#st-spec-nav .st-spec-icon').forEach(x => {
+    x.classList.toggle('active', x.dataset.spec === next);
+  });
+  showSpec(next);
+}
+
+// Hook the 'K' shortcut while overlay closed → open. While open, Z/C cycle specs.
+document.addEventListener('keydown', (e) => {
+  if (e.target && /input|textarea|select/i.test(e.target.tagName || '')) return;
+  if (e.ctrlKey || e.altKey || e.metaKey) return;
+  const overlay = document.getElementById('skill-tree-overlay');
+  if (!overlay) return;
+  const isOpen = overlay.classList.contains('visible');
+  if (e.key === 'Escape' && isOpen) {
+    closeSkillTree();
+    e.preventDefault();
+    return;
+  }
+  // When a tooltip is showing, Z/X are consumed by the tooltip rank-preview
+  // cycler (see earlier listener); don't also cycle specs/tabs.
+  const tooltipActive = !!SKILL_TREE_STATE.tt?.skill;
+  const inEquipView = isOpen && getCurrentSkillView() === 'equip';
+  if (isOpen && !tooltipActive && (e.key === 'z' || e.key === 'Z')) {
+    if (inEquipView) switchEquipTab('ability');
+    else cycleSkillTreeSpec(-1);
+    e.preventDefault();
+    return;
+  }
+  if (isOpen && (e.key === 'c' || e.key === 'C')) {
+    if (inEquipView) switchEquipTab('technique');
+    else cycleSkillTreeSpec(+1);
+    e.preventDefault();
+    return;
+  }
+  if (e.key.toLowerCase() !== 'k') return;
+  if (isOpen) closeSkillTree();
+  else openSkillTree();
+});
+
+// =============================================
+// SKILL TREE — EQUIP SUBPAGE (S key)
+// View toggle (tree ↔ equip), drag-and-drop equip flow, persistence under
+// SKILL_TREE_STATE.equipped + the skills._equipped block.
+// =============================================
+
+// Equipped slots state. Each array is exactly 3 entries. Each entry is either
+// a node tag (e.g. "Skills.Ability.AssaultSeeker") or null = empty slot.
+SKILL_TREE_STATE.equipped = { abilities: [null, null, null], techniques: [null, null, null] };
+
+function isAbilitySlotEligible(node) {
+  if (!node) return false;
+  const t = (node.skillType || '').toLowerCase();
+  return t === 'ability' || t === 'spice';
+}
+function isTechniqueSlotEligible(node) {
+  if (!node) return false;
+  // build-v6.py stores skillType as 'technique' (lowercased from gt's "Technique");
+  // accept 'perk' too in case the source ever changes back.
+  const t = (node.skillType || '').toLowerCase();
+  return t === 'technique' || t === 'perk';
+}
+
+function isAllocated(tag) {
+  const n = SKILL_TREE_STATE.nodesByTag[tag];
+  if (!n) return false;
+  const specAlloc = SKILL_TREE_STATE.allocations[n.spec] || {};
+  return (specAlloc[tag] || 0) >= 1;
+}
+
+// Set or clear a slot. Slot type = "ability" | "technique", idx = 0..2.
+function setEquipSlot(slotType, idx, tag) {
+  const key = slotType === 'ability' ? 'abilities' : 'techniques';
+  if (!SKILL_TREE_STATE.equipped[key]) SKILL_TREE_STATE.equipped[key] = [null, null, null];
+  // If this tag is already equipped in another slot of the same type, clear that other slot first.
+  if (tag) {
+    SKILL_TREE_STATE.equipped[key] = SKILL_TREE_STATE.equipped[key].map(t => t === tag ? null : t);
+  }
+  SKILL_TREE_STATE.equipped[key][idx] = tag || null;
+  persistSkillTreeState();
+  renderEquipPage();
+  renderMiniSlotIcons();
+  if (key === 'techniques') {
+    renderTechniquesSummary();
+    // Techniques can contribute Damage Mitigation (ToughLunge), and equipping/
+    // unequipping changes the bonus pool — re-run the spec-change refresh so
+    // bars + calcs see the updated value.
+    refreshAfterSpecChange();
+  }
+}
+
+function clearEquipSlot(slotType, idx) {
+  setEquipSlot(slotType, idx, null);
+}
+
+// Strip out any equipped entries that are no longer allocated (e.g. user
+// resets the tree). Called from recomputeSpentSP / reset paths so the equip
+// state can't reference dead tags.
+function pruneEquipped() {
+  let changed = false;
+  for (const key of ['abilities', 'techniques']) {
+    const arr = SKILL_TREE_STATE.equipped[key] || [];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] && !isAllocated(arr[i])) {
+        arr[i] = null;
+        changed = true;
+      }
+    }
+  }
+  if (changed) persistSkillTreeState();
+}
+
+// ============== View toggle ==============
+function getCurrentSkillView() {
+  const equipView = document.getElementById('st-view-equip');
+  if (!equipView) return 'tree';
+  return equipView.hasAttribute('hidden') ? 'tree' : 'equip';
+}
+
+function swapToEquipView() {
+  const treeView = document.getElementById('st-view-tree');
+  const equipView = document.getElementById('st-view-equip');
+  if (!treeView || !equipView) return;
+  treeView.setAttribute('hidden', '');
+  equipView.removeAttribute('hidden');
+  hideSkillTooltip();
+  renderEquipPage();
+}
+
+function swapToTreeView() {
+  const treeView = document.getElementById('st-view-tree');
+  const equipView = document.getElementById('st-view-equip');
+  if (!treeView || !equipView) return;
+  equipView.setAttribute('hidden', '');
+  treeView.removeAttribute('hidden');
+  renderMiniSlotIcons();
+}
+
+function toggleSkillView() {
+  if (getCurrentSkillView() === 'tree') swapToEquipView();
+  else swapToTreeView();
+}
+
+// ============== Render: equip page (slots + allocated grids) ==============
+function renderEquipPage() {
+  pruneEquipped(); // make sure no stale equips before rendering
+  renderEquipSlots('ability');
+  renderEquipSlots('technique');
+  renderEquipGrid('ability');
+  renderEquipGrid('technique');
+  syncEquipTabButtons();
+}
+
+function renderEquipSlots(slotType) {
+  const containerId = slotType === 'ability' ? 'st-equip-ability-slots' : 'st-equip-technique-slots';
+  const labelsId    = slotType === 'ability' ? 'st-equip-ability-labels' : 'st-equip-technique-labels';
+  const container = document.getElementById(containerId);
+  const labelsBox = document.getElementById(labelsId);
+  if (!container) return;
+  const key = slotType === 'ability' ? 'abilities' : 'techniques';
+  const arr = SKILL_TREE_STATE.equipped[key] || [];
+  [...container.querySelectorAll('.st-equip-slot')].forEach((slot, idx) => {
+    const tag = arr[idx];
+    const content = slot.querySelector('.st-equip-slot-content');
+    if (content) {
+      content.innerHTML = '';
+      if (tag) {
+        const node = SKILL_TREE_STATE.nodesByTag[tag];
+        if (node?.iconPath_local) {
+          const img = document.createElement('img');
+          img.src = './' + node.iconPath_local.replace(/^\.?\/?/, '');
+          img.alt = node.name || tag;
+          img.title = node.name || tag;
+          content.appendChild(img);
+        }
+      }
+    }
+    slot.classList.toggle('st-equip-empty', !tag);
+    slot.classList.toggle('st-equip-filled', !!tag);
+  });
+  // Sync names below the slot row
+  if (labelsBox) {
+    const spans = labelsBox.querySelectorAll('span');
+    spans.forEach((span, idx) => {
+      const tag = arr[idx];
+      const node = tag ? SKILL_TREE_STATE.nodesByTag[tag] : null;
+      span.textContent = node?.name || '';
+    });
+  }
+}
+
+// Render the FULL grid of all items in a category (both unlocked + locked).
+// Order is fixed (tree position): walk every spec → every node in spec order,
+// keep items matching the requested type. This way the grid layout doesn't
+// shuffle as the user allocates new things.
+function renderEquipGrid(slotType) {
+  const gridId = slotType === 'ability' ? 'st-equip-ability-grid' : 'st-equip-technique-grid';
+  const grid = document.getElementById(gridId);
+  if (!grid) return;
+  grid.innerHTML = '';
+  const eligible = slotType === 'ability' ? isAbilitySlotEligible : isTechniqueSlotEligible;
+  const equippedKey = slotType === 'ability' ? 'abilities' : 'techniques';
+  const equippedSet = new Set(SKILL_TREE_STATE.equipped[equippedKey] || []);
+  const data = SKILL_TREE_STATE.data;
+  if (!data) return;
+
+  // Walk in canonical spec order so the grid is stable.
+  const items = [];
+  for (const spec of (data.specs || [])) {
+    const nodes = data.skills_by_spec?.[spec] || [];
+    for (const n of nodes) {
+      if (!eligible(n)) continue;
+      items.push(n);
+    }
+  }
+
+  for (const node of items) {
+    const item = document.createElement('div');
+    item.className = `st-equip-item st-equip-item--${slotType}`;
+    item.dataset.tag = node.tag;
+    item.dataset.slotType = slotType;
+
+    const unlocked = isAllocated(node.tag);
+    item.classList.add(unlocked ? 'st-equip-unlocked' : 'st-equip-locked');
+
+    if (unlocked) {
+      item.draggable = true;
+      item.title = node.name || node.tag;
+      if (equippedSet.has(node.tag)) item.classList.add('st-equip-equipped');
+      if (node.iconPath_local) {
+        const img = document.createElement('img');
+        img.src = './' + node.iconPath_local.replace(/^\.?\/?/, '');
+        img.alt = node.name || node.tag;
+        item.appendChild(img);
+      }
+    } else {
+      item.draggable = false;
+      // Locked items show a "+" placeholder. Span lives above the ::after
+      // shape fill via z-index in CSS.
+      const plus = document.createElement('span');
+      plus.className = 'st-equip-item-plus';
+      plus.textContent = '+';
+      item.appendChild(plus);
+    }
+
+    const mark = document.createElement('div');
+    mark.className = 'st-equip-item-mark';
+    item.appendChild(mark);
+    grid.appendChild(item);
+  }
+}
+
+// ============== Tab switching (Abilities ↔ Techniques) ==============
+function switchEquipTab(tab /* 'ability' | 'technique' */) {
+  const abilPane = document.getElementById('st-equip-pane-ability');
+  const techPane = document.getElementById('st-equip-pane-technique');
+  if (!abilPane || !techPane) return;
+  if (tab === 'technique') {
+    abilPane.setAttribute('hidden', '');
+    techPane.removeAttribute('hidden');
+  } else {
+    techPane.setAttribute('hidden', '');
+    abilPane.removeAttribute('hidden');
+  }
+  syncEquipTabButtons();
+}
+
+function syncEquipTabButtons() {
+  const abilPane = document.getElementById('st-equip-pane-ability');
+  const isAbility = abilPane && !abilPane.hasAttribute('hidden');
+  const abilBtn = document.getElementById('st-equip-tab-ability');
+  const techBtn = document.getElementById('st-equip-tab-technique');
+  if (abilBtn) abilBtn.classList.toggle('st-equip-tab--active', isAbility);
+  if (techBtn) techBtn.classList.toggle('st-equip-tab--active', !isAbility);
+}
+
+function getActiveEquipTab() {
+  const abilPane = document.getElementById('st-equip-pane-ability');
+  return (abilPane && !abilPane.hasAttribute('hidden')) ? 'ability' : 'technique';
+}
+
+// Bottom-strip mini-slots in tree view — render equipped icons so the strip
+// reflects the current loadout even while looking at the tree.
+function renderMiniSlotIcons() {
+  for (const slotType of ['ability', 'technique']) {
+    const stripId = slotType === 'ability' ? 'st-strip-abilities' : 'st-strip-techniques';
+    const strip = document.getElementById(stripId);
+    if (!strip) continue;
+    const key = slotType === 'ability' ? 'abilities' : 'techniques';
+    const arr = SKILL_TREE_STATE.equipped[key] || [];
+    [...strip.querySelectorAll('.st-mini-slot')].forEach((slot, idx) => {
+      // Strip any existing icon overlay
+      const existing = slot.querySelector('.st-mini-slot-icon');
+      if (existing) existing.remove();
+      const tag = arr[idx];
+      if (!tag) return;
+      const node = SKILL_TREE_STATE.nodesByTag[tag];
+      if (!node?.iconPath_local) return;
+      const overlay = document.createElement('div');
+      overlay.className = 'st-mini-slot-icon';
+      const img = document.createElement('img');
+      img.src = './' + node.iconPath_local.replace(/^\.?\/?/, '');
+      img.alt = node.name || tag;
+      img.title = node.name || tag;
+      overlay.appendChild(img);
+      slot.appendChild(overlay);
+    });
+  }
+}
+
+// ============== Drag-and-drop ==============
+// Delegate on the equip view so we don't re-wire on every render.
+function setupEquipDragDrop() {
+  const equipView = document.getElementById('st-view-equip');
+  if (!equipView || equipView.dataset.dragWired === '1') return;
+  equipView.dataset.dragWired = '1';
+
+  // Source items: dragstart marks the item, sets payload
+  equipView.addEventListener('dragstart', (e) => {
+    const item = e.target.closest('.st-equip-item');
+    if (!item) return;
+    if (item.classList.contains('st-equip-item--equipped')) {
+      // Allow re-drag of equipped items so user can move them to a different slot
+    }
+    e.dataTransfer.setData('text/plain', JSON.stringify({
+      tag: item.dataset.tag,
+      slotType: item.dataset.slotType,
+    }));
+    e.dataTransfer.effectAllowed = 'move';
+    item.classList.add('st-equip-dragging');
+  });
+  equipView.addEventListener('dragend', (e) => {
+    const item = e.target.closest('.st-equip-item');
+    if (item) item.classList.remove('st-equip-dragging');
+  });
+
+  // Drop targets: the 6 slots
+  equipView.addEventListener('dragover', (e) => {
+    const slot = e.target.closest('.st-equip-slot');
+    if (!slot) return;
+    e.preventDefault(); // allow drop
+    e.dataTransfer.dropEffect = 'move';
+    slot.classList.add('st-equip-drag-over');
+  });
+  equipView.addEventListener('dragleave', (e) => {
+    const slot = e.target.closest('.st-equip-slot');
+    if (slot) slot.classList.remove('st-equip-drag-over');
+  });
+  equipView.addEventListener('drop', (e) => {
+    const slot = e.target.closest('.st-equip-slot');
+    if (!slot) return;
+    e.preventDefault();
+    slot.classList.remove('st-equip-drag-over');
+    let payload;
+    try { payload = JSON.parse(e.dataTransfer.getData('text/plain') || '{}'); }
+    catch { return; }
+    const [slotType, idxStr] = (slot.dataset.equipSlot || '').split(':');
+    const idx = parseInt(idxStr, 10);
+    if (!slotType || !Number.isFinite(idx)) return;
+    if (payload.slotType !== slotType) return; // ability can't drop into technique slot
+    setEquipSlot(slotType, idx, payload.tag);
+  });
+
+  // Click an equipped slot → clear it
+  equipView.addEventListener('click', (e) => {
+    const slot = e.target.closest('.st-equip-slot');
+    if (!slot) return;
+    const [slotType, idxStr] = (slot.dataset.equipSlot || '').split(':');
+    const idx = parseInt(idxStr, 10);
+    if (!slotType || !Number.isFinite(idx)) return;
+    const key = slotType === 'ability' ? 'abilities' : 'techniques';
+    if ((SKILL_TREE_STATE.equipped[key] || [])[idx]) {
+      clearEquipSlot(slotType, idx);
+    }
+  });
+}
+
+// Wire view-toggle clickables. The tree bottom-strip click swaps to equip;
+// the equip back button swaps back. Both also bound to the S key. Tabs are
+// click-to-switch + Z/C navigable while in equip view.
+document.addEventListener('DOMContentLoaded', () => {
+  const stripEnter = document.getElementById('st-enter-subpage');
+  if (stripEnter) stripEnter.addEventListener('click', swapToEquipView);
+  const backBtn = document.getElementById('st-equip-back');
+  if (backBtn) backBtn.addEventListener('click', swapToTreeView);
+  const abilTab = document.getElementById('st-equip-tab-ability');
+  const techTab = document.getElementById('st-equip-tab-technique');
+  if (abilTab) abilTab.addEventListener('click', () => switchEquipTab('ability'));
+  if (techTab) techTab.addEventListener('click', () => switchEquipTab('technique'));
+  setupEquipDragDrop();
+  // Eager-load so the left-panel Skills / Techniques sections can surface
+  // allocations + equips restored from localStorage before the user ever
+  // opens the K menu.
+  loadSkillTreeData().then(() => {
+    renderSkillsSummary();
+    renderTechniquesSummary();
+  });
+});
+
+// S key handler — toggles tree ↔ equip view while skill-tree modal is open
+// and no input field is focused. Sits BEFORE the main K/Z/C listener so we
+// don't interfere with those.
+document.addEventListener('keydown', (e) => {
+  if (e.target && /input|textarea|select/i.test(e.target.tagName || '')) return;
+  if (e.ctrlKey || e.altKey || e.metaKey) return;
+  const overlay = document.getElementById('skill-tree-overlay');
+  if (!overlay || !overlay.classList.contains('visible')) return;
+  // Don't fire S while a tooltip is showing (preserves potential future tooltip-S use).
+  if (e.key === 's' || e.key === 'S') {
+    toggleSkillView();
+    e.preventDefault();
+  }
+});

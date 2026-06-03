@@ -1,0 +1,1118 @@
+{
+  "_note": "Per-rank stat values for every skill tree node, derived from authoritative curves.",
+  "_methodology": "Sources: PerkLevels (33 rows), CT_SkillAttributeValues (46 rows), dune-ability-tuning (261 rows). Curves loaded as authoritative values. Per-rank values: rank N (0-indexed) maps to curve level N+1; linear interp between defined keys; linear extrapolation past the last defined key using the slope of the final two keys (verified: Marksman rank 3 reads as 20% from a curve with keys (1, 0.10) (3, 0.20), extrapolated to 20% at level 3). Stat names come from gt-skill-tree.json (e.g. \"Body Damage\"), values from curves. gt-skill-tree.json value fields are IGNORED (they are broken).",
+  "_validated": {
+    "Skills.Perk.HeadShots (Marksman)": [
+      {
+        "Headshot Damage": "+10%"
+      },
+      {
+        "Headshot Damage": "+15%"
+      },
+      {
+        "Headshot Damage": "+20%"
+      }
+    ],
+    "Skills.Perk.BodyShots (Center of Mass)": [
+      {
+        "Body Damage": "+10%",
+        "Headshot Damage": "-25%",
+        "Blade Damage": "+10%",
+        "Shield Damage": "+10%"
+      },
+      {
+        "Body Damage": "+15%",
+        "Headshot Damage": "-25%",
+        "Blade Damage": "+15%",
+        "Shield Damage": "+15%"
+      },
+      {
+        "Body Damage": "+20%",
+        "Headshot Damage": "-25%",
+        "Blade Damage": "+20%",
+        "Shield Damage": "+20%"
+      }
+    ]
+  },
+  "_resolved_count": 98,
+  "_unresolved": [
+    "Skills.Perk.SuspensorDash",
+    "Skills.Spice.GadgetReload",
+    "Skills.Science.m_PowerMax",
+    "Skills.Attribute.Explorer1",
+    "Skills.Attribute.Explorer5",
+    "Skills.Spice.BinduDodge",
+    "Skills.Spice.VoiceSplash",
+    "Skills.Spice.ParryBoost",
+    "Skills.Attribute.UnstoppableAttacks",
+    "Skills.Spice.ShadowStrike"
+  ],
+  "_stats": {
+    "tags_total": 108,
+    "tags_fully_resolved": 84,
+    "tags_partially_resolved": 14,
+    "tags_with_no_data": 10,
+    "unique_stats_total": 216,
+    "unique_stats_resolved": 195
+  },
+  "Skills.Attribute.Weaponry1": [
+    {
+      "Ranged Damage": "+3%"
+    },
+    {
+      "Ranged Damage": "+6%"
+    },
+    {
+      "Ranged Damage": "+9%"
+    }
+  ],
+  "Skills.Attribute.Weaponry2": [
+    {
+      "Disruptor Damage": "+5%"
+    },
+    {
+      "Disruptor Damage": "+10%"
+    },
+    {
+      "Disruptor Damage": "+15%"
+    }
+  ],
+  "Skills.Perk.BodyShots": [
+    {
+      "Body Damage": "+10%",
+      "Headshot Damage": "-25%",
+      "Blade Damage": "+10%",
+      "Shield Damage": "+10%"
+    },
+    {
+      "Body Damage": "+15%",
+      "Headshot Damage": "-25%",
+      "Blade Damage": "+15%",
+      "Shield Damage": "+15%"
+    },
+    {
+      "Body Damage": "+20%",
+      "Headshot Damage": "-25%",
+      "Blade Damage": "+20%",
+      "Shield Damage": "+20%"
+    }
+  ],
+  "Skills.Perk.HeavyWeaponNaib": [
+    {
+      "Hwp Spd Penalty": "-40%"
+    },
+    {
+      "Hwp Spd Penalty": "-60%"
+    },
+    {
+      "Hwp Spd Penalty": "-75%"
+    }
+  ],
+  "Skills.Attribute.Weaponry3": [
+    {
+      "Scattergun Damage": "+5%"
+    },
+    {
+      "Scattergun Damage": "+10%"
+    },
+    {
+      "Scattergun Damage": "+15%"
+    }
+  ],
+  "Skills.Attribute.Weaponry4": [
+    {
+      "Reduce Durability Loss": "+30%"
+    },
+    {
+      "Reduce Durability Loss": "+40%"
+    },
+    {
+      "Reduce Durability Loss": "+50%"
+    }
+  ],
+  "Skills.Attribute.Weaponry5": [
+    {
+      "Heavy Weapon Damage": "+5%"
+    },
+    {
+      "Heavy Weapon Damage": "+10%"
+    },
+    {
+      "Heavy Weapon Damage": "+15%"
+    }
+  ],
+  "Skills.Attribute.Weaponry6": [
+    {
+      "Reduce Max Durability Loss": "+15%"
+    },
+    {
+      "Reduce Max Durability Loss": "+20%"
+    },
+    {
+      "Reduce Max Durability Loss": "+25%"
+    }
+  ],
+  "Skills.Ability.EnergyCapsule": [
+    {
+      "Cooldown": "25",
+      "Stamina Cost": "15",
+      "Duration": "10"
+    }
+  ],
+  "Skills.Ability.SuspensorGrenade_Reduction": [
+    {
+      "Cooldown": "25",
+      "Stamina Cost": "15",
+      "Duration": "12"
+    }
+  ],
+  "Skills.Ability.SuspensorGrenade_Amplification": [
+    {
+      "Cooldown": "30",
+      "Stamina Cost": "15",
+      "Duration": "8"
+    }
+  ],
+  "Skills.Attribute.SuspensorTech1": [
+    {
+      "Suspensor Power Drain": "-10%"
+    },
+    {
+      "Suspensor Power Drain": "-15%"
+    },
+    {
+      "Suspensor Power Drain": "-20%"
+    }
+  ],
+  "Skills.Perk.DeathFromAbove": [
+    {
+      "Damage While Suspended": "+10%"
+    },
+    {
+      "Damage While Suspended": "+15%"
+    },
+    {
+      "Damage While Suspended": "+20%"
+    }
+  ],
+  "Skills.Ability.CollapseGrenade": [
+    {
+      "Cooldown": "35",
+      "Stamina Cost": "30",
+      "Duration": "1"
+    }
+  ],
+  "Skills.Ability.SuspensorBlast": [
+    {
+      "Cooldown": "20"
+    }
+  ],
+  "Skills.Ability.CablePull": [
+    {
+      "Cooldown (Terrain)": "8",
+      "Cooldown (Enemy)": "25",
+      "Stamina Cost": "15",
+      "Range": "1800"
+    },
+    {
+      "Cooldown (Terrain)": "8",
+      "Cooldown (Enemy)": "25",
+      "Stamina Cost": "15",
+      "Range": "2160"
+    },
+    {
+      "Cooldown (Terrain)": "8",
+      "Cooldown (Enemy)": "25",
+      "Stamina Cost": "15",
+      "Range": "2520"
+    }
+  ],
+  "Skills.Ability.FragGrenade": [
+    {
+      "Cooldown": "20",
+      "Stamina Cost": "30",
+      "Damage": "75"
+    },
+    {
+      "Cooldown": "18",
+      "Stamina Cost": "30",
+      "Damage": "240"
+    },
+    {
+      "Cooldown": "16",
+      "Stamina Cost": "30",
+      "Damage": "490"
+    }
+  ],
+  "Skills.Perk.TrooperCooldowns": [
+    {
+      "Ability Cooldowns": "-20%"
+    },
+    {
+      "Ability Cooldowns": "-25%"
+    },
+    {
+      "Ability Cooldowns": "-30%"
+    }
+  ],
+  "Skills.Ability.AssaultSeeker": [
+    {
+      "Cooldown": "22",
+      "Stamina Cost": "30",
+      "Damage": "80",
+      "Range": "2000"
+    },
+    {
+      "Cooldown": "20",
+      "Stamina Cost": "30",
+      "Damage": "250",
+      "Range": "2500"
+    },
+    {
+      "Cooldown": "18",
+      "Stamina Cost": "30",
+      "Damage": "550",
+      "Range": "3000"
+    }
+  ],
+  "Skills.Ability.MagneticAttractor": [
+    {
+      "Cooldown": "25",
+      "Stamina Cost": "30"
+    }
+  ],
+  "Skills.Ability.TurretSeeker": [
+    {
+      "Cooldown": "22",
+      "Stamina Cost": "30",
+      "Duration": "15",
+      "Damage": "14"
+    },
+    {
+      "Cooldown": "20",
+      "Stamina Cost": "30",
+      "Duration": "20",
+      "Damage": "31"
+    },
+    {
+      "Cooldown": "18",
+      "Stamina Cost": "30",
+      "Duration": "25",
+      "Damage": "87"
+    }
+  ],
+  "Skills.Attribute.MentalCalculus1": [
+    {
+      "Reduce Durability Loss": "+15%"
+    },
+    {
+      "Reduce Durability Loss": "+20%"
+    },
+    {
+      "Reduce Durability Loss": "+25%"
+    }
+  ],
+  "Skills.Attribute.MentalCalculus2": [
+    {
+      "Ranged Damage": "+3%"
+    },
+    {
+      "Ranged Damage": "+6%"
+    },
+    {
+      "Ranged Damage": "+9%"
+    }
+  ],
+  "Skills.Attribute.MentalCalculus3": [
+    {
+      "Reduce Max Durability Loss": "+15%"
+    },
+    {
+      "Reduce Max Durability Loss": "+20%"
+    },
+    {
+      "Reduce Max Durability Loss": "+25%"
+    }
+  ],
+  "Skills.Perk.HeadShots": [
+    {
+      "Headshot Damage": "+10%"
+    },
+    {
+      "Headshot Damage": "+15%"
+    },
+    {
+      "Headshot Damage": "+20%"
+    }
+  ],
+  "Skills.Attribute.MentalCalculus4": [
+    {
+      "Pistol Damage": "+5%"
+    },
+    {
+      "Pistol Damage": "+10%"
+    },
+    {
+      "Pistol Damage": "+15%"
+    }
+  ],
+  "Skills.Perk.ExploitWeakness": [
+    {
+      "Damage to Weakpoint": "+30%",
+      "Duration": "10"
+    }
+  ],
+  "Skills.Attribute.MentalCalculus5": [
+    {
+      "Rifle Damage": "+5%"
+    },
+    {
+      "Rifle Damage": "+10%"
+    },
+    {
+      "Rifle Damage": "+15%"
+    }
+  ],
+  "Skills.Perk.ShieldWeakpoint": [
+    {
+      "Shield Drain Multiplier": "×1.3",
+      "Duration": "10"
+    }
+  ],
+  "Skills.Ability.PoisonCapsuleLauncher": [
+    {
+      "Cooldown": "20",
+      "Stamina Cost": "30"
+    },
+    {
+      "Cooldown": "18",
+      "Stamina Cost": "30"
+    },
+    {
+      "Cooldown": "16",
+      "Stamina Cost": "30"
+    }
+  ],
+  "Skills.Ability.PoisonMine": [
+    {
+      "Cooldown": "18",
+      "Stamina Cost": "15"
+    },
+    {
+      "Cooldown": "16",
+      "Stamina Cost": "15"
+    },
+    {
+      "Cooldown": "14",
+      "Stamina Cost": "15"
+    }
+  ],
+  "Skills.Attribute.Assassination1": [
+    {
+      "Headshot Damage": "+5%"
+    },
+    {
+      "Headshot Damage": "+10%"
+    },
+    {
+      "Headshot Damage": "+15%"
+    }
+  ],
+  "Skills.Attribute.Assassination2": [
+    {
+      "Ranged Damage": "+5%"
+    },
+    {
+      "Ranged Damage": "+10%"
+    },
+    {
+      "Ranged Damage": "+15%"
+    }
+  ],
+  "Skills.Perk.PoisonTooth": [
+    {
+      "Duration": "10",
+      "Damage": "1"
+    },
+    {
+      "Duration": "20",
+      "Damage": "1.5"
+    },
+    {
+      "Duration": "30",
+      "Damage": "2"
+    }
+  ],
+  "Skills.Ability.StunDart": [
+    {
+      "Cooldown": "35",
+      "Stamina Cost": "45",
+      "Duration": "6"
+    }
+  ],
+  "Skills.Ability.HunterSeeker": [
+    {
+      "Cooldown": "60",
+      "Stamina Cost": "30",
+      "Damage": "1200"
+    }
+  ],
+  "Skills.Ability.SuspensorWall": [
+    {
+      "Cooldown": "22",
+      "Stamina Cost": "15",
+      "Duration": "25"
+    },
+    {
+      "Cooldown": "20",
+      "Stamina Cost": "15",
+      "Duration": "30"
+    },
+    {
+      "Cooldown": "18",
+      "Stamina Cost": "15",
+      "Duration": "35"
+    }
+  ],
+  "Skills.Ability.SuspensorMine_Amplification": [
+    {
+      "Cooldown": "30",
+      "Stamina Cost": "15",
+      "Duration": "17"
+    }
+  ],
+  "Skills.Ability.SolidoDecoy": [
+    {
+      "Cooldown": "23",
+      "Stamina Cost": "15",
+      "Duration": "15"
+    }
+  ],
+  "Skills.Ability.SuspensorMine_Reduction": [
+    {
+      "Cooldown": "25",
+      "Stamina Cost": "15",
+      "Duration": "17"
+    }
+  ],
+  "Skills.Perk.IronWill": [
+    {
+      "Stamina Cost": "20",
+      "Cooldown": "8"
+    }
+  ],
+  "Skills.Ability.PortableGenerator": [
+    {
+      "Cooldown": "35",
+      "Stamina Cost": "15",
+      "Duration": "20",
+      "Power Regeneration": "+3%"
+    }
+  ],
+  "Skills.Attribute.Scientist1": [
+    {
+      "Vehicle Cutteray Yield": "+10%"
+    },
+    {
+      "Vehicle Cutteray Yield": "+15%"
+    },
+    {
+      "Vehicle Cutteray Yield": "+20%"
+    }
+  ],
+  "Skills.Attribute.Scientist2": [
+    {
+      "Dew Reaper Yield": "+10%"
+    },
+    {
+      "Dew Reaper Yield": "+15%"
+    },
+    {
+      "Dew Reaper Yield": "+20%"
+    }
+  ],
+  "Skills.Attribute.Scientist3": [
+    {
+      "Power Regeneration": "+3%"
+    },
+    {
+      "Power Regeneration": "+6%"
+    },
+    {
+      "Power Regeneration": "+10%"
+    }
+  ],
+  "Skills.Attribute.Scientist4": [
+    {
+      "Analysis Mode Yield": "+10%"
+    },
+    {
+      "Analysis Mode Yield": "+15%"
+    },
+    {
+      "Analysis Mode Yield": "+20%"
+    }
+  ],
+  "Skills.Attribute.Scientist5": [
+    {
+      "Compactor Yield": "+10%"
+    },
+    {
+      "Compactor Yield": "+15%"
+    },
+    {
+      "Compactor Yield": "+20%"
+    }
+  ],
+  "Skills.Perk.BatteryExpert": [
+    {
+      "Power Usage": "-3%"
+    },
+    {
+      "Power Usage": "-6%"
+    },
+    {
+      "Power Usage": "-9%"
+    }
+  ],
+  "Skills.Ability.SuspensorPad": [
+    {
+      "Cooldown": "15",
+      "Stamina Cost": "15",
+      "Duration": "10"
+    }
+  ],
+  "Skills.Attribute.Explorer2": [
+    {
+      "Climbing Stamina Drain": "-15%"
+    },
+    {
+      "Climbing Stamina Drain": "-20%"
+    },
+    {
+      "Climbing Stamina Drain": "-25%"
+    }
+  ],
+  "Skills.Attribute.Explorer3": [
+    {
+      "Detection Radius": "+15%"
+    },
+    {
+      "Detection Radius": "+20%"
+    },
+    {
+      "Detection Radius": "+25%"
+    }
+  ],
+  "Skills.Attribute.Explorer4": [
+    {
+      "Hydration Capture": "+5%"
+    },
+    {
+      "Hydration Capture": "+10%"
+    },
+    {
+      "Hydration Capture": "+15%"
+    }
+  ],
+  "Skills.Attribute.Driver1": [
+    {
+      "Reduce Max Durability Loss": "+15%"
+    },
+    {
+      "Reduce Max Durability Loss": "+25%"
+    },
+    {
+      "Reduce Max Durability Loss": "+35%"
+    }
+  ],
+  "Skills.Attribute.Driver2": [
+    {
+      "Fuel Usage (Grd)": "-15%"
+    },
+    {
+      "Fuel Usage (Grd)": "-20%"
+    },
+    {
+      "Fuel Usage (Grd)": "-25%"
+    }
+  ],
+  "Skills.Attribute.Driver3": [
+    {
+      "Vehicle Cutteray Yield": "+10%"
+    },
+    {
+      "Vehicle Cutteray Yield": "+15%"
+    },
+    {
+      "Vehicle Cutteray Yield": "+20%"
+    }
+  ],
+  "Skills.Attribute.Driver4": [
+    {
+      "Detection Radius": "+15%"
+    },
+    {
+      "Detection Radius": "+20%"
+    },
+    {
+      "Detection Radius": "+25%"
+    }
+  ],
+  "Skills.Attribute.Driver5": [
+    {
+      "Fuel Usage (Air)": "-15%"
+    },
+    {
+      "Fuel Usage (Air)": "-20%"
+    },
+    {
+      "Fuel Usage (Air)": "-25%"
+    }
+  ],
+  "Skills.Attribute.Driver6": [
+    {
+      "Sandcrawler Yield": "+10%"
+    },
+    {
+      "Sandcrawler Yield": "+15%"
+    },
+    {
+      "Sandcrawler Yield": "+20%"
+    }
+  ],
+  "Skills.Spice.VehicleHeat": [
+    {
+      "Heat Generation": "-20%"
+    }
+  ],
+  "Skills.Ability.Hypersprint": [
+    {
+      "Cooldown": "20",
+      "Stamina Start Cost": "15",
+      "Stamina Drain": "40"
+    },
+    {
+      "Cooldown": "19",
+      "Stamina Start Cost": "10",
+      "Stamina Drain": "20"
+    },
+    {
+      "Cooldown": "18",
+      "Stamina Start Cost": "5",
+      "Stamina Drain": "10"
+    }
+  ],
+  "Skills.Perk.Backstabber": [
+    {
+      "Instability Bonus Damage": "+10%"
+    },
+    {
+      "Instability Bonus Damage": "+15%"
+    },
+    {
+      "Instability Bonus Damage": "+20%"
+    }
+  ],
+  "Skills.Attribute.WeirdingWay1": [
+    {
+      "Blade Damage": "+5%"
+    },
+    {
+      "Blade Damage": "+10%"
+    },
+    {
+      "Blade Damage": "+15%"
+    }
+  ],
+  "Skills.Attribute.WeirdingWay2": [
+    {
+      "Short Blade Damage": "+5%"
+    },
+    {
+      "Short Blade Damage": "+10%"
+    },
+    {
+      "Short Blade Damage": "+15%"
+    }
+  ],
+  "Skills.Ability.BinduNerveStrike": [
+    {
+      "Cooldown": "20",
+      "Stamina Cost": "15",
+      "Damage": "5"
+    }
+  ],
+  "Skills.Ability.WeirdingStep": [
+    {
+      "Cooldown": "15",
+      "Stamina Cost": "37.5",
+      "Range": "3000"
+    }
+  ],
+  "Skills.Ability.VoiceCompel": [
+    {
+      "Cooldown": "35",
+      "Stamina Cost": "45",
+      "Voice Channel Time": "1.5",
+      "Range": "300"
+    }
+  ],
+  "Skills.Ability.Blindspot": [
+    {
+      "Cooldown": "25",
+      "Stamina Cost": "45",
+      "Duration": "10",
+      "Range": "300"
+    }
+  ],
+  "Skills.Attribute.Manipulation1": [
+    {
+      "Ability Cooldowns": "-20%"
+    },
+    {
+      "Ability Cooldowns": "-25%"
+    },
+    {
+      "Ability Cooldowns": "-30%"
+    }
+  ],
+  "Skills.Perk.VoiceAnalysis": [
+    {
+      "Voice Cooldown": "-30%"
+    }
+  ],
+  "Skills.Ability.VoiceStop": [
+    {
+      "Cooldown": "35",
+      "Stamina Cost": "37.5",
+      "Duration": "5"
+    }
+  ],
+  "Skills.Attribute.SelfControl1": [
+    {
+      "Healing Regen Limit": "+10%"
+    },
+    {
+      "Healing Regen Limit": "+15%"
+    },
+    {
+      "Healing Regen Limit": "+20%"
+    }
+  ],
+  "Skills.Perk.RegenCap": [
+    {
+      "Healing Regen Limit": "+10%",
+      "Healing Regen Rate": "+10%"
+    },
+    {
+      "Healing Regen Limit": "+15%",
+      "Healing Regen Rate": "+15%"
+    },
+    {
+      "Healing Regen Limit": "+20%",
+      "Healing Regen Rate": "+20%"
+    }
+  ],
+  "Skills.Attribute.SelfControl2": [
+    {
+      "Sun Stroke Rate": "-10%"
+    },
+    {
+      "Sun Stroke Rate": "-20%"
+    },
+    {
+      "Sun Stroke Rate": "-30%"
+    }
+  ],
+  "Skills.Attribute.SelfControl3": [
+    {
+      "Max Health": "25"
+    },
+    {
+      "Max Health": "40"
+    },
+    {
+      "Max Health": "55"
+    }
+  ],
+  "Skills.Attribute.SelfControl4": [
+    {
+      "Healing Effectiveness": "+10%"
+    },
+    {
+      "Healing Effectiveness": "+15%"
+    },
+    {
+      "Healing Effectiveness": "+20%"
+    }
+  ],
+  "Skills.Attribute.SelfControl5": [
+    {
+      "Poison Tolerance": "+20%"
+    },
+    {
+      "Poison Tolerance": "+30%"
+    },
+    {
+      "Poison Tolerance": "+45%"
+    }
+  ],
+  "Skills.Perk.BinduStability": [
+    {
+      "Reduce Poise Damage": "+20%"
+    },
+    {
+      "Reduce Poise Damage": "+30%"
+    },
+    {
+      "Reduce Poise Damage": "+40%"
+    }
+  ],
+  "Skills.Perk.MetabolizePoison": [
+    {
+      "Poison Mitigation": "+20%"
+    }
+  ],
+  "Skills.Ability.LitanyAgainstFear": [
+    {
+      "Cooldown": "35",
+      "Stamina Cost": "45",
+      "Duration": "12",
+      "Armor Multiplier": "2",
+      "Reduce Poise Damage": "+15%"
+    },
+    {
+      "Cooldown": "33",
+      "Stamina Cost": "45",
+      "Duration": "14",
+      "Armor Multiplier": "2.5",
+      "Reduce Poise Damage": "+20%"
+    },
+    {
+      "Cooldown": "30",
+      "Stamina Cost": "45",
+      "Duration": "16",
+      "Armor Multiplier": "3",
+      "Reduce Poise Damage": "+25%"
+    }
+  ],
+  "Skills.Attribute.Blade1": [
+    {
+      "Blade Damage": "+5%"
+    },
+    {
+      "Blade Damage": "+10%"
+    },
+    {
+      "Blade Damage": "+15%"
+    }
+  ],
+  "Skills.Perk.MeleeChain": [
+    {
+      "Damage Boost": "+10%"
+    },
+    {
+      "Damage Boost": "+15%"
+    },
+    {
+      "Damage Boost": "+20%"
+    }
+  ],
+  "Skills.Ability.RiposteInjure": [
+    {
+      "Cooldown": "12",
+      "Stamina Cost": "15",
+      "Weapon Damage": "+120%",
+      "Bleed": "1.2",
+      "Duration": "10"
+    }
+  ],
+  "Skills.Attribute.Blade2": [
+    {
+      "Long Blade Damage": "+5%"
+    },
+    {
+      "Long Blade Damage": "+10%"
+    },
+    {
+      "Long Blade Damage": "+15%"
+    }
+  ],
+  "Skills.Ability.Whirlwind": [
+    {
+      "Cooldown": "20",
+      "Stamina Cost": "15",
+      "Damage": "20"
+    },
+    {
+      "Cooldown": "18",
+      "Stamina Cost": "15",
+      "Damage": "65"
+    },
+    {
+      "Cooldown": "16",
+      "Stamina Cost": "15",
+      "Damage": "140"
+    }
+  ],
+  "Skills.Ability.RiposteBreak": [
+    {
+      "Cooldown": "12",
+      "Stamina Cost": "15",
+      "Weapon Damage": "+120%",
+      "Enemy Damage": "+120%",
+      "Duration": "10"
+    }
+  ],
+  "Skills.Ability.DeflectionSlow": [
+    {
+      "Cooldown": "12",
+      "Stamina Cost": "2"
+    }
+  ],
+  "Skills.Attribute.Resolve1": [
+    {
+      "Bleed Tolerance": "+15%"
+    },
+    {
+      "Bleed Tolerance": "+25%"
+    },
+    {
+      "Bleed Tolerance": "+35%"
+    }
+  ],
+  "Skills.Perk.ToughLunge": [
+    {
+      "Damage Mitigation": "+30%"
+    },
+    {
+      "Damage Mitigation": "+40%"
+    },
+    {
+      "Damage Mitigation": "+50%"
+    }
+  ],
+  "Skills.Attribute.Resolve2": [
+    {
+      "Reduce Poise Damage": "+3%"
+    },
+    {
+      "Reduce Poise Damage": "+6%"
+    },
+    {
+      "Reduce Poise Damage": "+9%"
+    }
+  ],
+  "Skills.Perk.ThriveOnDanger": [
+    {
+      "Stamina Costs": "-15%",
+      "Reduce Poise Damage": "+3%",
+      "Health Regeneration": "+10%"
+    }
+  ],
+  "Skills.Ability.KneeCharge": [
+    {
+      "Cooldown": "15",
+      "Stamina Cost": "15",
+      "Damage": "50",
+      "Poise Damage": "120"
+    },
+    {
+      "Cooldown": "12",
+      "Stamina Cost": "15",
+      "Damage": "160",
+      "Poise Damage": "140"
+    },
+    {
+      "Cooldown": "10",
+      "Stamina Cost": "15",
+      "Damage": "325",
+      "Poise Damage": "160"
+    }
+  ],
+  "Skills.Attribute.Aggression1": [
+    {
+      "Healkit Instant Restoration Bonus": "+10%"
+    },
+    {
+      "Healkit Instant Restoration Bonus": "+15%"
+    },
+    {
+      "Healkit Instant Restoration Bonus": "+20%"
+    }
+  ],
+  "Skills.Attribute.Aggression2": [
+    {
+      "Hydrated Stamina Bonus": "+15%"
+    },
+    {
+      "Hydrated Stamina Bonus": "+20%"
+    },
+    {
+      "Hydrated Stamina Bonus": "+25%"
+    }
+  ],
+  "Skills.Ability.CripplingStrike": [
+    {
+      "Cooldown": "20",
+      "Stamina Cost": "30",
+      "Damage": "50",
+      "Dash Cost Multiplier": "3",
+      "Duration": "7.5"
+    }
+  ],
+  "Skills.Perk.SprintStamina": [
+    {
+      "Stamina Recovery Rate": "+10%"
+    },
+    {
+      "Stamina Recovery Rate": "+15%"
+    },
+    {
+      "Stamina Recovery Rate": "+20%"
+    }
+  ],
+  "Skills.Ability.BattleCry": [
+    {
+      "Cooldown": "30",
+      "Stamina Cost": "15",
+      "Duration": "14",
+      "Blade Damage": "+25%"
+    },
+    {
+      "Cooldown": "25",
+      "Stamina Cost": "15",
+      "Duration": "18",
+      "Blade Damage": "+30%"
+    },
+    {
+      "Cooldown": "20",
+      "Stamina Cost": "15",
+      "Duration": "23",
+      "Blade Damage": "+35%"
+    }
+  ],
+  "Skills.Attribute.Aggression3": [
+    {
+      "Max Stamina": "15"
+    },
+    {
+      "Max Stamina": "20"
+    },
+    {
+      "Max Stamina": "25"
+    }
+  ],
+  "Skills.Attribute.Aggression4": [
+    {
+      "Dehydrated Stamina Limit": "+15%"
+    },
+    {
+      "Dehydrated Stamina Limit": "+25%"
+    },
+    {
+      "Dehydrated Stamina Limit": "+35%"
+    }
+  ]
+}

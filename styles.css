@@ -530,6 +530,35 @@ body {
 .stats-section-label--stamina { color: var(--color-stamina); }
 .stats-section-label--energy { color: var(--color-energy); }
 
+/* Combat-context toggle chips for situational techniques (Suspended, Lunging,
+ * Exploited). Sit just below the Techniques header; only render when at
+ * least one situational technique is equipped. */
+.tech-context-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 2px var(--spacing-md) 4px;
+}
+.tech-context-chip {
+  font-family: inherit;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8a7a55;
+  background: transparent;
+  border: 1px solid #5a4a35;
+  border-radius: 2px;
+  padding: 2px 6px;
+  cursor: pointer;
+  transition: color 0.1s, border-color 0.1s, background 0.1s;
+}
+.tech-context-chip:hover { color: var(--color-spice); border-color: var(--color-spice); }
+.tech-context-chip.active {
+  color: #1a1408;
+  background: var(--color-spice);
+  border-color: var(--color-spice);
+}
+
 .stat-row:nth-child(even) {
   background: var(--color-bg-panel-alt);
 }
@@ -559,8 +588,59 @@ body {
    RESOURCE BARS
    ============================================= */
 .resource-bar-wrapper {
-  padding: 8px var(--spacing-md);
+  /* Narrower horizontal padding lengthens the bars and pulls their left edge
+     toward the hydration bar (split from the original --spacing-md inset). */
+  padding: 8px var(--spacing-sm);
   border-bottom: var(--border-panel);
+}
+
+/* Hydration bar + two-column resource layout */
+.char-bars { display: flex; gap: var(--spacing-sm); align-items: stretch; }
+.char-bars__resources { flex: 1 1 auto; min-width: 0; }
+.hydration-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0 8px var(--spacing-md);
+}
+.hydration-bar__track {
+  position: relative;
+  width: 22px;
+  flex: 1 1 auto;
+  min-height: 120px;
+  background: rgba(0, 0, 0, 0.55);
+  border: var(--border-panel);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+}
+.hydration-bar__fill {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(180deg, #4aa3e0, #1c4f86);
+  transition: height 0.25s ease;
+}
+.hydration-bar__mark {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.55);
+  pointer-events: none;
+}
+.hydration-bar__mark--70 { bottom: 70%; }
+.hydration-bar__mark--30 { bottom: 30%; }
+.hydration-bar__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  /* Fixed centered width so the digit count (100% -> 9%) can't reflow the
+     flex column and nudge the resource bars sideways. */
+  width: 32px;
+  text-align: center;
 }
 
 .resource-label {
@@ -2979,3 +3059,634 @@ body {
   line-height: 1.4;
 }
 
+
+/* =============================================
+   SKILL TREE OVERLAY (modal + tree + tooltip)
+   All classes prefixed with .st- or .skill-tree- to avoid collisions.
+   ============================================= */
+.skill-tree-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 110;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--spacing-lg);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+.skill-tree-overlay.visible { opacity: 1; pointer-events: all; }
+.skill-tree-modal {
+  width: min(1500px, 96vw);
+  height: 92vh;
+  max-height: 96vh;
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-gold-main);
+  border-radius: 4px;
+  color: var(--color-text-primary);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  transform: translateY(-6px) scale(0.97);
+  transition: transform 0.22s ease;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 1px rgba(200, 164, 90, 0.3);
+}
+.skill-tree-overlay.visible .skill-tree-modal { transform: translateY(0) scale(1); }
+.skill-tree-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: var(--border-accent);
+  flex-shrink: 0;
+}
+.skill-tree-title {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-main);
+}
+
+/* Top nav */
+.st-top-nav {
+  display:flex; align-items:center; justify-content:center; gap:14px;
+  padding:14px; border-bottom:1px solid var(--color-gold-dim); position:relative;
+}
+.st-key-cap {
+  width:36px; height:36px; border:2px solid var(--color-gold-bright);
+  color:var(--color-gold-bright); display:flex; align-items:center; justify-content:center;
+  font-weight:bold; background:var(--color-bg-panel);
+}
+.st-spec-icon {
+  width:44px; height:44px; transform:rotate(45deg);
+  border:2px solid var(--color-gold-muted); background:var(--color-bg-panel);
+  cursor:pointer; transition:all .15s;
+  display:flex; align-items:center; justify-content:center;
+}
+.st-spec-icon .inner { transform:rotate(-45deg); width:80%; height:80%; display:flex; align-items:center; justify-content:center; }
+.st-spec-icon img { width:100%; height:100%; object-fit:contain; }
+.st-spec-icon.active { border-color:#c46bd0; background:rgba(196,107,208,.15); }
+.st-spec-icon:hover { border-color:var(--color-gold-bright); }
+.st-spec-label {
+  color:var(--color-gold-bright); font-size:16px; letter-spacing:2px;
+  padding:8px 14px; border:1px solid var(--color-gold-dim); background:var(--color-bg-panel); margin-left:8px;
+  width: 200px; text-align: center;
+}
+
+.st-top-nav-right {
+  position:absolute; right:16px; top:50%; transform:translateY(-50%);
+  display:flex; align-items:center; gap:10px;
+}
+.st-top-nav-left {
+  position:absolute; left:16px; top:50%; transform:translateY(-50%);
+  display:flex; align-items:center; gap:10px;
+}
+
+/* Skill-point counter — large diamond with stacked spent/total inside. */
+.st-sp-block { display:flex; align-items:center; }
+.st-sp-diamond {
+  width: 96px; height: 96px; transform: rotate(45deg);
+  border: 2px solid var(--color-gold-bright); background: var(--color-bg-panel);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 0 14px rgba(232,196,106,.3);
+  flex-shrink: 0;
+}
+.st-sp-inner {
+  transform: rotate(-45deg);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 2px; line-height: 1; padding: 0 6px;
+}
+.st-sp-inner .st-sp-spent {
+  color: var(--color-gold-bright); font-size: 26px; font-weight: bold;
+}
+.st-sp-inner .st-sp-divider {
+  display: block; width: 32px; height: 1px;
+  background: var(--color-gold-main); opacity: .6;
+}
+.st-sp-inner .st-sp-max {
+  color: var(--color-gold-main); font-size: 14px; font-weight: 600;
+  letter-spacing: 1px;
+}
+.st-sp-diamond.st-sp-flash { border-color: #c46bd0; box-shadow: 0 0 18px rgba(196,107,208,.7); }
+
+/* Reset-tree button — lives inside .st-top-nav-left, top-left of the modal. */
+.st-reset-btn {
+  color: var(--color-gold-bright); background: var(--color-bg-panel);
+  border: 1px solid var(--color-gold-dim); padding: 8px 14px;
+  font-size: 12px; letter-spacing: 2px; cursor: pointer; font-family: inherit;
+}
+.st-reset-btn:hover { border-color: #c46bd0; color: #c46bd0; }
+
+/* Sub-tree headers */
+.st-sub-tree-labels {
+  position: relative; width: 100%; max-width: 1300px; margin: 20px auto 0;
+  height: 24px; pointer-events: none;
+}
+.st-sub-tree-label {
+  position: absolute; top: 0; transform: translateX(-50%);
+  color: var(--color-text-primary); font-size: 16px; letter-spacing: 4px;
+  font-weight: 600; text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0,0,0,.8); white-space: nowrap;
+}
+
+/* Tree area — fills the remaining modal height; renderer reads its actual
+   size on each render so the projection adapts to compact mode. */
+.st-tree-area {
+  position: relative; margin: 20px auto 0;
+  width: 100%; max-width: 1300px;
+  flex: 1 1 auto; min-height: 0;
+}
+.st-tree-area svg.st-lines { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1; }
+.st-line { stroke: #5a4a2c; stroke-width:2.5; fill:none; }
+.st-line.available { stroke: #9a4ea8; stroke-width: 3; opacity: .8; }
+.st-line.allocated { stroke: #c46bd0; stroke-width:3.5; filter: drop-shadow(0 0 4px rgba(196,107,208,.6)); }
+
+/* Nodes */
+.st-node { position:absolute; cursor:pointer; transition: transform .12s, filter .12s; z-index:2; display:flex; align-items:center; justify-content:center; }
+.st-node:hover { transform: scale(1.1); filter: brightness(1.2); z-index:10; }
+.st-node.locked { cursor: not-allowed; opacity: .55; }
+.st-node.locked:hover { transform: none; filter: none; }
+.st-shape {
+  width:100%; height:100%;
+  background: linear-gradient(135deg, #1a2238 0%, #0c111a 100%);
+  border: 2px solid var(--color-gold-muted);
+  display:flex; align-items:center; justify-content:center; position: relative;
+}
+.st-node img { width: 70%; height: 70%; object-fit: contain; filter: brightness(1.15) contrast(1.1); pointer-events:none; }
+
+.st-shape.passive-diamond { transform: rotate(45deg); }
+.st-shape.passive-diamond img { transform: rotate(-45deg); }
+.st-shape.passive-octagon {
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  border: none; background: var(--color-gold-muted);
+}
+.st-shape.passive-octagon::before {
+  content:''; position:absolute; inset:2px;
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  background: linear-gradient(135deg, #1a2238 0%, #0c111a 100%);
+}
+.st-shape.passive-octagon img { position:relative; z-index:1; }
+.st-shape.passive-circle { border-radius: 50%; }
+
+/* Apex decorative frames */
+.st-node.apex::before {
+  content:''; position:absolute;
+  left: 50%; top: 50%;
+  width: 165%; height: 165%;
+  transform: translate(-50%, -50%);
+  background-size: contain; background-position: center; background-repeat: no-repeat;
+  pointer-events: none; z-index: 0;
+}
+.st-node.apex.frame-attribute::before { background-image: url('./imgs/skill-tree/T_Ui_SkillTree_Button_AttributeFocus_D.png'); }
+.st-node.apex.frame-technique::before { background-image: url('./imgs/skill-tree/T_Ui_SkillTree_Button_TechniqueFocus_D.png'); }
+.st-node.apex.frame-ability::before   { background-image: url('./imgs/skill-tree/T_Ui_SkillTree_Button_AbilityFocus_D.png'); }
+.st-node.apex .st-shape { z-index: 1; }
+
+/* Allocated visual */
+.st-node.allocated .st-shape { border-color: var(--color-gold-bright); background: linear-gradient(135deg, #3d3115, #2a2210); box-shadow: 0 0 14px rgba(232,196,106,.5); }
+.st-node.allocated .st-shape.passive-octagon { background: var(--color-gold-bright); }
+.st-node.allocated .st-shape.passive-octagon::before { background: linear-gradient(135deg, #3d3115, #2a2210); }
+.st-node.allocated img { filter: brightness(1.4) contrast(1.15); }
+
+/* Rank pips */
+.st-pips { position:absolute; left:50%; bottom:-14px; transform:translateX(-50%); display:flex; gap:5px; z-index:3; pointer-events:none; }
+.st-node.apex .st-pips { bottom:-18px; }
+.st-pip { width:7px; height:7px; transform:rotate(45deg); background: transparent; border: 1.5px solid var(--color-gold-bright); opacity:.55; }
+.st-pip.filled { background: var(--color-gold-bright); opacity:1; box-shadow: 0 0 4px var(--color-gold-bright); }
+
+/* Tooltip */
+.st-tooltip {
+  position: fixed;
+  background: linear-gradient(180deg, #1d2434 0%, #14182a 100%);
+  border: 1px solid var(--color-gold-muted);
+  width: 380px; z-index: 1100; pointer-events: none;
+  /* Always laid out (display:block) so offsetHeight is always current when
+     moveSkillTooltip measures it — avoids stale-height clamps after a node
+     swap. Hidden via visibility, which keeps layout live. */
+  display: block; visibility: hidden;
+  left: -9999px; top: -9999px;
+  font-size: 13px; color: var(--color-text-primary);
+  box-shadow: 0 6px 26px rgba(0,0,0,.85);
+  font-family: 'Trebuchet MS', sans-serif;
+}
+.st-tooltip.st-visible { visibility: visible; }
+.st-tt-header { padding: 10px 14px 8px; position: relative; border-bottom: 1px solid var(--color-gold-dim); }
+.st-tt-type   { color: var(--color-text-secondary); font-size: 11px; letter-spacing: 2px; font-weight: bold; }
+.st-tt-name   { color: var(--color-gold-bright); font-size: 18px; font-weight: bold; margin-top: 2px; line-height: 1.1; }
+.st-tt-rank-diamond {
+  position: absolute; top: 12px; right: 12px;
+  width: 28px; height: 28px; transform: rotate(45deg);
+  border: 1px solid var(--color-gold-bright); display: flex;
+  align-items: center; justify-content: center;
+}
+.st-tt-rank-diamond span { transform: rotate(-45deg); color: var(--color-gold-bright); font-weight: bold; font-size: 13px; }
+.st-tt-level-row { display: flex; align-items: center; gap: 10px; padding: 10px 14px; }
+.st-tt-level-label { color: var(--color-gold-bright); font-size: 13px; letter-spacing: 1px; font-weight: bold; white-space: nowrap; }
+.st-tt-bars { display: flex; gap: 6px; flex: 1; }
+.st-tt-bar { flex: 1; height: 14px; background: #1a0e1c; border: 1px solid #3a1a3f; }
+.st-tt-bar.filled  { background: linear-gradient(180deg, #c46bd0 0%, #8a3a96 100%); border-color: #c46bd0; }
+.st-tt-bar.preview { background: transparent; border: 1.5px solid #c46bd0; box-shadow: 0 0 4px rgba(196,107,208,.4); }
+.st-tt-bar.empty   { background: #1a0e1c; border-color: #2a1530; }
+.st-tt-desc { padding: 0 14px 12px; color: var(--color-text-primary); line-height: 1.45; font-size: 13px; }
+.st-tt-desc p { margin: 0 0 10px; }
+.st-tt-desc p:last-child { margin-bottom: 0; }
+.st-tt-stats { padding: 4px 0; background: rgba(0,0,0,.18); border-top: 1px solid var(--color-gold-dim); }
+.st-tt-stat { display: flex; justify-content: space-between; padding: 5px 14px; color: var(--color-text-primary); font-size: 13px; border-bottom: 1px solid rgba(100,80,40,.18); }
+.st-tt-stat:last-child { border-bottom: 0; }
+.st-tt-stat .v { color: var(--color-gold-bright); font-weight: 600; }
+.st-tt-cost  { display: flex; justify-content: space-between; padding: 7px 14px; color: var(--color-gold-bright); border-top: 1px solid var(--color-gold-dim); font-weight: 600; }
+.st-tt-footer-status { padding: 8px 14px; color: #c46bd0; border-top: 1px solid var(--color-gold-dim); font-size: 13px; font-weight: 600; }
+.st-tt-hotkeys { display: flex; gap: 18px; padding: 8px 14px; border-top: 1px solid var(--color-gold-dim); background: rgba(0,0,0,.25); }
+.st-tt-hk { display: flex; align-items: center; gap: 6px; color: var(--color-text-secondary); font-size: 12px; }
+.st-tt-hk .kc { width: 22px; height: 22px; border: 1px solid var(--color-gold-bright); color: var(--color-gold-bright); display:flex; align-items:center; justify-content:center; font-weight: bold; font-size: 11px; }
+.st-tt-meta { padding: 6px 14px; color: var(--color-text-secondary); font-size: 11px; border-top: 1px solid var(--color-gold-dim); }
+
+/* Bottom abilities/techniques strip — cumulative 1.52× upscale vs the mock */
+.st-tree-bottom-strip {
+  display:flex; align-items:center; justify-content:center; gap:42px;
+  margin:30px auto 8px; padding:18px 56px;
+  border:1px solid var(--color-gold-dim); border-radius:4px;
+  background:rgba(20,27,44,.6); max-width:1100px; cursor:pointer; transition:all .15s;
+  position:relative;
+}
+.st-tree-bottom-strip:hover { border-color: var(--color-gold-bright); background:rgba(232,196,106,.08); }
+.st-strip-label { color:var(--color-gold-bright); font-size:20px; letter-spacing:2px; }
+.st-strip-mini { display:flex; gap:12px; }
+/* Abilities row uses rotated-square (diamond) slots — the rotation puts the
+   slot corners outside its layout box, so a flex gap matching the octagons'
+   produces visually overlapping diamonds. Widen the gap to match the
+   technique row's apparent spacing. */
+.st-strip-mini--abilities { gap: 32px; }
+/* Techniques row gets a 1.15× bump on the octagons + matching gap. */
+.st-strip-mini--techniques { gap: 14px; }
+.st-strip-mini--techniques .st-mini-slot { width: 62px; height: 62px; }
+.st-mini-slot { width:54px; height:54px; border:1.5px solid var(--color-gold-bright); background:var(--color-bg-panel); position:relative; }
+.st-mini-slot.st-diamond { transform:rotate(45deg); }
+.st-mini-slot.st-oct {
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  border:none; background:var(--color-gold-bright);
+}
+.st-mini-slot.st-oct::before {
+  content:''; position:absolute; inset:2px;
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  background: var(--color-bg-panel);
+}
+.st-mini-slot .st-kb {
+  position:absolute; bottom:-23px; left:50%; transform:translateX(-50%) rotate(-45deg);
+  width:28px; height:28px; border:1px solid var(--color-gold-bright); background: var(--color-bg-void);
+  color: var(--color-gold-bright); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:bold;
+}
+.st-s-key {
+  width:46px; height:46px; transform:rotate(45deg);
+  border:1px solid var(--color-gold-bright);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink: 0;
+}
+.st-s-key span { transform:rotate(-45deg); color: var(--color-gold-bright); font-weight:bold; font-size: 20px; line-height: 1; }
+
+
+/* =============================================
+   SKILL TREE — EQUIP PAGE (S subpage)
+   Tabs at top (Abilities / Techniques), Z/C swap between them.
+   Active tab shows the 3 equipped slots, then a grid of ALL items in that
+   category — unlocked ones show their icon + purple check, locked ones
+   render as the dim "+" placeholder. Drag unlocked → slot to equip.
+   Diamonds use clip-path (not transform: rotate) so they don't poke past
+   their grid cells and stagger the layout.
+   ============================================= */
+
+.st-view { display: contents; }
+.st-view[hidden] { display: none !important; }
+
+/* Diamond + octagon clip-paths — shared by slot AND grid-item shapes. */
+:root {
+  --st-clip-diamond: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  --st-clip-octagon: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+}
+
+.st-equip-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 0 4px;
+  flex-shrink: 0;
+}
+.st-equip-tab-key {
+  width: 28px; height: 28px;
+  border: 1.5px solid var(--color-gold-bright);
+  color: var(--color-gold-bright);
+  background: var(--color-bg-panel);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: bold;
+  font-size: 13px;
+}
+.st-equip-tab {
+  background: transparent;
+  border: 0;
+  color: var(--color-text-secondary);
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  padding: 6px 18px;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+}
+.st-equip-tab:hover { color: var(--color-gold-bright); }
+.st-equip-tab.st-equip-tab--active {
+  color: var(--color-gold-bright);
+  border-bottom-color: var(--color-gold-bright);
+}
+
+.st-equip-tab-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 24px 0;
+  min-height: 0;
+  overflow: hidden;
+}
+.st-equip-tab-content[hidden] { display: none; }
+
+.st-equip-section-title {
+  color: var(--color-gold-bright);
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,.8);
+  margin: 4px 0;
+}
+
+/* ====== Equipped slots row (3 slots side-by-side) ====== */
+.st-equip-slots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  padding: 10px 32px 28px; /* extra bottom for key-cap drop-down */
+}
+
+.st-equip-slot {
+  position: relative;
+  width: 80px; height: 80px;
+  cursor: pointer;
+  background: var(--color-bg-panel);
+  border: 2px solid var(--color-gold-bright);
+  display: flex; align-items: center; justify-content: center;
+}
+.st-equip-slot--ability { clip-path: var(--st-clip-diamond); border: 0; }
+.st-equip-slot--ability::before {
+  content:''; position:absolute; inset:0;
+  clip-path: var(--st-clip-diamond);
+  background: var(--color-gold-bright);
+}
+.st-equip-slot--ability::after {
+  content:''; position:absolute; inset:2px;
+  clip-path: var(--st-clip-diamond);
+  background: var(--color-bg-panel);
+}
+.st-equip-slot--technique { clip-path: var(--st-clip-octagon); border: 0; }
+.st-equip-slot--technique::before {
+  content:''; position:absolute; inset:0;
+  clip-path: var(--st-clip-octagon);
+  background: var(--color-gold-bright);
+}
+.st-equip-slot--technique::after {
+  content:''; position:absolute; inset:2px;
+  clip-path: var(--st-clip-octagon);
+  background: var(--color-bg-panel);
+}
+
+.st-equip-slot-content {
+  position: relative;
+  z-index: 1;
+  width: 60%; height: 60%;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.st-equip-slot-content img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  filter: brightness(1.15) contrast(1.1);
+}
+
+/* Purple checkmark marker under filled slots */
+.st-equip-slot-mark {
+  position: absolute;
+  left: 50%; bottom: -4px;
+  width: 12px; height: 12px;
+  transform: translateX(-50%) rotate(45deg);
+  background: #c46bd0;
+  box-shadow: 0 0 6px rgba(196,107,208,.7);
+  z-index: 2;
+  display: none;
+}
+.st-equip-slot.st-equip-filled .st-equip-slot-mark { display: block; }
+
+/* Q / X / C key cap below ability slots */
+.st-equip-slot-key {
+  position: absolute;
+  left: 50%; top: 100%;
+  margin-top: 16px;
+  transform: translateX(-50%);
+  width: 26px; height: 26px;
+  border: 1px solid var(--color-gold-bright);
+  background: var(--color-bg-void);
+  color: var(--color-gold-bright);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: bold;
+  z-index: 3;
+}
+
+.st-equip-slot.st-equip-drag-over::after,
+.st-equip-slot.st-equip-drag-over { box-shadow: 0 0 14px rgba(196,107,208,.6); }
+.st-equip-slot.st-equip-drag-over::before { background: #c46bd0 !important; }
+
+/* ====== Names under equipped slots ====== */
+.st-equip-slot-labels {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  padding: 0 32px 6px;
+}
+.st-equip-slot-labels span {
+  width: 80px;
+  text-align: center;
+  color: var(--color-text-primary);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  min-height: 14px;
+}
+.st-equip-slot-labels span:empty::before {
+  content: '\00a0';
+  color: var(--color-text-secondary);
+}
+
+/* ====== Available divider ====== */
+.st-equip-available-label {
+  color: var(--color-gold-bright);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+.st-equip-available-divider {
+  width: 60%;
+  max-width: 600px;
+  height: 1px;
+  background: var(--color-gold-muted);
+  opacity: .55;
+  margin: 0 0 8px;
+}
+
+/* ====== Grid of all items in the category ====== */
+.st-equip-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 80px);
+  gap: 12px;
+  padding: 6px 0 8px;
+  justify-content: center;
+  align-content: flex-start;
+}
+/* Compact mode (low-res height): widen the grid so abilities fit in ~3 rows
+   instead of 5. ~34 abilities ÷ 12 cols = 3 rows; techniques (~20) fit in 2. */
+.compact-layout .st-equip-grid {
+  grid-template-columns: repeat(12, 80px);
+}
+
+.st-equip-item {
+  position: relative;
+  width: 80px; height: 80px;
+  display: flex; align-items: center; justify-content: center;
+}
+.st-equip-item img {
+  position: relative;
+  z-index: 1;
+  width: 60%; height: 60%;
+  object-fit: contain;
+  filter: brightness(1.15) contrast(1.1);
+  pointer-events: none;
+}
+
+/* Diamond outline for ability items via clip-path (NOT transform) so items
+   stay within their grid cell. The ::before is the gold rim, the ::after is
+   the dark inner fill. */
+.st-equip-item--ability { clip-path: var(--st-clip-diamond); }
+.st-equip-item--ability::before {
+  content:''; position:absolute; inset:0;
+  clip-path: var(--st-clip-diamond);
+  background: var(--color-gold-muted);
+}
+.st-equip-item--ability::after {
+  content:''; position:absolute; inset:2px;
+  clip-path: var(--st-clip-diamond);
+  background: linear-gradient(135deg, #1a2238 0%, #0c111a 100%);
+}
+
+/* Octagon for technique items */
+.st-equip-item--technique { clip-path: var(--st-clip-octagon); }
+.st-equip-item--technique::before {
+  content:''; position:absolute; inset:0;
+  clip-path: var(--st-clip-octagon);
+  background: var(--color-gold-muted);
+}
+.st-equip-item--technique::after {
+  content:''; position:absolute; inset:2px;
+  clip-path: var(--st-clip-octagon);
+  background: linear-gradient(135deg, #1a2238 0%, #0c111a 100%);
+}
+
+/* Purple checkmark marker below unlocked items in the grid */
+.st-equip-item-mark {
+  position: absolute;
+  left: 50%; bottom: -7px;
+  width: 12px; height: 12px;
+  transform: translateX(-50%) rotate(45deg);
+  background: #c46bd0;
+  box-shadow: 0 0 6px rgba(196,107,208,.7);
+  z-index: 2;
+  display: none;
+}
+
+/* Unlocked: draggable, hover highlight, bright rim. The purple check marker
+   only appears when actually equipped (matches in-game). */
+.st-equip-item.st-equip-unlocked { cursor: grab; transition: transform .12s; }
+.st-equip-item.st-equip-unlocked:active { cursor: grabbing; }
+.st-equip-item.st-equip-unlocked:hover { transform: scale(1.1); }
+.st-equip-item.st-equip-unlocked::before { background: var(--color-gold-bright); }
+
+/* Already-equipped items in the grid get the purple check + extra glow */
+.st-equip-item.st-equip-equipped::before {
+  background: var(--color-gold-bright);
+  box-shadow: 0 0 8px rgba(232,196,106,.5);
+}
+.st-equip-item.st-equip-equipped .st-equip-item-mark { display: block; }
+
+/* Locked: dim, no image, render "+" placeholder via ::after content swap.
+   The shape's ::before/::after handle the rim/fill, and we put the + sign
+   in an absolutely-positioned span (not a pseudo, since the pseudos are
+   taken by the shape). */
+.st-equip-item.st-equip-locked { cursor: default; }
+.st-equip-item.st-equip-locked img { display: none; }
+.st-equip-item.st-equip-locked::before { background: var(--color-gold-dim); }
+.st-equip-item.st-equip-locked::after { opacity: 0.65; }
+.st-equip-item-plus {
+  position: relative;
+  z-index: 2;
+  color: var(--color-gold-dim);
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1;
+}
+.st-equip-item.st-equip-unlocked .st-equip-item-plus { display: none; }
+
+.st-equip-item.st-equip-dragging { opacity: 0.5; }
+
+/* ====== Footer ====== */
+.st-equip-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 24px;
+  border-top: 1px solid var(--color-gold-dim);
+  flex-shrink: 0;
+}
+.st-equip-hint {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-style: italic;
+}
+.st-equip-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(20,27,44,.6);
+  border: 1px solid var(--color-gold-dim);
+  border-radius: 4px;
+  padding: 8px 16px;
+  color: var(--color-gold-bright);
+  font-size: 13px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.st-equip-back-btn:hover {
+  border-color: var(--color-gold-bright);
+  background: rgba(232,196,106,.08);
+}
+
+/* Bottom-strip mini-slot icon overlay (used in tree view, unchanged) */
+.st-mini-slot-icon {
+  position: absolute;
+  inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.st-mini-slot.st-diamond .st-mini-slot-icon img { transform: rotate(-45deg); }
+.st-mini-slot.st-oct .st-mini-slot-icon { z-index: 1; }
+.st-mini-slot-icon img {
+  width: 65%; height: 65%;
+  object-fit: contain;
+  filter: brightness(1.15) contrast(1.1);
+}

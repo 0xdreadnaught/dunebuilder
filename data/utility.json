@@ -34,7 +34,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_POWERPACK_UNIQUE_CAPACITY_06",
+    "shortDescription": "Radioactive power pack with high durability.",
+    "longDescription": "An Imperial Testing Station full of radiation and corpses sits in the Deep Desert. It is said the parts of lost House atomics were used to create other devices. This <Unique>Unique</> power pack is charged by a nuclear accelerator, offering a higher than normal durability for those brave enough to use it."
   },
   {
     "slug": "holtzmanshieldactivedrain_unique_01",
@@ -76,7 +79,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_HOLTZMAN_SHIELD_ACTIVE_DRAIN_UNIQUE_01",
+    "shortDescription": "Energy shield utilizing the Holtzman effect.",
+    "longDescription": "A <Unique>Unique</> personal shielding device that can be manually toggled on and off to deflect incoming darts and blades at the cost of power from a Power Pack. However, the slow blade penetrates the shield and melee combatants will take advantage of this.\n\nThe shield also prevents objects from exiting, thus it will automatically deactivate when firing darts or throwing objects. It will then automatically reactivate according to its refresh time. While active, the shield generates sounds and vibrations that drive sandworms mad. Usage on open sands is not recommended."
   },
   {
     "slug": "fullsuspensorbelt_unique_durability",
@@ -113,7 +119,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_FULLSUSPENSORBELT_UNIQUE_DURABILITY",
+    "shortDescription": "Suspensor belt marked for nobility.",
+    "longDescription": "This item has additional durability.\n\nIt is said Baron Harkonnen floats into a room with the grotesque majesty of a glutinous god. He owes much of that awe to his superior suspensor belt. This <Unique>Unique</> model likewise bears the markings and fine materials designating it as a custom creation that belonged to, or was meant for, someone of high nobility."
   },
   {
     "slug": "fullsuspensorbelt",
@@ -150,7 +159,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_FULL_REDUCTION_BELT",
+    "shortDescription": "Nullifies the effect of gravity while active.",
+    "longDescription": "Removes gravity's influence on the user while active, allowing for extending traversal in any vertical direction. Depletes power from a Power Pack when in use. <OldImperial>Old Imperial</> origin."
   },
   {
     "slug": "holtzmanshieldactivedrain",
@@ -192,7 +204,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_HOLTZMAN_SHIELD_ACTIVE_DRAIN",
+    "shortDescription": "Energy shield utilizing the Holtzman effect.",
+    "longDescription": "An <OldImperial>Old Imperial</> personal shielding device that can be manually toggled on and off to deflect incoming darts and blades at the cost of power from a Power Pack. However, the slow blade penetrates the shield and melee combatants will take advantage of this.\n\nThe shield also prevents objects from exiting, thus it will automatically deactivate when firing darts or throwing objects. It will then automatically reactivate according to its refresh time. While active, the shield generates sounds and vibrations that drive sandworms mad. Usage on open sands is not recommended."
   },
   {
     "slug": "holtzmanshieldactivedrain2",
@@ -234,7 +249,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_HOLTZMAN_SHIELD_ACTIVE_DRAIN2",
+    "shortDescription": "Energy shield utilizing the Holtzman effect.",
+    "longDescription": "An <OldImperial>Old Imperial</> personal shielding device that can be manually toggled on and off to deflect incoming darts and blades at the cost of power from a Power Pack. However, the slow blade penetrates the shield and melee combatants will take advantage of this.\n\nThe shield also prevents objects from exiting, thus it will automatically deactivate when firing darts or throwing objects. It will then automatically reactivate according to its refresh time. While active, the shield generates sounds and vibrations that drive sandworms mad. Usage on open sands is not recommended."
   },
   {
     "slug": "holtzmanshieldactivedrain3",
@@ -276,7 +294,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_HOLTZMAN_SHIELD_ACTIVE_DRAIN3",
+    "shortDescription": "Energy shield utilizing the Holtzman effect.",
+    "longDescription": "An <OldImperial>Old Imperial</> personal shielding device that can be manually toggled on and off to deflect incoming darts and blades at the cost of power from a Power Pack. However, the slow blade penetrates the shield and melee combatants will take advantage of this.\n\nThe shield also prevents objects from exiting, thus it will automatically deactivate when firing darts or throwing objects. It will then automatically reactivate according to its refresh time. While active, the shield generates sounds and vibrations that drive sandworms mad. Usage on open sands is not recommended."
   },
   {
     "slug": "powerpack",
@@ -313,7 +334,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_POWER_PACK",
+    "shortDescription": "Provides power to equipment.",
+    "longDescription": "Essential item that allows the user to operate equipment that requires power. When all power is depleted, stop the current activity to allow the battery to recharge."
   },
   {
     "slug": "suspensorbelt",
@@ -350,7 +374,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_LOW_REDUCTION_BELT",
+    "shortDescription": "Reduces strength of gravity while active.",
+    "longDescription": "Reduces gravity's pull on the user, allowing for extended height and distance when jumping. <OldImperial>Old Imperial</> origin. Depletes power from a power pack on use."
   },
   {
     "slug": "powerpack_unique_regen_01",
@@ -387,7 +414,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_POWER_PACK_UNIQUE_REGEN_NAME",
+    "shortDescription": "Power pack with a faster recharge.",
+    "longDescription": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for it's constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration."
   },
   {
     "slug": "powerpack_unique_regen_02",
@@ -424,7 +454,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_POWER_PACK_UNIQUE_REGEN_NAME",
+    "shortDescription": "Power pack with a faster recharge.",
+    "longDescription": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for its constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration."
   },
   {
     "slug": "powerpack_unique_regen_03",
@@ -461,7 +494,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_POWER_PACK_UNIQUE_REGEN_NAME",
+    "shortDescription": "Power pack with a faster recharge.",
+    "longDescription": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for its constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration."
   },
   {
     "slug": "powerpack_unique_regen_04",
@@ -498,7 +534,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_POWER_PACK_UNIQUE_REGEN_NAME",
+    "shortDescription": "Power pack with a faster recharge.",
+    "longDescription": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for its constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration."
   },
   {
     "slug": "holtzmanshieldactivedrain_story_paranoid",
@@ -540,7 +579,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_HOLTZMANSHIELDACTIVEDRAIN_STORY_PARANOID",
+    "shortDescription": "Holtzman Shield.",
+    "longDescription": "A Special Holtzman Shield with increased durability, obtained from defeating the Paranoid assassination target. "
   },
   {
     "slug": "t2tsp",
@@ -577,7 +619,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_PASSIVE_REDUCTION_BELT",
+    "shortDescription": "Automated fall damage protection.",
+    "longDescription": "Protects user from taking damage from falling. Automatically kicks on at damaging speeds and will persist as long as the user has power. <OldImperial>Old Imperial</> origin."
   },
   {
     "slug": "partialstabilizationbelt",
@@ -614,7 +659,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_PARTIAL_STABILIZATION_BELT",
+    "shortDescription": "Stabilizes vertical movement. Low Control.",
+    "longDescription": "Stabilizes the user's vertical position and allows them to reposition horizontally. Sluggish repositioning but low power depletion for extended use."
   },
   {
     "slug": "powerpack5",
@@ -651,7 +699,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_POWER_PACK_5",
+    "shortDescription": "Provides power to equipment.",
+    "longDescription": "Essential item that allows the user to operate equipment that requires power. When all power is depleted, stop the current activity to allow the battery to recharge."
   },
   {
     "slug": "powerpack2",
@@ -688,7 +739,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_POWER_PACK_2",
+    "shortDescription": "Provides power to equipment.",
+    "longDescription": "An improved power pack. This more advanced version has a larger power capacity and regenerates power faster."
   },
   {
     "slug": "powerpack6",
@@ -725,7 +779,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_POWER_PACK_6",
+    "shortDescription": "Provides power to equipment.",
+    "longDescription": "Essential item that allows the user to operate equipment that requires power. When all power is depleted, stop the current activity to allow the battery to recharge."
   },
   {
     "slug": "powerpack3",
@@ -762,7 +819,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_POWER_PACK_3",
+    "shortDescription": "Provides power to equipment.",
+    "longDescription": "A power pack with a very large capacity, made for the use of industrial tools and equipment."
   },
   {
     "slug": "powerpack7",
@@ -799,7 +859,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_POWER_PACK_7",
+    "shortDescription": "Provides power to equipment.",
+    "longDescription": "Essential item that allows the user to operate equipment that requires power. When all power is depleted, stop the current activity to allow the battery to recharge."
   },
   {
     "slug": "powerpack4",
@@ -836,7 +899,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_POWER_PACK_4",
+    "shortDescription": "Portable source of energy used to power a variety of devices.",
+    "longDescription": "The first generation of power packs were quite unstable and had a unfortunate habit of blowing its user to smithereens. The design has since been improved to ensure this happens quite rarely now."
   },
   {
     "slug": "fullstabilizationbelt",
@@ -873,7 +939,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_FULL_STABILIZATION_BELT",
+    "shortDescription": "Stabilizes vertical movement. High control.",
+    "longDescription": "Stabilizes the user's vertical position and allows them to reposition horizontally. Responsive repositioning but high power depletion, generally used for advanced combat maneuvers."
   },
   {
     "slug": "fullstabilizationbelt_unique_dmgreduction",
@@ -910,7 +979,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_FULLSTABILIZATIONBELT_UNIQUE_DMGREDUCTION",
+    "shortDescription": "Sentinel Belt temp short desc",
+    "longDescription": "This {Unique} stabilization suspensor belt enables the wearer to rapidly adjust movements to avoid incoming hits while suspended."
   },
   {
     "slug": "glidepartialstabilizationbelt",
@@ -947,7 +1019,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_GLIDE_PARTIAL_STABILIZATION_BELT",
+    "shortDescription": "A suspensor belt that allows temporary gravity negation.",
+    "longDescription": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated."
   },
   {
     "slug": "glidepartialstabilizationbelt_02",
@@ -984,7 +1059,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_GLIDE_PARTIAL_STABILIZATION_BELT_02",
+    "shortDescription": "A suspensor belt that allows temporary gravity negation.",
+    "longDescription": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated."
   },
   {
     "slug": "glidepartialstabilizationbelt_03",
@@ -1021,7 +1099,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_GLIDE_PARTIAL_STABILIZATION_BELT_03",
+    "shortDescription": "A suspensor belt that allows temporary gravity negation.",
+    "longDescription": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated."
   },
   {
     "slug": "glidepartialstabilizationbelt_04",
@@ -1058,7 +1139,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_GLIDE_PARTIAL_STABILIZATION_BELT_04",
+    "shortDescription": "A suspensor belt that allows temporary gravity negation.",
+    "longDescription": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated."
   },
   {
     "slug": "glidepartialstabilizationbelt_05",
@@ -1095,7 +1179,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_GLIDE_PARTIAL_STABILIZATION_BELT_05",
+    "shortDescription": "A suspensor belt that allows temporary gravity negation.",
+    "longDescription": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated."
   },
   {
     "slug": "glidepartialstabilizationbelt_06",
@@ -1132,7 +1219,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_GLIDE_PARTIAL_STABILIZATION_BELT_06",
+    "shortDescription": "A suspensor belt that allows temporary gravity negation.",
+    "longDescription": "A prop from the famous play 'My Father's Shadow', this <Unique>Unique</> suspensor belt is used by Jongleurs for short, but effective bursts of floating during performances. Jump twice to activate and float upwards. Suspensor fields are notorious for preserving momentum, and they deplete power as long as they are kept activated."
   },
   {
     "slug": "powerpack_unique_regen_05",
@@ -1169,7 +1259,10 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_POWER_PACK_UNIQUE_REGEN_NAME",
+    "shortDescription": "Power pack with a faster recharge.",
+    "longDescription": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for its constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration."
   },
   {
     "slug": "powerpack_unique_regen_06",
@@ -1206,6 +1299,9 @@
       "vendors": [],
       "drops": [],
       "recipe": null
-    }
+    },
+    "internalToken": "MISC_EQUIPMENT_POWER_PACK_UNIQUE_REGEN_NAME",
+    "shortDescription": "Power pack with a faster recharge.",
+    "longDescription": "Sim found that if he crossed the wires in his power pack just so, he could create a <Unique>Unique</> power pack that recharged quickly - but with a slightly reduced power pool. Sim's power pack became known as 'old sparky' for its constant discharge of electrical sparks - but his technique was copied widely by those who value speed over duration."
   }
 ]

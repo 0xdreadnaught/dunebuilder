@@ -1,0 +1,8 @@
+{
+  "_note": "Left/middle/right sub-tree column labels per spec, matching the in-game UI.",
+  "Trooper":       ["Gunnery",        "Suspensor Training", "Tactical Tech"],
+  "Mentat":        ["Mental Calculus","Assassination",      "Tactician"],
+  "Planetologist": ["Scientist",      "Explorer",           "Mechanic"],
+  "Bene Gesserit": ["Weirding Way",   "The Voice",          "Body Control"],
+  "Swordmaster":   ["The Blade",      "The Will",           "The Way"]
+}

@@ -260,5 +260,25 @@
       "hotbar": { "hotbar0": { "item": "atresmg5", "grade": 5, "augments": [null, null, null] } },
       "specializations": {}
     }
+  },
+  {
+    "name": "blade-long-skill-on-long-weapon",
+    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "build": {
+      "slots": {},
+      "hotbar": { "hotbar0": { "item": "choamsword_2", "grade": 5, "augments": [null, null, null] } },
+      "specializations": {},
+      "skills": { "Swordmaster": { "Skills.Attribute.Blade2": 3 } }
+    }
+  },
+  {
+    "name": "blade-long-skill-on-short-weapon",
+    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "build": {
+      "slots": {},
+      "hotbar": { "hotbar0": { "item": "kindjal_3", "grade": 5, "augments": [null, null, null] } },
+      "specializations": {},
+      "skills": { "Swordmaster": { "Skills.Attribute.Blade2": 3 } }
+    }
   }
 ]

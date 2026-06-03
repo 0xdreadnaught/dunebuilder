@@ -1,6 +1,39 @@
+# DuneBuilder — commit only the minimum needed to build and run the app.
+# Runtime/build inputs that DO ship are whitelisted in package.json "build.files":
+#   main.js preload.js index.html styles.css renderer.js qr-encode.js qr-builder.js
+#   engine-ini.js lib/**/*.js data/**/*.json imgs/**/* dunebuilder_logo_512.png
+# Everything below is dev-only, generated, secret, or scratch — keep it out of git.
+
+# ---- Dependencies & build output (regenerated; never committed) ----
+node_modules/
+dist/
+
+# ---- Secrets ----
+.joplin-token
+
+# ---- Dev tooling: datamining / scrape / migration scripts (not needed to build or run) ----
+*.py
+__pycache__/
+scripts/*
+!scripts/vt-scan.js
+
+# ---- Tests: harness is tracked (release safety net, runs via prebuild); ----
+# ---- only the machine-generated golden baseline is ignored.              ----
+test/golden/baseline.json
+
+# ---- Saved builds, debug output, scratch ----
+*.dbf
+*.output
+scratch/
+scratch_probe.txt
+dune-test-transcript.txt
+
+# ---- Working notes & wiki drafts (source of record lives in Joplin) ----
+notes_*.md
+wiki-draft/
+wiki-source-notes/
+
+# ---- Local planning / mockups / agent scratch ----
 mockups/
 docs/superpowers/
-scratch/
-dune-test-transcript.txt
-test/golden/baseline.json
-scripts/migrate_to_canonical.py
+.superpowers/
