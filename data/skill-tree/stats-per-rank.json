@@ -246,13 +246,13 @@
   ],
   "Skills.Perk.TrooperCooldowns": [
     {
-      "Ability Cooldowns": "-20%"
+      "Trooper Cooldowns": "-20%"
     },
     {
-      "Ability Cooldowns": "-25%"
+      "Trooper Cooldowns": "-25%"
     },
     {
-      "Ability Cooldowns": "-30%"
+      "Trooper Cooldowns": "-30%"
     }
   ],
   "Skills.Ability.AssaultSeeker": [
@@ -768,18 +768,18 @@
   ],
   "Skills.Attribute.Manipulation1": [
     {
-      "Ability Cooldowns": "-20%"
+      "Voice Cooldown": "-20%"
     },
     {
-      "Ability Cooldowns": "-25%"
+      "Voice Cooldown": "-25%"
     },
     {
-      "Ability Cooldowns": "-30%"
+      "Voice Cooldown": "-30%"
     }
   ],
   "Skills.Perk.VoiceAnalysis": [
     {
-      "Voice Cooldown": "-30%"
+      "Voice Registration": "-30%"
     }
   ],
   "Skills.Ability.VoiceStop": [

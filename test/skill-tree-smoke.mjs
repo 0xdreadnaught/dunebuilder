@@ -50,6 +50,23 @@ const totalNodes = Object.keys(nodesByTag).length;
 console.log(`  total node count: ${totalNodes}`);
 check(totalNodes >= 100, 'at least 100 total nodes');
 
+console.log('\n== skillType integrity ==');
+// Attribute-namespace tags are passive and must NEVER render as a slottable
+// technique. Regression guard for the 0.9.0 bug where "Voice Training"
+// (Skills.Attribute.Manipulation1) shipped with skillType "technique" and
+// leaked into the techniques grid. (Funcom's Skills.Perk.* maps to the game's
+// slottable Techniques on purpose; only the Attribute namespace is checked.)
+const attrMislabeled = [];
+for (const node of Object.values(nodesByTag)) {
+  const ns = node.tag.split('.')[1]?.toLowerCase();
+  const st = (node.skillType || '').toLowerCase();
+  if (ns === 'attribute' && st !== 'attribute') {
+    attrMislabeled.push(`${node.tag} (${node.name}) → skillType="${st}"`);
+  }
+}
+for (const m of attrMislabeled) console.log('    mislabeled:', m);
+check(attrMislabeled.length === 0, 'no Skills.Attribute.* node is mislabeled as a non-attribute skillType');
+
 console.log('\n== Descriptions ==');
 let missing = 0;
 for (const tag of Object.keys(nodesByTag)) {
@@ -398,6 +415,14 @@ checkBonuses(
   'Aggression2 r3 (Optimized Hydration) → +25% hydrated stamina (aggregator-only)',
   { allocations: { Swordmaster: { 'Skills.Attribute.Aggression2': 3 } } },
   { hydratedStaminaPct: 25 }
+);
+// Field Medicine (Aggression1) feeds healkitRestorationPct. Guards the
+// "Healkit Instant Restoration Bonus" label <-> lib parser alignment (the
+// trailing "Bonus" once silently broke this wire).
+checkBonuses(
+  'Aggression1 r3 (Field Medicine) → +20% healkit instant restoration',
+  { allocations: { Swordmaster: { 'Skills.Attribute.Aggression1': 3 } } },
+  { healkitRestorationPct: 20 }
 );
 
 console.log('\n== Summary ==');

@@ -7722,7 +7722,7 @@
         "type": "number",
         "value": 5
       },
-      "powerConsumption": {
+      "powerConsumptionPerShot": {
         "name": "Power Consumption",
         "type": "number",
         "value": 21
@@ -9923,7 +9923,7 @@
         "type": "number",
         "value": 5
       },
-      "powerConsumption": {
+      "powerConsumptionPerShot": {
         "name": "Power Consumption",
         "type": "number",
         "value": 21
@@ -10343,7 +10343,7 @@
         "type": "number",
         "value": 1.7
       },
-      "powerConsumption": {
+      "powerConsumptionPerShot": {
         "name": "Power Consumption",
         "type": "number",
         "value": 40
@@ -11084,7 +11084,7 @@
         "type": "number",
         "value": 3.5
       },
-      "powerConsumption": {
+      "powerConsumptionPerShot": {
         "name": "Power Consumption",
         "type": "number",
         "value": 40

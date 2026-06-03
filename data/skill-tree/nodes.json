@@ -1752,7 +1752,7 @@
         "tag": "Skills.Attribute.Manipulation1",
         "x": 1074,
         "y": 790,
-        "skillType": "technique",
+        "skillType": "attribute",
         "prerequisites": [
           "Skills.Ability.VoiceCompel",
           "Skills.Ability.VoiceStop"
