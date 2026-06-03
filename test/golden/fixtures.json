@@ -1,29 +1,32 @@
 [
   {
     "name": "ranged-t0-grade0-no-augs",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {},
       "hotbar": {
-        "hotbar0": { "item": "choamsda1", "grade": 0, "augments": [null, null, null] }
+        "hotbar0": {
+          "item": "choamsda1",
+          "grade": 0,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
       },
       "specializations": {}
     }
   },
   {
     "name": "ranged-t5-grade5-no-augs",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
-    "build": {
-      "slots": {},
-      "hotbar": {
-        "hotbar0": { "item": "atresmg5", "grade": 5, "augments": [null, null, null] }
-      },
-      "specializations": {}
-    }
-  },
-  {
-    "name": "ranged-t5-grade5-two-damage-augs",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {},
       "hotbar": {
@@ -31,8 +34,39 @@
           "item": "atresmg5",
           "grade": 5,
           "augments": [
-            { "slug": "disruptor-m11-amplifier", "grade": 4, "customValues": { "Damage:": 36 } },
-            { "slug": "heavy-caliber-upgrade", "grade": 4 },
+            null,
+            null,
+            null
+          ]
+        }
+      },
+      "specializations": {}
+    }
+  },
+  {
+    "name": "ranged-t5-grade5-two-damage-augs",
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
+    "build": {
+      "slots": {},
+      "hotbar": {
+        "hotbar0": {
+          "item": "atresmg5",
+          "grade": 5,
+          "augments": [
+            {
+              "slug": "disruptor-m11-amplifier",
+              "grade": 4,
+              "customValues": {
+                "Damage:": 36
+              }
+            },
+            {
+              "slug": "heavy-caliber-upgrade",
+              "grade": 4
+            },
             null
           ]
         }
@@ -42,18 +76,32 @@
   },
   {
     "name": "melee-t5-grade5-no-augs",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {},
       "hotbar": {
-        "hotbar0": { "item": "kindjal_3", "grade": 5, "augments": [null, null, null] }
+        "hotbar0": {
+          "item": "kindjal_3",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
       },
       "specializations": {}
     }
   },
   {
     "name": "ranged-t5-rof-aug",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {},
       "hotbar": {
@@ -61,7 +109,10 @@
           "item": "atresmg5",
           "grade": 5,
           "augments": [
-            { "slug": "disruptor-m11-quickloader", "grade": 4 },
+            {
+              "slug": "disruptor-m11-quickloader",
+              "grade": 4
+            },
             null,
             null
           ]
@@ -72,7 +123,10 @@
   },
   {
     "name": "ranged-t5-shield-damage-aug",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {},
       "hotbar": {
@@ -80,7 +134,10 @@
           "item": "choamsda6",
           "grade": 5,
           "augments": [
-            { "slug": "disruptive-coating", "grade": 4 },
+            {
+              "slug": "disruptive-coating",
+              "grade": 4
+            },
             null,
             null
           ]
@@ -91,14 +148,57 @@
   },
   {
     "name": "full-armor-mixed-grades",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {
-        "helm":   { "item": "combat_neut_atreidesdeserterunique04_helmet", "grade": 0, "augments": [null, null, null] },
-        "chest":  { "item": "combat_neut_atreidesdeserterunique04_top",    "grade": 2, "augments": [null, null, null] },
-        "gloves": { "item": "combat_neut_atreidesdeserterunique04_gloves",  "grade": 3, "augments": [null, null, null] },
-        "pants":  { "item": "combat_neut_atreidesdeserterunique04_bottom",  "grade": 4, "augments": [null, null, null] },
-        "boots":  { "item": "combat_neut_atreidesdeserterunique04_boots",   "grade": 5, "augments": [null, null, null] }
+        "helm": {
+          "item": "combat_neut_atreidesdeserterunique04_helmet",
+          "grade": 0,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        },
+        "chest": {
+          "item": "combat_neut_atreidesdeserterunique04_top",
+          "grade": 2,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        },
+        "gloves": {
+          "item": "combat_neut_atreidesdeserterunique04_gloves",
+          "grade": 3,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        },
+        "pants": {
+          "item": "combat_neut_atreidesdeserterunique04_bottom",
+          "grade": 4,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        },
+        "boots": {
+          "item": "combat_neut_atreidesdeserterunique04_boots",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
       },
       "hotbar": {},
       "specializations": {}
@@ -106,36 +206,101 @@
   },
   {
     "name": "ranged-t6-grade0",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {},
       "hotbar": {
-        "hotbar0": { "item": "smg_unique_largemag_06", "grade": 0, "augments": [null, null, null] }
+        "hotbar0": {
+          "item": "smg_unique_largemag_06",
+          "grade": 0,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
       },
       "specializations": {}
     }
   },
   {
     "name": "ranged-t6-grade5",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {},
       "hotbar": {
-        "hotbar0": { "item": "smg_unique_largemag_06", "grade": 5, "augments": [null, null, null] }
+        "hotbar0": {
+          "item": "smg_unique_largemag_06",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
       },
       "specializations": {}
     }
   },
   {
     "name": "armor-t6-grade5",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {
-        "helm":   { "item": "combat_neut_atreidesdeserterunique05_helmet", "grade": 5, "augments": [null, null, null] },
-        "chest":  { "item": "combat_neut_atreidesdeserterunique05_top",    "grade": 5, "augments": [null, null, null] },
-        "gloves": { "item": "combat_neut_atreidesdeserterunique05_gloves", "grade": 5, "augments": [null, null, null] },
-        "pants":  { "item": "combat_neut_atreidesdeserterunique05_bottom", "grade": 5, "augments": [null, null, null] },
-        "boots":  { "item": "combat_neut_atreidesdeserterunique05_boots",  "grade": 5, "augments": [null, null, null] }
+        "helm": {
+          "item": "combat_neut_atreidesdeserterunique05_helmet",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        },
+        "chest": {
+          "item": "combat_neut_atreidesdeserterunique05_top",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        },
+        "gloves": {
+          "item": "combat_neut_atreidesdeserterunique05_gloves",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        },
+        "pants": {
+          "item": "combat_neut_atreidesdeserterunique05_bottom",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        },
+        "boots": {
+          "item": "combat_neut_atreidesdeserterunique05_boots",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
       },
       "hotbar": {},
       "specializations": {}
@@ -143,10 +308,21 @@
   },
   {
     "name": "radsuit-t5",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {
-        "helm": { "item": "radiation_suit_t5", "grade": 0, "augments": [null, null, null] }
+        "helm": {
+          "item": "radiation_suit_t5",
+          "grade": 0,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
       },
       "hotbar": {},
       "specializations": {}
@@ -154,57 +330,169 @@
   },
   {
     "name": "combat-sabotage-specs-headshot-stagger-on",
-    "settings": { "applyHeadshot": true, "applyStaggered": true },
+    "settings": {
+      "applyHeadshot": true,
+      "applyStaggered": true
+    },
     "build": {
       "slots": {},
       "hotbar": {
-        "hotbar0": { "item": "atresmg5", "grade": 5, "augments": [null, null, null] }
+        "hotbar0": {
+          "item": "atresmg5",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
       },
       "specializations": {
-        "combattrack":   { "level": 50, "keystones": [] },
-        "sabotagetrack": { "level": 30, "keystones": [] }
+        "combattrack": {
+          "level": 50,
+          "keystones": []
+        },
+        "sabotagetrack": {
+          "level": 30,
+          "keystones": []
+        }
       }
     }
   },
   {
     "name": "combat-sabotage-specs-headshot-stagger-off",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {},
       "hotbar": {
-        "hotbar0": { "item": "atresmg5", "grade": 5, "augments": [null, null, null] }
+        "hotbar0": {
+          "item": "atresmg5",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
       },
       "specializations": {
-        "combattrack":   { "level": 50, "keystones": [] },
-        "sabotagetrack": { "level": 30, "keystones": [] }
+        "combattrack": {
+          "level": 50,
+          "keystones": []
+        },
+        "sabotagetrack": {
+          "level": 30,
+          "keystones": []
+        }
       }
     }
   },
   {
     "name": "t0-weapon-and-garment",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {
-        "helm":   { "item": "combat_nati_sandtroutleathers01_helmet", "grade": 0, "augments": [null, null, null] },
-        "chest":  { "item": "combat_nati_sandtroutleathers01_top",    "grade": 0, "augments": [null, null, null] },
-        "gloves": { "item": "combat_nati_sandtroutleathers01_gloves", "grade": 0, "augments": [null, null, null] },
-        "pants":  { "item": "combat_nati_sandtroutleathers01_bottom", "grade": 0, "augments": [null, null, null] },
-        "boots":  { "item": "combat_nati_sandtroutleathers01_boots",  "grade": 0, "augments": [null, null, null] }
+        "helm": {
+          "item": "combat_nati_sandtroutleathers01_helmet",
+          "grade": 0,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        },
+        "chest": {
+          "item": "combat_nati_sandtroutleathers01_top",
+          "grade": 0,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        },
+        "gloves": {
+          "item": "combat_nati_sandtroutleathers01_gloves",
+          "grade": 0,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        },
+        "pants": {
+          "item": "combat_nati_sandtroutleathers01_bottom",
+          "grade": 0,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        },
+        "boots": {
+          "item": "combat_nati_sandtroutleathers01_boots",
+          "grade": 0,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
       },
       "hotbar": {
-        "hotbar0": { "item": "choamsda1", "grade": 0, "augments": [null, null, null] }
+        "hotbar0": {
+          "item": "choamsda1",
+          "grade": 0,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
       },
       "specializations": {}
     }
   },
   {
     "name": "power-shield-pack-belt",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {
-        "holtzman": { "item": "holtzmanshieldactivedrain3", "grade": 0, "augments": [null, null, null] },
-        "pack":     { "item": "powerpack7",                 "grade": 0, "augments": [null, null, null] },
-        "belt":     { "item": "fullsuspensorbelt",          "grade": 0, "augments": [null, null, null] }
+        "holtzman": {
+          "item": "holtzmanshieldactivedrain3",
+          "grade": 0,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        },
+        "pack": {
+          "item": "powerpack7",
+          "grade": 0,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        },
+        "belt": {
+          "item": "fullsuspensorbelt",
+          "grade": 0,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
       },
       "hotbar": {},
       "specializations": {}
@@ -212,73 +500,223 @@
   },
   {
     "name": "ranged-headshot-aug-on",
-    "settings": { "applyHeadshot": true, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": true,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {},
       "hotbar": {
-        "hotbar0": { "item": "atresmg5", "grade": 5, "augments": [ { "slug": "tactical-enhancer", "grade": 5, "customValues": {} }, null, null ] }
+        "hotbar0": {
+          "item": "atresmg5",
+          "grade": 5,
+          "augments": [
+            {
+              "slug": "tactical-enhancer",
+              "grade": 5,
+              "customValues": {}
+            },
+            null,
+            null
+          ]
+        }
       },
       "specializations": {}
     }
   },
   {
     "name": "ranged-headshot-aug-off",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {},
       "hotbar": {
-        "hotbar0": { "item": "atresmg5", "grade": 5, "augments": [ { "slug": "tactical-enhancer", "grade": 5, "customValues": {} }, null, null ] }
+        "hotbar0": {
+          "item": "atresmg5",
+          "grade": 5,
+          "augments": [
+            {
+              "slug": "tactical-enhancer",
+              "grade": 5,
+              "customValues": {}
+            },
+            null,
+            null
+          ]
+        }
       },
       "specializations": {}
     }
   },
   {
     "name": "ranged-headshot-downside",
-    "settings": { "applyHeadshot": true, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": true,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {},
       "hotbar": {
-        "hotbar0": { "item": "choamsda1", "grade": 0, "augments": [ { "slug": "maula-pistol-sprayer", "grade": 1, "customValues": {} }, null, null ] }
+        "hotbar0": {
+          "item": "choamsda1",
+          "grade": 0,
+          "augments": [
+            {
+              "slug": "maula-pistol-sprayer",
+              "grade": 1,
+              "customValues": {}
+            },
+            null,
+            null
+          ]
+        }
       },
       "specializations": {}
     }
   },
   {
     "name": "gear-melee-bonus",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
-      "slots": { "chest": { "item": "exoskeleton_heavy06_unique_top", "grade": 5, "augments": [null, null, null] } },
-      "hotbar": { "hotbar0": { "item": "kindjal_3", "grade": 5, "augments": [null, null, null] } },
+      "slots": {
+        "chest": {
+          "item": "exoskeleton_heavy06_unique_top",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
+      },
+      "hotbar": {
+        "hotbar0": {
+          "item": "kindjal_3",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
+      },
       "specializations": {}
     }
   },
   {
     "name": "gear-ranged-unaffected",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
-      "slots": { "chest": { "item": "exoskeleton_heavy06_unique_top", "grade": 5, "augments": [null, null, null] } },
-      "hotbar": { "hotbar0": { "item": "atresmg5", "grade": 5, "augments": [null, null, null] } },
+      "slots": {
+        "chest": {
+          "item": "exoskeleton_heavy06_unique_top",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
+      },
+      "hotbar": {
+        "hotbar0": {
+          "item": "atresmg5",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
+      },
       "specializations": {}
     }
   },
   {
     "name": "blade-long-skill-on-long-weapon",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {},
-      "hotbar": { "hotbar0": { "item": "choamsword_2", "grade": 5, "augments": [null, null, null] } },
+      "hotbar": {
+        "hotbar0": {
+          "item": "choamsword_2",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
+      },
       "specializations": {},
-      "skills": { "Swordmaster": { "Skills.Attribute.Blade2": 3 } }
+      "skills": {
+        "Swordmaster": {
+          "Skills.Attribute.Blade2": 3
+        }
+      }
     }
   },
   {
     "name": "blade-long-skill-on-short-weapon",
-    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
     "build": {
       "slots": {},
-      "hotbar": { "hotbar0": { "item": "kindjal_3", "grade": 5, "augments": [null, null, null] } },
+      "hotbar": {
+        "hotbar0": {
+          "item": "kindjal_3",
+          "grade": 5,
+          "augments": [
+            null,
+            null,
+            null
+          ]
+        }
+      },
       "specializations": {},
-      "skills": { "Swordmaster": { "Skills.Attribute.Blade2": 3 } }
+      "skills": {
+        "Swordmaster": {
+          "Skills.Attribute.Blade2": 3
+        }
+      }
+    }
+  },
+  {
+    "name": "ranged-max-range-aug",
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
+    "build": {
+      "slots": {},
+      "hotbar": {
+        "hotbar0": {
+          "item": "atresmg5",
+          "grade": 5,
+          "augments": [
+            {
+              "slug": "barrel-extender",
+              "grade": 5
+            },
+            null,
+            null
+          ]
+        }
+      },
+      "specializations": {}
     }
   }
 ]
