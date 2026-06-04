@@ -740,6 +740,15 @@ function renderDefCalcs(container, equipped) {
   const baseRegenPerSec = getEquippedStat('pack', 'regen per second');
   const beltDrain   = getEquippedStat('belt',     'power drain');
   const skb = getSkillBonuses();
+  const sb  = getSpecBonuses();
+  // Perf: walk the skill tree ONCE for all contributor lookups in this render,
+  // then filter by label per call site. Previously each getSkillContributors([...])
+  // re-walked the whole allocation tree (~12 walks per def-calc render).
+  const _allContribs = getSkillContributors(null);
+  const skillContribFor = labels => {
+    const set = new Set(labels);
+    return _allContribs.filter(c => set.has(c.statLabel));
+  };
   // Pack regen scaled by Scientist3 (Power Regeneration %) — applies wherever
   // we cite RegenPerSec for shield-recharge and pack-recharge calcs.
   const regenPerSec = baseRegenPerSec != null
@@ -754,7 +763,7 @@ function renderDefCalcs(container, equipped) {
   // gauntlets' "Power Consumption" stat (negative = less drain) plus the
   // BatteryExpert (Conservation of Energy) skill. Applied to BOTH the shield's
   // drain (Max Damage Absorbed) and the suspensor belt's drain. Floored at 0.
-  const powerConsumptionPct = aggregateEquippedStats()['Power Consumption'] || 0;
+  const powerConsumptionPct = equipped['Power Consumption'] || 0;
   const skillPowerUsagePct  = (skb.powerUsagePct || 0) / 100;
   const powerUsageMul = getPowerUsageMul();
 
@@ -774,7 +783,7 @@ function renderDefCalcs(container, equipped) {
   // Skill mitigation (e.g. ToughLunge while lunging) stacks additively with the
   // Combat-spec mitigation passive — they share one "specMit" channel before
   // the multiplicative armor combine.
-  const specMitBase = getSpecBonuses().mitigationPercent;
+  const specMitBase = sb.mitigationPercent;
   const skillMitPct = skb.mitigationPct || 0;
   const specMit = specMitBase + skillMitPct;
 
@@ -829,7 +838,7 @@ function renderDefCalcs(container, equipped) {
     // skip the HP breakdown since the Health-bar tooltip (future) will own it.
     const drRows = [{ label: 'Armor Value', value: `${formatNumber(totalArmor)} → ${(armorMit).toFixed(1)}%` }];
     if (specMitBase) drRows.push({ label: 'Spec Mitigation', value: fmtSignedPct(specMitBase) });
-    for (const c of getSkillContributors(['Damage Mitigation'])) {
+    for (const c of skillContribFor(['Damage Mitigation'])) {
       drRows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
     }
 
@@ -867,7 +876,7 @@ function renderDefCalcs(container, equipped) {
       if (gearMit) rows.push({ label: shortLabel, value: fmtSignedPct(gearMit) });
       if (skillBonusKey) {
         const skillLabels = TYPE_SKILL_STAT_LABELS[skillBonusKey] || [];
-        for (const c of getSkillContributors(skillLabels)) {
+        for (const c of skillContribFor(skillLabels)) {
           rows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
         }
       }
@@ -922,7 +931,7 @@ function renderDefCalcs(container, equipped) {
   }
   const dashRows = [{ label: 'Base Dash Cost', value: String(BASE_DASH_COST) }];
   if (gearDashMod) dashRows.push({ label: 'Gear Dash Cost Mod', value: fmtSignedPct(gearDashMod) });
-  for (const c of getSkillContributors(['Stamina Costs'])) {
+  for (const c of skillContribFor(['Stamina Costs'])) {
     dashRows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
   }
   container.appendChild(createStatRow('Dash Cost', formatNumber(Math.round(effectiveCost)),
@@ -944,7 +953,7 @@ function renderDefCalcs(container, equipped) {
   const climbingDrainPct = skb.climbingStaminaPct || 0;
   if (climbingDrainPct !== 0) {
     const climbRows = [];
-    for (const c of getSkillContributors(['Climbing Stamina Drain'])) {
+    for (const c of skillContribFor(['Climbing Stamina Drain'])) {
       climbRows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
     }
     container.appendChild(createStatRow('Climbing Drain', fmtSignedPct(climbingDrainPct),
@@ -977,7 +986,7 @@ function renderDefCalcs(container, equipped) {
     HEAL_ROWS.forEach(([label, pct, skillStat, description]) => {
       if (!pct) return;
       const rows = [];
-      for (const c of getSkillContributors([skillStat])) {
+      for (const c of skillContribFor([skillStat])) {
         rows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
       }
       container.appendChild(createStatRow(label, fmtSignedPct(pct), description, rows));
@@ -996,7 +1005,7 @@ function renderDefCalcs(container, equipped) {
 
     if (hydratedBonus) {
       const rows = [];
-      for (const c of getSkillContributors(['Hydrated Stamina Bonus'])) {
+      for (const c of skillContribFor(['Hydrated Stamina Bonus'])) {
         rows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
       }
       container.appendChild(createStatRow('Hydrated Stamina Bonus', fmtSignedPct(hydratedBonus),
@@ -1004,7 +1013,7 @@ function renderDefCalcs(container, equipped) {
     }
     if (dehydratedLimit) {
       const rows = [];
-      for (const c of getSkillContributors(['Dehydrated Stamina Limit'])) {
+      for (const c of skillContribFor(['Dehydrated Stamina Limit'])) {
         rows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
       }
       container.appendChild(createStatRow('Dehydrated Stamina Limit', fmtSignedPct(dehydratedLimit),
@@ -1059,7 +1068,7 @@ function renderDefCalcs(container, equipped) {
       ...powerPoolRows(),
       { label: 'Pack Regen/sec',  value: formatNumber(baseRegenPerSec) },
     ];
-    for (const c of getSkillContributors(['Power Regeneration'])) {
+    for (const c of skillContribFor(['Power Regeneration'])) {
       rechargeRows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
     }
     container.appendChild(createStatRow('Full Recharge', `${formatNumber(recharge, 1)}s`,
@@ -1076,7 +1085,7 @@ function renderDefCalcs(container, equipped) {
     // additively then floor at 0 (matches the existing spec-side math).
     // BatteryExpert (Conservation of Energy) reduces general Power Usage; the
     // suspensor belt is one consumer of that pool, so it stacks here too.
-    const specDrainMul = getSpecBonuses().suspensorDrainMul; // 1.0 = no reduction
+    const specDrainMul = sb.suspensorDrainMul; // 1.0 = no reduction
     const skillDrainPct = (skb.suspensorDrainPct || 0) / 100;
     const gauntletPct = powerConsumptionPct / 100; // efficiency gauntlets (general power usage)
     const specDelta = specDrainMul - 1.0; // 0 means no spec contribution
@@ -1133,7 +1142,7 @@ function renderDefCalcs(container, equipped) {
       if (Math.abs(gauntletPct) > 1e-6) {
         susRows.push({ label: 'Power Consumption (gauntlets)', value: fmtSignedPct(powerConsumptionPct) });
       }
-      for (const c of getSkillContributors(['Suspensor Power Drain', 'Power Usage'])) {
+      for (const c of skillContribFor(['Suspensor Power Drain', 'Power Usage'])) {
         susRows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
       }
       container.appendChild(createStatRow('Suspension', fmtDur(duration),
@@ -1373,19 +1382,24 @@ function formatStatValue(name, value) {
 
 async function loadGarmentItems() {
   try {
-    const [weaponsRes, garmentsRes, augmentsRes, utilityRes] = await Promise.all([
+    // Fetch all data files concurrently. Specializations joins the same batch so
+    // its network wait overlaps the others; the .catch keeps a bad spec response
+    // from rejecting the whole batch (it stays isolated, same as before).
+    const [weaponsRes, garmentsRes, augmentsRes, utilityRes, specRes] = await Promise.all([
       fetch('./data/weapons.json'),
       fetch('./data/garments.json'),
       fetch('./data/augments.json'),
       fetch('./data/utility.json'),
+      fetch('./data/specializations.json').catch(e => { console.error('Failed to fetch specializations:', e); return null; }),
     ]);
-    // Specializations — loaded separately so it doesn't block on a single bad response.
+    // Specializations — parsed in its own try so it doesn't block on a single bad response.
     try {
-      const specRes = await fetch('./data/specializations.json');
-      SPECIALIZATIONS_DATA = await specRes.json();
-      SPECIALIZATIONS_DATA.forEach(track => {
-        specState[track.id] = { level: 0, keystones: new Set() };
-      });
+      if (specRes) {
+        SPECIALIZATIONS_DATA = await specRes.json();
+        SPECIALIZATIONS_DATA.forEach(track => {
+          specState[track.id] = { level: 0, keystones: new Set() };
+        });
+      }
     } catch (e) {
       console.error('Failed to load specializations:', e);
     }
@@ -1884,7 +1898,10 @@ function getSkillBonuses() {
  */
 function getSkillContributors(statLabels) {
   if (typeof SKILL_TREE_STATE === 'undefined' || !SKILL_TREE_STATE.loaded) return [];
-  const labelSet = new Set(statLabels);
+  // null/undefined statLabels => return every contributor (no label filter).
+  // Lets a caller walk the tree ONCE and filter the result per stat in JS,
+  // instead of re-walking for each label set (see renderDefCalcs).
+  const labelSet = statLabels ? new Set(statLabels) : null;
   const _alloc = SKILL_TREE_STATE.allocations || {};
   const _equip = (SKILL_TREE_STATE.equipped || {}).techniques || [];
   const _ctx   = SKILL_TREE_STATE.context || {};
@@ -1909,7 +1926,7 @@ function getSkillContributors(statLabels) {
       }
       const stats = (node.statsPerRank || [])[rank - 1] || {};
       for (const label of Object.keys(stats)) {
-        if (!labelSet.has(label)) continue;
+        if (labelSet && !labelSet.has(label)) continue;
         out.push({ nodeName: node.name || tag, rank, statLabel: label, value: stats[label] });
       }
     }
