@@ -422,7 +422,7 @@ function renderResourceBars(container) {
   container.appendChild(resources);
 
   if (BASE_STATS.Health > 0) {
-    const max = BASE_STATS.Health + sb.health + (skb.maxHealthFlat || 0);
+    const max = getMaxHealth();
     const breakdown = {
       base: BASE_STATS.Health,
       spec: sb.health,
@@ -436,8 +436,8 @@ function renderResourceBars(container) {
     // Displayed max = Floor × hydration multiplier (innate +0/+25/+50% by tier +
     // Optimized Hydration). hydrationStaminaMul() encodes the active tier.
     const tier = hydrationTier();
-    const floor = BASE_STATS.Stamina + sb.stamina + (skb.maxStaminaFlat || 0);
-    const max = floor * hydrationStaminaMul();
+    const floor = getStaminaFloor();
+    const max = getMaxStamina();
     const regen = STAMINA_REGEN_PER_SEC * (1 + (skb.staminaRecoveryPct || 0) / 100);
     const breakdown = {
       staminaFloor: floor,
@@ -453,10 +453,11 @@ function renderResourceBars(container) {
   }
   {
     // Power = pack power pool + gear Maximum Power (Power Harness +50). No skill
-    // or keystone grants max power.
+    // or keystone grants max power. Shared with the right-panel power calcs via
+    // getMaxPower() so the bar and every power calc agree.
     const garmentPower = getGarmentMaxPower();
-    const basePwr = powerPool || BASE_STATS.Energy || 0;
-    const pp = basePwr + garmentPower;
+    const basePwr = powerPool || 0;
+    const pp = getMaxPower() ?? garmentPower; // pack+gear, or gear-only when no pack
     const pBreak = garmentPower ? { powerBase: basePwr, garmentPower } : null;
     resources.appendChild(createResourceBar('Power', { current: pp, max: pp }, 'Energy', powerRegen, 0, pBreak));
   }
@@ -467,10 +468,18 @@ function renderResourceBars(container) {
 function renderCharExtras(container, itemStats) {
   container.innerHTML = '';
 
-  // Remove Power Pool from equipment stats since it's shown as a bar
+  // Trim stats that aren't meaningful in the Equipment aggregate:
+  //  - Power Pool is shown as the Power bar.
+  //  - Volume is each equipped item's inventory footprint (irrelevant once worn);
+  //    the Inventory section below shows the real backpack-capacity Volume.
   const hasPack = getEquippedStat('pack', 'power pool') !== null;
-  if (itemStats && hasPack) {
-    delete itemStats['Power Pool'];
+  if (itemStats) {
+    if (hasPack) delete itemStats['Power Pool'];
+    delete itemStats['Volume'];
+    // Shield's "Power Drain (%)" is its run cost — surfaced on the shield's own
+    // tooltip and folded into the right-side Power/Suspension calcs, not a
+    // character stat for the Equipment aggregate.
+    delete itemStats['Power Drain (%)'];
   }
 
   if (itemStats && Object.keys(itemStats).length > 0) {
@@ -681,8 +690,52 @@ function getGarmentMaxPower() {
   return total;
 }
 
+// ── Single source of truth for resource maxes ──────────────────────────────
+// Both the resource bars and the right-panel calcs read these, so the bar and
+// every dependent calc (EHP, dashes, power endurance/recharge/suspension/uptime)
+// agree. Return null when the resource isn't present.
+function getMaxHealth() {
+  if (!(BASE_STATS.Health > 0)) return null;
+  return BASE_STATS.Health + getSpecBonuses().health + (getSkillBonuses().maxHealthFlat || 0);
+}
+/** Pre-hydration stamina (the <30% "dehydrated" floor). */
+function getStaminaFloor() {
+  if (!(BASE_STATS.Stamina > 0)) return null;
+  return BASE_STATS.Stamina + getSpecBonuses().stamina + (getSkillBonuses().maxStaminaFlat || 0);
+}
+/** Displayed max stamina = floor × hydration multiplier (tier-based). */
+function getMaxStamina() {
+  const floor = getStaminaFloor();
+  return floor == null ? null : floor * hydrationStaminaMul();
+}
+/** Usable power pool = pack power pool + flat gear "Maximum Power" (Power Harness).
+ *  Matches the Power bar. null when no power pack is equipped. */
+function getMaxPower() {
+  const pack = getEquippedStat('pack', 'power pool');
+  return pack == null ? null : pack + getGarmentMaxPower();
+}
+/** Breakdown rows for the power pool: pack base + gear (when any), so calc
+ *  tooltips show the same split as the Power bar. */
+function powerPoolRows() {
+  const pack = getEquippedStat('pack', 'power pool') || 0;
+  const gear = getGarmentMaxPower();
+  const rows = [{ label: 'Pack Power Pool', value: formatNumber(pack) }];
+  if (gear > 0) rows.push({ label: 'Gear (Maximum Power)', value: `+${formatNumber(gear)}` });
+  return rows;
+}
+
+/** Player power-efficiency multiplier on EVERY power cost (weapon per-shot,
+ *  shield, suspensor). Binary-confirmed: cost = base × PowerEfficiency, default
+ *  1.0, driven toward 0. Fed by the efficiency gauntlets' "Power Consumption"
+ *  stat and the BatteryExpert skill. See reference-power-consumption-model. */
+function getPowerUsageMul() {
+  const gauntletPct = aggregateEquippedStats()['Power Consumption'] || 0;
+  const skillPct = getSkillBonuses().powerUsagePct || 0;
+  return Math.max(0, 1 + gauntletPct / 100 + skillPct / 100);
+}
+
 function renderDefCalcs(container, equipped) {
-  const powerPool   = getEquippedStat('pack',     'power pool');
+  const powerPool   = getMaxPower(); // pack pool + gear (Maximum Power) — matches the Power bar
   const powerDrain  = getEquippedStat('holtzman', 'power drain (%)');
   const baseRegenPerSec = getEquippedStat('pack', 'regen per second');
   const beltDrain   = getEquippedStat('belt',     'power drain');
@@ -697,6 +750,14 @@ function renderDefCalcs(container, equipped) {
   const hasPack   = !!equippedItems['pack'];
   const hasBelt   = !!equippedItems['belt'];
 
+  // General power-usage reduction shared by every pack consumer: the efficiency
+  // gauntlets' "Power Consumption" stat (negative = less drain) plus the
+  // BatteryExpert (Conservation of Energy) skill. Applied to BOTH the shield's
+  // drain (Max Damage Absorbed) and the suspensor belt's drain. Floored at 0.
+  const powerConsumptionPct = aggregateEquippedStats()['Power Consumption'] || 0;
+  const skillPowerUsagePct  = (skb.powerUsagePct || 0) / 100;
+  const powerUsageMul = getPowerUsageMul();
+
   // Shared formatter for signed percent values in the contributor row lists.
   const fmtSignedPct = pct => (pct > 0 ? '+' : '') + pct.toFixed(pct % 1 ? 1 : 0) + '%';
 
@@ -706,9 +767,7 @@ function renderDefCalcs(container, equipped) {
   ehpHeading.textContent = 'Effective Health Pool (EHP)';
   container.appendChild(ehpHeading);
 
-  const maxHealth = BASE_STATS.Health > 0
-    ? BASE_STATS.Health + getSpecBonuses().health + (skb.maxHealthFlat || 0)
-    : null;
+  const maxHealth = getMaxHealth();
 
   const totalArmor = equipped['Armor Value'] ?? 0;
   const armorMit = (totalArmor / (totalArmor + 500)) * 100;
@@ -842,11 +901,8 @@ function renderDefCalcs(container, equipped) {
   container.appendChild(staminaHeading);
 
   const BASE_DASH_COST = 35; // Ghidra-confirmed via UDuneCharacterAttributeSet.DashStaminaCost (2026-05-28). Was 30 historically; verify with in-game dash count if it feels off.
-  const baseMaxStamina = BASE_STATS.Stamina > 0
-    ? BASE_STATS.Stamina + getSpecBonuses().stamina + (skb.maxStaminaFlat || 0)
-    : null;
   // Hydrated toggle scales max stamina (Aggression2) → more dashes when hydrated.
-  const maxStamina = baseMaxStamina != null ? baseMaxStamina * hydrationStaminaMul() : null;
+  const maxStamina = getMaxStamina();
   const gearDashMod  = equipped['Dash Stamina Cost'] ?? 0;
   // ThriveOnDanger's "Stamina Costs -15%" reduces every stamina expenditure,
   // dash included. Stored as a signed percent (negative means reduction).
@@ -975,9 +1031,18 @@ function renderDefCalcs(container, equipped) {
   // Shield endurance + recharge — only when a shield is also equipped.
   if (hasShield) {
     if (powerPool !== null && powerDrain !== null) {
-      const endurance = Math.round(powerPool / (powerDrain / 100));
-      container.appendChild(createStatRow('Max Damage Absorbed', formatNumber(endurance),
-        `PowerPool / (PowerDrain%)\n${formatNumber(powerPool)} / ${(powerDrain / 100).toFixed(4)} = ${formatNumber(endurance)}`));
+      const effDrain = powerDrain * powerUsageMul;
+      const endurance = Math.round(powerPool / (effDrain / 100));
+      const reduced = Math.abs(powerUsageMul - 1) > 1e-6;
+      const rows = [
+        ...powerPoolRows(),
+        { label: 'Shield Power Drain', value: `${formatNumber(powerDrain)}%` },
+      ];
+      if (reduced) rows.push({ label: 'Power-usage reduction', value: fmtSignedPct((powerUsageMul - 1) * 100) });
+      const formula = reduced
+        ? `PowerPool / (PowerDrain% × PowerUseMul)\n${formatNumber(powerPool)} / (${(powerDrain / 100).toFixed(4)} × ${powerUsageMul.toFixed(2)}) = ${formatNumber(endurance)}`
+        : `PowerPool / (PowerDrain%)\n${formatNumber(powerPool)} / ${(powerDrain / 100).toFixed(4)} = ${formatNumber(endurance)}`;
+      container.appendChild(createStatRow('Max Damage Absorbed', formatNumber(endurance), formula, rows));
     }
   }
 
@@ -991,7 +1056,7 @@ function renderDefCalcs(container, equipped) {
       ? `${formatNumber(baseRegenPerSec)} × (1 + ${(powerRegenSkillPct / 100).toFixed(2)})`
       : formatNumber(regenPerSec);
     const rechargeRows = [
-      { label: 'Pack Power Pool', value: formatNumber(powerPool) },
+      ...powerPoolRows(),
       { label: 'Pack Regen/sec',  value: formatNumber(baseRegenPerSec) },
     ];
     for (const c of getSkillContributors(['Power Regeneration'])) {
@@ -1013,9 +1078,9 @@ function renderDefCalcs(container, equipped) {
     // suspensor belt is one consumer of that pool, so it stacks here too.
     const specDrainMul = getSpecBonuses().suspensorDrainMul; // 1.0 = no reduction
     const skillDrainPct = (skb.suspensorDrainPct || 0) / 100;
-    const skillPowerUsagePct = (skb.powerUsagePct || 0) / 100;
+    const gauntletPct = powerConsumptionPct / 100; // efficiency gauntlets (general power usage)
     const specDelta = specDrainMul - 1.0; // 0 means no spec contribution
-    const drainMul = Math.max(0, specDrainMul + skillDrainPct + skillPowerUsagePct);
+    const drainMul = Math.max(0, specDrainMul + skillDrainPct + skillPowerUsagePct + gauntletPct);
     const effectiveDrain = beltDrain * drainMul;
     if (effectiveDrain > 0) {
       const duration = powerPool / effectiveDrain;
@@ -1046,6 +1111,10 @@ function renderDefCalcs(container, equipped) {
         drainSyms.push('PowerUsage%');
         drainNums.push((skillPowerUsagePct).toFixed(2));
       }
+      if (Math.abs(gauntletPct) > 1e-6) {
+        drainSyms.push('PowerEff%');
+        drainNums.push((gauntletPct).toFixed(2));
+      }
       // Outer-paren the DrainMul expression when it has more than one term so
       // it's clearly the second factor of BeltDrain × DrainMul.
       const drainHasMods = drainSyms.length > 1;
@@ -1055,11 +1124,14 @@ function renderDefCalcs(container, equipped) {
         `${formatNumber(powerPool)} / (${formatNumber(beltDrain)} × ${drainNumWrap}) = ${formatNumber(duration, 1)}s`;
       const simpleFormula = `PowerPool / BeltDrain\n${formatNumber(powerPool)} / ${formatNumber(beltDrain)} = ${formatNumber(duration, 1)}s`;
       const susRows = [
-        { label: 'Pack Power Pool', value: formatNumber(powerPool) },
+        ...powerPoolRows(),
         { label: 'Belt Power Drain/s', value: formatNumber(beltDrain) },
       ];
       if (Math.abs(specDelta) > 1e-6) {
         susRows.push({ label: 'Spec Suspensor Drain (keystone)', value: fmtSignedPct(specDelta * 100) });
+      }
+      if (Math.abs(gauntletPct) > 1e-6) {
+        susRows.push({ label: 'Power Consumption (gauntlets)', value: fmtSignedPct(powerConsumptionPct) });
       }
       for (const c of getSkillContributors(['Suspensor Power Drain', 'Power Usage'])) {
         susRows.push({ label: `${c.nodeName} r${c.rank}`, value: c.value });
@@ -1256,8 +1328,8 @@ const FLAT_STATS = new Set([
   'reload time', 'rate of fire', 'effective range', 'maximum range',
   'damage per hit', 'attack speed',
   'heavy attack damage (shielded)', 'heavy attack damage (unshielded)',
-  'shield damage per hit', 'power consumption', 'power consumption (per shot)',
-  'recoil', 'projectile spread', 'volume',
+  'shield damage per hit', 'power consumption (per shot)',
+  'recoil', 'projectile spread', 'volume', 'aoe radius',
 ]);
 
 // Stats where a lower numeric value is better (used in tooltip coloring).
@@ -1294,6 +1366,8 @@ function formatStatValue(name, value) {
   // headshot bonus, applied as ×1.50 in the damage formula). Show it as the
   // bonus percent so the card row agrees with the formula's "× Crit × 1.50".
   if (n === 'crit damage') return `+${formatNumber(value * 100)}%`;
+  // Maximum Power (Power Harness) is a flat additive bonus to the power pool.
+  if (n === 'maximum power') return `${value >= 0 ? '+' : ''}${formatNumber(value)}`;
   return `${formatNumber(value)}%`;
 }
 
@@ -2817,10 +2891,9 @@ function refreshAfterSpecChange() {
   //    scales with Scientist3).
   const sb = getSpecBonuses();
   const skb = getSkillBonuses();
-  const hpMax = BASE_STATS.Health > 0 ? BASE_STATS.Health + sb.health + skb.maxHealthFlat : null;
+  const hpMax = getMaxHealth();
   if (hpMax != null) updateResourceBarMaxInPlace('Health', hpMax);
-  const baseStamMax = BASE_STATS.Stamina > 0 ? BASE_STATS.Stamina + sb.stamina + skb.maxStaminaFlat : null;
-  const stamMax = baseStamMax != null ? baseStamMax * hydrationStaminaMul() : null;
+  const stamMax = getMaxStamina();
   if (stamMax != null) {
     updateResourceBarMaxInPlace('Stamina', stamMax);
     updateResourceBarRegenInPlace('Stamina', STAMINA_REGEN_PER_SEC * (1 + (skb.staminaRecoveryPct || 0) / 100));
@@ -3144,6 +3217,139 @@ function showSpecPassivesTooltip(track, event) {
 }
 
 // =============================================
+// AOE BLAST-FIELD POPUP
+// =============================================
+
+/** Blast-intensity colour ramp (t in 0..1 -> [r,g,b]). Inverted heat scale:
+ *  high damage (core) = red, mid = orange, low damage (edge) = yellow. */
+function aoeThermal(t) {
+  const s = [[0,[252,230,130]],[0.3,[248,178,60]],[0.55,[236,120,35]],[0.78,[214,70,30]],[1,[186,32,26]]];
+  if (t <= 0) return s[0][1];
+  for (let i = 1; i < s.length; i++) {
+    if (t <= s[i][0]) {
+      const f = (t - s[i-1][0]) / (s[i][0] - s[i-1][0]);
+      return s[i-1][1].map((c, k) => Math.round(c + (s[i][1][k] - c) * f));
+    }
+  }
+  return s[s.length-1][1];
+}
+
+/** Draw a single weapon's radial blast field (top-down) onto `canvas`.
+ *  `rb` is the weapon's radialBlast config; `scale` multiplies both radii
+ *  (the equipped AOE augment scales the whole blast). */
+function drawAoeBlast(canvas, rb, scale) {
+  const inner = rb.innerM * scale;
+  const outer = rb.outerM * scale;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height, cx = W / 2, cy = H / 2;
+  const pad = 34;
+  const pxPerM = (Math.min(W, H) / 2 - pad) / outer;
+  const base = rb.blastBase || 1;
+  const dmgAt = d => {
+    if (d <= inner) return rb.blastBase;
+    if (d <= outer) {
+      const a = (outer - d) / (outer - inner);
+      return rb.blastMin + (rb.blastBase - rb.blastMin) * Math.pow(Math.max(a, 0), rb.falloff);
+    }
+    return 0;
+  };
+  ctx.fillStyle = '#120d08'; ctx.fillRect(0, 0, W, H);
+  const img = ctx.getImageData(0, 0, W, H), data = img.data;
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+    const dx = (x - cx) / pxPerM, dy = (y - cy) / pxPerM, d = Math.sqrt(dx*dx + dy*dy);
+    if (d > outer) continue;
+    const c = aoeThermal(dmgAt(d) / base);
+    const i = (y*W + x) * 4;
+    data[i]=c[0]; data[i+1]=c[1]; data[i+2]=c[2]; data[i+3]=255;
+  }
+  ctx.putImageData(img, 0, 0);
+  // metre grid rings
+  ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(255,255,255,0.16)';
+  for (let m = 1; m <= Math.ceil(outer); m++) { ctx.beginPath(); ctx.arc(cx, cy, m*pxPerM, 0, 7); ctx.stroke(); }
+  // inner ring (full-damage core)
+  ctx.setLineDash([5,4]); ctx.lineWidth = 1.5; ctx.strokeStyle = 'rgba(255,255,255,0.88)';
+  ctx.beginPath(); ctx.arc(cx, cy, inner*pxPerM, 0, 7); ctx.stroke(); ctx.setLineDash([]);
+  // outer ring
+  ctx.lineWidth = 2; ctx.strokeStyle = '#f1c27a';
+  ctx.beginPath(); ctx.arc(cx, cy, outer*pxPerM, 0, 7); ctx.stroke();
+  // ring labels: white in-field, outer stays gold on the dark background.
+  const fmtM = v => (v % 1 ? v.toFixed(1) : v.toString()) + ' m';
+  ctx.font = '13.2px Segoe UI'; ctx.textAlign = 'center';
+  ctx.fillStyle = 'rgba(255,255,255,0.92)'; ctx.fillText(fmtM(inner) + ' core', cx, cy - inner*pxPerM - 4);
+  ctx.fillStyle = '#f1c27a'; ctx.fillText(fmtM(outer), cx, cy - outer*pxPerM - 5);
+  // direct-impact marker (crosshair at the point of impact) + caption
+  ctx.strokeStyle = '#fff'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.arc(cx, cy, 6, 0, 7); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx-9,cy); ctx.lineTo(cx+9,cy); ctx.moveTo(cx,cy-9); ctx.lineTo(cx,cy+9); ctx.stroke();
+  ctx.fillStyle = 'rgba(255,255,255,0.92)'; ctx.font = '12px Segoe UI'; ctx.textAlign = 'center';
+  ctx.fillText('direct hit', cx, cy + 22);
+}
+
+let aoeBlastKeyHandler = null;
+/** Open the blast-field popup for `item`. Radii scale by the equipped AOE augment
+ *  (scaleMin..scaleMax; both 1 when none). `coreMin/coreMax` are the weapon's
+ *  computed Damage Per Shot (= blast core damage); edge derives via the falloff. */
+function openAoeBlast(item, scaleMin, scaleMax, coreMin, coreMax, shieldMin, shieldMax) {
+  const rb = item.radialBlast;
+  if (!rb) return;
+  const overlay = document.getElementById('aoe-blast-overlay');
+  const canvas = document.getElementById('aoe-blast-canvas');
+  const info = document.getElementById('aoe-blast-info');
+  document.getElementById('aoe-blast-title').textContent = item.name + ' · Blast field';
+  // Draw at the boosted (max) radii; the augment roll spans min..max.
+  drawAoeBlast(canvas, rb, scaleMax);
+
+  const augmented = Math.abs(scaleMax - 1) > 1e-6 || Math.abs(scaleMin - 1) > 1e-6;
+  const f = v => (v % 1 ? v.toFixed(2) : v.toString());
+  const fmtR = (baseR) => {
+    const lo = baseR * scaleMin, hi = baseR * scaleMax;
+    if (!augmented) return f(baseR) + ' m';
+    return (scaleMin === scaleMax ? f(hi) : f(lo) + '–' + f(hi)) + ' m';
+  };
+  const noFall = rb.falloff === 0;
+  const edgePct = Math.round(rb.blastMin / (rb.blastBase || 1) * 100);
+  const fall = noFall ? '<b>none</b> (full damage to the edge)'
+                      : 'linear → <b>' + edgePct + '%</b> at the edge';
+
+  // Real blast damage: core = the weapon's computed Damage Per Shot; edge scales
+  // by the falloff ratio (= core when there is no falloff).
+  const cMin = coreMin != null ? coreMin : rb.blastBase;
+  const cMax = coreMax != null ? coreMax : rb.blastBase;
+  const edgeRatio = noFall ? 1 : (rb.blastMin / (rb.blastBase || 1));
+  const dmgStr = (lo, hi) => lo === hi
+    ? formatNumber(Math.round(lo))
+    : formatNumber(Math.round(lo)) + '–' + formatNumber(Math.round(hi));
+  const coreStr = dmgStr(cMin, cMax);
+  const edgeStr = noFall ? coreStr : dmgStr(cMin * edgeRatio, cMax * edgeRatio);
+
+  // Shield blast damage (against the Holtzman shield), same shape as body.
+  const sCMin = shieldMin != null ? shieldMin : rb.blastShieldBase;
+  const sCMax = shieldMax != null ? shieldMax : rb.blastShieldBase;
+  const shEdgeRatio = noFall ? 1 : (rb.blastShieldMin / (rb.blastShieldBase || 1));
+  const shCoreStr = dmgStr(sCMin, sCMax);
+  const shEdgeStr = noFall ? shCoreStr : dmgStr(sCMin * shEdgeRatio, sCMax * shEdgeRatio);
+  info.innerHTML =
+    '<span class="k">Blast damage, core:</span> <b>' + coreStr + '</b><br>' +
+    '<span class="k">Blast damage, edge:</span> <b>' + edgeStr + '</b><br>' +
+    '<span class="k">Shield dmg, core:</span> <b>' + shCoreStr + '</b><br>' +
+    '<span class="k">Shield dmg, edge:</span> <b>' + shEdgeStr + '</b><br>' +
+    '<span class="k">Falloff:</span> ' + fall + '<br>' +
+    '<span class="k">Core radius:</span> <b>' + fmtR(rb.innerM) + '</b><br>' +
+    '<span class="k">Blast radius:</span> <b>' + fmtR(rb.outerM) + '</b>' +
+    (augmented ? ' <span class="k">(augmented)</span>' : '') +
+    (rb.fire ? '<br><span class="fire">▲ Sets targets on fire (heat on hit)</span>' : '');
+
+  overlay.classList.add('visible');
+  aoeBlastKeyHandler = (e) => { if (e.key === 'Escape') closeAoeBlast(); };
+  document.addEventListener('keydown', aoeBlastKeyHandler);
+}
+function closeAoeBlast() {
+  const overlay = document.getElementById('aoe-blast-overlay');
+  if (overlay) overlay.classList.remove('visible');
+  if (aoeBlastKeyHandler) { document.removeEventListener('keydown', aoeBlastKeyHandler); aoeBlastKeyHandler = null; }
+}
+
+// =============================================
 // TOOLTIP PANEL
 // =============================================
 
@@ -3183,6 +3389,11 @@ function showTooltip(slotType, force) {
   // `name` (the display string formatStatValue keys off). Object insertion
   // order is preserved, so the visible row order matches the data layout.
   const grade = equippedGrades[slotType] || 0;
+  // Player PowerEfficiency (gauntlets + BatteryExpert) multiplies every power
+  // cost (binary-confirmed). Applied to the weapon's per-shot cost row at render
+  // time and shown as a × PwrEff factor in its hover formula (like the exoskeleton
+  // gear bonus on damage), not folded silently here.
+  const pwrMul = item.subtype !== 'melee' ? getPowerUsageMul() : 1;
   const stats = Object.entries(item.stats || {}).map(([key, s]) => ({
     key,
     name: s.name,
@@ -3250,6 +3461,46 @@ function showTooltip(slotType, force) {
     if (dpsIdx >= 0 && findStat('clipSize') && findStat('rateOfFire') && findStat('reloadTime')) {
       displayStats.splice(dpsIdx, 0, { key: 'sustainedDps', name: 'Sustained DPS', value: 0, type: 'number' });
     }
+
+    // Power weapons: surface the active power-efficiency reduction (gauntlets +
+    // BatteryExpert — the same PowerEfficiency that scales shield/suspensor) and a
+    // sustained-fire "Power Uptime" vs the equipped pack's regen. Injected right
+    // after the Power Consumption row. (pcS.value already carries the × pwrMul.)
+    const pcS = findStat('powerConsumptionPerShot');
+    const rofS = findStat('rateOfFire');
+    const packRegen = getEquippedStat('pack', 'regen per second');
+    const packPool  = getMaxPower(); // pack pool + gear (Maximum Power) — matches the bar
+    if (pcS && pcS.value > 0 && rofS && packRegen != null) {
+      // cost/shot already carries the weapon power augment (valueWithAugMax) and
+      // the player PowerEfficiency (× pwrMul). Uptime = pool / (cost/s − regen/s).
+      const costPerShot = valueWithAugMax('powerConsumptionPerShot', pcS.value) * pwrMul;
+      const rof = valueWithAugMax('rateOfFire', rofS.value);
+      const costPerSec = costPerShot * rof / 60;
+      const regenPerSec = packRegen * (1 + (getSkillBonuses().powerRegenPct || 0) / 100);
+      const sustainable = costPerSec <= regenPerSec;
+      let uptime, t = null;
+      if (sustainable) {
+        uptime = 'Indefinite';
+      } else if (packPool != null) {
+        t = packPool / (costPerSec - regenPerSec);
+        uptime = t < 60 ? `${formatNumber(t, 1)}s`
+                        : `${Math.floor(t / 60)}m${formatNumber(Math.round(t % 60))}s`;
+      } else {
+        uptime = '—';
+      }
+      // Colour like the other rows: green when the power setup is buffed (cost
+      // reduced below the weapon's base, or regen boosted), red if worsened.
+      const cheaper = costPerShot < pcS.value - 1e-6;
+      const regenUp = regenPerSec > packRegen + 1e-6;
+      const pricier = costPerShot > pcS.value + 1e-6;
+      const upColor = (cheaper || regenUp) ? 'var(--color-stamina)'
+                    : pricier ? 'var(--color-health)' : '';
+      const pcIdx = displayStats.findIndex(s => s.key === 'powerConsumptionPerShot');
+      if (pcIdx >= 0) displayStats.splice(pcIdx + 1, 0, {
+        key: 'powerUptime', name: 'Power Uptime', value: uptime, type: 'text', color: upColor,
+        _uptime: { costPerShot, rof, costPerSec, regenPerSec, pool: packPool, pwrMul, sustainable },
+      });
+    }
   }
 
   // Stats indexed by camelCase key so getDamageRowSpec can resolve cross-row
@@ -3264,6 +3515,11 @@ function showTooltip(slotType, force) {
   const gearDmgPct = item.subtype === 'melee'
     ? (equippedTotals['Melee Damage'] || 0)
     : (equippedTotals['Ranged Damage'] || 0);
+
+  // Captured for the AOE blast popup: the in-game Damage Per Shot and Shield
+  // Damage Per Shot (Stated × (1+aug%)), which for radial weapons equal the blast
+  // core body / shield damage (RadialDamageConfig.BaseDamage / BaseShieldDamage).
+  let aoeCoreMin = null, aoeCoreMax = null, aoeShieldMin = null, aoeShieldMax = null;
 
   displayStats.forEach(stat => {
     const row = document.createElement('div');
@@ -3403,6 +3659,15 @@ function showTooltip(slotType, force) {
       const tooltipMin = tipDmg(augPctMin, augFlatMin);
       const tooltipMax = tipDmg(augPctMax, augFlatMax);
 
+      // The Damage Per Shot / Shield Damage Per Shot rows carry the blast core
+      // for radial weapons. Use the STATED value (= RadialDamageConfig BaseDamage /
+      // BaseShieldDamage × (1+aug%)): binary RE (FUN_143b65350) confirms the radial
+      // blast builds an FRadialDamageEvent with no bone, so it skips BOTH the
+      // headshot/crit gate (+0x14a) AND the per-bone hit-location multiplier
+      // (+0x3e0&2) — it deals full BaseDamage, no 0.40 body-split, no crit.
+      if (key === 'damagePerShot') { aoeCoreMin = tooltipMin; aoeCoreMax = tooltipMax; }
+      if (key === 'shieldDamagePerShot') { aoeShieldMin = tooltipMin; aoeShieldMax = tooltipMax; }
+
       // A headshot augment can introduce a range even when the stated-damage
       // augment is absent/single-valued — so the head row shows X–Y correctly.
       const hsIsRange = hitMode === 'head' && hsAe && !hsAe.hasCustom && hsAe.min !== hsAe.max;
@@ -3484,6 +3749,39 @@ function showTooltip(slotType, force) {
         tipRow.addEventListener('mouseleave', hideStatFormulaTooltip);
         panel.appendChild(tipRow);
       }
+    } else if (key === 'powerConsumptionPerShot' && Math.abs(pwrMul - 1) > 1e-6) {
+      // Player PowerEfficiency (gauntlets + BatteryExpert) multiplies the per-shot
+      // cost on top of any weapon power augment. Shown as a × PwrEff factor in the
+      // hover formula (cf. the exoskeleton gear bonus on damage).
+      const ae = augEff; // power augment (percent) or null
+      const aMul = m => (ae && ae.type === 'percent') ? (1 + m / 100) : 1;
+      const round1 = v => Math.round(v * 10) / 10;
+      const finalMin = round1(stat.value * aMul(ae ? ae.min : 0) * pwrMul);
+      const finalMax = round1(stat.value * aMul(ae ? ae.max : 0) * pwrMul);
+      const isRange = ae && !ae.hasCustom && ae.min !== ae.max;
+      // Lower power = good: green when reduced below base, red if raised.
+      value.style.color = finalMax < stat.value ? 'var(--color-stamina)'
+                        : finalMax > stat.value ? 'var(--color-health)' : '';
+      value.textContent = isRange
+        ? `${formatStatValue(stat.name, finalMin)}–${formatStatValue(stat.name, finalMax)}`
+        : formatStatValue(stat.name, finalMin);
+      const breakdown = {
+        kind: 'plain', name: displayLabel, statName: stat.name,
+        baseValue: stat.value, augEff: ae, augContribs: augContribs[key] || [],
+        finalMin, finalMax, isRange, powerEffMul: pwrMul,
+      };
+      row.addEventListener('mouseenter', e => showStatFormulaTooltip(breakdown, e));
+      row.addEventListener('mousemove', e => positionStatFormulaTooltip(e));
+      row.addEventListener('mouseleave', hideStatFormulaTooltip);
+    } else if (key === 'powerUptime') {
+      value.textContent = baseText; // "Indefinite" / "4.3s"
+      if (stat.color) value.style.color = stat.color;
+      if (stat._uptime) {
+        const breakdown = { kind: 'uptime', name: displayLabel, valueText: stat.value, ...stat._uptime };
+        row.addEventListener('mouseenter', e => showStatFormulaTooltip(breakdown, e));
+        row.addEventListener('mousemove', e => positionStatFormulaTooltip(e));
+        row.addEventListener('mouseleave', hideStatFormulaTooltip);
+      }
     } else if (augEff) {
       // === Non-damage stat path (unchanged) ===
       const precision = key === 'accuracy' ? 1000 : 10;
@@ -3527,6 +3825,19 @@ function showTooltip(slotType, force) {
       row.addEventListener('mouseleave', hideStatFormulaTooltip);
     } else {
       value.textContent = baseText;
+    }
+
+    // AOE Radius row → click to open the blast-field popup. The equipped AOE
+    // augment (if any) scales both radii, so derive the scale band from augEff.
+    if (key === 'aoeRadiusM' && item.radialBlast) {
+      const sMin = augEff?.type === 'percent' ? (1 + augEff.min / 100) : 1;
+      const sMax = augEff?.type === 'percent' ? (1 + augEff.max / 100) : 1;
+      // snapshot the computed Damage Per Shot / Shield Damage Per Shot
+      const coreMin = aoeCoreMin, coreMax = aoeCoreMax;
+      const shieldMin = aoeShieldMin, shieldMax = aoeShieldMax;
+      row.classList.add('stat-row--clickable');
+      row.title = 'Click to view blast field';
+      row.addEventListener('click', () => openAoeBlast(item, sMin, sMax, coreMin, coreMax, shieldMin, shieldMax));
     }
 
     row.appendChild(label);
@@ -3930,6 +4241,25 @@ function showStatFormulaTooltip(b, event) {
     renderAugRows();
 
     addTotal('Stated', totalText);
+  } else if (b.kind === 'uptime') {
+    // Power uptime: PackPool / (cost/s − regen/s). cost/shot already carries the
+    // weapon power augment AND the player PowerEfficiency (gear/skill).
+    const fmtN = v => formatNumber(v, 1);
+    addFormula('PackPool / (Cost/s − Regen/s)');
+    addDivider();
+    if (b.sustainable) {
+      addComputed(`Cost/s ${fmtN(b.costPerSec)} ≤ Regen/s ${fmtN(b.regenPerSec)} → Indefinite`);
+    } else {
+      addComputed(`${fmtNum(b.pool)} / (${fmtN(b.costPerSec)} − ${fmtN(b.regenPerSec)}) = ${b.valueText}`);
+    }
+    addDivider();
+    addRow('Cost / shot', fmtN(b.costPerShot));
+    addRow('Rate of Fire', fmtNum(b.rof));
+    addRow('Cost / sec', fmtN(b.costPerSec));
+    addRow('Regen / sec', fmtN(b.regenPerSec));
+    if (b.pool != null) addRow('Pack Pool', fmtNum(b.pool));
+    if (Math.abs(b.pwrMul - 1) > 1e-6) addRow('Power Efficiency', fmtPct((b.pwrMul - 1) * 100));
+    addTotal('Power Uptime', b.valueText);
   } else {
     // Plain (non-damage) stat. Expanded per-augment, matching the damage rows:
     //   percent: Base × (1 + Aug1% + Aug2% + …) = Final
@@ -3938,12 +4268,17 @@ function showStatFormulaTooltip(b, event) {
     const finalText = b.isRange
       ? `${formatStatValue(b.statName, b.finalMin)}–${formatStatValue(b.statName, b.finalMax)}`
       : formatStatValue(b.statName, b.finalMin);
+    // Player power-efficiency multiplier (gauntlets + BatteryExpert) shown as a
+    // × PwrEff factor, the way the exoskeleton gear bonus appears on damage.
+    const pe = b.powerEffMul != null && Math.abs(b.powerEffMul - 1) > 1e-6;
+    const peSym = pe ? ' × PwrEff' : '';
+    const peNum = pe ? ` × ${fmtDec(b.powerEffMul)}` : '';
 
     if (isPct) {
       const poolExpr = buildPoolExpr({ includeSpecs: false });
-      addFormula(`Base${poolExpr.sym} = Final`);
+      addFormula(`Base${poolExpr.sym}${peSym} = Final`);
       addDivider();
-      addComputed(`${fmtNum(b.baseValue)}${poolExpr.num} = ${formatStatValue(b.statName, b.finalMax)}`);
+      addComputed(`${fmtNum(b.baseValue)}${poolExpr.num}${peNum} = ${formatStatValue(b.statName, b.finalMax)}`);
     } else {
       // Flat: render proper +/- signs in the numeric form (Base - 2, not + -2).
       let symExpr = 'Base', numExpr = fmtNum(b.baseValue);
@@ -3952,14 +4287,15 @@ function showStatFormulaTooltip(b, event) {
         const rv = Math.round(c.max * 10) / 10;
         numExpr += rv >= 0 ? ` + ${rv}` : ` - ${Math.abs(rv)}`;
       });
-      addFormula(`${symExpr} = Final`);
+      addFormula(`${symExpr}${peSym} = Final`);
       addDivider();
-      addComputed(`${numExpr} = ${formatStatValue(b.statName, b.finalMax)}`);
+      addComputed(`${numExpr}${peNum} = ${formatStatValue(b.statName, b.finalMax)}`);
     }
     addDivider();
 
     addRow('Base', formatStatValue(b.statName, b.baseValue));
     renderAugRows();
+    if (pe) addRow('Power Efficiency', fmtPct((b.powerEffMul - 1) * 100));
     addTotal('Final', finalText);
   }
 
@@ -6338,6 +6674,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (overlay) overlay.addEventListener('click', e => { if (e.target === e.currentTarget) closeSkillTree(); });
   const resetBtn = document.getElementById('st-reset-tree');
   if (resetBtn) resetBtn.addEventListener('click', resetCurrentTree);
+
+  // AOE blast-field popup close wiring (button + backdrop click).
+  const aoeClose = document.getElementById('aoe-blast-close');
+  if (aoeClose) aoeClose.addEventListener('click', closeAoeBlast);
+  const aoeOverlay = document.getElementById('aoe-blast-overlay');
+  if (aoeOverlay) aoeOverlay.addEventListener('click', e => { if (e.target === e.currentTarget) closeAoeBlast(); });
 });
 
 // Cycle the active spec by delta (-1 = previous / Z, +1 = next / C). Wraps.

@@ -3690,3 +3690,49 @@ body {
   object-fit: contain;
   filter: brightness(1.15) contrast(1.1);
 }
+
+/* ===== AOE blast-field popup ===== */
+.stat-row--clickable { cursor: pointer; }
+.stat-row--clickable:hover .stat-label { text-decoration: underline dotted; text-underline-offset: 2px; }
+.stat-row--clickable .stat-label::after {
+  content: ' \2922';            /* ⤢ expand glyph, next to the label */
+  opacity: 0.55; font-size: 0.85em;
+}
+.aoe-blast-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 120;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--spacing-lg);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+.aoe-blast-overlay.visible { opacity: 1; pointer-events: all; }
+.aoe-blast-modal {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-gold-main);
+  border-radius: 6px;
+  color: var(--color-text-primary);
+  display: flex; flex-direction: column;
+  overflow: hidden; max-width: 96vw;
+  transform: translateY(-6px) scale(0.97);
+  transition: transform 0.22s ease;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 1px rgba(200, 164, 90, 0.3);
+}
+.aoe-blast-overlay.visible .aoe-blast-modal { transform: translateY(0) scale(1); }
+.aoe-blast-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: var(--border-accent); flex-shrink: 0;
+}
+.aoe-blast-title {
+  font-size: 14.4px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--color-gold-main);
+}
+.aoe-blast-body { display: flex; gap: 18px; padding: 18px; align-items: flex-start; }
+.aoe-blast-body canvas { border-radius: 4px; flex-shrink: 0; }
+.aoe-blast-info { font-size: 15px; line-height: 1.6; min-width: 230px; }
+.aoe-blast-info .k { color: var(--color-text-secondary); }
+.aoe-blast-info b { color: #f6d79b; font-weight: 600; }
+.aoe-blast-info .fire { color: #ff8a3d; }
+.aoe-blast-info .note { color: var(--color-text-secondary); font-size: 13.2px; margin-top: 10px; display: block; }

@@ -3762,6 +3762,11 @@
         "type": "number",
         "value": 54
       },
+      "aoeRadiusM": {
+        "name": "AOE Radius",
+        "type": "number",
+        "value": 2.25
+      },
       "accuracy": {
         "name": "Accuracy",
         "type": "number",
@@ -3792,7 +3797,17 @@
     },
     "internalToken": "WEAPON_UNIQUE_AR1",
     "shortDescription": "A modified battle rifle that fires explosive darts.",
-    "longDescription": "This <Unique>Unique</> battle rifle has been modified with a mechanism that adds a touch of explosive powder to every dart that passes down the barrel. Though ranged weapons are uncommon elsewhere in the Imperium, on Arrakis they have become more prevalent due to the deemphasis on shields."
+    "longDescription": "This <Unique>Unique</> battle rifle has been modified with a mechanism that adds a touch of explosive powder to every dart that passes down the barrel. Though ranged weapons are uncommon elsewhere in the Imperium, on Arrakis they have become more prevalent due to the deemphasis on shields.",
+    "radialBlast": {
+      "innerM": 1,
+      "outerM": 2.25,
+      "falloff": 1,
+      "blastBase": 34,
+      "blastMin": 11,
+      "blastShieldBase": 16,
+      "blastShieldMin": 5,
+      "fire": false
+    }
   },
   {
     "slug": "uniquesda3",
@@ -5912,6 +5927,11 @@
         "type": "number",
         "value": 54
       },
+      "aoeRadiusM": {
+        "name": "AOE Radius",
+        "type": "number",
+        "value": 2.25
+      },
       "accuracy": {
         "name": "Accuracy",
         "type": "number",
@@ -5942,7 +5962,17 @@
     },
     "internalToken": "WEAPON_UNIQUE_AR2",
     "shortDescription": "A modified battle rifle that fires explosive darts.",
-    "longDescription": "This <Unique>Unique</> battle rifle has been modified with a mechanism that adds a touch of explosive powder to every dart that passes down the barrel. The Sandflies use weapons like this to rapidly clear rubble filled tunnels beneath the Sentinel, hence the name."
+    "longDescription": "This <Unique>Unique</> battle rifle has been modified with a mechanism that adds a touch of explosive powder to every dart that passes down the barrel. The Sandflies use weapons like this to rapidly clear rubble filled tunnels beneath the Sentinel, hence the name.",
+    "radialBlast": {
+      "innerM": 1,
+      "outerM": 2.25,
+      "falloff": 1,
+      "blastBase": 55,
+      "blastMin": 18,
+      "blastShieldBase": 19,
+      "blastShieldMin": 7,
+      "fire": false
+    }
   },
   {
     "slug": "uniquerapier",
@@ -7610,6 +7640,11 @@
         "type": "number",
         "value": 150
       },
+      "aoeRadiusM": {
+        "name": "AOE Radius",
+        "type": "number",
+        "value": 5.5
+      },
       "accuracy": {
         "name": "Accuracy",
         "type": "number",
@@ -7640,7 +7675,17 @@
     },
     "internalToken": "WEAPON_ROCKETLAUNCHER_3",
     "shortDescription": "Missile Launcher",
-    "longDescription": "A launcher that fires homing rockets."
+    "longDescription": "A launcher that fires homing rockets.",
+    "radialBlast": {
+      "innerM": 2,
+      "outerM": 5.5,
+      "falloff": 0,
+      "blastBase": 766,
+      "blastMin": 226,
+      "blastShieldBase": 190,
+      "blastShieldMin": 60,
+      "fire": false
+    }
   },
   {
     "slug": "harkheavypistol4",
@@ -8013,7 +8058,7 @@
         "value": 5
       },
       "powerConsumptionPerShot": {
-        "name": "Power Consumption",
+        "name": "Power Consumption (per shot)",
         "type": "number",
         "value": 21
       },
@@ -8266,7 +8311,7 @@
       "shieldDamagePerShot": {
         "name": "Shield Damage Per Shot",
         "type": "number",
-        "value": 108
+        "value": 20
       },
       "clipSize": {
         "name": "Clip Size",
@@ -8298,6 +8343,11 @@
         "type": "number",
         "value": 50
       },
+      "aoeRadiusM": {
+        "name": "AOE Radius",
+        "type": "number",
+        "value": 3
+      },
       "accuracy": {
         "name": "Accuracy",
         "type": "number",
@@ -8328,7 +8378,17 @@
     },
     "internalToken": "WEAPON_FIREBALLER_2",
     "shortDescription": "A heavily modified flamethrower",
-    "longDescription": "The weapon’s designer had a known sadistic streak. This <Unique>Unique</> customized flamethrower fires condensed balls of ignited incendiary gel. On impact, fireballs detonate, dealing damage in a large radius. The splashing gel clings to flesh, searing and bubbling skin and fat with intense heat."
+    "longDescription": "The weapon’s designer had a known sadistic streak. This <Unique>Unique</> customized flamethrower fires condensed balls of ignited incendiary gel. On impact, fireballs detonate, dealing damage in a large radius. The splashing gel clings to flesh, searing and bubbling skin and fat with intense heat.",
+    "radialBlast": {
+      "innerM": 1.5,
+      "outerM": 3,
+      "falloff": 1,
+      "blastBase": 108,
+      "blastMin": 54,
+      "blastShieldBase": 20,
+      "blastShieldMin": 10,
+      "fire": true
+    }
   },
   {
     "slug": "lmg_unique_rapidfire_05",
@@ -9318,6 +9378,11 @@
         "type": "number",
         "value": 54
       },
+      "aoeRadiusM": {
+        "name": "AOE Radius",
+        "type": "number",
+        "value": 2.25
+      },
       "accuracy": {
         "name": "Accuracy",
         "type": "number",
@@ -9348,7 +9413,17 @@
     },
     "internalToken": "WEAPON_UNIQUE_AR3",
     "shortDescription": "A modified battle rifle that fires explosive darts.",
-    "longDescription": "Another weapon liberated from the shipwrecks of the Sheol, this <Unique>Unique</> battle rifle has been modified with a mechanism that adds a touch of explosive powder to every dart that passes down the barrel. Perhaps used as protection against smuggler or pirate attacks in the interplanetary shipping lanes."
+    "longDescription": "Another weapon liberated from the shipwrecks of the Sheol, this <Unique>Unique</> battle rifle has been modified with a mechanism that adds a touch of explosive powder to every dart that passes down the barrel. Perhaps used as protection against smuggler or pirate attacks in the interplanetary shipping lanes.",
+    "radialBlast": {
+      "innerM": 1,
+      "outerM": 2.25,
+      "falloff": 1,
+      "blastBase": 68,
+      "blastMin": 23,
+      "blastShieldBase": 24,
+      "blastShieldMin": 8,
+      "fire": false
+    }
   },
   {
     "slug": "uniqueflamethrower",
@@ -10309,7 +10384,7 @@
         "value": 5
       },
       "powerConsumptionPerShot": {
-        "name": "Power Consumption",
+        "name": "Power Consumption (per shot)",
         "type": "number",
         "value": 21
       },
@@ -10739,7 +10814,7 @@
         "value": 1.7
       },
       "powerConsumptionPerShot": {
-        "name": "Power Consumption",
+        "name": "Power Consumption (per shot)",
         "type": "number",
         "value": 40
       },
@@ -11505,7 +11580,7 @@
         "value": 3.5
       },
       "powerConsumptionPerShot": {
-        "name": "Power Consumption",
+        "name": "Power Consumption (per shot)",
         "type": "number",
         "value": 40
       },
@@ -11606,13 +11681,13 @@
       "shieldDamagePerShot": {
         "name": "Shield Damage Per Shot",
         "type": "number",
-        "value": 142,
+        "value": 20,
         "perGrade": [
-          153.4,
-          164.7,
-          176.1,
-          187.4,
-          198.8
+          21.6,
+          23.2,
+          24.8,
+          26.4,
+          28
         ]
       },
       "clipSize": {
@@ -11652,6 +11727,11 @@
         "type": "number",
         "value": 50
       },
+      "aoeRadiusM": {
+        "name": "AOE Radius",
+        "type": "number",
+        "value": 3
+      },
       "accuracy": {
         "name": "Accuracy",
         "type": "number",
@@ -11682,7 +11762,17 @@
     },
     "internalToken": "WEAPON_FIREBALLER_3",
     "shortDescription": "A heavily modified flamethrower",
-    "longDescription": "The weapon’s designer had a known sadistic streak. This <Unique>Unique</> customized flamethrower fires condensed balls of ignited incendiary gel. On impact, fireballs detonate, dealing damage in a large radius. The splashing gel clings to flesh, searing and bubbling skin and fat with intense heat."
+    "longDescription": "The weapon’s designer had a known sadistic streak. This <Unique>Unique</> customized flamethrower fires condensed balls of ignited incendiary gel. On impact, fireballs detonate, dealing damage in a large radius. The splashing gel clings to flesh, searing and bubbling skin and fat with intense heat.",
+    "radialBlast": {
+      "innerM": 1.5,
+      "outerM": 3,
+      "falloff": 1,
+      "blastBase": 142,
+      "blastMin": 70,
+      "blastShieldBase": 20,
+      "blastShieldMin": 10,
+      "fire": true
+    }
   },
   {
     "slug": "shotgun_unique_explosive_06",
@@ -12745,6 +12835,11 @@
         "type": "number",
         "value": 150
       },
+      "aoeRadiusM": {
+        "name": "AOE Radius",
+        "type": "number",
+        "value": 5.5
+      },
       "accuracy": {
         "name": "Accuracy",
         "type": "number",
@@ -12775,7 +12870,17 @@
     },
     "internalToken": "WEAPON_ROCKET_LAUNCHER_MARK_II",
     "shortDescription": "Missile Launcher.",
-    "longDescription": "A launcher that shoots homing missiles."
+    "longDescription": "A launcher that shoots homing missiles.",
+    "radialBlast": {
+      "innerM": 2,
+      "outerM": 5.5,
+      "falloff": 0,
+      "blastBase": 827,
+      "blastMin": 266,
+      "blastShieldBase": 250,
+      "blastShieldMin": 81,
+      "fire": false
+    }
   },
   {
     "slug": "harkheavypistol5",
@@ -13507,6 +13612,11 @@
         "type": "number",
         "value": 54
       },
+      "aoeRadiusM": {
+        "name": "AOE Radius",
+        "type": "number",
+        "value": 2.25
+      },
       "accuracy": {
         "name": "Accuracy",
         "type": "number",
@@ -13537,7 +13647,17 @@
     },
     "internalToken": "WEAPON_UNIQUE_AR4",
     "shortDescription": "A modified battle rifle that fires explosive darts.",
-    "longDescription": "When Salusa Secundus was reduced from a fertile planet to an irradiated wasteland of a planet, House Corrino swore vengeance on their enemies. This <Unique>Unique</> battle rifle was created as a memory of that oath and the explosive darts that it fires are reminiscent of the fires that rained down on Salusa Secundus itself."
+    "longDescription": "When Salusa Secundus was reduced from a fertile planet to an irradiated wasteland of a planet, House Corrino swore vengeance on their enemies. This <Unique>Unique</> battle rifle was created as a memory of that oath and the explosive darts that it fires are reminiscent of the fires that rained down on Salusa Secundus itself.",
+    "radialBlast": {
+      "innerM": 1,
+      "outerM": 2.25,
+      "falloff": 1,
+      "blastBase": 90,
+      "blastMin": 30,
+      "blastShieldBase": 30,
+      "blastShieldMin": 10,
+      "fire": false
+    }
   },
   {
     "slug": "uniquesmg3",
@@ -14285,6 +14405,11 @@
         "type": "number",
         "value": 150
       },
+      "aoeRadiusM": {
+        "name": "AOE Radius",
+        "type": "number",
+        "value": 5.5
+      },
       "accuracy": {
         "name": "Accuracy",
         "type": "number",
@@ -14315,7 +14440,17 @@
     },
     "internalToken": "WEAPON_ROCKETLAUNCHER_UNIQUE_HOMING_06",
     "shortDescription": "An ancient missile launcher with tracking missiles.",
-    "longDescription": "When Holtzman shields became widely available, the use of artillery in warfare dramatically reduced. During the Battle of Arrakeen, the Baron Harkonnen brought them back, using heavy rockets to seal Atreides soldiers in caves, thus avoiding the problem of Holtzman shields entirely. Since then, these <Unique>Unique</> missile launchers have become widely sought after by Fremen and Imperial troops alike."
+    "longDescription": "When Holtzman shields became widely available, the use of artillery in warfare dramatically reduced. During the Battle of Arrakeen, the Baron Harkonnen brought them back, using heavy rockets to seal Atreides soldiers in caves, thus avoiding the problem of Holtzman shields entirely. Since then, these <Unique>Unique</> missile launchers have become widely sought after by Fremen and Imperial troops alike.",
+    "radialBlast": {
+      "innerM": 2,
+      "outerM": 5.5,
+      "falloff": 0,
+      "blastBase": 919,
+      "blastMin": 306,
+      "blastShieldBase": 300,
+      "blastShieldMin": 100,
+      "fire": false
+    }
   },
   {
     "slug": "uniqueflamethrower_02",

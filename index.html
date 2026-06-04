@@ -418,6 +418,20 @@
   <!-- Floating formula breakdown shown on hover of weapon-tooltip stat rows. -->
   <div id="stat-formula-tooltip" class="stat-formula-tooltip" hidden></div>
 
+  <!-- AOE blast-field popup (opened by clicking a weapon's AOE Radius stat row) -->
+  <div id="aoe-blast-overlay" class="aoe-blast-overlay">
+    <div class="aoe-blast-modal">
+      <div class="aoe-blast-header">
+        <span class="aoe-blast-title" id="aoe-blast-title">Blast Field</span>
+        <button id="aoe-blast-close" class="item-picker-close" aria-label="Close">✕</button>
+      </div>
+      <div class="aoe-blast-body">
+        <canvas id="aoe-blast-canvas" width="320" height="320"></canvas>
+        <div class="aoe-blast-info" id="aoe-blast-info"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- Specializations modal -->
   <div id="specializations-overlay" class="spec-overlay">
     <div class="spec-modal">

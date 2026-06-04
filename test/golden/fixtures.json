@@ -718,5 +718,124 @@
       },
       "specializations": {}
     }
+  },
+  {
+    "name": "aoe-frag-aug",
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
+    "build": {
+      "slots": {},
+      "hotbar": {
+        "hotbar0": {
+          "item": "rocketlauncher_unique_homing_06",
+          "grade": 5,
+          "augments": [
+            {
+              "slug": "missile-launcher-fragmenter",
+              "grade": 5
+            },
+            null,
+            null
+          ]
+        }
+      },
+      "specializations": {}
+    }
+  },
+  {
+    "name": "aoe-heavypayload-aug",
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
+    "build": {
+      "slots": {},
+      "hotbar": {
+        "hotbar0": {
+          "item": "rocketlauncher_unique_homing_06",
+          "grade": 5,
+          "augments": [
+            {
+              "slug": "missile-launcher-heavy-payload",
+              "grade": 5
+            },
+            null,
+            null
+          ]
+        }
+      },
+      "specializations": {}
+    }
+  },
+  {
+    "name": "pyrocket-grade5-shield-fix",
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
+    "build": {
+      "slots": {},
+      "hotbar": {
+        "hotbar0": {
+          "item": "fireballer_3",
+          "grade": 5,
+          "augments": [null, null, null]
+        }
+      },
+      "specializations": {}
+    }
+  },
+  {
+    "name": "power-efficiency-gauntlets-wired",
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
+    "build": {
+      "slots": {
+        "gloves": { "item": "combat_heavy_unique_powerefficient_gloves_06", "grade": 5 },
+        "holtzman": { "item": "holtzmanshieldactivedrain3", "grade": 0 },
+        "pack": { "item": "powerpack7", "grade": 0 },
+        "belt": { "item": "fullsuspensorbelt", "grade": 0 }
+      },
+      "hotbar": {},
+      "specializations": {}
+    }
+  },
+  {
+    "name": "power-efficiency-weapon-cost",
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
+    "build": {
+      "slots": {
+        "gloves": { "item": "combat_heavy_unique_powerefficient_gloves_06", "grade": 5 },
+        "pack": { "item": "powerpack7", "grade": 0 }
+      },
+      "hotbar": {
+        "hotbar0": { "item": "choamlg1", "grade": 0, "augments": [null, null, null] }
+      },
+      "specializations": {}
+    }
+  },
+  {
+    "name": "power-harness-maxpower",
+    "settings": {
+      "applyHeadshot": false,
+      "applyStaggered": false
+    },
+    "build": {
+      "slots": {
+        "chest": { "item": "combat_heavy_unique_powerincrease_top_06", "grade": 5 },
+        "holtzman": { "item": "holtzmanshieldactivedrain3", "grade": 0 },
+        "pack": { "item": "powerpack7", "grade": 0 },
+        "belt": { "item": "fullsuspensorbelt", "grade": 0 }
+      },
+      "hotbar": {},
+      "specializations": {}
+    }
   }
 ]

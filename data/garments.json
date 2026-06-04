@@ -1327,10 +1327,10 @@
         "type": "number",
         "value": 3.8
       },
-      "powerUsage": {
-        "name": "Power Usage",
+      "powerConsumption": {
+        "name": "Power Consumption",
         "type": "number",
-        "value": -110
+        "value": -10
       },
       "lightDartMitigation": {
         "name": "Light Dart Mitigation:",
@@ -3742,10 +3742,10 @@
         "type": "number",
         "value": 3.8
       },
-      "powerUsage": {
-        "name": "Power Usage",
+      "powerConsumption": {
+        "name": "Power Consumption",
         "type": "number",
-        "value": -110
+        "value": -10
       },
       "lightDartMitigation": {
         "name": "Light Dart Mitigation:",
@@ -5552,10 +5552,10 @@
         "type": "number",
         "value": 3.8
       },
-      "powerUsage": {
-        "name": "Power Usage",
+      "powerConsumption": {
+        "name": "Power Consumption",
         "type": "number",
-        "value": -110
+        "value": -10
       },
       "lightDartMitigation": {
         "name": "Light Dart Mitigation:",
@@ -8977,10 +8977,10 @@
         "type": "number",
         "value": 3.8
       },
-      "powerUsage": {
-        "name": "Power Usage",
+      "powerConsumption": {
+        "name": "Power Consumption",
         "type": "number",
-        "value": -110
+        "value": -10
       },
       "lightDartMitigation": {
         "name": "Light Dart Mitigation:",
@@ -12374,10 +12374,10 @@
         "type": "number",
         "value": 3.8
       },
-      "powerUsage": {
-        "name": "Power Usage",
+      "powerConsumption": {
+        "name": "Power Consumption",
         "type": "number",
-        "value": -110
+        "value": -10
       },
       "lightDartMitigation": {
         "name": "Light Dart Mitigation:",
@@ -14668,7 +14668,7 @@
           243.9,
           271.6,
           290.1,
-          327.0
+          327
         ]
       },
       "detectionSpeedReduction": {
@@ -14788,11 +14788,11 @@
         "type": "number",
         "value": 525,
         "perGrade": [
-          585.0,
-          660.0,
+          585,
+          660,
           734.9,
-          785.0,
-          885.0
+          785,
+          885
         ]
       },
       "meleeDamage": {
