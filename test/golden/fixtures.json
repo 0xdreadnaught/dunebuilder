@@ -837,5 +837,73 @@
       "hotbar": {},
       "specializations": {}
     }
+  },
+  {
+    "name": "skill-power-resources",
+    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "build": {
+      "slots": {
+        "holtzman": { "item": "holtzmanshieldactivedrain3", "grade": 0 },
+        "pack": { "item": "powerpack7", "grade": 0 },
+        "belt": { "item": "fullsuspensorbelt", "grade": 0 }
+      },
+      "hotbar": {},
+      "specializations": {},
+      "skills": {
+        "Planetologist": { "Skills.Attribute.Scientist3": 3, "Skills.Perk.BatteryExpert": 3 },
+        "Trooper": { "Skills.Attribute.SuspensorTech1": 3 },
+        "Bene Gesserit": { "Skills.Attribute.SelfControl3": 3 },
+        "Swordmaster": { "Skills.Attribute.Aggression3": 3 },
+        "_equipped": { "abilities": [null, null, null], "techniques": ["Skills.Perk.BatteryExpert", null, null] }
+      }
+    }
+  },
+  {
+    "name": "skill-healing-hydration",
+    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "build": {
+      "slots": {},
+      "hotbar": {},
+      "specializations": {},
+      "skills": {
+        "Bene Gesserit": { "Skills.Attribute.SelfControl1": 3 },
+        "Swordmaster": { "Skills.Attribute.Aggression1": 3, "Skills.Attribute.Aggression2": 3, "Skills.Perk.ThriveOnDanger": 1 },
+        "_equipped": { "abilities": [null, null, null], "techniques": ["Skills.Perk.ThriveOnDanger", null, null] }
+      }
+    }
+  },
+  {
+    "name": "skill-mitigation-context-lunging",
+    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "skillContext": { "lunging": true },
+    "build": {
+      "slots": {
+        "helm": { "item": "combat_neut_atreidesdeserterunique05_helmet", "grade": 5 },
+        "chest": { "item": "combat_neut_atreidesdeserterunique05_top", "grade": 5 }
+      },
+      "hotbar": {},
+      "specializations": {},
+      "skills": {
+        "Swordmaster": { "Skills.Perk.ToughLunge": 3 },
+        "Bene Gesserit": { "Skills.Perk.MetabolizePoison": 1 },
+        "_equipped": { "abilities": [null, null, null], "techniques": ["Skills.Perk.ToughLunge", "Skills.Perk.MetabolizePoison", null] }
+      }
+    }
+  },
+  {
+    "name": "skill-context-suspended-weapon",
+    "settings": { "applyHeadshot": false, "applyStaggered": false },
+    "skillContext": { "suspended": true },
+    "build": {
+      "slots": {},
+      "hotbar": {
+        "hotbar0": { "item": "atresmg5", "grade": 5, "augments": [null, null, null] }
+      },
+      "specializations": {},
+      "skills": {
+        "Trooper": { "Skills.Perk.DeathFromAbove": 3 },
+        "_equipped": { "abilities": [null, null, null], "techniques": ["Skills.Perk.DeathFromAbove", null, null] }
+      }
+    }
   }
 ]

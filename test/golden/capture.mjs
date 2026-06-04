@@ -155,9 +155,18 @@ async function captureFixture(page, fixture) {
   // so no explicit refreshPanels() call is needed here (I2).
   // Read #build-stats innerText inside the same evaluate so we capture the
   // synchronously-updated DOM without any setTimeout (I1 + m3).
-  const calcPanelText = await page.evaluate((b) => {
+  const calcPanelText = await page.evaluate(({ b, ctx }) => {
     const g = window.__golden;
     g.applyBuildData(b);
+    // Situational skill context (suspended / lunging / exploited) is runtime-only
+    // state, not part of the saved build, so the fixture supplies it separately
+    // as `skillContext`. applyBuildData resets context to all-false; overlay the
+    // fixture's flags and re-render so context-gated technique bonuses (ToughLunge,
+    // DeathFromAbove, etc.) are captured.
+    if (ctx && g.SKILL_TREE_STATE) {
+      Object.assign(g.SKILL_TREE_STATE.context, ctx);
+      g.refreshPanels();
+    }
     // Rendering is synchronous — DOM is fully updated by the time applyBuildData returns.
     // Ensure tooltip-panel hasn't obscured build-stats.
     const bs = document.getElementById('build-stats');
@@ -165,7 +174,7 @@ async function captureFixture(page, fixture) {
     if (bs) bs.hidden = false;
     if (tp) tp.innerHTML = '<div class="tooltip-panel__empty">Hover an item to inspect</div>';
     return bs ? bs.innerText : '';
-  }, build);
+  }, { b: build, ctx: fixture.skillContext || null });
 
   // Capture per-slot tooltips
   const slots = {};
@@ -254,6 +263,23 @@ async function main() {
     );
   } catch (err) {
     console.error('BLOCKED: Item data maps not fully populated within 15s.');
+    await electronApp.close();
+    process.exit(2);
+  }
+
+  // Wait for skill-tree data (eager-loaded at boot). Without this, any fixture
+  // carrying a `skills` block could be captured before nodesByTag is populated,
+  // silently snapshotting zero-bonus output.
+  try {
+    await page.waitForFunction(
+      () => {
+        const st = window.__golden && window.__golden.SKILL_TREE_STATE;
+        return st && st.loaded && st.nodesByTag && Object.keys(st.nodesByTag).length > 0;
+      },
+      { timeout: INIT_TIMEOUT_MS }
+    );
+  } catch (err) {
+    console.error('BLOCKED: Skill-tree data (SKILL_TREE_STATE.loaded + nodesByTag) not ready within 15s.');
     await electronApp.close();
     process.exit(2);
   }
