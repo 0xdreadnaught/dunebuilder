@@ -1,12 +1,8 @@
-## New
-
-- **Blast field viewer for explosive weapons.** Click the AOE Radius stat on a rocket launcher, pyrocket, or explosive-dart rifle to open a visual blast map: the full-damage core, the outer radius, how damage falls off toward the edge, and how Missile Launcher augments scale the whole blast.
-- **Power uptime and efficiency on energy weapons.** Power weapons now show how power-efficiency gear and skills lower their per-shot power cost, plus a Power Uptime readout: how long you can sustain fire before the pack drains, or "Indefinite" when your regen keeps up. Hover the Power Consumption and Power Uptime rows for the breakdown.
-- **Power efficiency applies everywhere it should.** Power-efficiency gear and skills now reduce weapon power cost, shield damage absorbed, and suspensor drain, all from one efficiency value. Flat power bonuses like the Power Harness feed every power calc, not just the bar.
-
 ## Fixed
 
-- **Power-efficiency gauntlets** now read the correct -10% power consumption (they were showing -110%).
-- **Pyrocket shield damage** corrected (it showed the body-damage number, not the real shield value).
-- **Power Harness** shows +50 Maximum Power (was 50%).
-- Equipment panel cleaned up: removed item Volume and the shield's Power Drain.
+- **Radiation Suits no longer take radiation-mitigation augments.** The Tactical Radiation Suit was letting you slot radiation-absorbing augments that it cannot actually equip in game, which overstated your radiation resistance. Those augments are now hidden on any Radiation Suit, and a build that already had one recalculates correctly.
+
+## Improved
+
+- **Snappier calculations.** The build stats and tooltips do less redundant work when you change gear, augments, or skill nodes, so the panel keeps up with less lag.
+- **Updated runtime and security dependencies.** The app moves to a newer framework version and clears outstanding dependency advisories.
