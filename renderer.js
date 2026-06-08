@@ -1495,6 +1495,11 @@ const SIGN_FLIP_KEYS = new Set(['accuracy']);
  */
 function resolveAugmentContribs(slotType, augSlots) {
   const contribs = [];
+  // Radiation Suits gain nothing from radiation-mitigation augments (verified in-game).
+  // The picker already hides these on a rad suit; this also guards the calc so a build
+  // saved before that rule (or hand-edited) still computes correctly and can't show
+  // unlimited radiation resistance.
+  const isRadSuit = equippedItems[slotType]?.slot === 'radsuit';
   (augSlots || []).forEach(aug => {
     if (!aug || !aug.slug) return;
     const augData = findAugmentData(aug.slug, slotType);
@@ -1513,6 +1518,7 @@ function resolveAugmentContribs(slotType, augSlots) {
       const min = sign * (hasCustom ? customVal : g[0]);
       const max = sign * (hasCustom ? customVal : g[1]);
       expandEffectKey(eff.key).forEach(key => {
+        if (isRadSuit && key === 'radiationMitigation') return;
         contribs.push({
           key, type: eff.op, min, max, hasCustom, isTradeoff,
           augName: augData.name, augGrade,
@@ -2450,6 +2456,14 @@ function getAvailableAugments(slotType, dotIndex) {
       : WEAPON_AUGMENT_DATA;
   } else {
     source = AUGMENT_DATA;
+    // Radiation Suits reject any augment that grants radiation mitigation (verified
+    // in-game). This is what stops you stacking rad-mit augments on a rad suit for
+    // unlimited radiation resistance, and matches the augments' own "cannot be applied
+    // to Radiation Suits" rule. A rad suit fills every armor slot, so equippedItems
+    // for this slot is the suit itself.
+    if (equippedItems[slotType]?.slot === 'radsuit') {
+      source = source.filter(a => !(a.effects || []).some(e => e.key === 'radiationMitigation'));
+    }
   }
   // Hide augments already equipped on this item (other dots)
   const equipped = equippedAugments[slotType] || [];
