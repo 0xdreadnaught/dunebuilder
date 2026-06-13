@@ -1964,12 +1964,17 @@ const HIT_SPLIT_BODY = 0.40;
 const HIT_SPLIT_HEAD = 0.60;
 
 /** Whether a weapon participates in the body/head hit-location split. Melee
- *  swings don't hit a location zone — they deal the stated value directly —
- *  while all ranged weapons use the body split (only headshot eligibility
- *  varies, handled by `canHeadshot`). */
+ *  swings don't hit a location zone — they deal the stated value directly.
+ *  Radial weapons (rockets, pyrockets, explosive-round ARs like the Karpov 38
+ *  uniques) also skip it: the blast builds an FRadialDamageEvent with no bone,
+ *  so the damage executor (FUN_143b65350) bypasses the per-bone hit-location
+ *  multiplier — it deals full BaseDamage. Every other ranged weapon uses the
+ *  body split (headshot eligibility varies, handled by `canHeadshot`). */
 function canBodySplit(item) {
   if (!item) return false;
-  return item.subtype !== 'melee';
+  if (item.subtype === 'melee') return false;
+  if (item.stats?.aoeRadiusM) return false;
+  return true;
 }
 
 function formatAggregatedStats(totals) {
