@@ -6,6 +6,7 @@
  A PoB inspired tool for Dune: Awakening.
 </p>
 
+* I do have updates planned for the next content drop but it might be a little delayed due  to work.
 
 ### Theorycrafting
 <img width="1060" height="1098" alt="image" src="https://github.com/user-attachments/assets/703d1d22-140c-4d99-98f9-f01d08732e93" />
